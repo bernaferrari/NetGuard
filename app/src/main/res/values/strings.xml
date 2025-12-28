@@ -41,6 +41,15 @@
     <string name="menu_support">Support</string>
     <string name="menu_about">About</string>
     <string name="menu_apps">Other apps</string>
+    <string name="menu_firewall">Firewall</string>
+    <string name="status_enabled">Firewall enabled</string>
+    <string name="status_disabled">Firewall disabled</string>
+    <string name="status_running">Traffic is being filtered</string>
+    <string name="status_not_running">Traffic is not being filtered</string>
+    <string name="action_enable">Enable</string>
+    <string name="action_disable">Disable</string>
+    <string name="home_apps_hint">Review app rules and data usage</string>
+    <string name="home_logs_hint">Inspect recent network activity</string>
 
     <string name="menu_protocol_udp" translatable="false">UDP</string>
     <string name="menu_protocol_tcp" translatable="false">TCP</string>
@@ -198,6 +207,8 @@
     <string name="msg_access">%1$s attempted internet access</string>
     <string name="msg_access_n">Attempted internet access</string>
     <string name="msg_completed">Action completed</string>
+    <string name="msg_invalid">Please check the values and try again.</string>
+    <string name="msg_export_failed">Export failed: %1$s</string>
     <string name="msg_vpn">NetGuard uses a local VPN to filter internet traffic.
 For this reason, please allow a VPN connection in the next dialog.
 Your internet traffic is not being sent to a remote VPN server.</string>

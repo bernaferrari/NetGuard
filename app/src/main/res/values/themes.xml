@@ -1,0 +1,17 @@
+<resources>
+    <style name="Theme.NetGuard" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
+        <item name="colorOn">@color/colorTealOn</item>
+        <item name="colorOff">@color/colorTealOff</item>
+        <item name="expander">@drawable/expander_white</item>
+        <item name="iconQueue">@drawable/ic_hourglass_empty_white_24dp</item>
+        <item name="iconMetered">@drawable/ic_attach_money_white_24dp</item>
+        <item name="iconSettings">@drawable/ic_settings_white_24dp</item>
+        <item name="iconDatasaver">@drawable/ic_perm_data_setting_white_24dp</item>
+        <item name="iconLaunch">@drawable/ic_launch_white_24dp</item>
+        <item name="iconDelete">@drawable/ic_delete_white_24dp</item>
+        <item name="iconPlay">@drawable/ic_play_arrow_white_24dp</item>
+        <item name="iconPause">@drawable/ic_pause_white_24dp</item>
+    </style>
+</resources>
