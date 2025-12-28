@@ -4,7 +4,6 @@ import android.app.Activity
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.os.AsyncTask
 import android.os.Build
 import android.os.PowerManager
 import android.util.Log
@@ -20,15 +19,25 @@ import java.io.OutputStream
 import java.net.HttpURLConnection
 import java.net.URL
 import java.net.URLConnection
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.currentCoroutineContext
+import kotlinx.coroutines.isActive
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
-@Suppress("DEPRECATION")
 class DownloadTask(
     private val context: Activity,
     private val url: URL,
     private val file: File,
     private val listener: Listener,
-) : AsyncTask<Any, Int, Any?>() {
+) {
     private var wakeLock: PowerManager.WakeLock? = null
+    private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
+    private var job: Job? = null
 
     interface Listener {
         fun onCompleted()
@@ -36,7 +45,8 @@ class DownloadTask(
         fun onException(ex: Throwable)
     }
 
-    override fun onPreExecute() {
+    fun start() {
+        if (job != null) return
         val pm = context.getSystemService(Context.POWER_SERVICE) as PowerManager
         wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, javaClass.name)
         wakeLock?.acquire()
@@ -44,9 +54,26 @@ class DownloadTask(
         if (!Util.isPlayStoreInstall(context)) {
             Toast.makeText(context, context.getString(R.string.msg_downloading, url.toString()), Toast.LENGTH_SHORT).show()
         }
+
+        job = scope.launch {
+            try {
+                download()
+                finishSuccess()
+            } catch (ex: CancellationException) {
+                finishCancelled()
+            } catch (ex: Throwable) {
+                finishException(ex)
+            } finally {
+                job = null
+            }
+        }
     }
 
-    override fun doInBackground(vararg args: Any): Any? {
+    fun cancel() {
+        job?.cancel()
+    }
+
+    private suspend fun download() = withContext(Dispatchers.IO) {
         Log.i(TAG, "Downloading $url into $file")
 
         var input: InputStream? = null
@@ -70,18 +97,21 @@ class DownloadTask(
             var size = 0L
             val buffer = ByteArray(4096)
             var bytes = input.read(buffer)
-            while (!isCancelled && bytes != -1) {
+            while (bytes != -1 && currentCoroutineContext().isActive) {
                 output.write(buffer, 0, bytes)
                 size += bytes
                 if (contentLength > 0) {
-                    publishProgress((size * 100 / contentLength).toInt())
+                    val progress = (size * 100 / contentLength).toInt()
+                    withContext(Dispatchers.Main.immediate) {
+                        showNotification(progress)
+                    }
                 }
                 bytes = input.read(buffer)
             }
+            if (!currentCoroutineContext().isActive) {
+                throw CancellationException()
+            }
             Log.i(TAG, "Downloaded size=$size")
-            return null
-        } catch (ex: Throwable) {
-            return ex
         } finally {
             try {
                 output?.close()
@@ -99,25 +129,24 @@ class DownloadTask(
         }
     }
 
-    override fun onProgressUpdate(vararg values: Int?) {
-        showNotification(values.firstOrNull() ?: 0)
+    private fun finishSuccess() {
+        wakeLock?.release()
+        NotificationManagerCompat.from(context).cancel(ServiceSinkhole.NOTIFY_DOWNLOAD)
+        listener.onCompleted()
     }
 
-    override fun onCancelled() {
-        super.onCancelled()
+    private fun finishCancelled() {
         Log.i(TAG, "Cancelled")
+        wakeLock?.release()
+        NotificationManagerCompat.from(context).cancel(ServiceSinkhole.NOTIFY_DOWNLOAD)
         listener.onCancelled()
     }
 
-    override fun onPostExecute(result: Any?) {
+    private fun finishException(ex: Throwable) {
         wakeLock?.release()
         NotificationManagerCompat.from(context).cancel(ServiceSinkhole.NOTIFY_DOWNLOAD)
-        if (result is Throwable) {
-            Log.e(TAG, result.toString() + "\n" + Log.getStackTraceString(result))
-            listener.onException(result)
-        } else {
-            listener.onCompleted()
-        }
+        Log.e(TAG, ex.toString() + "\n" + Log.getStackTraceString(ex))
+        listener.onException(ex)
     }
 
     private fun showNotification(progress: Int) {

@@ -1,6 +1,5 @@
 package eu.faircode.netguard
 
-import android.app.PendingIntent
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
@@ -11,6 +10,8 @@ import android.provider.Settings
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
+import androidx.activity.result.IntentSenderRequest
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -53,6 +54,18 @@ class ActivityPro : ComponentActivity() {
     private var refreshKey by mutableStateOf(0)
     private var availability by mutableStateOf<Map<String, Boolean>>(emptyMap())
     private var showChallenge by mutableStateOf(false)
+    private var pendingSku: String? = null
+
+    private val purchaseLauncher =
+        registerForActivityResult(ActivityResultContracts.StartIntentSenderForResult()) { result ->
+            if (result.resultCode == RESULT_OK) {
+                pendingSku?.let { sku ->
+                    IAB.setBought(sku, this)
+                    refreshKey++
+                }
+            }
+            pendingSku = null
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.i(TAG, "Create")
@@ -126,43 +139,17 @@ class ActivityPro : ComponentActivity() {
         super.onDestroy()
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == RESULT_OK) {
-            when (requestCode) {
-                SKU_LOG_ID -> IAB.setBought(SKU_LOG, this)
-                SKU_FILTER_ID -> IAB.setBought(SKU_FILTER, this)
-                SKU_NOTIFY_ID -> IAB.setBought(SKU_NOTIFY, this)
-                SKU_SPEED_ID -> IAB.setBought(SKU_SPEED, this)
-                SKU_THEME_ID -> IAB.setBought(SKU_THEME, this)
-                SKU_PRO1_ID -> IAB.setBought(SKU_PRO1, this)
-                SKU_SUPPORT1_ID -> IAB.setBought(SKU_SUPPORT1, this)
-                SKU_SUPPORT2_ID -> IAB.setBought(SKU_SUPPORT2, this)
-            }
-            refreshKey++
-        }
-    }
-
     private fun buySku(sku: String, isDonation: Boolean) {
         try {
             val iabInstance = iab ?: return
-            val id =
-                when (sku) {
-                    SKU_LOG -> SKU_LOG_ID
-                    SKU_FILTER -> SKU_FILTER_ID
-                    SKU_NOTIFY -> SKU_NOTIFY_ID
-                    SKU_SPEED -> SKU_SPEED_ID
-                    SKU_THEME -> SKU_THEME_ID
-                    SKU_PRO1 -> SKU_PRO1_ID
-                    SKU_SUPPORT1 -> SKU_SUPPORT1_ID
-                    SKU_SUPPORT2 -> SKU_SUPPORT2_ID
-                    else -> 0
-                }
             val pi = iabInstance.getBuyIntent(sku, isDonation)
-            if (id > 0 && pi != null) {
-                startIntentSenderForResult(pi.intentSender, id, Intent(), 0, 0, 0)
+            if (pi != null) {
+                pendingSku = sku
+                val request = IntentSenderRequest.Builder(pi.intentSender).build()
+                purchaseLauncher.launch(request)
             }
         } catch (ex: Throwable) {
+            pendingSku = null
             Log.i(TAG, ex.toString() + "\n" + Log.getStackTraceString(ex))
         }
     }
@@ -180,14 +167,6 @@ class ActivityPro : ComponentActivity() {
         const val SKU_SUPPORT2 = "support2"
         const val SKU_DONATION = "donation"
 
-        private const val SKU_LOG_ID = 101
-        private const val SKU_FILTER_ID = 102
-        private const val SKU_NOTIFY_ID = 103
-        private const val SKU_SPEED_ID = 104
-        private const val SKU_THEME_ID = 105
-        private const val SKU_PRO1_ID = 106
-        private const val SKU_SUPPORT1_ID = 107
-        private const val SKU_SUPPORT2_ID = 108
     }
 }
 
@@ -263,8 +242,8 @@ private fun ProContent(
 
     if (showChallenge) {
         val androidId = Settings.Secure.getString(context.contentResolver, Settings.Secure.ANDROID_ID)
-        val challenge = if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) Build.SERIAL else "O3$androidId"
-        val seed = if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) "NetGuard2" else "NetGuard3"
+        val challenge = "O3$androidId"
+        val seed = "NetGuard3"
         ChallengeDialog(
             challenge = challenge,
             seed = seed,
