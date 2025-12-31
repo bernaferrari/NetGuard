@@ -23,6 +23,7 @@ class ApplicationEx : Application() {
         super.onCreate()
         Log.i(TAG, "Create version=" + Util.getSelfVersionName(this) + "/" + Util.getSelfVersionCode(this))
         Prefs.init(this)
+        WorkScheduler.scheduleHousekeeping(this)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             Notifications.ensureChannels(this)

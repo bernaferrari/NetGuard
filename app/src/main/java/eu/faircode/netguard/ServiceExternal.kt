@@ -123,7 +123,7 @@ class ServiceExternal : Service() {
 
     companion object {
         private const val TAG = "NetGuard.External"
-        private const val ACTION_DOWNLOAD_HOSTS_FILE = "eu.faircode.netguard.DOWNLOAD_HOSTS_FILE"
+        const val ACTION_DOWNLOAD_HOSTS_FILE = "eu.faircode.netguard.DOWNLOAD_HOSTS_FILE"
 
         private fun getForegroundNotification(context: Context): Notification {
             val builder = NotificationCompat.Builder(context, Notifications.CHANNEL_FOREGROUND)

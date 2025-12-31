@@ -278,40 +278,9 @@ class ServiceSinkhole : VpnService() {
             }
 
             if (cmd == Command.start || cmd == Command.reload || cmd == Command.stop) {
-                val watchdogIntent = Intent(this@ServiceSinkhole, ServiceSinkhole::class.java)
-                watchdogIntent.action = ACTION_WATCHDOG
-                val pi =
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                        PendingIntentCompat.getForegroundService(
-                            this@ServiceSinkhole,
-                            1,
-                            watchdogIntent,
-                            PendingIntent.FLAG_UPDATE_CURRENT,
-                        )
-                    } else {
-                        PendingIntentCompat.getService(
-                            this@ServiceSinkhole,
-                            1,
-                            watchdogIntent,
-                            PendingIntent.FLAG_UPDATE_CURRENT,
-                        )
-                    }
-
-                val am = getSystemService(Context.ALARM_SERVICE) as AlarmManager
-                am.cancel(pi)
-
-                if (cmd != Command.stop) {
-                    val watchdog = prefs.getString("watchdog", "0")?.toIntOrNull() ?: 0
-                    if (watchdog > 0) {
-                        Log.i(TAG, "Watchdog $watchdog minutes")
-                        am.setInexactRepeating(
-                            AlarmManager.RTC,
-                            SystemClock.elapsedRealtime() + watchdog * 60 * 1000L,
-                            watchdog * 60 * 1000L,
-                            pi,
-                        )
-                    }
-                }
+                val watchdog = prefs.getString("watchdog", "0")?.toIntOrNull() ?: 0
+                val enabled = prefs.getBoolean("enabled", false)
+                WorkScheduler.scheduleWatchdog(this@ServiceSinkhole, watchdog, enabled && cmd != Command.stop)
             }
 
             try {
@@ -2430,22 +2399,7 @@ class ServiceSinkhole : VpnService() {
             networkMonitorCallback,
         )
 
-        val alarmIntent = Intent(this, ServiceSinkhole::class.java)
-        alarmIntent.action = ACTION_HOUSE_HOLDING
-        val pi =
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                PendingIntentCompat.getForegroundService(this, 0, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT)
-            } else {
-                PendingIntentCompat.getService(this, 0, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT)
-            }
-
-        val am = getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        am.setInexactRepeating(
-            AlarmManager.RTC,
-            SystemClock.elapsedRealtime() + 60 * 1000,
-            AlarmManager.INTERVAL_HALF_DAY,
-            pi,
-        )
+        WorkScheduler.scheduleHousekeeping(this)
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -2637,6 +2591,11 @@ class ServiceSinkhole : VpnService() {
                 startForeground(NOTIFY_WAITING, getWaitingNotification())
             }
             Log.d(TAG, "Start foreground state=$state")
+        }
+        if (name == "watchdog" || name == "enabled") {
+            val watchdog = Prefs.getString("watchdog", "0")?.toIntOrNull() ?: 0
+            val enabled = Prefs.getBoolean("enabled", false)
+            WorkScheduler.scheduleWatchdog(this, watchdog, enabled)
         }
     }
 
@@ -3351,9 +3310,9 @@ class ServiceSinkhole : VpnService() {
 
         @Volatile private var wlInstance: PowerManager.WakeLock? = null
 
-        private const val ACTION_HOUSE_HOLDING = "eu.faircode.netguard.HOUSE_HOLDING"
+        const val ACTION_HOUSE_HOLDING = "eu.faircode.netguard.HOUSE_HOLDING"
         private const val ACTION_SCREEN_OFF_DELAYED = "eu.faircode.netguard.SCREEN_OFF_DELAYED"
-        private const val ACTION_WATCHDOG = "eu.faircode.netguard.WATCHDOG"
+        const val ACTION_WATCHDOG = "eu.faircode.netguard.WATCHDOG"
 
         private external fun jni_pcap(name: String?, record_size: Int, file_size: Int)
 

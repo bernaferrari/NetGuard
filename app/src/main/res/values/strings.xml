@@ -59,6 +59,7 @@
     <string name="menu_traffic_blocked">Blocked</string>
     <string name="menu_live">Live updates</string>
     <string name="menu_refresh">Refresh</string>
+    <string name="menu_ok">OK</string>
     <string name="menu_resolve">Show names</string>
     <string name="menu_organization">Show organization</string>
     <string name="menu_pcap_enabled">PCAP enabled</string>
@@ -131,6 +132,7 @@
     <string name="setting_vpn4">VPN IPv4: %s</string>
     <string name="setting_vpn6">VPN IPv6: %s</string>
     <string name="setting_dns">VPN DNS: %s</string>
+    <string name="setting_dns2">Secondary DNS: %s</string>
     <string name="setting_validate">Validate at: %s</string>
     <string name="setting_ttl">Minimum DNS TTL: %s s</string>
     <string name="setting_socks5_enabled">Use SOCKS5 proxy</string>
@@ -140,6 +142,7 @@
     <string name="setting_socks5_password">SOCKS5 password: %s</string>
     <string name="setting_pcap_record_size">PCAP record size: %s B</string>
     <string name="setting_pcap_file_size">PCAP max. file size: %s MB</string>
+    <string name="setting_pcap">Record network traffic (PCAP)</string>
     <string name="setting_watchdog">Watchdog: every %s minutes</string>
 
     <string name="setting_stats_category">Speed notification</string>
@@ -155,11 +158,22 @@
     <string name="setting_hosts_append">Import hosts file (append)</string>
     <string name="setting_hosts_url">Hosts file download URL</string>
     <string name="setting_hosts_download">Download hosts file</string>
+    <string name="setting_use_hosts">Use hosts file</string>
 
     <string name="setting_technical">Technical information</string>
     <string name="setting_technical_general">General</string>
     <string name="setting_technical_networks">Networks</string>
     <string name="setting_technical_subscription">Subscriptions</string>
+    <string name="setting_section_appearance">Appearance</string>
+    <string name="setting_section_firewall">Firewall rules</string>
+    <string name="setting_section_advanced">Advanced behavior</string>
+    <string name="setting_section_hosts">Hosts &amp; DNS</string>
+    <string name="setting_section_dns">DNS details</string>
+    <string name="setting_section_proxy">Proxy</string>
+    <string name="setting_section_vpn">VPN configuration</string>
+    <string name="setting_section_background">Background tasks</string>
+    <string name="setting_section_diagnostics">Diagnostics</string>
+    <string name="setting_section_support">Support</string>
 
     <string name="summary_install">Show status bar notification to directly configure newly installed apps (pro feature)</string>
     <string name="summary_auto">After disabling using the widget, automatically enable NetGuard again after the selected number of minutes (enter zero to disable this option)</string>
