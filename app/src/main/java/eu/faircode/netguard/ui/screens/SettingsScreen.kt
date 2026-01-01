@@ -77,6 +77,22 @@ fun SettingsScreen(
     fun bool(key: String, default: Boolean) = prefs[booleanPreferencesKey(key)] ?: default
     fun str(key: String, default: String) = prefs[stringPreferencesKey(key)] ?: default
     fun strSet(key: String, default: Set<String>) = prefs[stringSetPreferencesKey(key)] ?: default
+    fun updateFlag(
+        key: String,
+        value: Boolean,
+        reload: Boolean = false,
+        reloadStats: Boolean = false,
+        updateWidgets: (() -> Unit)? = null,
+    ) {
+        Prefs.putBoolean(key, value)
+        if (reload) {
+            ServiceSinkhole.reload("settings", context, false)
+        }
+        if (reloadStats) {
+            ServiceSinkhole.reloadStats("settings", context)
+        }
+        updateWidgets?.invoke()
+    }
 
     var showHostImportHint by remember { mutableStateOf(false) }
     val importHostsLauncher =
@@ -118,7 +134,10 @@ fun SettingsScreen(
             SettingToggleRow(
                 title = stringResource(R.string.setting_dark),
                 checked = bool("dark_theme", false),
-            ) { Prefs.putBoolean("dark_theme", it) }
+            ) {
+                updateFlag("dark_theme", it)
+                Widgets.updateAll(context)
+            }
 
             Text(text = stringResource(R.string.setting_theme, str("theme", "teal")))
             val themes = listOf("teal", "blue", "purple", "amber", "orange", "green")
@@ -127,7 +146,10 @@ fun SettingsScreen(
                     row.forEach { theme ->
                         FilterChip(
                             selected = str("theme", "teal") == theme,
-                            onClick = { Prefs.putString("theme", theme) },
+                            onClick = {
+                                Prefs.putString("theme", theme)
+                                Widgets.updateAll(context)
+                            },
                             label = { Text(text = theme.replaceFirstChar { it.uppercase() }) },
                         )
                     }
@@ -139,43 +161,43 @@ fun SettingsScreen(
             SettingToggleRow(
                 title = stringResource(R.string.setting_whitelist_wifi),
                 checked = bool("whitelist_wifi", true),
-            ) { Prefs.putBoolean("whitelist_wifi", it) }
+            ) { updateFlag("whitelist_wifi", it, reload = true) }
             SettingToggleRow(
                 title = stringResource(R.string.setting_whitelist_other),
                 checked = bool("whitelist_other", true),
-            ) { Prefs.putBoolean("whitelist_other", it) }
+            ) { updateFlag("whitelist_other", it, reload = true) }
             SettingToggleRow(
                 title = stringResource(R.string.setting_whitelist_roaming),
                 checked = bool("whitelist_roaming", true),
-            ) { Prefs.putBoolean("whitelist_roaming", it) }
+            ) { updateFlag("whitelist_roaming", it, reload = true) }
             SettingToggleRow(
                 title = stringResource(R.string.setting_screen_on),
                 checked = bool("screen_on", true),
-            ) { Prefs.putBoolean("screen_on", it) }
+            ) { updateFlag("screen_on", it, reload = true) }
             SettingToggleRow(
                 title = stringResource(R.string.setting_screen_wifi),
                 checked = bool("screen_wifi", false),
-            ) { Prefs.putBoolean("screen_wifi", it) }
+            ) { updateFlag("screen_wifi", it, reload = true) }
             SettingToggleRow(
                 title = stringResource(R.string.setting_screen_other),
                 checked = bool("screen_other", false),
-            ) { Prefs.putBoolean("screen_other", it) }
+            ) { updateFlag("screen_other", it, reload = true) }
             SettingToggleRow(
                 title = stringResource(R.string.setting_subnet),
                 checked = bool("subnet", false),
-            ) { Prefs.putBoolean("subnet", it) }
+            ) { updateFlag("subnet", it, reload = true) }
             SettingToggleRow(
                 title = stringResource(R.string.setting_tethering),
                 checked = bool("tethering", false),
-            ) { Prefs.putBoolean("tethering", it) }
+            ) { updateFlag("tethering", it, reload = true) }
             SettingToggleRow(
                 title = stringResource(R.string.setting_lan),
                 checked = bool("lan", false),
-            ) { Prefs.putBoolean("lan", it) }
+            ) { updateFlag("lan", it, reload = true) }
             SettingToggleRow(
                 title = stringResource(R.string.setting_ip6),
                 checked = bool("ip6", true),
-            ) { Prefs.putBoolean("ip6", it) }
+            ) { updateFlag("ip6", it, reload = true) }
 
             SettingTextRow(
                 title = stringResource(R.string.setting_delay, "0"),
@@ -203,98 +225,97 @@ fun SettingsScreen(
             SettingToggleRow(
                 title = stringResource(R.string.setting_metered),
                 checked = bool("use_metered", true),
-            ) { Prefs.putBoolean("use_metered", it) }
+            ) { updateFlag("use_metered", it, reload = true) }
             SettingToggleRow(
                 title = stringResource(R.string.setting_metered_2g),
                 checked = bool("unmetered_2g", false),
-            ) { Prefs.putBoolean("unmetered_2g", it) }
+            ) { updateFlag("unmetered_2g", it, reload = true) }
             SettingToggleRow(
                 title = stringResource(R.string.setting_metered_3g),
                 checked = bool("unmetered_3g", false),
-            ) { Prefs.putBoolean("unmetered_3g", it) }
+            ) { updateFlag("unmetered_3g", it, reload = true) }
             SettingToggleRow(
                 title = stringResource(R.string.setting_metered_4g),
                 checked = bool("unmetered_4g", false),
-            ) { Prefs.putBoolean("unmetered_4g", it) }
+            ) { updateFlag("unmetered_4g", it, reload = true) }
             SettingToggleRow(
                 title = stringResource(R.string.setting_national_roaming),
                 checked = bool("national_roaming", false),
-            ) { Prefs.putBoolean("national_roaming", it) }
+            ) { updateFlag("national_roaming", it, reload = true) }
             SettingToggleRow(
                 title = stringResource(R.string.setting_eu_roaming),
                 checked = bool("eu_roaming", false),
-            ) { Prefs.putBoolean("eu_roaming", it) }
+            ) { updateFlag("eu_roaming", it, reload = true) }
             SettingToggleRow(
                 title = stringResource(R.string.setting_call),
                 checked = bool("disable_on_call", false),
-            ) { Prefs.putBoolean("disable_on_call", it) }
+            ) { updateFlag("disable_on_call", it, reload = true) }
         }
 
         SettingsSection(title = stringResource(R.string.setting_section_advanced)) {
             SettingToggleRow(
                 title = stringResource(R.string.setting_system),
                 checked = bool("manage_system", false),
-            ) { Prefs.putBoolean("manage_system", it) }
+            ) { updateFlag("manage_system", it, reload = true) }
             SettingToggleRow(
                 title = stringResource(R.string.setting_log_app),
                 checked = bool("log_app", false),
-            ) { Prefs.putBoolean("log_app", it) }
+            ) { updateFlag("log_app", it) }
             SettingToggleRow(
                 title = stringResource(R.string.setting_access),
                 checked = bool("notify_access", false),
-            ) { Prefs.putBoolean("notify_access", it) }
+            ) { updateFlag("notify_access", it) }
             SettingToggleRow(
                 title = stringResource(R.string.setting_filter),
                 checked = bool("filter", false),
             ) {
-                Prefs.putBoolean("filter", it)
-                ServiceSinkhole.reload("settings", context, false)
+                updateFlag("filter", it, reload = true)
             }
             SettingToggleRow(
                 title = stringResource(R.string.setting_filter_udp),
                 checked = bool("filter_udp", false),
             ) {
-                Prefs.putBoolean("filter_udp", it)
-                ServiceSinkhole.reload("settings", context, false)
+                updateFlag("filter_udp", it, reload = true)
             }
             SettingToggleRow(
                 title = stringResource(R.string.setting_lockdown),
                 checked = bool("lockdown", false),
             ) {
-                Prefs.putBoolean("lockdown", it)
-                ServiceSinkhole.reload("settings", context, false)
-                Widgets.updateLockdown(context)
+                updateFlag(
+                    "lockdown",
+                    it,
+                    reload = true,
+                    updateWidgets = { Widgets.updateLockdown(context) },
+                )
             }
             SettingToggleRow(
                 title = stringResource(R.string.setting_lockdown_wifi),
                 checked = bool("lockdown_wifi", false),
             ) {
-                Prefs.putBoolean("lockdown_wifi", it)
-                ServiceSinkhole.reload("settings", context, false)
+                updateFlag("lockdown_wifi", it, reload = true)
             }
             SettingToggleRow(
                 title = stringResource(R.string.setting_lockdown_other),
                 checked = bool("lockdown_other", false),
             ) {
-                Prefs.putBoolean("lockdown_other", it)
-                ServiceSinkhole.reload("settings", context, false)
+                updateFlag("lockdown_other", it, reload = true)
             }
             SettingToggleRow(
                 title = stringResource(R.string.setting_malware),
                 checked = bool("malware", false),
-            ) { Prefs.putBoolean("malware", it) }
+            ) { updateFlag("malware", it, reload = true) }
             SettingToggleRow(
                 title = stringResource(R.string.setting_track_usage),
                 checked = bool("track_usage", false),
-            ) { Prefs.putBoolean("track_usage", it) }
+            ) { updateFlag("track_usage", it, reload = true) }
             SettingToggleRow(
                 title = stringResource(R.string.setting_stats),
                 checked = bool("show_stats", false),
-            ) { Prefs.putBoolean("show_stats", it) }
+            ) { updateFlag("show_stats", it, reloadStats = true) }
             SettingToggleRow(
                 title = stringResource(R.string.setting_stats_top),
                 checked = bool("show_top", false),
-            ) { Prefs.putBoolean("show_top", it) }
+            ) { updateFlag("show_top", it, reloadStats = true) }
 
             SettingTextRow(
                 title = stringResource(R.string.setting_stats_frequency, str("stats_frequency", "0")),
@@ -315,8 +336,7 @@ fun SettingsScreen(
                 title = stringResource(R.string.setting_use_hosts),
                 checked = bool("use_hosts", false),
             ) {
-                Prefs.putBoolean("use_hosts", it)
-                ServiceSinkhole.reload("settings", context, false)
+                updateFlag("use_hosts", it, reload = true)
             }
 
             SettingTextRow(

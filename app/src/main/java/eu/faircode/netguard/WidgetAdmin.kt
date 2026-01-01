@@ -52,6 +52,7 @@ class WidgetAdmin : ReceiverAutostart() {
                     } else {
                         ServiceSinkhole.stop("widget", context, false)
                     }
+                    Widgets.updateFirewall(context)
 
                     val auto = Prefs.getString("auto_enable", "0")?.toIntOrNull() ?: 0
                     if (!enabled && auto > 0) {
