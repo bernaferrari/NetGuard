@@ -158,7 +158,7 @@ fun NetGuardTheme(
 fun NetGuardThemeFromPrefs(content: @Composable () -> Unit) {
     val prefsState = Prefs.data.collectAsState()
     val prefs = prefsState.value
-    val darkTheme = prefs[booleanPreferencesKey("dark_theme")] ?: isSystemInDarkTheme()
+    val darkTheme = prefs[booleanPreferencesKey("dark_theme")] ?: false
     val themeName = prefs[stringPreferencesKey("theme")] ?: "teal"
     NetGuardTheme(
         darkTheme = darkTheme,
