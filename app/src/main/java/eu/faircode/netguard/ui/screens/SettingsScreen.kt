@@ -52,6 +52,7 @@ import androidx.core.content.ContextCompat
 import eu.faircode.netguard.R
 import eu.faircode.netguard.ServiceExternal
 import eu.faircode.netguard.ServiceSinkhole
+import eu.faircode.netguard.Widgets
 import eu.faircode.netguard.WorkScheduler
 import eu.faircode.netguard.data.Prefs
 import java.io.File
@@ -245,23 +246,39 @@ fun SettingsScreen(
             SettingToggleRow(
                 title = stringResource(R.string.setting_filter),
                 checked = bool("filter", false),
-            ) { Prefs.putBoolean("filter", it) }
+            ) {
+                Prefs.putBoolean("filter", it)
+                ServiceSinkhole.reload("settings", context, false)
+            }
             SettingToggleRow(
                 title = stringResource(R.string.setting_filter_udp),
                 checked = bool("filter_udp", false),
-            ) { Prefs.putBoolean("filter_udp", it) }
+            ) {
+                Prefs.putBoolean("filter_udp", it)
+                ServiceSinkhole.reload("settings", context, false)
+            }
             SettingToggleRow(
                 title = stringResource(R.string.setting_lockdown),
                 checked = bool("lockdown", false),
-            ) { Prefs.putBoolean("lockdown", it) }
+            ) {
+                Prefs.putBoolean("lockdown", it)
+                ServiceSinkhole.reload("settings", context, false)
+                Widgets.updateLockdown(context)
+            }
             SettingToggleRow(
                 title = stringResource(R.string.setting_lockdown_wifi),
                 checked = bool("lockdown_wifi", false),
-            ) { Prefs.putBoolean("lockdown_wifi", it) }
+            ) {
+                Prefs.putBoolean("lockdown_wifi", it)
+                ServiceSinkhole.reload("settings", context, false)
+            }
             SettingToggleRow(
                 title = stringResource(R.string.setting_lockdown_other),
                 checked = bool("lockdown_other", false),
-            ) { Prefs.putBoolean("lockdown_other", it) }
+            ) {
+                Prefs.putBoolean("lockdown_other", it)
+                ServiceSinkhole.reload("settings", context, false)
+            }
             SettingToggleRow(
                 title = stringResource(R.string.setting_malware),
                 checked = bool("malware", false),
@@ -297,7 +314,10 @@ fun SettingsScreen(
             SettingToggleRow(
                 title = stringResource(R.string.setting_use_hosts),
                 checked = bool("use_hosts", false),
-            ) { Prefs.putBoolean("use_hosts", it) }
+            ) {
+                Prefs.putBoolean("use_hosts", it)
+                ServiceSinkhole.reload("settings", context, false)
+            }
 
             SettingTextRow(
                 title = stringResource(R.string.setting_hosts_url),

@@ -70,6 +70,7 @@ class ServiceTileMain : TileService() {
                 }
             }
         }
+        Widgets.updateFirewall(this)
     }
 
     companion object {
