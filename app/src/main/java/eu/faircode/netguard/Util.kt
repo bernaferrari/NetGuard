@@ -26,9 +26,6 @@ import android.telephony.TelephonyManager
 import android.text.TextUtils
 import android.util.Log
 import android.util.TypedValue
-import android.view.LayoutInflater
-import android.view.View
-import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.pm.PackageInfoCompat
@@ -660,12 +657,8 @@ object Util {
 
     @JvmStatic
     fun areYouSure(context: Context, explanation: Int, listener: DoubtListener) {
-        val inflater = LayoutInflater.from(context)
-        val view = inflater.inflate(R.layout.sure, null, false)
-        val tvExplanation = view.findViewById<TextView>(R.id.tvExplanation)
-        tvExplanation.setText(explanation)
         AlertDialog.Builder(context)
-            .setView(view)
+            .setMessage(explanation)
             .setCancelable(true)
             .setPositiveButton(R.string.menu_ok) { _, _ ->
                 listener.onSure()
