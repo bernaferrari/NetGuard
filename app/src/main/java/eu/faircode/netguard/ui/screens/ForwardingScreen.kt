@@ -2,7 +2,6 @@ package eu.faircode.netguard.ui.screens
 
 import android.content.Context
 import android.widget.Toast
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.layout.Arrangement
@@ -46,6 +45,7 @@ import eu.faircode.netguard.R
 import eu.faircode.netguard.Rule
 import eu.faircode.netguard.ServiceSinkhole
 import eu.faircode.netguard.Util
+import eu.faircode.netguard.ui.util.StatePlaceholder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -113,49 +113,64 @@ fun ForwardingScreen() {
             }
         }
 
-        if (loading) {
-            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                CircularProgressIndicator()
+        when {
+            loading -> {
+                StatePlaceholder(
+                    title = stringResource(R.string.ui_loading),
+                    message = stringResource(R.string.setting_forwarding),
+                    icon = Icons.Default.Add,
+                    isLoading = true,
+                )
             }
-        } else {
-            LazyColumn(
-                modifier = Modifier.fillMaxSize(),
-                verticalArrangement = Arrangement.spacedBy(8.dp),
-            ) {
-                items(entries, key = { "${it.protocol}_${it.dport}_${it.raddr}_${it.rport}" }) { entry ->
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(vertical = 8.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                    ) {
-                        Column(modifier = Modifier.weight(1f)) {
-                            Text(
-                                text = Util.getProtocolName(entry.protocol, 0, false) +
-                                    " ${entry.dport} > ${entry.raddr}/${entry.rport}",
-                                style = MaterialTheme.typography.titleMedium,
-                            )
-                            Text(
-                                text = stringResource(R.string.title_ruid) + ": ${entry.ruid}",
-                                style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            )
-                        }
-                        IconButton(
-                            onClick = {
-                                DatabaseHelper.getInstance(context).deleteForward(entry.protocol, entry.dport)
-                                ServiceSinkhole.reload("forwarding", context, false)
-                                scope.launch {
-                                    entries = loadForwarding(context)
-                                    loading = false
-                                }
-                            },
+            entries.isEmpty() -> {
+                StatePlaceholder(
+                    title = stringResource(R.string.ui_empty_forwarding_title),
+                    message = stringResource(R.string.ui_empty_forwarding_body),
+                    icon = Icons.Default.Add,
+                    actionLabel = stringResource(R.string.menu_add),
+                    onAction = { showDialog = true },
+                )
+            }
+            else -> {
+                LazyColumn(
+                    modifier = Modifier.fillMaxSize(),
+                    verticalArrangement = Arrangement.spacedBy(8.dp),
+                ) {
+                    items(entries, key = { "${it.protocol}_${it.dport}_${it.raddr}_${it.rport}" }) { entry ->
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(vertical = 8.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.SpaceBetween,
                         ) {
-                            androidx.compose.material3.Icon(
-                                imageVector = Icons.Default.Delete,
-                                contentDescription = stringResource(R.string.menu_delete),
-                            )
+                            Column(modifier = Modifier.weight(1f)) {
+                                Text(
+                                    text = Util.getProtocolName(entry.protocol, 0, false) +
+                                        " ${entry.dport} > ${entry.raddr}/${entry.rport}",
+                                    style = MaterialTheme.typography.titleMedium,
+                                )
+                                Text(
+                                    text = stringResource(R.string.title_ruid) + ": ${entry.ruid}",
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                )
+                            }
+                            IconButton(
+                                onClick = {
+                                    DatabaseHelper.getInstance(context).deleteForward(entry.protocol, entry.dport)
+                                    ServiceSinkhole.reload("forwarding", context, false)
+                                    scope.launch {
+                                        entries = loadForwarding(context)
+                                        loading = false
+                                    }
+                                },
+                            ) {
+                                androidx.compose.material3.Icon(
+                                    imageVector = Icons.Default.Delete,
+                                    contentDescription = stringResource(R.string.menu_delete),
+                                )
+                            }
                         }
                     }
                 }

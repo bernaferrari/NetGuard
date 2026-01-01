@@ -18,6 +18,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Download
+import androidx.compose.material.icons.filled.Dns
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Tune
 import androidx.compose.material3.Card
@@ -40,6 +41,7 @@ import androidx.compose.ui.unit.dp
 import eu.faircode.netguard.DatabaseHelper
 import eu.faircode.netguard.R
 import eu.faircode.netguard.ServiceSinkhole
+import eu.faircode.netguard.ui.util.StatePlaceholder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -151,38 +153,48 @@ fun DnsScreen() {
             }
         }
 
-        LazyColumn(
-            modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.spacedBy(8.dp),
-        ) {
-            items(entries, key = { "${it.qname}_${it.aname}_${it.resource}_${it.time}" }) { entry ->
-                val expired = entry.time + entry.ttl < Date().time
-                Card(
-                    colors = CardDefaults.cardColors(
-                        containerColor =
-                            if (expired) MaterialTheme.colorScheme.surfaceVariant
-                            else MaterialTheme.colorScheme.surface,
-                    ),
-                ) {
-                    Column(modifier = Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                        Text(
-                            text = "${entry.qname} -> ${entry.aname}",
-                            style = MaterialTheme.typography.titleSmall,
-                        )
-                        Text(
-                            text = entry.resource,
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                        Text(
-                            text = stringResource(R.string.label_ttl, entry.ttl / 1000),
-                            style = MaterialTheme.typography.bodySmall,
-                        )
-                        if (entry.uid > 0) {
+        if (entries.isEmpty()) {
+            StatePlaceholder(
+                title = stringResource(R.string.ui_empty_dns_title),
+                message = stringResource(R.string.ui_empty_dns_body),
+                icon = Icons.Default.Dns,
+                actionLabel = stringResource(R.string.menu_refresh),
+                onAction = { refreshKey += 1 },
+            )
+        } else {
+            LazyColumn(
+                modifier = Modifier.fillMaxSize(),
+                verticalArrangement = Arrangement.spacedBy(8.dp),
+            ) {
+                items(entries, key = { "${it.qname}_${it.aname}_${it.resource}_${it.time}" }) { entry ->
+                    val expired = entry.time + entry.ttl < Date().time
+                    Card(
+                        colors = CardDefaults.cardColors(
+                            containerColor =
+                                if (expired) MaterialTheme.colorScheme.surfaceVariant
+                                else MaterialTheme.colorScheme.surface,
+                        ),
+                    ) {
+                        Column(modifier = Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                             Text(
-                                text = stringResource(R.string.label_uid, entry.uid),
+                                text = "${entry.qname} -> ${entry.aname}",
+                                style = MaterialTheme.typography.titleSmall,
+                            )
+                            Text(
+                                text = entry.resource,
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                            Text(
+                                text = stringResource(R.string.label_ttl, entry.ttl / 1000),
                                 style = MaterialTheme.typography.bodySmall,
                             )
+                            if (entry.uid > 0) {
+                                Text(
+                                    text = stringResource(R.string.label_uid, entry.uid),
+                                    style = MaterialTheme.typography.bodySmall,
+                                )
+                            }
                         }
                     }
                 }

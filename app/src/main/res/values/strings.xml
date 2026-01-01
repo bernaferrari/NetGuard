@@ -57,6 +57,11 @@
     <string name="ui_empty_logs_body">Once connections appear, they’ll show up here.</string>
     <string name="ui_empty_apps_title">No apps found</string>
     <string name="ui_empty_apps_body">Try refreshing the list.</string>
+    <string name="ui_empty_dns_title">No resolved DNS yet</string>
+    <string name="ui_empty_dns_body">DNS responses will appear here after browsing.</string>
+    <string name="ui_empty_forwarding_title">No forwarding rules</string>
+    <string name="ui_empty_forwarding_body">Add a rule to start forwarding traffic.</string>
+    <string name="ui_empty_pro_body">Support unlocks extra features and keeps the project alive.</string>
     <string name="status_running">Traffic is being filtered</string>
     <string name="status_not_running">Traffic is not being filtered</string>
     <string name="action_enable">Enable</string>
