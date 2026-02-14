@@ -52,6 +52,13 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import eu.faircode.netguard.data.Prefs
+import eu.faircode.netguard.ui.theme.GraphGrayed
+import eu.faircode.netguard.ui.theme.GraphReceive
+import eu.faircode.netguard.ui.theme.GraphSend
+import eu.faircode.netguard.ui.theme.THEME_DEFAULT
+import eu.faircode.netguard.ui.theme.themePrimaryColor
+import eu.faircode.netguard.ui.theme.themeOffColor
+import eu.faircode.netguard.ui.theme.themeOnColor
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileReader
@@ -857,14 +864,14 @@ class ServiceSinkhole : VpnService() {
             paint.style = Paint.Style.STROKE
 
             paint.strokeWidth = Util.dips2pixels(1, this@ServiceSinkhole).toFloat()
-            paint.color = ContextCompat.getColor(this@ServiceSinkhole, R.color.colorGrayed)
+            paint.color = GraphGrayed
             val y = height / 2f
             canvas.drawLine(0f, y, width.toFloat(), y, paint)
 
             paint.strokeWidth = Util.dips2pixels(2, this@ServiceSinkhole).toFloat()
-            paint.color = ContextCompat.getColor(this@ServiceSinkhole, R.color.colorSend)
+            paint.color = GraphSend
             canvas.drawPath(ptx, paint)
-            paint.color = ContextCompat.getColor(this@ServiceSinkhole, R.color.colorReceive)
+            paint.color = GraphReceive
             canvas.drawPath(prx, paint)
 
             val txText =
@@ -903,8 +910,7 @@ class ServiceSinkhole : VpnService() {
             val main = Intent(this@ServiceSinkhole, ActivityMain::class.java)
             val pi = PendingIntentCompat.getActivity(this@ServiceSinkhole, 0, main, PendingIntent.FLAG_UPDATE_CURRENT)
 
-            val tv = TypedValue()
-            theme.resolveAttribute(R.attr.colorPrimary, tv, true)
+            val notificationColor = themePrimaryColor(Prefs.getString("theme", THEME_DEFAULT))
             val builder = NotificationCompat.Builder(this@ServiceSinkhole, Notifications.CHANNEL_NOTIFY)
             val extraLines = buildList {
                 if (topText.isNotBlank()) {
@@ -923,7 +929,7 @@ class ServiceSinkhole : VpnService() {
                 .setContentText(headline)
                 .setSubText(statsSummary.takeIf { extraLines.isNotEmpty() })
                 .setContentIntent(pi)
-                .setColor(tv.data)
+                .setColor(notificationColor)
                 .setOngoing(true)
                 .setAutoCancel(false)
                 .setLargeIcon(bitmap)
@@ -2259,13 +2265,12 @@ class ServiceSinkhole : VpnService() {
             main.putExtra(ActivityMain.EXTRA_SEARCH, uid.toString())
             val pi = PendingIntentCompat.getActivity(this, uid, main, PendingIntent.FLAG_UPDATE_CURRENT)
 
-            val tv = TypedValue()
-            theme.resolveAttribute(R.attr.colorPrimary, tv, true)
+            val notificationColor = themePrimaryColor(Prefs.getString("theme", THEME_DEFAULT))
             val builder = NotificationCompat.Builder(this, if (malware) Notifications.CHANNEL_MALWARE else Notifications.CHANNEL_NOTIFY)
             builder
                 .setSmallIcon(R.drawable.ic_security_white_24dp)
                 .setContentIntent(pi)
-                .setColor(tv.data)
+                .setColor(notificationColor)
                 .setAutoCancel(true)
 
             if (malware) {
@@ -2786,21 +2791,20 @@ class ServiceSinkhole : VpnService() {
         val main = Intent(this, ActivityMain::class.java)
         val pi = PendingIntentCompat.getActivity(this, 0, main, PendingIntent.FLAG_UPDATE_CURRENT)
 
-        val tv = TypedValue()
-        theme.resolveAttribute(R.attr.colorPrimary, tv, true)
-        val builder = NotificationCompat.Builder(this, Notifications.CHANNEL_FOREGROUND)
-        builder
-            .setSmallIcon(
-                if (isLockedDown(lastMetered)) {
-                    R.drawable.ic_lock_outline_white_24dp
+            val notificationColor = themePrimaryColor(Prefs.getString("theme", THEME_DEFAULT))
+            val builder = NotificationCompat.Builder(this, Notifications.CHANNEL_FOREGROUND)
+            builder
+                .setSmallIcon(
+                    if (isLockedDown(lastMetered)) {
+                        R.drawable.ic_lock_outline_white_24dp
                 } else {
                     R.drawable.ic_security_white_24dp
                 },
             )
-            .setContentIntent(pi)
-            .setColor(tv.data)
-            .setOngoing(true)
-            .setAutoCancel(false)
+                .setContentIntent(pi)
+                .setColor(notificationColor)
+                .setOngoing(true)
+                .setAutoCancel(false)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             builder.setContentTitle(getString(R.string.msg_started))
@@ -2869,12 +2873,11 @@ class ServiceSinkhole : VpnService() {
         val main = Intent(this, ActivityMain::class.java)
         val pi = PendingIntentCompat.getActivity(this, 0, main, PendingIntent.FLAG_UPDATE_CURRENT)
 
-        val tv = TypedValue()
-        theme.resolveAttribute(R.attr.colorPrimary, tv, true)
+        val notificationColor = themePrimaryColor(Prefs.getString("theme", THEME_DEFAULT))
         val builder = NotificationCompat.Builder(this, Notifications.CHANNEL_FOREGROUND)
         builder.setSmallIcon(R.drawable.ic_security_white_24dp)
             .setContentIntent(pi)
-            .setColor(tv.data)
+            .setColor(notificationColor)
             .setOngoing(true)
             .setAutoCancel(false)
 
@@ -2898,14 +2901,13 @@ class ServiceSinkhole : VpnService() {
         val main = Intent(this, ActivityMain::class.java)
         val pi = PendingIntentCompat.getActivity(this, 0, main, PendingIntent.FLAG_UPDATE_CURRENT)
 
-        val tv = TypedValue()
-        theme.resolveAttribute(R.attr.colorOff, tv, true)
         val builder = NotificationCompat.Builder(this, Notifications.CHANNEL_NOTIFY)
+        val notificationColor = themeOffColor(Prefs.getString("theme", THEME_DEFAULT))
         builder.setSmallIcon(R.drawable.ic_error_white_24dp)
             .setContentTitle(getString(R.string.app_name))
             .setContentText(getString(R.string.msg_revoked))
             .setContentIntent(pi)
-            .setColor(tv.data)
+            .setColor(notificationColor)
             .setOngoing(false)
             .setAutoCancel(true)
 
@@ -2927,15 +2929,14 @@ class ServiceSinkhole : VpnService() {
         val intent = Intent(Settings.ACTION_VPN_SETTINGS)
         val pi = PendingIntentCompat.getActivity(this, NOTIFY_LOCKDOWN, intent, PendingIntent.FLAG_UPDATE_CURRENT)
 
-        val tv = TypedValue()
-        theme.resolveAttribute(R.attr.colorOff, tv, true)
         val builder = NotificationCompat.Builder(this, Notifications.CHANNEL_NOTIFY)
+        val notificationColor = themeOffColor(Prefs.getString("theme", THEME_DEFAULT))
         builder.setSmallIcon(R.drawable.ic_error_white_24dp)
             .setContentTitle(getString(R.string.app_name))
             .setContentText(getString(R.string.msg_always_on_lockdown))
             .setContentIntent(pi)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
-            .setColor(tv.data)
+            .setColor(notificationColor)
             .setOngoing(false)
             .setAutoCancel(true)
 
@@ -2962,14 +2963,13 @@ class ServiceSinkhole : VpnService() {
         main.putExtra(ActivityMain.EXTRA_APPROVE, true)
         val pi = PendingIntentCompat.getActivity(this, NOTIFY_AUTOSTART, main, PendingIntent.FLAG_UPDATE_CURRENT)
 
-        val tv = TypedValue()
-        theme.resolveAttribute(R.attr.colorOff, tv, true)
         val builder = NotificationCompat.Builder(this, Notifications.CHANNEL_NOTIFY)
+        val notificationColor = themeOffColor(Prefs.getString("theme", THEME_DEFAULT))
         builder.setSmallIcon(R.drawable.ic_error_white_24dp)
             .setContentTitle(getString(R.string.app_name))
             .setContentText(getString(R.string.msg_autostart))
             .setContentIntent(pi)
-            .setColor(tv.data)
+            .setColor(notificationColor)
             .setOngoing(false)
             .setAutoCancel(true)
 
@@ -2991,14 +2991,13 @@ class ServiceSinkhole : VpnService() {
         val main = Intent(this, ActivityMain::class.java)
         val pi = PendingIntentCompat.getActivity(this, 0, main, PendingIntent.FLAG_UPDATE_CURRENT)
 
-        val tv = TypedValue()
-        theme.resolveAttribute(R.attr.colorOff, tv, true)
         val builder = NotificationCompat.Builder(this, Notifications.CHANNEL_NOTIFY)
+        val notificationColor = themeOffColor(Prefs.getString("theme", THEME_DEFAULT))
         builder.setSmallIcon(R.drawable.ic_error_white_24dp)
             .setContentTitle(getString(R.string.app_name))
             .setContentText(getString(R.string.msg_error, message))
             .setContentIntent(pi)
-            .setColor(tv.data)
+            .setColor(notificationColor)
             .setOngoing(false)
             .setAutoCancel(true)
 
@@ -3027,11 +3026,9 @@ class ServiceSinkhole : VpnService() {
         val pi =
             PendingIntentCompat.getActivity(this@ServiceSinkhole, uid + 10000, main, PendingIntent.FLAG_UPDATE_CURRENT)
 
-        val tv = TypedValue()
-        theme.resolveAttribute(R.attr.colorOn, tv, true)
-        val colorOn = tv.data
-        theme.resolveAttribute(R.attr.colorOff, tv, true)
-        val colorOff = tv.data
+        val theme = Prefs.getString("theme", THEME_DEFAULT)
+        val colorOn = themeOnColor(theme)
+        val colorOff = themeOffColor(theme)
 
         val builder = NotificationCompat.Builder(this, Notifications.CHANNEL_ACCESS)
         builder.setSmallIcon(R.drawable.ic_cloud_upload_white_24dp)
@@ -3117,14 +3114,13 @@ class ServiceSinkhole : VpnService() {
         val download = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         val pi = PendingIntentCompat.getActivity(this, 0, download, PendingIntent.FLAG_UPDATE_CURRENT)
 
-        val tv = TypedValue()
-        theme.resolveAttribute(R.attr.colorPrimary, tv, true)
+        val notificationColor = themePrimaryColor(Prefs.getString("theme", THEME_DEFAULT))
         val builder = NotificationCompat.Builder(this, Notifications.CHANNEL_NOTIFY)
         builder.setSmallIcon(R.drawable.ic_security_white_24dp)
             .setContentTitle(name)
             .setContentText(getString(R.string.msg_update))
             .setContentIntent(pi)
-            .setColor(tv.data)
+            .setColor(notificationColor)
             .setOngoing(false)
             .setAutoCancel(true)
 

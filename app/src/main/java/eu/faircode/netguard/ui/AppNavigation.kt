@@ -118,7 +118,13 @@ fun AppNavigation(
             entryProvider =
                 entryProvider {
                     entry<Home> {
-                        HomeScreen(viewModel = viewModel, onToggleEnabled = onToggleEnabled)
+                        HomeScreen(
+                            viewModel = viewModel,
+                            onToggleEnabled = onToggleEnabled,
+                            onNavigateToApps = { navigateTo(Apps) },
+                            onNavigateToLogs = { navigateTo(Logs) },
+                            onNavigateToSettings = { navigateTo(Settings) },
+                        )
                     }
                     entry<Apps>(
                         metadata =

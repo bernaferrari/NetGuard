@@ -7,10 +7,11 @@ import android.content.Intent
 import android.os.Build
 import android.os.PowerManager
 import android.util.Log
-import android.util.TypedValue
 import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import eu.faircode.netguard.data.Prefs
+import eu.faircode.netguard.ui.theme.themeOffColor
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -158,15 +159,14 @@ class DownloadTask(
             PendingIntent.FLAG_UPDATE_CURRENT,
         )
 
-        val tv = TypedValue()
-        context.theme.resolveAttribute(R.attr.colorOff, tv, true)
+        val notificationColor = themeOffColor(Prefs.getString("theme", eu.faircode.netguard.ui.theme.THEME_DEFAULT))
         val builder = NotificationCompat.Builder(context, Notifications.CHANNEL_NOTIFY)
             .setSmallIcon(R.drawable.ic_file_download_white_24dp)
             .setContentTitle(context.getString(R.string.app_name))
             .setContentText(context.getString(R.string.msg_downloading, url.toString()))
             .setContentIntent(pi)
             .setProgress(100, progress, false)
-            .setColor(tv.data)
+            .setColor(notificationColor)
             .setOngoing(true)
             .setAutoCancel(false)
 

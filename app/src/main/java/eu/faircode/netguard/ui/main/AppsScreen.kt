@@ -4,7 +4,6 @@ import android.content.Intent
 import android.net.Uri
 import android.provider.Settings
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -24,6 +23,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
@@ -34,13 +34,17 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.graphics.drawable.toBitmap
 import eu.faircode.netguard.R
@@ -49,6 +53,11 @@ import eu.faircode.netguard.Rule
 import eu.faircode.netguard.ServiceSinkhole
 import eu.faircode.netguard.Widgets
 import eu.faircode.netguard.data.Prefs
+import eu.faircode.netguard.ui.components.ExpandableContent
+import eu.faircode.netguard.ui.components.animateContentHeight
+import eu.faircode.netguard.ui.components.animatedRotation
+import eu.faircode.netguard.ui.theme.TouchTargets
+import eu.faircode.netguard.ui.theme.spacing
 import eu.faircode.netguard.ui.util.StatePlaceholder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -56,16 +65,16 @@ import kotlinx.coroutines.withContext
 @Composable
 fun AppsScreen() {
     val context = LocalContext.current
+    val spacing = MaterialTheme.spacing
     val rules = remember { mutableStateListOf<Rule>() }
     var isLoading by remember { mutableStateOf(true) }
     var refreshKey by remember { mutableStateOf(0) }
 
     LaunchedEffect(refreshKey) {
         isLoading = true
-        val loaded =
-            withContext(Dispatchers.IO) {
-                Rule.getRules(false, context)
-            }
+        val loaded = withContext(Dispatchers.IO) {
+            Rule.getRules(false, context)
+        }
         rules.clear()
         rules.addAll(loaded)
         isLoading = false
@@ -74,8 +83,8 @@ fun AppsScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp),
+            .padding(spacing.default),
+        verticalArrangement = Arrangement.spacedBy(spacing.medium),
     ) {
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -98,7 +107,7 @@ fun AppsScreen() {
                     imageVector = Icons.Default.Refresh,
                     contentDescription = null,
                 )
-                Spacer(modifier = Modifier.width(8.dp))
+                Spacer(modifier = Modifier.width(spacing.small))
                 Text(text = stringResource(R.string.menu_refresh))
             }
         }
@@ -124,7 +133,7 @@ fun AppsScreen() {
             else -> {
                 LazyColumn(
                     modifier = Modifier.fillMaxSize(),
-                    verticalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalArrangement = Arrangement.spacedBy(spacing.small),
                 ) {
                     items(rules, key = { it.uid }) { rule ->
                         RuleCard(
@@ -146,24 +155,37 @@ private fun RuleCard(
     onToggle: () -> Unit,
 ) {
     val context = LocalContext.current
+    val spacing = MaterialTheme.spacing
+    val haptic = LocalHapticFeedback.current
     var expanded by remember(rule.uid) { mutableStateOf(rule.expanded) }
-    val iconBitmap =
-        remember(rule.packageName) {
-            runCatching {
-                val pm = context.packageManager
-                val appInfo = pm.getApplicationInfo(rule.packageName ?: "", 0)
-                pm.getApplicationIcon(appInfo).toBitmap().asImageBitmap()
-            }.getOrNull()
-        }
+
+    val iconBitmap = remember(rule.packageName) {
+        runCatching {
+            val pm = context.packageManager
+            val appInfo = pm.getApplicationInfo(rule.packageName ?: "", 0)
+            pm.getApplicationIcon(appInfo).toBitmap().asImageBitmap()
+        }.getOrNull()
+    }
+
+    // Animated rotation for expand icon
+    val iconRotation = animatedRotation(expanded)
+
+    val appName = rule.name ?: rule.packageName.orEmpty()
+    val expandDescription = if (expanded) {
+        stringResource(R.string.action_collapse)
+    } else {
+        stringResource(R.string.action_expand)
+    }
 
     Card(
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+        modifier = Modifier.animateContentHeight(),
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(12.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp),
+                .padding(spacing.medium),
+            verticalArrangement = Arrangement.spacedBy(spacing.small),
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -177,13 +199,16 @@ private fun RuleCard(
                     if (iconBitmap != null) {
                         Image(
                             bitmap = iconBitmap,
-                            contentDescription = null,
-                            modifier = Modifier.size(36.dp),
+                            contentDescription = stringResource(R.string.content_desc_app_icon, appName),
+                            modifier = Modifier.size(TouchTargets.appIconSize),
                         )
                     }
-                    Spacer(modifier = Modifier.width(12.dp))
+                    Spacer(modifier = Modifier.width(spacing.medium))
                     Column {
-                        Text(text = rule.name ?: rule.packageName.orEmpty(), style = MaterialTheme.typography.titleMedium)
+                        Text(
+                            text = appName,
+                            style = MaterialTheme.typography.titleMedium,
+                        )
                         Text(
                             text = rule.packageName.orEmpty(),
                             style = MaterialTheme.typography.bodySmall,
@@ -191,122 +216,128 @@ private fun RuleCard(
                         )
                     }
                 }
-                Icon(
-                    imageVector = Icons.Default.ExpandMore,
-                    contentDescription = null,
-                    modifier = Modifier
-                        .size(32.dp)
-                        .clickable {
-                            expanded = !expanded
-                            rule.expanded = expanded
-                        },
-                )
-            }
-
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Text(text = stringResource(R.string.title_block_wifi))
-                Switch(
-                    checked = rule.wifi_blocked,
-                    onCheckedChange = {
-                        rule.wifi_blocked = it
-                        onToggle()
+                // Accessible expand button with proper touch target
+                IconButton(
+                    onClick = {
+                        expanded = !expanded
+                        rule.expanded = expanded
+                        haptic.performHapticFeedback(HapticFeedbackType.LongPress)
                     },
-                )
-            }
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Text(text = stringResource(R.string.title_block_other))
-                Switch(
-                    checked = rule.other_blocked,
-                    onCheckedChange = {
-                        rule.other_blocked = it
-                        onToggle()
-                    },
-                )
+                    modifier = Modifier.size(TouchTargets.minimum),
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.ExpandMore,
+                        contentDescription = expandDescription,
+                        modifier = Modifier.graphicsLayer { rotationZ = iconRotation },
+                    )
+                }
             }
 
-            if (expanded) {
-                RuleToggleRow(
-                    label = stringResource(R.string.title_screen_wifi),
-                    checked = rule.screen_wifi,
-                ) {
-                    rule.screen_wifi = it
+            // Primary toggles - always visible
+            RuleToggleRow(
+                label = stringResource(R.string.title_block_wifi),
+                checked = rule.wifi_blocked,
+                onCheckedChange = {
+                    rule.wifi_blocked = it
                     onToggle()
-                }
-                RuleToggleRow(
-                    label = stringResource(R.string.title_screen_other),
-                    checked = rule.screen_other,
-                ) {
-                    rule.screen_other = it
+                },
+            )
+            RuleToggleRow(
+                label = stringResource(R.string.title_block_other),
+                checked = rule.other_blocked,
+                onCheckedChange = {
+                    rule.other_blocked = it
                     onToggle()
-                }
-                RuleToggleRow(
-                    label = stringResource(R.string.title_roaming),
-                    checked = rule.roaming,
-                ) {
-                    rule.roaming = it
-                    onToggle()
-                }
-                RuleToggleRow(
-                    label = stringResource(R.string.title_lockdown),
-                    checked = rule.lockdown,
-                ) {
-                    rule.lockdown = it
-                    onToggle()
-                }
-                RuleToggleRow(
-                    label = stringResource(R.string.title_apply),
-                    checked = rule.apply,
-                ) {
-                    rule.apply = it
-                    onToggle()
-                }
-                RuleToggleRow(
-                    label = stringResource(R.string.title_notify),
-                    checked = rule.notify,
-                ) {
-                    rule.notify = it
-                    onToggle()
-                }
+                },
+            )
 
-                AccessLogSection(rule = rule)
-
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+            // Expanded content with animation
+            ExpandableContent(expanded = expanded) {
+                Column(
+                    verticalArrangement = Arrangement.spacedBy(spacing.small),
                 ) {
-                    FilledTonalButton(
-                        onClick = {
-                            val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                                .setData(Uri.parse("package:${rule.packageName}"))
-                            context.startActivity(intent)
+                    RuleToggleRow(
+                        label = stringResource(R.string.title_screen_wifi),
+                        checked = rule.screen_wifi,
+                        onCheckedChange = {
+                            rule.screen_wifi = it
+                            onToggle()
                         },
+                    )
+                    RuleToggleRow(
+                        label = stringResource(R.string.title_screen_other),
+                        checked = rule.screen_other,
+                        onCheckedChange = {
+                            rule.screen_other = it
+                            onToggle()
+                        },
+                    )
+                    RuleToggleRow(
+                        label = stringResource(R.string.title_roaming),
+                        checked = rule.roaming,
+                        onCheckedChange = {
+                            rule.roaming = it
+                            onToggle()
+                        },
+                    )
+                    RuleToggleRow(
+                        label = stringResource(R.string.title_lockdown),
+                        checked = rule.lockdown,
+                        onCheckedChange = {
+                            rule.lockdown = it
+                            onToggle()
+                        },
+                    )
+                    RuleToggleRow(
+                        label = stringResource(R.string.title_apply),
+                        checked = rule.apply,
+                        onCheckedChange = {
+                            rule.apply = it
+                            onToggle()
+                        },
+                    )
+                    RuleToggleRow(
+                        label = stringResource(R.string.title_notify),
+                        checked = rule.notify,
+                        onCheckedChange = {
+                            rule.notify = it
+                            onToggle()
+                        },
+                    )
+
+                    AccessLogSection(rule = rule)
+
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(spacing.small),
                     ) {
-                        Text(text = stringResource(R.string.menu_settings))
-                    }
-                    FilledTonalButton(
-                        onClick = {
-                            val intent = context.packageManager.getLaunchIntentForPackage(rule.packageName.orEmpty())
-                            if (intent != null) {
+                        FilledTonalButton(
+                            onClick = {
+                                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                                    .setData(Uri.parse("package:${rule.packageName}"))
                                 context.startActivity(intent)
-                            }
-                        },
-                    ) {
-                        Text(text = stringResource(R.string.menu_launch))
-                    }
-                    FilledTonalButton(
-                        onClick = {
-                            DatabaseHelper.getInstance(context).clearAccess(rule.uid, true)
-                        },
-                    ) {
-                        Text(text = stringResource(R.string.menu_clear))
+                            },
+                        ) {
+                            Text(text = stringResource(R.string.menu_settings))
+                        }
+                        FilledTonalButton(
+                            onClick = {
+                                val intent = context.packageManager
+                                    .getLaunchIntentForPackage(rule.packageName.orEmpty())
+                                if (intent != null) {
+                                    context.startActivity(intent)
+                                }
+                            },
+                        ) {
+                            Text(text = stringResource(R.string.menu_launch))
+                        }
+                        FilledTonalButton(
+                            onClick = {
+                                DatabaseHelper.getInstance(context).clearAccess(rule.uid, true)
+                            },
+                        ) {
+                            Text(text = stringResource(R.string.menu_clear))
+                        }
                     }
                 }
             }
@@ -320,15 +351,27 @@ private fun RuleToggleRow(
     checked: Boolean,
     onCheckedChange: (Boolean) -> Unit,
 ) {
+    val haptic = LocalHapticFeedback.current
+    val spacing = MaterialTheme.spacing
+
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Text(text = label)
+        Text(
+            text = label,
+            modifier = Modifier.weight(1f),
+        )
         Switch(
             checked = checked,
-            onCheckedChange = onCheckedChange,
+            onCheckedChange = { newValue ->
+                haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+                onCheckedChange(newValue)
+            },
+            modifier = Modifier.semantics {
+                contentDescription = "$label: ${if (checked) "enabled" else "disabled"}"
+            },
         )
     }
 }
@@ -385,6 +428,7 @@ private fun persistRuleInternal(
 @Composable
 private fun AccessLogSection(rule: Rule) {
     val context = LocalContext.current
+    val spacing = MaterialTheme.spacing
     var accessEntries by remember(rule.uid) { mutableStateOf<List<AccessEntry>>(emptyList()) }
     var loading by remember(rule.uid) { mutableStateOf(false) }
 
@@ -401,15 +445,18 @@ private fun AccessLogSection(rule: Rule) {
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
     } else if (accessEntries.isNotEmpty()) {
-        Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+        Column(verticalArrangement = Arrangement.spacedBy(spacing.extraSmall)) {
             Text(
                 text = stringResource(R.string.menu_log),
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
             accessEntries.forEach { entry ->
-                val color =
-                    if (entry.allowed > 0) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.error
+                val color = if (entry.allowed > 0) {
+                    MaterialTheme.colorScheme.primary
+                } else {
+                    MaterialTheme.colorScheme.error
+                }
                 Text(
                     text = "${entry.timeText} ${entry.daddr}:${entry.dport}",
                     style = MaterialTheme.typography.bodySmall,

@@ -25,11 +25,13 @@ import android.provider.Settings
 import android.telephony.TelephonyManager
 import android.text.TextUtils
 import android.util.Log
-import android.util.TypedValue
+import androidx.annotation.ColorInt
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.pm.PackageInfoCompat
 import eu.faircode.netguard.data.Prefs
+import eu.faircode.netguard.ui.theme.THEME_DEFAULT
+import eu.faircode.netguard.ui.theme.themePrimaryColor
 import java.io.BufferedReader
 import java.io.File
 import java.io.InputStreamReader
@@ -553,6 +555,7 @@ object Util {
             "amber" -> context.setTheme(if (dark) R.style.AppThemeAmberDark else R.style.AppThemeAmber)
             "orange" -> context.setTheme(if (dark) R.style.AppThemeOrangeDark else R.style.AppThemeOrange)
             "green" -> context.setTheme(if (dark) R.style.AppThemeGreenDark else R.style.AppThemeGreen)
+            else -> context.setTheme(if (dark) R.style.AppThemeTealDark else R.style.AppThemeTeal)
         }
 
         if (context is Activity && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -562,12 +565,12 @@ object Util {
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private fun setTaskColor(context: Context) {
-        val tv = TypedValue()
-        context.theme.resolveAttribute(R.attr.colorPrimary, tv, true)
+        val theme = Prefs.getString("theme", THEME_DEFAULT)
+        val defaultColor = themePrimaryColor(theme)
         val activity = context as Activity
         val description =
             ActivityManager.TaskDescription.Builder()
-                .setPrimaryColor(tv.data)
+                .setPrimaryColor(defaultColor)
                 .build()
         activity.setTaskDescription(description)
     }

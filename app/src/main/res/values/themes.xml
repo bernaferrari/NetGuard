@@ -2,8 +2,6 @@
     <style name="Theme.NetGuard" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
-        <item name="colorOn">@color/colorTealOn</item>
-        <item name="colorOff">@color/colorTealOff</item>
         <item name="expander">@drawable/expander_white</item>
         <item name="iconQueue">@drawable/ic_hourglass_empty_white_24dp</item>
         <item name="iconMetered">@drawable/ic_attach_money_white_24dp</item>

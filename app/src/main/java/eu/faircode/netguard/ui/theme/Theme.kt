@@ -8,12 +8,14 @@ import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.MaterialExpressiveTheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.collectAsState
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
@@ -24,6 +26,22 @@ import com.materialkolor.PaletteStyle
 import com.materialkolor.dynamiccolor.ColorSpec
 import com.materialkolor.rememberDynamicMaterialThemeState
 import eu.faircode.netguard.data.Prefs
+
+/**
+ * Extension property for accessing spacing design tokens.
+ */
+val MaterialTheme.spacing: Spacing
+    @Composable
+    @ReadOnlyComposable
+    get() = LocalSpacing.current
+
+/**
+ * Extension property for accessing motion/animation design tokens.
+ */
+val MaterialTheme.motion: Motion
+    @Composable
+    @ReadOnlyComposable
+    get() = LocalMotion.current
 
 private val ThemeSeeds =
     mapOf(
@@ -76,10 +94,15 @@ fun NetGuardTheme(
         }
     }
 
-    MaterialExpressiveTheme(
-        colorScheme = colorScheme,
-        content = content,
-    )
+    CompositionLocalProvider(
+        LocalSpacing provides Spacing(),
+        LocalMotion provides Motion(),
+    ) {
+        MaterialExpressiveTheme(
+            colorScheme = colorScheme,
+            content = content,
+        )
+    }
 }
 
 @Composable

@@ -6,7 +6,6 @@ import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.util.TypedValue
 import android.view.View
 import androidx.core.graphics.Insets
 import androidx.core.view.ViewCompat
@@ -53,12 +52,7 @@ class ApplicationEx : Application() {
                                         WindowInsetsCompat.Type.ime(),
                                 )
 
-                            val tv = TypedValue()
-                            activity.theme.resolveAttribute(R.attr.colorPrimaryDark, tv, true)
-
                             val dark = Prefs.getBoolean("dark_theme", false)
-
-                            activity.window.decorView.setBackgroundColor(tv.data)
                             content.setBackgroundColor(if (dark) Color.parseColor("#ff121212") else Color.WHITE)
 
                             val actionBarHeight = Util.dips2pixels(56, activity)

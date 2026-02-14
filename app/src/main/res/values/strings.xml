@@ -72,6 +72,28 @@
     <string name="home_apps_hint">Review app rules and data usage</string>
     <string name="home_logs_hint">Inspect recent network activity</string>
 
+    <!-- Accessibility -->
+    <string name="action_expand">Expand details</string>
+    <string name="action_collapse">Collapse details</string>
+    <string name="action_navigate">Open</string>
+    <string name="action_toggle_firewall">Toggle firewall</string>
+    <string name="action_clear_search">Clear search</string>
+    <string name="search_settings">Search settings</string>
+    <string name="content_desc_security_status">Firewall security status</string>
+    <string name="content_desc_app_icon">App icon for %s</string>
+
+    <!-- Dashboard stats -->
+    <string name="stat_blocked_today">Blocked today</string>
+    <string name="stat_allowed_today">Allowed today</string>
+    <string name="stat_active_rules">Active rules</string>
+
+    <!-- Tooltips -->
+    <string name="tooltip_rcode">DNS response code sent for blocked domains. Default 3 (NXDOMAIN) means domain does not exist.</string>
+    <string name="tooltip_ttl">Minimum time-to-live for DNS cache entries in seconds.</string>
+    <string name="tooltip_pcap">Record all network packets for debugging. Creates large files.</string>
+    <string name="tooltip_filter">Intercept and analyze traffic. Required for per-address blocking. Uses more battery.</string>
+    <string name="tooltip_lockdown">Block all traffic except explicitly allowed apps. Use with caution.</string>
+
     <string name="menu_protocol_udp" translatable="false">UDP</string>
     <string name="menu_protocol_tcp" translatable="false">TCP</string>
     <string name="menu_protocol_other">Other</string>
