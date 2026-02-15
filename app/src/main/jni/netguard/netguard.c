@@ -305,6 +305,12 @@ Java_eu_faircode_netguard_ServiceSinkhole_jni_1pcap(
 }
 
 JNIEXPORT void JNICALL
+Java_eu_faircode_netguard_ServiceSinkhole_00024Companion_jni_1pcap(
+        JNIEnv *env, jobject instance, jstring name_, jint record_size, jint file_size) {
+    Java_eu_faircode_netguard_ServiceSinkhole_jni_1pcap(env, (jclass) instance, name_, record_size, file_size);
+}
+
+JNIEXPORT void JNICALL
 Java_eu_faircode_netguard_ServiceSinkhole_jni_1socks5(JNIEnv *env, jobject instance, jstring addr_,
                                                       jint port, jstring username_,
                                                       jstring password_) {

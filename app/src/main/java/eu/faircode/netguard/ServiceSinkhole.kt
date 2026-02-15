@@ -3363,7 +3363,11 @@ class ServiceSinkhole : VpnService() {
             }
 
             val pcap = if (enabled) File(context.getDir("data", Context.MODE_PRIVATE), "netguard.pcap") else null
-            jni_pcap(pcap?.absolutePath, recordSize, fileSize)
+            try {
+                jni_pcap(pcap?.absolutePath, recordSize, fileSize)
+            } catch (ex: UnsatisfiedLinkError) {
+                Log.e(TAG, ex.toString() + "\n" + Log.getStackTraceString(ex))
+            }
         }
 
         @Synchronized
