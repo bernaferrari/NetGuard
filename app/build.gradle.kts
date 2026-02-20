@@ -22,10 +22,10 @@ android {
 
     defaultConfig {
         applicationId = "eu.faircode.netguard"
-        versionName = "2.334"
+        versionName = "1"
         minSdk = 26
         targetSdk = 36
-        versionCode = 2025101201
+        versionCode = 1
 
         externalNativeBuild {
             cmake {
