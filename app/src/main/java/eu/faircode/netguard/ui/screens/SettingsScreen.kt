@@ -4,11 +4,9 @@ import android.net.Uri
 import android.os.Build
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.animation.core.FastOutSlowInEasing
-import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -35,12 +33,19 @@ import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.Dns
 import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.LightMode
+import androidx.compose.material.icons.filled.MobileOff
+import androidx.compose.material.icons.filled.PhoneAndroid
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Palette
-import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.BrightnessAuto
 import androidx.compose.material.icons.filled.Shield
+import androidx.compose.material.icons.filled.Wifi
+import androidx.compose.material.icons.filled.WifiOff
 import androidx.compose.material.icons.automirrored.filled.Forward
+import androidx.compose.material3.SegmentedButton
+import androidx.compose.material3.SegmentedButtonDefaults
+import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CardDefaults
@@ -70,6 +75,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -97,6 +103,7 @@ import eu.faircode.netguard.Widgets
 import eu.faircode.netguard.WorkScheduler
 import eu.faircode.netguard.data.Prefs
 import eu.faircode.netguard.ui.components.ExpandableContent
+import eu.faircode.netguard.ui.components.FirewallTile
 import eu.faircode.netguard.ui.theme.TouchTargets
 import eu.faircode.netguard.ui.theme.spacing
 import eu.faircode.netguard.ui.theme.Teal500
@@ -205,185 +212,127 @@ fun SettingsScreen(
             verticalArrangement = Arrangement.spacedBy(spacing.default),
         ) {
 
+
             // Appearance Section
             val appearanceTitle = stringResource(R.string.setting_section_appearance)
-            CollapsibleSettingsSection(
-                title = appearanceTitle,
-            ) {
+            CollapsibleSettingsSection(title = appearanceTitle) {
                 val currentTheme = str("theme", "teal")
                 val dynamicThemeEnabled = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
                 val modeOptions = listOf(
                     Triple("light", stringResource(R.string.setting_appearance_light), Icons.Default.LightMode),
                     Triple("dark", stringResource(R.string.setting_appearance_dark), Icons.Default.DarkMode),
-                    Triple("auto", stringResource(R.string.setting_appearance_auto), Icons.Default.Settings),
+                    Triple("auto", stringResource(R.string.setting_appearance_auto), Icons.Default.BrightnessAuto),
                 )
 
-                Surface(
+                // ── Dark-mode toggle — M3 segmented button ──
+                val selectedIndex = modeOptions.indexOfFirst { it.first == appearanceMode }
+                SingleChoiceSegmentedButtonRow(
                     modifier = Modifier.fillMaxWidth(),
-                    color = MaterialTheme.colorScheme.surfaceContainerLow,
-                    shape = MaterialTheme.shapes.large,
                 ) {
-                    Column(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(spacing.large),
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.spacedBy(spacing.extraLarge),
-                    ) {
-                        // Appearance Mode
-                        Column(
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                            verticalArrangement = Arrangement.spacedBy(spacing.medium),
-                        ) {
-                            Text(
-                                text = stringResource(R.string.setting_appearance_mode),
-                                style = MaterialTheme.typography.titleSmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            )
-                            Row(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(horizontal = spacing.small),
-                                horizontalArrangement = Arrangement.spacedBy(spacing.small),
-                                verticalAlignment = Alignment.CenterVertically,
-                            ) {
-                                modeOptions.forEach { (mode, label, icon) ->
-                                    AppearanceModeToggle(
-                                        label = label,
-                                        icon = icon,
-                                        isSelected = appearanceMode == mode,
-                                        onClick = { updateAppearance(mode) },
-                                        modifier = Modifier.weight(1f),
+                    modeOptions.forEachIndexed { index, (mode, label, icon) ->
+                        SegmentedButton(
+                            selected = index == selectedIndex,
+                            onClick = { updateAppearance(mode) },
+                            shape = SegmentedButtonDefaults.itemShape(
+                                index = index,
+                                count = modeOptions.size,
+                            ),
+                            icon = {
+                                SegmentedButtonDefaults.Icon(active = index == selectedIndex) {
+                                    Icon(
+                                        imageVector = icon,
+                                        contentDescription = null,
+                                        modifier = Modifier.size(SegmentedButtonDefaults.IconSize),
                                     )
                                 }
-                            }
-                        }
-
-                        HorizontalDivider(
-                            modifier = Modifier.fillMaxWidth(0.5f),
-                            color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f),
-                        )
-
-                        // Theme Palette
-                        Column(
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                            verticalArrangement = Arrangement.spacedBy(spacing.medium),
+                            },
                         ) {
-                            Text(
-                                text = stringResource(R.string.setting_theme_palette),
-                                style = MaterialTheme.typography.titleSmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            )
-
-                            val themeChoices = listOf(
-                                Pair("dynamic", null),
-                                Pair("teal", Teal500),
-                                Pair("blue", BluePrimary),
-                                Pair("purple", PurplePrimary),
-                                Pair("amber", AmberPrimary),
-                                Pair("orange", OrangePrimary),
-                                Pair("green", GreenPrimary),
-                            )
-                            Row(
-                                modifier = Modifier.fillMaxWidth(),
-                                horizontalArrangement = Arrangement.SpaceEvenly,
-                            ) {
-                                themeChoices.forEach { (theme, seedColor) ->
-                                    val isDynamic = theme == "dynamic"
-                                    val isEnabled = !isDynamic || dynamicThemeEnabled
-                                    val isSelected = currentTheme == theme
-                                    val displayColor = seedColor ?: MaterialTheme.colorScheme.primary
-                                    val selectionScale by animateFloatAsState(
-                                        targetValue = if (isSelected) 1.08f else 1f,
-                                        animationSpec = tween(
-                                            durationMillis = 180,
-                                            easing = FastOutSlowInEasing,
-                                        ),
-                                        label = "appearanceThemeScale",
-                                    )
-                                    val iconScale by animateFloatAsState(
-                                        targetValue = if (isSelected) 1.05f else 0.86f,
-                                        animationSpec = tween(
-                                            durationMillis = 180,
-                                            easing = FastOutSlowInEasing,
-                                        ),
-                                        label = "appearanceThemeIcon",
-                                    )
-
-                                    Box(
-                                        modifier = Modifier
-                                            .size(40.dp)
-                                            .graphicsLayer {
-                                                scaleX = selectionScale
-                                                scaleY = selectionScale
-                                            }
-                                            .clip(CircleShape)
-                                            .background(
-                                                color = if (isEnabled) displayColor else displayColor.copy(
-                                                    alpha = 0.3f
-                                                ),
-                                                shape = CircleShape,
-                                            )
-                                            .clickable(enabled = isEnabled) {
-                                                Prefs.putString("theme", theme)
-                                                Widgets.updateAll(context)
-                                            },
-                                        contentAlignment = Alignment.Center,
-                                    ) {
-                                        if (isSelected) {
-                                            Icon(
-                                                imageVector = Icons.Default.Check,
-                                                contentDescription = null,
-                                                modifier = Modifier
-                                                    .size(20.dp)
-                                                    .graphicsLayer {
-                                                        scaleX = iconScale
-                                                        scaleY = iconScale
-                                                    },
-                                                tint = Color.White,
-                                            )
-                                        } else if (isDynamic) {
-                                            Icon(
-                                                imageVector = Icons.Default.Palette,
-                                                contentDescription = stringResource(R.string.theme_dynamic),
-                                                modifier = Modifier
-                                                    .size(20.dp)
-                                                    .graphicsLayer {
-                                                        scaleX = iconScale
-                                                        scaleY = iconScale
-                                                    },
-                                                tint = Color.White,
-                                            )
-                                        }
-                                    }
-                                }
-                            }
-
-                            if (!dynamicThemeEnabled) {
-                                Text(
-                                    text = stringResource(R.string.setting_dynamic_unavailable),
-                                    style = MaterialTheme.typography.bodySmall,
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                    textAlign = TextAlign.Center,
-                                )
-                            }
+                            Text(text = label)
                         }
                     }
+                }
+
+                // ── Color theme swatches ──
+                val themeChoices = listOf(
+                    Pair("dynamic", null as Color?),
+                    Pair("teal", Teal500 as Color?),
+                    Pair("blue", BluePrimary as Color?),
+                    Pair("purple", PurplePrimary as Color?),
+                    Pair("amber", AmberPrimary as Color?),
+                    Pair("orange", OrangePrimary as Color?),
+                    Pair("green", GreenPrimary as Color?),
+                )
+
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = spacing.small),
+                    horizontalArrangement = Arrangement.SpaceEvenly,
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    themeChoices.forEach { (theme, seedColor) ->
+                        ThemeSwatch(
+                            theme = theme,
+                            seedColor = seedColor,
+                            isSelected = currentTheme == theme,
+                            isEnabled = theme != "dynamic" || dynamicThemeEnabled,
+                            dynamicColor = MaterialTheme.colorScheme.primary,
+                            onClick = {
+                                Prefs.putString("theme", theme)
+                                Widgets.updateAll(context)
+                            },
+                        )
+                    }
+                }
+
+                if (!dynamicThemeEnabled) {
+                    Text(
+                        text = stringResource(R.string.setting_dynamic_unavailable),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.fillMaxWidth(),
+                    )
                 }
             }
 
             // Firewall Section
             val firewallTitle = stringResource(R.string.setting_section_firewall)
             CollapsibleSettingsSection(title = firewallTitle) {
-                SettingTogglePairRow(
-                    firstTitle = stringResource(R.string.setting_whitelist_wifi),
-                    firstChecked = bool("whitelist_wifi", true),
-                    onFirstCheckedChange = { updateFlag("whitelist_wifi", it, reload = true) },
-                    secondTitle = stringResource(R.string.setting_whitelist_other),
-                    secondChecked = bool("whitelist_other", true),
-                    onSecondCheckedChange = { updateFlag("whitelist_other", it, reload = true) },
-                    isFirst = true,
-                )
+                // Main allow/block toggles — uses the same FirewallTile as per-app detail
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(spacing.extraSmall),
+                ) {
+                    FirewallTile(
+                        allowedIcon = Icons.Default.Wifi,
+                        blockedIcon = Icons.Default.WifiOff,
+                        label = stringResource(R.string.title_wifi),
+                        allowed = !bool("whitelist_wifi", true),
+                        onToggle = { updateFlag("whitelist_wifi", !bool("whitelist_wifi", true), reload = true) },
+                        shape = settingPairTileShape(
+                            isLeadingTile = true,
+                            isFirstRow = true,
+                            isLastRow = false,
+                            baseShape = MaterialTheme.shapes.small,
+                        ),
+                        modifier = Modifier.weight(1f),
+                    )
+                    FirewallTile(
+                        allowedIcon = Icons.Default.PhoneAndroid,
+                        blockedIcon = Icons.Default.MobileOff,
+                        label = stringResource(R.string.title_mobile),
+                        allowed = !bool("whitelist_other", true),
+                        onToggle = { updateFlag("whitelist_other", !bool("whitelist_other", true), reload = true) },
+                        shape = settingPairTileShape(
+                            isLeadingTile = false,
+                            isFirstRow = true,
+                            isLastRow = false,
+                            baseShape = MaterialTheme.shapes.small,
+                        ),
+                        modifier = Modifier.weight(1f),
+                    )
+                }
                 SettingToggleRow(
                     title = stringResource(R.string.setting_whitelist_roaming),
                     checked = bool("whitelist_roaming", true),
@@ -843,77 +792,81 @@ fun SettingsScreen(
     }
 }
 
+/**
+ * A compact color-theme swatch circle with animated selection state.
+ * Touch target is 44dp but the visible circle is 32dp to keep things neat.
+ */
 @Composable
-private fun AppearanceModeToggle(
-    label: String,
-    icon: ImageVector,
+private fun ThemeSwatch(
+    theme: String,
+    seedColor: Color?,
     isSelected: Boolean,
+    isEnabled: Boolean,
+    dynamicColor: Color,
     onClick: () -> Unit,
-    modifier: Modifier = Modifier,
 ) {
-    val cornerRadius by animateDpAsState(
-        targetValue = if (isSelected) 26.dp else 16.dp,
-        animationSpec = tween(durationMillis = 220),
-        label = "appearanceModeCornerRadius",
+    val baseColor = seedColor ?: dynamicColor
+    val displayColor = if (isEnabled) baseColor else baseColor.copy(alpha = 0.3f)
+    val isDynamic = theme == "dynamic"
+
+    // Outer ring alpha — only visible when selected
+    val ringAlpha by animateFloatAsState(
+        targetValue = if (isSelected) 1f else 0f,
+        animationSpec = tween(durationMillis = 200),
+        label = "ring_$theme",
     )
-    val borderWidth by animateDpAsState(
-        targetValue = if (isSelected) 2.dp else 1.dp,
-        animationSpec = tween(durationMillis = 220),
-        label = "appearanceModeBorderWidth",
+    // Inner circle scale — shrinks when selected to reveal the ring gap
+    val fillScale by animateFloatAsState(
+        targetValue = if (isSelected) 0.7f else 1f,
+        animationSpec = spring(dampingRatio = 0.5f, stiffness = 500f),
+        label = "fill_$theme",
     )
-    OutlinedCard(
-        onClick = onClick,
-        modifier = modifier
-            .fillMaxWidth()
-            .heightIn(min = 84.dp)
-            .semantics { role = Role.RadioButton },
-        shape = RoundedCornerShape(cornerRadius),
-        colors = CardDefaults.outlinedCardColors(
-            containerColor = if (isSelected) {
-                MaterialTheme.colorScheme.primaryContainer
-            } else {
-                MaterialTheme.colorScheme.surface
-            },
-        ),
-        border = BorderStroke(
-            width = borderWidth,
-            color = if (isSelected) {
-                MaterialTheme.colorScheme.primary
-            } else {
-                MaterialTheme.colorScheme.outlineVariant
-            },
-        ),
+    val iconAlpha by animateFloatAsState(
+        targetValue = if (isSelected) 1f else if (isDynamic) 0.85f else 0f,
+        animationSpec = tween(durationMillis = 200),
+        label = "icon_$theme",
+    )
+
+    // 44dp tap target wrapping a 32dp visible circle
+    Box(
+        modifier = Modifier
+            .size(44.dp)
+            .clip(CircleShape)
+            .clickable(enabled = isEnabled, onClick = onClick),
+        contentAlignment = Alignment.Center,
     ) {
+        // Outer ring (only drawn when selected)
+        if (ringAlpha > 0f) {
+            Box(
+                modifier = Modifier
+                    .size(42.dp)
+                    .drawBehind {
+                        drawCircle(
+                            color = displayColor.copy(alpha = ringAlpha),
+                            radius = size.minDimension / 2f,
+                            style = androidx.compose.ui.graphics.drawscope.Stroke(width = 2.dp.toPx()),
+                        )
+                    },
+            )
+        }
+
+        // Inner filled circle — always 36dp, scales down when selected
         Box(
             modifier = Modifier
-                .fillMaxSize()
-                .padding(horizontal = 8.dp, vertical = 8.dp),
+                .size(36.dp)
+                .graphicsLayer { scaleX = fillScale; scaleY = fillScale }
+                .clip(CircleShape)
+                .background(displayColor),
             contentAlignment = Alignment.Center,
         ) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.spacedBy(4.dp, Alignment.CenterVertically),
-            ) {
+            if (isSelected || isDynamic) {
                 Icon(
-                    imageVector = icon,
-                    contentDescription = label,
-                    modifier = Modifier.size(22.dp),
-                    tint = if (isSelected) {
-                        MaterialTheme.colorScheme.onPrimaryContainer
-                    } else {
-                        MaterialTheme.colorScheme.onSurfaceVariant
-                    },
-                )
-                Text(
-                    text = label,
-                    style = MaterialTheme.typography.labelMedium,
-                    textAlign = TextAlign.Center,
-                    color = if (isSelected) {
-                        MaterialTheme.colorScheme.onPrimaryContainer
-                    } else {
-                        MaterialTheme.colorScheme.onSurfaceVariant
-                    },
-                    maxLines = 1,
+                    imageVector = if (isSelected) Icons.Default.Check else Icons.Default.Palette,
+                    contentDescription = null,
+                    modifier = Modifier
+                        .size(16.dp)
+                        .graphicsLayer { alpha = iconAlpha },
+                    tint = Color.White,
                 )
             }
         }

@@ -99,6 +99,7 @@ import androidx.core.graphics.drawable.toBitmap
 import eu.faircode.netguard.DatabaseHelper
 import eu.faircode.netguard.R
 import eu.faircode.netguard.Rule
+import eu.faircode.netguard.ui.components.FirewallTile
 import eu.faircode.netguard.ui.main.persistRule
 import eu.faircode.netguard.ui.theme.spacing
 import java.util.Locale
@@ -274,30 +275,42 @@ fun AppRuleDetailScreen(
                 SectionLabel(stringResource(R.string.setting_section_firewall))
                 Row(
                     modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(12.dp),
+                    horizontalArrangement = Arrangement.spacedBy(spacing.extraSmall),
                 ) {
                     FirewallTile(
                         allowedIcon = Icons.Default.Wifi,
                         blockedIcon = Icons.Default.WifiOff,
-                        label = "Wi-Fi",
+                        label = stringResource(R.string.title_wifi),
                         allowed = !rule.wifi_blocked,
                         onToggle = {
                             haptic.performHapticFeedback(HapticFeedbackType.LongPress)
                             rule.wifi_blocked = !rule.wifi_blocked
                             onToggle()
                         },
+                        shape = detailPairTileShape(
+                            isLeadingTile = true,
+                            isFirstRow = true,
+                            isLastRow = true,
+                            baseShape = MaterialTheme.shapes.small,
+                        ),
                         modifier = Modifier.weight(1f),
                     )
                     FirewallTile(
                         allowedIcon = Icons.Default.PhoneAndroid,
                         blockedIcon = Icons.Default.MobileOff,
-                        label = "Mobile",
+                        label = stringResource(R.string.title_mobile),
                         allowed = !rule.other_blocked,
                         onToggle = {
                             haptic.performHapticFeedback(HapticFeedbackType.LongPress)
                             rule.other_blocked = !rule.other_blocked
                             onToggle()
                         },
+                        shape = detailPairTileShape(
+                            isLeadingTile = false,
+                            isFirstRow = true,
+                            isLastRow = true,
+                            baseShape = MaterialTheme.shapes.small,
+                        ),
                         modifier = Modifier.weight(1f),
                     )
                 }
@@ -412,140 +425,6 @@ fun AppRuleDetailScreen(
     }
 }
 
-// ─── Components ─────────────────────────────────────────────────────────────────
-
-@Composable
-private fun FirewallTile(
-    allowedIcon: ImageVector,
-    blockedIcon: ImageVector,
-    label: String,
-    allowed: Boolean,
-    onToggle: () -> Unit,
-    modifier: Modifier = Modifier,
-) {
-    val blocked = !allowed
-    val cornerRadius by animateDpAsState(
-        targetValue = if (blocked) 32.dp else 20.dp,
-        animationSpec = tween(350),
-        label = "ftCorner",
-    )
-    val containerColor by animateColorAsState(
-        targetValue = if (blocked) MaterialTheme.colorScheme.errorContainer
-        else Color.Transparent,
-        animationSpec = tween(350),
-        label = "ftBg",
-    )
-    val borderColor by animateColorAsState(
-        targetValue = if (blocked) Color.Transparent
-        else MaterialTheme.colorScheme.outlineVariant,
-        animationSpec = tween(350),
-        label = "ftBorder",
-    )
-    val accent by animateColorAsState(
-        targetValue = if (blocked) MaterialTheme.colorScheme.error
-        else MaterialTheme.colorScheme.onSurfaceVariant,
-        animationSpec = tween(350),
-        label = "ftAccent",
-    )
-    val contentColor by animateColorAsState(
-        targetValue = if (blocked) MaterialTheme.colorScheme.onErrorContainer
-        else MaterialTheme.colorScheme.onSurface,
-        animationSpec = tween(350),
-        label = "ftContent",
-    )
-    val iconBgColor by animateColorAsState(
-        targetValue = if (blocked) MaterialTheme.colorScheme.error.copy(alpha = 0.12f)
-        else MaterialTheme.colorScheme.surfaceContainerHigh,
-        animationSpec = tween(350),
-        label = "ftIconBg",
-    )
-    val tileShape = RoundedCornerShape(cornerRadius)
-
-    Surface(
-        modifier = modifier,
-        shape = tileShape,
-        color = containerColor,
-        border = androidx.compose.foundation.BorderStroke(
-            width = if (blocked) 0.dp else 1.dp,
-            color = borderColor,
-        ),
-    ) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .clip(tileShape)
-                .clickable(onClick = onToggle)
-                .padding(20.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            // Hero icon
-            Box(
-                modifier = Modifier
-                    .size(56.dp)
-                    .clip(CircleShape)
-                    .background(iconBgColor),
-                contentAlignment = Alignment.Center,
-            ) {
-                AnimatedContent(
-                    targetState = blocked,
-                    transitionSpec = {
-                        (scaleIn(tween(250)) + fadeIn(tween(250)))
-                            .togetherWith(scaleOut(tween(150)) + fadeOut(tween(150)))
-                    },
-                    label = "ftIcon",
-                ) { isBlocked ->
-                    Icon(
-                        imageVector = if (isBlocked) blockedIcon else allowedIcon,
-                        contentDescription = null,
-                        tint = accent,
-                        modifier = Modifier.size(26.dp),
-                    )
-                }
-            }
-
-            Spacer(modifier = Modifier.height(14.dp))
-
-            Text(
-                text = label,
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold,
-                color = contentColor,
-                textAlign = TextAlign.Center,
-            )
-
-            Spacer(modifier = Modifier.height(6.dp))
-
-            // Status badge
-            AnimatedContent(
-                targetState = blocked,
-                transitionSpec = {
-                    (fadeIn(tween(250)) + scaleIn(tween(250), initialScale = 0.9f))
-                        .togetherWith(fadeOut(tween(150)) + scaleOut(tween(150), targetScale = 0.9f))
-                },
-                label = "ftStatus",
-            ) { isBlocked ->
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(4.dp),
-                ) {
-                    Icon(
-                        imageVector = if (isBlocked) Icons.Default.Block
-                        else Icons.Default.CheckCircle,
-                        contentDescription = null,
-                        modifier = Modifier.size(14.dp),
-                        tint = accent,
-                    )
-                    Text(
-                        text = if (isBlocked) "Blocked" else "Allowed",
-                        style = MaterialTheme.typography.labelSmall,
-                        fontWeight = FontWeight.SemiBold,
-                        color = accent,
-                    )
-                }
-            }
-        }
-    }
-}
 
 @Composable
 private fun ToggleRow(
@@ -673,6 +552,26 @@ private fun detailSettingsItemShape(
         topEnd = if (isFirst) emphasis.topEnd else base.topEnd,
         bottomEnd = if (isLast) emphasis.bottomEnd else base.bottomEnd,
         bottomStart = if (isLast) emphasis.bottomStart else base.bottomStart,
+    )
+}
+
+@Composable
+private fun detailPairTileShape(
+    isLeadingTile: Boolean,
+    isFirstRow: Boolean,
+    isLastRow: Boolean,
+    baseShape: Shape,
+): Shape {
+    if (!isFirstRow && !isLastRow) {
+        return baseShape
+    }
+    val base = baseShape as? RoundedCornerShape ?: return baseShape
+    val emphasis = MaterialTheme.shapes.large as? RoundedCornerShape ?: return baseShape
+    return RoundedCornerShape(
+        topStart = if (isLeadingTile && isFirstRow) emphasis.topStart else base.topStart,
+        topEnd = if (!isLeadingTile && isFirstRow) emphasis.topEnd else base.topEnd,
+        bottomEnd = if (!isLeadingTile && isLastRow) emphasis.bottomEnd else base.bottomEnd,
+        bottomStart = if (isLeadingTile && isLastRow) emphasis.bottomStart else base.bottomStart,
     )
 }
 
