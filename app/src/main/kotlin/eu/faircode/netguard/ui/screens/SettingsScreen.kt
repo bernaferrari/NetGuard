@@ -6,12 +6,7 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.FastOutSlowInEasing
-import androidx.compose.animation.core.LinearEasing
-import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloatAsState
-import androidx.compose.animation.core.animateFloat
-import androidx.compose.animation.core.infiniteRepeatable
-import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
@@ -838,7 +833,7 @@ private fun ThemeSwatch(
         targetValue = if (isSelected) {
             MaterialTheme.colorScheme.outline
         } else {
-            MaterialTheme.colorScheme.outlineVariant
+            Color.Transparent
         },
         animationSpec = tween(durationMillis = 220, easing = FastOutSlowInEasing),
         label = "ringColor_$theme",
@@ -858,7 +853,7 @@ private fun ThemeSwatch(
     )
     // Ring stays mounted and morphs with the same corner model as the fill.
     val ringAlpha by animateFloatAsState(
-        targetValue = if (isSelected) 0.95f else 0.08f,
+        targetValue = if (isSelected) 0.95f else 0f,
         animationSpec = tween(durationMillis = 220, easing = FastOutSlowInEasing),
         label = "ring_$theme",
     )
@@ -872,23 +867,8 @@ private fun ThemeSwatch(
         animationSpec = spring(dampingRatio = 0.66f, stiffness = 360f),
         label = "tilt_$theme",
     )
-    val idleSpin =
-        if (isSelected) {
-            val infiniteTransition = rememberInfiniteTransition(label = "idleSpin_$theme")
-            infiniteTransition.animateFloat(
-                initialValue = 0f,
-                targetValue = 360f,
-                animationSpec = infiniteRepeatable(
-                    animation = tween(durationMillis = 4400, easing = LinearEasing),
-                    repeatMode = RepeatMode.Restart,
-                ),
-                label = "idleSpinAnim_$theme",
-            ).value
-        } else {
-            0f
-        }
-    val ringRotation = tiltRotation + (idleSpin * 0.10f)
-    val fillRotation = -(tiltRotation * 0.55f) - (idleSpin * 0.06f)
+    val ringRotation = tiltRotation
+    val fillRotation = -(tiltRotation * 0.55f)
 
     val iconAlpha by animateFloatAsState(
         targetValue = if (isSelected) 1f else if (isDynamic) 0.70f else 0f,

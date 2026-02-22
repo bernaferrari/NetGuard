@@ -38,6 +38,7 @@ import androidx.compose.material.icons.filled.Block
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Security
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Tune
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -246,9 +247,15 @@ private fun NotificationPermissionCard(
     onOpenSettings: () -> Unit,
 ) {
     val spacing = MaterialTheme.spacing
+    val actionLabel =
+        if (canRequestPermission) {
+            stringResource(R.string.action_enable)
+        } else {
+            stringResource(R.string.menu_settings)
+        }
     Card(
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.secondaryContainer,
+            containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
         ),
         shape = MaterialTheme.shapes.extraLarge,
     ) {
@@ -256,28 +263,18 @@ private fun NotificationPermissionCard(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(spacing.medium),
-            verticalArrangement = Arrangement.spacedBy(spacing.small),
+            verticalArrangement = Arrangement.spacedBy(spacing.medium),
         ) {
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(spacing.small),
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Notifications,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onSecondaryContainer,
-                )
-                Text(
-                    text = stringResource(R.string.title_enable_notify),
-                    style = MaterialTheme.typography.titleSmall,
-                    color = MaterialTheme.colorScheme.onSecondaryContainer,
-                    fontWeight = FontWeight.SemiBold,
-                )
-            }
+            Text(
+                text = stringResource(R.string.channel_access),
+                style = MaterialTheme.typography.titleMedium,
+                color = MaterialTheme.colorScheme.onSurface,
+                fontWeight = FontWeight.SemiBold,
+            )
             Text(
                 text = stringResource(R.string.msg_notifications),
                 style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSecondaryContainer,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
             FilledTonalButton(
                 onClick = {
@@ -287,15 +284,14 @@ private fun NotificationPermissionCard(
                         onOpenSettings()
                     }
                 },
-                modifier = Modifier.align(Alignment.End),
+                modifier = Modifier.fillMaxWidth(),
             ) {
-                Text(
-                    text = if (canRequestPermission) {
-                        stringResource(R.string.action_enable)
-                    } else {
-                        stringResource(R.string.menu_settings)
-                    },
+                Icon(
+                    imageVector = if (canRequestPermission) Icons.Default.Notifications else Icons.Default.Settings,
+                    contentDescription = null,
                 )
+                Box(modifier = Modifier.size(spacing.extraSmall))
+                Text(text = actionLabel)
             }
         }
     }
