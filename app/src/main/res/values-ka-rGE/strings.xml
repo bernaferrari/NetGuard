@@ -1,2 +1,453 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name" translatable="false">NetGuard Next</string>
+    <string name="app_description">NetGuard Next გთავაზობთ ინტერნეტთან წვდომის დაბლოკვის მარტივ და მოწინავე გზებს - რუთი არ არის საჭირო. აპებსა და მისამართებს ინდივიდუალურად შეიძლება მიეცეთ ან აეკრძალოთ წვდომა თქვენს Wi-Fi და/ან მობილურ კავშირზე.</string>
+    <string name="app_copyright" translatable="false">Copyright \u00A9 2015–2025 by M. Bokhorst (M66B)</string>
+    <string name="app_android">NetGuard-ს ესაჭიროება Android 5.1 ან უფრო ახალი</string>
+    <string name="app_eula" translatable="false">THIS SOFTWARE IS PROVIDED BY THE AUTHOR \'\'AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
+    <string name="app_privacy"><a href="https://www.netguard.me/privacy/">კონფიდენციალურობის პოლიტიკა</a></string>
+    <string name="app_first">დიდი ყურადღება დაეთმო NetGuard-ის შემუშავებას და ტესტირებას, თუმცა შეუძლებელია იმის გარანტია, რომ NetGuard გამართულად იმუშავებს ყველა მოწყობილობაზე.</string>
+    <string name="app_agree">ვეთანხმები</string>
+    <string name="app_disagree">არ ვეთანხმები</string>
+    <string name="app_support">NetGuard-ს სჭირდება თქვენი დახმარება. შეეხეთ პრო ფუნქციების შესაძენად პროექტის გასაგრძელებლად.</string>
+    <string name="app_qap">
+        Google აპირებდა აპლიკაციის ამოღებას Play Store-დან, რადგან ის ითხოვდა ნებართვას ყველა აპლიკაციის გამოსაკითხად.
+        ხუთი საჩივარი და კარგი დასაბუთება იმის შესახებ, თუ რატომ არის საჭირო ეს ნებართვა, უარყოფილი იქნა.
+        აპლიკაციის ეს ვერსია აღარ ითხოვს ამ ნებართვას,
+        და ამის მიუხედავად, თითქმის ყველა აპლიკაცია კვლავ იქნება ჩამოთვლილი,
+        ზოგიერთი (სისტემური) აპლიკაციის გარდა, რომელთა ხელით გაშვება შეუძლებელია Android აპლიკაციების სიიდან.
+        ამ აპლიკაციების ინტერნეტ ტრაფიკი ყოველთვის იქნება დაშვებული, რათა თქვენმა მოწყობილობამ სწორად იმუშაოს.
+        თუ ფიქრობთ, რომ ეს პრობლემაა, შეგიძლიათ განაახლოთ აპლიკაციის GitHub ვერსიაზე და კვლავ მართოთ ყველა (სისტემური) აპლიკაცია.
+    </string>
+
+    <string name="channel_foreground">გაშვებული სერვისები</string>
+    <string name="channel_notify">ზოგადი შეტყობინებები</string>
+    <string name="channel_access">წვდომის შეტყობინებები</string>
+
+    <string name="menu_search">აპის ძიება</string>
+    <string name="menu_filter">აპების ფილტრი</string>
+    <string name="menu_app_user">მომხმარებლის აპების ჩვენება</string>
+    <string name="menu_app_system">სისტემური აპების ჩვენება</string>
+    <string name="menu_app_nointernet">ინტერნეტის არმქონე აპების ჩვენება</string>
+    <string name="menu_app_disabled">გათიშული აპების ჩვენება</string>
+    <string name="menu_sort">აპების დახარისხება</string>
+    <string name="menu_sort_name">დახარისხება სახელით</string>
+    <string name="menu_sort_uid">დახარისხება UID-ით</string>
+    <string name="menu_sort_data">დახარისხება მონაცემების გამოყენებით</string>
+    <string name="menu_launch">აპის გაშვება</string>
+    <string name="menu_log">ჟურნალის ჩვენება</string>
+    <string name="menu_settings">პარამეტრები</string>
+    <string name="menu_home">მთავარი</string>
+    <string name="menu_invite">მოწვევა</string>
+    <string name="menu_legend">ლეგენდა</string>
+    <string name="menu_support">მხარდაჭერა</string>
+    <string name="menu_about">შესახებ</string>
+    <string name="menu_apps">სხვა აპები</string>
+    <string name="menu_firewall">Firewall</string>
+    <string name="status_enabled">Firewall ჩართულია</string>
+    <string name="status_disabled">Firewall გამორთულია</string>
+    <string name="widget_firewall_enabled">Firewall ჩართული</string>
+    <string name="widget_firewall_disabled">Firewall გამორთული</string>
+    <string name="widget_lockdown_enabled">ბლოკირება ჩართული</string>
+    <string name="widget_lockdown_disabled">ბლოკირება გამორთული</string>
+    <string name="notify_traffic_title">ტრაფიკის მონიტორი</string>
+    <string name="notify_traffic_summary">ზევით %1$s • ქვევით %2$s • პიკი %3$s</string>
+    <string name="notify_traffic_debug">სესიები %1$d/%2$d/%3$d • ფაილები %4$d/%5$d</string>
+    <string name="ui_loading">იტვირთება…</string>
+    <string name="ui_empty_logs_title">ტრაფიკი ჯერ არ არის</string>
+    <string name="ui_empty_logs_body">კავშირების გამოჩენისთანავე, ისინი აქ გამოჩნდება.</string>
+    <string name="ui_empty_apps_title">აპები ვერ მოიძებნა</string>
+    <string name="ui_empty_apps_body">სცადეთ სიის განახლება.</string>
+    <string name="ui_empty_dns_title">ჯერ არ არის გარკვეული DNS</string>
+    <string name="ui_empty_dns_body">DNS პასუხები აქ გამოჩნდება დათვალიერების შემდეგ.</string>
+    <string name="ui_dns_filter_empty">ამ ფილტრს არცერთი DNS ჩანაწერი არ ემთხვევა.</string>
+    <string name="ui_empty_forwarding_title">გადამისამართების წესები არ არის</string>
+    <string name="ui_empty_forwarding_body">დაამატეთ წესი ტრაფიკის გადამისამართების დასაწყებად.</string>
+    <string name="ui_forwarding_filter_empty">ამ ფილტრს არცერთი გადამისამართების წესი არ ემთხვევა.</string>
+    <string name="ui_empty_pro_body">მხარდაჭერა ხსნის დამატებით ფუნქციებს და ინარჩუნებს პროექტს.</string>
+    <string name="ui_empty_pro_details">პრო ვერსია ხსნის: ფილტრაციას, ჟურნალებს, შეტყობინებებს, თემებს და სიჩქარის ლიმიტებს.</string>
+    <string name="ui_home_hint">აკონტროლეთ ინტერნეტთან წვდომა ყველა აპისთვის.</string>
+    <string name="ui_home_quick_actions">სწრაფი მოქმედებები</string>
+    <string name="ui_apps_title">Firewall</string>
+    <string name="ui_logs_title">ტრაფიკის ჟურნალი</string>
+    <string name="ui_logs_filters">ფილტრები</string>
+    <string name="ui_logs_filter_status">სტატუსი</string>
+    <string name="ui_logs_filter_protocol">პროტოკოლი</string>
+    <string name="ui_logs_filter_view">ხედი</string>
+    <string name="ui_logs_group_timeline">ქრონოლოგია</string>
+    <string name="ui_logs_group_by_app">აპის მიხედვით</string>
+    <string name="ui_logs_unknown_source">უცნობი წყარო</string>
+    <string name="ui_settings_title">პარამეტრები</string>
+    <string name="ui_dns_title">გარკვეული DNS</string>
+    <string name="ui_forwarding_title">პორტის გადამისამართება</string>
+    <string name="ui_dns_hint">ახლახან გარკვეული დომენები და პასუხები.</string>
+    <string name="ui_forwarding_hint">მართეთ გადამისამართების წესები და სამიზნე აპები.</string>
+    <string name="ui_dns_active">აქტიური</string>
+    <string name="ui_rule_custom">მორგებული</string>
+    <string name="ui_dns_expired">ვადაგასული</string>
+    <string name="ui_filter_all">ყველა</string>
+    <string name="ui_filter_empty">ამ ფილტრს არცერთი აპი არ ემთხვევა.</string>
+    <string name="ui_apps_search_empty">ამ ძიებას არცერთი აპი არ ემთხვევა.</string>
+    <string name="ui_learn_more">გაიგეთ მეტი</string>
+    <string name="status_running">ტრაფიკი იფილტრება</string>
+    <string name="status_not_running">ტრაფიკი არ იფილტრება</string>
+    <string name="action_enable">ჩართვა</string>
+    <string name="action_disable">გამორთვა</string>
+    <string name="home_apps_hint">გადახედეთ აპის წესებს და მონაცემთა გამოყენებას</string>
+    <string name="home_logs_hint">შეამოწმეთ ბოლო ქსელური აქტივობა</string>
+
+    <!-- Accessibility -->
+    <string name="action_expand">დეტალების გაშლა</string>
+    <string name="action_collapse">დეტალების ჩაკეცვა</string>
+    <string name="action_navigate">გახსნა</string>
+    <string name="action_toggle_firewall">Firewall-ის გადართვა</string>
+    <string name="action_clear_search">ძიების გასუფთავება</string>
+    <string name="search_settings">პარამეტრების ძიება</string>
+    <string name="content_desc_security_status">Firewall უსაფრთხოების სტატუსი</string>
+    <string name="content_desc_app_icon">აპის ხატულა %s-ისთვის</string>
+    <string name="content_desc_show_info">ინფორმაციის ჩვენება %1$s-ის შესახებ</string>
+
+    <!-- Dashboard stats -->
+    <string name="stat_blocked_today">დაბლოკილი</string>
+    <string name="stat_allowed_today">დაშვებული</string>
+    <string name="stat_active_rules">აქტიური წესები</string>
+
+    <!-- Tooltips -->
+    <string name="tooltip_rcode">DNS პასუხის კოდი გაგზავნილი დაბლოკილი დომენებისთვის. ნაგულისხმევი 3 (NXDOMAIN) ნიშნავს, რომ დომენი არ არსებობს.</string>
+    <string name="tooltip_ttl">მინიმალური სიცოცხლის ხანგრძლივობა (TTL) DNS ქეშის ჩანაწერებისთვის წამებში.</string>
+    <string name="tooltip_pcap">ჩაწერეთ ყველა ქსელური პაკეტი გამართვისთვის. ქმნის დიდ ფაილებს.</string>
+    <string name="tooltip_filter">ტრაფიკის ჩაჭერა და ანალიზი. საჭიროა თითოეული მისამართის დაბლოკვისთვის. იყენებს მეტ ბატარეას.</string>
+    <string name="tooltip_lockdown">დაბლოკეთ მთელი ტრაფიკი, გარდა მკაფიოდ დაშვებული აპებისა. გამოიყენეთ სიფრთხილით.</string>
+
+    <string name="menu_protocol_udp" translatable="false">UDP</string>
+    <string name="menu_protocol_tcp" translatable="false">TCP</string>
+    <string name="menu_protocol_other">სხვა</string>
+    <string name="menu_traffic_allowed">დაშვებული</string>
+    <string name="menu_traffic_blocked">დაბლოკილი</string>
+    <string name="menu_live">ცოცხალი განახლებები</string>
+    <string name="menu_refresh">განახლება</string>
+    <string name="menu_ok">კარგი</string>
+    <string name="menu_cancel">გაუქმება</string>
+    <string name="menu_resolve">სახელების ჩვენება</string>
+    <string name="menu_organization">ორგანიზაციის ჩვენება</string>
+    <string name="menu_pcap_enabled">PCAP ჩართულია</string>
+    <string name="menu_pcap_export">PCAP ექსპორტი</string>
+    <string name="menu_clear">გასუფთავება</string>
+    <string name="menu_export">ექსპორტი</string>
+    <string name="menu_reset">ჩამოყრა</string>
+
+    <string name="menu_add">დამატება</string>
+    <string name="menu_delete">წაშლა</string>
+
+    <string name="menu_cleanup">გასუფთავება</string>
+
+    <string name="title_protocol">პროტოკოლი</string>
+    <string name="title_dport">წყარო პორტი</string>
+    <string name="title_raddr">დანიშნულების მისამართი</string>
+    <string name="title_rport">დანიშნულების პორტი</string>
+    <string name="title_ruid">სამიზნე აპი</string>
+    <string name="title_external">გარე სერვერისთვის აირჩიეთ \'არავინ\'</string>
+
+    <string name="setting_defaults">ნაგულისხმევი (თეთრი/შავი სია)</string>
+    <string name="setting_whitelist_wifi">Wi-Fi-ს დაბლოკვა</string>
+    <string name="setting_whitelist_other">მობილურის დაბლოკვა</string>
+    <string name="setting_screen_wifi">Wi-Fi-ს დაშვება როცა ეკრანი ჩართულია</string>
+    <string name="setting_screen_other">მობილურის დაშვება როცა ეკრანი ჩართულია</string>
+    <string name="setting_whitelist_roaming">როუმინგის დაბლოკვა</string>
+
+    <string name="setting_options">პარამეტრები</string>
+    <string name="setting_theme">თემა: %1$s</string>
+    <string name="setting_dark">მუქი თემის გამოყენება</string>
+    <string name="setting_theme_palette">ფერის სტილის არჩევა</string>
+    <string name="setting_dynamic_unavailable">დინამიური ფერები საჭიროებს Android 12-ს ან უფრო ახალს.</string>
+    <string name="setting_appearance_mode">გარეგნობის რეჟიმი</string>
+    <string name="setting_appearance_mode_title">მუქი რეჟიმი</string>
+    <string name="setting_appearance_mode_summary">აირჩიეთ გამორთული, ჩართული ან სისტემის მიხედვით.</string>
+    <string name="setting_appearance_preview">მიმდინარე: %1$s · %2$s</string>
+    <string name="setting_appearance_auto">ავტო</string>
+    <string name="setting_appearance_light">ნათელი</string>
+    <string name="setting_appearance_dark">მუქი</string>
+    <string name="theme_dynamic" translatable="false">Dynamic</string>
+    <string name="setting_install">შეტყობინება ახალ ინსტალაციაზე</string>
+    <string name="setting_screen_on">\'როცა ეკრანი ჩართულია\' წესების გამოყენება</string>
+    <string name="setting_auto">ავტო ჩართვა %1$s წუთის შემდეგ</string>
+    <string name="setting_delay">ეკრანის გამორთვის დაყოვნება %1$s წუთით</string>
+    <string name="setting_update">განახლებების შემოწმება</string>
+    <string name="setting_update_now">შეამოწმეთ ახლა</string>
+    <string name="setting_update_checking">დამოწმება...</string>
+
+    <string name="setting_network_options">ქსელის პარამეტრები</string>
+    <string name="setting_subnet">ქვექსელის მარშრუტიზაცია</string>
+    <string name="setting_tethering">ინტერნეტის გაზიარების დაშვება</string>
+    <string name="setting_lan">LAN წვდომის დაშვება</string>
+    <string name="setting_ip6">IPv6 ტრაფიკის ჩართვა</string>
+    <string name="setting_wifi_home">Wi-Fi სახლის ქსელები: %1$s</string>
+    <string name="setting_metered">ლიმიტირებული Wi-Fi ქსელების მართვა</string>
+    <string name="setting_metered_2g">2G-ს განხილვაულიმიტოდ</string>
+    <string name="setting_metered_3g">3G-ს განხილვაულიმიტოდ</string>
+    <string name="setting_metered_4g">LTE-ს განხილვაულიმიტოდ</string>
+    <string name="setting_national_roaming">ეროვნული როუმინგის იგნორირება</string>
+    <string name="setting_eu_roaming">ევროკავშირის როუმინგის იგნორირება</string>
+    <string name="setting_call">გათიშვა ზარის დროს</string>
+    <string name="setting_lockdown_wifi">Wi-Fi-ს ბლოკირება</string>
+    <string name="setting_lockdown_other">მობილურის ბლოკირება</string>
+    <string name="setting_reload_onconnectivity">ხელახალი ჩატვირთვა კავშირის ყოველი ცვლილებისას</string>
+
+    <string name="setting_advanced_options">მოწინავე პარამეტრები</string>
+    <string name="setting_system">სისტემური აპების მართვა</string>
+    <string name="setting_log_app">ინტერნეტთან წვდომის ჟურნალი</string>
+    <string name="setting_log_retention_days">ტრაფიკის ჟურნალის შენახვის დღეები</string>
+    <string name="setting_access">შეტყობინება ინტერნეტთან წვდომისას</string>
+    <string name="setting_filter">ტრაფიკის გაფილტვრა</string>
+    <string name="setting_filter_udp">UDP ტრაფიკის გაფილტვრა</string>
+    <string name="setting_handover">VPN-ის უწყვეტი გადაცემა ხელახალი ჩატვირთვისას</string>
+    <string name="setting_clear_onreload">კავშირების დახურვა ხელახალი ჩატვირთვისას</string>
+    <string name="setting_lockdown">ტრაფიკის ბლოკირება</string>
+    <string name="setting_malware" translatable="false">Malware protection</string>
+    <string name="setting_track_usage">ქსელის გამოყენების თვალყურის დევნება</string>
+    <string name="setting_reset_usage">ქსელის გამოყენების ჩამოყრა</string>
+    <string name="setting_show_resolved">გარკვეული დომენის სახელების ჩვენება</string>
+    <string name="setting_block_domains">დომენის სახელების დაბლოკვა</string>
+    <string name="setting_rcode">DNS პასუხის კოდი: %s</string>
+    <string name="setting_forwarding">პორტის გადამისამართება</string>
+    <string name="setting_vpn4">VPN IPv4: %s</string>
+    <string name="setting_vpn6">VPN IPv6: %s</string>
+    <string name="setting_dns">VPN DNS: %s</string>
+    <string name="setting_dns2">მეორადი DNS: %s</string>
+    <string name="setting_validate">ვალიდაცია: %s</string>
+    <string name="setting_ttl">მინიმალური DNS TTL: %s წმ</string>
+    <string name="setting_socks5_enabled">SOCKS5 პროქსის გამოყენება</string>
+    <string name="setting_socks5_addr">SOCKS5 მისამართი: %s</string>
+    <string name="setting_socks5_port">SOCKS5 პორტი: %s</string>
+    <string name="setting_socks5_username">SOCKS5 მომხმარებლის სახელი: %s</string>
+    <string name="setting_socks5_password">SOCKS5 პაროლი: %s</string>
+    <string name="setting_pcap_record_size">PCAP ჩანაწერის ზომა: %s B</string>
+    <string name="setting_pcap_file_size">PCAP ფაილის მაქს. ზომა: %s MB</string>
+    <string name="setting_pcap">ქსელური ტრაფიკის ჩაწერა (PCAP)</string>
+    <string name="setting_watchdog">სამეთვალყურეო ტაიმერი: ყოველ %s წუთში</string>
+
+    <string name="setting_stats_category">სიჩქარის შეტყობინება</string>
+    <string name="setting_stats">სიჩქარის შეტყობინების ჩვენება</string>
+    <string name="setting_stats_top">საუკეთესო აპების ჩვენება</string>
+    <string name="setting_stats_frequency">სინჯის ინტერვალი: %s ms</string>
+    <string name="setting_stats_samples">სინჯების რაოდენობა: %s</string>
+
+    <string name="setting_backup">მარქაფი</string>
+    <string name="setting_export">პარამეტრების ექსპორტი</string>
+    <string name="setting_import">პარამეტრების იმპორტი</string>
+    <string name="setting_hosts">hosts ფაილის იმპორტი</string>
+    <string name="setting_hosts_append">hosts ფაილის იმპორტი (მიმატება)</string>
+    <string name="setting_hosts_url">hosts ფაილის გადმოსაწერი URL</string>
+    <string name="setting_hosts_download">hosts ფაილის გადმოწერა</string>
+    <string name="setting_use_hosts">hosts ფაილის გამოყენება</string>
+
+    <string name="setting_technical">ტექნიკური ინფორმაცია</string>
+    <string name="setting_technical_general">ზოგადი</string>
+    <string name="setting_technical_networks">ქსელები</string>
+    <string name="setting_technical_subscription">გამოწერები</string>
+    <string name="setting_section_appearance">გარეგნობა</string>
+    <string name="setting_section_firewall">Firewall წესები</string>
+    <string name="setting_section_advanced">მოწინავე ქცევა</string>
+    <string name="setting_section_hosts">ჰოსტები და DNS</string>
+    <string name="setting_section_network">ქსელის კონფიგურაცია</string>
+    <string name="setting_section_dns">DNS დეტალები</string>
+    <string name="setting_section_proxy">პროქსი</string>
+    <string name="setting_section_vpn">VPN კონფიგურაცია</string>
+    <string name="setting_section_background">ფონური ამოცანები</string>
+    <string name="setting_section_diagnostics">დიაგნოსტიკა</string>
+    <string name="setting_section_support">მხარდაჭერა</string>
+
+    <string name="summary_install">სტატუსის ზოლზე შეტყობინების ჩვენება ახლად დაინსტალირებული აპების პირდაპირ კონფიგურირებისთვის (პრო ფუნქცია)</string>
+    <string name="summary_auto">ვიჯეტის გამოყენებით გათიშვის შემდეგ, ავტომატურად ჩართეთ NetGuard არჩეული წუთების შემდეგ (შეიყვანეთ ნული ამ ოფციის გასათიშად)</string>
+    <string name="summary_delay">ეკრანის გამორთვის შემდეგ, დატოვეთ ეკრანის ჩართვის წესები აქტიური არჩეული წუთების განმავლობაში (შეიყვანეთ ნული ამ ოფციის გასათიშად)</string>
+    <string name="summary_update">შეამოწმეთ ახალი ვერსიები GitHub-ზე დღეში ორჯერ</string>
+
+    <string name="summary_tethering">Android ვერსიიდან გამომდინარე, ინტერნეტის გაზიარება შეიძლება მუშაობდეს ან არა. გაზიარებული ტრაფიკის გაფილტვრა შეუძლებელია.</string>
+    <string name="summary_subnet">ქვექსელის მარშრუტიზაციის ჩართვა; შეიძლება ჩართოს Wi-Fi ზარები, მაგრამ ასევე შეიძლება გამოიწვიოს ხარვეზები Android-ში და გაზარდოს ბატარეის მოხმარება</string>
+    <string name="summary_lan">აპებისთვის ლოკალურ ქსელში არსებულ მისამართებთან დაკავშირების უფლების მიცემა (მაგ. 10.0.0.0/8, 172.16.0.0/12 და 192.168.0.0/16)</string>
+    <string name="summary_ip6">IPv6 ტრაფიკის NetGuard-ზე გადამისამართება, რათა შესაძლებელი იყოს მისი შერჩევითი დაშვება ან დაბლოკვა</string>
+    <string name="summary_wifi_home">გამოიყენეთ Wi-Fi ქსელის წესები მხოლოდ არჩეული ქსელისთვის (გამოიყენეთ მობილური ქსელის წესები სხვა Wi-Fi ქსელებისთვის)</string>
+    <string name="summary_metered">მობილური ქსელის წესების გამოყენება ლიმიტირებულ Wi-Fi ქსელებზე (ფასიანი, გაზიარებული)</string>
+    <string name="summary_metered_2g">Wi-Fi ქსელის წესების გამოყენება 2G მონაცემთა კავშირებისთვის</string>
+    <string name="summary_metered_3g">Wi-Fi ქსელის წესების გამოყენება 3G მონაცემთა კავშირებისთვის</string>
+    <string name="summary_metered_4g">Wi-Fi ქსელის წესების გამოყენება LTE მონაცემთა კავშირებისთვის</string>
+    <string name="summary_national_roaming">არ გამოიყენოთ როუმინგის წესები, როდესაც SIM და მობილური ქსელის ქვეყანა ერთია</string>
+    <string name="summary_eu_roaming">არ გამოიყენოთ როუმინგის წესები, როდესაც SIM და მობილური ქსელის ქვეყანა ევროკავშირშია (როუმინგი როგორც სახლში)</string>
+    <string name="summary_call">NetGuard-ის გათიშვა შემომავალი ან გამავალი სატელეფონო ზარის დროს. ეს შეიძლება გამოყენებულ იქნას IP/Wi-Fi ზარების პრობლემების მოსაგვარებლად.</string>
+
+    <string name="summary_system">სისტემური აპებისთვის წესების განსაზღვრა (ექსპერტებისთვის)</string>
+    <string name="summary_log_app">აპების ინტერნეტთან წვდომის მცდელობების აღრიცხვა. ამან შეიძლება გამოიწვიოს ბატარეის დამატებითი მოხმარება.</string>
+    <string name="summary_log_retention_days">სუფთავების დროს ტრაფიკის ძველი ჟურნალების ავტომატური წაშლა. დააყენეთ 0 სამუდამოდ შესანახად.</string>
+    <string name="summary_access">სტატუსის ზოლზე შეტყობინების ჩვენება, როდესაც აპი ცდილობს ინტერნეტის ახალ მისამართთან დაკავშირებას (როდესაც ფილტრაცია გამორთულია, მხოლოდ დაბლოკილი მცდელობების შესახებ გეცნობებათ)</string>
+    <string name="summary_filter">VPN ტუნელიდან გამომავალი IP პაკეტების გაფილტვრა. ამან შეიძლება გამოიწვიოს ბატარეის დამატებითი მოხმარება.</string>
+    <string name="summary_track_usage">თითოეული აპისა და მისამართისთვის გაგზავნილი და მიღებული ბაიტების რაოდენობის თვალყურის დევნება. ამან შეიძლება გამოიწვიოს ბატარეის დამატებითი მოხმარება.</string>
+    <string name="summary_block_domains">პასუხი დაბლოკილი დომენის სახელებისთვის კონფიგურირებული DNS პასუხის კოდით. ეს გადამრთველი გათიშულია, როდესაც hosts ფაილი არ არის ხელმისაწვდომი.</string>
+    <string name="summary_rcode">ნაგულისხმევი მნიშვნელობა არის 3 (NXDOMAIN), რაც ნიშნავს \'არარსებულ დომენს\'.</string>
+    <string name="summary_validate">დომენის სახელი, რომელიც გამოიყენება ინტერნეტ კავშირის დასადასტურებლად 443 პორტზე (https).</string>
+    <string name="summary_socks5_enabled">მხოლოდ TCP ტრაფიკი გაიგზავნება პროქსი სერვერზე</string>
+    <string name="summary_watchdog">პერიოდულად შეამოწმეთ NetGuard კვლავ მუშაობს თუ არა (შეიყვანეთ ნული ამ ოფციის გასათიშად). ამან შეიძლება გამოიწვიოს ბატარეის დამატებითი მოხმარება.</string>
+
+    <string name="summary_stats">ქსელის სიჩქარის გრაფიკის ჩვენება სტატუსის ზოლის შეტყობინებაში</string>
+
+    <string-array name="default_wifi_home"></string-array>
+
+    <string name="msg_sure">დარწმუნებული ხართ?</string>
+    <string name="msg_started">წესების აღსრულება</string>
+    <string name="msg_packages">%1$d დაშვებული, %2$d დაბლოკილი</string>
+    <string name="msg_hosts">%1$d დაშვებული, %2$d დაბლოკილი, %3$d ჰოსტი</string>
+    <string name="msg_waiting">მოვლენის მოლოდინი</string>
+    <string name="msg_disabled">NetGuard გათიშულია, გამოიყენეთ ზედა გადამრთველი მის ჩასართავად</string>
+    <string name="msg_notifications">შეეხეთ შეტყობინებების ნებართვის მისაცემად (წვდომის მცდელობის შეტყობინებებისთვის, შეცდომის შეტყობინებებისთვის და ა.შ.)</string>
+    <string name="msg_revoked">NetGuard გაითიშა, სავარაუდოდ სხვა VPN აპლიკაციის გამოყენების გამო</string>
+    <string name="msg_installed">\'%1$s\' დაინსტალირდა</string>
+    <string name="msg_installed_n">დაინსტალირდა</string>
+    <string name="msg_malware" translatable="false">Possible malware: \'%1$s\'</string>
+    <string name="msg_access">%1$s-მა სცადა ინტერნეტთან წვდომა</string>
+    <string name="msg_access_n">ინტერნეტთან წვდომის მცდელობა</string>
+    <string name="msg_completed">მოქმედება დასრულდა</string>
+    <string name="msg_invalid">გთხოვთ, შეამოწმოთ მნიშვნელობები და სცადოთ ხელახლა.</string>
+    <string name="msg_export_failed">ექსპორტი ვერ მოხერხდა: %1$s</string>
+    <string name="msg_vpn">NetGuard იყენებს ლოკალურ VPN-ს ინტერნეტ ტრაფიკის გასაფილტრად.
+ამ მიზეზით, გთხოვთ, დაუშვათ VPN კავშირი შემდეგ დიალოგში.
+თქვენი ინტერნეტ ტრაფიკი არ იგზავნება დისტანციურ VPN სერვერზე.</string>
+    <string name="msg_autostart">NetGuard ავტომატურად ვერ ჩაირთო. ეს სავარაუდოდ თქვენი Android ვერსიის ხარვეზის გამოა.</string>
+    <string name="msg_error">მოხდა მოულოდნელი შეცდომა: \'%s\'</string>
+    <string name="msg_start_failed">Android-მა უარი თქვა VPN სერვისის გაშვებაზე ამ მომენტში. ეს სავარაუდოდ თქვენი Android ვერსიის ხარვეზის გამოა.</string>
+    <string name="msg_try">სცადეთ NetGuard</string>
+    <string name="msg_terms">შემოწირულობით თქვენ ეთანხმებით <a href="http://www.netguard.me/#terms">წესებს და პირობებს</a></string>
+    <string name="msg_dimming">თუ შემდეგ დიალოგში ვერ აჭერთ OK-ს, სავარაუდოდ სხვა (ეკრანის დამბნელებელი) აპი მართავს ეკრანს.</string>
+    <string name="msg_mbday">&#177; %1$.3f&#9650; %2$.3f&#9660; მბ/დღეში</string>
+    <string name="msg_kbsec">%7.3f კბ/წმ</string>
+    <string name="msg_mbsec">%7.3f მბ/წმ</string>
+    <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; კბ</string>
+    <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; მბ</string>
+    <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; გბ</string>
+    <string name="msg_count">%dx</string>
+    <string name="msg_doze">სტაბილური შედეგებისთვის, NetGuard-ისთვის Android ბატარეის ოპტიმიზაცია უნდა გაითიშოს.
+\n\nშემდეგ დიალოგში აირჩიეთ \"ყველა აპი\" ზევით, დააჭირეთ NetGuard-ს სიაში და აირჩიეთ და დაადასტურეთ \"არ მოხდეს ოპტიმიზაცია\".</string>
+    <string name="msg_datasaving">სტაბილური შედეგებისთვის, NetGuard-ისთვის Android მონაცემთა დაზოგვის პარამეტრები უნდა გაითიშოს.
+\n\nშემდეგ დიალოგში ჩართეთ ოფციები \"ფონური მონაცემები\" და \"მონაცემთა შეუზღუდავი გამოყენება\".</string>
+    <string name="msg_filter">ფილტრაციის გამოყენება გამოიწვევს Android-ის მიერ მონაცემთა და ენერგიის მოხმარების NetGuard-ზე მიწერას - Android თვლის, რომ მონაცემებს და ენერგიას იყენებს NetGuard და არა ორიგინალი აპები.</string>
+    <string name="msg_filter4">Android 4 მოითხოვს ფილტრაციის ჩართვას</string>
+    <string name="msg_log_disabled">ტრაფიკის აღრიცხვა გათიშულია, გამოიყენეთ ზედა გადამრთველი ჩასართავად. აღრიცხვამ შეიძლება გაზარდოს ბატარეის მოხმარება.</string>
+    <string name="msg_clear_rules">ეს ჩამოყრის წესებს და პირობებს მათ ნაგულისხმევ მნიშვნელობებზე</string>
+    <string name="msg_reset_access">ეს წაშლის წვდომის მცდელობის ჟურნალის სტრიქონებს, რომლებსაც არ აქვთ დაშვების/დაბლოკვის წესები</string>
+    <string name="msg_import_last">ბოლო იმპორტი: %s</string>
+    <string name="msg_downloading">მიმდინარეობს ჩამოტვირთვა\n%1s</string>
+    <string name="msg_downloaded">hosts ფაილი ჩამოტვირთულია</string>
+    <string name="msg_download_last">ბოლო ჩამოტვირთვა: %s</string>
+    <string name="msg_start_forward">დავიწყოთ გადამისამართება %1$s პორტი %2$d-დან %3$s:%4$d-ზე \'%5$s\'-ისთვის?</string>
+    <string name="msg_stop_forward">შევწყვიტოთ %1$s პორტი %2$d-ის გადამისამართება?</string>
+    <string name="msg_metered">ქსელი ლიმიტირებულია</string>
+    <string name="msg_inactive">აქტიური ინტერნეტ კავშირი არ არის</string>
+    <string name="msg_queue">NetGuard დაკავებულია</string>
+    <string name="msg_update">ხელმისაწვდომია განახლება, შეეხეთ გადმოსაწერად</string>
+    <string name="msg_usage">შეგიძლიათ დაუშვათ (მწვანე) ან აკრძალოთ (წითელი) Wi-Fi ან მობილური ინტერნეტით წვდომა აპის გვერდით არსებულ ხატულებზე დაჭერით</string>
+    <string name="msg_fairemail">თუ დააინსტალირეთ NetGuard თქვენი კონფიდენციალურობის დასაცავად, შეიძლება დაგაინტერესოთ <a href="https://email.faircode.eu/">FairEmail</a>, ღია კოდის მქონე, კონფიდენციალურობაზე ორიენტირებული ელფოსტის აპლიკაცია.</string>
+    <string name="msg_whitelist">ინტერნეტთან წვდომა ნაგულისხმევად დაშვებულია (შავი სიის რეჟიმი), ამის შეცვლა შესაძლებელია პარამეტრებში</string>
+    <string name="msg_push">შემომავალი (push) შეტყობინებები ძირითადად იმართება Play services-ის მიერ, რომელსაც ნაგულისხმევად აქვს ინტერნეტთან წვდომის უფლება</string>
+    <string name="msg_system">ყველა (სისტემური) აპის მართვის ჩართვა შესაძლებელია პარამეტრებში</string>
+    <string name="msg_issue">გთხოვთ, აღწეროთ პრობლემა და მიუთითოთ მისი დრო:</string>
+    <string name="msg_vpn_cancelled">VPN კავშირი გაუქმდა\nხომ არ გაქვთ სხვა VPN დაყენებული მუდმივად ჩართულ რეჟიმში?</string>
+    <string name="msg_on">NetGuard-ის ჩართულ მდგომარეობაში მოწყობილობის გამორთვა, ავტომატურად ჩართავს NetGuard-ს მოწყობილობის ჩართვისას</string>
+    <string name="msg_unavailable">ეს ფუნქცია მიუწვდომელია Android-ის ამ ვერსიაზე</string>
+    <string name="msg_always_on">სხვა VPN დაყენებულია როგორც მუდმივად ჩართული VPN</string>
+    <string name="msg_always_on_lockdown">გამორთეთ \"კავშირების დაბლოკვა VPN-ის გარეშე\" Android-ის VPN პარამეტრებში, რათა გამოიყენოთ NetGuard ფილტრაციის რეჟიმში</string>
+    <string name="msg_private_dns">გამორთეთ \"პირადი DNS\" Android-ის ქსელის პარამეტრებში, რათა გამოიყენოთ NetGuard ფილტრაციის რეჟიმში</string>
+
+    <string name="title_lockdown_enabled">ტრაფიკი დაბლოკილია</string>
+    <string name="title_unmetered_allowed">ულიმიტო ტრაფიკი დაშვებულია</string>
+    <string name="title_unmetered_blocked">ულიმიტო ტრაფიკი დაბლოკილია</string>
+    <string name="title_unmetered_disabled">ულიმიტო ქსელის წესები არ გამოიყენება</string>
+    <string name="title_metered_allowed">ლიმიტირებული ტრაფიკი დაშვებულია</string>
+    <string name="title_metered_blocked">ლიმიტირებული ტრაფიკი დაბლოკილია</string>
+    <string name="title_metered_disabled">ლიმიტირებული ქსელის წესები არ გამოიყენება</string>
+    <string name="title_host_allowed">მისამართი დაშვებულია</string>
+    <string name="title_host_blocked">მისამართი დაბლოკილია</string>
+    <string name="title_interactive_allowed">დაშვება როცა ეკრანი ჩართულია</string>
+    <string name="title_roaming_blocked">დაბლოკვა როუმინგის დროს</string>
+    <string name="title_metered">ნაგულისხმევად Wi-Fi კავშირი ითვლება ულიმიტოდ, ხოლო მობილური კავშირი ლიმიტირებულად</string>
+
+    <string name="title_internet">არ აქვს ინტერნეტის ნებართვა</string>
+    <string name="title_disabled">გათიშულია</string>
+    <string name="title_messaging">შემომავალი შეტყობინებები მიიღება Google Play services-ის მიერ და არა ამ აპის მიერ, ამიტომ მათი დაბლოკვა ამ აპის დაბლოკვით შეუძლებელია</string>
+    <string name="title_download">ჩამოტვირთვები ხორციელდება ჩამოტვირთვების მენეჯერის მიერ და არა ამ აპის მიერ, ამიტომ მათი დაბლოკვა ამ აპის დაბლოკვით შეუძლებელია</string>
+    <string name="title_apply">წესების და პირობების გამოყენება</string>
+    <string name="title_conditions">პირობები</string>
+    <string name="title_screen_wifi">Wi-Fi-ს დაშვება როცა ეკრანი ჩართულია</string>
+    <string name="title_screen_other">მობილურის დაშვება როცა ეკრანი ჩართულია</string>
+    <string name="title_roaming_symbol">R</string>
+    <string name="title_roaming">დაბლოკვა როუმინგის დროს</string>
+    <string name="label_ttl">TTL: %s წმ</string>
+    <string name="label_uid">UID: %s</string>
+    <string name="title_lockdown">დაშვება ბლოკირების რეჟიმში</string>
+    <string name="title_related">ფილტრთან დაკავშირებული</string>
+    <string name="title_access">წვდომის მცდელობები</string>
+    <string name="title_precedence">წვდომის წესებს სხვა წესებთან შედარებით უპირატესობა აქვს</string>
+    <string name="title_options">პარამეტრები</string>
+    <string name="title_notify">შეტყობინება ინტერნეტთან წვდომის მცდელობაზე</string>
+
+    <string name="title_logging_disabled">აღრიცხვა ან ფილტრაცია არ არის ჩართული</string>
+    <string name="title_logging_enabled">აღრიცხვა და ფილტრაცია ჩართულია</string>
+    <string name="title_logging_configure">კონფიგურაცია</string>
+
+    <string name="title_enable_logging">მხოლოდ დაბლოკილი მისამართების აღრიცხვის ჩართვა</string>
+    <string name="title_enable_filtering">ფილტრაციის ჩართვა დაშვებული მისამართების აღსარიცხადაც</string>
+    <string name="title_enable_notify">წვდომის შეტყობინებების ჩართვა ახლად აღრიცხული მისამართებისთვის</string>
+    <string name="title_enable_help0">ეს პარამეტრები გლობალურია და ვრცელდება ყველა აპზე</string>
+    <string name="title_enable_help1">ფილტრაცია ასევე საჭიროა ცალკეული მისამართების დასაშვებად ან დასაბლოკად</string>
+    <string name="title_enable_help2">აღრიცხვის (ნაკლებად) ან ფილტრაციის (მეტად) ჩართვამ შეიძლება გაზარდოს ბატარეის მოხმარება და გავლენა მოახდინოს ქსელის სიჩქარეზე</string>
+
+    <string name="title_rate">შეფასება</string>
+    <string name="title_allow">დაშვება</string>
+    <string name="title_block">დაბლოკვა</string>
+    <string name="title_wifi">Wi-Fi</string>
+    <string name="title_mobile">მობილური</string>
+    <string name="title_allow_wifi">Wi-Fi-ს დაშვება</string>
+    <string name="title_block_wifi">Wi-Fi-ს დაბლოკვა</string>
+    <string name="title_allow_other">მობილურის დაშვება</string>
+    <string name="title_block_other">მობილურის დაბლოკვა</string>
+    <string name="title_root">root</string>
+    <string name="title_mediaserver">mediaserver</string>
+    <string name="title_gpsdaemon" translatable="false">GPS daemon</string>
+    <string name="title_dnsdaemon" translatable="false">DNS daemon</string>
+    <string name="title_nobody">არავინ</string>
+    <string name="title_dontask">აღარ მკითხო</string>
+
+    <string name="title_log_whois">Whois %1$s</string>
+    <string name="title_log_port">პორტი %1$d</string>
+    <string name="title_log_copy">კოპირება</string>
+
+    <string name="title_pro">პრო ფუნქციები</string>
+    <string name="title_pro_description">ხელმისაწვდომია შემდეგი პრო ფუნქციები:</string>
+    <string name="title_pro_log">დაბლოკილი ტრაფიკის ჟურნალის ნახვა</string>
+    <string name="title_pro_filter">ქსელური ტრაფიკის ფილტრაცია</string>
+    <string name="title_pro_notify">შეტყობინებები ახალ აპებზე</string>
+    <string name="title_pro_speed">ქსელის სიჩქარის გრაფიკის შეტყობინება</string>
+    <string name="title_pro_theme">გარეგნობა (თემები, ფერები)</string>
+    <string name="title_pro_all">ყველა ზემოთ ჩამოთვლილი პრო ფუნქცია</string>
+    <string name="title_pro_dev">განვითარების მხარდაჭერა</string>
+    <string name="title_pro_buy">ყიდვა</string>
+    <string name="title_pro_bought">ჩართულია</string>
+    <string name="title_pro_unavailable">მიუწვდომელია</string>
+    <string name="title_pro_details">შეეხეთ სათაურს მეტი ინფორმაციისთვის</string>
+    <string name="title_pro_challenge">გამოწვევა</string>
+    <string name="title_pro_reponse">პასუხი</string>
+    <string name="title_pro_feature">ეს არის პრო ფუნქცია</string>
+    <string name="title_pro_subscription">
+        ყოველთვიური გამოწერა 1 ან 2 ევროდ (ადგილობრივი გადასახადების გარეშე) გაააქტიურებს ყველა პრო ფუნქციას.
+        გამოწერის მართვა შეგიძლიათ Play Store-ის გამოწერების ჩანართიდან.
+    </string>
+    <string name="title_pro_already">პრო ფუნქციები უკვე გააქტიურებულია</string>    <string-array name="protocolNames">
+        <item>UDP</item>
+        <item>TCP</item>
+    </string-array>
+
+    <string-array name="protocolValues" translatable="false">
+        <item>17</item>
+        <item>6</item>
+    </string-array>
+
+    <string name="label_dns_summary">%1$d ჩანაწერი • %2$d ვადაგასული</string>
+
+</resources>

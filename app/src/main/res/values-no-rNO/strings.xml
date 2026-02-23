@@ -1,247 +1,453 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name" translatable="false">NetGuard Next</string>
     <string name="app_description">NetGuard gir enkle og avanserte måter å blokkere tilgang til internett - ingen root er nødvendig. Apper og adresser kan enkelt tillates eller nektes tilgang til Wi-Fi- og/eller mobilforbindelsen din.</string>
+    <string name="app_copyright" translatable="false">Copyright \u00A9 2015–2025 by M. Bokhorst (M66B)</string>
     <string name="app_android">NetGuard krever Android 5.1 eller nyere</string>
-    <string name="app_xposed">Xposed forårsaker for mange krasjer, noe som kan føre til at NetGuard blir fjernet fra Google Play Store, derfor støttes ikke NetGuard mens Xposed er installert</string>
+    <string name="app_eula" translatable="false">THIS SOFTWARE IS PROVIDED BY THE AUTHOR \'\'AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
     <string name="app_privacy"><a href="https://www.netguard.me/privacy/">Privatlivsretningslinjer</a></string>
     <string name="app_first">Stort omhu er brukt i utvikling og testing av NetGuard, men det umulig å garantere at NetGuard vil fungere korrekt på alle enheter.</string>
-    <string name="app_agree">Jeg aksepter</string>
-    <string name="app_disagree">Jeg aksepter ikke</string>
+    <string name="app_agree">Jeg aksepterer</string>
+    <string name="app_disagree">Jeg aksepterer ikke</string>
     <string name="app_support">NetGuard trenger din hjelp. Trykk for å kjøpe Pro-funksjoner for å holde prosjektet gående.</string>
+    <string name="app_qap">
+        Google skulle fjerne appen fra Play Store fordi den ba om tillatelse til å søke i alle apper.
+        Fem anker og en god begrunnelse for hvorfor denne tillatelsen trengs ble avvist.
+        Denne versjonen av appen ber ikke lenger om denne tillatelsen,
+        og til tross for det vil nesten alle apper fortsatt bli oppført,
+        unntatt noen (system) apper som ikke kan startes manuelt fra Android-applisten.
+        Internett-trafikken til disse appene vil alltid være tillatt for å sikre at enheten din fortsetter å fungere korrekt.
+        Hvis du mener dette er et problem, kan du oppdatere til GitHub-versjonen av appen og administrere alle (system) apper igjen.
+    </string>
+
     <string name="channel_foreground">Kjørende tjenester</string>
     <string name="channel_notify">Generelle varslinger</string>
     <string name="channel_access">Tilgang til varslinger</string>
+
     <string name="menu_search">Søk etter app</string>
     <string name="menu_filter">Filtrer apper</string>
     <string name="menu_app_user">Vis brukerapper</string>
     <string name="menu_app_system">Vis systemapper</string>
     <string name="menu_app_nointernet">Vis apper uten internett</string>
-    <string name="menu_app_disabled">Vis avskrudde apper</string>
+    <string name="menu_app_disabled">Vis deaktiverte apper</string>
     <string name="menu_sort">Sorter apper</string>
     <string name="menu_sort_name">Sorter etter navn</string>
-    <string name="menu_sort_uid">Sorter etter uid</string>
+    <string name="menu_sort_uid">Sorter etter UID</string>
     <string name="menu_sort_data">Sorter etter databruk</string>
-    <string name="menu_log">Vis loggboken</string>
+    <string name="menu_launch">Åpne app</string>
+    <string name="menu_log">Vis logg</string>
     <string name="menu_settings">Innstillinger</string>
+    <string name="menu_home">Hjem</string>
     <string name="menu_invite">Inviter</string>
     <string name="menu_legend">Forklaring</string>
     <string name="menu_support">Støtte</string>
     <string name="menu_about">Om</string>
     <string name="menu_apps">Andre apper</string>
+    <string name="menu_firewall">Brannmur</string>
+    <string name="status_enabled">Brannmur aktivert</string>
+    <string name="status_disabled">Brannmur deaktivert</string>
+    <string name="widget_firewall_enabled">Brannmur PÅ</string>
+    <string name="widget_firewall_disabled">Brannmur AV</string>
+    <string name="widget_lockdown_enabled">Nedstenging PÅ</string>
+    <string name="widget_lockdown_disabled">Nedstenging AV</string>
+    <string name="notify_traffic_title">Trafikkovervåking</string>
+    <string name="notify_traffic_summary">Opp %1$s • Ned %2$s • Topp %3$s</string>
+    <string name="notify_traffic_debug">Sesjoner %1$d/%2$d/%3$d • Filer %4$d/%5$d</string>
+    <string name="ui_loading">Laster inn…</string>
+    <string name="ui_empty_logs_title">Ingen trafikk ennå</string>
+    <string name="ui_empty_logs_body">Når tilkoblinger oppstår, vil de vises her.</string>
+    <string name="ui_empty_apps_title">Ingen apper funnet</string>
+    <string name="ui_empty_apps_body">Prøv å oppdatere listen.</string>
+    <string name="ui_empty_dns_title">Ingen oppklarte DNS ennå</string>
+    <string name="ui_empty_dns_body">DNS-svar vil vises her etter surfing.</string>
+    <string name="ui_dns_filter_empty">Ingen DNS-oppføringer samsvarer med dette filteret.</string>
+    <string name="ui_empty_forwarding_title">Ingen videresendingsregler</string>
+    <string name="ui_empty_forwarding_body">Legg til en regel for å starte videresending av trafikk.</string>
+    <string name="ui_forwarding_filter_empty">Ingen videresendingsregler samsvarer med dette filteret.</string>
+    <string name="ui_empty_pro_body">Støtte låser opp ekstrafunksjoner og holder prosjektet i live.</string>
+    <string name="ui_empty_pro_details">PRO låser opp: filtrering, logger, varslinger, temaer og hastighetsgrenser.</string>
+    <string name="ui_home_hint">Kontroller internettilgang for hver app.</string>
+    <string name="ui_home_quick_actions">Hurtighandlinger</string>
+    <string name="ui_apps_title">Brannmur</string>
+    <string name="ui_logs_title">Trafikklogg</string>
+    <string name="ui_logs_filters">Filtre</string>
+    <string name="ui_logs_filter_status">Status</string>
+    <string name="ui_logs_filter_protocol">Protokoll</string>
+    <string name="ui_logs_filter_view">Visning</string>
+    <string name="ui_logs_group_timeline">Tidslinje</string>
+    <string name="ui_logs_group_by_app">Etter app</string>
+    <string name="ui_logs_unknown_source">Ukjent kilde</string>
+    <string name="ui_settings_title">Innstillinger</string>
+    <string name="ui_dns_title">Oppklart DNS</string>
+    <string name="ui_forwarding_title">Portvideresending</string>
+    <string name="ui_dns_hint">Nylig oppklarte domener og svar.</string>
+    <string name="ui_forwarding_hint">Administrer videresendingsregler og målapper.</string>
+    <string name="ui_dns_active">Aktiv</string>
+    <string name="ui_rule_custom">Egendefinert</string>
+    <string name="ui_dns_expired">Utløpt</string>
+    <string name="ui_filter_all">Alle</string>
+    <string name="ui_filter_empty">Ingen apper samsvarer med dette filteret.</string>
+    <string name="ui_apps_search_empty">Ingen apper samsvarer med dette søket.</string>
+    <string name="ui_learn_more">Lær mer</string>
+    <string name="status_running">Trafikken blir filtrert</string>
+    <string name="status_not_running">Trafikken blir ikke filtrert</string>
+    <string name="action_enable">Aktiver</string>
+    <string name="action_disable">Deaktiver</string>
+    <string name="home_apps_hint">Se over app-regler og databruk</string>
+    <string name="home_logs_hint">Undersøk nylig nettverksaktivitet</string>
+
+    <!-- Accessibility -->
+    <string name="action_expand">Utvid detaljer</string>
+    <string name="action_collapse">Skjul detaljer</string>
+    <string name="action_navigate">Åpne</string>
+    <string name="action_toggle_firewall">Veksle brannmur</string>
+    <string name="action_clear_search">Tøm søk</string>
+    <string name="search_settings">Søk i innstillinger</string>
+    <string name="content_desc_security_status">Brannmurens sikkerhetsstatus</string>
+    <string name="content_desc_app_icon">App-ikon for %s</string>
+    <string name="content_desc_show_info">Vis informasjon om %1$s</string>
+
+    <!-- Dashboard stats -->
+    <string name="stat_blocked_today">Blokkert</string>
+    <string name="stat_allowed_today">Tillatt</string>
+    <string name="stat_active_rules">Aktive regler</string>
+
+    <!-- Tooltips -->
+    <string name="tooltip_rcode">DNS-svarkode sendt for blokkerte domener. Standard 3 (NXDOMAIN) betyr at domenet ikke eksisterer.</string>
+    <string name="tooltip_ttl">Minimum levetid (TTL) for DNS-cache-oppføringer i sekunder.</string>
+    <string name="tooltip_pcap">Registrer alle nettverkspakker for feilsøking. Oppretter store filer.</string>
+    <string name="tooltip_filter">Fang opp og analyser trafikk. Kreves for blokkering per adresse. Bruker mer batteri.</string>
+    <string name="tooltip_lockdown">Blokker all trafikk unntatt for eksplisitt tillatte apper. Bruk med forsiktighet.</string>
+
+    <string name="menu_protocol_udp" translatable="false">UDP</string>
+    <string name="menu_protocol_tcp" translatable="false">TCP</string>
     <string name="menu_protocol_other">Andre</string>
     <string name="menu_traffic_allowed">Tillatt</string>
     <string name="menu_traffic_blocked">Blokkert</string>
-    <string name="menu_live">Sanntidsoppdateringer</string>
-    <string name="menu_refresh">Oppfrisk</string>
-    <string name="menu_resolve">Vis navnene</string>
-    <string name="menu_organization">Vis organisasjonene</string>
-    <string name="menu_pcap_enabled">PCAP er aktivert</string>
+    <string name="menu_live">Live-oppdateringer</string>
+    <string name="menu_refresh">Oppdater</string>
+    <string name="menu_ok">OK</string>
+    <string name="menu_cancel">Avbryt</string>
+    <string name="menu_resolve">Vis navn</string>
+    <string name="menu_organization">Vis organisasjon</string>
+    <string name="menu_pcap_enabled">PCAP aktivert</string>
     <string name="menu_pcap_export">PCAP-eksport</string>
     <string name="menu_clear">Tøm</string>
     <string name="menu_export">Eksporter</string>
     <string name="menu_reset">Tilbakestill</string>
+
     <string name="menu_add">Legg til</string>
     <string name="menu_delete">Slett</string>
-    <string name="menu_cleanup">Rydd opp</string>
+
+    <string name="menu_cleanup">Opprydding</string>
+
     <string name="title_protocol">Protokoll</string>
     <string name="title_dport">Kildeport</string>
     <string name="title_raddr">Måladresse</string>
     <string name="title_rport">Målport</string>
     <string name="title_ruid">Målapp</string>
     <string name="title_external">For en ekstern tjener, velg «ingen»</string>
-    <string name="setting_defaults">Standardene (hvite- og svarte-listene)</string>
+
+    <string name="setting_defaults">Standarder (hvit/svarteliste)</string>
     <string name="setting_whitelist_wifi">Blokker Wi-Fi</string>
     <string name="setting_whitelist_other">Blokker mobilnett</string>
     <string name="setting_screen_wifi">Tillat Wi-Fi når skjermen er på</string>
     <string name="setting_screen_other">Tillat mobilnett når skjermen er på</string>
     <string name="setting_whitelist_roaming">Blokker roaming</string>
-    <string name="setting_options">Innstillinger</string>
+
+    <string name="setting_options">Alternativer</string>
     <string name="setting_theme">Tema: %1$s</string>
     <string name="setting_dark">Bruk mørkt tema</string>
-    <string name="setting_install">Meld ifra om nye installeringer</string>
-    <string name="setting_screen_on">Benytt \'når skjermen er på\'-regler</string>
-    <string name="setting_auto">Skru på automatisk etter %1$s minutter</string>
-    <string name="setting_delay">Forsink avskruing av skjermen med %1$s minutter</string>
+    <string name="setting_theme_palette">Velg en fargestil</string>
+    <string name="setting_dynamic_unavailable">Dynamiske farger krever Android 12 eller nyere.</string>
+    <string name="setting_appearance_mode">Utseendemodus</string>
+    <string name="setting_appearance_mode_title">Mørk modus</string>
+    <string name="setting_appearance_mode_summary">Velg Av, På eller Følg systemet.</string>
+    <string name="setting_appearance_preview">Gjeldende: %1$s · %2$s</string>
+    <string name="setting_appearance_auto">Auto</string>
+    <string name="setting_appearance_light">Lys</string>
+    <string name="setting_appearance_dark">Mørk</string>
+    <string name="theme_dynamic" translatable="false">Dynamic</string>
+    <string name="setting_install">Varsle ved ny installasjon</string>
+    <string name="setting_screen_on">Bruk \'når skjermen er på\'-regler</string>
+    <string name="setting_auto">Aktiver automatisk etter %1$s minutter</string>
+    <string name="setting_delay">Forsink skjerm av med %1$s minutter</string>
     <string name="setting_update">Se etter oppdateringer</string>
+    <string name="setting_update_now">Sjekk nå</string>
+    <string name="setting_update_checking">Sjekker...</string>
+
     <string name="setting_network_options">Nettverksinnstillinger</string>
-    <string name="setting_subnet">Subnet ruting</string>
-    <string name="setting_tethering">Tillat USB-nettverksvidereføring</string>
+    <string name="setting_subnet">Subnet-ruting</string>
+    <string name="setting_tethering">Tillat internettdeling</string>
     <string name="setting_lan">Tillat LAN-tilgang</string>
-    <string name="setting_ip6">Skru på IPv6-trafikk</string>
-    <string name="setting_wifi_home">Wi-Fi-hjemmenettverk: %1$s</string>
+    <string name="setting_ip6">Aktiver IPv6-trafikk</string>
+    <string name="setting_wifi_home">Wi-Fi hjemmenettverk: %1$s</string>
     <string name="setting_metered">Håndter forbruksmålte Wi-Fi-nettverk</string>
-    <string name="setting_metered_2g">Anse 2G for å ikke være forbruksmålt</string>
-    <string name="setting_metered_3g">Anse 3G for å ikke være forbruksmålt</string>
-    <string name="setting_metered_4g">Anse LTE for å ikke være forbruksmålt</string>
-    <string name="setting_national_roaming">Ignorer innenriks-roaming</string>
+    <string name="setting_metered_2g">Anse 2G som ubegrenset</string>
+    <string name="setting_metered_3g">Anse 3G som ubegrenset</string>
+    <string name="setting_metered_4g">Anse LTE som ubegrenset</string>
+    <string name="setting_national_roaming">Ignorer nasjonal roaming</string>
     <string name="setting_eu_roaming">Ignorer EU-roaming</string>
-    <string name="setting_call">Skru av ved telefonanrop</string>
-    <string name="setting_lockdown_wifi">Skru av Wi-Fi</string>
-    <string name="setting_lockdown_other">Skru av mobilnett</string>
-    <string name="setting_reload_onconnectivity">Last inn på nytt ved hvert nettverksskifte</string>
+    <string name="setting_call">Deaktiver under anrop</string>
+    <string name="setting_lockdown_wifi">Nedstenging Wi-Fi</string>
+    <string name="setting_lockdown_other">Nedstenging mobilnett</string>
+    <string name="setting_reload_onconnectivity">Last inn på nytt ved hver endring i tilkobling</string>
+
     <string name="setting_advanced_options">Avanserte innstillinger</string>
-    <string name="setting_system">Behandle systemapper</string>
+    <string name="setting_system">Administrer systemapper</string>
     <string name="setting_log_app">Loggfør internettilgang</string>
-    <string name="setting_access">Meld ifra om internettilgang</string>
+    <string name="setting_log_retention_days">Lagringstid for trafikklogg (dager)</string>
+    <string name="setting_access">Varsle ved internettilgang</string>
     <string name="setting_filter">Filtrer trafikk</string>
-    <string name="setting_filter_udp">Sett_filter_udp</string>
-    <string name="setting_clear_onreload">Lukk tilkoblinger ved ominnlastinger</string>
-    <string name="setting_lockdown">Skru av trafikk</string>
+    <string name="setting_filter_udp">Filtrer UDP-trafikk</string>
+    <string name="setting_handover">Sømløs VPN-overlevering ved ominnlasting</string>
+    <string name="setting_clear_onreload">Lukk tilkoblinger ved ominnlasting</string>
+    <string name="setting_lockdown">Steng ned trafikk</string>
+    <string name="setting_malware" translatable="false">Malware protection</string>
     <string name="setting_track_usage">Spor nettverksbruk</string>
     <string name="setting_reset_usage">Tilbakestill nettverksbruk</string>
     <string name="setting_show_resolved">Vis oppklarte domenenavn</string>
     <string name="setting_block_domains">Blokker domenenavn</string>
-    <string name="setting_rcode">DNS-responskode: %s</string>
+    <string name="setting_rcode">DNS-svarkode: %s</string>
     <string name="setting_forwarding">Portvideresending</string>
     <string name="setting_vpn4">VPN IPv4: %s</string>
     <string name="setting_vpn6">VPN IPv6: %s</string>
     <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_validate">Valider på: %s</string>
+    <string name="setting_dns2">Sekundær DNS: %s</string>
+    <string name="setting_validate">Valider ved: %s</string>
     <string name="setting_ttl">Minimum DNS TTL: %s s</string>
-    <string name="setting_socks5_enabled">Bruk SOCKS5-mellomtjener</string>
+    <string name="setting_socks5_enabled">Bruk SOCKS5-proxy</string>
     <string name="setting_socks5_addr">SOCKS5-adresse: %s</string>
     <string name="setting_socks5_port">SOCKS5-port: %s</string>
     <string name="setting_socks5_username">SOCKS5-brukernavn: %s</string>
     <string name="setting_socks5_password">SOCKS5-passord: %s</string>
     <string name="setting_pcap_record_size">PCAP-loggstørrelse: %s B</string>
-    <string name="setting_pcap_file_size">PCAP sin maks filstørrelse: %s MB</string>
+    <string name="setting_pcap_file_size">PCAP maks filstørrelse: %s MB</string>
+    <string name="setting_pcap">Registrer nettverkstrafikk (PCAP)</string>
     <string name="setting_watchdog">Vakthund: Hvert %s. minutt</string>
-    <string name="setting_stats_category">Fartsvarsling</string>
-    <string name="setting_stats">Vis fartsvarslingen</string>
-    <string name="setting_stats_top">Vis toppappene</string>
-    <string name="setting_stats_frequency">Utdragsintervall: %s ms</string>
-    <string name="setting_stats_samples">Antall utdrag: %s s</string>
-    <string name="setting_backup">Sikkerhetskopier</string>
-    <string name="setting_export">Eksporter innstillingene</string>
-    <string name="setting_import">Importér innstillinger</string>
-    <string name="setting_hosts">Importer «hosts»-fil</string>
-    <string name="setting_hosts_append">Importer hosts-fil (legges ved)</string>
-    <string name="setting_hosts_url">«hosts»-filnedlastningsnettadresse</string>
-    <string name="setting_hosts_download">Last ned «hosts»-fil</string>
+
+    <string name="setting_stats_category">Hastighetsvarsling</string>
+    <string name="setting_stats">Vis hastighetsvarsling</string>
+    <string name="setting_stats_top">Vis mest brukte apper</string>
+    <string name="setting_stats_frequency">Prøveintervall: %s ms</string>
+    <string name="setting_stats_samples">Antall prøver: %s</string>
+
+    <string name="setting_backup">Sikkerhetskopi</string>
+    <string name="setting_export">Eksporter innstillinger</string>
+    <string name="setting_import">Importer innstillinger</string>
+    <string name="setting_hosts">Importer hosts-fil</string>
+    <string name="setting_hosts_append">Importer hosts-fil (legg til)</string>
+    <string name="setting_hosts_url">Nettadresse for nedlasting av hosts-fil</string>
+    <string name="setting_hosts_download">Last ned hosts-fil</string>
+    <string name="setting_use_hosts">Bruk hosts-fil</string>
+
     <string name="setting_technical">Teknisk informasjon</string>
     <string name="setting_technical_general">Generelt</string>
     <string name="setting_technical_networks">Nettverk</string>
     <string name="setting_technical_subscription">Abonnementer</string>
-    <string name="summary_update">Se etter nye utgivelser på GitHub to ganger daglig</string>
-    <string name="summary_subnet">Aktiver ruting på nettet; kan aktivere Wi-Fi-anrop, men kan også utløse feil i Android og øke batteribruken</string>
-    <string name="summary_lan">Tillat apper å koble seg til lokale nettverksadresser, for eksempel 10.0.0.0/8, 172.16.0.0/12 og 192.168.0.0/16</string>
-    <string name="summary_ip6">Rute IP versjon 6-trafikk til NetGuard slik at den selektivt kan tillates eller blokkeres</string>
-    <string name="summary_log_app">Logg forsøker å få tilgang til internett for apper. Dette kan føre til ekstra batteribruk.</string>
-    <string name="summary_filter">Filtrer utgående IP-pakker fra VPN-tunnelen. Dette kan føre til ekstra batteribruk.</string>
-    <string name="summary_track_usage">Spor antall bytes sendt og mottatt for hver app og adresse. Dette kan medføre ekstra batteriforbruk.</string>
+    <string name="setting_section_appearance">Utseende</string>
+    <string name="setting_section_firewall">Brannmurregler</string>
+    <string name="setting_section_advanced">Avansert oppførsel</string>
+    <string name="setting_section_hosts">Host-filer og DNS</string>
+    <string name="setting_section_network">Nettverkskonfigurasjon</string>
+    <string name="setting_section_dns">DNS-detaljer</string>
+    <string name="setting_section_proxy">Proxy</string>
+    <string name="setting_section_vpn">VPN-konfigurasjon</string>
+    <string name="setting_section_background">Bakgrunnsoppgaver</string>
+    <string name="setting_section_diagnostics">Diagnostikk</string>
+    <string name="setting_section_support">Brukerstøtte</string>
+
+    <string name="summary_install">Vis statuslinjevarsling for å konfigurere nyinstallerte apper direkte (pro-funksjon)</string>
+    <string name="summary_auto">Etter deaktivering via widgeten, reaktiver NetGuard automatisk etter valgt antall minutter (sett til 0 for å deaktivere)</string>
+    <string name="summary_delay">Etter at skjermen slås av, hold regler for skjerm på aktive i valgt antall minutter (sett til 0 for å deaktivere)</string>
+    <string name="summary_update">Se etter nye versjoner på GitHub to ganger daglig</string>
+
+    <string name="summary_tethering">Avhengig av Android-versjonen kan internettdeling fungere eller ikke. Delt trafikk kan ikke filtreres.</string>
+    <string name="summary_subnet">Aktiver subnet-ruting; kan muliggjøre Wi-Fi-anrop, men kan også utløse feil i Android og øke batteribruken</string>
+    <string name="summary_lan">Tillat apper å koble til lokale nettverksadresser (f.eks. 10.0.0.0/8, 172.16.0.0/12 og 192.168.0.0/16)</string>
+    <string name="summary_ip6">Ruter IPv6-trafikk til NetGuard slik at den selektivt kan tillates eller blokkeres</string>
+    <string name="summary_wifi_home">Bruk Wi-Fi-regler kun for valgte nettverk (bruk mobilregler for andre Wi-Fi-nettverk)</string>
+    <string name="summary_metered">Bruk mobilnettregler for forbruksmålte Wi-Fi-nettverk (betalt, delt)</string>
+    <string name="summary_metered_2g">Bruk Wi-Fi-regler for 2G-datakoblinger</string>
+    <string name="summary_metered_3g">Bruk Wi-Fi-regler for 3G-datakoblinger</string>
+    <string name="summary_metered_4g">Bruk Wi-Fi-regler for LTE-datakoblinger</string>
+    <string name="summary_national_roaming">Ikke bruk roaming-regler når SIM og mobilnettet er fra samme land</string>
+    <string name="summary_eu_roaming">Ikke bruk roaming-regler når SIM og mobilnettet er i EU (roaming som hjemme)</string>
+    <string name="summary_call">Deaktiver NetGuard under telefonanrop for å unngå problemer med IP/Wi-Fi-anrop.</string>
+
+    <string name="summary_system">Definer regler for systemapper (for eksperter)</string>
+    <string name="summary_log_app">Loggfør forsøk på internettilgang for apper. Dette kan øke batteribruken.</string>
+    <string name="summary_log_retention_days">Slett automatisk gamle trafikklogger under vedlikehold. Sett til 0 for å beholde logger for alltid.</string>
+    <string name="summary_access">Vis en statuslinjevarsling når en app prøver å få tilgang til en ny internettadresse (når filtrering er deaktivert, varsles bare blokkerte forsøk)</string>
+    <string name="summary_filter">Filtrer IP-pakker som går ut av VPN-tunnelen. Dette kan øke batteribruken.</string>
+    <string name="summary_track_usage">Spor antall byte sendt og mottatt for hver app og adresse. Dette kan øke batteribruken.</string>
+    <string name="summary_block_domains">Svar med konfigurert DNS-svarkode for blokkerte domenenavn. Deaktivert uten hosts-fil.</string>
+    <string name="summary_rcode">Standardverdien er 3 (NXDOMAIN), som betyr \'ikke-eksisterende domene\'.</string>
+    <string name="summary_validate">Domenenavn som brukes til å validere internettilkoblingen på port 443 (https).</string>
     <string name="summary_socks5_enabled">Bare TCP-trafikk vil bli sendt til proxy-serveren</string>
-    <string name="summary_stats">Vis nettverkshastighetsgraf i statuslinjevarsling</string>
+    <string name="summary_watchdog">Sjekk jevnlig om NetGuard fortsatt kjører (sett til 0 for å deaktivere). Dette kan øke batteribruken.</string>
+
+    <string name="summary_stats">Vis graf over nettverkshastighet i statuslinjevarslingen</string>
+
+    <string-array name="default_wifi_home"></string-array>
+
     <string name="msg_sure">Er du sikker?</string>
-    <string name="msg_started">Overholder regler</string>
+    <string name="msg_started">Håndhever regler</string>
     <string name="msg_packages">%1$d tillatt, %2$d blokkert</string>
     <string name="msg_hosts">%1$d tillatt, %2$d blokkert, %3$d verter</string>
-    <string name="msg_waiting">Avventer hendelse</string>
+    <string name="msg_waiting">Venter på hendelse</string>
     <string name="msg_disabled">NetGuard er deaktivert, bruk bryteren ovenfor for å aktivere NetGuard</string>
-    <string name="msg_revoked">NetGuard er deaktivert, sannsynligvis ved å bruke en annen VPN-basert app</string>
+    <string name="msg_notifications">Trykk for å gi varslingstillatelse (for varsling om tilgangsforsøk, feilmeldinger osv.)</string>
+    <string name="msg_revoked">NetGuard har blitt deaktivert, sannsynligvis av en annen VPN-basert app</string>
     <string name="msg_installed">\'%1$s\' installert</string>
-    <string name="msg_installed_n">Har blitt installert</string>
-    <string name="msg_access">%1$s forsøk på Internettilgang</string>
-    <string name="msg_access_n">Forsøk på Internettilgang</string>
-    <string name="msg_completed">Handlingen er utført</string>
+    <string name="msg_installed_n">Er installert</string>
+    <string name="msg_malware" translatable="false">Possible malware: \'%1$s\'</string>
+    <string name="msg_access">%1$s forsøkte internettilgang</string>
+    <string name="msg_access_n">Forsøk på internettilgang</string>
+    <string name="msg_completed">Handlingen er fullført</string>
+    <string name="msg_invalid">Vennligst sjekk verdiene og prøv på nytt.</string>
+    <string name="msg_export_failed">Eksport feilet: %1$s</string>
     <string name="msg_vpn">NetGuard bruker en lokal VPN for å filtrere internettrafikk.
-Av denne grunn kan du tillate en VPN-tilkobling i neste dialog.
-Internett-trafikken din blir ikke sendt til en ekstern VPN-server.</string>
-    <string name="msg_autostart">NetGuard kunne ikke starte automatisk. Dette er sannsynligvis på grunn av en feil i Android-versjonen din.</string>
+Tillat derfor en VPN-tilkobling i neste dialog.
+Internett-trafikken din sendes ikke til en ekstern VPN-server.</string>
+    <string name="msg_autostart">NetGuard kunne ikke starte automatisk. Dette skyldes sannsynligvis en feil i din Android-versjon.</string>
     <string name="msg_error">En uventet feil har oppstått: \'%s\'</string>
-    <string name="msg_start_failed">Android nektet å starte VPN-tjenesten i dette øyeblikket. Dette er sannsynligvis på grunn av en feil i Android-versjonen din.</string>
+    <string name="msg_start_failed">Android nektet å starte VPN-tjenesten for øyeblikket. Dette skyldes sannsynligvis en feil i din Android-versjon.</string>
     <string name="msg_try">Prøv NetGuard</string>
     <string name="msg_terms">Ved å donere godtar du <a href="http://www.netguard.me/#terms">vilkår og betingelser</a></string>
-    <string name="msg_dimming">Dersom du ikke kan trykke OK i neste dialog, er det mulig at en annen (skjermdimmings-)app påvirker skjermen.</string>
-    <string name="msg_mbday">± %1$.3f▲ %2$.3f▼ MB/dag</string>
-    <string name="msg_kb">%1$7.3f▲ %2$7.3f▼ KB</string>
-    <string name="msg_mb">%1$7.3f▲ %2$7.3f▼ MB</string>
-    <string name="msg_gb">%1$7.3f▲ %2$7.3f▼ GB</string>
+    <string name="msg_dimming">Hvis du ikke kan trykke OK i neste dialog, manipuleres sannsynligvis skjermen av en annen app (f.eks. for skjermdimming).</string>
+    <string name="msg_mbday">&#177; %1$.3f&#9650; %2$.3f&#9660; MB/dag</string>
+    <string name="msg_kbsec">%7.3f KB/s</string>
+    <string name="msg_mbsec">%7.3f MB/s</string>
+    <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
+    <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
+    <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
     <string name="msg_count">%dx</string>
-    <string name="msg_filter4">Android 4 krever filtrering for å bli aktivert</string>
-    <string name="msg_log_disabled">Trafikkloggføring er deaktivert, bruk bryteren ovenfor for å aktivere loggføring. Trafikkloggføring kan føre til ekstra batteriforbruk.</string>
-    <string name="msg_clear_rules">Dette vil tilbakestille reglene og forholdene til sine standardverdier</string>
-    <string name="msg_reset_access">Dette vil slette tilgangsforsøks-loggføringslinjer som ikke har tillatelses- eller blokkerings-regler</string>
-    <string name="msg_import_last">Seneste importering: %s</string>
+    <string name="msg_doze">For konsekvente resultater bør Android-batterioptimalisering deaktiveres for NetGuard.
+\n\nI neste dialog velger du \"Alle apper\" øverst, trykker på NetGuard i listen og velger og bekrefter \"Ikke optimaliser\".</string>
+    <string name="msg_datasaving">For konsekvente resultater bør Android-dataspringsalternativer deaktiveres for NetGuard.
+\n\nI neste dialog aktiverer du alternativene \"Bakgrunnsdata\" og \"Ubegrenset databruk\".</string>
+    <string name="msg_filter">Bruk av filtrering vil føre til at Android tilskriver data- og strømbruk til NetGuard i stedet for de originale appene.</string>
+    <string name="msg_filter4">Android 4 krever at filtrering er aktivert</string>
+    <string name="msg_log_disabled">Trafikklogging er deaktivert. Bruk bryteren ovenfor for å aktivere logging. Dette kan øke batteribruken.</string>
+    <string name="msg_clear_rules">Dette vil tilbakestille regler og betingelser til standardverdiene</string>
+    <string name="msg_reset_access">Dette vil slette logglinjer for tilgangsforsøk uten tillat/blokker-regler</string>
+    <string name="msg_import_last">Siste import: %s</string>
     <string name="msg_downloading">Laster ned\n%1s</string>
-    <string name="msg_downloaded">«hosts»-filen har blitt lastet ned</string>
-    <string name="msg_download_last">Seneste nedlastning: %s</string>
-    <string name="msg_stop_forward">Vil du avslutte viderekoblingen av %1$s-porten %2$d?</string>
-    <string name="msg_metered">Nettverket er forbrukspriset</string>
-    <string name="msg_inactive">Ingen aktiv internettforbindelse</string>
+    <string name="msg_downloaded">Hosts-fil lastet ned</string>
+    <string name="msg_download_last">Siste nedlasting: %s</string>
+    <string name="msg_start_forward">Start videresending fra %1$s port %2$d til %3$s:%4$d for \'%5$s\'?</string>
+    <string name="msg_stop_forward">Stopp videresending av %1$s port %2$d?</string>
+    <string name="msg_metered">Nettverket er forbruksmålt</string>
+    <string name="msg_inactive">Ingen aktiv internettilkobling</string>
     <string name="msg_queue">NetGuard er opptatt</string>
-    <string name="msg_update">En oppdatering er tilgjengelig, trykk for å laste ned</string>
-    <string name="title_lockdown_enabled">Trafikken er stengt av</string>
-    <string name="title_unmetered_allowed">Ikke-forbruksmålt trafikk er tillatt</string>
-    <string name="title_unmetered_blocked">Ikke-forbruksmålt trafikk er blokkert</string>
-    <string name="title_unmetered_disabled">U-forbruksmålte regler er ikke i bruk</string>
-    <string name="title_metered_allowed">Forbruksmålt trafikk er tillatt</string>
-    <string name="title_metered_blocked">Forbruksmålt trafikk er blokkert</string>
-    <string name="title_metered_disabled">Forbruksmålte regler er ikke i bruk</string>
+    <string name="msg_update">Oppdatering tilgjengelig, trykk for å laste ned</string>
+    <string name="msg_usage">Du kan tillate (grønnlig) eller nekte (rødlig) Wi-Fi eller mobil internettilgang ved å trykke på ikonene ved siden av en app</string>
+    <string name="msg_fairemail">Hvis du installerte NetGuard for å beskytte privatlivet ditt, er du kanskje også interessert i <a href="https://email.faircode.eu/">FairEmail</a>, en e-postapp med åpen kildekode og fokus på personvern.</string>
+    <string name="msg_whitelist">Internettilgang er tillatt som standard (svartelistet modus), dette kan endres i innstillingene</string>
+    <string name="msg_push">Innkommende (push) meldinger håndteres stort sett av Play-tjenester, som har internettilgang som standard</string>
+    <string name="msg_system">Administrasjon av alle (system) apper kan aktiveres i innstillingene</string>
+    <string name="msg_issue">Vennligst beskriv problemet og oppgi tidspunktet det oppstod:</string>
+    <string name="msg_vpn_cancelled">VPN-tilkobling avbrutt. Har du konfigurert en annen VPN til å være alltid på?</string>
+    <string name="msg_on">Hvis du slår av enheten med NetGuard aktivert, vil NetGuard starte automatisk når du slår den på igjen</string>
+    <string name="msg_unavailable">Denne funksjonen er ikke tilgjengelig på denne Android-versjonen</string>
+    <string name="msg_always_on">En annen VPN er satt som Alltid på-VPN</string>
+    <string name="msg_always_on_lockdown">Slå av \"Blokker tilkoblinger uten VPN\" i Android VPN-innstillinger for å bruke NetGuard i filtreringsmodus</string>
+    <string name="msg_private_dns">Slå av \"Privat DNS\" i Android-nettverksinnstillinger for å bruke NetGuard i filtreringsmodus</string>
+
+    <string name="title_lockdown_enabled">Trafikken er stengt ned</string>
+    <string name="title_unmetered_allowed">Ikke-målt trafikk er tillatt</string>
+    <string name="title_unmetered_blocked">Ikke-målt trafikk er blokkert</string>
+    <string name="title_unmetered_disabled">Regler for ikke-målte nettverk gjelder ikke</string>
+    <string name="title_metered_allowed">Målt trafikk er tillatt</string>
+    <string name="title_metered_blocked">Målt trafikk er blokkert</string>
+    <string name="title_metered_disabled">Regler for målte nettverk gjelder ikke</string>
     <string name="title_host_allowed">Adressen er tillatt</string>
     <string name="title_host_blocked">Adressen er blokkert</string>
-    <string name="title_interactive_allowed">Tillat når skjermen er skrudd på</string>
-    <string name="title_roaming_blocked">Blokker under roaming</string>
-    <string name="title_metered">Som standard er en Wi-Fi-tilkobling ansett for å ikke være forbruksmålt, mens en mobilnettilkobling ansees for å være forbruksmålt</string>
-    <string name="title_internet">har ikke tilgang til internettet</string>
-    <string name="title_disabled">er skrudd av</string>
-    <string name="title_apply">Benytt regler og forhold</string>
-    <string name="title_conditions">Forhold</string>
-    <string name="title_screen_wifi">Tillat Wi-Fi når skjermen er skrudd på</string>
-    <string name="title_screen_other">Tillat mobilnett når skjermen er skrudd på</string>
+    <string name="title_interactive_allowed">Tillat når skjermen er på</string>
+    <string name="title_roaming_blocked">Blokker ved roaming</string>
+    <string name="title_metered">Som standard anses Wi-Fi-tilkobling for å være ubegrenset og mobilforbindelse som målt</string>
+
+    <string name="title_internet">har ingen internettillatelse</string>
+    <string name="title_disabled">er deaktivert</string>
+    <string name="title_messaging">Innkommende meldinger mottas av Google Play-tjenester og ikke av denne appen, og kan derfor ikke blokkeres ved å blokkere denne appen</string>
+    <string name="title_download">Nedlastinger utføres av nedlastingsbehandleren og ikke av denne appen, og kan derfor ikke blokkeres ved å blokkere denne appen</string>
+    <string name="title_apply">Bruk regler og betingelser</string>
+    <string name="title_conditions">Betingelser</string>
+    <string name="title_screen_wifi">Tillat Wi-Fi når skjermen er på</string>
+    <string name="title_screen_other">Tillat mobilnett når skjermen er på</string>
     <string name="title_roaming_symbol">R</string>
-    <string name="title_roaming">Blokker under roaming</string>
+    <string name="title_roaming">Blokker ved roaming</string>
+    <string name="label_ttl">TTL: %s s</string>
+    <string name="label_uid">UID: %s</string>
+    <string name="title_lockdown">Tillat i nedstengingsmodus</string>
     <string name="title_related">Filtrer relaterte</string>
     <string name="title_access">Tilgangsforsøk</string>
-    <string name="title_precedence">Tilgangsregler tar presedens over andre regler</string>
-    <string name="title_options">Innstillinger</string>
-    <string name="title_notify">Meld ifra om internettilgangsforsøk</string>
-    <string name="title_logging_disabled">Loggføring eller filtrering er ikke skrudd på</string>
-    <string name="title_logging_enabled">Loggføring og filtrering er skrudd på</string>
-    <string name="title_logging_configure">Sett opp</string>
+    <string name="title_precedence">Tilgangsregler har prioritet over andre regler</string>
+    <string name="title_options">Alternativer</string>
+    <string name="title_notify">Varsle om internett-tilgangsforsøk</string>
+
+    <string name="title_logging_disabled">Logging eller filtrering er ikke aktivert</string>
+    <string name="title_logging_enabled">Logging og filtrering er aktivert</string>
+    <string name="title_logging_configure">Konfigurer</string>
+
+    <string name="title_enable_logging">Loggfør bare blokkerte adresser</string>
+    <string name="title_enable_filtering">Aktiver filtrering for å loggføre tillatte adresser også</string>
     <string name="title_enable_notify">Aktiver tilgangsvarsler for nylig loggførte adresser</string>
-    <string name="title_enable_help0">Disse innstillingene er globale innstillinger som gjelder for alle apper</string>
-    <string name="title_enable_help1">Filtrering er også nødvendig for å tillate eller blokkere individuelle adresser</string>
-    <string name="title_enable_help2">Aktivering av logging (mindre) eller filtrering (mer) kan øke batteribruken og kan påvirke nettverkshastigheten</string>
+    <string name="title_enable_help0">Disse innstillingene er globale og gjelder for alle apper</string>
+    <string name="title_enable_help1">Filtrering kreves også for å tillate eller blokkere individuelle adresser</string>
+    <string name="title_enable_help2">Aktivering av logging (mindre) eller filtrering (mer) kan øke batteribruken og påvirke nettverkshastigheten</string>
+
     <string name="title_rate">Vurder</string>
     <string name="title_allow">Tillat</string>
     <string name="title_block">Blokker</string>
+    <string name="title_wifi">Wi-Fi</string>
+    <string name="title_mobile">Mobil</string>
     <string name="title_allow_wifi">Tillat Wi-Fi</string>
     <string name="title_block_wifi">Blokker Wi-Fi</string>
-    <string name="title_allow_other">Tillat mobilnett</string>
-    <string name="title_block_other">Blokker mobilnett</string>
+    <string name="title_allow_other">Tillat mobil</string>
+    <string name="title_block_other">Blokker mobil</string>
     <string name="title_root">root</string>
-    <string name="title_mediaserver">medietjener</string>
-    <string name="title_nobody">ingen</string>
+    <string name="title_mediaserver">mediaserver</string>
+    <string name="title_gpsdaemon" translatable="false">GPS daemon</string>
+    <string name="title_dnsdaemon" translatable="false">DNS daemon</string>
+    <string name="title_nobody">nobody</string>
     <string name="title_dontask">Ikke spør igjen</string>
+
     <string name="title_log_whois">Whois %1$s</string>
     <string name="title_log_port">Port %1$d</string>
     <string name="title_log_copy">Kopier</string>
+
     <string name="title_pro">Pro-funksjoner</string>
-    <string name="title_pro_description">De følgende Pro-funksjonene er tilgjengelige:</string>
-    <string name="title_pro_log">Vis loggboken over blokkert trafikk</string>
+    <string name="title_pro_description">Følgende pro-funksjoner er tilgjengelige:</string>
+    <string name="title_pro_log">Vis logg over blokkert trafikk</string>
     <string name="title_pro_filter">Filtrer nettverkstrafikk</string>
-    <string name="title_pro_notify">Nye appvarslinger</string>
-    <string name="title_pro_speed">Nettverksfartsgrafvarsling</string>
-    <string name="title_pro_theme">Utseende (tema, farger)</string>
-    <string name="title_pro_all">Alle ovenstående Pro-funksjoner</string>
+    <string name="title_pro_notify">Nye app-varslinger</string>
+    <string name="title_pro_speed">Nettverkshastighetsgraf i varsling</string>
+    <string name="title_pro_theme">Utseende (temaer, farger)</string>
+    <string name="title_pro_all">Alle ovennevnte pro-funksjoner</string>
     <string name="title_pro_dev">Støtt utviklingen</string>
     <string name="title_pro_buy">Kjøp</string>
     <string name="title_pro_bought">Aktivert</string>
     <string name="title_pro_unavailable">Utilgjengelig</string>
-    <string name="title_pro_details">Trykk på en tittel for mere informasjon</string>
+    <string name="title_pro_details">Trykk på en tittel for mer informasjon</string>
     <string name="title_pro_challenge">Utfordring</string>
     <string name="title_pro_reponse">Svar</string>
-    <string name="title_pro_feature">Dette er en Pro-funksjon</string>
-    <string-array name="themeNames">
-        <item>teal/orange</item>
-        <item>blå/oransje</item>
-        <item>lilla/rød</item>
-        <item>amber/blue</item>
-        <item>oransje/grå</item>
-        <item>grønn</item>
-    </string-array>
-    <string-array name="protocolNames">
+    <string name="title_pro_feature">Dette er en pro-funksjon</string>
+    <string name="title_pro_subscription">
+        Et månedlig abonnement på 1 eller 2 euro (ekskludert lokale avgifter) vil aktivere alle pro-funksjoner.
+        Du kan kansellere eller administrere et abonnement via abonnement-fanen i Play Store-appen.
+    </string>
+    <string name="title_pro_already">Pro-funksjonene er allerede aktivert</string>    <string-array name="protocolNames">
         <item>UDP</item>
         <item>TCP</item>
     </string-array>
+
+    <string-array name="protocolValues" translatable="false">
+        <item>17</item>
+        <item>6</item>
+    </string-array>
+
+    <string name="label_dns_summary">%1$d oppføringer • %2$d utløpt</string>
+
 </resources>

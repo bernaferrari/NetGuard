@@ -282,6 +282,7 @@ class ServiceSinkhole : VpnService() {
                     }
                     Command.householding -> householding(intent)
                     Command.watchdog -> watchdog(intent)
+                    Command.updatecheck -> checkUpdateResult(checkUpdate())
                     else -> Log.e(TAG, "Unknown command=$cmd")
                 }
 
@@ -530,7 +531,19 @@ class ServiceSinkhole : VpnService() {
             }
         }
 
-        private fun checkUpdate() {
+        private fun checkUpdateResult(result: UpdateCheckResult) {
+            val resultIntent = Intent(ACTION_UPDATE_CHECK_RESULT).setPackage(packageName)
+            resultIntent.putExtra(EXTRA_UPDATE_CHECK_STATUS, result.status.name)
+            result.availableVersion?.let { resultIntent.putExtra(EXTRA_UPDATE_CHECK_VERSION, it) }
+            sendBroadcast(resultIntent)
+        }
+
+        private fun checkUpdate(): UpdateCheckResult {
+            if (BuildConfig.GITHUB_LATEST_API.isBlank()) {
+                Log.i(TAG, "Update check unavailable: empty API URL")
+                return UpdateCheckResult(UpdateCheckStatus.unavailable)
+            }
+
             val json = StringBuilder()
             var urlConnection: HttpsURLConnection? = null
             try {
@@ -543,6 +556,7 @@ class ServiceSinkhole : VpnService() {
                 }
             } catch (ex: Throwable) {
                 Log.e(TAG, ex.toString() + "\n" + Log.getStackTraceString(ex))
+                return UpdateCheckResult(UpdateCheckStatus.failed)
             } finally {
                 urlConnection?.disconnect()
             }
@@ -564,15 +578,23 @@ class ServiceSinkhole : VpnService() {
                             if (current.compareTo(available) < 0) {
                                 Log.i(TAG, "Update available from $current to $available")
                                 showUpdateNotification(name, url)
+                                return UpdateCheckResult(
+                                    status = UpdateCheckStatus.available,
+                                    availableVersion = version,
+                                )
                             } else {
                                 Log.i(TAG, "Up-to-date current version $current")
+                                return UpdateCheckResult(UpdateCheckStatus.upToDate)
                             }
                         }
                     }
                 }
             } catch (ex: JSONException) {
                 Log.e(TAG, ex.toString() + "\n" + Log.getStackTraceString(ex))
+                return UpdateCheckResult(UpdateCheckStatus.failed)
             }
+
+            return UpdateCheckResult(UpdateCheckStatus.failed)
         }
 
         private inner class StartFailedException(msg: String) : IllegalStateException(msg)
@@ -3304,6 +3326,18 @@ class ServiceSinkhole : VpnService() {
         }
     }
 
+    private data class UpdateCheckResult(
+        val status: UpdateCheckStatus,
+        val availableVersion: String? = null,
+    )
+
+    private enum class UpdateCheckStatus {
+        available,
+        upToDate,
+        failed,
+        unavailable,
+    }
+
     companion object {
         private const val TAG = "NetGuard.Service"
 
@@ -3329,6 +3363,8 @@ class ServiceSinkhole : VpnService() {
         const val EXTRA_BLOCKED = "Blocked"
         const val EXTRA_INTERACTIVE = "Interactive"
         const val EXTRA_TEMPORARY = "Temporary"
+        const val EXTRA_UPDATE_CHECK_STATUS = "UpdateCheckStatus"
+        const val EXTRA_UPDATE_CHECK_VERSION = "UpdateCheckVersion"
 
         private const val MSG_STATS_START = 1
         private const val MSG_STATS_STOP = 2
@@ -3341,6 +3377,7 @@ class ServiceSinkhole : VpnService() {
         const val ACTION_HOUSE_HOLDING = "eu.faircode.netguard.HOUSE_HOLDING"
         private const val ACTION_SCREEN_OFF_DELAYED = "eu.faircode.netguard.SCREEN_OFF_DELAYED"
         const val ACTION_WATCHDOG = "eu.faircode.netguard.WATCHDOG"
+        const val ACTION_UPDATE_CHECK_RESULT = "eu.faircode.netguard.UPDATE_CHECK_RESULT"
 
         private external fun jni_pcap(name: String?, record_size: Int, file_size: Int)
 
@@ -3596,6 +3633,24 @@ class ServiceSinkhole : VpnService() {
                 }
             }
         }
+
+        @JvmStatic
+        fun checkForUpdateNow(reason: String, context: Context) {
+            val intent = Intent(context, ServiceSinkhole::class.java)
+            intent.putExtra(EXTRA_COMMAND, Command.updatecheck)
+            intent.putExtra(EXTRA_REASON, reason)
+            try {
+                ContextCompat.startForegroundService(context, intent)
+            } catch (ex: Throwable) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && ex is ForegroundServiceStartNotAllowedException) {
+                    try {
+                        context.startService(intent)
+                    } catch (exex: Throwable) {
+                        Log.e(TAG, exex.toString() + "\n" + Log.getStackTraceString(exex))
+                    }
+                }
+            }
+        }
     }
 
     private enum class State {
@@ -3614,5 +3669,6 @@ class ServiceSinkhole : VpnService() {
         set,
         householding,
         watchdog,
+        updatecheck,
     }
 }

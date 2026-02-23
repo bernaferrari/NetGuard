@@ -1,292 +1,452 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_description">NetGuard, internet erişimini engellemek için basit ve gelişmiş yollar sunar - root gerektirmez. Uygulamaların ve adreslerin, Wi-Fi ve/veya mobil bağlantınıza erişimine ayrı ayrı izin verilebilir veya reddedilebilir.</string>
-    <string name="app_android">NetGuard, Android 5.1 veya üzerini gerektirir</string>
-    <string name="app_xposed">Xposed, NetGuard\'ın Google Play Store\'dan kaldırılmasına neden olabilecek kadar fazla çökmeye sebebiyet verir, bu nedenle NetGuard, Xposed yüklüyken desteklenmez</string>
-    <string name="app_privacy"><a href="https://www.netguard.me/privacy/">Gizlilik ilkesi</a></string>
-    <string name="app_first">NetGuard\'ın geliştirilip test edilmesi için büyük özen gösterilmiştir fakat her cihazda doğru çalışacağını garanti etmek imkansızdır.</string>
+    <string name="app_name" translatable="false">NetGuard Next</string>
+    <string name="app_description">NetGuard Next, internet erişimini engellemenin basit ve gelişmiş yollarını sunar - root erişimi gerekmez. Uygulamaların ve adreslerin Wi-Fi ve/veya mobil bağlantıya erişimi tek tek izin verilebilir veya engellenebilir.</string>
+    <string name="app_copyright" translatable="false">Copyright \u00A9 2015–2025 by M. Bokhorst (M66B)</string>
+    <string name="app_android">NetGuard, Android 5.1 veya daha yenisini gerektirir</string>
+    <string name="app_eula" translatable="false">THIS SOFTWARE IS PROVIDED BY THE AUTHOR \'\'AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
+    <string name="app_privacy"><a href="https://www.netguard.me/privacy/">Gizlilik politikası</a></string>
+    <string name="app_first">NetGuard\'ın geliştirilmesi ve test edilmesinde büyük özen gösterilmiştir ancak NetGuard\'ın her cihazda doğru çalışacağını garanti etmek imkansızdır.</string>
     <string name="app_agree">Kabul ediyorum</string>
-    <string name="app_disagree">Reddediyorum</string>
-    <string name="app_support">Netguard\'ın yardımınıza ihtiyacı var. Projenin devam etmesi için pro özelliklerini satın almak için dokunun.</string>
-    <string name="channel_foreground">Çalışan hizmetler</string>
+    <string name="app_disagree">Kabul etmiyorum</string>
+    <string name="app_support">NetGuard\'ın yardımınıza ihtiyacı var. Pro özelliklerini satın alarak projenin devam etmesine yardımcı olmak için dokunun.</string>
+    <string name="app_qap">
+        Google, tüm uygulamaları sorgulama izni istediği için bu uygulamayı Play mağazasından kaldırmayı amaçladı.
+        Beş itiraz ve bu iznin neden gerekli olduğuna dair yeterli gerekçelendirme reddedildi.
+        Uygulamanın bu sürümü artık bu izni istememektedir.
+        Buna rağmen, Android uygulama listesinden manuel olarak başlatılamayan bazı (sistem) uygulamaları hariç, hemen hemen tüm uygulamalar listelenmeye devam edecektir.
+        Cihazınızın düzgün çalışmaya devam etmesini sağlamak için bu uygulamaların internet trafiğine her zaman izin verilecektir.
+        Bunun bir sorun olduğunu düşünüyorsanız, uygulamanın GitHub sürümüne güncelleyebilir ve tüm (sistem) uygulamalarını yeniden yönetebilirsiniz.
+    </string>
+
+    <string name="channel_foreground">Hizmet çalışıyor</string>
     <string name="channel_notify">Genel bildirimler</string>
     <string name="channel_access">Erişim bildirimleri</string>
+
     <string name="menu_search">Uygulama ara</string>
     <string name="menu_filter">Uygulamaları filtrele</string>
     <string name="menu_app_user">Kullanıcı uygulamalarını göster</string>
     <string name="menu_app_system">Sistem uygulamalarını göster</string>
-    <string name="menu_app_nointernet">İnternetsiz uygulamaları göster</string>
+    <string name="menu_app_nointernet">İnternet izni olmayan uygulamaları göster</string>
     <string name="menu_app_disabled">Devre dışı uygulamaları göster</string>
     <string name="menu_sort">Uygulamaları sırala</string>
-    <string name="menu_sort_name">Ada göre sırala</string>
+    <string name="menu_sort_name">İsme göre sırala</string>
     <string name="menu_sort_uid">UID\'ye göre sırala</string>
-    <string name="menu_sort_data">Veri kullanımına göre sırala</string>
+    <string name="menu_sort_data">Kullanıma göre sırala</string>
+    <string name="menu_launch">Uygulamayı başlat</string>
     <string name="menu_log">Günlüğü göster</string>
     <string name="menu_settings">Ayarlar</string>
+    <string name="menu_home">Ana Sayfa</string>
     <string name="menu_invite">Davet et</string>
-    <string name="menu_legend">Semboller</string>
+    <string name="menu_legend">Açıklamalar</string>
     <string name="menu_support">Destek</string>
     <string name="menu_about">Hakkında</string>
     <string name="menu_apps">Diğer uygulamalar</string>
+    <string name="menu_firewall">Güvenlik Duvarı</string>
+    <string name="status_enabled">Güvenlik duvarı etkin</string>
+    <string name="status_disabled">Güvenlik duvarı devre dışı</string>
+    <string name="widget_firewall_enabled">Güvenlik Duvarı AÇIK</string>
+    <string name="widget_firewall_disabled">Güvenlik Duvarı KAPALI</string>
+    <string name="widget_lockdown_enabled">Kilitleme AÇIK</string>
+    <string name="widget_lockdown_disabled">Kilitleme KAPALI</string>
+    <string name="notify_traffic_title">Trafik monitörü</string>
+    <string name="notify_traffic_summary">Yükleme %1$s • İndirme %2$s • Zirve %3$s</string>
+    <string name="notify_traffic_debug">Oturum %1$d/%2$d/%3$d • Dosya %4$d/%5$d</string>
+    <string name="ui_loading">Yükleniyor…</string>
+    <string name="ui_empty_logs_title">Henüz trafik yok</string>
+    <string name="ui_empty_logs_body">Bağlantılar gerçekleştiğinde burada görünecektir.</string>
+    <string name="ui_empty_apps_title">Uygulama bulunamadı</string>
+    <string name="ui_empty_apps_body">Lütfen listeyi yenilemeyi deneyin.</string>
+    <string name="ui_empty_dns_title">Henüz çözümlenmiş DNS yok</string>
+    <string name="ui_empty_dns_body">Gezindikten sonra DNS yanıtları burada görünecektir.</string>
+    <string name="ui_dns_filter_empty">Bu filtreyle eşleşen DNS kaydı yok.</string>
+    <string name="ui_empty_forwarding_title">Yönlendirme kuralı yok</string>
+    <string name="ui_empty_forwarding_body">Trafiği yönlendirmeye başlamak için bir kural ekleyin.</string>
+    <string name="ui_forwarding_filter_empty">Bu filtreyle eşleşen yönlendirme kuralı yok.</string>
+    <string name="ui_empty_pro_body">Destek, ek özelliklerin kilidini açar ve projeyi canlı tutar.</string>
+    <string name="ui_empty_pro_details">Pro Kilidi: Filtreleme, günlük tutma, bildirimler, temalar ve hız limitleri.</string>
+    <string name="ui_home_hint">Her uygulamanın internet erişimini kontrol edin.</string>
+    <string name="ui_home_quick_actions">Hızlı işlemler</string>
+    <string name="ui_apps_title">Güvenlik Duvarı</string>
+    <string name="ui_logs_title">Trafik Günlüğü</string>
+    <string name="ui_logs_filters">Filtreler</string>
+    <string name="ui_logs_filter_status">Durum</string>
+    <string name="ui_logs_filter_protocol">Protokol</string>
+    <string name="ui_logs_filter_view">Görünüm</string>
+    <string name="ui_logs_group_timeline">Zaman çizelgesi</string>
+    <string name="ui_logs_group_by_app">Uygulamaya göre</string>
+    <string name="ui_logs_unknown_source">Bilinmeyen kaynak</string>
+    <string name="ui_settings_title">Ayarlar</string>
+    <string name="ui_dns_title">Çözümlenmiş DNS</string>
+    <string name="ui_forwarding_title">Port Yönlendirme</string>
+    <string name="ui_dns_hint">Son çözümlenen alan adları ve yanıtlar.</string>
+    <string name="ui_forwarding_hint">Yönlendirme kurallarını ve hedef uygulamaları yönetin.</string>
+    <string name="ui_dns_active">Aktif</string>
+    <string name="ui_rule_custom">Özel</string>
+    <string name="ui_dns_expired">Süresi dolmuş</string>
+    <string name="ui_filter_all">Hepsi</string>
+    <string name="ui_filter_empty">Bu filtreyle eşleşen uygulama yok.</string>
+    <string name="ui_apps_search_empty">Bu aramayla eşleşen uygulama yok.</string>
+    <string name="ui_learn_more">Daha fazla bilgi edin</string>
+    <string name="status_running">Trafik filtreleniyor</string>
+    <string name="status_not_running">Trafik filtrelenmiyor</string>
+    <string name="action_enable">Etkinleştir</string>
+    <string name="action_disable">Devre dışı bırak</string>
+    <string name="home_apps_hint">Uygulama kurallarını ve veri kullanımını inceleyin</string>
+    <string name="home_logs_hint">Son ağ etkinliklerini inceleyin</string>
+
+    <!-- Accessibility -->
+    <string name="action_expand">Detayları genişlet</string>
+    <string name="action_collapse">Detayları daralt</string>
+    <string name="action_navigate">Aç</string>
+    <string name="action_toggle_firewall">Güvenlik duvarını aç/kapat</string>
+    <string name="action_clear_search">Aramayı temizle</string>
+    <string name="search_settings">Ayarlarda ara</string>
+    <string name="content_desc_security_status">Güvenlik duvarı güvenlik durumu</string>
+    <string name="content_desc_app_icon">%s uygulama simgesi</string>
+    <string name="content_desc_show_info">%1$s hakkında bilgi göster</string>
+
+    <!-- Dashboard stats -->
+    <string name="stat_blocked_today">Engellendi</string>
+    <string name="stat_allowed_today">İzin verildi</string>
+    <string name="stat_active_rules">Aktif kurallar</string>
+
+    <!-- Tooltips -->
+    <string name="tooltip_rcode">Engellenen alan adları için gönderilen DNS yanıt kodu. Varsayılan 3 (NXDOMAIN), alan adının mevcut olmadığı anlamına gelir.</string>
+    <string name="tooltip_ttl">DNS önbellek girişleri için saniye cinsinden minimum TTL (yaşam süresi) değeri.</string>
+    <string name="tooltip_pcap">Hata ayıklama için tüm ağ paketlerini kaydedin. Bu büyük dosyalar oluşturacaktır.</string>
+    <string name="tooltip_filter">Trafiği yakalayın ve analiz edin. Adres bazlı engelleme için gereklidir. Daha fazla pil tüketecektir.</string>
+    <string name="tooltip_lockdown">Açıkça izin verilen uygulamalar dışındaki tüm trafiği engeller. Dikkatli kullanın.</string>
+
+    <string name="menu_protocol_udp" translatable="false">UDP</string>
+    <string name="menu_protocol_tcp" translatable="false">TCP</string>
     <string name="menu_protocol_other">Diğer</string>
-    <string name="menu_traffic_allowed">İzin verilen</string>
-    <string name="menu_traffic_blocked">Engellenen</string>
-    <string name="menu_live">Canlı güncellemeler</string>
+    <string name="menu_traffic_allowed">İzin verildi</string>
+    <string name="menu_traffic_blocked">Engellendi</string>
+    <string name="menu_live">Canlı güncelleme</string>
     <string name="menu_refresh">Yenile</string>
-    <string name="menu_resolve">Adları göster</string>
-    <string name="menu_organization">Kuruluşu göster</string>
-    <string name="menu_pcap_enabled">PCAP etkinleştirildi</string>
-    <string name="menu_pcap_export">PCAP dışa aktarma</string>
+    <string name="menu_ok">Tamam</string>
+    <string name="menu_cancel">İptal</string>
+    <string name="menu_resolve">İsimleri göster</string>
+    <string name="menu_organization">Organizasyonu göster</string>
+    <string name="menu_pcap_enabled">PCAP etkin</string>
+    <string name="menu_pcap_export">PCAP dışa aktar</string>
     <string name="menu_clear">Temizle</string>
     <string name="menu_export">Dışa aktar</string>
     <string name="menu_reset">Sıfırla</string>
+
     <string name="menu_add">Ekle</string>
     <string name="menu_delete">Sil</string>
+
     <string name="menu_cleanup">Temizlik</string>
+
     <string name="title_protocol">Protokol</string>
-    <string name="title_dport">Kaynak bağlantı noktası</string>
-    <string name="title_raddr">Hedef adres</string>
-    <string name="title_rport">Hedef bağlantı noktası</string>
+    <string name="title_dport">Kaynak portu</string>
+    <string name="title_raddr">Hedef adresi</string>
+    <string name="title_rport">Hedef portu</string>
     <string name="title_ruid">Hedef uygulama</string>
-    <string name="title_external">Harici bir sunucu için \'hiçkimse\' seçin</string>
-    <string name="setting_defaults">Varsayılanlar</string>
-    <string name="setting_whitelist_wifi">Kablosuz engellensin</string>
-    <string name="setting_whitelist_other">Mobil veri engellensin</string>
-    <string name="setting_screen_wifi">Ekran açıkken kablosuza izin verilsin</string>
-    <string name="setting_screen_other">Ekran açıkken mobil veriye izin verilsin</string>
-    <string name="setting_whitelist_roaming">Dolaşım engellensin</string>
+    <string name="title_external">Dış sunucular için \'nobody\' seçin</string>
+
+    <string name="setting_defaults">Varsayılanlar (Beyaz/Kara liste)</string>
+    <string name="setting_whitelist_wifi">Wi-Fi engelle</string>
+    <string name="setting_whitelist_other">Mobil engelle</string>
+    <string name="setting_screen_wifi">Ekran açıkken Wi-Fi\'ya izin ver</string>
+    <string name="setting_screen_other">Ekran açıkken mobil veriye izin ver</string>
+    <string name="setting_whitelist_roaming">Dolaşımı engelle</string>
+
     <string name="setting_options">Seçenekler</string>
     <string name="setting_theme">Tema: %1$s</string>
-    <string name="setting_dark">Karanlık tema kullan</string>
-    <string name="setting_install">Yeni uygulamaları bildir</string>
-    <string name="setting_screen_on">Ekranın açıklığına bağlı kurallar uygulansın</string>
+    <string name="setting_dark">Koyu temayı kullan</string>
+    <string name="setting_theme_palette">Bir renk stili seçin</string>
+    <string name="setting_dynamic_unavailable">Dinamik renkler Android 12 veya yenisini gerektirir.</string>
+    <string name="setting_appearance_mode">Görünüm modu</string>
+    <string name="setting_appearance_mode_title">Koyu mod</string>
+    <string name="setting_appearance_mode_summary">Kapalı, açık veya sisteme göre seçin.</string>
+    <string name="setting_appearance_preview">Şu an: %1$s · %2$s</string>
+    <string name="setting_appearance_auto">Otomatik</string>
+    <string name="setting_appearance_light">Aydınlık</string>
+    <string name="setting_appearance_dark">Karanlık</string>
+    <string name="theme_dynamic">Dinamik</string>
+    <string name="setting_install">Yeni uygulama yüklendiğinde bildir</string>
+    <string name="setting_screen_on">\'Ekran açıkken\' kurallarını uygula</string>
     <string name="setting_auto">%1$s dakika sonra otomatik etkinleştir</string>
-    <string name="setting_delay">Ekranın kapalı olarak algılanmasını %1$s dakika ertele</string>
+    <string name="setting_delay">Ekran kapandıktan %1$s dakika sonra kuralları sürdür</string>
     <string name="setting_update">Güncellemeleri kontrol et</string>
+    <string name="setting_update_now">Şimdi kontrol et</string>
+    <string name="setting_update_checking">Kontrol ediliyor...</string>
+
     <string name="setting_network_options">Ağ seçenekleri</string>
-    <string name="setting_subnet">Alt ağ yönlendirmesi</string>
+    <string name="setting_subnet">Alt ağ yönlendirme</string>
     <string name="setting_tethering">İnternet paylaşımına izin ver</string>
-    <string name="setting_lan">Yerel ağ erişimine izin ver</string>
+    <string name="setting_lan">LAN erişimine izin ver</string>
     <string name="setting_ip6">IPv6 trafiğini etkinleştir</string>
-    <string name="setting_wifi_home">Kablosuz ev ağları: %1$s</string>
-    <string name="setting_metered">Veri kullanımının ölçüldüğü kablosuz ağları yönet</string>
-    <string name="setting_metered_2g">2G kotasız olarak sayılsın</string>
-    <string name="setting_metered_3g">3G kotasız olarak sayılsın</string>
-    <string name="setting_metered_4g">4G kotasız olarak sayılsın</string>
+    <string name="setting_wifi_home">Wi-Fi ev ağı: %1$s</string>
+    <string name="setting_metered">Ücretli Wi-Fi ağlarını yönet</string>
+    <string name="setting_metered_2g">2G\'yi ücretsiz say</string>
+    <string name="setting_metered_3g">3G\'yi ücretsiz say</string>
+    <string name="setting_metered_4g">LTE\'yi ücretsiz say</string>
     <string name="setting_national_roaming">Ulusal dolaşımı yoksay</string>
     <string name="setting_eu_roaming">AB dolaşımını yoksay</string>
-    <string name="setting_call">Aramada devre dışı bırak</string>
-    <string name="setting_lockdown_wifi">Kablosuz engellensin</string>
-    <string name="setting_lockdown_other">Mobil veri engellensin</string>
-    <string name="setting_reload_onconnectivity">Her bağlantı değişikliğinde tekrar yüklensin</string>
+    <string name="setting_call">Arama sırasında devre dışı bırak</string>
+    <string name="setting_lockdown_wifi">Wi-Fi\'ı kilitle</string>
+    <string name="setting_lockdown_other">Mobil veriyi kilitle</string>
+    <string name="setting_reload_onconnectivity">Bağlantı her değiştiğinde yeniden yükle</string>
+
     <string name="setting_advanced_options">Gelişmiş seçenekler</string>
-    <string name="setting_system">Sistem uygulamaları yönet</string>
-    <string name="setting_log_app">İnternet erişimlerini kaydet</string>
-    <string name="setting_access">İnternet erişimini bildir</string>
+    <string name="setting_system">Sistem uygulamalarını yönet</string>
+    <string name="setting_log_app">İnternet erişimini kaydet</string>
+    <string name="setting_log_retention_days">Trafik günlüğü saklama süresi (gün)</string>
+    <string name="setting_access">İnternet erişiminde bildir</string>
     <string name="setting_filter">Trafiği filtrele</string>
     <string name="setting_filter_udp">UDP trafiğini filtrele</string>
-    <string name="setting_handover">Yeniden yüklemede kesintisiz VPN devredilmesi</string>
-    <string name="setting_clear_onreload">Yeniden yüklemede bağlantıları sonlandır</string>
-    <string name="setting_lockdown">Trafiği durdur</string>
-    <string name="setting_track_usage">Veri kullanımını ölç</string>
-    <string name="setting_reset_usage">Veri kullanımını sıfırla</string>
+    <string name="setting_handover">Yeniden yüklemede kesintisiz VPN geçişi</string>
+    <string name="setting_clear_onreload">Yeniden yüklemede bağlantıları kapat</string>
+    <string name="setting_lockdown">Trafiği kilitle</string>
+    <string name="setting_malware">Zararlı yazılım koruması</string>
+    <string name="setting_track_usage">Ağ kullanımını takip et</string>
+    <string name="setting_reset_usage">Ağ kullanımını sıfırla</string>
     <string name="setting_show_resolved">Çözümlenmiş alan adlarını göster</string>
     <string name="setting_block_domains">Alan adlarını engelle</string>
     <string name="setting_rcode">DNS yanıt kodu: %s</string>
-    <string name="setting_forwarding">Bağlantı noktası yönlendirme</string>
+    <string name="setting_forwarding">Port yönlendirme</string>
     <string name="setting_vpn4">VPN IPv4: %s</string>
     <string name="setting_vpn6">VPN IPv6: %s</string>
     <string name="setting_dns">VPN DNS: %s</string>
+    <string name="setting_dns2">İkincil DNS: %s</string>
     <string name="setting_validate">Doğrulama adresi: %s</string>
-    <string name="setting_ttl">En düşük DNS TTL: %s s</string>
-    <string name="setting_socks5_enabled">SOCKS5 kullan</string>
+    <string name="setting_ttl">Minimum DNS TTL: %s sn</string>
+    <string name="setting_socks5_enabled">SOCKS5 vekili kullan</string>
     <string name="setting_socks5_addr">SOCKS5 adresi: %s</string>
-    <string name="setting_socks5_port">SOCKS5 bağlantı noktası: %s</string>
+    <string name="setting_socks5_port">SOCKS5 portu: %s</string>
     <string name="setting_socks5_username">SOCKS5 kullanıcı adı: %s</string>
-    <string name="setting_socks5_password">SOCKS5 parolası: %s</string>
+    <string name="setting_socks5_password">SOCKS5 şifresi: %s</string>
     <string name="setting_pcap_record_size">PCAP kayıt boyutu: %s B</string>
-    <string name="setting_pcap_file_size">PCAP dosya boyutu sınırı: %s MB</string>
-    <string name="setting_watchdog">Bekçi: her %s dakika</string>
-    <string name="setting_stats_category">Hız bildirimi</string>
-    <string name="setting_stats">Hız bildirimini göster</string>
+    <string name="setting_pcap_file_size">Maksimum PCAP dosya boyutu: %s MB</string>
+    <string name="setting_pcap">Ağ trafiğini kaydet (PCAP)</string>
+    <string name="setting_watchdog">Gözlemci: her %s dakikada bir</string>
+
+    <string name="setting_stats_category">Hız bildirimleri</string>
+    <string name="setting_stats">Hız bildirimlerini göster</string>
     <string name="setting_stats_top">En çok kullanan uygulamaları göster</string>
-    <string name="setting_stats_frequency">Yenileme aralığı: %s ms</string>
-    <string name="setting_stats_samples">Yenileme geçmişi: %s s</string>
+    <string name="setting_stats_frequency">Örnekleme aralığı: %s ms</string>
+    <string name="setting_stats_samples">Örnek sayısı: %s</string>
+
     <string name="setting_backup">Yedekleme</string>
     <string name="setting_export">Ayarları dışa aktar</string>
     <string name="setting_import">Ayarları içe aktar</string>
-    <string name="setting_hosts">Hosts dosyasını içe aktar</string>
-    <string name="setting_hosts_append">Hosts dosyasını içe aktar (ek)</string>
-    <string name="setting_hosts_url">Hosts dosyası indirme adresi</string>
-    <string name="setting_hosts_download">Hosts dosyasını indir</string>
-    <string name="setting_technical">Teknik bilgiler</string>
+    <string name="setting_hosts">hosts dosyasını içe aktar</string>
+    <string name="setting_hosts_append">hosts dosyasını içe aktar (ekle)</string>
+    <string name="setting_hosts_url">hosts dosyası indirme URL\'si</string>
+    <string name="setting_hosts_download">hosts dosyasını indir</string>
+    <string name="setting_use_hosts">hosts dosyasını kullan</string>
+
+    <string name="setting_technical">Teknik bilgi</string>
     <string name="setting_technical_general">Genel</string>
     <string name="setting_technical_networks">Ağlar</string>
-    <string name="setting_technical_subscription">Abonelikler</string>
-    <string name="summary_install">Yeni yüklenen uygulamaları doğrudan yapılandırmak için durum çubuğunda bildirim göster (pro özelliği)</string>
-    <string name="summary_auto">Widget ile devre dışı bırakıldığında, seçili süre sonrasında NetGuard otomatik olarak tekrar etkinleştirilsin (bu seçeneği devre dışı bırakmak için sıfır olarak ayarlayın)</string>
-    <string name="summary_delay">Ekran kapatıldıktan sonra, ekranın açık olduğundaki kuralları seçili süre boyunca aktif tut (bu seçeneği devre dışı bırakmak için sıfır olarak ayarlayın)</string>
-    <string name="summary_update">Yeni sürümler için GitHub üzerinden günde iki defa kontrol et</string>
-    <string name="summary_tethering">Android sürümüne bağlı olarak, internet paylaşımı çalışabilir yada çalışmayabilir. Paylaşılan internet trafiği filtrelenemez.</string>
-    <string name="summary_subnet">Alt ağ yönlendirmesini etkinleştir; Wi-Fi aramasını etkinleştirebilir, fakat Android\'de hatalara sebep olup pil kullanımını arttırabilir</string>
-    <string name="summary_lan">Uygulamaların 10.0.0.0/8, 172.16.0.0/12 ve 192.168.0.0/16 gibi yerel ağ adreslerine bağlanmasına izin ver</string>
-    <string name="summary_ip6">IPv6 trafiğini, yönetilmesi için Netguard\'a yönlendir</string>
-    <string name="summary_wifi_home">Yalnızca seçili ağlarda kablosuz kurallarını uygula (diğer kablosuz ağlarda mobil ağ kuralları uygulanır)</string>
-    <string name="summary_metered">Kotalı kablosuz ağlarına (paylaşım, ücretli) mobil veri kurallarını uygula</string>
-    <string name="summary_metered_2g">2G bağlantılar için kablosuz kurallarını uygula</string>
-    <string name="summary_metered_3g">3G bağlantılar için kablosuz kurallarını uygula</string>
-    <string name="summary_metered_4g">4G bağlantılar için kablosuz kurallarını uygula</string>
-    <string name="summary_national_roaming">Yurtdışında olunmadığı sürece dolaşım kurallarını etkinleştirme</string>
-    <string name="summary_eu_roaming">AB içerisinde olunmadığı sürece dolaşım kurallarını etkinleştirme</string>
-    <string name="summary_call">Telefon aramalarında NetGuard devre dışı bırakılsın. IP/Kablosuz üzerinden arama sorunlarını çözmek için kullanılabilir.</string>
-    <string name="summary_system">Sistem uygulamalarına kural tanımlanmasını sağlar (gelişmiş kullanıcılar için)</string>
-    <string name="summary_log_app">Uygulamaların internet erişimlerini kaydeder. Pil kullanımını arttırabilir.</string>
-    <string name="summary_access">Uygulama yeni bir adrese erişmek istediğinde bildirim göster (filtreleme devre dışıyken yalnızca engellenen internet erişimlerinin bildirimi gösterilecektir)</string>
-    <string name="summary_filter">VPN tünelinden çıkan IP paketlerini filtrele. Pil kullanımını arttırabilir.</string>
-    <string name="summary_track_usage">Her uygulama ve adres tarafından gönderilip alınan veri miktarını izleyin. Bu pil kullanımını arttırabilir.</string>
-    <string name="summary_block_domains">Engellenen alan adları için ayarlanmış DNS yanıt kodu ile yanıt ver. Hosts dosyası mevcut olmadığı zaman bu seçenek devre dışıdır.</string>
-    <string name="summary_rcode">Varsayılan değer 3 (NXDOMAIN), yani \'mevcut olmayan alan adı\'.</string>
-    <string name="summary_validate">İnternet bağlantısını 443 (https) bağlantı noktasında doğrulamak için kullanılacak alan adı.</string>
-    <string name="summary_socks5_enabled">Sadece TCP trafiği vekil sunucuya gönderilecek</string>
-    <string name="summary_watchdog">NetGuard\'ın çalışıp çalışmadığını zaman zaman kontrol et (bu seçeneği devre dışı bırakmak için sıfır olarak ayarlayın). Pil kullanımını arttırabilir.</string>
-    <string name="summary_stats">İnternet hız grafiği bildirimini göster</string>
+    <string name="setting_technical_subscription">Abonelik</string>
+    <string name="setting_section_appearance">Görünüm</string>
+    <string name="setting_section_firewall">Güvenlik duvarı kuralları</string>
+    <string name="setting_section_advanced">Gelişmiş davranışlar</string>
+    <string name="setting_section_hosts">Hosts ve DNS</string>
+    <string name="setting_section_network">Ağ yapılandırması</string>
+    <string name="setting_section_dns">DNS detayları</string>
+    <string name="setting_section_proxy">Vekil Sunucu</string>
+    <string name="setting_section_vpn">VPN yapılandırması</string>
+    <string name="setting_section_background">Arka plan görevleri</string>
+    <string name="setting_section_diagnostics">Tanılama</string>
+    <string name="setting_section_support">Destek</string>
+
+    <string name="summary_install">Yeni yüklenen uygulamaları doğrudan yapılandırmak için durum çubuğunda bir bildirim gösterin (Pro özelliği)</string>
+    <string name="summary_auto">Widget kullanarak devre dışı bıraktıktan sonra seçilen süre sonunda NetGuard\'ı otomatik olarak yeniden etkinleştirin (bu seçeneği devre dışı bırakmak için sıfır girin)</string>
+    <string name="summary_delay">Ekranı kapattıktan sonra seçilen süre boyunca \'ekran açıkken\' kurallarını aktif tutun (bu seçeneği devre dışı bırakmak için sıfır girin)</string>
+    <string name="summary_update">GitHub üzerinden günde iki kez yeni sürümleri kontrol edin</string>
+
+    <string name="summary_tethering">Android sürümüne bağlı olarak internet paylaşımı çalışabilir veya çalışmayabilir. Paylaşılan trafik filtrelenemez.</string>
+    <string name="summary_subnet">Alt ağ yönlendirmeyi etkinleştirin; Wi-Fi üzerinden aramaya izin verebilir ancak Android hatalarını tetikleyebilir ve pil kullanımını artırabilir</string>
+    <string name="summary_lan">Uygulamaların 10.0.0.0/8, 172.16.0.0/12 ve 192.168.0.0/16 gibi yerel ağ adreslerine bağlanmasına izin verin</string>
+    <string name="summary_ip6">Seçici olarak izin vermek veya engellemek için IPv6 trafiğini NetGuard üzerinden yönlendirin</string>
+    <string name="summary_wifi_home">Wi-Fi ağ kurallarını yalnızca seçilen ağ için uygulayın (diğer Wi-Fi ağları için mobil ağ kurallarını uygulayın)</string>
+    <string name="summary_metered">Mobil ağ kurallarını ücretli (kotalı, paylaşılan) Wi-Fi ağlarına uygulayın</string>
+    <string name="summary_metered_2g">2G veri bağlantılarına Wi-Fi ağ kurallarını uygulayın</string>
+    <string name="summary_metered_3g">3G veri bağlantılarına Wi-Fi ağ kurallarını uygulayın</string>
+    <string name="summary_metered_4g">LTE veri bağlantılarına Wi-Fi ağ kurallarını uygulayın</string>
+    <string name="national_roaming_summary">SIM ve mobil ağ ülkesi aynı olduğunda dolaşım kurallarını uygulama</string>
+    <string name="eu_roaming_summary">SIM ve mobil ağ ülkesi her ikisi de AB içindeyken dolaşım kurallarını uygulama (kendi ülkendeymiş gibi kullan)</string>
+    <string name="summary_call">Gelen veya giden bir arama olduğunda NetGuard\'ı devre dışı bırakın. Bu, IP/Wi-Fi üzerinden arama sorunlarını önlemek için kullanılabilir.</string>
+
+    <string name="summary_system">Sistem uygulamaları için kurallar tanımlayın (uzmanlar için)</string>
+    <string name="summary_log_app">Uygulamaların internet erişim denemelerini kaydedin. Bu, ek pil tüketimine neden olabilir.</string>
+    <string name="summary_log_retention_days">Bakım sırasında eski trafik günlüklerini otomatik olarak silin. Süresiz saklamak için 0 yapın.</string>
+    <string name="summary_access">Bir uygulama yeni bir internet adresine erişmeye çalıştığında durum çubuğu bildirimi gösterin (filtreleme devre dışıyken, yalnızca engellenen erişim denemeleri bildirilir)</string>
+    <string name="summary_filter">VPN tünelinden çıkan IP paketlerini filtreleyin. Bu, ek pil tüketimine neden olabilir.</string>
+    <string name="summary_track_usage">Her uygulama ve adres tarafından gönderilen ve alınan baytları takip edin. Bu, ek pil tüketimine neden olabilir.</string>
+    <string name="summary_block_domains">Engellenen alan adları için yapılandırılmış DNS yanıt kodu ile yanıt verin. Bir hosts dosyası mevcut değilse bu anahtar devre dışı bırakılacaktır.</string>
+    <string name="summary_rcode">Varsayılan değer 3\'tür (NXDOMAIN), \'alan adı mevcut değil\' anlamına gelir.</string>
+    <string name="summary_validate">443 (https) portu üzerinden internet bağlantısını doğrulamak için kullanılan alan adı.</string>
+    <string name="summary_socks5_enabled">Sadece TCP trafiği vekil sunucuya gönderilecektir</string>
+    <string name="summary_watchdog">NetGuard\'ın hala çalışıp çalışmadığını periyodik olarak kontrol edin (bu seçeneği devre dışı bırakmak için sıfır girin). Bu, ek pil tüketimine neden olabilir.</string>
+
+    <string name="summary_stats">Durum çubuğu bildiriminde ağ hızı grafiğini gösterin</string>
+
+    <string-array name="default_wifi_home"></string-array>
+
     <string name="msg_sure">Emin misiniz?</string>
-    <string name="msg_started">Kuralları uygulanıyor</string>
-    <string name="msg_packages">%1$d izinli, %2$d engelli</string>
-    <string name="msg_hosts">%1$d izinli, %2$d engelli, %3$d hosts</string>
-    <string name="msg_waiting">Eylem bekleniyor</string>
-    <string name="msg_disabled">NetGuard devre dışı, yukarıdan etkinleştirebilirsiniz</string>
-    <string name="msg_revoked">Netguard muhtemelen farklı bir VPN tabanlı uygulama kullanıldığı için devre dışı bırakıldı</string>
+    <string name="msg_started">Kurallar uygulanıyor</string>
+    <string name="msg_packages">%1$d izin verildi, %2$d engellendi</string>
+    <string name="msg_hosts">%1$d izin verildi, %2$d engellendi, %3$d ana bilgisayar</string>
+    <string name="msg_waiting">Olaylar bekleniyor</string>
+    <string name="msg_disabled">NetGuard devre dışı, lütfen NetGuard\'ı etkinleştirmek için yukarıdaki anahtarı kullanın</string>
+    <string name="msg_notifications">Bildirim izni vermek için dokunun (erişim deneme bildirimleri, hata mesajları vb. için)</string>
+    <string name="msg_revoked">NetGuard devre dışı bırakıldı, muhtemelen başka bir VPN tabanlı uygulama kullanılması nedeniyle</string>
     <string name="msg_installed">\'%1$s\' yüklendi</string>
     <string name="msg_installed_n">Yüklendi</string>
+    <string name="msg_malware">Olası zararlı yazılım: \'%1$s\'</string>
     <string name="msg_access">%1$s internete erişmeye çalıştı</string>
-    <string name="msg_access_n">İnternete erişmeye çalıştı</string>
+    <string name="msg_access_n">Internete erişmeye çalıştı</string>
     <string name="msg_completed">Eylem tamamlandı</string>
-    <string name="msg_vpn">NetGuard internet trafiğini filtrelemek için yerel olarak VPN çalıştırır.
-Bu yüzden bir sonraki diyalogda lütfen VPN bağlantısına izin verin.
-İnternet trafiğiniz herhangi bir VPN sunucusuna gönderilmemektedir.</string>
-    <string name="msg_autostart">NetGuard otomatik olarak başlatılamadı. Android sürümünüzdeki bir hata buna sebep oluyor olabilir.</string>
-    <string name="msg_error">Beklenmedik bir hata oluştu: \'%s\'</string>
-    <string name="msg_start_failed">Android VPN hizmeti başlatmayı reddetti. Android sürümünüzdeki bir hata buna sebep oluyor olabilir.</string>
-    <string name="msg_try">NetGuard\'ı deneyin</string>
-    <string name="msg_terms">Bağış yaparak <a href="http://www.netguard.me/#terms">şart ve koşulları</a> kabul etmiş sayılırsınız</string>
-    <string name="msg_dimming">Sonraki diyalogda TAMAM\'a basamıyorsanız, farklı bir (ekran karartma) uygulama ekranı kontrol ediyor olabilir.</string>
-    <string name="msg_mbday">± %1$.3f▲ %2$.3f▼ MB/gün</string>
-    <string name="msg_kb">%1$7.3f▲ %2$7.3f▼ KB</string>
-    <string name="msg_mb">%1$7.3f▲ %2$7.3f▼ MB</string>
-    <string name="msg_gb">%1$7.3f▲ %2$7.3f▼ GB</string>
+    <string name="msg_invalid">Lütfen değeri kontrol edin ve tekrar deneyin.</string>
+    <string name="msg_export_failed">Dışa aktarma başarısız: %1$s</string>
+    <string name="msg_vpn">NetGuard, internet trafiğini filtrelemek için yerel bir VPN kullanır.
+Bu nedenle lütfen sonraki iletişim kutusunda VPN bağlantısına izin verin.
+İnternet trafiğiniz herhangi bir uzak VPN sunucusuna gönderilmeyecektir.</string>
+    <string name="msg_autostart">NetGuard otomatik olarak başlatılamadı. Bu büyük olasılıkla Android sürümünüzdeki bir hatadan kaynaklanmaktadır.</string>
+    <string name="msg_error">Beklenmeyen bir hata oluştu: \'%s\'</string>
+    <string name="msg_start_failed">Android şu anda VPN hizmetini başlatmayı reddetti. Bu büyük olasılıkla Android sürümünüzdeki bir hatadan kaynaklanmaktadır.</string>
+    <string name="msg_try">NetGuard\'ı dene</string>
+    <string name="msg_terms">Bağış yaparak <a href="http://www.netguard.me/#terms">şartlar ve koşulları</a> kabul etmiş olursunuz</string>
+    <string name="msg_dimming">Sonraki iletişim kutusunda Tamam\'a basamıyorsanız, muhtemelen başka bir (ekran karartma) uygulama ekranı kontrol ediyordur.</string>
+    <string name="msg_mbday">&#177; %1$.3f&#9650; %2$.3f&#9660; MB/gün</string>
+    <string name="msg_kbsec">%7.3f KB/s</string>
+    <string name="msg_mbsec">%7.3f MB/s</string>
+    <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
+    <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
+    <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
     <string name="msg_count">%dx</string>
-    <string name="msg_doze">NetGuard\'ın daha istikrarlı çalışması için Android pil optimizasyonları devre dışı bırakılmalıdır.
-\n\nSonraki diyalogda yukarıdan \"Tüm Uygulamalar\" seçip listeden Netguard\'ı bulun ve \"Optimize Etme\" seçeneğine dokunun.</string>
-    <string name="msg_datasaving">NetGuard\'ın daha istikrarlı çalışması için Android veri tasarrufu devre dışı bırakılmalıdır.
-\n\nSonraki diyalogda \"Arkaplan verileri\" ve \"Sınırsız veri kullanımı\" izinlerini verin.</string>
-    <string name="msg_filter">Filtreleme kullanmak, Android\'in veri ve güç kullanımını Netguard\'a atfetmesine sebep olur - Android veri ve güç kullanımının uygulamalar tarafından değil, NetGuard tarafından kullanıldığını varsayar</string>
-    <string name="msg_filter4">Android 4 filtrelemenin etkinleştirilmesini gerektirir</string>
-    <string name="msg_log_disabled">Trafik günlüğü devre dışı bırakıldı, yukarıdan etkinleştirebilirsiniz. Trafik günlüğünü etkinleştirmek pil kullanımını arttırabilir.</string>
-    <string name="msg_clear_rules">Bu kural ve koşulları varsayılan değerlerine sıfırlar</string>
-    <string name="msg_reset_access">Bu eylem, kuralı olmayan internet erişim kayıtlarını siler</string>
+    <string name="msg_doze">Tutarlı sonuçlar için NetGuard için Android pil optimizasyonu devre dışı bırakılmalıdır.
+\n\nSonraki iletişim kutusunda, üstten \"Tüm uygulamalar\"ı seçin, listede NetGuard\'a dokunun ve \"Optimize etme\"yi seçip onaylayın.</string>
+    <string name="msg_datasaving">Tutarlı sonuçlar için NetGuard için Android veri tasarrufu seçeneği devre dışı bırakılmalıdır.
+\n\nSonraki iletişim kutusunda \"Arka plan verileri\" ve \"Sınırsız veri kullanımı\" seçeneklerini etkinleştirin.</string>
+    <string name="msg_filter">Filtreleme kullanmak Android\'in veri ve güç kullanımını NetGuard\'a atfetmesine neden olacaktır - Android, verinin ve gücün asıl uygulama yerine NetGuard tarafından tüketildiğini düşünecektir.</string>
+    <string name="msg_filter4">Android 4, filtrelemenin etkinleştirilmesini gerektirir</string>
+    <string name="msg_log_disabled">Trafik günlüğü devre dış, lütfen yukarıdaki anahtarla etkinleştirin. Günlük tutma ek pil tüketimine neden olabilir.</string>
+    <string name="msg_clear_rules">Bu, kuralları ve koşulları varsayılan değerlere sıfırlayacaktır</string>
+    <string name="msg_reset_access">Bu, izin ver/engelle kuralı olmayan erişim denemesi günlüğü satırlarını silecektir</string>
     <string name="msg_import_last">Son içe aktarma: %s</string>
     <string name="msg_downloading">İndiriliyor\n%1s</string>
-    <string name="msg_downloaded">Hosts dosyası indirildi</string>
+    <string name="msg_downloaded">hosts dosyası indirildi</string>
     <string name="msg_download_last">Son indirme: %s</string>
-    <string name="msg_start_forward">\'%5$s\' için %1$s:%2$d -> %3$s:%4$d yönlendirmesi başlatılsın mı?</string>
-    <string name="msg_stop_forward">%1$s:%2$d yönlendirmesi durdurulsun mu?</string>
-    <string name="msg_metered">Mevcut ağ kotalı</string>
-    <string name="msg_inactive">İnternet bağlantısı yok</string>
+    <string name="msg_start_forward">%1$s port %2$d\'den %3$s:%4$d adresine \'%5$s\' için yönlendirme başlatılsın mı?</string>
+    <string name="msg_stop_forward">%1$s port %2$d yönlendirmesi durdurulsun mu?</string>
+    <string name="msg_metered">Ağ ücretli (kotalı)</string>
+    <string name="msg_inactive">Aktif internet bağlantısı yok</string>
     <string name="msg_queue">NetGuard meşgul</string>
     <string name="msg_update">Güncelleme mevcut, indirmek için dokunun</string>
-    <string name="msg_usage">Uygulamanın yanındaki simgelere dokunarak kablosuz veya mobil veri erişimine izin verip (yeşil) engelleyebilirsiniz (kırmızı)</string>
-    <string name="msg_fairemail">Gizliliğinizi korumak için NetGuard yüklediyseniz, açık kaynaklı, gizlilik dostu eposta uygulaması olan <a href="https://email.faircode.eu/">FairEmail</a> ilginizi çekebilir</string>
-    <string name="msg_whitelist">İnternet erişimine varsayılan olarak izin verilir (karaliste), bu ayarlardan değiştirilebilir</string>
-    <string name="msg_push">Gelen (anlık) iletiler genellikle internet erişimi varsayılan olarak verilen Play hizmetleri tarafından yönetilir</string>
-    <string name="msg_system">Tüm uygulamaların (sistem) yönetimi ayarlardan etkinleştirilebilir</string>
-    <string name="msg_issue">Lütfen sorunu açıklayın ve sorunun oluştuğu zamanını girin:</string>
-    <string name="msg_vpn_cancelled">VPN bağlantısı iptal edildi\nFarklı bir VPN\'i daima açık olarak ayarlamış olabilir misiniz?</string>
-    <string name="msg_on">Netguard etkinken cihazınızı kapatırsanız,, cihazınız açılırken NetGuard otomatik olarak başlayacaktır</string>
-    <string name="msg_unavailable">Bu özellik, bu Android sürümünde mevcut değil</string>
-    <string name="msg_always_on">Farklı bir VPN daima açık olarak ayarlanmış</string>
-    <string name="msg_always_on_lockdown">NetGuard filtrelemesini kullanmak için Android VPN ayarlarından \"VPN olmadığında bağlantıları engelle\" seçeneğini kapatın</string>
-    <string name="msg_private_dns">NetGuard filtrelemesini kullanmak için Android ağ ayarlarından \"Özel DNS\" seçeneğini kapatın</string>
-    <string name="title_lockdown_enabled">Trafik durduruldu</string>
-    <string name="title_unmetered_allowed">Kotasız trafiğe izin veriliyor</string>
-    <string name="title_unmetered_blocked">Kotasız trafik engelleniyor</string>
-    <string name="title_unmetered_disabled">Kotasız kurallar uygulanmıyor</string>
-    <string name="title_metered_allowed">Kotalı trafiğe izin veriliyor</string>
-    <string name="title_metered_blocked">Kotalı trafik engelleniyor</string>
-    <string name="title_metered_disabled">Kotalı kurallar uygulanmıyor</string>
-    <string name="title_host_allowed">Adrese izin veriliyor</string>
-    <string name="title_host_blocked">Adres engelleniyor</string>
-    <string name="title_interactive_allowed">Ekran açıkken izin veriliyor</string>
-    <string name="title_roaming_blocked">Dolaşımdayken engelleniyor</string>
-    <string name="title_metered">Kablosuz ağlar kotasız, mobil bağlantılar kotalı olarak sayılır</string>
-    <string name="title_internet">internet izni yok</string>
-    <string name="title_disabled">devre dışı</string>
-    <string name="title_messaging">İletiler bu uygulama tarafından değil, Google Play hizmetleri tarafından alınmakta bundan dolayı bu uygulamayı engellemek işe yaramaz</string>
-    <string name="title_download">İndirmeler bu uygulama tarafından değil, indirme yöneticisi tarafından yapılmakta bundan dolayı bu uygulamayı engellemek işe yaramaz</string>
-    <string name="title_apply">Kurallar ve koşullar uygulansın</string>
+    <string name="msg_usage">Uygulamanın yanındaki simgelere dokunarak Wi-Fi veya mobil internet erişimine izin verebilir (yeşil) veya reddedebilirsiniz (kırmızı)</string>
+    <string name="msg_fairemail">Gizliliğinizi korumak için NetGuard yüklediyseniz, açık kaynaklı ve gizlilik dostu bir e-posta uygulaması olan <a href="https://email.faircode.eu/">FairEmail</a> ile de ilgilenebilirsiniz.</string>
+    <string name="msg_whitelist">İnternet erişimine varsayılan olarak izin verilir (kara liste modu), bu ayarlar kısmından değiştirilebilir</string>
+    <string name="msg_push">Gelen (push) mesajlar esas olarak varsayılan olarak internet erişimine izin verilen bir sistem bileşeni olan Play hizmetleri tarafından işlenir</string>
+    <string name="msg_system">Tüm (sistem) uygulamalarının yönetimi ayarlardan etkinleştirilebilir</string>
+    <string name="msg_issue">Lütfen sorunu açıklayın ve sorunun oluştuğu zamanı belirtin:</string>
+    <string name="msg_vpn_cancelled">VPN bağlantısı iptal edildi\nBaşka bir VPN\'i \"Her zaman açık VPN\" olarak mı yapılandırdınız?</string>
+    <string name="msg_on">NetGuard etkinken cihazı kapatmak, cihaz açıldığında NetGuard\'ı otomatik olarak başlatacaktır</string>
+    <string name="msg_unavailable">Bu özellik bu Android sürümünde mevcut değil</string>
+    <string name="msg_always_on">Başka bir VPN, her zaman açık VPN olarak ayarlanmış</string>
+    <string name="msg_always_on_lockdown">NetGuard\'ı filtreleme modunda kullanmak için Android VPN ayarlarında \"VPN olmadan bağlantıları engelle\" seçeneğini kapatın</string>
+    <string name="msg_private_dns">NetGuard\'ı filtreleme modunda kullanmak için Android ağ ayarlarında \"Özel DNS\"i kapatın</string>
+
+    <string name="title_lockdown_enabled">Trafik kısıtlandı</string>
+    <string name="title_unmetered_allowed">Ücretsiz trafiğe izin veriliyor</string>
+    <string name="title_unmetered_blocked">Ücretsiz trafik engellendi</string>
+    <string name="title_unmetered_disabled">Ücretsiz kuralları uygulanmıyor</string>
+    <string name="title_metered_allowed">Ücretli trafiğe izin veriliyor</string>
+    <string name="title_metered_blocked">Ücretli trafik engellendi</string>
+    <string name="title_metered_disabled">Ücretli kuralları uygulanmıyor</string>
+    <string name="title_host_allowed">Adrese izin verildi</string>
+    <string name="title_host_blocked">Adres engellendi</string>
+    <string name="title_interactive_allowed">Ekran açıkken izin ver</string>
+    <string name="title_roaming_blocked">Dolaşımda engelle</string>
+    <string name="title_metered">Varsayılan olarak Wi-Fi bağlantıları ücretsiz, mobil bağlantılar ücretli sayılır</string>
+
+    <string name="title_internet">İnternet izni yok</string>
+    <string name="title_disabled">Devre dışı</string>
+    <string name="title_messaging">Gelen mesajlar bu uygulama tarafından değil Google Play hizmetleri tarafından alınır, bu nedenle bu uygulamayı engellemekle engellenemezler</string>
+    <string name="title_download">İndirmeler bu uygulama tarafından değil indirme yöneticisi tarafından gerçekleştirilir, bu nedenle bu uygulamayı engellemekle engellenemezler</string>
+    <string name="title_apply">Kuralları ve koşulları uygula</string>
     <string name="title_conditions">Koşullar</string>
-    <string name="title_screen_wifi">Ekran açıkken kablosuza izin ver</string>
+    <string name="title_screen_wifi">Ekran açıkken Wi-Fi\'ya izin ver</string>
     <string name="title_screen_other">Ekran açıkken mobil veriye izin ver</string>
-    <string name="title_roaming_symbol">D</string>
-    <string name="title_roaming">Dolaşımdayken engelle</string>
-    <string name="title_lockdown">Trafik durdurulduğunda izin verilsin</string>
-    <string name="title_related">İlgilileri filtrele</string>
+    <string name="title_roaming_symbol">R</string>
+    <string name="title_roaming">Dolaşımda engelle</string>
+    <string name="label_ttl">TTL: %s sn</string>
+    <string name="label_uid">UID: %s</string>
+    <string name="title_lockdown">Kilitleme modunda izin ver</string>
+    <string name="title_related">Filtreleme ile ilgili</string>
     <string name="title_access">Erişim denemeleri</string>
-    <string name="title_precedence">Erişim kuralları diğer kurallara göre önceliklidir</string>
+    <string name="title_precedence">Erişim kuralları diğer kurallardan önceliklidir</string>
     <string name="title_options">Seçenekler</string>
     <string name="title_notify">İnternet erişim denemelerini bildir</string>
-    <string name="title_logging_disabled">Günlüğe kaydetme veya filtreleme etkin değil</string>
-    <string name="title_logging_enabled">Günlüğe kaydetme ve filtreleme etkin</string>
+
+    <string name="title_logging_disabled">Günlük tutma veya filtreleme etkinleştirilmedi</string>
+    <string name="title_logging_enabled">Günlük tutma ve filtreleme etkinleştirildi</string>
     <string name="title_logging_configure">Yapılandır</string>
-    <string name="title_enable_logging">Engellenen adresler kaydedilsin</string>
-    <string name="title_enable_filtering">İzin verilen adresler kaydedilsin</string>
-    <string name="title_enable_notify">Yeni kaydedilen adresler bildirilsin</string>
-    <string name="title_enable_help0">Bu ayarlar tüm uygulamalar için uygulanan genel ayarlardır</string>
-    <string name="title_enable_help1">Adresleri ayrı ayrı yönetmek için filtreleme gereklidir</string>
-    <string name="title_enable_help2">Günlük (az) veya filtreleme (fazla) pil kullanımını arttırabilir ve ağ hızını etkileyebilir</string>
+
+    <string name="title_enable_logging">Sadece engellenen adresler için günlüğü etkinleştir</string>
+    <string name="title_enable_filtering">Etkinleştirme filtrelemeyi de kaydetmek için izin verilen adresler</string>
+    <string name="title_enable_notify">Yeni kaydedilen adresler için erişim bildirimlerini etkinleştir</string>
+    <string name="title_enable_help0">Bunlar tüm uygulamalar için geçerli olan genel ayarlardır</string>
+    <string name="title_enable_help1">Bireysel adreslere izin vermek veya engellemek için filtreleme de gereklidir</string>
+    <string name="title_enable_help2">Günlük tutmayı (biraz) veya filtrelemeyi (daha fazla) etkinleştirmek pil kullanımını artırabilir veya ağ hızını etkileyebilir</string>
+
     <string name="title_rate">Değerlendir</string>
     <string name="title_allow">İzin ver</string>
     <string name="title_block">Engelle</string>
-    <string name="title_allow_wifi">Kablosuza izin ver</string>
-    <string name="title_block_wifi">Kablosuzu engelle</string>
+    <string name="title_wifi">Wi-Fi</string>
+    <string name="title_mobile">Mobil</string>
+    <string name="title_allow_wifi">Wi-Fi\'ya izin ver</string>
+    <string name="title_block_wifi">Wi-Fi\'yı engelle</string>
     <string name="title_allow_other">Mobil veriye izin ver</string>
     <string name="title_block_other">Mobil veriyi engelle</string>
     <string name="title_root">root</string>
     <string name="title_mediaserver">mediaserver</string>
-    <string name="title_nobody">hiçkimse</string>
-    <string name="title_dontask">Tekrar sorma</string>
+    <string name="title_gpsdaemon">GPS hizmeti</string>
+    <string name="title_dnsdaemon">DNS hizmeti</string>
+    <string name="title_nobody">nobody</string>
+    <string name="title_dontask">Bir daha sorma</string>
+
     <string name="title_log_whois">Whois %1$s</string>
-    <string name="title_log_port">Bağlantı noktası %1$d</string>
+    <string name="title_log_port">Port %1$d</string>
     <string name="title_log_copy">Kopyala</string>
-    <string name="title_pro">Pro özellikleri</string>
-    <string name="title_pro_description">Pro sürümde aşağıdaki özellikler mevcuttur:</string>
-    <string name="title_pro_log">Engellenen trafiği görüntüleme</string>
-    <string name="title_pro_filter">Ağ trafiğini filtreleme</string>
+
+    <string name="title_pro">Pro özellikler</string>
+    <string name="title_pro_description">Aşağıdaki Pro özellikler mevcuttur:</string>
+    <string name="title_pro_log">Engellenen trafik günlüğünü görüntüle</string>
+    <string name="title_pro_filter">Ağ trafiğini filtrele</string>
     <string name="title_pro_notify">Yeni uygulama bildirimleri</string>
-    <string name="title_pro_speed">İnternet hızı bildirimi</string>
-    <string name="title_pro_theme">Arayüz görünümü (tema ve renkler)</string>
-    <string name="title_pro_all">Yukarıdaki tüm pro özellikleri</string>
-    <string name="title_pro_dev">Geliştiriciyi destekleyin</string>
+    <string name="title_pro_speed">Ağ hızı grafiği bildirimi</string>
+    <string name="title_pro_theme">Görünüm (temalar, renkler)</string>
+    <string name="title_pro_all">Yukarıdaki tüm Pro özellikler</string>
+    <string name="title_pro_dev">Geliştirmeyi destekle</string>
     <string name="title_pro_buy">Satın al</string>
-    <string name="title_pro_bought">Etkin</string>
-    <string name="title_pro_unavailable">Mevcut değil</string>
+    <string name="title_pro_bought">Etkinleştirildi</string>
+    <string name="title_pro_unavailable">Kullanılamıyor</string>
     <string name="title_pro_details">Daha fazla bilgi için başlığa dokunun</string>
-    <string name="title_pro_challenge">Soru</string>
+    <string name="title_pro_challenge">Zorluk</string>
     <string name="title_pro_reponse">Yanıt</string>
-    <string name="title_pro_feature">Bu bir pro özelliğidir</string>
-    <string name="title_pro_subscription">        Aylık 1 veya 2 euroluk abonelik (vergiler hariç) tüm pro özelliklerini etkinleştirir.
-        Aboneliği yönetmek için Play store uygulamasındaki abonelikler sekmesini kullanabilirsini.
+    <string name="title_pro_feature">Bu bir Pro özelliğidir</string>
+    <string name="title_pro_subscription">
+        Aylık 1 veya 2 Euro\'luk (yerel vergiler hariç) bir abonelik tüm Pro özellikleri etkinleştirecektir.
+        Aboneliğinizi Play mağazası uygulamasının abonelikler sekmesinden iptal edebilir veya yönetebilirsiniz.
     </string>
-    <string-array name="themeNames">
-        <item>deniz mavisi/turuncu</item>
-        <item>mavi/turuncu</item>
-        <item>mor/kırmızı</item>
-        <item>kehribar/mavi</item>
-        <item>turuncu/gri</item>
-        <item>yeşil</item>
-    </string-array>
-    <string-array name="protocolNames">
+    <string name="title_pro_already">Pro özellikler zaten etkinleştirilmiş</string>    <string-array name="protocolNames">
         <item>UDP</item>
         <item>TCP</item>
     </string-array>
+
+    <string-array name="protocolValues" translatable="false">
+        <item>17</item>
+        <item>6</item>
+    </string-array>
+
+    <string name="label_dns_summary">%1$d giriş • %2$d süresi dolmuş</string>
+
 </resources>

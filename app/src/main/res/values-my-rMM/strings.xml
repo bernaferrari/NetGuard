@@ -1,38 +1,452 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name" translatable="false">NetGuard Next</string>
+    <string name="app_description">NetGuard Next သည် အင်တာနက် အသုံးပြုခွင့်ကို ပိတ်ဆို့ရန် ရိုးရှင်းပြီး အဆင့်မြင့်သော နည်းလမ်းများကို ပံ့ပိုးပေးသည် - root လုပ်ရန် မလိုပါ။ သင်၏ Wi-Fi နှင့်/သို့မဟုတ် မိုဘိုင်းချိတ်ဆက်မှုသို့ အက်ပ်များနှင့် လိပ်စာများကို တစ်ခုချင်းစီ အသုံးပြုခွင့် ပေးနိုင်သည် သို့မဟုတ် ငြင်းပယ်နိုင်သည်။</string>
+    <string name="app_copyright" translatable="false">Copyright \u00A9 2015–2025 by M. Bokhorst (M66B)</string>
+    <string name="app_android">NetGuard သည် Android 5.1 သို့မဟုတ် နောက်ပိုင်း လိုအပ်သည်</string>
+    <string name="app_eula" translatable="false">THIS SOFTWARE IS PROVIDED BY THE AUTHOR \'\'AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
+    <string name="app_privacy"><a href="https://www.netguard.me/privacy/">ကိုယ်ရေးအချက်အလက် မူဝါဒ</a></string>
+    <string name="app_first">NetGuard ကို ဖော်ဆောင်ရန်နှင့် စမ်းသပ်ရန် အထူးဂရုစိုက်ထားသော်လည်း စက်တိုင်းတွင် NetGuard မှန်ကန်စွာ အလုပ်လုပ်မည်ဟု အာမခံရန် မဖြစ်နိုင်ပါ။</string>
     <string name="app_agree">ကျွန်ုပ်သဘောတူတယ်</string>
     <string name="app_disagree">ကျွန်ုပ်သဘောမတူပါ</string>
-    <string name="app_support">NetGuard မှ သင်တို့ရဲ့ အကူအညီကို လိုအပ်တယ်။ စီမံကိန်းဆက်လက် လုပ်ဆောင်နိုင်ရန် အထူးပြုလုပ်ထားသော Pro လုပ်ဆောင်ချက်များကို ၀ယ်ယူဖို့
-ခလုတ်ကို နှိပ်ပါ။</string>
-    <string name="channel_foreground">လည်ပတ်နေသောဝန်ဆောင်မှုများ</string>
-    <string name="channel_notify">အထွေထွေအသိပေးချက်များ</string>
-    <string name="channel_access">အသိပေးချက်များဆီသို့ ၀င်ရောက်ကြည့်ရှုပါ</string>
-    <string name="menu_search">အက်ပလီကေးရှင်းကိုရှာပါ</string>
-    <string name="menu_filter">အက်ပ်များကိုစစ်ထုတ်မယ်</string>
-    <string name="menu_app_user">အသုံးပြုသူအက်ပ်များကို ပြပါ</string>
-    <string name="menu_app_system">စစ်စတမ်အက်ပ်များကို ပြပါ</string>
-    <string name="menu_app_nointernet">အင်တာနက်မပါဘဲ အက်ပ်များကို ပြပါ</string>
+    <string name="app_support">NetGuard သည် သင်၏အကူအညီ လိုအပ်ပါသည်။ ပရောဂျက်ကို ဆက်လက်လုပ်ဆောင်နိုင်ရန် pro အင်္ဂါရပ်များကို ဝယ်ယူရန် နှိပ်ပါ။</string>
+    <string name="app_qap">
+        အက်ပ်အားလုံးကို စစ်ဆေးမေးမြန်းခွင့် တောင်းခံထားသောကြောင့် Google သည် Play Store မှ အက်ပ်ကို ဖယ်ရှားတော့မည်ဖြစ်သည်။
+        အယူခံငါးကြိမ်နှင့် ဤခွင့်ပြုချက် အဘယ်ကြောင့်လိုအပ်ကြောင်း ကျိုးကြောင်းဆီလျော်စွာ ရှင်းပြချက်ကို ပယ်ချခဲ့သည်။
+        အက်ပ်၏ ဤဗားရှင်းသည် ဤခွင့်ပြုချက်ကို ထပ်မံတောင်းခံတော့မည် မဟုတ်ပါ၊
+        သို့သော်ငြားလည်း Android အက်ပ်စာရင်းမှ ကိုယ်တိုင်စတင်၍မရသော အချို့သော (စနစ်) အက်ပ်များမှလွဲ၍ ကျန်အက်ပ်များအားလုံးကို စာရင်းသွင်းထားဆဲဖြစ်သည်။
+        သင်၏စက်ပစ္စည်း မှန်ကန်စွာ ဆက်လက်အလုပ်လုပ်ကြောင်း သေချာစေရန် ဤအက်ပ်များ၏ အင်တာနက်အသုံးပြုမှုကို အမြဲတမ်း ခွင့်ပြုထားမည်ဖြစ်သည်။
+        ဒါဟာ ပြဿနာတစ်ခုလို့ သင်ထင်ပါက အက်ပ်၏ GitHub ဗားရှင်းသို့ အဆင့်မြှင့်တင်နိုင်ပြီး (စနစ်) အက်ပ်အားလုံးကို ပြန်လည်စီမံနိုင်ပါသည်။
+    </string>
+
+    <string name="channel_foreground">လည်ပတ်နေသော ဝန်ဆောင်မှုများ</string>
+    <string name="channel_notify">အထွေထွေ အသိပေးချက်များ</string>
+    <string name="channel_access">အသုံးပြုခွင့် အသိပေးချက်များ</string>
+
+    <string name="menu_search">အက်ပ်ကို ရှာပါ</string>
+    <string name="menu_filter">အက်ပ်များကို စစ်ထုတ်ပါ</string>
+    <string name="menu_app_user">အသုံးပြုသူ အက်ပ်များကို ပြပါ</string>
+    <string name="menu_app_system">စနစ် အက်ပ်များကို ပြပါ</string>
+    <string name="menu_app_nointernet">အင်တာနက်မရှိသော အက်ပ်များကို ပြပါ</string>
     <string name="menu_app_disabled">ပိတ်ထားသော အက်ပ်များကို ပြပါ</string>
-    <string name="menu_sort">အက်ပ်များကိုစီပါ</string>
-    <string name="menu_sort_name">နာမည်အလိုက်စီပါ</string>
-    <string name="menu_sort_uid">uid အလိုက်စီပါ</string>
+    <string name="menu_sort">အက်ပ်များကို စီပါ</string>
+    <string name="menu_sort_name">အမည်အလိုက် စီပါ</string>
+    <string name="menu_sort_uid">UID အလိုက် စီပါ</string>
     <string name="menu_sort_data">ဒေတာအသုံးပြုမှုအလိုက် စီပါ</string>
-    <string name="menu_log">မှတ်တမ်းကိုပြပါ</string>
-    <string name="menu_invite">ဖိတ်ပါ</string>
+    <string name="menu_launch">အက်ပ်ကို ဖွင့်ပါ</string>
+    <string name="menu_log">မှတ်တမ်းကို ပြပါ</string>
+    <string name="menu_settings">ဆက်တင်များ</string>
+    <string name="menu_home">ပင်မ</string>
+    <string name="menu_invite">ဖိတ်ကြားပါ</string>
+    <string name="menu_legend">အမှတ်အသားများ</string>
     <string name="menu_support">ပံ့ပိုးမှု</string>
     <string name="menu_about">အကြောင်း</string>
     <string name="menu_apps">အခြားအက်ပ်များ</string>
+    <string name="menu_firewall">Firewall</string>
+    <string name="status_enabled">Firewall ကို ဖွင့်ထားသည်</string>
+    <string name="status_disabled">Firewall ကို ပိတ်ထားသည်</string>
+    <string name="widget_firewall_enabled">Firewall ဖွင့်မည်</string>
+    <string name="widget_firewall_disabled">Firewall ပိတ်မည်</string>
+    <string name="widget_lockdown_enabled">Lockdown ဖွင့်မည်</string>
+    <string name="widget_lockdown_disabled">Lockdown ပိတ်မည်</string>
+    <string name="notify_traffic_title">ဒေတာအသုံးပြုမှု စောင့်ကြည့်စနစ်</string>
+    <string name="notify_traffic_summary">အထွက် %1$s • အဝင် %2$s • အမြင့်ဆုံး %3$s</string>
+    <string name="notify_traffic_debug">အကြိမ်ရေ %1$d/%2$d/%3$d • ဖိုင်များ %4$d/%5$d</string>
+    <string name="ui_loading">လုပ်ဆောင်နေဆဲ…</string>
+    <string name="ui_empty_logs_title">ဒေတာအသုံးပြုမှု မရှိသေးပါ</string>
+    <string name="ui_empty_logs_body">ချိတ်ဆက်မှုများ ရှိလာပါက ဤနေရာတွင် ဖော်ပြပေးမည် ဖြစ်သည်။</string>
+    <string name="ui_empty_apps_title">အက်ပ်များ မတွေ့ပါ</string>
+    <string name="ui_empty_apps_body">စာရင်းကို ပြန်လည်စတင်ကြည့်ပါ။</string>
+    <string name="ui_empty_dns_title">ဖြေရှင်းပြီးသော DNS မရှိသေးပါ</string>
+    <string name="ui_empty_dns_body">အင်တာနက် အသုံးပြုပြီးနောက် DNS တုံ့ပြန်မှုများ ဤနေရာတွင် ပေါ်လာမည်ဖြစ်သည်။</string>
+    <string name="ui_dns_filter_empty">ဤစစ်ထုတ်မှုနှင့် ကိုက်ညီသော DNS မရှိပါ။</string>
+    <string name="ui_empty_forwarding_title">လက်ဆင့်ကမ်းသည့် စည်းမျဉ်းများ မရှိပါ</string>
+    <string name="ui_empty_forwarding_body">ဒေတာ လက်ဆင့်ကမ်းရန် စည်းမျဉ်းတစ်ခု ထည့်သွင်းပါ။</string>
+    <string name="ui_forwarding_filter_empty">ဤစစ်ထုတ်မှုနှင့် ကိုက်ညီသော လက်ဆင့်ကမ်းသည့် စည်းမျဉ်း မရှိပါ။</string>
+    <string name="ui_empty_pro_body">ပံ့ပိုးမှုသည် အပိုဆောင်း အင်္ဂါရပ်များကို ဖွင့်ပေးပြီး ပရောဂျက်ကို ဆက်လက်ရှင်သန်စေပါသည်။</string>
+    <string name="ui_empty_pro_details">Pro တွင်- စစ်ထုတ်ခြင်း၊ မှတ်တမ်းများ၊ အသိပေးချက်များ၊ ဒီဇိုင်းများနှင့် အမြန်နှုန်း ကန့်သတ်ချက်များ ပါဝင်သည်။</string>
+    <string name="ui_home_hint">အက်ပ်တိုင်းအတွက် အင်တာနက် အသုံးပြုခွင့်ကို ထိန်းချုပ်ပါ။</string>
+    <string name="ui_home_quick_actions">အမြန် လုပ်ဆောင်ချက်များ</string>
+    <string name="ui_apps_title">Firewall</string>
+    <string name="ui_logs_title">အသုံးပြုမှု မှတ်တမ်း</string>
+    <string name="ui_logs_filters">စစ်ထုတ်မှုများ</string>
+    <string name="ui_logs_filter_status">အခြေအနေ</string>
+    <string name="ui_logs_filter_protocol">ပရိုတိုကော</string>
+    <string name="ui_logs_filter_view">ကြည့်ရှုရန်</string>
+    <string name="ui_logs_group_timeline">အချိန်မှတ်တမ်း</string>
+    <string name="ui_logs_group_by_app">အက်ပ်အလိုက်</string>
+    <string name="ui_logs_unknown_source">အမည်မသိ ရင်းမြစ်</string>
+    <string name="ui_settings_title">ဆက်တင်များ</string>
+    <string name="ui_dns_title">ဖြေရှင်းပြီးသော DNS</string>
+    <string name="ui_forwarding_title">Port လက်ဆင့်ကမ်းခြင်း</string>
+    <string name="ui_dns_hint">မကြာသေးမီက ဖြေရှင်းပြီးသော ဒိုမိန်းများနှင့် တုံ့ပြန်မှုများ။</string>
+    <string name="ui_forwarding_hint">လက်ဆင့်ကမ်းခြင်းဆိုင်ရာ စည်းမျဉ်းများနှင့် ပစ်မှတ်အက်ပ်များကို စီမံပါ။</string>
+    <string name="ui_dns_active">အသုံးပြုဆဲ</string>
+    <string name="ui_rule_custom">စိတ်ကြိုက်</string>
+    <string name="ui_dns_expired">သက်တမ်းကုန်ဆုံးသည်</string>
+    <string name="ui_filter_all">အားလုံး</string>
+    <string name="ui_filter_empty">ဤစစ်ထုတ်မှုနှင့် ကိုက်ညီသော အက်ပ်မရှိပါ။</string>
+    <string name="ui_apps_search_empty">ဤရှာဖွေမှုနှင့် ကိုက်ညီသော အက်ပ်မရှိပါ။</string>
+    <string name="ui_learn_more">ပိုမိုလေ့လာရန်</string>
+    <string name="status_running">ဒေတာများကို စစ်ထုတ်နေသည်</string>
+    <string name="status_not_running">ဒေတာများကို စစ်ထုတ်ခြင်း မပြုလုပ်ပါ</string>
+    <string name="action_enable">ဖွင့်မည်</string>
+    <string name="action_disable">ပိတ်မည်</string>
+    <string name="home_apps_hint">အက်ပ်စည်းမျဉ်းများနှင့် ဒေတာအသုံးပြုမှုကို ပြန်လည်သုံးသပ်ပါ</string>
+    <string name="home_logs_hint">မကြာသေးမီက ကွန်ယက်လုပ်ဆောင်ချက်များကို စစ်ဆေးပါ</string>
+
+    <!-- Accessibility -->
+    <string name="action_expand">အသေးစိတ်ကြည့်ရန်</string>
+    <string name="action_collapse">အသေးစိတ်ပိတ်ရန်</string>
+    <string name="action_navigate">ဖွင့်ပါ</string>
+    <string name="action_toggle_firewall">Firewall အဖွင့်/အပိတ် လုပ်ပါ</string>
+    <string name="action_clear_search">ရှာဖွေမှုများကို ဖျက်ပါ</string>
+    <string name="search_settings">ဆက်တင်များကို ရှာဖွေပါ</string>
+    <string name="content_desc_security_status">Firewall လုံခြုံရေး အခြေအနေ</string>
+    <string name="content_desc_app_icon">%s အတွက် အက်ပ်ပုံစံ</string>
+    <string name="content_desc_show_info">%1$s အကြောင်း အချက်အလက်များကို ပြပါ</string>
+
+    <!-- Dashboard stats -->
+    <string name="stat_blocked_today">ပိတ်ဆို့ထားသည်</string>
+    <string name="stat_allowed_today">ခွင့်ပြုထားသည်</string>
+    <string name="stat_active_rules">အသုံးပြုနေသော စည်းမျဉ်းများ</string>
+
+    <!-- Tooltips -->
+    <string name="tooltip_rcode">ပိတ်ဆို့ထားသော ဒိုမိန်းများအတွက် ပေးပို့သော DNS တုံ့ပြန်မှုကုဒ်။ နဂိုမူလ 3 (NXDOMAIN) သည် ဒိုမိန်းမရှိခြင်းကို ဆိုလိုသည်။</string>
+    <string name="tooltip_ttl">DNS cache အတွက် အနည်းဆုံး သိမ်းဆည်းထားမည့် အချိန် (စက္ကန့်အလိုက်)။</string>
+    <string name="tooltip_pcap">စစ်ဆေးရန်အတွက် ကွန်ယက်လုပ်ဆောင်ချက် အားလုံးကို မှတ်တမ်းတင်ပါ။ ဖိုင်အရွယ်အစား ကြီးမားနိုင်ပါသည်။</string>
+    <string name="tooltip_filter">ဒေတာ အသုံးပြုမှုများကို ကြားဖြတ်စစ်ဆေးပါ။ လိပ်စာတစ်ခုချင်းအလိုက် ပိတ်ဆို့ရန် လိုအပ်သည်။ ဘက်ထရီ ပိုကုန်နိုင်ပါသည်။</string>
+    <string name="tooltip_lockdown">ခွင့်ပြုထားသော အက်ပ်များမှလွဲ၍ ကျန်ဒေတာ အသုံးပြုမှုအားလုံးကို ပိတ်ဆို့ပါ။ သတိထား၍ အသုံးပြုပါ။</string>
+
+    <string name="menu_protocol_udp" translatable="false">UDP</string>
+    <string name="menu_protocol_tcp" translatable="false">TCP</string>
     <string name="menu_protocol_other">အခြား</string>
-    <string name="menu_traffic_allowed">ခွင့်ပြုပြီးပြီ</string>
+    <string name="menu_traffic_allowed">ခွင့်ပြုသည်</string>
+    <string name="menu_traffic_blocked">ပိတ်ဆို့သည်</string>
+    <string name="menu_live">တိုက်ရိုက် အပ်ဒိတ်များ</string>
+    <string name="menu_refresh">ပြန်လည်စတင်ပါ</string>
+    <string name="menu_ok">ကောင်းပြီ</string>
+    <string name="menu_cancel">မလုပ်တော့ပါ</string>
     <string name="menu_resolve">အမည်များကို ပြပါ</string>
-    <string name="menu_organization">အဖွဲ့အစည်းကိုပြပါ</string>
-    <string name="menu_clear">ရှင်းပါ</string>
-    <string name="menu_export">တင်ပို့ပါ</string>
+    <string name="menu_organization">အဖွဲ့အစည်းကို ပြပါ</string>
+    <string name="menu_pcap_enabled">PCAP ဖွင့်ထားသည်</string>
+    <string name="menu_pcap_export">PCAP ထုတ်ယူရန်</string>
+    <string name="menu_clear">ရှင်းလင်းပါ</string>
+    <string name="menu_export">ထုတ်ယူပါ</string>
+    <string name="menu_reset">မူလအတိုင်း ပြန်ထားပါ</string>
+
     <string name="menu_add">ထည့်ပါ</string>
     <string name="menu_delete">ဖျက်ပါ</string>
-    <string name="setting_theme">ဒီဇိုင်းပုံစံ -  %1$s</string>
-    <string name="setting_dark">အမှောင်ဒီဇိုင်းပုံစံကို သုံးပါ</string>
+
+    <string name="menu_cleanup">သန့်ရှင်းရေး လုပ်ပါ</string>
+
+    <string name="title_protocol">ပရိုတိုကော</string>
+    <string name="title_dport">Source port</string>
+    <string name="title_raddr">Destination address</string>
+    <string name="title_rport">Destination port</string>
+    <string name="title_ruid">ပစ်မှတ် အက်ပ်</string>
+    <string name="title_external">ပြင်ပ ဆာဗာအတွက် \'nobody\' ကို ရွေးပါ</string>
+
+    <string name="setting_defaults">မူလဆက်တင်များ (ခွင့်ပြု/ပိတ်ဆို့ စာရင်း)</string>
+    <string name="setting_whitelist_wifi">Wi-Fi ကို ပိတ်ဆို့ပါ</string>
+    <string name="setting_whitelist_other">မိုဘိုင်းဒေတာကို ပိတ်ဆို့ပါ</string>
+    <string name="setting_screen_wifi">မျက်နှာပြင်လင်းနေစဉ် Wi-Fi ခွင့်ပြုပါ</string>
+    <string name="setting_screen_other">မျက်နှာပြင်လင်းနေစဉ် မိုဘိုင်းဒေတာ ခွင့်ပြုပါ</string>
+    <string name="setting_whitelist_roaming">Roaming ကို ပိတ်ဆို့ပါ</string>
+
+    <string name="setting_options">ရွေးချယ်စရာများ</string>
+    <string name="setting_theme">ဒီဇိုင်းပုံစံ - %1$s</string>
+    <string name="setting_dark">အမှောင် ဒီဇိုင်းပုံစံကို သုံးပါ</string>
+    <string name="setting_theme_palette">အရောင်ပုံစံ ရွေးချယ်ပါ</string>
+    <string name="setting_dynamic_unavailable">Dynamic အရောင်များအတွက် Android 12 သို့မဟုတ် နောက်ပိုင်း လိုအပ်ပါသည်။</string>
+    <string name="setting_appearance_mode">ပုံပန်းသဏ္ဌာန်</string>
+    <string name="setting_appearance_mode_title">အမှောင် ဒီဇိုင်းပုံစံ</string>
+    <string name="setting_appearance_mode_summary">ပိတ်မည်၊ ဖွင့်မည် သို့မဟုတ် စနစ်အတိုင်း သုံးမည်ကို ရွေးချယ်ပါ။</string>
+    <string name="setting_appearance_preview">လက်ရှိ - %1$s · %2$s</string>
+    <string name="setting_appearance_auto">အလိုအလျောက်</string>
+    <string name="setting_appearance_light">အလင်း</string>
+    <string name="setting_appearance_dark">အမှောင်</string>
+    <string name="theme_dynamic" translatable="false">Dynamic</string>
+    <string name="setting_install">အက်ပ်အသစ် ထည့်သွင်းပါက အသိပေးပါ</string>
+    <string name="setting_screen_on">\'မျက်နှာပြင် လင်းနေစဉ်\' စည်းမျဉ်းများကို ကျင့်သုံးပါ</string>
+    <string name="setting_auto">%1$s မိနစ်အကြာတွင် အလိုအလျောက် ပြန်ဖွင့်ပါ</string>
+    <string name="setting_delay">မျက်နှာပြင်မှိတ်ရန် %1$s မိနစ် ဆိုင်းငံ့ပါ</string>
+    <string name="setting_update">အပ်ဒိတ်များကို စစ်ဆေးပါ</string>
+    <string name="setting_update_now">ယခု စစ်ဆေးပါ</string>
+    <string name="setting_update_checking">စစ်ဆေးနေသည်...</string>
+
+    <string name="setting_network_options">ကွန်ယက် ရွေးချယ်စရာများ</string>
+    <string name="setting_subnet">Subnet ruting</string>
+    <string name="setting_tethering">အင်တာနက်မျှဝေခြင်း (Tethering) ကို ခွင့်ပြုပါ</string>
+    <string name="setting_lan">LAN အသုံးပြုခွင့်ကို ခွင့်ပြုပါ</string>
+    <string name="setting_ip6">IPv6 အသုံးပြုမှုကို ဖွင့်ပါ</string>
+    <string name="setting_wifi_home">Wi-Fi အိမ်သုံးကွန်ယက်များ - %1$s</string>
+    <string name="setting_metered">ကန့်သတ်ထားသော Wi-Fi ကွန်ယက်များကို စီမံပါ</string>
+    <string name="setting_metered_2g">2G ကို အကန့်အသတ်မဲ့အဖြစ် သတ်မှတ်ပါ</string>
+    <string name="setting_metered_3g">3G ကို အကန့်အသတ်မဲ့အဖြစ် သတ်မှတ်ပါ</string>
+    <string name="setting_metered_4g">LTE ကို အကန့်အသတ်မဲ့အဖြစ် သတ်မှတ်ပါ</string>
+    <string name="setting_national_roaming">ပြည်တွင်း Roaming ကို လျစ်လျူရှုပါ</string>
+    <string name="setting_eu_roaming">EU Roaming ကို လျစ်လျူရှုပါ</string>
+    <string name="setting_call">ဖုန်းခေါ်ဆိုနေစဉ် ပိတ်ထားပါ</string>
+    <string name="setting_lockdown_wifi">Wi-Fi ကို Lockdown ချပါ</string>
+    <string name="setting_lockdown_other">မိုဘိုင်းဒေတာကို Lockdown ချပါ</string>
+    <string name="setting_reload_onconnectivity">ချိတ်ဆက်မှု ပြောင်းလဲတိုင်း ပြန်လည်စတင်ပါ</string>
+
+    <string name="setting_advanced_options">အဆင့်မြင့် ရွေးချယ်စရာများ</string>
+    <string name="setting_system">စနစ်အက်ပ်များကို စီမံပါ</string>
+    <string name="setting_log_app">အင်တာနက် အသုံးပြုမှုကို မှတ်တမ်းတင်ပါ</string>
+    <string name="setting_log_retention_days">မှတ်တမ်း သိမ်းဆည်းမည့်ရက်</string>
+    <string name="setting_access">အင်တာနက် အသုံးပြုပါက အသိပေးပါ</string>
+    <string name="setting_filter">ဒေတာများကို စစ်ထုတ်ပါ</string>
+    <string name="setting_filter_udp">UDP ဒေတာများကို စစ်ထုတ်ပါ</string>
+    <string name="setting_handover">ပြန်လည်စတင်ချိန်တွင် VPN ကို ချောမွေ့စွာ လွှဲပြောင်းပါ</string>
+    <string name="setting_clear_onreload">ပြန်လည်စတင်ချိန်တွင် ချိတ်ဆက်မှုများကို ပိတ်ပါ</string>
+    <string name="setting_lockdown">ဒေတာအသုံးပြုမှုကို Lockdown ချပါ</string>
+    <string name="setting_malware" translatable="false">Malware protection</string>
+    <string name="setting_track_usage">ကွန်ယက်အသုံးပြုမှုကို ခြေရာခံပါ</string>
+    <string name="setting_reset_usage">ကွန်ယက်အသုံးပြုမှုကို မူလအတိုင်း ပြန်ထားပါ</string>
+    <string name="setting_show_resolved">ဖြေရှင်းပြီးသော ဒိုမိန်းအမည်များကို ပြပါ</string>
+    <string name="setting_block_domains">ဒိုမိန်းအမည်များကို ပိတ်ဆို့ပါ</string>
+    <string name="setting_rcode">DNS တုံ့ပြန်မှုကုဒ် - %s</string>
+    <string name="setting_forwarding">Port လက်ဆင့်ကမ်းခြင်း</string>
+    <string name="setting_vpn4">VPN IPv4 - %s</string>
+    <string name="setting_vpn6">VPN IPv6 - %s</string>
+    <string name="setting_dns">VPN DNS - %s</string>
+    <string name="setting_dns2">Secondary DNS - %s</string>
+    <string name="setting_validate">စစ်ဆေးရန် - %s</string>
+    <string name="setting_ttl">အနည်းဆုံး DNS TTL - %s စက္ကန့်</string>
+    <string name="setting_socks5_enabled">SOCKS5 ပရောက်စီကို သုံးပါ</string>
+    <string name="setting_socks5_addr">SOCKS5 လိပ်စာ - %s</string>
+    <string name="setting_socks5_port">SOCKS5 ပေါ့တ် - %s</string>
+    <string name="setting_socks5_username">SOCKS5 အသုံးပြုသူအမည် - %s</string>
+    <string name="setting_socks5_password">SOCKS5 စကားဝှက် - %s</string>
+    <string name="setting_pcap_record_size">PCAP မှတ်တမ်း အရွယ်အစား - %s B</string>
+    <string name="setting_pcap_file_size">PCAP အများဆုံး ဖိုင်အရွယ်အစား - %s MB</string>
+    <string name="setting_pcap">ကွန်ယက်လုပ်ဆောင်ချက်များကို မှတ်တမ်းတင်ပါ (PCAP)</string>
+    <string name="setting_watchdog">စောင့်ကြည့်စနစ် - %s မိနစ်တိုင်း</string>
+
+    <string name="setting_stats_category">အမြန်နှုန်း အသိပေးချက်</string>
+    <string name="setting_stats">အမြန်နှုန်း အသိပေးချက်ကို ပြပါ</string>
+    <string name="setting_stats_top">အသုံးအများဆုံး အက်ပ်များကို ပြပါ</string>
+    <string name="setting_stats_frequency">စစ်ဆေးမည့် အချိန်အပိုင်းအခြား - %s ms</string>
+    <string name="setting_stats_samples">နမူနာအရေအတွက် - %s</string>
+
+    <string name="setting_backup">မိတ္တူကူးယူခြင်း</string>
+    <string name="setting_export">ဆက်တင်များကို ထုတ်ယူပါ</string>
+    <string name="setting_import">ဆက်တင်များကို ထည့်သွင်းပါ</string>
+    <string name="setting_hosts">Hosts ဖိုင်ကို ထည့်သွင်းပါ</string>
+    <string name="setting_hosts_append">Hosts ဖိုင်ကို ထည့်သွင်းပါ (ပေါင်းထည့်ရန်)</string>
+    <string name="setting_hosts_url">Hosts ဖိုင် ဒေါင်းလုဒ်လင့်ခ်</string>
+    <string name="setting_hosts_download">Hosts ဖိုင်ကို ဒေါင်းလုဒ်လုပ်ပါ</string>
+    <string name="setting_use_hosts">Hosts ဖိုင်ကို သုံးပါ</string>
+
+    <string name="setting_technical">နည်းပညာဆိုင်ရာ အချက်အလက်များ</string>
     <string name="setting_technical_general">အထွေထွေ</string>
     <string name="setting_technical_networks">ကွန်ယက်များ</string>
-    <string name="msg_sure">သင်သေချာလား။</string>
+    <string name="setting_technical_subscription">အသင်းဝင်မှုများ</string>
+    <string name="setting_section_appearance">ပုံပန်းသဏ္ဌာန်</string>
+    <string name="setting_section_firewall">Firewall စည်းမျဉ်းများ</string>
+    <string name="setting_section_advanced">အဆင့်မြင့် လုပ်ဆောင်ချက်များ</string>
+    <string name="setting_section_hosts">Hosts နှင့် DNS</string>
+    <string name="setting_section_network">ကွန်ယက် ပြင်ဆင်ချက်များ</string>
+    <string name="setting_section_dns">DNS အသေးစိတ်များ</string>
+    <string name="setting_section_proxy">ပရောက်စီ</string>
+    <string name="setting_section_vpn">VPN ပြင်ဆင်ချက်များ</string>
+    <string name="setting_section_background">နောက်ခံ လုပ်ဆောင်ချက်များ</string>
+    <string name="setting_section_diagnostics">စစ်ဆေးမှုများ</string>
+    <string name="setting_section_support">ပံ့ပိုးမှု</string>
+
+    <string name="summary_install">အက်ပ်အသစ်များကို တိုက်ရိုက်ပြင်ဆင်ရန် အသိပေးချက်ဘားတွင် ပြသပါ (pro အင်္ဂါရပ်)</string>
+    <string name="summary_auto">ဝစ်ဂျက်ဖြင့် ပိတ်ပြီးနောက် သတ်မှတ်ထားသော မိနစ်အကြာတွင် NetGuard ကို အလိုအလျောက် ပြန်ဖွင့်ပါ (ဤအင်္ဂါရပ်ကို ပိတ်ရန် သုည ထည့်ပါ)</string>
+    <string name="summary_delay">မျက်နှာပြင်ပိတ်ပြီးနောက် သတ်မှတ်ထားသော မိနစ်အထိ မျက်နှာပြင်လင်းနေစဉ် စည်းမျဉ်းများကို ဆက်လက်အသုံးပြုပါ (ဤအင်္ဂါရပ်ကို ပိတ်ရန် သုည ထည့်ပါ)</string>
+    <string name="summary_update">GitHub ရှိ ဗားရှင်းအသစ်များကို တစ်နေ့နှစ်ကြိမ် စစ်ဆေးပါ</string>
+
+    <string name="summary_tethering">Android ဗားရှင်းပေါ်မူတည်၍ Tethering အလုပ်လုပ်နိုင် သို့မဟုတ် မလုပ်လုပ်နိုင်ပါ။ Tethered လုပ်ထားသော ဒေတာများကို စစ်ထုတ်၍ မရပါ။</string>
+    <string name="summary_subnet">Subnet ruting ကို ဖွင့်ပါ၊ Wi-Fi ခေါ်ဆိုမှုကို ရရှိစေနိုင်သော်လည်း Android ရှိ ဘဂ်များကို ဖြစ်ပေါ်စေနိုင်ပြီး ဘက်ထရီ အသုံးပြုမှု ပိုများစေနိုင်သည်</string>
+    <string name="summary_lan">အက်ပ်များကို 10.0.0.0/8၊ 172.16.0.0/12 နှင့် 192.168.0.0/16 ကဲ့သို့သော ဧရိယာကွန်ယက် လိပ်စာများသို့ ချိတ်ဆက်ခွင့်ပြုပါ</string>
+    <string name="summary_ip6">IP ဗားရှင်း 6 ဒေတာများကို NetGuard သို့ လမ်းကြောင်းပေးကာ ရွေးချယ်ခွင့်ပြုရန် သို့မဟုတ် ပိတ်ဆို့ရန်</string>
+    <string name="summary_wifi_home">ရွေးချယ်ထားသော ကွန်ယက်အတွက်သာ Wi-Fi စည်းမျဉ်းများကို ကျင့်သုံးပါ (အခြား Wi-Fi များအတွက် မိုဘိုင်းဒေတာ စည်းမျဉ်းများကို ကျင့်သုံးမည်)</string>
+    <string name="summary_metered">မိုဘိုင်းဒေတာ စည်းမျဉ်းများကို ကန့်သတ်ထားသော (အခပေး၊ မျှဝေသုံး) Wi-Fi များတွင် ကျင့်သုံးပါ</string>
+    <string name="summary_metered_2g">2G ဒေတာချိတ်ဆက်မှုများအတွက် Wi-Fi စည်းမျဉ်းများကို ကျင့်သုံးပါ</string>
+    <string name="summary_metered_3g">3G ဒေတာချိတ်ဆက်မှုများအတွက် Wi-Fi စည်းမျဉ်းများကို ကျင့်သုံးပါ</string>
+    <string name="summary_metered_4g">LTE ဒေတာချิตဆက်မှုများအတွက် Wi-Fi စည်းမျဉ်းများကို ကျင့်သုံးပါ</string>
+    <string name="summary_national_roaming">SIM ကတ်နှင့် မိုဘိုင်းကွန်ယက် နိုင်ငံတူပါက Roaming စည်းမျဉ်းများကို မကျင့်သုံးပါနှင့်</string>
+    <string name="summary_eu_roaming">SIM ကတ်နှင့် မိုဘိုင်းကွန်ယက် နိုင်ငံသည် EU အတွင်းရှိပါက Roaming စည်းမျဉ်းများကို မကျင့်သုံးပါနှင့် (ပြည်တွင်းကဲ့သို့ Roaming)</string>
+    <string name="summary_call">ဖုန်းခေါ်ဆိုမှုများ ပြုလုပ်နေစဉ် NetGuard ကို ပိတ်ထားပါ။ ၎င်းကို IP/Wi-Fi ခေါ်ဆိုမှု ပြဿနာများအတွက် အသုံးပြုနိုင်ပါသည်။</string>
+
+    <string name="summary_system">စနစ်အက်ပ်များအတွက် စည်းမျဉ်းများကို သတ်မှတ်ပါ (ကျွမ်းကျင်သူများအတွက်)</string>
+    <string name="summary_log_app">အက်ပ်များ၏ အင်တာနက် အသုံးပြုမှုများကို မှတ်တမ်းတင်ပါ။ ၎င်းသည် ဘက်ထရီ အသုံးပြုမှု ပိုများစေနိုင်ပါသည်။</string>
+    <string name="summary_log_retention_days">သန့်ရှင်းရေးလုပ်စဉ်အတွင်း အသုံးပြုမှုမှတ်တမ်းဟောင်းများကို အလိုအလျောက် ဖယ်ရှားပါ။ အမြဲသိမ်းထားရန် 0 ထည့်ပါ။</string>
+    <string name="summary_access">အက်ပ်တစ်ခုသည် လိပ်စာအသစ်တစ်ခုကို အသုံးပြုရန် ကြိုးစားသောအခါ အသိပေးချက်ဘားတွင် ပြသပါ (စစ်ထုတ်ခြင်း ပိတ်ထားပါက ပိတ်ဆို့ထားသည်များကိုသာ အသိပေးမည်)</string>
+    <string name="summary_filter">VPN မှ ထွက်လာသော IP ပက်ကတ်များကို စစ်ထုတ်ပါ။ ၎င်းသည် ဘက်ထရီ အသုံးပြုမှု ပိုများစေနိုင်ပါသည်။</string>
+    <string name="summary_track_usage">အက်ပ်နှင့် လိပ်စာတစ်ခုစီအတွက် ပေးပို့လက်ခံသည့် ပမာဏကို ခြေရာခံပါ။ ၎င်းသည် ဘက်ထရီ အသုံးပြုမှု ပိုများစေနိုင်ပါသည်။</string>
+    <string name="summary_block_domains">ပိတ်ဆို့ထားသော ဒိုမိန်းများအတွက် သတ်မှတ်ထားသော DNS တုံ့ပြန်မှုကုဒ်ဖြင့် တုံ့ပြန်ပါ။ Hosts ဖိုင်မရှိပါက ဤခလုတ်ကို ပိတ်ထားမည်ဖြစ်သည်။</string>
+    <string name="summary_rcode">နဂိုမူလ တန်ဖိုးမှာ 3 (NXDOMAIN) ဖြစ်ပြီး \'ဒိုမိန်းမရှိပါ\' ဟု အဓိပ္ပာယ်ရသည်။</string>
+    <string name="summary_validate">Port 443 (https) တွင် အင်တာနက်ချိတ်ဆက်မှုကို စစ်ဆေးရန် အသုံးပြုသော ဒိုမိန်းအမည်။</string>
+    <string name="summary_socks5_enabled">TCP ဒေတာများကိုသာ ပရောက်စီ ဆာဗာသို့ ပေးပို့မည်ဖြစ်သည်</string>
+    <string name="summary_watchdog">NetGuard လည်ပတ်နေဆဲဖြစ်မဖြစ် အခါအားလျော်စွာ စစ်ဆေးပါ (ဤအင်္ဂါရပ်ကို ပိတ်ရန် သုည ထည့်ပါ)။ ၎င်းသည် ဘက်ထရီ အသုံးပြုမှု ပိုများစေနိုင်ပါသည်။</string>
+
+    <string name="summary_stats">အသိပေးချက်ဘားတွင် ကွန်ယက်အမြန်နှုန်း ပြရပ်ကို ပြပါ</string>
+
+    <string-array name="default_wifi_home"></string-array>
+
+    <string name="msg_sure">သင်သေချာပါသလား။</string>
+    <string name="msg_started">စည်းမျဉ်းများကို ကျင့်သုံးနေသည်</string>
+    <string name="msg_packages">%1$d ခွင့်ပြုသည်၊ %2$d ပိတ်ဆို့သည်</string>
+    <string name="msg_hosts">%1$d ခွင့်ပြုသည်၊ %2$d ပိတ်ဆို့သည်၊ host စုစုပေါင်း %3$d</string>
+    <string name="msg_waiting">လုပ်ဆောင်ချက်ကို စောင့်ဆိုင်းနေသည်</string>
+    <string name="msg_disabled">NetGuard ပိတ်ထားသည်၊ ပြန်ဖွင့်ရန် အပေါ်မှခလုတ်ကို သုံးပါ</string>
+    <string name="msg_notifications">အသိပေးချက် ခွင့်ပြုချက်များပေးရန် နှိပ်ပါ (အသုံးပြုမှုကြိုးပမ်းချက်များ၊ အမှားသတင်းစကားများ စသည်တို့အတွက်)</string>
+    <string name="msg_revoked">NetGuard ပိတ်သွားပါသည်၊ အခြား VPN အက်ပ်တစ်ခုခု သုံးနေခြင်းကြောင့် ဖြစ်နိုင်ပါသည်</string>
+    <string name="msg_installed">\'%1$s\' ထည့်သွင်းပြီးပါပြီ</string>
+    <string name="msg_installed_n">ထည့်သွင်းပြီးပါပြီ</string>
+    <string name="msg_malware" translatable="false">Possible malware: \'%1$s\'</string>
+    <string name="msg_access">%1$s မှ အင်တာနက် အသုံးပြုရန် ကြိုးပမ်းသည်</string>
+    <string name="msg_access_n">အင်တာနက် အသုံးပြုရန် ကြိုးပမ်းသည်</string>
+    <string name="msg_completed">လုပ်ဆောင်ချက် ပြီးမြောက်ပါပြီ</string>
+    <string name="msg_invalid">ကျေးဇူးပြု၍ တန်ဖိုးများကို စစ်ဆေးပြီး ထပ်မံကြိုးစားပါ။</string>
+    <string name="msg_export_failed">ထုတ်ယူမှု မအောင်မြင်ပါ - %1$s</string>
+    <string name="msg_vpn">NetGuard သည် အင်တာနက်အသုံးပြုမှုများကို စစ်ထုတ်ရန် ဒေသတွင်း VPN ကို အသုံးပြုသည်။
+ထို့ကြောင့် နောက်ဒိုင်ယာလော့ဂ်တွင် VPN ချိတ်ဆက်မှုကို ခွင့်ပြုပေးပါ။
+သင်၏ အင်တာနက်ဒေတာများကို အခြား VPN ဆာဗာများဆီသို့ ပေးပို့မည် မဟုတ်ပါ။</string>
+    <string name="msg_autostart">NetGuard အလိုအလျောက် မပွင့်နိုင်ပါ။ ၎င်းသည် သင်၏ Android ဗားရှင်းရှိ ဘဂ်တစ်ခုကြောင့် ဖြစ်နိုင်ပါသည်။</string>
+    <string name="msg_error">မမျှော်လင့်ထားသော အမှားတစ်ခု ဖြစ်ပွားခဲ့သည် - \'%s\'</string>
+    <string name="msg_start_failed">Android မှ ဤအချိန်တွင် VPN ဝန်ဆောင်မှုကို စတင်ရန် ငြင်းဆိုခဲ့သည်။ ၎င်းသည် သင်၏ Android ဗားရှင်းရှိ ဘဂ်တစ်ခုကြောင့် ဖြစ်နိုင်ပါသည်။</string>
+    <string name="msg_try">NetGuard ကို စမ်းသုံးကြည့်ပါ</string>
+    <string name="msg_terms">လှူဒါန်းခြင်းဖြင့် သင်သည် <a href="http://www.netguard.me/#terms">စည်းကမ်းသတ်မှတ်ချက်များ</a> ကို သဘောတူပြီး ဖြစ်သည်</string>
+    <string name="msg_dimming">နောက်ဒိုင်ယာလော့ဂ်တွင် OK နှိပ်၍မရပါက အခြားအက်ပ်တစ်ခုခုက မျက်နှာပြင်ကို ထိန်းချုပ်ထားခြင်းကြောင့် ဖြစ်နိုင်ပါသည်။</string>
+    <string name="msg_mbday">&#177; %1$.3f&#9650; %2$.3f&#9660; MB/ရက်</string>
+    <string name="msg_kbsec">%7.3f KB/s</string>
+    <string name="msg_mbsec">%7.3f MB/s</string>
+    <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
+    <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
+    <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
+    <string name="msg_count">%dx</string>
+    <string name="msg_doze">မှန်ကန်သော လုပ်ဆောင်ချက်များအတွက် NetGuard အတွက် Android ဘက်ထရီ ချွေတာမှုစနစ်ကို ပိတ်ထားသင့်သည်။
+\n\nနောက်ဒိုင်ယာလော့ဂ်တွင် အပေါ်မှ \"All apps\" ကိုရွေးပါ၊ စာရင်းထဲရှိ NetGuard ကိုနှိပ်ပြီး \"Don\'t optimize\" ကိုရွေး၍ အတည်ပြုပါ။</string>
+    <string name="msg_datasaving">မှန်ကန်သော လုပ်ဆောင်ချက်များအတွက် NetGuard အတွက် Android ဒေတာ ချွေတာမှုစနစ်ကို ပိတ်ထားသင့်သည်။
+\n\nနောက်ဒိုင်ယာလော့ဂ်တွင် \"Background data\" နှင့် \"Unrestricted data usage\" တို့ကို ဖွင့်ပေးပါ။</string>
+    <string name="msg_filter">စစ်ထုတ်ခြင်းကို အသုံးပြုပါက Android သည် ဒေတာနှင့် ပါဝါအသုံးပြုမှုကို မူလအက်ပ်များအစား NetGuard တွင် ဖော်ပြပေးမည်ဖြစ်သည်။</string>
+    <string name="msg_filter4">Android 4 သည် စစ်ထုတ်ခြင်းကို ဖွင့်ထားရန် လိုအပ်သည်</string>
+    <string name="msg_log_disabled">မှတ်တမ်းတင်ခြင်းကို ပိတ်ထားသည်၊ ပြန်ဖွင့်ရန် အပေါ်မှခလုတ်ကို သုံးပါ။ ၎င်းသည် ဘက်ထရီ အသုံးပြုမှု ပိုများစေနိုင်ပါသည်။</string>
+    <string name="msg_clear_rules">၎င်းသည် စည်းမျဉ်းများနှင့် အခြေအနေများကို မူလတန်ဖိုးများအတိုင်း ပြန်လည်သတ်မှတ်ပါမည်</string>
+    <string name="msg_reset_access">၎င်းသည် စည်းမျဉ်းမရှိသော အသုံးပြုမှုမှတ်တမ်းများကို ဖျက်ပစ်ပါမည်</string>
+    <string name="msg_import_last">နောက်ဆုံး ထည့်သွင်းမှု - %s</string>
+    <string name="msg_downloading">ဒေါင်းလုဒ်လုပ်နေသည်\n%1s</string>
+    <string name="msg_downloaded">Hosts ဖိုင် ဒေါင်းလုဒ်ပြီးပါပြီ</string>
+    <string name="msg_download_last">နောက်ဆုံး ဒေါင်းလုဒ် - %s</string>
+    <string name="msg_start_forward">%1$s ပေါ့တ် %2$d မှ \'%5$s\' ၏ %3$s:%4$d သို့ လက်ဆင့်ကမ်းခြင်းကို စတင်မလား။</string>
+    <string name="msg_stop_forward">%1$s ပေါ့တ် %2$d ၏ လက်ဆင့်ကမ်းခြင်းကို ရပ်မလား။</string>
+    <string name="msg_metered">ကွန်ယက်မှာ ကန့်သတ်ထားသော ကွန်ယက်ဖြစ်သည်</string>
+    <string name="msg_inactive">အင်တာနက် ချိတ်ဆက်ထားခြင်း မရှိပါ</string>
+    <string name="msg_queue">NetGuard အလုပ်များနေသည်</string>
+    <string name="msg_update">အပ်ဒိတ် ရနိုင်သည်၊ ဒေါင်းလုဒ်လုပ်ရန် နှိပ်ပါ</string>
+    <string name="msg_usage">အက်ပ်ဘေးရှိ အိုင်ကွန်များကို နှိပ်ခြင်းဖြင့် Wi-Fi သို့မဟုတ် မိုဘိုင်းလ်အင်တာနက် အသုံးပြုခွင့်ကို ခွင့်ပြုခြင်း (အစိမ်းရောင်) သို့မဟုတ် ငြင်းပယ်ခြင်း (အနီရောင်) ပြုလုပ်နိုင်သည်</string>
+    <string name="msg_fairemail">သင်၏ ကိုယ်ရေးအချက်အလက်များကို ကာကွယ်ရန် NetGuard ကို အသုံးပြုပါက လုံခြုံစိတ်ချရသော <a href="https://email.faircode.eu/">FairEmail</a> ကိုလည်း စိတ်ဝင်စားနိုင်ပါသည်။</string>
+    <string name="msg_whitelist">အင်တာနက် အသုံးပြုမှုကို နဂိုမူလကတည်းက ခွင့်ပြုထားသည် (Blacklist mode)၊ ၎င်းကို ဆက်တင်များတွင် ပြောင်းလဲနိုင်သည်</string>
+    <string name="msg_push">အဝင် (push) မက်ဆေ့ချ်များကို စနစ်၏ Play services မှ အဓိက ကိုင်တွယ်ပြီး ၎င်းကို နဂိုမူလကတည်းက အင်တာနက် အသုံးပြုခွင့် ပေးထားသည်</string>
+    <string name="msg_system">(စနစ်) အက်ပ်များ အားလုံးကို စီမံခြင်းကို ဆက်တင်များတွင် ဖွင့်နိုင်သည်</string>
+    <string name="msg_issue">ကျေးဇူးပြု၍ ပြဿနာနှင့် ဖြစ်ပွားသည့်အချိန်ကို ရှင်းပြပါ -</string>
+    <string name="msg_vpn_cancelled">VPN ချိတ်ဆက်မှု ပယ်ဖျက်လိုက်သည်၊ အခြား VPN တစ်ခုကို အမြဲတမ်းဖွင့်ထားရန် သတ်မှတ်ထားသလား။</string>
+    <string name="msg_on">NetGuard ဖွင့်ထားစဉ် စက်ပိတ်ပါက စက်ပြန်ဖွင့်ချိန်တွင် NetGuard အလိုအလျောက် ပွင့်လာမည်ဖြစ်သည်</string>
+    <string name="msg_unavailable">ဤအင်္ဂါရပ်ကို သင်၏ Android ဗားရှင်းတွင် အသုံးမပြုနိုင်ပါ</string>
+    <string name="msg_always_on">အခြား VPN တစ်ခုကို အမြဲတမ်းဖွင့်ထားရန် သတ်မှတ်ထားသည်</string>
+    <string name="msg_always_on_lockdown">NetGuard ကို စစ်ထုတ်မှုစနစ်ဖြင့် သုံးရန် Android VPN ဆက်တင်များရှိ \"Block connections without VPN\" ကို ပိတ်ပါ</string>
+    <string name="msg_private_dns">NetGuard ကို စစ်ထုတ်မှုစနစ်ဖြင့် သုံးရန် Android ကွန်ယက် ဆက်တင်များရှိ \"Private DNS\" ကို ပိတ်ပါ</string>
+
+    <string name="title_lockdown_enabled">အသုံးပြုမှုကို ပိတ်ဆို့ထားသည်</string>
+    <string name="title_unmetered_allowed">အကန့်အသတ်မဲ့ အသုံးပြုမှုကို ခွင့်ပြုသည်</string>
+    <string name="title_unmetered_blocked">အကန့်အသတ်မဲ့ အသုံးပြုမှုကို ပိတ်ဆို့သည်</string>
+    <string name="title_unmetered_disabled">အကန့်အသတ်မဲ့ စည်းမျဉ်းများကို မကျင့်သုံးပါ</string>
+    <string name="title_metered_allowed">ကန့်သတ်ထားသော အသုံးပြုမှုကို ခွင့်ပြုသည်</string>
+    <string name="title_metered_blocked">ကန့်သတ်ထားသော အသုံးပြုမှုကို ပိတ်ဆို့သည်</string>
+    <string name="title_metered_disabled">ကန့်သတ်ထားသော စည်းမျဉ်းများကို မကျင့်သုံးပါ</string>
+    <string name="title_host_allowed">လိပ်စာကို ခွင့်ပြုသည်</string>
+    <string name="title_host_blocked">လိပ်စာကို ပိတ်ဆို့သည်</string>
+    <string name="title_interactive_allowed">မျက်နှာပြင်လင်းနေစဉ် ခွင့်ပြုပါ</string>
+    <string name="title_roaming_blocked">Roaming ဖြစ်နေစဉ် ပိတ်ဆို့ပါ</string>
+    <string name="title_metered">နဂိုမူလအားဖြင့် Wi-Fi ကို အကန့်အသတ်မဲ့အဖြစ် သတ်မှတ်ပြီး မိုဘိုင်းလ်ဒေတာကို ကန့်သတ်ထားသော အသုံးပြုမှုအဖြစ် သတ်မှတ်သည်</string>
+
+    <string name="title_internet">အင်တာနက် အသုံးပြုခွင့် မရှိပါ</string>
+    <string name="title_disabled">ပိတ်ထားသည်</string>
+    <string name="title_messaging">အဝင်မက်ဆေ့ချ်များကို Google Play services မှ လက်ခံရရှိခြင်းဖြစ်ပြီး ဤအက်ပ်မှ မဟုတ်သောကြောင့် ဤအက်ပ်ကို ပိတ်ဆို့ခြင်းဖြင့် ၎င်းတို့ကို ပိတ်ဆို့၍မရနိုင်ပါ</string>
+    <string name="title_download">ဒေါင်းလုဒ်များကို ဒေါင်းလုဒ်မန်နေဂျာမှ လုပ်ဆောင်ခြင်းဖြစ်ပြီး ဤအက်ပ်မှ မဟုတ်သောကြောင့် ဤအက်ပ်ကို ပိတ်ဆို့ခြင်းဖြင့် ၎င်းတို့ကို ပိတ်ဆို့၍မရနိုင်ပါ</string>
+    <string name="title_apply">စည်းကမ်းသတ်မှတ်ချက်များကို ကျင့်သုံးပါ</string>
+    <string name="title_conditions">အခြေအနေများ</string>
+    <string name="title_screen_wifi">မျက်နှာပြင်လင်းနေစဉ် Wi-Fi ခွင့်ပြုပါ</string>
+    <string name="title_screen_other">မျက်နှာပြင်လင်းနေစဉ် မိုဘိုင်းဒေတာ ခွင့်ပြုပါ</string>
+    <string name="title_roaming_symbol">R</string>
+    <string name="title_roaming">Roaming ဖြစ်နေစဉ် ပိတ်ဆို့ပါ</string>
+    <string name="label_ttl">TTL - %s စက္ကန့်</string>
+    <string name="label_uid">UID - %s</string>
+    <string name="title_lockdown">Lockdown စနစ်တွင် ခွင့်ပြုပါ</string>
+    <string name="title_related">ဆက်စပ်မှုများကို စစ်ထုတ်ပါ</string>
+    <string name="title_access">အသုံးပြုရန် ကြိုးပမ်းမှုများ</string>
+    <string name="title_precedence">အသုံးပြုခွင့် စည်းမျဉ်းများသည် အခြားစည်းမျဉ်းများထက် ဦးစားပေးဖြစ်သည်</string>
+    <string name="title_options">ရွေးချယ်စရာများ</string>
+    <string name="title_notify">အင်တာနက် အသုံးပြုရန် ကြိုးပမ်းမှုများကို အသိပေးပါ</string>
+
+    <string name="title_logging_disabled">မှတ်တမ်းတင်ခြင်း သို့မဟုတ် စစ်ထုတ်ခြင်းကို မဖွင့်ထားပါ</string>
+    <string name="title_logging_enabled">မှတ်တမ်းတင်ခြင်းနှင့် စစ်ထုတ်ခြင်းကို ဖွင့်ထားသည်</string>
+    <string name="title_logging_configure">ပြင်ဆင်ရန်</string>
+
+    <string name="title_enable_logging">ပိတ်ဆို့ထားသော လိပ်စာများကိုသာ မှတ်တမ်းတင်ပါ</string>
+    <string name="title_enable_filtering">ခွင့်ပြုထားသော လိပ်စာများကိုလည်း မှတ်တမ်းတင်ရန် စစ်ထုတ်ခြင်းကို ဖွင့်ပါ</string>
+    <string name="title_enable_notify">အသစ်မှတ်တမ်းတင်ထားသော လိပ်စာများအတွက် အသိပေးချက်ကို ဖွင့်ပါ</string>
+    <string name="title_enable_help0">ဤဆက်တင်များသည် အက်ပ်အားလုံးတွင် သက်ရောက်မည့် အထွေထွေ ဆက်တင်များ ဖြစ်သည်</string>
+    <string name="title_enable_help1">လိပ်စာတစ်ခုစီအလိုက် ခွင့်ပြုရန် သို့မဟုတ် ပိတ်ဆို့ရန် စစ်ထုတ်ခြင်းကိုလည်း လိုအပ်သည်</string>
+    <string name="title_enable_help2">မှတ်တမ်းတင်ခြင်း သို့မဟုတ် စစ်ထုတ်ခြင်းကို ဖွင့်ခြင်းသည် ဘက်ထရီ အသုံးပြုမှု ပိုများစေပြီး ကွန်ယက်အမြန်နှုန်းကို ထိခိုက်စေနိုင်သည်</string>
+
+    <string name="title_rate">အဆင့်သတ်မှတ်ပါ</string>
+    <string name="title_allow">ခွင့်ပြုမည်</string>
+    <string name="title_block">ပိတ်ဆို့မည်</string>
+    <string name="title_wifi">Wi-Fi</string>
+    <string name="title_mobile">မိုဘိုင်းလ်</string>
+    <string name="title_allow_wifi">Wi-Fi ခွင့်ပြုပါ</string>
+    <string name="title_block_wifi">Wi-Fi ပိတ်ဆို့ပါ</string>
+    <string name="title_allow_other">မိုဘိုင်းဒေတာ ခွင့်ပြုပါ</string>
+    <string name="title_block_other">မိုဘိုင်းဒေတာ ပိတ်ဆို့ပါ</string>
+    <string name="title_root">root</string>
+    <string name="title_mediaserver">mediaserver</string>
+    <string name="title_gpsdaemon" translatable="false">GPS daemon</string>
+    <string name="title_dnsdaemon" translatable="false">DNS daemon</string>
+    <string name="title_nobody">nobody</string>
+    <string name="title_dontask">ထပ်မမေးပါနဲ့တော့</string>
+
+    <string name="title_log_whois">Whois %1$s</string>
+    <string name="title_log_port">ပေါ့တ် %1$d</string>
+    <string name="title_log_copy">ကူးယူပါ</string>
+
+    <string name="title_pro">Pro အင်္ဂါရပ်များ</string>
+    <string name="title_pro_description">အောက်ပါ Pro အင်္ဂါရပ်များ ရနိုင်သည် -</string>
+    <string name="title_pro_log">ပိတ်ဆို့ထားသော အသုံးပြုမှု မှတ်တမ်းများကို ကြည့်ပါ</string>
+    <string name="title_pro_filter">ကွန်ယက် အသုံးပြုမှုများကို စစ်ထုတ်ပါ</string>
+    <string name="title_pro_notify">အက်ပ်အသစ် အသိပေးချက်များ</string>
+    <string name="title_pro_speed">ကွန်ယက်အမြန်နှုန်း ပြရပ် အသိပေးချက်</string>
+    <string name="title_pro_theme">ပုံပန်းသဏ္ဌာန် (ဒီဇိုင်း၊ အရောင်များ)</string>
+    <string name="title_pro_all">အထက်ပါ Pro အင်္ဂါရပ်များ အားလုံး</string>
+    <string name="title_pro_dev">ဖွံ့ဖြိုးတိုးတက်မှုကို ပံ့ပိုးပါ</string>
+    <string name="title_pro_buy">ဝယ်ယူပါ</string>
+    <string name="title_pro_bought">ဖွင့်ထားသည်</string>
+    <string name="title_pro_unavailable">မရနိုင်ပါ</string>
+    <string name="title_pro_details">ပိုမိုသိရှိလိုပါက ခေါင်းစဉ်ကို နှိပ်ပါ</string>
+    <string name="title_pro_challenge">စိန်ခေါ်မှု</string>
+    <string name="title_pro_reponse">တုံ့ပြန်မှု</string>
+    <string name="title_pro_feature">ဒါက Pro အင်္ဂါရပ် ဖြစ်သည်</string>
+    <string name="title_pro_subscription">
+        တစ်လလျှင် 1 သို့မဟုတ် 2 ယူရို (အခွန်မပါဝင်) ဖြင့် Pro အင်္ဂါရပ်များ အားလုံးကို အသုံးပြုနိုင်ပါမည်။
+        Play Store အက်ပ်ရှိ အသင်းဝင်မှုများ ကဏ္ဍမှတစ်ဆင့် စီမံနိုင်သည် သို့မဟုတ် ပယ်ဖျက်နိုင်သည်။
+    </string>
+    <string name="title_pro_already">Pro အင်္ဂါရပ်များကို ဖွင့်ပြီးပါပြီ</string>    <string-array name="protocolNames">
+        <item>UDP</item>
+        <item>TCP</item>
+    </string-array>
+
+    <string-array name="protocolValues" translatable="false">
+        <item>17</item>
+        <item>6</item>
+    </string-array>
+
+    <string name="label_dns_summary">%1$d ခု • %2$d သက်တမ်းကုန်</string>
+
 </resources>

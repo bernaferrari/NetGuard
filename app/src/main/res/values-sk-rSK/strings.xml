@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name" translatable="false">NetGuard Next</string>
     <string name="app_description">NetGuard poskytuje jednoduché a pokročilé spôsoby blokovania prístupu na internet - nevyžadujúcich root prístup. Aplikáciám a adresám môže byť individuálne povolený alebo odmietnutý prístup k Wi-Fi alebo mobilnému pripojeniu.</string>
+    <string name="app_copyright" translatable="false">Copyright \u00A9 2015–2025 by M. Bokhorst (M66B)</string>
     <string name="app_android">NetGuard vyžaduje Android vo verzii 5.1 alebo novšej</string>
-    <string name="app_xposed">Xposed spôsobuje veľa spadnutí, ktoré môžu viesť k tomu, že NetGuard by mohol byť odstránený z Google Play Obchodu. Z tohto dôvodu NetGuard nieje podporovaný ak Xposed je nainštalovaný.</string>
+    <string name="app_eula" translatable="false">THIS SOFTWARE IS PROVIDED BY THE AUTHOR \'\'AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
+    <string name="app_privacy"><a href="https://www.netguard.me/privacy/">Zásady ochrany osobných údajov</a></string>
     <string name="app_first">Skvelá starostlivosť bola venovaná pri vývoji a testovaní NetGuardu, avšak je nemožné garantovať, že NetGuard bude pracovať správne na každom jednom zariadení.</string>
     <string name="app_agree">Súhlasím</string>
     <string name="app_disagree">Odmietam</string>
     <string name="app_support">NetGuard potrebuje tvoju pomoc. Klikni na zakúpiť pro vymoženosti, aby projekt mohol ďalej fungovať.</string>
-    <string name="channel_notify">Všeobecné notifikácie</string>
-    <string name="channel_access">Prístupové notifikácie</string>
+    <string name="app_qap">
+        Google chcel aplikáciu odstrániť z Obchodu Play, pretože požadovala povolenie na dopytovanie všetkých aplikácií.
+        Päť odvolaní a poskytnutie dobrého odôvodnenia, prečo je toto povolenie potrebné, bolo zamietnutých.
+        Táto verzia aplikácie už toto povolenie nepožaduje,
+        a napriek tomu bude takmer všetkých aplikácií stále uvedených,
+        okrem niektorých (systémových) aplikácií, ktoré nie je možné spustiť manuálne zo zoznamu aplikácií pre Android.
+        Internetová prevádzka týchto aplikácií bude vždy povolená, aby sa zabezpečilo, že vaše zariadenie bude naďalej správne fungovať.
+        Ak si myslíte, že je to problém, môžete aktualizovať na GitHub verziu aplikácie a znova spravovať všetky (systémové) aplikácie.
+    </string>
+
+    <string name="channel_foreground">Spustené služby</string>
+    <string name="channel_notify">Všeobecné oznámenia</string>
+    <string name="channel_access">Oznámenia o prístupe</string>
+
     <string name="menu_search">Hľadať aplikáciu</string>
     <string name="menu_filter">Filtrovať aplikácie</string>
     <string name="menu_app_user">Zobraziť používateľské aplikácie</string>
@@ -16,208 +31,419 @@
     <string name="menu_app_nointernet">Zobraziť aplikácie bez internetu</string>
     <string name="menu_app_disabled">Zobraziť zakázané aplikácie</string>
     <string name="menu_sort">Zoradiť aplikácie</string>
-    <string name="menu_sort_name">Zoradenie podľa názvu</string>
+    <string name="menu_sort_name">Zoradiť podľa názvu</string>
     <string name="menu_sort_uid">Zoradiť podľa uid</string>
-    <string name="menu_sort_data">Zoradiť na využitia dát</string>
+    <string name="menu_sort_data">Zoradiť podľa využitia dát</string>
+    <string name="menu_launch">Spustiť aplikáciu</string>
     <string name="menu_log">Zobraziť záznam</string>
     <string name="menu_settings">Nastavenia</string>
+    <string name="menu_home">Domov</string>
     <string name="menu_invite">Pozvať</string>
     <string name="menu_legend">Legenda</string>
     <string name="menu_support">Podpora</string>
     <string name="menu_about">O aplikácii</string>
     <string name="menu_apps">Ďalšie aplikácie</string>
+    <string name="menu_firewall">Firewall</string>
+    <string name="status_enabled">Firewall zapnutý</string>
+    <string name="status_disabled">Firewall vypnutý</string>
+    <string name="widget_firewall_enabled">Firewall ZAP</string>
+    <string name="widget_firewall_disabled">Firewall VYP</string>
+    <string name="widget_lockdown_enabled">Uzamknutie ZAP</string>
+    <string name="widget_lockdown_disabled">Uzamknutie VYP</string>
+    <string name="notify_traffic_title">Monitor prevádzky</string>
+    <string name="notify_traffic_summary">Odosielanie %1$s • Sťahovanie %2$s • Špička %3$s</string>
+    <string name="notify_traffic_debug">Relácie %1$d/%2$d/%3$d • Súbory %4$d/%5$d</string>
+    <string name="ui_loading">Načítava sa…</string>
+    <string name="ui_empty_logs_title">Zatiaľ žiadna prevádzka</string>
+    <string name="ui_empty_logs_body">Keď sa objavia pripojenia, zobrazia sa tu.</string>
+    <string name="ui_empty_apps_title">Nenašli sa žiadne aplikácie</string>
+    <string name="ui_empty_apps_body">Skúste zoznam obnoviť.</string>
+    <string name="ui_empty_dns_title">Zatiaľ žiadne vyriešené DNS</string>
+    <string name="ui_empty_dns_body">Odpovede DNS sa tu zobrazia po prehliadaní.</string>
+    <string name="ui_dns_filter_empty">Tomuto filtru nezodpovedajú žiadne záznamy DNS.</string>
+    <string name="ui_empty_forwarding_title">Žiadne pravidlá presmerovania</string>
+    <string name="ui_empty_forwarding_body">Pridajte pravidlo na spustenie presmerovania prevádzky. </string>
+    <string name="ui_forwarding_filter_empty">Tomuto filtru nezodpovedajú žiadne pravidlá presmerovania.</string>
+    <string name="ui_empty_pro_body">Podpora odomyká extra funkcie a udržuje projekt pri živote.</string>
+    <string name="ui_empty_pro_details">Pro odomyká: filtrovanie, záznamy, oznámenia, témy a rýchlostné limity.</string>
+    <string name="ui_home_hint">Ovládajte prístup k internetu pre každú aplikáciu.</string>
+    <string name="ui_home_quick_actions">Rýchle akcie</string>
+    <string name="ui_apps_title">Firewall</string>
+    <string name="ui_logs_title">Záznam prevádzky</string>
+    <string name="ui_logs_filters">Filtre</string>
+    <string name="ui_logs_filter_status">Stav</string>
+    <string name="ui_logs_filter_protocol">Protokol</string>
+    <string name="ui_logs_filter_view">Zobrazenie</string>
+    <string name="ui_logs_group_timeline">Časová os</string>
+    <string name="ui_logs_group_by_app">Podľa aplikácie</string>
+    <string name="ui_logs_unknown_source">Neznámy zdroj</string>
+    <string name="ui_settings_title">Nastavenia</string>
+    <string name="ui_dns_title">Vyriešené DNS</string>
+    <string name="ui_forwarding_title">Presmerovanie portov</string>
+    <string name="ui_dns_hint">Nedávno vyriešené domény a odpovede.</string>
+    <string name="ui_forwarding_hint">Spravujte pravidlá presmerovania a cieľové aplikácie.</string>
+    <string name="ui_dns_active">Aktívne</string>
+    <string name="ui_rule_custom">Vlastné</string>
+    <string name="ui_dns_expired">Vypršané</string>
+    <string name="ui_filter_all">Všetko</string>
+    <string name="ui_filter_empty">Tomuto filtru nezodpovedajú žiadne aplikácie.</string>
+    <string name="ui_apps_search_empty">Tomuto vyhľadávaniu nezodpovedajú žiadne aplikácie.</string>
+    <string name="ui_learn_more">Dozvedieť sa viac</string>
+    <string name="status_running">Prevádzka sa filtruje</string>
+    <string name="status_not_running">Prevádzka sa nefiltruje</string>
+    <string name="action_enable">Povoliť</string>
+    <string name="action_disable">Zakázať</string>
+    <string name="home_apps_hint">Skontrolujte pravidlá aplikácií a využitie dát</string>
+    <string name="home_logs_hint">Kontrola nedávnej sieťovej aktivity</string>
+
+    <!-- Accessibility -->
+    <string name="action_expand">Rozbaliť podrobnosti</string>
+    <string name="action_collapse">Zbaliť podrobnosti</string>
+    <string name="action_navigate">Otvorit</string>
+    <string name="action_toggle_firewall">Prepnúť firewall</string>
+    <string name="action_clear_search">Vymazať vyhľadávanie</string>
+    <string name="search_settings">Nastavenia vyhľadávania</string>
+    <string name="content_desc_security_status">Bezpečnostný stav firewallu</string>
+    <string name="content_desc_app_icon">Ikona aplikácie pre %s</string>
+    <string name="content_desc_show_info">Zobraziť informácie o %1$s</string>
+
+    <!-- Dashboard stats -->
+    <string name="stat_blocked_today">Blokované</string>
+    <string name="stat_allowed_today">Povolené</string>
+    <string name="stat_active_rules">Aktívne pravidlá</string>
+
+    <!-- Tooltips -->
+    <string name="tooltip_rcode">Kód odpovede DNS odoslaný pre blokované domény. Predvolená hodnota 3 (NXDOMAIN) znamená, že doména neexistuje.</string>
+    <string name="tooltip_ttl">Minimálna doba životnosti záznamov v pamäti DNS v sekundách.</string>
+    <string name="tooltip_pcap">Zaznamenajte všetky sieťové pakety na ladenie. Vytvára veľké súbory.</string>
+    <string name="tooltip_filter">Zachytávajte a analyzujte prevádzku. Vyžaduje sa na blokovanie jednotlivých adries. Spotrebúva viac batérie.</string>
+    <string name="tooltip_lockdown">Blokovať všetku prevádzku okrem explicitne povolených aplikácií. Používajte opatrne.</string>
+
+    <string name="menu_protocol_udp" translatable="false">UDP</string>
+    <string name="menu_protocol_tcp" translatable="false">TCP</string>
     <string name="menu_protocol_other">Iné</string>
     <string name="menu_traffic_allowed">Povolené</string>
     <string name="menu_traffic_blocked">Blokované</string>
     <string name="menu_live">Živé aktualizácie</string>
     <string name="menu_refresh">Obnoviť</string>
+    <string name="menu_ok">OK</string>
+    <string name="menu_cancel">Zrušiť</string>
     <string name="menu_resolve">Zobraziť názvy</string>
     <string name="menu_organization">Zobraziť organizáciu</string>
     <string name="menu_pcap_enabled">PCAP povolené</string>
-    <string name="menu_pcap_export">Exportovať PCAP</string>
+    <string name="menu_pcap_export">Export PCAP</string>
     <string name="menu_clear">Vyčistiť</string>
     <string name="menu_export">Exportovať</string>
     <string name="menu_reset">Resetovať</string>
+
     <string name="menu_add">Pridať</string>
     <string name="menu_delete">Vymazať</string>
+
     <string name="menu_cleanup">Vyčistiť</string>
+
     <string name="title_protocol">Protokol</string>
     <string name="title_dport">Zdrojový port</string>
     <string name="title_raddr">Cieľová adresa</string>
     <string name="title_rport">Cieľový port</string>
     <string name="title_ruid">Cieľová aplikácia</string>
-    <string name="title_external">Pre externý server vyberte \"nikto\"</string>
-    <string name="setting_defaults">Predvolené nastavenia</string>
-    <string name="setting_whitelist_wifi">Predvolene blokovať Wi-Fi</string>
-    <string name="setting_whitelist_other">Predvolene blokovať mobilné dáta</string>
-    <string name="setting_screen_wifi">Zapnúť Wi-Fi po zapnutí obrazovky</string>
-    <string name="setting_screen_other">Zapnúť mobilné dáta po zapnutí obrazovky</string>
-    <string name="setting_whitelist_roaming">Predvolene blokovať roaming</string>
+    <string name="title_external">Pre externý server vyberte \'nikto\'</string>
+
+    <string name="setting_defaults">Predvolené nastavenia (biely/čierny zoznam)</string>
+    <string name="setting_whitelist_wifi">Blokovať Wi-Fi</string>
+    <string name="setting_whitelist_other">Blokovať mobil</string>
+    <string name="setting_screen_wifi">Povoliť Wi-Fi, keď je obrazovka zapnutá</string>
+    <string name="setting_screen_other">Povoliť mobil, keď je obrazovka zapnutá</string>
+    <string name="setting_whitelist_roaming">Blokovať roaming</string>
+
     <string name="setting_options">Možnosti</string>
     <string name="setting_theme">Téma: %1$s</string>
     <string name="setting_dark">Použiť tmavú tému</string>
-    <string name="setting_install">Upozorniť na novú inštaláciu</string>
-    <string name="setting_auto">Automaticky zapnúť po %1$s minútach</string>
-    <string name="setting_delay">Oneskoriť vypnutie obrazovky o %1$s minút</string>
+    <string name="setting_theme_palette">Vyberte štýl farieb</string>
+    <string name="setting_dynamic_unavailable">Dynamické farby vyžadujú Android 12 alebo novší.</string>
+    <string name="setting_appearance_mode">Režim vzhľadu</string>
+    <string name="setting_appearance_mode_title">Tmavý režim</string>
+    <string name="setting_appearance_mode_summary">Vyberte Vypnuté, Zapnuté alebo Podľa systému.</string>
+    <string name="setting_appearance_preview">Aktuálne: %1$s · %2$s</string>
+    <string name="setting_appearance_auto">Auto</string>
+    <string name="setting_appearance_light">Svetlý</string>
+    <string name="setting_appearance_dark">Tmavý</string>
+    <string name="theme_dynamic">Dynamické</string>
+    <string name="setting_install">Oznámiť novú inštaláciu</string>
+    <string name="setting_screen_on">Použiť pravidlá "keď je obrazovka zapnutá"</string>
+    <string name="setting_auto">Auto povolenie po %1$s minútach</string>
+    <string name="setting_delay">Oneskorenie vypnutia obrazovky o %1$s minút</string>
     <string name="setting_update">Skontrolovať aktualizácie</string>
+    <string name="setting_update_now">Skontrolovať teraz</string>
+    <string name="setting_update_checking">Kontroluje sa...</string>
+
     <string name="setting_network_options">Možnosti siete</string>
-    <string name="setting_subnet">Podsieťové smerovanie</string>
-    <string name="setting_tethering">Povoliť zdieľanie internetu</string>
-    <string name="setting_lan">Povoliť LAN prístup</string>
-    <string name="setting_ip6">Povoliť IPv6 prenos</string>
-    <string name="setting_wifi_home">Wi-Fi domáce siete: %1$s</string>
+    <string name="setting_subnet">Smerovanie podsiete</string>
+    <string name="setting_tethering">Povoliť zdieľanie pripojenia (tethering)</string>
+    <string name="setting_lan">Povoliť prístup k LAN</string>
+    <string name="setting_ip6">Povoliť prevádzku IPv6</string>
+    <string name="setting_wifi_home">Domáce Wi-Fi siete: %1$s</string>
     <string name="setting_metered">Spravovať merané Wi-Fi siete</string>
-    <string name="setting_metered_2g">Považovať 2G za nemeranú sieť</string>
-    <string name="setting_metered_3g">Považovať 3G za nemeranú sieť</string>
-    <string name="setting_metered_4g">Považovať LTE za nemeranú sieť</string>
+    <string name="setting_metered_2g">Považovať 2G za nemerané</string>
+    <string name="setting_metered_3g">Považovať 3G za nemerané</string>
+    <string name="setting_metered_4g">Považovať LTE za nemerané</string>
     <string name="setting_national_roaming">Ignorovať národný roaming</string>
     <string name="setting_eu_roaming">Ignorovať EU roaming</string>
-    <string name="setting_lockdown_wifi">Zabezpečiť cez Wi-Fi</string>
-    <string name="setting_lockdown_other">Zabezpečiť cez mobilné dáta</string>
+    <string name="setting_call">Zakázať počas hovoru</string>
+    <string name="setting_lockdown_wifi">Uzamknutie Wi-Fi</string>
+    <string name="setting_lockdown_other">Uzamknutie mobilu</string>
     <string name="setting_reload_onconnectivity">Obnoviť pri každej zmene pripojenia</string>
+
     <string name="setting_advanced_options">Pokročilé možnosti</string>
     <string name="setting_system">Spravovať systémové aplikácie</string>
     <string name="setting_log_app">Zaznamenávať prístup k internetu</string>
-    <string name="setting_access">Upozorniť na pripojenie k internetu</string>
-    <string name="setting_filter">Filtrovať prenos</string>
-    <string name="setting_filter_udp">Filtrovať UDB prenos</string>
-    <string name="setting_clear_onreload">Zatvoriť pripojenie pri obnovení</string>
+    <string name="setting_log_retention_days">Dni uchovávania záznamov prevádzky</string>
+    <string name="setting_access">Oznámiť pri prístupe k internetu</string>
+    <string name="setting_filter">Filtrovať prevádzku</string>
+    <string name="setting_filter_udp">Filtrovať prevádzku UDP</string>
+    <string name="setting_handover">Plynulé odovzdanie VPN pri obnovení</string>
+    <string name="setting_clear_onreload">Zavrieť pripojenia pri obnovení</string>
+    <string name="setting_lockdown">Uzamknúť prevádzku</string>
+    <string name="setting_malware">Ochrana pred malvérom</string>
     <string name="setting_track_usage">Sledovať používanie siete</string>
     <string name="setting_reset_usage">Resetovať využitie siete</string>
-    <string name="setting_show_resolved">Ukázať vyriešené názvy domény</string>
+    <string name="setting_show_resolved">Zobraziť vyriešené názvy domén</string>
     <string name="setting_block_domains">Blokovať názvy domén</string>
-    <string name="setting_forwarding">Presmerovanie portu</string>
+    <string name="setting_rcode">Kód odpovede DNS: %s</string>
+    <string name="setting_forwarding">Presmerovanie portov</string>
     <string name="setting_vpn4">VPN IPv4: %s</string>
     <string name="setting_vpn6">VPN IPv6: %s</string>
     <string name="setting_dns">VPN DNS: %s</string>
+    <string name="setting_dns2">Sekundárny DNS: %s</string>
+    <string name="setting_validate">Overiť na: %s</string>
+    <string name="setting_ttl">Minimálne DNS TTL: %s s</string>
+    <string name="setting_socks5_enabled">Použiť proxy SOCKS5</string>
+    <string name="setting_socks5_addr">Adresa SOCKS5: %s</string>
+    <string name="setting_socks5_port">Port SOCKS5: %s</string>
+    <string name="setting_socks5_username">Používateľské meno SOCKS5: %s</string>
+    <string name="setting_socks5_password">Heslo SOCKS5: %s</string>
     <string name="setting_pcap_record_size">Veľkosť záznamu PCAP: %s B</string>
-    <string name="setting_pcap_file_size">Maximálna veľkosť súboru PCAP: %s MB</string>
+    <string name="setting_pcap_file_size">Max. veľkosť súboru PCAP: %s MB</string>
+    <string name="setting_pcap">Zaznamenať sieťovú prevádzku (PCAP)</string>
+    <string name="setting_watchdog">Watchdog: každých %s minút</string>
+
     <string name="setting_stats_category">Oznámenie o rýchlosti</string>
     <string name="setting_stats">Zobraziť oznámenie o rýchlosti</string>
     <string name="setting_stats_top">Zobraziť top aplikácie</string>
     <string name="setting_stats_frequency">Interval vzorkovania: %s ms</string>
-    <string name="setting_stats_samples">Počet vzoriek: %s s</string>
-    <string name="setting_backup">Zálohovať</string>
+    <string name="setting_stats_samples">Počet vzoriek: %s</string>
+
+    <string name="setting_backup">Záloha</string>
     <string name="setting_export">Exportovať nastavenia</string>
     <string name="setting_import">Importovať nastavenia</string>
     <string name="setting_hosts">Importovať súbor hosts</string>
-    <string name="setting_hosts_url">Adresu URL pre sťahovanie súboru hosts</string>
+    <string name="setting_hosts_append">Importovať súbor hosts (pripojiť)</string>
+    <string name="setting_hosts_url">Adresa URL na stiahnutie súboru hosts</string>
     <string name="setting_hosts_download">Stiahnuť súbor hosts</string>
+    <string name="setting_use_hosts">Použiť súbor hosts</string>
+
     <string name="setting_technical">Technické informácie</string>
     <string name="setting_technical_general">Všeobecné</string>
     <string name="setting_technical_networks">Siete</string>
-    <string name="setting_technical_subscription">Odbery</string>
-    <string name="summary_install">Zobraziť oznámenie v stavovom riadku na priame nastavenie novonainštalovaných aplikácií (pro funkcia)</string>
-    <string name="summary_auto">Po vypnutí pomocou miniaplikácie znovu spustiť NetGuard po vybratom počte minút (zadajte nulu pre vypnutie tejto možnosti)</string>
-    <string name="summary_delay">Ponechať po vypnutí obrazovky pravidlá zapnutia obrazovky aktívne na vybratý počet minút (zadajte nulu pre vypnutie tejto možnosti)</string>
+    <string name="setting_technical_subscription">Predplatné</string>
+    <string name="setting_section_appearance">Vzhľad</string>
+    <string name="setting_section_firewall">Pravidlá firewallu</string>
+    <string name="setting_section_advanced">Pokročilé správanie</string>
+    <string name="setting_section_hosts">Hostitelia a DNS</string>
+    <string name="setting_section_network">Konfigurácia siete</string>
+    <string name="setting_section_dns">Podrobnosti DNS</string>
+    <string name="setting_section_proxy">Proxy</string>
+    <string name="setting_section_vpn">Konfigurácia VPN</string>
+    <string name="setting_section_background">Úlohy na pozadí</string>
+    <string name="setting_section_diagnostics">Diagnostika</string>
+    <string name="setting_section_support">Podpora</string>
+
+    <string name="summary_install">Zobraziť oznámenie v stavovom riadku na priame nakonfigurovanie novo nainštalovaných aplikácií (pro funkcia)</string>
+    <string name="summary_auto">Po zakázaní pomocou widgetu automaticky znova povoliť NetGuard po zvolenom počte minút (zadajte nulu pre zakázanie tejto možnosti)</string>
+    <string name="summary_delay">Po vypnutí obrazovky ponechať pravidlá pre zapnutú obrazovku aktívne po vybratý počet minút (zadajte nulu na zakázanie tejto možnosti)</string>
     <string name="summary_update">Kontrolovať nové vydania na GitHube dvakrát denne</string>
-    <string name="summary_tethering">V závislosti na verziu systému Android, zdieľanie internetu môže alebo nemusí fungovať. Zdieľaný prenos nie je možné filtrovať.</string>
-    <string name="summary_subnet">Povoliť podsieťové presmerovanie; môže umožniť Wi-Fi volania, ale môže tiež vyvolať chyby v Androide a zvýšiť spotrebu batérie</string>
-    <string name="summary_lan">Povoliť aplikáciam pripojenie na adresy miestnej sieti, ako 10.0.0.0/8, 172.16.0.0/12 a 192.168.0.0/16</string>
-    <string name="summary_ip6">Smerovať IPv6 prenos do NetGuard, takže môžete selektívne povolený alebo blokovaný</string>
-    <string name="summary_wifi_home">Použiť pravidlá Wi-Fi sietí len na vybrané siete (použite pravidlá mobilných sietí pre ostatné Wi-Fi siete)</string>
-    <string name="summary_metered">Použiť pravidlá mobilných sietí na merané (platené, zdieľané) Wi-Fi siete</string>
-    <string name="summary_metered_2g">Použiť pravidlá Wi-Fi sietí na 2G dátové pripojenia</string>
-    <string name="summary_metered_3g">Použiť pravidlá Wi-Fi sietí na 3G dátové pripojenia</string>
-    <string name="summary_metered_4g">Použiť pravidlá Wi-Fi sietí na LTE dátové pripojenia</string>
-    <string name="summary_national_roaming">Nepoužiť pravidlá roamingu, keď krajina mobilnej siete a SIM sú rovnaké</string>
-    <string name="summary_system">Určiť pravidlá pre systémové pravidlá (pre expertov)</string>
-    <string name="summary_log_app">Zaznamenať pokusy o získanie prístupu na internet u aplikácií. Môže to spôsobiť zvýšenú spotrebu batérie.</string>
-    <string name="summary_filter">Filtrovanie IP paketov smerujúcich z VPN tunela. Môže to spôsobiť zvýšenú spotrebu batérie.</string>
-    <string name="summary_track_usage">Sledovať počet odoslaných a prijatých bajtov pre každú aplikáciu a adresu. Môže to spôsobiť zvýšenú spotrebu batérie.</string>
-    <string name="summary_stats">Zobraziť oznámenie s graf rýchlosti siete v stavovom riadku</string>
+
+    <string name="summary_tethering">V závislosti od verzie Androidu môže zdieľanie pripojenia fungovať alebo nemusí. Zdieľanú prevádzku nie je možné filtrovať.</string>
+    <string name="summary_subnet">Povoliť smerovanie podsiete; môže povoliť Wi-Fi volania, ale môže tiež vyvolať chyby v Androide a zvýšiť spotrebu batérie</string>
+    <string name="summary_lan">Povoliť aplikáciám pripájať sa k adresám lokálnej siete, ako napríklad 10.0.0.0/8, 172.16.0.0/12 a 192.168.0.0/16</string>
+    <string name="summary_ip6">Smerovať prevádzku IP verzie 6 do NetGuardu, aby ju bolo možné selektívne povoliť alebo zablokovať</string>
+    <string name="summary_wifi_home">Uplatňovať pravidlá siete Wi-Fi iba pre vybratú sieť (pre ostatné siete Wi-Fi uplatňovať pravidlá mobilnej siete)</string>
+    <string name="summary_metered">Uplatňovať pravidlá mobilnej siete na merané (platené, zdieľané) siete Wi-Fi</string>
+    <string name="summary_metered_2g">Uplatňovať pravidlá siete Wi-Fi pre 2G dátové pripojenia</string>
+    <string name="summary_metered_3g">Uplatňovať pravidlá siete Wi-Fi pre 3G dátové pripojenia</string>
+    <string name="summary_metered_4g">Uplatňovať pravidlá siete Wi-Fi pre dátové pripojenia LTE</string>
+    <string name="summary_national_roaming">Neuplatňovať pravidlá roamingu, ak je krajina SIM karty a mobilnej siete rovnaká</string>
+    <string name="summary_eu_roaming">Neuplatňovať pravidlá roamingu, ak je krajina SIM karty a mobilnej siete v rámci EÚ (roaming ako doma)</string>
+    <string name="summary_call">Zakázať NetGuard pri prichádzajúcom alebo odchádzajúcom telefónnom hovore. Dá sa to použiť na obídenie problémov s IP/Wi-Fi volaním.</string>
+
+    <string name="summary_system">Definovať pravidlá pre systémové aplikácie (pre expertov)</string>
+    <string name="summary_log_app">Zaznamenávať pokusy o prístup k internetu pre aplikácie. Môže to viesť k zvýšenej spotrebe batérie.</string>
+    <string name="summary_log_retention_days">Automaticky odstrániť staré záznamy prevádzky počas údržby. Nastavte 0 na trvalé uchovávanie.</string>
+    <string name="summary_access">Zobraziť oznámenie v stavovom riadku, keď sa aplikácia pokúsi o prístup k novej internetovej adrese (keď je filtrovanie zakázané, budú sa oznamovať iba zablokované pokusy o prístup k internetu)</string>
+    <string name="summary_filter">Filtrovať IP pakety vychádzajúce z tunela VPN. Môže to viesť k zvýšenej spotrebe batérie.</string>
+    <string name="summary_track_usage">Sledovať počet odoslaných a prijatých bajtov pre každú aplikáciu a adresu. Môže to viesť k zvýšenej spotrebe batérie.</string>
+    <string name="summary_block_domains">Odpovedať s nakonfigurovaným kódom odpovede DNS pre blokované názvy domén. Tento prepínač je zakázaný, ak nie je k dispozícii žiadny súbor hosts.</string>
+    <string name="summary_rcode">Predvolená hodnota je 3 (NXDOMAIN), čo znamená \'neexistujúca doména\'.</string>
+    <string name="summary_validate">Názov domény použitý na overenie internetového pripojenia na porte 443 (https).</string>
+    <string name="summary_socks5_enabled">Na proxy server sa bude odosielať iba prevádzka TCP</string>
+    <string name="summary_watchdog">Periodicky kontrolovať, či NetGuard stále beží (zadajte nulu pre zakázanie tejto možnosti). Môže to viesť k zvýšenej spotrebe batérie.</string>
+
+    <string name="summary_stats">Zobraziť graf rýchlosti siete v oznámení v stavovom riadku</string>
+
+    <string-array name="default_wifi_home"></string-array>
+
     <string name="msg_sure">Ste si istý?</string>
-    <string name="msg_started">Pravidlá vynútenia</string>
-    <string name="msg_packages">Povolené: %1$d, blokované: %2$d</string>
-    <string name="msg_hosts">Povolené: %1$d, blokované: %2$d, hostitelia: %3$d</string>
-    <string name="msg_waiting">Čaká na udalosť</string>
-    <string name="msg_disabled">NetGuard je vypnutý, použite prepínač vyššie na zapnutie NetGuard</string>
+    <string name="msg_started">Vynucovanie pravidiel</string>
+    <string name="msg_packages">%1$d povolených, %2$d blokovaných</string>
+    <string name="msg_hosts">%1$d povolených, %2$d blokovaných, %3$d hostiteľov</string>
+    <string name="msg_waiting">Čakanie na udalosť</string>
+    <string name="msg_disabled">NetGuard je zakázaný, na povolenie NetGuardu použite prepínač vyššie</string>
+    <string name="msg_notifications">Klepnutím udelíte povolenia na oznámenia (pre oznámenia o pokusoch o prístup, chybové správy atď.)</string>
     <string name="msg_revoked">NetGuard bol zakázaný, pravdepodobne použitím inej aplikácie založenej na VPN</string>
-    <string name="msg_installed">Aplikácia \'%1$s\' bola nainštalovaná</string>
-    <string name="msg_installed_n">Nainštalované</string>
-    <string name="msg_access">Aplikácia %1$s sa pokúsila o prístup k internetu</string>
-    <string name="msg_access_n">Pokus o pripojenie na internet</string>
-    <string name="msg_completed">Akcia bola dokončená</string>
-    <string name="msg_vpn">NetGuard používa miestne VPN pripojenie na filtrovanie internetového prenosu. 
-Z tohto dôvodu povoľte VPN pripojenie v ďalšom dialógovom okne. Váš internetový prenos nie je zasielaný na vzdialený VPN server.</string>
-    <string name="msg_autostart">Aplikácii NetGuard sa nepodarilo spustiť automaticky. To je pravdepodobne spôsobené z dôvodu chyby vo vašej verzii systému Android.</string>
+    <string name="msg_installed">\'%1$s\' nainštalované</string>
+    <string name="msg_installed_n">Bolo nainštalované</string>
+    <string name="msg_malware" translatable="false">Possible malware: \'%1$s\'</string>
+    <string name="msg_access">%1$s sa pokúsil o prístup k internetu</string>
+    <string name="msg_access_n">Pokus o prístup k internetu</string>
+    <string name="msg_completed">Akcia dokončená</string>
+    <string name="msg_invalid">Skontrolujte hodnoty a skúste to znova.</string>
+    <string name="msg_export_failed">Export zlyhal: %1$s</string>
+    <string name="msg_vpn">NetGuard používa lokálnu VPN na filtrovanie internetovej prevádzky. Z tohto dôvodu povoľte pripojenie VPN v nasledujúcom dialógovom okne. Vaša internetová prevádzka sa neodosiela na vzdialený VPN server.</string>
+    <string name="msg_autostart">NetGuard sa nemohol spustiť automaticky. Pravdepodobne je to spôsobené chybou vo vašej verzii Androidu.</string>
     <string name="msg_error">Vyskytla sa neočakávaná chyba: \'%s\'</string>
-    <string name="msg_try">Skúsiť NetGuard</string>
-    <string name="msg_terms">Darovaním súhlasíte s <a href="http://www.netguard.me/#terms">podmienkami služby</a></string>
-    <string name="msg_dimming">Ak nemôžete stlačiť tlačidlo OK na ďalšom okne, tak iná aplikácia (na ovladanie jasu) prekrýva obrazovkou.</string>
-    <string name="msg_mbday">± %1$.3f▲ %2$.3f▼ MB/deň</string>
-    <string name="msg_kb">%1$7.3f▲ %2$7.3f▼ KB</string>
-    <string name="msg_mb">%1$7.3f▲ %2$7.3f▼ MB</string>
-    <string name="msg_gb">%1$7.3f▲ %2$7.3f▼ GB</string>
+    <string name="msg_start_failed">Android v tejto chvíli odmietol spustiť službu VPN. Pravdepodobne je to spôsobené chybou vo vašej verzii Androidu.</string>
+    <string name="msg_try">Vyskúšať NetGuard</string>
+    <string name="msg_terms">Darovaním súhlasíte so <a href="http://www.netguard.me/#terms">zmluvnými podmienkami</a></string>
+    <string name="msg_dimming">Ak v nasledujúcom dialógovom okne nemôžete stlačiť OK, pravdepodobne s obrazovkou manipuluje iná aplikácia (na stmievanie obrazovky).</string>
+    <string name="msg_mbday">&#177; %1$.3f&#9650; %2$.3f&#9660; MB/deň</string>
+    <string name="msg_kbsec">%7.3f KB/s</string>
+    <string name="msg_mbsec">%7.3f MB/s</string>
+    <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
+    <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
+    <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
     <string name="msg_count">%dx</string>
-    <string name="msg_log_disabled">Zaznamenávanie prenosu je vypnuté, použite prepínač vyššie na povolenie zaznamenávanie. Zaznamenávanie prenosu môže spôsobiť zvýšenú spotrebu batérie.</string>
-    <string name="msg_clear_rules">Týmto sa obnovia pravidlá a podmienky na predvolené hodnoty</string>
-    <string name="msg_reset_access">Týmto odstránite riadky záznamu pokusov o prístup bez pravidiel povolenia/blokovania</string>
-    <string name="msg_import_last">Posledné importovanie: %s</string>
+    <string name="msg_doze">Ak chcete dosiahnuť konzistentné výsledky, optimalizácia batérie Androidu by mala byť pre NetGuard zakázaná.\n\nV ďalšom dialógovom okne vyberte v hornej časti „Všetky aplikácie“, klepnite na NetGuard v zozname a vyberte a potvrďte „Neoptimalizovať“.</string>
+    <string name="msg_datasaving">Ak chcete dosiahnuť konzistentné výsledky, možnosti úspory dát systému Android by mali byť pre NetGuard zakázané.\n\nV ďalšom dialógovom okne povoľte možnosti „Údaje na pozadí“ a „Neobmedzené využitie údajov“.</string>
+    <string name="msg_filter">Používanie filtrovania spôsobí, že Android pripíše využitie dát a energie NetGuardu - Android predpokladá, že dáta a energia sú využívané NetGuardom, a nie pôvodnými aplikáciami</string>
+    <string name="msg_filter4">Android 4 vyžaduje, aby bolo filtrovanie povolené</string>
+    <string name="msg_log_disabled">Protokolovanie prevádzky je zakázané, na povolenie protokolovania použite prepínač vyššie. Protokolovanie prevádzky môže viesť k zvýšenej spotrebe batérie.</string>
+    <string name="msg_clear_rules">Týmto sa obnovia pravidlá a podmienky na ich predvolené hodnoty</string>
+    <string name="msg_reset_access">Týmto sa odstránia riadky záznamu pokusov o prístup bez pravidiel povolenia/blokovania</string>
+    <string name="msg_import_last">Posledný import: %s</string>
     <string name="msg_downloading">Sťahovanie\n%1s</string>
     <string name="msg_downloaded">Súbor hosts bol stiahnutý</string>
-    <string name="msg_download_last">Posledné sťahovanie: %s</string>
-    <string name="msg_start_forward">Zastaviť presmerovanie z %1$s port %2$d na %3$s:%4$d z \'%5$s\'?</string>
-    <string name="msg_stop_forward">Zastaviť presmerovanie z %1$s port %2$d?</string>
-    <string name="msg_metered">Meraná sieť</string>
+    <string name="msg_download_last">Posledné stiahnutie: %s</string>
+    <string name="msg_start_forward">Spustiť presmerovanie z %1$s port %2$d na %3$s:%4$d pre \'%5$s\'?</string>
+    <string name="msg_stop_forward">Zastaviť presmerovanie %1$s port %2$d?</string>
+    <string name="msg_metered">Sieť je meraná</string>
+    <string name="msg_inactive">Žiadne aktívne internetové pripojenie</string>
     <string name="msg_queue">NetGuard je zaneprázdnený</string>
-    <string name="msg_update">K dispozícii je aktualizácia, dotykom ju stiahnite</string>
-    <string name="msg_whitelist">Prístup k internetu je povolený v predvolenom nastavení, túto možnosť môžete zmeniť v nastaveniach</string>
-    <string name="msg_push">Push správy sú väčšinou riadené systémovou súčasťou Služby Google Play, ktorej je povolený prístup k internetu v predvolenom nastavení</string>
-    <string name="msg_system">Spravovanie systémových aplikácií môže byť povolené v nastaveniach</string>
-    <string name="msg_issue">Prosím, opíšte problém a uveďte jeho čas:</string>
-    <string name="title_unmetered_allowed">Nemeraný prenos je povolený</string>
-    <string name="title_unmetered_blocked">Nemeraný prenos je blokovaný</string>
-    <string name="title_metered_allowed">Meraný prenos je povolený</string>
-    <string name="title_metered_blocked">Meraný prenos je blokovaný</string>
+    <string name="msg_update">Dostupná aktualizácia, klepnutím stiahnete</string>
+    <string name="msg_usage">Povoliť (zelenkasté) alebo zakázať (červenkasté) prístup k Wi-Fi alebo mobilnému internetu môžete klepnutím na ikony vedľa aplikácie</string>
+    <string name="msg_fairemail">Ak ste si nainštalovali NetGuard na ochranu svojho súkromia, mohla by vás zaujímať aj aplikácia <a href="https://email.faircode.eu/">FairEmail</a>, čo je open source e-mailová aplikácia priateľská k súkromiu</string>
+    <string name="msg_whitelist">Prístup k internetu je predvolene povolený (režim čiernej listiny), toto je možné zmeniť v nastaveniach</string>
+    <string name="msg_push">Prichádzajúce (push) správy väčšinou spracováva systémový komponent služby Play, ktorý má predvolene povolený prístup k internetu</string>
+    <string name="msg_system">Spravovanie všetkých (systémových) aplikácií je možné povoliť v nastaveniach</string>
+    <string name="msg_issue">Popíšte problém a uveďte čas vzniku problému:</string>
+    <string name="msg_vpn_cancelled">Pripojenie VPN bolo zrušené\nNakonfigurovali ste inú VPN ako vždy zapnutú?</string>
+    <string name="msg_on">Vypnutie zariadenia s povoleným NetGuardom automaticky spustí NetGuard pri zapnutí zariadenia</string>
+    <string name="msg_unavailable">Táto funkcia nie je v tejto verzii Androidu dostupná</string>
+    <string name="msg_always_on">Iná VPN je nastavená ako vždy zapnutá VPN</string>
+    <string name="msg_always_on_lockdown">Ak chcete používať NetGuard v režime filtrovania, vypnite v nastaveniach Android VPN možnosť „Blokovať pripojenia bez VPN“</string>
+    <string name="msg_private_dns">Ak chcete používať NetGuard v režime filtrovania, vypnite v nastaveniach siete Android možnosť „Súkromné DNS“</string>
+
+    <string name="title_lockdown_enabled">Prevádzka je uzamknutá</string>
+    <string name="title_unmetered_allowed">Nemeraná prevádzka je povolená</string>
+    <string name="title_unmetered_blocked">Nemeraná prevádzka je blokovaná</string>
+    <string name="title_unmetered_disabled">Nemerané pravidlá sa neuplatňujú</string>
+    <string name="title_metered_allowed">Meraná prevádzka je povolená</string>
+    <string name="title_metered_blocked">Meraná prevádzka je blokovaná</string>
+    <string name="title_metered_disabled">Merané pravidlá sa neuplatňujú</string>
     <string name="title_host_allowed">Adresa je povolená</string>
     <string name="title_host_blocked">Adresa je blokovaná</string>
-    <string name="title_interactive_allowed">Povoliť pri zapnutej obrazovke</string>
+    <string name="title_interactive_allowed">Povoliť, keď je obrazovka zapnutá</string>
     <string name="title_roaming_blocked">Blokovať pri roamingu</string>
-    <string name="title_metered">V predvolenom nastavení Wi-Fi pripojenie je považované za nemerané a mobilné pripojenie za merané</string>
-    <string name="title_internet">Nemá prístup k internetu</string>
-    <string name="title_disabled">Zakázané</string>
+    <string name="title_metered">Predvolene sa pripojenie Wi-Fi považuje za nemerané a mobilné pripojenie za merané</string>
+
+    <string name="title_internet">nemá povolenie na internet</string>
+    <string name="title_disabled">je zakázaná</string>
+    <string name="title_messaging">Prichádzajúce správy prijímajú služby Google Play, a nie táto aplikácia, a preto ich nie je možné zablokovať zablokovaním tejto aplikácie</string>
+    <string name="title_download">Sťahovanie vykonáva správca sťahovania, a nie táto aplikácia, a preto ho nie je možné zablokovať zablokovaním tejto aplikácie</string>
     <string name="title_apply">Použiť pravidlá a podmienky</string>
     <string name="title_conditions">Podmienky</string>
-    <string name="title_screen_wifi">Povoliť Wi-Fi pri zapnutej obrazovke</string>
-    <string name="title_screen_other">Povoliť mobilné dáta pri zapnutej obrazovke</string>
+    <string name="title_screen_wifi">Povoliť Wi-Fi, keď je obrazovka zapnutá</string>
+    <string name="title_screen_other">Povoliť mobil, keď je obrazovka zapnutá</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">Blokovať pri roamingu</string>
-    <string name="title_related">Filtrovať súvisiace</string>
+    <string name="label_ttl">TTL: %s s</string>
+    <string name="label_uid">UID: %s</string>
+    <string name="title_lockdown">Povoliť v režime uzamknutia</string>
+    <string name="title_related">Súvisiace filtre</string>
     <string name="title_access">Pokusy o prístup</string>
-    <string name="title_precedence">Pravidlá prístupu má prednosť pred inými pravidlami</string>
+    <string name="title_precedence">Pravidlá prístupu majú prednosť pred ostatnými pravidlami</string>
     <string name="title_options">Možnosti</string>
-    <string name="title_notify">Upozorniť na pokusy o prístup k internetu</string>
+    <string name="title_notify">Oznámiť pokusy o prístup k internetu</string>
+
+    <string name="title_logging_disabled">Protokolovanie alebo filtrovanie nie je povolené</string>
+    <string name="title_logging_enabled">Protokolovanie a filtrovanie sú povolené</string>
+    <string name="title_logging_configure">Konfigurovať</string>
+
+    <string name="title_enable_logging">Povoliť protokolovanie iba blokovaných adries</string>
+    <string name="title_enable_filtering">Povoliť filtrovanie na protokolovanie aj povolených adries</string>
+    <string name="title_enable_notify">Povoliť oznámenia o prístupe pre novo zaprotokolované adresy</string>
+    <string name="title_enable_help0">Tieto nastavenia sú globálne nastavenia, ktoré sa vzťahujú na všetky aplikácie</string>
+    <string name="title_enable_help1">Filtrovanie je potrebné aj na povolenie alebo blokovanie jednotlivých adries</string>
+    <string name="title_enable_help2">Povolenie protokolovania (menej) alebo filtrovania (viac) môže zvýšiť spotrebu batérie a môže ovplyvniť rýchlosť siete</string>
+
     <string name="title_rate">Ohodnotiť</string>
     <string name="title_allow">Povoliť</string>
     <string name="title_block">Blokovať</string>
+    <string name="title_wifi">Wi-Fi</string>
+    <string name="title_mobile">Mobil</string>
+    <string name="title_allow_wifi">Povoliť Wi-Fi</string>
+    <string name="title_block_wifi">Blokovať Wi-Fi</string>
+    <string name="title_allow_other">Povoliť mobil</string>
+    <string name="title_block_other">Blokovať mobil</string>
     <string name="title_root">root</string>
-    <string name="title_mediaserver">server médií</string>
+    <string name="title_mediaserver">mediaserver</string>
+    <string name="title_gpsdaemon" translatable="false">GPS daemon</string>
+    <string name="title_dnsdaemon" translatable="false">DNS daemon</string>
     <string name="title_nobody">nikto</string>
-    <string name="title_dontask">Nepýtať sa znovu</string>
+    <string name="title_dontask">Znova sa nepýtať</string>
+
     <string name="title_log_whois">Whois %1$s</string>
     <string name="title_log_port">Port %1$d</string>
-    <string name="title_pro">Vlastnosti verzie Pro</string>
-    <string name="title_pro_description">Nasledujúce PRO funkcie sú dostupné:</string>
-    <string name="title_pro_log">Zobraziť záznam zablokovaného prenosu</string>
-    <string name="title_pro_filter">Filtrovať sieťový prenos</string>
-    <string name="title_pro_notify">Oznámenia nových aplikácií</string>
+    <string name="title_log_copy">Kopírovať</string>
+
+    <string name="title_pro">Pro funkcie</string>
+    <string name="title_pro_description">K dispozícii sú nasledujúce pro funkcie:</string>
+    <string name="title_pro_log">Zobraziť záznam blokovanej prevádzky</string>
+    <string name="title_pro_filter">Filtrovať sieťovú prevádzku</string>
+    <string name="title_pro_notify">Oznámenia o nových aplikáciách</string>
     <string name="title_pro_speed">Oznámenie s grafom rýchlosti siete</string>
     <string name="title_pro_theme">Vzhľad (téma, farby)</string>
-    <string name="title_pro_all">Všetky vyššie uvedené PRO funkcie</string>
+    <string name="title_pro_all">Všetky vyššie uvedené pro funkcie</string>
+    <string name="title_pro_dev">Podporiť vývoj</string>
+    <string name="title_pro_buy">Kúpiť</string>
     <string name="title_pro_bought">Povolené</string>
+    <string name="title_pro_unavailable">Nedostupné</string>
+    <string name="title_pro_details">Klepnutím na titul získate ďalšie informácie</string>
     <string name="title_pro_challenge">Výzva</string>
     <string name="title_pro_reponse">Odpoveď</string>
-    <string-array name="themeNames">
-        <item>modrozelená/oranžová</item>
-        <item>modrá/oranžová</item>
-        <item>fialová/červená</item>
-        <item>jantárová/modrá</item>
-        <item>oranžová/šedá</item>
-        <item>zelená</item>
-    </string-array>
-    <string-array name="protocolNames">
+    <string name="title_pro_feature">Toto je pro funkcia</string>
+    <string name="title_pro_subscription">
+        Mesačné predplatné vo výške 1 alebo 2 eurá (bez miestnych daní) aktivuje všetky pro funkcie.
+        Predplatné môžete zrušiť alebo spravovať prostredníctvom karty predplatného v aplikácii Play Store.
+    </string>
+    <string name="title_pro_already">Pro funkcie sú už aktivované</string>    <string-array name="protocolNames">
         <item>UDP</item>
         <item>TCP</item>
     </string-array>
+
+    <string-array name="protocolValues" translatable="false">
+        <item>17</item>
+        <item>6</item>
+    </string-array>
+
+    <string name="label_dns_summary">%1$d záznamov • %2$d vypršaných</string>
+
 </resources>

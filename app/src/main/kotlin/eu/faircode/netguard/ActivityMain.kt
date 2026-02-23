@@ -10,12 +10,10 @@ import androidx.activity.viewModels
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.ui.res.stringResource
 import dagger.hilt.android.AndroidEntryPoint
 import eu.faircode.netguard.ui.Home
 import eu.faircode.netguard.ui.AppNavigation
 import eu.faircode.netguard.ui.theme.NetGuardThemeFromPrefs
-import eu.faircode.netguard.ui.util.InfoScreen
 import eu.faircode.netguard.ui.main.MainViewModel
 
 @AndroidEntryPoint
@@ -26,19 +24,10 @@ class ActivityMain : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val isXposed = Util.hasXposed(this)
         pendingRoute.value = intent.getStringExtra(EXTRA_ROUTE)
 
         setContent {
             NetGuardThemeFromPrefs {
-                if (isXposed) {
-                    InfoScreen(
-                        title = stringResource(R.string.app_name),
-                        body = stringResource(R.string.app_xposed),
-                    )
-                    return@NetGuardThemeFromPrefs
-                }
-
                 val vpnLauncher =
                     rememberLauncherForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                         if (result.resultCode == Activity.RESULT_OK) {

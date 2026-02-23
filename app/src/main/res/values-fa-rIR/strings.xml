@@ -1,23 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name" translatable="false">NetGuard Next</string>
     <string name="app_description">NetGuard راهکارهای ساده و پیشرفته‌ای برای مسدود کردن دسترسی به اینترنت فراهم می‌کند - بدون نیاز به روت بودن گوشی. هرکدام از برنامه‌ها و سایتها می‌توانند جداگانه به وای‌فای/داده موبایل دسترسی مجاز یا غیر مجاز داشته باشند.</string>
+    <string name="app_copyright" translatable="false">Copyright \u00A9 2015–2025 by M. Bokhorst (M66B)</string>
     <string name="app_android">NetGuard نیاز به اندروید 5.1 یا بالاتر دارد</string>
-    <string name="app_xposed">Xposed موجب خطاهای زیاد می‌شود، که شاید موجب حذف شدن NetGuard از گوگل پلی استور شود، برای همین NetGuard هنگامی که Xposed نصب شده است ، پشتیبانی نمی‌شود</string>
+    <string name="app_eula" translatable="false">THIS SOFTWARE IS PROVIDED BY THE AUTHOR \'\'AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
     <string name="app_privacy"><a href="https://www.netguard.me/privacy/">سیاست حفظ حریم خصوصی</a></string>
     <string name="app_first">مراقبتی عالی برای توسعه و آزمایش NetGuard بکار برده شده است، با این حال تضمین اینکه NetGuard بر روی هر دستگاهی به درستی کار خواد کرد غیرممکن است.</string>
     <string name="app_agree">می‌پذیرم</string>
     <string name="app_disagree">نمی‌پذیرم</string>
     <string name="app_support">NetGuard به کمک شما نیاز دارد. برای خرید ویژگی‌های حرفه‌ای به‌خاطر یاری پروژه ضربه بزنید.</string>
-    <string name="app_qap">گوگل این برنامه را از فروشگاه Play حذف می‌کند، زیرا می‌خواهد مجوز جستجوی همه برنامه‌ها را داشته باشد.
-         پنج ایراد که توجیه خوبی برای لزوم این مجوز ارائه می کرد، رد شد.
-         با این حال، این نسخه از برنامه دیگر به این مجوز نیاز ندارد
-         به جز برخی از برنامه های (سیستم) که نمی توانند به صورت دستی از لیست برنامه های Android راه اندازی شوند
-         تقریباً همه برنامه‌ها لیست خواهند شد.
-         ترافیک اینترنت از این برنامه‌ها همیشه مجاز خواهد بود تا دستگاه شما به درستی کار کند.
-         اگر فکر می کنید این مشکل است، می توانید برنامه را به نسخه GitHub به روز کنید و دوباره همه برنامه های (سیستم) را اجرا کنید.    </string>
+    <string name="app_qap">
+        گوگل قصد داشت این برنامه را از فروشگاه Play حذف کند زیرا درخواست مجوزی برای جستجوی تمام برنامه‌ها داشت.
+        پنج درخواست تجدیدنظر و ارائه توجیه مناسب در مورد علت نیاز به این مجوز رد شد.
+        این نسخه از برنامه دیگر این مجوز را درخواست نمی‌کند،
+        و با وجود این، تقریباً تمام برنامه‌ها همچنان لیست خواهند شد،
+        به جز برخی از برنامه‌های (سیستمی) که نمی‌توانند به صورت دستی از لیست برنامه‌های اندروید اجرا شوند.
+        ترافیک اینترنت این برنامه‌ها همیشه مجاز خواهد بود تا از عملکرد صحیح دستگاه شما اطمینان حاصل شود.
+        اگر فکر می‌کنید این یک مشکل است، می‌توانید به نسخه GitHub برنامه به‌روزرسانی کنید و دوباره تمام برنامه‌های (سیستمی) را مدیریت کنید.
+    </string>
+
     <string name="channel_foreground">خدمات درحال اجرا</string>
     <string name="channel_notify">اعلان‌های عمومی</string>
     <string name="channel_access">اعلان‌های دسترسی</string>
+
     <string name="menu_search">جستجو برای برنامه</string>
     <string name="menu_filter">پالودن برنامه‌ها</string>
     <string name="menu_app_user">نمایش برنامه‌های کاربر</string>
@@ -26,254 +32,422 @@
     <string name="menu_app_disabled">نمایش برنامه‌های غیرفعال</string>
     <string name="menu_sort">مرتب‌سازی برنامه‌ها</string>
     <string name="menu_sort_name">مرتب‌سازی براساس نام</string>
-    <string name="menu_sort_uid">مرتب‌سازی براساس uid</string>
+    <string name="menu_sort_uid">مرتب‌سازی براساس UID</string>
     <string name="menu_sort_data">مرتب‌سازی براساس مصرف داده</string>
+    <string name="menu_launch">اجرای برنامه</string>
     <string name="menu_log">نمایش گزارش رویداد</string>
     <string name="menu_settings">تنظیمات</string>
+    <string name="menu_home">خانه</string>
     <string name="menu_invite">دعوت کردن</string>
     <string name="menu_legend">راهنما و علائم</string>
     <string name="menu_support">پشتیبانی</string>
     <string name="menu_about">درباره</string>
     <string name="menu_apps">سایر برنامه‌ها</string>
-    <string name="menu_protocol_other">ساير</string>
+    <string name="menu_firewall">دیوار آتش</string>
+    <string name="status_enabled">دیوار آتش فعال است</string>
+    <string name="status_disabled">دیوار آتش غیرفعال است</string>
+    <string name="widget_firewall_enabled">دیوار آتش روشن</string>
+    <string name="widget_firewall_disabled">دیوار آتش خاموش</string>
+    <string name="widget_lockdown_enabled">قفل کامل روشن</string>
+    <string name="widget_lockdown_disabled">قفل کامل خاموش</string>
+    <string name="notify_traffic_title">مانیتور ترافیک</string>
+    <string name="notify_traffic_summary">ارسال %1$s • دریافت %2$s • اوج %3$s</string>
+    <string name="notify_traffic_debug">نشست‌ها %1$d/%2$d/%3$d • فایل‌ها %4$d/%5$d</string>
+    <string name="ui_loading">در حال بارگذاری…</string>
+    <string name="ui_empty_logs_title">هنوز ترافیکی ثبت نشده است</string>
+    <string name="ui_empty_logs_body">پس از برقراری اتصالات، در اینجا نمایش داده می‌شوند.</string>
+    <string name="ui_empty_apps_title">برنامه‌ای پیدا نشد</string>
+    <string name="ui_empty_apps_body">لیست را نوسازی کنید.</string>
+    <string name="ui_empty_dns_title">هنوز DNS تحلیل شده‌ای وجود ندارد</string>
+    <string name="ui_empty_dns_body">پاسخ‌های DNS پس از وب‌گردی در اینجا ظاهر می‌شوند.</string>
+    <string name="ui_dns_filter_empty">هیچ DNS ای با این فیلتر مطابقت ندارد.</string>
+    <string name="ui_empty_forwarding_title">قانونی برای هدایت وجود ندارد</string>
+    <string name="ui_empty_forwarding_body">برای شروع هدایت ترافیک، یک قانون اضافه کنید.</string>
+    <string name="ui_forwarding_filter_empty">هیچ قانون هدایتی با این فیلتر مطابقت ندارد.</string>
+    <string name="ui_empty_pro_body">حمایت شما ویژگی‌های اضافی را باز کرده و پروژه را زنده نگه می‌دارد.</string>
+    <string name="ui_empty_pro_details">ویژگی‌های حرفه‌ای: فیلتر کردن، گزارش‌ها، اعلان‌ها، پوسته‌ها و محدودیت سرعت.</string>
+    <string name="ui_home_hint">دسترسی به اینترنت را برای هر برنامه کنترل کنید.</string>
+    <string name="ui_home_quick_actions">اقدامات سریع</string>
+    <string name="ui_apps_title">دیوار آتش</string>
+    <string name="ui_logs_title">گزارش ترافیک</string>
+    <string name="ui_logs_filters">فیلترها</string>
+    <string name="ui_logs_filter_status">وضعیت</string>
+    <string name="ui_logs_filter_protocol">پروتکل</string>
+    <string name="ui_logs_filter_view">نما</string>
+    <string name="ui_logs_group_timeline">خط زمانی</string>
+    <string name="ui_logs_group_by_app">بر اساس برنامه</string>
+    <string name="ui_logs_unknown_source">منبع ناشناخته</string>
+    <string name="ui_settings_title">تنظیمات</string>
+    <string name="ui_dns_title">DNS تحلیل شده</string>
+    <string name="ui_forwarding_title">هدایت درگاه</string>
+    <string name="ui_dns_hint">دامنه‌ها و پاسخ‌های تحلیل شده اخیر.</string>
+    <string name="ui_forwarding_hint">قوانین هدایت و برنامه‌های مقصد را مدیریت کنید.</string>
+    <string name="ui_dns_active">فعال</string>
+    <string name="ui_rule_custom">سفارشی</string>
+    <string name="ui_dns_expired">منقضی شده</string>
+    <string name="ui_filter_all">همه</string>
+    <string name="ui_filter_empty">هیچ برنامه‌ای با این فیلتر مطابقت ندارد.</string>
+    <string name="ui_apps_search_empty">هیچ برنامه‌ای با این جستجو مطابقت ندارد.</string>
+    <string name="ui_learn_more">بیشتر بدانید</string>
+    <string name="status_running">ترافیک در حال فیلتر شدن است</string>
+    <string name="status_not_running">ترافیک فیلتر نمی‌شود</string>
+    <string name="action_enable">فعال‌سازی</string>
+    <string name="action_disable">غیرفعال‌سازی</string>
+    <string name="home_apps_hint">بررسی قوانین برنامه و مصرف داده</string>
+    <string name="home_logs_hint">بررسی فعالیت‌های اخیر شبکه</string>
+
+    <!-- Accessibility -->
+    <string name="action_expand">گسترش جزئیات</string>
+    <string name="action_collapse">جمع کردن جزئیات</string>
+    <string name="action_navigate">باز کردن</string>
+    <string name="action_toggle_firewall">تغییر وضعیت دیوار آتش</string>
+    <string name="action_clear_search">پاک کردن جستجو</string>
+    <string name="search_settings">جستجو در تنظیمات</string>
+    <string name="content_desc_security_status">وضعیت امنیتی دیوار آتش</string>
+    <string name="content_desc_app_icon">آیکون برنامه برای %s</string>
+    <string name="content_desc_show_info">نمایش اطلاعات درباره %1$s</string>
+
+    <!-- Dashboard stats -->
+    <string name="stat_blocked_today">مسدود شده</string>
+    <string name="stat_allowed_today">مجاز</string>
+    <string name="stat_active_rules">قوانین فعال</string>
+
+    <!-- Tooltips -->
+    <string name="tooltip_rcode">کد پاسخ DNS ارسال شده برای دامنه‌های مسدود شده. پیش‌فرض 3 (NXDOMAIN) به معنای عدم وجود دامنه است.</string>
+    <string name="tooltip_ttl">حداقل زمان ماندگاری (TTL) برای ورودی‌های کش DNS به ثانیه.</string>
+    <string name="tooltip_pcap">ضبط تمام بسته‌های شبکه برای عیب‌یابی. فایل‌های حجیم ایجاد می‌کند.</string>
+    <string name="tooltip_filter">رهگیری و تحلیل ترافیک. برای مسدود کردن بر اساس آدرس لازم است. باتری بیشتری مصرف می‌کند.</string>
+    <string name="tooltip_lockdown">مسدود کردن تمام ترافیک به جز برنامه‌هایی که صریحاً مجاز شده‌اند. با احتیاط استفاده کنید.</string>
+
+    <string name="menu_protocol_udp" translatable="false">UDP</string>
+    <string name="menu_protocol_tcp" translatable="false">TCP</string>
+    <string name="menu_protocol_other">سایر</string>
     <string name="menu_traffic_allowed">مجاز</string>
     <string name="menu_traffic_blocked">مسدود شده</string>
     <string name="menu_live">به‌روزرسانی‌های زنده</string>
     <string name="menu_refresh">نوسازی</string>
+    <string name="menu_ok">تأیید</string>
+    <string name="menu_cancel">لغو</string>
     <string name="menu_resolve">نمایش اسامی</string>
     <string name="menu_organization">نمایش سازمان</string>
     <string name="menu_pcap_enabled">PCAP فعال شد</string>
-    <string name="menu_pcap_export">اکسپورت کردن PCAP</string>
+    <string name="menu_pcap_export">خروجی PCAP</string>
     <string name="menu_clear">پاک‌سازی</string>
-    <string name="menu_export">اکسپورت</string>
+    <string name="menu_export">خروجی</string>
     <string name="menu_reset">بازنشانی</string>
+
     <string name="menu_add">افزودن</string>
     <string name="menu_delete">حذف</string>
+
     <string name="menu_cleanup">پاک‌سازی</string>
+
     <string name="title_protocol">پروتکل</string>
     <string name="title_dport">درگاه منبع</string>
     <string name="title_raddr">آدرس مقصد</string>
     <string name="title_rport">درگاه مقصد</string>
     <string name="title_ruid">برنامه مقصد</string>
-    <string name="title_external">برای سرور خارجی گزینۀ nobody را انتخاب کنید</string>
-    <string name="setting_defaults">پیش‌فرض‌ها (لیست سیاه / سفید)</string>
+    <string name="title_external">برای سرور خارجی گزینۀ \'هیچ‌کس\' را انتخاب کنید</string>
+
+    <string name="setting_defaults">پیش‌فرض‌ها (لیست سفید/سیاه)</string>
     <string name="setting_whitelist_wifi">مسدود کردن وای‌فای</string>
-    <string name="setting_whitelist_other">مسدود کردن داده</string>
-    <string name="setting_screen_wifi">هنگام روشن بودن صفحه به وای‌فای اجازه استفاده بده</string>
-    <string name="setting_screen_other">هنگام روشن بودن صفحه به داده اجازۀ استفاده بده</string>
+    <string name="setting_whitelist_other">مسدود کردن داده موبایل</string>
+    <string name="setting_screen_wifi">هنگام روشن بودن صفحه به وای‌فای اجازه بده</string>
+    <string name="setting_screen_other">هنگام روشن بودن صفحه به داده موبایل اجازه بده</string>
     <string name="setting_whitelist_roaming">مسدود کردن رومینگ</string>
+
     <string name="setting_options">تنظیمات</string>
     <string name="setting_theme">پوسته: %1$s</string>
     <string name="setting_dark">استفاده از پوسته تیره</string>
+    <string name="setting_theme_palette">انتخاب سبک رنگ</string>
+    <string name="setting_dynamic_unavailable">رنگ‌های پویا به اندروید 12 یا بالاتر نیاز دارند.</string>
+    <string name="setting_appearance_mode">حالت ظاهر</string>
+    <string name="setting_appearance_mode_title">حالت تیره</string>
+    <string name="setting_appearance_mode_summary">خاموش، روشن یا پیروی از سیستم را انتخاب کنید.</string>
+    <string name="setting_appearance_preview">فعلی: %1$s · %2$s</string>
+    <string name="setting_appearance_auto">خودکار</string>
+    <string name="setting_appearance_light">روشن</string>
+    <string name="setting_appearance_dark">تیره</string>
+    <string name="theme_dynamic">پویا</string>
     <string name="setting_install">آگاه‌سازی هنگام نصب جدید</string>
     <string name="setting_screen_on">اعمال قوانین هنگام روشن بودن صفحه</string>
     <string name="setting_auto">فعال‌سازی خودکار بعد از %1$s دقیقه</string>
     <string name="setting_delay">تأخیر در خاموش کردن صفحه %1$s دقیقه</string>
     <string name="setting_update">بررسی برای بروز‌رسانی‌ها</string>
+    <string name="setting_update_now">اکنون بررسی کن</string>
+    <string name="setting_update_checking">در حال بررسی...</string>
+
     <string name="setting_network_options">گزینه‌های شبکه</string>
     <string name="setting_subnet">مسیریابی زیرشبکه</string>
-    <string name="setting_tethering">اجازه به tethering</string>
+    <string name="setting_tethering">اجازه به اشتراک‌گذاری اینترنت</string>
     <string name="setting_lan">اجازه دسترسی به شبکه محلی</string>
     <string name="setting_ip6">فعال کردن ترافیک IPv6</string>
-    <string name="setting_wifi_home">شبکه خانگی Wi-Fi:%1$s</string>
-    <string name="setting_metered">به شبکه‌های وای‌فای اندازه‌گیری شده رسیدگی کن</string>
-    <string name="setting_metered_2g">2G را اندازه‌گیری نشده در نظر بگیر</string>
-    <string name="setting_metered_3g">3G را اندازه‌گیری نشده در نظر بگیر</string>
-    <string name="setting_metered_4g">LTE را اندازه‌گیری نشده در نظر بگیر</string>
-    <string name="setting_national_roaming">رومینگ ملی را نادیده بگیر</string>
+    <string name="setting_wifi_home">شبکه‌های خانگی وای‌فای: %1$s</string>
+    <string name="setting_metered">مدیریت شبکه‌های وای‌فای محدود</string>
+    <string name="setting_metered_2g">2G را نامحدود در نظر بگیر</string>
+    <string name="setting_metered_3g">3G را نامحدود در نظر بگیر</string>
+    <string name="setting_metered_4g">LTE را نامحدود در نظر بگیر</string>
+    <string name="setting_national_roaming">نادیده گرفتن رومینگ ملی</string>
     <string name="setting_eu_roaming">نادیده گرفتن رومینگ اروپا</string>
     <string name="setting_call">غیر فعال‌شدن در طول تماس</string>
-    <string name="setting_lockdown_wifi">قفل کردن وای فای</string>
-    <string name="setting_lockdown_other">قفل کردن تلفن همراه</string>
-    <string name="setting_reload_onconnectivity">بارگذاری مجدد در هر نوعی از تغییرات اتصال</string>
+    <string name="setting_lockdown_wifi">قفل کردن وای‌فای</string>
+    <string name="setting_lockdown_other">قفل کردن داده موبایل</string>
+    <string name="setting_reload_onconnectivity">بارگذاری مجدد در هر تغییر اتصال</string>
+
     <string name="setting_advanced_options">تنظیمات پیشرفته</string>
-    <string name="setting_system">مدیریت برنامه های سیستم</string>
-    <string name="setting_log_app">ثبت دسترسی ها به اینترنت</string>
-    <string name="setting_access">آگاه سازی هنگام دسترسی به اینترنت</string>
+    <string name="setting_system">مدیریت برنامه‌های سیستمی</string>
+    <string name="setting_log_app">ثبت دسترسی‌ها به اینترنت</string>
+    <string name="setting_log_retention_days">روزهای نگهداری گزارش ترافیک</string>
+    <string name="setting_access">آگاه‌سازی هنگام دسترسی به اینترنت</string>
     <string name="setting_filter">فیلتر کردن ترافیک</string>
     <string name="setting_filter_udp">فیلتر ترافیک UDP</string>
     <string name="setting_handover">تحویل یکپارچه VPN در بارگذاری مجدد</string>
     <string name="setting_clear_onreload">بستن اتصال‌ها هنگام بارگذاری مجدد</string>
     <string name="setting_lockdown">قفل کردن ترافیک</string>
-    <string name="setting_track_usage">مصرف شبکه را ردیابی کن</string>
+    <string name="setting_malware">محافظت در برابر بدافزار</string>
+    <string name="setting_track_usage">ردیابی مصرف شبکه</string>
     <string name="setting_reset_usage">بازنشانی مصرف شبکه</string>
-    <string name="setting_show_resolved">نمایش نام‌های دامنه پیدا شده</string>
-    <string name="setting_block_domains">نام‌های دامنه را مسدود کن</string>
-    <string name="setting_rcode">کد واکنش DNS: %s</string>
+    <string name="setting_show_resolved">نمایش نام‌های دامنه تحلیل شده</string>
+    <string name="setting_block_domains">مسدود کردن نام‌های دامنه</string>
+    <string name="setting_rcode">کد پاسخ DNS: %s</string>
     <string name="setting_forwarding">هدایت درگاه</string>
     <string name="setting_vpn4">VPN IPv4: %s</string>
     <string name="setting_vpn6">VPN IPv6: %s</string>
     <string name="setting_dns">VPN DNS: %s</string>
+    <string name="setting_dns2">DNS ثانویه: %s</string>
     <string name="setting_validate">تایید اعتبار در: %s</string>
+    <string name="setting_ttl">حداقل TTL دی‌ان‌اس: %s ثانیه</string>
     <string name="setting_socks5_enabled">استفاده از پروکسی SOCKS5</string>
     <string name="setting_socks5_addr">نشانی SOCKS5: %s</string>
     <string name="setting_socks5_port">درگاه SOCKS5: %s</string>
     <string name="setting_socks5_username">نام‌کاربری SOCKS5: %s</string>
     <string name="setting_socks5_password">گذرواژه SOCKS5: %s</string>
-    <string name="setting_watchdog">Watchdog: هر %s دقیقه</string>
+    <string name="setting_pcap_record_size">اندازه ضبط PCAP: %s بایت</string>
+    <string name="setting_pcap_file_size">حداکثر اندازه فایل PCAP: %s مگابایت</string>
+    <string name="setting_pcap">ضبط ترافیک شبکه (PCAP)</string>
+    <string name="setting_watchdog">دیدبان: هر %s دقیقه</string>
+
     <string name="setting_stats_category">اعلان سرعت</string>
     <string name="setting_stats">نمایش اعلان سرعت</string>
     <string name="setting_stats_top">نمایش برنامه‌های برتر</string>
-    <string name="setting_stats_frequency">وقفه‌ نمونه: %s ms</string>
-    <string name="setting_stats_samples">شمار نمونه‌ها: %s s</string>
+    <string name="setting_stats_frequency">فاصله نمونه‌برداری: %s میلی‌ثانیه</string>
+    <string name="setting_stats_samples">تعداد نمونه‌ها: %s</string>
+
     <string name="setting_backup">پشتیبان‌گیری</string>
-    <string name="setting_export">خارج‌کردن تنظیمات</string>
-    <string name="setting_import">واردکردن تنظیمات</string>
-    <string name="setting_hosts">واردکردن پرونده hosts</string>
-    <string name="setting_hosts_append">واردکردن پرونده hosts (پیوست)</string>
-    <string name="setting_hosts_url">پیوند بارگیری پرونده hosts</string>
-    <string name="setting_hosts_download">بارگیری پرونده hosts</string>
+    <string name="setting_export">خروجی تنظیمات</string>
+    <string name="setting_import">ورود تنظیمات</string>
+    <string name="setting_hosts">ورود فایل hosts</string>
+    <string name="setting_hosts_append">ورود فایل hosts (افزودن به انتها)</string>
+    <string name="setting_hosts_url">آدرس دانلود فایل hosts</string>
+    <string name="setting_hosts_download">دانلود فایل hosts</string>
+    <string name="setting_use_hosts">استفاده از فایل hosts</string>
+
     <string name="setting_technical">اطلاعات فنی</string>
     <string name="setting_technical_general">کلی</string>
-    <string name="setting_technical_networks">شبکه‌‌‌‌ها</string>
+    <string name="setting_technical_networks">شبکه‌ها</string>
     <string name="setting_technical_subscription">اشتراک‌ها</string>
-    <string name="summary_update">بررسی برای نگارش‌های جدید دوبار در روز</string>
-    <string name="summary_tethering">بسته به نگارش tethering ، Android ممکن است کار کند یا ممکن است کار نکند. ترافیک tethering نمی‌تواند پالایش شود.</string>
-    <string name="summary_wifi_home">قوانین شبکه‌ی وای‌فای را فقط برای شبکه‌ی انتخاب شده اِعمال کن (قوانین شبکه‌ی همراه را برای دیگر شبکه‌های وای‌فای اِعمال کن)</string>
-    <string name="summary_metered">قوانین شبکه‌های همراه را برای شبکه‌های وای‌فای اندازه‌گیری شده (پولی،متصل به نقطه) اعمال کن</string>
-    <string name="summary_metered_2g">قوانین شبکه وای‌فای را برای اتصال‌های داده 2G اعمال کن</string>
-    <string name="summary_metered_3g">قوانین شبکه وای‌فای را برای اتصال‌های داده 3G اعمال کن</string>
-    <string name="summary_metered_4g">قوانین شبکه وای‌فای را برای اتصال‌های داده LTE اعمال کن</string>
-    <string name="summary_national_roaming">قوانین رومینگ را زمانیکه شبکه‌ی کشور سیم‌کارت و همراه مشابه‌اند اِعمال نکن</string>
-    <string name="summary_eu_roaming">قوانین رومینگ را زمانیکه شبکه‌ی کشور سیم‌کارت و همراه درون اروپا هستند اِعمال نکن (رومینگ شبیه داخلی)</string>
-    <string name="summary_call">غیرفعال کردن NetGuard برای تماس‌های تلفنی ورودی یا خروجی. این تنظیم میتواند برای استفاده از مشکلات تماس‌های آی‌پی/وای‌فای استفاده شود.</string>
-    <string name="summary_system">تعیین قوانین برای برنامه‌های سیستم (برای کارشناسان)</string>
-    <string name="summary_log_app">تلاش‌های دسترسی به اینترنت برای برنامه‌ها را ثبت کن. این ممکن است منجر به مصرف باتری اضافی شود.</string>
-    <string name="summary_access">هنگام تلاش برای دستیابی به یک آدرس اینترنتی جدید ، اعلان نوار وضعیت را نشان بده (وقتی فیلتر غیرفعال است ، فقط به تلاشهای دسترسی به اینترنت مسدود شده اطلاع داده می‌شود)</string>
-    <string name="summary_filter">بسته های IP را که از تونل VPN خارج می شوند فیلتر کن. این ممکن است منجر به مصرف باتری اضافی شود.</string>
-    <string name="summary_track_usage">تعداد بایت های ارسال شده و دریافت شده برای هر برنامه و آدرس را دنبال کن. این ممکن است منجر به مصرف باتری اضافی شود.</string>
-    <string name="summary_block_domains">با کد پاسخ DNS تنظیم شده برای نام‌های دامنه مسدود شده پاسخ دهد. این سوئیچ هنگامی که فایل میزبان در دسترس نیست غیرفعال می شود.</string>
-    <string name="summary_rcode">مقدار پیش فرض ۳ (NXDOMAIN) است که به معنی \"دامنه غیر وجود\" است.</string>
-    <string name="summary_validate">نام دامنه استفاده شده برای تایید اعتبار اتصال اینترنت برای درگاه ۴۴۳ (https).</string>
-    <string name="summary_socks5_enabled">تنها ترافیک TCP به سرور پروکسی فرستاده خواهد شد</string>
-    <string name="summary_stats">نمودار سرعت شبکه را در اعلان نوار وضعیت نشان بده</string>
+    <string name="setting_section_appearance">ظاهر</string>
+    <string name="setting_section_firewall">قوانین دیوار آتش</string>
+    <string name="setting_section_advanced">رفتار پیشرفته</string>
+    <string name="setting_section_hosts">میزبان‌ها و DNS</string>
+    <string name="setting_section_network">پیکربندی شبکه</string>
+    <string name="setting_section_dns">جزئیات DNS</string>
+    <string name="setting_section_proxy">پروکسی</string>
+    <string name="setting_section_vpn">پیکربندی VPN</string>
+    <string name="setting_section_background">وظایف پس‌زمینه</string>
+    <string name="setting_section_diagnostics">عیب‌یابی</string>
+    <string name="setting_section_support">پشتیبانی</string>
+
+    <string name="summary_install">نمایش اعلان نوار وضعیت برای پیکربندی مستقیم برنامه‌های جدیداً نصب شده (ویژگی حرفه‌ای)</string>
+    <string name="summary_auto">پس از غیرفعال کردن با ویجت، فعال‌سازی خودکار NetGuard پس از زمان مشخص شده (0 برای غیرفعال کردن)</string>
+    <string name="summary_delay">پس از خاموش شدن صفحه، قوانین روشن بودن صفحه را برای زمان مشخص شده فعال نگه دار (0 برای غیرفعال کردن)</string>
+    <string name="summary_update">بررسی برای نسخه‌های جدید در GitHub دو بار در روز</string>
+
+    <string name="summary_tethering">بسته به نسخه اندروید، اشتراک‌گذاری اینترنت ممکن است کار کند یا نکند. ترافیک اشتراک‌گذاری شده قابل فیلتر شدن نیست.</string>
+    <string name="summary_subnet">فعال کردن مسیریابی زیرشبکه؛ ممکن است تماس وای‌فای را فعال کند، اما ممکن است باعث ایجاد باگ در اندروید و افزایش مصرف باتری شود</string>
+    <string name="summary_lan">اجازه به برنامه‌ها برای اتصال به آدرس‌های شبکه محلی (مانند 10.0.0.0/8، 172.16.0.0/12 و 192.168.0.0/16)</string>
+    <string name="summary_ip6">هدایت ترافیک IPv6 به NetGuard برای اجازه یا مسدود کردن انتخابی</string>
+    <string name="summary_wifi_home">اعمال قوانین وای‌فای فقط برای شبکه‌های انتخابی (اعمال قوانین داده موبایل برای سایر شبکه‌ها)</string>
+    <string name="summary_metered">اعمال قوانین داده موبایل برای شبکه‌های وای‌فای محدود (پولی، اشتراک‌گذاری شده)</string>
+    <string name="summary_metered_2g">اعمال قوانین شبکه وای‌فای برای اتصالات داده 2G</string>
+    <string name="summary_metered_3g">اعمال قوانین شبکه وای‌فای برای اتصالات داده 3G</string>
+    <string name="summary_metered_4g">اعمال قوانین شبکه وای‌فای برای اتصالات داده LTE</string>
+    <string name="summary_national_roaming">عدم اعمال قوانین رومینگ وقتی کشور سیم‌کارت و شبکه موبایل یکی است</string>
+    <string name="summary_eu_roaming">عدم اعمال قوانین رومینگ وقتی کشور سیم‌کارت و شبکه موبایل در اتحادیه اروپا هستند (رومینگ مثل خانه)</string>
+    <string name="summary_call">غیرفعال کردن NetGuard هنگام تماس‌های تلفنی برای جلوگیری از مشکلات تماس IP/Wi-Fi.</string>
+
+    <string name="summary_system">تعیین قوانین برای برنامه‌های سیستمی (برای کارشناسان)</string>
+    <string name="summary_log_app">ثبت تلاش‌های برنامه‌ها برای دسترسی به اینترنت. ممکن است باعث مصرف اضافی باتری شود.</string>
+    <string name="summary_log_retention_days">حذف خودکار گزارش‌های قدیمی ترافیک در طول خانه‌تکانی. برای نگهداری همیشگی 0 قرار دهید.</string>
+    <string name="summary_access">نمایش اعلان نوار وضعیت هنگام تلاش برنامه برای دسترسی به آدرس اینترنتی جدید (در صورت غیرفعال بودن فیلتر، فقط تلاش‌های مسدود شده اطلاع داده می‌شوند)</string>
+    <string name="summary_filter">فیلتر کردن بسته‌های IP خروجی از تونل VPN. ممکن است باعث مصرف اضافی باتری شود.</string>
+    <string name="summary_track_usage">ردیابی تعداد بایت‌های ارسالی و دریافتی برای هر برنامه و آدرس. ممکن است باعث مصرف اضافی باتری شود.</string>
+    <string name="summary_block_domains">پاسخ با کد DNS تنظیم شده برای دامنه‌های مسدود شده. در صورت نبود فایل hosts غیرفعال است.</string>
+    <string name="summary_rcode">مقدار پیش‌فرض 3 (NXDOMAIN) است که به معنای \'دامنه وجود ندارد\' است.</string>
+    <string name="summary_validate">نام دامنه مورد استفاده برای تایید اتصال اینترنت در درگاه 443 (https).</string>
+    <string name="summary_socks5_enabled">فقط ترافیک TCP به سرور پروکسی فرستاده خواهد شد</string>
+    <string name="summary_watchdog">بررسی دوره‌ای برای اطمینان از در حال اجرا بودن NetGuard (0 برای غیرفعال کردن). ممکن است باعث مصرف اضافی باتری شود.</string>
+
+    <string name="summary_stats">نمایش نمودار سرعت شبکه در اعلان نوار وضعیت</string>
+
+    <string-array name="default_wifi_home"></string-array>
+
     <string name="msg_sure">آیا مطمئن هستید؟</string>
     <string name="msg_started">در حال اجرای قوانین</string>
-    <string name="msg_packages">%1$d مجازشد، %2$d مسدود شد</string>
-    <string name="msg_hosts">%1$d مجازشد، %2$d مسدود شد، %3$d هاست</string>
-    <string name="msg_waiting">در حال انتظار برای رویداد</string>
-    <string name="msg_disabled">NetGuard غیرفعال است، از کلید بالا برای فعال‌سازی NetGuard استفاده کنید</string>
-    <string name="msg_revoked">NetGuard غیرفعال شده است، به احتمال زیاد به خاطر استفاده از یک برنامه مبتنی بر VPN</string>
+    <string name="msg_packages">%1$d مجاز، %2$d مسدود</string>
+    <string name="msg_hosts">%1$d مجاز، %2$d مسدود، %3$d میزبان</string>
+    <string name="msg_waiting">در انتظار رویداد</string>
+    <string name="msg_disabled">NetGuard غیرفعال است، از کلید بالا برای فعال‌سازی استفاده کنید</string>
+    <string name="msg_notifications">برای اعطای مجوزهای اعلان ضربه بزنید (برای اعلان تلاش‌های دسترسی، پیام‌های خطا و غیره)</string>
+    <string name="msg_revoked">NetGuard غیرفعال شده است، احتمالاً توسط یک برنامه VPN دیگر</string>
     <string name="msg_installed">\'%1$s\' نصب شد</string>
     <string name="msg_installed_n">نصب شده است</string>
-    <string name="msg_access">%1$s تلاش برای دسترسی به اینترنت</string>
+    <string name="msg_malware">بدافزار احتمالی: \'%1$s\'</string>
+    <string name="msg_access">%1$s برای دسترسی به اینترنت تلاش کرد</string>
     <string name="msg_access_n">تلاش برای دسترسی به اینترنت</string>
-    <string name="msg_completed">کنش کامل شد</string>
-    <string name="msg_vpn">NetGuard از یک VPN محلی برای فیلتر کردن ترافیک اینترنت استفاده می کند.
- به همین دلیل ، لطفاً در گفتگوی بعدی اتصال VPN را مجاز کنید.
- ترافیک اینترنت شما به یک سرور VPN از راه دور ارسال نمی‌شود.</string>
-    <string name="msg_autostart">NetGuard نمی‌تواند خودکار اجرا شود. این شاید به‌خاطر یک باگ در نگارش اندروید شماست.</string>
-    <string name="msg_error">یک خطای غیر منتظره رخ داده است: \'%s\'</string>
-    <string name="msg_start_failed">اندروید در این لحظه از شروع سرویس VPN خودداری کرد. این به احتمال زیاد به دلیل اشکال در نسخه اندروید شما است.</string>
-    <string name="msg_try">NetGuard را بیازمایید</string>
-    <string name="msg_terms">با اهداء شما با <a href="http://www.netguard.me/#terms"> شرایط و مقررات &amp; موافقت می‌کنید</a></string>
-    <string name="msg_dimming">اگر در گفتگوی بعدی نمی‌توانید OK را فشار دهید ، احتمالاً برنامه دیگری (کم رنگ کننده صفحه) صفحه را دستکاری می‌کند.</string>
-    <string name="msg_mbday">± %1$.3f▲ %2$.3f▼مگابایت/روز</string>
-    <string name="msg_kb">%1$7.3f▲ %2$7.3f▼کیلوبایت</string>
-    <string name="msg_mb">%1$7.3f▲ %2$7.3f▼مگابایت</string>
-    <string name="msg_gb">%1$7.3f▲ %2$7.3f▼ گیگابایت</string>
+    <string name="msg_completed">عملیات انجام شد</string>
+    <string name="msg_invalid">لطفاً مقادیر را بررسی کرده و دوباره تلاش کنید.</string>
+    <string name="msg_export_failed">خروجی ناموفق: %1$s</string>
+    <string name="msg_vpn">NetGuard از یک VPN محلی برای فیلتر ترافیک استفاده می‌کند.
+لطفاً در دیالوگ بعدی اجازه اتصال VPN را بدهید.
+ترافیک شما به سرور VPN راه دور فرستاده نمی‌شود.</string>
+    <string name="msg_autostart">NetGuard نتوانست خودکار اجرا شود. احتمالاً به دلیل باگی در نسخه اندروید شماست.</string>
+    <string name="msg_error">خطای غیرمنتظره: \'%s\'</string>
+    <string name="msg_start_failed">اندروید اجازه شروع سرویس VPN را نداد. احتمالاً به دلیل باگی در نسخه اندروید شماست.</string>
+    <string name="msg_try">امتحان NetGuard</string>
+    <string name="msg_terms">با اهدا کردن شما با <a href="http://www.netguard.me/#terms">شرایط و ضوابط</a> موافقت می‌کنید</string>
+    <string name="msg_dimming">اگر نمی‌توانید دکمه تأیید را بزنید، احتمالاً برنامه‌ای برای تغییر نور یا رنگ صفحه در حال اجراست.</string>
+    <string name="msg_mbday">&#177; %1$.3f&#9650; %2$.3f&#9660; مگابایت/روز</string>
+    <string name="msg_kbsec">%7.3f کیلوبایت/ثانیه</string>
+    <string name="msg_mbsec">%7.3f مگابایت/ثانیه</string>
+    <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; کیلوبایت</string>
+    <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; مگابایت</string>
+    <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; گیگابایت</string>
     <string name="msg_count">%dx</string>
-    <string name="msg_doze">برای عملکرد درست ، بهینه سازی باتری اندروید باید برای NetGuard غیرفعال شود.
-\n\n در گفتگوی بعدی ، \"همه برنامه ها\" را در بالا انتخاب کنید ، روی NetGuard در لیست ضربه بزنید و \"بهینه سازی نکنید\" را انتخاب و تأیید کنید.</string>
-    <string name="msg_datasaving">برای نتایج مداوم ، گزینه های ذخیره داده اندرویدی باید برای NetGuard غیرفعال شود
-\n\n در گفتگوی بعدی گزینه های \"داده پس زمینه\" و \"استفاده از داده های بدون محدودیت\" را فعال کنید</string>
-    <string name="msg_filter">استفاده از فیلتر باعث می‌شود انتقال داده اندروید و مصرف برق را به NetGuard نسبت دهد - اندروید فرض می‌کند که داده‌ها و قدرت توسط NetGuard استفاده می‌شود ، نه برنامه های اصلی</string>
-    <string name="msg_filter4">در اندروید ۴ فیلتر باید فعال باشد</string>
-    <string name="msg_import_last">آخرین واردکردن: %s</string>
-    <string name="msg_downloading">درحال بارگیری\n%1s</string>
-    <string name="msg_downloaded">پرونده Hosts بارگیری شد</string>
-    <string name="msg_download_last">آخرین بارگیری: %s</string>
-    <string name="msg_metered">شبکه اندازه‌گیری می‌شود</string>
-    <string name="msg_inactive">اتصال فعال اینترنت موجود نیست</string>
+    <string name="msg_doze">برای عملکرد پایدار، بهینه‌سازی باتری باید برای NetGuard غیرفعال شود.
+\n\nدر دیالوگ بعدی، \"همه برنامه‌ها\" را انتخاب کرده، روی NetGuard بزنید و \"بهینه نشود\" را تایید کنید.</string>
+    <string name="msg_datasaving">برای عملکرد پایدار، گزینه‌های صرفه‌جویی داده اندروید باید برای NetGuard غیرفعال شوند.
+\n\nدر دیالوگ بعدی، \"داده‌های پس‌زمینه\" و \"استفاده نامحدود از داده\" را فعال کنید.</string>
+    <string name="msg_filter">استفاده از فیلتر باعث می‌شود اندروید مصرف داده و باتری را به NetGuard نسبت دهد، نه برنامه‌های اصلی.</string>
+    <string name="msg_filter4">اندروید 4 نیاز به فعال بودن فیلتر دارد</string>
+    <string name="msg_log_disabled">گزارش ترافیک غیرفعال است، برای فعال‌سازی از کلید بالا استفاده کنید. ممکن است باعث مصرف اضافی باتری شود.</string>
+    <string name="msg_clear_rules">این کار قوانین و شرایط را به مقادیر پیش‌فرض باز می‌گرداند</string>
+    <string name="msg_reset_access">این کار خطوط گزارش تلاش‌های دسترسی بدون قانون را پاک می‌کند</string>
+    <string name="msg_import_last">آخرین ورود: %s</string>
+    <string name="msg_downloading">در حال دانلود\n%1s</string>
+    <string name="msg_downloaded">فایل hosts دانلود شد</string>
+    <string name="msg_download_last">آخرین دانلود: %s</string>
+    <string name="msg_start_forward">شروع هدایت از %1$s پورت %2$d به %3$s:%4$d برای \'%5$s\'؟</string>
+    <string name="msg_stop_forward">توقف هدایت %1$s پورت %2$d؟</string>
+    <string name="msg_metered">شبکه دارای محدودیت مصرف است</string>
+    <string name="msg_inactive">اتصال اینترنت فعالی وجود ندارد</string>
     <string name="msg_queue">NetGuard مشغول است</string>
-    <string name="msg_update">به‌روزرسانی موجود است، برای بارگیری لمس کنید</string>
-    <string name="msg_fairemail">اگر شما NetGuard را برای حفاظت از حریم خصوصی خود نصب کرده‌اید شاید به <a href="https://email.faircode.eu/">FairEmail</a> نیز علاقه مند باشید، یک برنامه ایمیل، منبع باز و نیز دوستدار حریم خصوصی</string>
-    <string name="msg_issue">لطفاً مشکل را شرح داده و به زمان مشکل نیز اشاره کنید:</string>
-    <string name="msg_vpn_cancelled">اتصال VPN لغو شد\n آیا شما یک VPN دیگر را به عنوان همیشه-روشن پیکربندی کرده‌اید؟</string>
+    <string name="msg_update">به‌روزرسانی موجود است، برای دانلود ضربه بزنید</string>
+    <string name="msg_usage">می‌توانید با زدن روی آیکون‌های کنار هر برنامه، دسترسی وای‌فای یا داده موبایل را مجاز (سبز) یا ممنوع (قرمز) کنید</string>
+    <string name="msg_fairemail">اگر برای حریم خصوصی از NetGuard استفاده می‌کنید، شاید به <a href="https://email.faircode.eu/">FairEmail</a> (متن‌باز و حامی حریم خصوصی) هم علاقه‌مند باشید.</string>
+    <string name="msg_whitelist">دسترسی به اینترنت به طور پیش‌فرض مجاز است (حالت لیست سیاه)، قابل تغییر در تنظیمات</string>
+    <string name="msg_push">پیام‌های Push توسط سرویس‌های Play مدیریت می‌شوند که به طور پیش‌فرض اجازه دسترسی دارند</string>
+    <string name="msg_system">مدیریت برنامه‌های سیستمی را می‌توان در تنظیمات فعال کرد</string>
+    <string name="msg_issue">لطفاً مشکل و زمان وقوع آن را توضیح دهید:</string>
+    <string name="msg_vpn_cancelled">اتصال VPN لغو شد. آیا برنامه VPN دیگری را در حالت همیشه روشن تنظیم کرده‌اید؟</string>
+    <string name="msg_on">خاموش کردن دستگاه در حالی که NetGuard فعال است، باعث می‌شود هنگام روشن شدن دستگاه به طور خودکار اجرا شود</string>
     <string name="msg_unavailable">این ویژگی در این نسخه اندروید در دسترس نیست</string>
-    <string name="msg_always_on">VPN دیگری به عنوان VPN همیشه-فعال تنظیم شده است</string>
-    <string name="msg_always_on_lockdown">\"اتصال اتصالات بدون VPN\" را در تنظیمات VPN اندروید خاموش کنید تا از NetGuard در حالت فیلتر استفاده کنید</string>
-    <string name="msg_private_dns">\"DNS خصوصی\" را در تنظیمات شبکه اندروید خاموش کنید تا از NetGuard در حالت فیلتر استفاده کنید</string>
-    <string name="title_lockdown_enabled">ترافیک قفل شد</string>
-    <string name="title_unmetered_allowed">ترافیکِ اندازه‌گیری نشده مجاز شد</string>
-    <string name="title_unmetered_blocked">ترافیک اندازه‌گیری نشده مسدود شد</string>
-    <string name="title_unmetered_disabled">قوانین اندازه‌گیری نشده اعمال نمی‌شوند</string>
-    <string name="title_metered_allowed">ترافیک اندازه‌گیری شده مجاز است</string>
-    <string name="title_metered_blocked">ترافیک اندازه‌گیری شده مسدود است</string>
-    <string name="title_metered_disabled">قوانین اندازه‌گیری شده اعمال نمی‌شوند</string>
-    <string name="title_host_allowed">نشانی مجاز است</string>
-    <string name="title_host_blocked">نشانی مسدود است</string>
-    <string name="title_interactive_allowed">هنگام روشن بودن صفحه اجازه بده</string>
-    <string name="title_roaming_blocked">هنگام رومینگ مسدود کن</string>
-    <string name="title_metered">اتصال وای‌فای به طور پیش‌فرض اندازه گیری نشده و داده همراه اندازه‌گیری شده در نظر گرفته می‌شود</string>
-    <string name="title_internet">هیچ اجازه اینترنتی ندارد</string>
+    <string name="msg_always_on">VPN دیگری در حالت همیشه روشن تنظیم شده است</string>
+    <string name="msg_always_on_lockdown">برای استفاده از حالت فیلتر NetGuard، گزینه \"مسدود کردن اتصالات بدون VPN\" را در تنظیمات اندروید خاموش کنید</string>
+    <string name="msg_private_dns">برای استفاده از حالت فیلتر NetGuard، گزینه \"DNS خصوصی\" را در تنظیمات شبکه اندروید خاموش کنید</string>
+
+    <string name="title_lockdown_enabled">ترافیک قفل شده است</string>
+    <string name="title_unmetered_allowed">ترافیک نامحدود مجاز است</string>
+    <string name="title_unmetered_blocked">ترافیک نامحدود مسدود است</string>
+    <string name="title_unmetered_disabled">قوانین نامحدود اعمال نمی‌شوند</string>
+    <string name="title_metered_allowed">ترافیک محدود مجاز است</string>
+    <string name="title_metered_blocked">ترافیک محدود مسدود است</string>
+    <string name="title_metered_disabled">قوانین محدود اعمال نمی‌شوند</string>
+    <string name="title_host_allowed">آدرس مجاز است</string>
+    <string name="title_host_blocked">آدرس مسدود است</string>
+    <string name="title_interactive_allowed">اجازه هنگام روشن بودن صفحه</string>
+    <string name="title_roaming_blocked">مسدود کردن هنگام رومینگ</string>
+    <string name="title_metered">به طور پیش‌فرض وای‌فای نامحدود و داده موبایل محدود در نظر گرفته می‌شود</string>
+
+    <string name="title_internet">اجازه دسترسی به اینترنت ندارد</string>
     <string name="title_disabled">غیرفعال است</string>
-    <string name="title_messaging">پیام های دریافتی توسط خدمات گوگل‌پِلی و نه توسط این برنامه دریافت می‌شوند و بنابراین نمی‌توان با مسدود کردن این برنامه آنرا مسدود کرد</string>
-    <string name="title_download">دانلودها توسط مدیرِ دانلود انجام می‌شود و نه توسط این برنامه و بنابراین نمی‌توان با مسدود کردن این برنامه آنها را مسدود کرد</string>
-    <string name="title_apply">اعمال قوانین و وضعیت‌ها</string>
-    <string name="title_conditions">وضعیت‌ها</string>
-    <string name="title_screen_wifi">هنگام روشن بودن صفحه به وای‌فای اجازه استفاده بده</string>
-    <string name="title_screen_other">هنگام روشن بودن صفحه به داده اجازۀ استفاده بده</string>
-    <string name="title_roaming_symbol">رومینگ</string>
-    <string name="title_roaming">هنگام رومینگ مسدود کن</string>
-    <string name="title_lockdown">اجازه در حالت قفل</string>
-    <string name="title_related">وابسته به پالایش</string>
+    <string name="title_messaging">پیام‌های ورودی توسط سرویس‌های گوگل‌پلی دریافت می‌شوند نه این برنامه، لذا با مسدود کردن این برنامه مسدود نمی‌شوند</string>
+    <string name="title_download">دانلودها توسط مدیر دانلود انجام می‌شوند نه این برنامه، لذا با مسدود کردن این برنامه مسدود نمی‌شوند</string>
+    <string name="title_apply">اعمال قوانین و شرایط</string>
+    <string name="title_conditions">شرایط</string>
+    <string name="title_screen_wifi">اجازه وای‌فای هنگام روشن بودن صفحه</string>
+    <string name="title_screen_other">اجازه داده موبایل هنگام روشن بودن صفحه</string>
+    <string name="title_roaming_symbol">R</string>
+    <string name="title_roaming">مسدود کردن هنگام رومینگ</string>
+    <string name="label_ttl">TTL: %s ثانیه</string>
+    <string name="label_uid">UID: %s</string>
+    <string name="title_lockdown">اجازه در حالت قفل کامل</string>
+    <string name="title_related">فیلتر مرتبط</string>
     <string name="title_access">تلاش‌های دسترسی</string>
-    <string name="title_precedence">قوانین دسترسی بر سایر قوانین مقدم‌اند</string>
+    <string name="title_precedence">قوانین دسترسی اولویت دارند</string>
     <string name="title_options">تنظیمات</string>
-    <string name="title_notify">اعلان برای تلاش های دسترسی به اینترنت</string>
-    <string name="title_logging_disabled">گزارش‌گیری یا پالایش فعال نمی‌باشد</string>
-    <string name="title_logging_enabled">گزارش‌گیری و پالایش فعال می‌باشند</string>
+    <string name="title_notify">اعلان تلاش برای دسترسی به اینترنت</string>
+
+    <string name="title_logging_disabled">گزارش‌گیری یا فیلتر فعال نیست</string>
+    <string name="title_logging_enabled">گزارش‌گیری و فیلتر فعال هستند</string>
     <string name="title_logging_configure">پیکربندی</string>
-    <string name="title_enable_logging">فعال شدن ورود به سیستم فقط برای آدرس‌های مسدود شده</string>
-    <string name="title_enable_filtering">فعال کردن فیلتر همچنین برای ورود به آدرسهای مجاز</string>
-    <string name="title_enable_notify">فعال شدن اعلان‌های دسترسی برای آدرس‌های تازه</string>
-    <string name="title_enable_help0">این تنظیمات، تنظیمات جهانی است که برای همه برنامه ها اعمال می شود</string>
-    <string name="title_enable_help1">فیلتر کردن همچنین برای مجاز یا مسدود کردن آدرس‌های فردی لازم است</string>
-    <string name="title_enable_help2">فعال کردن ورود به سیستم با فیلترینگ (کمتر) یا (بیشتر) ممکن است باعث افزایش مصرف باتری شود و بر سرعت شبکه تأثیر بگذارد</string>
+
+    <string name="title_enable_logging">گزارش‌گیری فقط برای آدرس‌های مسدود شده</string>
+    <string name="title_enable_filtering">فعال کردن فیلتر برای گزارش آدرس‌های مجاز</string>
+    <string name="title_enable_notify">فعال کردن اعلان دسترسی برای آدرس‌های جدید</string>
+    <string name="title_enable_help0">این‌ها تنظیمات کلی هستند که بر همه برنامه‌ها اعمال می‌شوند</string>
+    <string name="title_enable_help1">فیلتر کردن برای اجازه یا مسدود کردن تکی آدرس‌ها لازم است</string>
+    <string name="title_enable_help2">فعال کردن گزارش یا فیلتر ممکن است مصرف باتری را افزایش و سرعت شبکه را کاهش دهد</string>
+
     <string name="title_rate">امتیازدهی</string>
-    <string name="title_allow">اجازه دادن</string>
-    <string name="title_block">مسدود کردن</string>
-    <string name="title_allow_wifi">اجازه به وای‌فای</string>
+    <string name="title_allow">اجازه</string>
+    <string name="title_block">مسدود</string>
+    <string name="title_wifi">وای‌فای</string>
+    <string name="title_mobile">موبایل</string>
+    <string name="title_allow_wifi">اجازه وای‌فای</string>
     <string name="title_block_wifi">مسدود کردن وای‌فای</string>
-    <string name="title_allow_other">اجازه به داده همراه</string>
-    <string name="title_block_other">مسدود کردن داده</string>
-    <string name="title_root">روت</string>
-    <string name="title_mediaserver">سرور رسانه</string>
-    <string name="title_nobody">هیچکس</string>
+    <string name="title_allow_other">اجازه موبایل</string>
+    <string name="title_block_other">مسدود کردن موبایل</string>
+    <string name="title_root">root</string>
+    <string name="title_mediaserver">mediaserver</string>
+    <string name="title_gpsdaemon">سرویس GPS</string>
+    <string name="title_dnsdaemon">سرویس DNS</string>
+    <string name="title_nobody">nobody</string>
     <string name="title_dontask">دوباره نپرس</string>
+
     <string name="title_log_whois">Whois %1$s</string>
     <string name="title_log_port">درگاه %1$d</string>
-    <string name="title_log_copy">روگرفت</string>
+    <string name="title_log_copy">کپی</string>
+
     <string name="title_pro">ویژگی‌های حرفه‌ای</string>
     <string name="title_pro_description">ویژگی‌های حرفه‌ای زیر موجود است:</string>
-    <string name="title_pro_log">نمایش گزارش ترافیک مسدود شده</string>
-    <string name="title_pro_filter">ترافیک شبکه را فیلتر کن</string>
-    <string name="title_pro_notify">اعلان‌های جدید برنامه</string>
+    <string name="title_pro_log">مشاهده گزارش ترافیک مسدود شده</string>
+    <string name="title_pro_filter">فیلتر ترافیک شبکه</string>
+    <string name="title_pro_notify">اعلان برنامه‌های جدید</string>
     <string name="title_pro_speed">اعلان نمودار سرعت شبکه</string>
     <string name="title_pro_theme">ظاهر (پوسته، رنگ‌ها)</string>
-    <string name="title_pro_all">تمام ویژگی‌های حرفه‌ای فوق</string>
+    <string name="title_pro_all">همه ویژگی‌های حرفه‌ای بالا</string>
     <string name="title_pro_dev">حمایت از توسعه</string>
     <string name="title_pro_buy">خرید</string>
-    <string name="title_pro_bought">فعال شده</string>
-    <string name="title_pro_unavailable">ناموجود</string>
-    <string name="title_pro_details">برای آگاهی بیشتر روی عنوان بزنید</string>
+    <string name="title_pro_bought">فعال شد</string>
+    <string name="title_pro_unavailable">در دسترس نیست</string>
+    <string name="title_pro_details">برای اطلاعات بیشتر روی یک عنوان بزنید</string>
     <string name="title_pro_challenge">چالش</string>
-    <string name="title_pro_reponse">واکنش</string>
-    <string name="title_pro_feature">این یک ویژگی نسخه حرفه‌ای است</string>
-    <string name="title_pro_subscription">        اشتراک ماهانه 1 یا 2 یورو (به استثنای مالیات محلی) تمام ویژگی‌های حرفه‌ای را فعال می‌کند. 
-        می توانید اشتراک را از طریق برگه اشتراک در برنامه فروشگاه Play لغو یا مدیریت کنید.
+    <string name="title_pro_reponse">پاسخ</string>
+    <string name="title_pro_feature">این یک ویژگی حرفه‌ای است</string>
+    <string name="title_pro_subscription">
+        اشتراک ماهانه 1 یا 2 یورو (بدون احتساب مالیات) همه ویژگی‌ها را فعال می‌کند.
+        از تب اشتراک‌ها در Play Store مدیریت کنید.
     </string>
-    <string-array name="themeNames">
-        <item>آبی دریایی/نارنجی</item>
-        <item>آبی/نارنجی</item>
-        <item>بنفش/قرمز</item>
-        <item>کهربایی/آبی</item>
-        <item>نارنجی/خاکستری</item>
-        <item>سبز</item>
-    </string-array>
-    <string-array name="protocolNames">
+    <string name="title_pro_already">ویژگی‌های حرفه‌ای قبلاً فعال شده‌اند</string>    <string-array name="protocolNames">
         <item>UDP</item>
         <item>TCP</item>
     </string-array>
+
+    <string-array name="protocolValues" translatable="false">
+        <item>17</item>
+        <item>6</item>
+    </string-array>
+
+    <string name="label_dns_summary">%1$d مورد • %2$d منقضی شده</string>
+
 </resources>

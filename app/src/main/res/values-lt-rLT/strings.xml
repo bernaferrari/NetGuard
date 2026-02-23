@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name" translatable="false">NetGuard Next</string>
     <string name="app_description">NetGuard užtikrina lengvą ir pažengusį metodus apribojant prieigą prie interneto, nereikalaujančius root teisių. Atskiros programos ir adresai gali būti leidžiami ar blokuojami pasiekti Wi-Fi ir/ar mobiliuosius duomenis.</string>
+    <string name="app_copyright" translatable="false">Copyright \u00A9 2015–2025 by M. Bokhorst (M66B)</string>
     <string name="app_android">NetGuard veiks su Android 5.1 arba naujesne versija</string>
-    <string name="app_xposed">Xposed modulis kelia per daug strigčių, todėl NetGuard gali būti pašalinta iš Google Play parduotuvės. Kol yra įdiegta Xposed modulis, NetGuard nebus palaikoma</string>
+    <string name="app_eula" translatable="false">THIS SOFTWARE IS PROVIDED BY THE AUTHOR \'\'AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
     <string name="app_privacy"><a href="https://www.netguard.me/privacy/">Privatumo politika</a></string>
     <string name="app_first">NetGuard kūrimui ir bandymams buvo įdėta daug pastangų, vis dėlto neįmanoma užtikrinti, jog NetGuard tinkamai veiks visuose įrenginiuose.</string>
     <string name="app_agree">Sutinku</string>
     <string name="app_disagree">Nesutinku</string>
     <string name="app_support">NetGuard reikia Jūsų pagalbos. Bakstelėkite PRO funkcijų įsigyjimui ir projekto vystymosi palaikymui.</string>
+    <string name="app_qap">
+        Google ketino pašalinti programėlę iš Play parduotuvės, nes ji paprašė leidimo pateikti užklausas visoms programėlėms.
+        Penki skundai ir geras pagrindimas, kodėl šis leidimas reikalingas, buvo atmesti.
+        Ši programėlės versija nebereikalauja šio leidimo,
+        ir nepaisant to, beveik visos programėlės vis tiek bus išvardytos,
+        išskyrus kai kurias (sistemos) programėles, kurių negalima paleisti rankiniu būdu iš Android programėlių sąrašo.
+        Šių programėlių interneto srautas visada bus leidžiamas, kad jūsų įrenginys veiktų tinkamai.
+        Jei manote, kad tai problema, galite atnaujinti programėlę į GitHub versiją ir vėl valdyti visas (sistemos) programėles.
+    </string>
+
     <string name="channel_foreground">Veikiančios paslaugos</string>
     <string name="channel_notify">Bendri pranešimai</string>
     <string name="channel_access">Prieigos pranešimai</string>
+
     <string name="menu_search">Ieškoti programos</string>
     <string name="menu_filter">Programų filtras</string>
     <string name="menu_app_user">Rodyti naudotojo programas</string>
@@ -21,270 +34,420 @@
     <string name="menu_sort_name">Rikiuoti pagal pavadinimą</string>
     <string name="menu_sort_uid">Rikiuoti pagal UID kodą</string>
     <string name="menu_sort_data">Rikiuoti pagal duomenų naudojimą</string>
+    <string name="menu_launch">Paleisti programą</string>
     <string name="menu_log">Rodyti žurnalą</string>
     <string name="menu_settings">Nustatymai</string>
+    <string name="menu_home">Pradžia</string>
     <string name="menu_invite">Pakviesti</string>
     <string name="menu_legend">Legenda</string>
     <string name="menu_support">Pagalba</string>
     <string name="menu_about">Apie</string>
     <string name="menu_apps">Kitos programos</string>
+    <string name="menu_firewall">Ugniasienė</string>
+    <string name="status_enabled">Ugniasienė įjungta</string>
+    <string name="status_disabled">Ugniasienė išjungta</string>
+    <string name="widget_firewall_enabled">Ugniasienė ĮJUNGTA</string>
+    <string name="widget_firewall_disabled">Ugniasienė IŠJUNGTA</string>
+    <string name="widget_lockdown_enabled">Blokavimas ĮJUNGTAS</string>
+    <string name="widget_lockdown_disabled">Blokavimas IŠJUNGTAS</string>
+    <string name="notify_traffic_title">Srauto stebėjimas</string>
+    <string name="notify_traffic_summary">Išsiųsta %1$s • Atsiųsta %2$s • Didžiausia %3$s</string>
+    <string name="notify_traffic_debug">Sesijos %1$d/%2$d/%3$d • Failai %4$d/%5$d</string>
+    <string name="ui_loading">Įkeliama…</string>
+    <string name="ui_empty_logs_title">Srauto dar nėra</string>
+    <string name="ui_empty_logs_body">Kai atsiras ryšių, jie bus rodomi čia.</string>
+    <string name="ui_empty_apps_title">Programų nerasta</string>
+    <string name="ui_empty_apps_body">Pabandykite atnaujinti sąrašą.</string>
+    <string name="ui_empty_dns_title">Dar nėra išspręstų DNS</string>
+    <string name="ui_empty_dns_body">DNS atsakymai pasirodys čia po naršymo.</string>
+    <string name="ui_dns_filter_empty">Jokie DNS įrašai neatitinka šio filtro.</string>
+    <string name="ui_empty_forwarding_title">Nėra nukreipimo taisyklių</string>
+    <string name="ui_empty_forwarding_body">Pridėkite taisyklę, kad pradėtumėte nukreipti srautą.</string>
+    <string name="ui_forwarding_filter_empty">Jokios nukreipimo taisyklės neatitinka šio filtro.</string>
+    <string name="ui_empty_pro_body">Palaikymas atrakina papildomas funkcijas ir padeda projektui gyvuoti.</string>
+    <string name="ui_empty_pro_details">PRO atrakina: filtravimą, žurnalus, pranešimus, temas ir greičio apribojimus.</string>
+    <string name="ui_home_hint">Valdykite kiekvienos programos interneto prieigą.</string>
+    <string name="ui_home_quick_actions">Greiti veiksmai</string>
+    <string name="ui_apps_title">Ugniasienė</string>
+    <string name="ui_logs_title">Srauto žurnalas</string>
+    <string name="ui_logs_filters">Filtrai</string>
+    <string name="ui_logs_filter_status">Būsena</string>
+    <string name="ui_logs_filter_protocol">Protokolas</string>
+    <string name="ui_logs_filter_view">Rodinys</string>
+    <string name="ui_logs_group_timeline">Laiko juosta</string>
+    <string name="ui_logs_group_by_app">Pagal programą</string>
+    <string name="ui_logs_unknown_source">Nežinomas šaltinis</string>
+    <string name="ui_settings_title">Nustatymai</string>
+    <string name="ui_dns_title">Išspręsti DNS</string>
+    <string name="ui_forwarding_title">Prievadų nukreipimas</string>
+    <string name="ui_dns_hint">Neseniai išspręsti domenai ir atsakymai.</string>
+    <string name="ui_forwarding_hint">Valdykite nukreipimo taisykles ir tikslines programas.</string>
+    <string name="ui_dns_active">Aktyvus</string>
+    <string name="ui_rule_custom">Pasirinktinis</string>
+    <string name="ui_dns_expired">Pasibaigęs</string>
+    <string name="ui_filter_all">Visi</string>
+    <string name="ui_filter_empty">Jokios programos neatitinka šio filtro.</string>
+    <string name="ui_apps_search_empty">Jokios programos neatitinka šios paieškos.</string>
+    <string name="ui_learn_more">Sužinokite daugiau</string>
+    <string name="status_running">Srautas filtruojamas</string>
+    <string name="status_not_running">Srautas nefiltruojamas</string>
+    <string name="action_enable">Įjungti</string>
+    <string name="action_disable">Išjungti</string>
+    <string name="home_apps_hint">Peržiūrėkite programų taisykles ir duomenų naudojimą</string>
+    <string name="home_logs_hint">Patikrinkite naujausią tinklo veiklą</string>
+
+    <!-- Accessibility -->
+    <string name="action_expand">Išskleisti detales</string>
+    <string name="action_collapse">Suskleisti detales</string>
+    <string name="action_navigate">Atidaryti</string>
+    <string name="action_toggle_firewall">Perjungti ugniasienę</string>
+    <string name="action_clear_search">Išvalyti paiešką</string>
+    <string name="search_settings">Ieškoti nustatymuose</string>
+    <string name="content_desc_security_status">Ugniasienės saugumo būsena</string>
+    <string name="content_desc_app_icon">Programos piktograma %s</string>
+    <string name="content_desc_show_info">Rodyti informaciją apie %1$s</string>
+
+    <!-- Dashboard stats -->
+    <string name="stat_blocked_today">Blokuota</string>
+    <string name="stat_allowed_today">Leista</string>
+    <string name="stat_active_rules">Aktyvios taisyklės</string>
+
+    <!-- Tooltips -->
+    <string name="tooltip_rcode">DNS atsakymo kodas, siunčiamas blokuojamiems domenams. Numatytasis 3 (NXDOMAIN) reiškia, kad domenas neegzistuoja.</string>
+    <string name="tooltip_ttl">Minimalus DNS talpyklos įrašų galiojimo laikas sekundėmis.</string>
+    <string name="tooltip_pcap">Įrašyti visus tinklo paketus diagnostikai. Sukuria didelius failus.</string>
+    <string name="tooltip_filter">Perimti ir analizuoti srautą. Reikalinga blokuojant pagal adresą. Naudoja daugiau baterijos.</string>
+    <string name="tooltip_lockdown">Blokuoti visą srautą, išskyrus aiškiai leistas programėles. Naudokite atsargiai.</string>
+
+    <string name="menu_protocol_udp" translatable="false">UDP</string>
+    <string name="menu_protocol_tcp" translatable="false">TCP</string>
     <string name="menu_protocol_other">Kita</string>
     <string name="menu_traffic_allowed">Leidžiama</string>
-    <string name="menu_traffic_blocked">Užblokuota</string>
+    <string name="menu_traffic_blocked">Blokuojama</string>
     <string name="menu_live">Tiesioginiai naujinimai</string>
     <string name="menu_refresh">Atnaujinti</string>
+    <string name="menu_ok">Gerai</string>
+    <string name="menu_cancel">Atšaukti</string>
     <string name="menu_resolve">Rodyti pavadinimus</string>
     <string name="menu_organization">Rodyti organizaciją</string>
-    <string name="menu_pcap_enabled">PCAP režimas įjungtas</string>
-    <string name="menu_pcap_export">PCAP kopija</string>
+    <string name="menu_pcap_enabled">PCAP įjungta</string>
+    <string name="menu_pcap_export">PCAP eksportas</string>
     <string name="menu_clear">Valyti</string>
-    <string name="menu_export">Sukurti kopiją</string>
+    <string name="menu_export">Eksportuoti</string>
     <string name="menu_reset">Atstatyti</string>
+
     <string name="menu_add">Pridėti</string>
     <string name="menu_delete">Ištrinti</string>
-    <string name="menu_cleanup">Atstatyti</string>
+
+    <string name="menu_cleanup">Valymas</string>
+
     <string name="title_protocol">Protokolas</string>
     <string name="title_dport">Šaltinio prievadas</string>
     <string name="title_raddr">Paskirties adresas</string>
     <string name="title_rport">Paskirties prievadas</string>
     <string name="title_ruid">Paskirties programa</string>
-    <string name="title_external">Išoriniui serveriui pasirinkite „Nieko“</string>
+    <string name="title_external">Išoriniam serveriui pasirinkite „niekas“</string>
+
     <string name="setting_defaults">Numatytieji (baltasis/juodasis sąrašas)</string>
     <string name="setting_whitelist_wifi">Blokuoti Wi-Fi</string>
     <string name="setting_whitelist_other">Blokuoti mobiliuosius duomenis</string>
     <string name="setting_screen_wifi">Leisti Wi-Fi esant aktyviam ekranui</string>
     <string name="setting_screen_other">Leisti mobiliuosius duomenis esant aktyviam ekranui</string>
     <string name="setting_whitelist_roaming">Blokuoti tarptinklinį ryšį</string>
+
     <string name="setting_options">Nustatymai</string>
     <string name="setting_theme">Tema: %1$s</string>
     <string name="setting_dark">Naudoti tamsią temą</string>
-    <string name="setting_install">Pranešti naujo įdiegimo metu</string>
-    <string name="setting_screen_on">Taikyti „aktyvaus ekrano“ taisykles</string>
+    <string name="setting_theme_palette">Pasirinkite spalvų stilių</string>
+    <string name="setting_dynamic_unavailable">Dinaminiams spalvoms reikalinga Android 12 arba naujesnė versija.</string>
+    <string name="setting_appearance_mode">Išvaizdos režimas</string>
+    <string name="setting_appearance_mode_title">Tamsus režimas</string>
+    <string name="setting_appearance_mode_summary">Pasirinkite Išjungta, Įjungta arba Pagal sistemą.</string>
+    <string name="setting_appearance_preview">Dabartinis: %1$s · %2$s</string>
+    <string name="setting_appearance_auto">Automatiškai</string>
+    <string name="setting_appearance_light">Šviesus</string>
+    <string name="setting_appearance_dark">Tamsus</string>
+    <string name="theme_dynamic" translatable="false">Dynamic</string>
+    <string name="setting_install">Pranešti apie naują įdiegimą</string>
+    <string name="setting_screen_on">Taikyti „ekranas įjungtas“ taisykles</string>
     <string name="setting_auto">Automatiškai įjungti po %1$s min.</string>
-    <string name="setting_delay">Uždelsti ekrano užrakinimą %1$s minučių</string>
-    <string name="setting_update">Naujinių tikrinimas</string>
+    <string name="setting_delay">Atidėti ekrano išjungimą %1$s min.</string>
+    <string name="setting_update">Tikrinti naujinius</string>
+    <string name="setting_update_now">Patikrinti dabar</string>
+    <string name="setting_update_checking">Tikrinama...</string>
+
     <string name="setting_network_options">Tinklo nustatymai</string>
     <string name="setting_subnet">Potinklio nukreipimas</string>
-    <string name="setting_tethering">Leisti pririšimą</string>
-    <string name="setting_lan">Leisti LAN tinklo prieigą</string>
-    <string name="setting_ip6">Įjungti IPv6 duomenų srautą</string>
-    <string name="setting_wifi_home">Wi-Fi namų tinklai: %1$s</string>
-    <string name="setting_metered">Tvarkyti stebimus Wi-Fi tinklus</string>
-    <string name="setting_metered_2g">Nestebėti 2G ryšio</string>
-    <string name="setting_metered_3g">Nestebėti 3G ryšio</string>
-    <string name="setting_metered_4g">Nestebėti LTE ryšio</string>
+    <string name="setting_tethering">Leisti interneto bendrinimą</string>
+    <string name="setting_lan">Leisti LAN prieigą</string>
+    <string name="setting_ip6">Įjungti IPv6 srautą</string>
+    <string name="setting_wifi_home">Namų Wi-Fi tinklai: %1$s</string>
+    <string name="setting_metered">Valdyti matuojamus Wi-Fi tinklus</string>
+    <string name="setting_metered_2g">Laikyti 2G nematuojamu</string>
+    <string name="setting_metered_3g">Laikyti 3G nematuojamu</string>
+    <string name="setting_metered_4g">Laikyti LTE nematuojamu</string>
     <string name="setting_national_roaming">Ignoruoti nacionalinį tarptinklinį ryšį</string>
-    <string name="setting_eu_roaming">Ignoruoti Europos tarptinklinį ryšį</string>
-    <string name="setting_call">Išjungti skambinant</string>
-    <string name="setting_lockdown_wifi">Drausti Wi-Fi</string>
-    <string name="setting_lockdown_other">Drausti mobiliuosius duomenis</string>
-    <string name="setting_reload_onconnectivity">Atnaujinti kievienos jungiamumo kaitos metu</string>
+    <string name="setting_eu_roaming">Ignoruoti ES tarptinklinį ryšį</string>
+    <string name="setting_call">Išjungti skambučio metu</string>
+    <string name="setting_lockdown_wifi">Blokuoti Wi-Fi</string>
+    <string name="setting_lockdown_other">Blokuoti mobiliuosius duomenis</string>
+    <string name="setting_reload_onconnectivity">Perkrauti pasikeitus ryšiui</string>
+
     <string name="setting_advanced_options">Išplėstiniai nustatymai</string>
-    <string name="setting_system">Tvarkyti sistemines programas</string>
-    <string name="setting_log_app">Stebėti interneto prieigos užklausas</string>
-    <string name="setting_access">Pranešti apie interneto prieigos užklausas</string>
-    <string name="setting_filter">Filtruoti duomenų srautą</string>
-    <string name="setting_filter_udp">Filtruoti UDP duomenų srautą</string>
-    <string name="setting_handover">Sklandus VPN ryšio perdavimas atnaujinimo metu</string>
-    <string name="setting_clear_onreload">Atnaujinant uždaryti prisijungimus</string>
-    <string name="setting_lockdown">Drausti duomenų srautą</string>
+    <string name="setting_system">Valdyti sistemines programėles</string>
+    <string name="setting_log_app">Žurnaluoti interneto prieigą</string>
+    <string name="setting_log_retention_days">Srauto žurnalo saugojimo dienos</string>
+    <string name="setting_access">Pranešti apie interneto prieigą</string>
+    <string name="setting_filter">Filtruoti srautą</string>
+    <string name="setting_filter_udp">Filtruoti UDP srautą</string>
+    <string name="setting_handover">Sklandus VPN perdavimas perkraunant</string>
+    <string name="setting_clear_onreload">Uždaryti jungtis perkraunant</string>
+    <string name="setting_lockdown">Blokuoti srautą</string>
+    <string name="setting_malware" translatable="false">Malware protection</string>
     <string name="setting_track_usage">Sekti tinklo naudojimą</string>
     <string name="setting_reset_usage">Atstatyti tinklo naudojimą</string>
     <string name="setting_show_resolved">Rodyti išspręstus domenų vardus</string>
     <string name="setting_block_domains">Blokuoti domenų vardus</string>
     <string name="setting_rcode">DNS atsakymo kodas: %s</string>
-    <string name="setting_forwarding">Prievado nukreipimas</string>
+    <string name="setting_forwarding">Prievadų nukreipimas</string>
     <string name="setting_vpn4">VPN IPv4: %s</string>
     <string name="setting_vpn6">VPN IPv6: %s</string>
     <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_validate">Galioja iki: %s</string>
-    <string name="setting_ttl">Mažiausia DNS TTL reikšmė: %s s</string>
+    <string name="setting_dns2">Antrinis DNS: %s</string>
+    <string name="setting_validate">Tikrinti adresu: %s</string>
+    <string name="setting_ttl">Minimalus DNS TTL: %s s</string>
     <string name="setting_socks5_enabled">Naudoti SOCKS5 tarpinį serverį</string>
     <string name="setting_socks5_addr">SOCKS5 adresas: %s</string>
     <string name="setting_socks5_port">SOCKS5 prievadas: %s</string>
-    <string name="setting_socks5_username">SOCKS5 naudotojo vardas: %s</string>
+    <string name="setting_socks5_username">SOCKS5 vartotojo vardas: %s</string>
     <string name="setting_socks5_password">SOCKS5 slaptažodis: %s</string>
     <string name="setting_pcap_record_size">PCAP įrašo dydis: %s B</string>
-    <string name="setting_pcap_file_size">PACP didžiausias failo dydis: %s MB</string>
-    <string name="setting_watchdog">Budėtojas: kas %s minučių</string>
-    <string name="setting_stats_category">Tinklo greičio pranešimas</string>
-    <string name="setting_stats">Rodyti tinklo greičio pranešimą</string>
-    <string name="setting_stats_top">Rodyti dažniausias programas</string>
-    <string name="setting_stats_frequency">Bandinio intervalas: %s ms</string>
-    <string name="setting_stats_samples">Bandinių skaičius: %s s</string>
+    <string name="setting_pcap_file_size">PCAP maks. failo dydis: %s MB</string>
+    <string name="setting_pcap">Įrašyti tinklo srautą (PCAP)</string>
+    <string name="setting_watchdog">Budėtojas: kas %s min.</string>
+
+    <string name="setting_stats_category">Greičio pranešimas</string>
+    <string name="setting_stats">Rodyti greičio pranešimą</string>
+    <string name="setting_stats_top">Rodyti populiariausias programėles</string>
+    <string name="setting_stats_frequency">Mėginio intervalas: %s ms</string>
+    <string name="setting_stats_samples">Mėginių skaičius: %s</string>
+
     <string name="setting_backup">Atsarginė kopija</string>
-    <string name="setting_export">Nustatymų kopija</string>
-    <string name="setting_import">Įkelti nustatymus</string>
-    <string name="setting_hosts">Įkelti blokuojamų adresų failą</string>
-    <string name="setting_hosts_append">Įkelti blokuojamų adresų failą (papildyti)</string>
-    <string name="setting_hosts_url">Blokuojamų adresų failo atsisiuntimo URL</string>
-    <string name="setting_hosts_download">Atsisiųsti blokuojamų adresų failą</string>
+    <string name="setting_export">Eksportuoti nustatymus</string>
+    <string name="setting_import">Importuoti nustatymus</string>
+    <string name="setting_hosts">Importuoti hosts failą</string>
+    <string name="setting_hosts_append">Importuoti hosts failą (papildyti)</string>
+    <string name="setting_hosts_url">Hosts failo atsisiuntimo URL</string>
+    <string name="setting_hosts_download">Atsisiųsti hosts failą</string>
+    <string name="setting_use_hosts">Naudoti hosts failą</string>
+
     <string name="setting_technical">Techninė informacija</string>
     <string name="setting_technical_general">Bendra</string>
     <string name="setting_technical_networks">Tinklai</string>
     <string name="setting_technical_subscription">Prenumeratos</string>
-    <string name="summary_install">Rodyti būsenos juostos pranešimą tiesioginiam naujai įdiegtų programų nustatymui (PRO funkcija)</string>
-    <string name="summary_auto">Išjungus valdiklį automatiškai paleisti NetGuard po nustatyto minučių skaičiaus (nustatymo išjungimui įveskite nulį)</string>
-    <string name="summary_delay">Užrakinant ekraną išsaugoti aktyvaus ekrano taisykles nustatytą minučių skaičių (nustatymo išjungimui įveskite nulį)</string>
-    <string name="summary_update">Du kartus per dieną tikrinti galimus naujinius GitHub platformoje</string>
-    <string name="summary_tethering">Ribojimo veikimas priklauso nuo Android versijos. Ribojamas duomenų srautas negali būti filtruojamas.</string>
-    <string name="summary_subnet">Leisti potinklio nukreipimą; gali leisti Wi-Fi skambinimo funkciją, bet taip pat gali sukelti klaidų Android sistemoje ir padidinti baterijos energijos eikvojimą</string>
-    <string name="summary_lan">Leisti programoms jungtis prie vietinio tinklo adresų, tokių kaip 10.0.0.0/8, 172.16.0.0/12 ir 192.168.0.0/16</string>
-    <string name="summary_ip6">IP 6 versijos duomenų srautą nukreipiamas į NetGuard, kad galėtų būti leidžiamas arba blokuojamas</string>
-    <string name="summary_wifi_home">Taikyti Wi-Fi taisykles tik pasirinktam tinklui (taikyti mobiliųjų duomenų tinklo taisykles kitiems Wi-Fi tinklams)</string>
-    <string name="summary_metered">Taikyti mobiliųjų duomenų taisykles stebimiems (mokamiems, apribotiems) Wi-Fi tinklams</string>
-    <string name="summary_metered_2g">Taikyti Wi-Fi taisykles 2G duomenų ryšiui</string>
-    <string name="summary_metered_3g">Taikyti Wi-Fi taisykles 3G duomenų ryšiui</string>
-    <string name="summary_metered_4g">Taikyti Wi-Fi taisykles LTE duomenų ryšiui</string>
-    <string name="summary_national_roaming">Netaikyti tarptinklinio ryšio taisyklių jei SIM ir mobiliųjų duomenų šalis yra ta pati</string>
-    <string name="summary_eu_roaming">Netaikyti tarptinklinio ryšio taisyklių jei SIM ir mobiliųjų duomenų šalis yra Europoje (namų tarptinklinis ryšys)</string>
-    <string name="summary_call">Išjungti NetGuard įeinantiems ar išeinantiems telefono skambučiams. Tai gali būti panaudota apeiti IP/Wi-Fi skambinimo sutrikimus.</string>
-    <string name="summary_system">Apibrėžti taisykles sisteminėms programoms (pažengusiems naudotojams)</string>
-    <string name="summary_log_app">Stebėti programų bandymus gauti interneto ryšio prieigą. Tai gali lemti didesnį baterijos energijos naudojimą.</string>
-    <string name="summary_access">Rodyti būsenos juostos pranešimą programai bandant gauti prieigą prie naujo interneto adreso (išjungus filtravimą, bus panešama tik apie blokuojamus interneto prieigos bandymus)</string>
-    <string name="summary_filter">Filtruoti IP adresų paketus, siunčiamus per VPN tunelį. Tai gali lemti didesnį baterijos energijos naudojimą.</string>
-    <string name="summary_track_usage">Stebėti kiekvienos programos ir adreso siunčiamą ir gaunamą baitų kiekį. Tai gali lemti didesnį baterijos energijos naudojimą.</string>
-    <string name="summary_block_domains">Atsakyti nustatytu DNS atsakymo kodu blokuojamiems domenų vardams. Ši funkcija yra išjungta jei nepasiekiamas blokuojamų adresų sąrašas.</string>
+    <string name="setting_section_appearance">Išvaizda</string>
+    <string name="setting_section_firewall">Ugniasienės taisyklės</string>
+    <string name="setting_section_advanced">Papildomas elgesys</string>
+    <string name="setting_section_hosts">Hosts ir DNS</string>
+    <string name="setting_section_network">Tinklo konfigūracija</string>
+    <string name="setting_section_dns">DNS informacija</string>
+    <string name="setting_section_proxy">Tarpinis serveris</string>
+    <string name="setting_section_vpn">VPN konfigūracija</string>
+    <string name="setting_section_background">Foniniai darbai</string>
+    <string name="setting_section_diagnostics">Diagnostika</string>
+    <string name="setting_section_support">Pagalba</string>
+
+    <string name="summary_install">Rodyti būsenos juostos pranešimą, kad būtų galima tiesiogiai konfigūruoti naujai įdiegtas programėles (pro funkcija)</string>
+    <string name="summary_auto">Išjungus valdikliu, automatiškai vėl įjungti NetGuard po pasirinkto minučių skaičiaus (įveskite nulį, kad išjungtumėte)</string>
+    <string name="summary_delay">Išjungus ekraną, palikti aktyvias „ekranas įjungtas“ taisykles pasirinktą minučių skaičių (įveskite nulį, kad išjungtumėte)</string>
+    <string name="summary_update">Dukart per dieną tikrinti, ar GitHub yra naujų versijų</string>
+
+    <string name="summary_tethering">Priklausomai od Android versijos, interneto bendrinimas gali veikti arba ne. Bendrinamas srautas negali būti filtruojamas.</string>
+    <string name="summary_subnet">Įjungti potinklio maršrutizavimą; gali įjungti Wi-Fi skambučius, bet taip pat gali sukelti klaidų Android sistemoje ir padidinti baterijos naudojimą</string>
+    <string name="summary_lan">Leisti programėlėms jungtis prie vietinio tinklo adresų (pvz., 10.0.0.0/8, 172.16.0.0/12 ir 192.168.0.0/16)</string>
+    <string name="summary_ip6">Nukreipti IP 6 versijos srautą į NetGuard, kad jį būtų galima pasirinktinai leisti arba blokuoti</string>
+    <string name="summary_wifi_home">Taikyti Wi-Fi tinklo taisykles tik pasirinktam tinklui (kitiems Wi-Fi tinklams taikyti mobiliojo ryšio taisykles)</string>
+    <string name="summary_metered">Taikyti mobiliojo ryšio taisykles matuojamiems (mokamiems, bendrinamiems) Wi-Fi tinklams</string>
+    <string name="summary_metered_2g">Taikyti Wi-Fi tinklo taisykles 2G duomenų ryšiams</string>
+    <string name="summary_metered_3g">Taikyti Wi-Fi tinklo taisykles 3G duomenų ryšiams</string>
+    <string name="summary_metered_4g">Taikyti Wi-Fi tinklo taisykles LTE duomenų ryšiams</string>
+    <string name="summary_national_roaming">Netaikyti tarptinklinio ryšio taisyklių, kai SIM ir mobiliojo ryšio tinklo šalis sutampa</string>
+    <string name="summary_eu_roaming">Netaikyti tarptinklinio ryšio taisyklių, kai SIM ir mobiliojo ryšio tinklo šalis yra ES (tarptinklinis ryšys kaip namuose)</string>
+    <string name="summary_call">Išjungti NetGuard skambučių metu, kad būtų išvengta IP/Wi-Fi skambučių problemų.</string>
+
+    <string name="summary_system">Apibrėžti taisykles sisteminėms programėlėms (ekspertams)</string>
+    <string name="summary_log_app">Žurnaluoti programėlių bandymus prisijungti prie interneto. Tai gali padidinti baterijos naudojimą.</string>
+    <string name="summary_log_retention_days">Automatiškai pašalinti senus srauto žurnalus tvarkymo metu. Nustatykite 0, kad saugotumėte amžinai.</string>
+    <string name="summary_access">Rodyti būsenos juostos pranešimą, kai programėlė bando prisijungti prie naujo interneto adreso (kai filtravimas išjungtas, bus pranešama tik apie blokuojamus bandymus)</string>
+    <string name="summary_filter">Filtruoti IP paketus, išeinančius iš VPN tunelio. Tai gali padidinti baterijos naudojimą.</string>
+    <string name="summary_track_usage">Sekti kiekvienos programėlės ir adreso išsiųstų ir gautų baitų kiekį. Tai gali padidinti baterijos naudojimą.</string>
+    <string name="summary_block_domains">Atsakyti nustatytu DNS atsakymo kodu blokuojamiems domenams. Šis jungiklis išjungtas, kai nėra hosts failo.</string>
     <string name="summary_rcode">Numatytoji reikšmė yra 3 (NXDOMAIN), tai reiškia „neegzistuojantis domenas“.</string>
-    <string name="summary_validate">Domeno pavadinimas panaudotas interneto prieigos patvirtinimui ties prievadu 443 (https).</string>
-    <string name="summary_socks5_enabled">Tik TCP duomenų srautas bus siunčiamas į tarpinį serverį</string>
-    <string name="summary_watchdog">Periodiškai tikrinti NetGuard aktyvumo būseną (nustatymo išjungimui įveskite nulį). Tai gali lemti didesnį baterijos energijos naudojimą.</string>
-    <string name="summary_stats">Rodyti tinklo greičio grafiko pranešimą būsenos juostoje</string>
-    <string name="msg_sure">Ar esate įsitikinę?</string>
-    <string name="msg_started">Paslauga aktyvi</string>
-    <string name="msg_packages">%1$d leista, %2$d blokuojama</string>
-    <string name="msg_hosts">%1$d leista, %2$d užblokuota, %3$d blokuojamų adresų</string>
+    <string name="summary_validate">Domeno vardas, naudojamas interneto ryšiui patikrinti 443 prievade (https).</string>
+    <string name="summary_socks5_enabled">Tik TCP srautas bus siunčiamas į tarpinį serverį</string>
+    <string name="summary_watchdog">Periodiškai tikrinti, ar NetGuard vis dar veikia (įveskite nulį, kad išjungtumėte). Tai gali padidinti baterijos naudojimą.</string>
+
+    <string name="summary_stats">Rodyti tinklo greičio grafiką būsenos juostos pranešime</string>
+
+    <string-array name="default_wifi_home"></string-array>
+
+    <string name="msg_sure">Ar esate tikri?</string>
+    <string name="msg_started">Vykdomos taisyklės</string>
+    <string name="msg_packages">%1$d leista, %2$d blokuota</string>
+    <string name="msg_hosts">%1$d leista, %2$d blokuota, %3$d hosts</string>
     <string name="msg_waiting">Laukiama įvykio</string>
-    <string name="msg_disabled">NetGuard išjungta, įjungimui naudokite jungiklį aukščiau</string>
-    <string name="msg_revoked">NetGuard buvo išjungta, greičiausiai dėl kitos VPN programos</string>
+    <string name="msg_disabled">NetGuard išjungta, naudokite viršuje esantį jungiklį, kad įjungtumėte</string>
+    <string name="msg_notifications">Bakstelėkite, kad suteiktumėte leidimą siųsti pranešimus (apie prieigos bandymus, klaidas ir kt.)</string>
+    <string name="msg_revoked">NetGuard buvo išjungta, tikriausiai dėl kitos VPN programėlės naudojimo</string>
     <string name="msg_installed">„%1$s“ įdiegta</string>
     <string name="msg_installed_n">Buvo įdiegta</string>
-    <string name="msg_access">%1$s bandė gauti prieigą prie interneto</string>
-    <string name="msg_access_n">Bandyta gauti prieigą prie interneto</string>
-    <string name="msg_completed">Veiksmas užbaigtas</string>
-    <string name="msg_vpn">Interneto srauto filtravimui NetGuard naudoja vietinį VPN.
-Todėl kitame dialoge prašome leisti VPN ryšį.
-Jūsų interneto duomenų srautas nėra siunčiamas į jokį nuotolinį VPN serverį.</string>
-    <string name="msg_autostart">NetGuard negalėjo automatiškai pasileisti, greičiausiai dėl klaidos Android versijoje.</string>
+    <string name="msg_malware" translatable="false">Possible malware: \'%1$s\'</string>
+    <string name="msg_access">%1$s bandė pasiekti internetą</string>
+    <string name="msg_access_n">Bandymas pasiekti internetą</string>
+    <string name="msg_completed">Veiksmas atliktas</string>
+    <string name="msg_invalid">Patikrinkite vertes ir bandykite dar kartą.</string>
+    <string name="msg_export_failed">Eksportuoti nepavyko: %1$s</string>
+    <string name="msg_vpn">NetGuard naudoja vietinį VPN srautui filtruoti.
+Todėl leiskite VPN ryšį kitame lange.
+Jūsų srautas nėra siunčiamas į nuotolinį VPN serverį.</string>
+    <string name="msg_autostart">NetGuard nepavyko paleisti automatiškai. Tai tikriausiai dėl Android versijos klaidos.</string>
     <string name="msg_error">Įvyko netikėta klaida: „%s“</string>
-    <string name="msg_start_failed">Šiuo metu Android atsisakė paleisti VPN, greičiausiai dėl klaidos Android versijoje.</string>
-    <string name="msg_try">Išbandyk NetGuard</string>
-    <string name="msg_terms">Paaukodami sutinkate su <a href="http://www.netguard.me/#terms">nuostatomis &amp; sąlygomis</a></string>
-    <string name="msg_dimming">Jei kitame lange negalite spausti „Gerai“, greičiausiai ekraną valdo kita (ekrano pritemdymo) programa.</string>
-    <string name="msg_mbday">± %1$.3f▲ %2$.3f▼ MB/dieną</string>
-    <string name="msg_kb">%1$7.3f▲ %2$7.3f▼ KB</string>
-    <string name="msg_mb">%1$7.3f▲ %2$7.3f▼ MB</string>
-    <string name="msg_gb">%1$7.3f▲ %2$7.3f▼ GB</string>
+    <string name="msg_start_failed">Android šiuo metu atsisakė paleisti VPN paslaugą. Tai tikriausiai dėl Android versijos klaidos.</string>
+    <string name="msg_try">Išbandykite NetGuard</string>
+    <string name="msg_terms">Paaukodami sutinkate su <a href="http://www.netguard.me/#terms">sąlygomis ir nuostatomis</a></string>
+    <string name="msg_dimming">Jei negalite paspausti Gerai, tikriausiai kita (ekrano pritemdymo) programėlė dengia ekraną.</string>
+    <string name="msg_mbday">&#177; %1$.3f&#9650; %2$.3f&#9660; MB/dieną</string>
+    <string name="msg_kbsec">%7.3f KB/s</string>
+    <string name="msg_mbsec">%7.3f MB/s</string>
+    <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
+    <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
+    <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
     <string name="msg_count">%dx</string>
-    <string name="msg_doze">Nuolatiniam NetGuard veikimui programos optimizavimas baterijos optimizavimo nustatymuose turi būti išjungtas.
-\n\nKito lango viršuje pasirinkite „Visos programos“, sąraše pasirinkite NetGuard bei spustelėkite ir patvirtinkite „Neoptimizuoti“.</string>
-    <string name="msg_datasaving">Nuolatiniam NetGuard veikimui Android mobilliųjų duomenų tausojimas turi būti išjungtas.
-\n\nKitame lange pasirinkite „Foninių duomenų naudojimas“ ir „Neriboti duomenų naudojimo“</string>
-    <string name="msg_filter">Filtravimo naudojimas priskirs duomenų ir energijos naudojimą NetGuard programai - Android manys, jog duomenys ir energijos naudojimas keliamas NetGuard programos, o ne tikrųjų juos naudojančių pogramų</string>
-    <string name="msg_filter4">Android 4 versija reikalauja įjungto filtravimo</string>
-    <string name="msg_log_disabled">Duomenų srauto stebėjimas sustabdytas, įjungimui naudokite jungiklį aukščiau. Tai gali lemti didesnį baterijos energijos naudojimą.</string>
-    <string name="msg_clear_rules">Tai atstatys taisykles ir sąlygas į jų numatytąsias reikšmes</string>
-    <string name="msg_reset_access">Tai ištrins prieigos bandymų žurnalo įrašus be laidžiamų/blokuojamų taisyklių</string>
-    <string name="msg_import_last">Paskutinis įkėlimas: %s</string>
+    <string name="msg_doze">Kad veiktų stabiliai, Android baterijos optimizavimas NetGuard turėtų būti išjungtas.
+\n\nKitame lange viršuje pasirinkite „Visos programėlės“, sąraše bakstelėkite NetGuard ir pasirinkite „Neoptimizuoti“.</string>
+    <string name="msg_datasaving">Kad veiktų stabiliai, Android duomenų taupymo parinktys NetGuard turėtų būti išjungtos.
+\n\nKitame lange įjunkite parinktis „Foniniai duomenys“ ir „Neribotas duomenų naudojimas“.</string>
+    <string name="msg_filter">Naudojant filtravimą, Android priskirs duomenų ir energijos naudojimą NetGuard programėlei, o ne originalioms programėlėms.</string>
+    <string name="msg_filter4">Android 4 reikalauja įjungti filtravimą</string>
+    <string name="msg_log_disabled">Srauto žurnalavimas išjungtas. Naudokite viršuje esantį jungiklį, kad įjungtumėte. Tai gali padidinti baterijos naudojimą.</string>
+    <string name="msg_clear_rules">Tai atstatys taisykles ir sąlygas į numatytąsias reikšmes</string>
+    <string name="msg_reset_access">Tai ištrins prieigos bandymų žurnalo eilutes be specifinių taisyklių</string>
+    <string name="msg_import_last">Paskutinis importas: %s</string>
     <string name="msg_downloading">Atsisiunčiama\n%1s</string>
-    <string name="msg_downloaded">Blokuojamų adresų failas atsisiųstas</string>
-    <string name="msg_download_last">Paskutinis atsiuntimas: %s</string>
-    <string name="msg_start_forward">Pradėti nukreipimą iš %1$s prievado %2$d į %3$s:%4$d iš „%5$s“?</string>
-    <string name="msg_stop_forward">Baigti nukreipimą iš %1$s preivado %2$d?</string>
-    <string name="msg_metered">Tinklas stebimas</string>
+    <string name="msg_downloaded">Hosts failas atsisiųstas</string>
+    <string name="msg_download_last">Paskutinis atsisiuntimas: %s</string>
+    <string name="msg_start_forward">Pradėti nukreipimą iš %1$s prievado %2$d į %3$s:%4$d programėlei „%5$s“?</string>
+    <string name="msg_stop_forward">Sustabdyti %1$s prievado %2$d nukreipimą?</string>
+    <string name="msg_metered">Tinklas yra matuojamas</string>
     <string name="msg_inactive">Nėra aktyvaus interneto ryšio</string>
     <string name="msg_queue">NetGuard užimta</string>
-    <string name="msg_update">Yra prieinamas naujinys, bakstelėkite atsisiuntimui</string>
-    <string name="msg_usage">Galite leisti (žalia) ar užblokuoti (raudona) Wi-Fi ir mobiliųjų duomenų prieigą spustelėdami piktogramas šalia programos</string>
-    <string name="msg_fairemail">Jei įdiegėte NetGuard norėdami apsaugoti savo privatumą, galbūt sudomins <a href="https://email.faircode.eu/">FairEmail</a>, privatumą sauganti atvirojo kodo elektroninio pašto programa</string>
-    <string name="msg_whitelist">Interneto prieiga yra leidžiama automatiškai (juodojo sąrašo režimas), tai gali būti keičiama nustatymuose</string>
-    <string name="msg_push">Įeinantys (momentiniai) pranešimai daugiausiai valdomi sisteminių Play paslaugų, kurioms automatiškai leidžiama interneto ryšio prieiga</string>
-    <string name="msg_system">Visų (sisteminių) programų valdymas gali būti įjungtas nustatymuose</string>
-    <string name="msg_issue">Aprašykite sutrikimą ir nurodykite sutrikimo atsiradimo laiką:</string>
-    <string name="msg_vpn_cancelled">VPN ryšys atšauktas\nGal kita VPN programa nustatyta būti visada įjungta VPN?</string>
-    <string name="msg_on">Išjungus įrenginį esant aktyviai NetGuard, kitą kartą įjungus įrenginį automatiškai bus paleista NetGuard</string>
-    <string name="msg_unavailable">Ši Android versija nepalaiko šios funkcijos</string>
-    <string name="msg_always_on">Kita VPN programa nustatyta kaip „Visada įjungtas VPN“</string>
-    <string name="msg_always_on_lockdown">Norint naudoti NetGuard filtravimo režimą išjunkite „Blokuoti ryšius be VPN“ Android VPN nustatymuose</string>
-    <string name="msg_private_dns">Norint naudoti NetGuard filtravimo režimą išjunkite „Privatus DNS“ Android tinklo nustatymuose</string>
-    <string name="title_lockdown_enabled">Duomenų srautas yra blokuojamas</string>
-    <string name="title_unmetered_allowed">Nestebimas duomenų srautas yra leidžiamas</string>
-    <string name="title_unmetered_blocked">Nestebimas duomenų srautas yra blokuojamas</string>
-    <string name="title_unmetered_disabled">Nestebimos taisyklės netaikomos</string>
-    <string name="title_metered_allowed">Stebimas duomenų srautas yra leidžiamas</string>
-    <string name="title_metered_blocked">Stebimas duomenų srautas blokuojamas</string>
-    <string name="title_metered_disabled">Stebimos taisyklės netaikomos</string>
+    <string name="msg_update">Yra naujinimas, bakstelėkite, kad atsisiųstumėte</string>
+    <string name="msg_usage">Galite leisti (žalia) arba drausti (raudona) Wi-Fi arba mobiliojo interneto prieigą bakstelėdami piktogramas šalia programėlės</string>
+    <string name="msg_fairemail">Jei įsidiegėte NetGuard privatumui apsaugoti, jus gali dominti ir <a href="https://email.faircode.eu/">FairEmail</a> – atvirojo kodo, privatumui palanki el. pašto programėlė.</string>
+    <string name="msg_whitelist">Interneto prieiga leidžiama pagal nutylėjimą (juodojo sąrašo režimas), tai galima pakeisti nustatymuose</string>
+    <string name="msg_push">Push pranešimus tvarko Play paslaugos, kurioms pagal nutylėjimą leidžiama prieiga prie interneto</string>
+    <string name="msg_system">Sisteminių programėlių valdymą galima įjungti nustatymuose</string>
+    <string name="msg_issue">Aprašykite problemą და nurodykite jos laiką:</string>
+    <string name="msg_vpn_cancelled">VPN ryšys atšauktas. Ar nustatėte kitą VPN kaip visada įjungtą?</string>
+    <string name="msg_on">Išjungus įrenginį su įjungtu NetGuard, jis automatiškai pasileis įjungus įrenginį</string>
+    <string name="msg_unavailable">Ši funkcija nepasiekiama šioje Android versijoje</string>
+    <string name="msg_always_on">Kitas VPN nustatytas kaip visada įjungtas</string>
+    <string name="msg_always_on_lockdown">Išjunkite „Blokuoti ryšius be VPN“ Android VPN nustatymuose, kad galėtumėte naudoti NetGuard filtravimą</string>
+    <string name="msg_private_dns">Išjunkite „Privatus DNS“ Android tinklo nustatymuose, kad galėtumėte naudoti NetGuard filtravimą</string>
+
+    <string name="title_lockdown_enabled">Srautas užblokuotas</string>
+    <string name="title_unmetered_allowed">Nematuojamas srautas leidžiamas</string>
+    <string name="title_unmetered_blocked">Nematuojamas srautas blokuojamas</string>
+    <string name="title_unmetered_disabled">Nematuojamos taisyklės netaikomos</string>
+    <string name="title_metered_allowed">Matuojamas srautas leidžiamas</string>
+    <string name="title_metered_blocked">Matuojamas srautas blokuojamas</string>
+    <string name="title_metered_disabled">Matuojamos taisyklės netaikomos</string>
     <string name="title_host_allowed">Adresas leidžiamas</string>
     <string name="title_host_blocked">Adresas blokuojamas</string>
-    <string name="title_interactive_allowed">Leisti pažadinant ekraną</string>
-    <string name="title_roaming_blocked">Blokuoti tarptinklinį ryšį</string>
-    <string name="title_metered">Numatyta Wi-Fi ryšį stebėti ir nestebėti mobiliųjų duomenų ryšio</string>
-    <string name="title_internet">neturi interneto prieigos</string>
-    <string name="title_disabled">išjungta</string>
-    <string name="title_messaging">Ateinantys pranešimai gaunami dėl Google Play paslaugų ir negali būti išjungti blokuojant šią programą</string>
-    <string name="title_download">Atsisiuntimai vykdomi atsisiuntimų tvarkyklės ir negali būti blokuojami blokuojant šią programą</string>
+    <string name="title_interactive_allowed">Leisti, kai ekranas įjungtas</string>
+    <string name="title_roaming_blocked">Blokuoti tarptinklinio ryšio metu</string>
+    <string name="title_metered">Pagal nutylėjimą Wi-Fi laikomas nematuojamu, o mobilusis ryšys – matuojamu</string>
+
+    <string name="title_internet">neturi interneto leidimo</string>
+    <string name="title_disabled">yra išjungta</string>
+    <string name="title_messaging">Įeinančius pranešimus gauna Google Play paslaugos, o ne ši programėlė, todėl jų negalima užblokuoti blokuojant šią programėlę</string>
+    <string name="title_download">Atsisiuntimus vykdo atsisiuntimų tvarkyklė, o ne ši programėlė, todėl jų negalima užblokuoti blokuojant šią programėlę</string>
     <string name="title_apply">Taikyti taisykles ir sąlygas</string>
     <string name="title_conditions">Sąlygos</string>
-    <string name="title_screen_wifi">Leisti Wi-Fi pažadinant ekraną</string>
-    <string name="title_screen_other">Leisti mobiliuosius duomenis pažadinant ekraną</string>
+    <string name="title_screen_wifi">Leisti Wi-Fi, kai ekranas įjungtas</string>
+    <string name="title_screen_other">Leisti mobiliuosius, kai ekranas įjungtas</string>
     <string name="title_roaming_symbol">R</string>
-    <string name="title_roaming">Blokuoti tarptinklinį ryšį</string>
-    <string name="title_lockdown">Leisti draudimo režime</string>
-    <string name="title_related">Susiję su filtru</string>
+    <string name="title_roaming">Blokuoti tarptinklinio ryšio metu</string>
+    <string name="label_ttl">TTL: %s s</string>
+    <string name="label_uid">UID: %s</string>
+    <string name="title_lockdown">Leisti blokavimo režime</string>
+    <string name="title_related">Filtruoti susijusius</string>
     <string name="title_access">Prieigos bandymai</string>
-    <string name="title_precedence">Veiksmo taisyklės turi pirmumą prieš kitas taisykles</string>
-    <string name="title_options">Nustatymai</string>
-    <string name="title_notify">Pranešti interneto ryšio prieigos bandymus</string>
-    <string name="title_logging_disabled">Stebėjimas ar filtravimas neįjungti</string>
-    <string name="title_logging_enabled">Stebėjimas ir filtravimas įjungti</string>
-    <string name="title_logging_configure">Nustatyti</string>
-    <string name="title_enable_logging">Įjungti tik blokuojamų adresų stebėjimą</string>
-    <string name="title_enable_filtering">Leisti filtravimą leidžiamų adresų stebėjimui</string>
-    <string name="title_enable_notify">Leisti pranešimų prieigą naujai įrašytiems adresams</string>
-    <string name="title_enable_help0">Tai bendrieji nustatymai, taikomi visoms programoms</string>
-    <string name="title_enable_help1">Filtravimui taip pat reikia leisti ar blokuoti atskirus adresus</string>
-    <string name="title_enable_help2">Stebėjimo (naudojama mažiau baterijos energijos) ar filtravimo (naudoja daugiau baterijos energijos) leidimas gali lemti didesnį baterijos energijos naudojimą ir gali paveikti interneto tinklo greitį</string>
+    <string name="title_precedence">Prieigos taisyklės turi pirmenybę</string>
+    <string name="title_options">Parinktys</string>
+    <string name="title_notify">Pranešti apie interneto prieigos bandymus</string>
+
+    <string name="title_logging_disabled">Žurnalavimas arba filtravimas neįjungtas</string>
+    <string name="title_logging_enabled">Žurnalavimas ir filtravimas įjungti</string>
+    <string name="title_logging_configure">Konfigūruoti</string>
+
+    <string name="title_enable_logging">Žurnaluoti tik blokuojamus adresus</string>
+    <string name="title_enable_filtering">Įjungti filtravimą, kad būtų žurnaluojami ir leidžiami adresai</string>
+    <string name="title_enable_notify">Įjungti prieigos pranešimus naujai žurnaluotiems adresams</string>
+    <string name="title_enable_help0">Šie nustatymai yra bendri ir taikomi visoms programėlėms</string>
+    <string name="title_enable_help1">Filtravimas būtinas norint leisti arba blokuoti atskirus adresus</string>
+    <string name="title_enable_help2">Žurnalavimo arba filtravimo įjungimas gali padidinti baterijos naudojimą ir paveikti greitį</string>
+
     <string name="title_rate">Įvertinti</string>
     <string name="title_allow">Leisti</string>
     <string name="title_block">Blokuoti</string>
+    <string name="title_wifi">Wi-Fi</string>
+    <string name="title_mobile">Mobilusis ryšys</string>
     <string name="title_allow_wifi">Leisti Wi-Fi</string>
     <string name="title_block_wifi">Blokuoti Wi-Fi</string>
-    <string name="title_allow_other">Leisti mobiliuosius duomenis</string>
-    <string name="title_block_other">Blokuoti mobiliuosius duomenis</string>
-    <string name="title_root">šaknis</string>
-    <string name="title_mediaserver">tarpinis serveris</string>
-    <string name="title_nobody">niekas</string>
+    <string name="title_allow_other">Leisti mobiliuosius</string>
+    <string name="title_block_other">Blokuoti mobiliuosius</string>
+    <string name="title_root">root</string>
+    <string name="title_mediaserver">mediaserver</string>
+    <string name="title_gpsdaemon" translatable="false">GPS daemon</string>
+    <string name="title_dnsdaemon" translatable="false">DNS daemon</string>
+    <string name="title_nobody">nobody</string>
     <string name="title_dontask">Daugiau neklausti</string>
+
     <string name="title_log_whois">Whois %1$s</string>
     <string name="title_log_port">Prievadas %1$d</string>
     <string name="title_log_copy">Kopijuoti</string>
+
     <string name="title_pro">Pro funkcijos</string>
-    <string name="title_pro_description">Prieinamos šios PRO funkcijos:</string>
-    <string name="title_pro_log">Žiūrėti blokuojamo duomenų srauto žurnalą</string>
-    <string name="title_pro_filter">Filtruoti tinklo duomenų srautą</string>
-    <string name="title_pro_notify">Naujos programos pranešimas</string>
-    <string name="title_pro_speed">Interneto tinklo greičio grafiko pranešimas</string>
+    <string name="title_pro_description">Galimos šios pro funkcijos:</string>
+    <string name="title_pro_log">Peržiūrėti blokuojamo srauto žurnalą</string>
+    <string name="title_pro_filter">Filtruoti tinklo srautą</string>
+    <string name="title_pro_notify">Pranešimai apie naujas programėles</string>
+    <string name="title_pro_speed">Tinklo greičio grafikas pranešime</string>
     <string name="title_pro_theme">Išvaizda (temos, spalvos)</string>
-    <string name="title_pro_all">Visos anksčiau minėtos PRO funkcijos</string>
-    <string name="title_pro_dev">Paremti kūrimą</string>
-    <string name="title_pro_buy">Įsigyti</string>
+    <string name="title_pro_all">Visos aukščiau išvardintos pro funkcijos</string>
+    <string name="title_pro_dev">Paremkite kūrimą</string>
+    <string name="title_pro_buy">Pirkti</string>
     <string name="title_pro_bought">Įjungta</string>
-    <string name="title_pro_unavailable">Neprieinama</string>
-    <string name="title_pro_details">Bakstelėkite pavadinimą išsamesnei informacijai gauti</string>
+    <string name="title_pro_unavailable">Nepasiekiama</string>
+    <string name="title_pro_details">Bakstelėkite pavadinimą, jei norite daugiau informacijos</string>
     <string name="title_pro_challenge">Iššūkis</string>
-    <string name="title_pro_reponse">Atsakas</string>
-    <string name="title_pro_feature">Tai PRO funkcija</string>
-    <string name="title_pro_subscription">Mėnesinė 1 ar 2 eurų prenumerata (įskaičiuojant vietinius mokesčius) aktyvins visas pro versijos funkcijas. Prenumeratą galite atšaukti ar valdyti prenumeratų skiltyje „Play“ parduotuvės programoje.    </string>
-    <string-array name="themeNames">
-        <item>žalsvai mėlyna/oranžinė</item>
-        <item>mėlyna/oranžinė</item>
-        <item>purpurinė/raudona</item>
-        <item>gintarinė/mėlyna</item>
-        <item>oranžinė/pilka</item>
-        <item>žalia</item>
+    <string name="title_pro_reponse">Atsakymas</string>
+    <string name="title_pro_feature">Tai pro funkcija</string>
+    <string name="title_pro_subscription">
+        Mėnesinė 1 arba 2 eurų prenumerata (be mokesčių) aktyvuos visas pro funkcijas.
+        Valdykite prenumeratą per Play Store.
+    </string>
+    <string name="title_pro_already">Pro funkcijos jau aktyvuotos</string>    <string-array name="protocolNames">
+        <item>UDP</item>
+        <item>TCP</item>
     </string-array>
-    <string-array name="protocolNames">
-        <item>UDP duomenys</item>
-        <item>TCP klientas</item>
+
+    <string-array name="protocolValues" translatable="false">
+        <item>17</item>
+        <item>6</item>
     </string-array>
+
+    <string name="label_dns_summary">%1$d įrašų • %2$d pasibaigę</string>
+
 </resources>

@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name" translatable="false">NetGuard Next</string>
     <string name="app_description">NetGuard предоставя прост, а също така и по-задълбочен начини за блокиране достъпа до интернет - без нужда от ROOT права. Достъпът на приложенията и адресите чрез Wi-Fi или мобилни данни, могат да се разрешават и забраняват по отделно.</string>
+    <string name="app_copyright" translatable="false">Copyright \u00A9 2015–2025 by M. Bokhorst (M66B)</string>
     <string name="app_android">NetGuard изисква Android 5.1 или по-нова версия</string>
-    <string name="app_xposed">Xposed причинява твърде много сривове, което може да доведе до премахване на NetGuard от Google Play Store, поради което NetGuard не се поддържа, докато е инсталиран Xposed</string>
+    <string name="app_eula" translatable="false">THIS SOFTWARE IS PROVIDED BY THE AUTHOR \'\'AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
     <string name="app_privacy"><a href="https://www.netguard.me/privacy/">Политика за личните данни</a></string>
     <string name="app_first">NetGuard се разраборва и изпитва с голямо внимание, но е невъзможно да бъде дадена гаранция, че ще функционира правилно на всяко устройство.</string>
     <string name="app_agree">Съгласявам се</string>
     <string name="app_disagree">Не съм съгласен</string>
-    <string name="app_support">FairEmail се нуждае от вашата подкрепа. Докоснете, за да закупите допълнителните възможности така проектът ще продължи да се развива.</string>
-    <string name="app_qap">Google щеше да премахне приложението от Play Store, тъй като искало разрешение да прави справки за всички приложения. Пет обжалвания и предоставяне на добра обосновка защо е необходимо това разрешение бяха отхвърлени. Това издание на приложението вече не иска това разрешение, и въпреки това почти всички приложения все още ще бъдат включени в списъка, с изключение на някои (системни) приложения, които не могат да бъдат стартирани ръчно от списъка с приложения за Андроид. Интернет трафикът на тези приложения винаги ще бъде разрешен, за да се гарантира, че устройството ви продължава да работи правилно. Ако смятате, че това е проблем, можете да използвате версията на приложението в GitHub и отново да управлявате всички (системни) приложения.</string>
+    <string name="app_support">NetGuard се нуждае от вашата подкрепа. Докоснете, за да закупите допълнителните възможности така проектът ще продължи да се развива.</string>
+    <string name="app_qap">
+        Google щеше да премахне приложението от Play Store, тъй като искало разрешение да прави справки за всички приложения.
+        Пет обжалвания и предоставяне на добра обосновка защо е необходимо това разрешение бяха отхвърлени.
+        Това издание на приложението вече не иска това разрешение, и въпреки това почти всички приложения все още ще бъдат включени в списъка, с изключение на някои (системни) приложения, които не могат да бъдат стартирани ръчно от списъка с приложения за Андроид.
+        Интернет трафикът на тези приложения винаги ще бъде разрешен, за да се гарантира, че устройството ви продължава да работи правилно.
+        Ако смятате, че това е проблем, можете да използвате версията на приложението в GitHub и отново да управлявате всички (системни) приложения.
+    </string>
+
     <string name="channel_foreground">Работещи услуги</string>
     <string name="channel_notify">Общи известия</string>
     <string name="channel_access">Известия за достъп</string>
+
     <string name="menu_search">Търсене на приложение</string>
     <string name="menu_filter">Филтър по приложения</string>
     <string name="menu_app_user">Потребителски приложения</string>
@@ -22,18 +32,100 @@
     <string name="menu_sort_name">Сортиране по име</string>
     <string name="menu_sort_uid">Сортиране по ID на приложението</string>
     <string name="menu_sort_data">Сортиране по използван трафик</string>
+    <string name="menu_launch">Стартиране на приложение</string>
     <string name="menu_log">Показване на дневник</string>
     <string name="menu_settings">Настройки</string>
+    <string name="menu_home">Начало</string>
     <string name="menu_invite">Поканете</string>
     <string name="menu_legend">Легенда</string>
     <string name="menu_support">Поддръжка</string>
     <string name="menu_about">За приложението</string>
     <string name="menu_apps">Други приложения</string>
+    <string name="menu_firewall">Защитна стена</string>
+    <string name="status_enabled">Защитната стена е активирана</string>
+    <string name="status_disabled">Защитната стена е деактивирана</string>
+    <string name="widget_firewall_enabled">Защитна стена ВКЛ.</string>
+    <string name="widget_firewall_disabled">Защитна стена ИЗКЛ.</string>
+    <string name="widget_lockdown_enabled">Заключване ВКЛ.</string>
+    <string name="widget_lockdown_disabled">Заключване ИЗКЛ.</string>
+    <string name="notify_traffic_title">Монитор на трафика</string>
+    <string name="notify_traffic_summary">Нагоре %1$s • Надолу %2$s • Пик %3$s</string>
+    <string name="notify_traffic_debug">Сесии %1$d/%2$d/%3$d • Файлове %4$d/%5$d</string>
+    <string name="ui_loading">Зареждане…</string>
+    <string name="ui_empty_logs_title">Все още няма трафик</string>
+    <string name="ui_empty_logs_body">След като се появят връзки, те ще се появят тук.</string>
+    <string name="ui_empty_apps_title">Не са открити приложения</string>
+    <string name="ui_empty_apps_body">Опитайте да опресните списъка.</string>
+    <string name="ui_empty_dns_title">Все още няма решен DNS</string>
+    <string name="ui_empty_dns_body">DNS отговорите ще се появят тук след сърфиране.</string>
+    <string name="ui_dns_filter_empty">Няма DNS записи, които да съответстват на този филтър.</string>
+    <string name="ui_empty_forwarding_title">Няма правила за препращане</string>
+    <string name="ui_empty_forwarding_body">Добавете правило, за да започнете да препращате трафик.</string>
+    <string name="ui_forwarding_filter_empty">Няма правила за препращане, които да съответстват на този филтър.</string>
+    <string name="ui_empty_pro_body">Поддръжката отключва допълнителни функции и поддържа проекта жив.</string>
+    <string name="ui_empty_pro_details">Професионално отключване: филтриране, регистриране, известия, теми и ограничения на скоростта.</string>
+    <string name="ui_home_hint">Контролирайте достъпа до интернет за всяко приложение.</string>
+    <string name="ui_home_quick_actions">Бързи действия</string>
+    <string name="ui_apps_title">Защитна стена</string>
+    <string name="ui_logs_title">Регистър на трафика</string>
+    <string name="ui_logs_filters">Филтри</string>
+    <string name="ui_logs_filter_status">Статус</string>
+    <string name="ui_logs_filter_protocol">Протокол</string>
+    <string name="ui_logs_filter_view">Виж</string>
+    <string name="ui_logs_group_timeline">Дневник</string>
+    <string name="ui_logs_group_by_app">По приложение</string>
+    <string name="ui_logs_unknown_source">Неизвестен източник</string>
+    <string name="ui_settings_title">Настройки</string>
+    <string name="ui_dns_title">Разрешен DNS</string>
+    <string name="ui_forwarding_title">Препращане на портове</string>
+    <string name="ui_dns_hint">Наскоро решени домейни и отговори.</string>
+    <string name="ui_forwarding_hint">Управлявайте правилата за препращане и целевите приложения.</string>
+    <string name="ui_dns_active">Активни</string>
+    <string name="ui_rule_custom">Персонален</string>
+    <string name="ui_dns_expired">Изтекло</string>
+    <string name="ui_filter_all">Всички</string>
+    <string name="ui_filter_empty">Няма приложения, които да съответстват на този филтър.</string>
+    <string name="ui_apps_search_empty">Няма приложения, които да съответстват на това търсене.</string>
+    <string name="ui_learn_more">научете повече</string>
+    <string name="status_running">Трафикът се филтрира</string>
+    <string name="status_not_running">Трафикът не се филтрира</string>
+    <string name="action_enable">Включване</string>
+    <string name="action_disable">Изключване</string>
+    <string name="home_apps_hint">Преглед на правилата на приложението и използването на данни</string>
+    <string name="home_logs_hint">Проверка на скорошна мрежова активност</string>
+
+    <!-- Accessibility -->
+    <string name="action_expand">Разширяване на подробностите</string>
+    <string name="action_collapse">Свиване на подробностите</string>
+    <string name="action_navigate">Отваряне</string>
+    <string name="action_toggle_firewall">Превключване на защитната стена</string>
+    <string name="action_clear_search">изчистване на търсенето</string>
+    <string name="search_settings">Настройки на търсенето</string>
+    <string name="content_desc_security_status">Статус на сигурността на защитната стена</string>
+    <string name="content_desc_app_icon">Икона на приложение за %s</string>
+    <string name="content_desc_show_info">Показване на информация за %1$s</string>
+
+    <!-- Dashboard stats -->
+    <string name="stat_blocked_today">Блокирани</string>
+    <string name="stat_allowed_today">Разрешени</string>
+    <string name="stat_active_rules">Активни правила</string>
+
+    <!-- Tooltips -->
+    <string name="tooltip_rcode">DNS кодът за отговор е изпратен за блокирани домейни. По подразбиране 3 (NXDOMAIN) означава, че домейнът не съществува.</string>
+    <string name="tooltip_ttl">Минимално време за живот за DNS кеш записи в секунди.</string>
+    <string name="tooltip_pcap">Запишете всички мрежови пакети за отстраняване на грешки. Създава големи файлове.</string>
+    <string name="tooltip_filter">Прихващане и анализ на трафика. Изисква се за блокиране на адреси. Използва повече батерия.</string>
+    <string name="tooltip_lockdown">Блокиране на целия трафик, с изключение на изрично разрешените приложения. Използвайте с повишено внимание.</string>
+
+    <string name="menu_protocol_udp" translatable="false">UDP</string>
+    <string name="menu_protocol_tcp" translatable="false">TCP</string>
     <string name="menu_protocol_other">Други</string>
     <string name="menu_traffic_allowed">Разрешен</string>
     <string name="menu_traffic_blocked">Блокиран</string>
     <string name="menu_live">Обновяване в реално време</string>
     <string name="menu_refresh">Опресняване</string>
+    <string name="menu_ok">OK</string>
+    <string name="menu_cancel">Отказ</string>
     <string name="menu_resolve">Показване на имената</string>
     <string name="menu_organization">Организация</string>
     <string name="menu_pcap_enabled">PCAP разрешено</string>
@@ -41,29 +133,47 @@
     <string name="menu_clear">Изчистване</string>
     <string name="menu_export">Изнасяне</string>
     <string name="menu_reset">Нулиране</string>
+
     <string name="menu_add">Добавяне</string>
     <string name="menu_delete">Изтриване</string>
+
     <string name="menu_cleanup">Почистване</string>
+
     <string name="title_protocol">Протокол</string>
     <string name="title_dport">Изходящ порт</string>
     <string name="title_raddr">Отдалечен адрес</string>
     <string name="title_rport">Отдалечен порт</string>
     <string name="title_ruid">Текущо приложение</string>
     <string name="title_external">За външен сървър изберете \'nobody\'</string>
+
     <string name="setting_defaults">По подразбиране</string>
     <string name="setting_whitelist_wifi">Блокиране на Wi-Fi</string>
     <string name="setting_whitelist_other">Блокиране на мобилни данни</string>
     <string name="setting_screen_wifi">Позволяване на Wi-Fi, когато екранът е включен</string>
     <string name="setting_screen_other">Позволяване на мобилни данни, когато екранът е включен</string>
     <string name="setting_whitelist_roaming">Блокиране при роуминг</string>
-    <string name="setting_options">Настройки</string>
+
+    <string name="setting_options">Опции</string>
     <string name="setting_theme">Тема: %1$s</string>
     <string name="setting_dark">Използване на тъмна тема</string>
+    <string name="setting_theme_palette">Изберете цветен стил</string>
+    <string name="setting_dynamic_unavailable">Динамичните цветове изискват Android 12 или по-нова версия.</string>
+    <string name="setting_appearance_mode">Режим на външен вид</string>
+    <string name="setting_appearance_mode_title">Тъмен режим</string>
+    <string name="setting_appearance_mode_summary">Изберете Изключено, Включено или Следвай системата.</string>
+    <string name="setting_appearance_preview">Текущо: %1$s · %2$s</string>
+    <string name="setting_appearance_auto">Автоматично</string>
+    <string name="setting_appearance_light">Светло</string>
+    <string name="setting_appearance_dark">Тъмно</string>
+    <string name="theme_dynamic" translatable="false">Dynamic</string>
     <string name="setting_install">Известие при инсталиране на приложение</string>
     <string name="setting_screen_on">Прилагане на правилата „при включен екран“</string>
     <string name="setting_auto">Автоматично включване след %1$s минути</string>
     <string name="setting_delay">Отлагане изключването на екрана с %1$s минути</string>
     <string name="setting_update">Проверка за обновяване</string>
+    <string name="setting_update_now">Провери сега</string>
+    <string name="setting_update_checking">Проверява се...</string>
+
     <string name="setting_network_options">Мрежови настройки</string>
     <string name="setting_subnet">Маршрутизиране на подмрежи</string>
     <string name="setting_tethering">Позволяване на привързване</string>
@@ -80,15 +190,18 @@
     <string name="setting_lockdown_wifi">Заключване на Wi-Fi</string>
     <string name="setting_lockdown_other">Заключване на мобилни данни</string>
     <string name="setting_reload_onconnectivity">Презареждане при всяка промяна на връзката</string>
+
     <string name="setting_advanced_options">Разширени настройки</string>
     <string name="setting_system">Управление на системни приложения</string>
-    <string name="setting_log_app">Регистриране на достъпа до интернет във файл</string>
+    <string name="setting_log_app">Регистриране на достъпа до интернет</string>
+    <string name="setting_log_retention_days">Дни на задържане на регистъра на трафика</string>
     <string name="setting_access">Известие при достъп до интернет</string>
     <string name="setting_filter">Филтриране на трафика</string>
     <string name="setting_filter_udp">Филтриране на трафика по UDP</string>
     <string name="setting_handover">Безпроблемно предаване на VPN при презареждане</string>
     <string name="setting_clear_onreload">Прекъсване на връзката при презареждане</string>
     <string name="setting_lockdown">Заключване на трафика</string>
+    <string name="setting_malware" translatable="false">Защита от злонамерен софтуер</string>
     <string name="setting_track_usage">Следене на достъпа до мрежа</string>
     <string name="setting_reset_usage">Нулиране на данните за достъп до мрежа</string>
     <string name="setting_show_resolved">Показване на заявените домейни</string>
@@ -98,6 +211,7 @@
     <string name="setting_vpn4">VPN IPv4: %s</string>
     <string name="setting_vpn6">VPN IPv6: %s</string>
     <string name="setting_dns">VPN DNS: %s</string>
+    <string name="setting_dns2">Вторичен DNS: %s</string>
     <string name="setting_validate">Проверка: %s</string>
     <string name="setting_ttl">Минимален TTL за DNS: %s с</string>
     <string name="setting_socks5_enabled">Използване на SOCKS5 прокси</string>
@@ -107,12 +221,15 @@
     <string name="setting_socks5_password">SOCKS5 парола: %s</string>
     <string name="setting_pcap_record_size">PCAP записване на размер: %s B</string>
     <string name="setting_pcap_file_size">PCAP максимален размер на файла: %s MB</string>
+    <string name="setting_pcap">Записване на мрежовия трафик (PCAP)</string>
     <string name="setting_watchdog">Пазител: всеки %s минути</string>
+
     <string name="setting_stats_category">Известие с текущите скорости</string>
     <string name="setting_stats">Показване на известия за скоростта</string>
     <string name="setting_stats_top">Показване на най-използваните приложения</string>
     <string name="setting_stats_frequency">Интервал на измерване: %s мс</string>
-    <string name="setting_stats_samples">Брой измервания: %s бр.</string>
+    <string name="setting_stats_samples">Брой измервания: %s</string>
+
     <string name="setting_backup">Архивиране</string>
     <string name="setting_export">Изнасяне на настройки</string>
     <string name="setting_import">Внасяне на настройки</string>
@@ -120,14 +237,29 @@
     <string name="setting_hosts_append">Внасяне на файл „hosts“ (добавя)</string>
     <string name="setting_hosts_url">Адрес за изтегляне на файл „hosts“</string>
     <string name="setting_hosts_download">Изтегляне на файл „hosts“</string>
+    <string name="setting_use_hosts">Използване на файла на домакина</string>
+
     <string name="setting_technical">Техническа информация</string>
     <string name="setting_technical_general">Общи</string>
     <string name="setting_technical_networks">Мрежи</string>
     <string name="setting_technical_subscription">Абонаменти</string>
+    <string name="setting_section_appearance">Външен вид</string>
+    <string name="setting_section_firewall">Правила на защитната стена</string>
+    <string name="setting_section_advanced">Разширено поведение</string>
+    <string name="setting_section_hosts">Домакини и DNS</string>
+    <string name="setting_section_network">Мрежова конфигурация</string>
+    <string name="setting_section_dns">Подробности за DNS</string>
+    <string name="setting_section_proxy">Прокси</string>
+    <string name="setting_section_vpn">VPN конфигурация</string>
+    <string name="setting_section_background">Задачи на заден план</string>
+    <string name="setting_section_diagnostics">Диагностика</string>
+    <string name="setting_section_support">Поддръжка</string>
+
     <string name="summary_install">Показва се известие за настройка на новто инсталирано приложение (платена функция)</string>
     <string name="summary_auto">След изключване на активна притурка, автоматично активиране на NetGuard отново след избрания брой минути (въведете 0 за деактивиране на опцията)</string>
     <string name="summary_delay">След изключване на екрана, влизат в сила правилата при включен екран за избрания брой минути (въведете 0 за деактивиране на опцията)</string>
     <string name="summary_update">Проверка за нови версии в GitHub два пъти дневно</string>
+
     <string name="summary_tethering">Според версията на Android, привързването може да работи или не. Трафикът от привързване не може да се филтрира.</string>
     <string name="summary_subnet">Разрешаване на подмрежово маршрутизиране; може да активира Wi-Fi обаждане, но може да предизвика грешки в Android и да увеличи използването на батерията</string>
     <string name="summary_lan">Разрешаване на приложенията да се свързват към адреси в локалната мрежа, като 10.0.0.0/8, 172.16.0.0/12 и 192.168.0.0/16</string>
@@ -138,10 +270,12 @@
     <string name="summary_metered_3g">Прилагане на правилата за Wi-Fi при връзка за мобилни данни на 3G</string>
     <string name="summary_metered_4g">Прилагане на правилата за Wi-Fi при връзка за мобилни данни на LTE</string>
     <string name="summary_national_roaming">Да не се прилагат правилата при роуминг, когато СИМ картата и операторът са от една и съща държава</string>
-    <string name="summary_eu_roaming">Да не се прилагат правилата при роуминг, когато СИМ картата и операторът са в ЕС</string>
+    <string name="summary_eu_roaming">Да не се прилагат правилата при роуминг, когато СИМ картата и операторът са в ЕС (roam like at home)</string>
     <string name="summary_call">Деактивиране на NetGuard при входящо или изходящо телефонно повикване. Това може да се използва за заобикаляне на проблеми с IP/Wi-Fi разговори.</string>
+
     <string name="summary_system">Задаване на правила за системни приложения (за напреднали потребители)</string>
     <string name="summary_log_app">Регистриране на опитите за достъп до интернет на приложенията. Това може да доведе до допълнително използване на батерията.</string>
+    <string name="summary_log_retention_days">Автоматично премахване на стари дневници за трафика по време на поддръжка. Задайте 0, за да запазите регистрите завинаги.</string>
     <string name="summary_access">Показва се известие при опит на приложение за достъп до нов интернет адрес (при изключено филтриране, ще се показват само блокираните опити)</string>
     <string name="summary_filter">Филтриране на IP пакетите излязащи от VPN тунела. Това може да доведе до допълнително използване на батарията.</string>
     <string name="summary_track_usage">Проследяване на броя байтове, изпратени и получени за всяко приложение и адрес. Това може да доведе до допълнителено използване на батерията.</string>
@@ -150,36 +284,47 @@
     <string name="summary_validate">Домейн, използван за проверка на връзката с интернет на порт 443 (https).</string>
     <string name="summary_socks5_enabled">Само TCP трафикът ще бъде изпратен към прокси сървъра</string>
     <string name="summary_watchdog">Периодично проверява дали NetGuard е активен (въведете 0 за деазктивиране на опцията). Това може да доведе до допълнителен разход на батерията.</string>
+
     <string name="summary_stats">Показва се графика със скоростите на пренос в лентата за известия</string>
+
+    <string-array name="default_wifi_home"></string-array>
+
     <string name="msg_sure">Сигурни ли сте?</string>
     <string name="msg_started">Строги правила</string>
-    <string name="msg_packages">%1$d, разрешени, %2$d блокирани</string>
-    <string name="msg_hosts">%1$d разрешени, %2$d забранени, %3$d хостове</string>
+    <string name="msg_packages">%1$d разрешени, %2$d блокирани</string>
+    <string name="msg_hosts">%1$d разрешени, %2$d блокирани, %3$d хоста</string>
     <string name="msg_waiting">Изчакване за събитие</string>
     <string name="msg_disabled">NetGuard е изключен, използвайте превключвателя горе, за да включите NetGuard</string>
     <string name="msg_notifications">За да разрешите известията, докоснете (за питане за достъп, съобщения за грешка и др.)</string>
     <string name="msg_revoked">NetGuard се изключи, най-вероятно използвате друго VPN базирано приложение</string>
     <string name="msg_installed">\"%1$s\" инсталирани</string>
     <string name="msg_installed_n">Е инсталиран</string>
+    <string name="msg_malware" translatable="false">Възможен злонамерен софтуер: \'%1$s\'</string>
     <string name="msg_access">%1$s опита за достъп до интернет</string>
     <string name="msg_access_n">Опитвал достъп до интернет</string>
     <string name="msg_completed">Действието е завършено</string>
+    <string name="msg_invalid">Моля, проверете стойностите и опитайте отново.</string>
+    <string name="msg_export_failed">Неуспешно експортиране: %1$s</string>
     <string name="msg_vpn">NetGuard използва местен VPN за филтриране на трафика.
 Поради тази причина в следващия диалогов прозорец разрешете връзката през VPN.
 Трафик към интернет не се изпраща към отдалечен сървър на VPN.</string>
     <string name="msg_autostart">NetGuard не може да се стартира автоматично при стартиране на системата поради грешка в Android версията</string>
     <string name="msg_error">Възникна неочаквана грешка: \"%s\"</string>
-    <string name="msg_start_failed">Андроид отказва за момента да стартира услугата за ВЧМ. Най-вероятно се дължи на дефект в изданието на Андроид.</string>
+    <string name="msg_start_failed">Андроид отказва за момента да стартира услугата за VPN. Най-вероятно се дължи на дефект в изданието на Андроид.</string>
     <string name="msg_try">Опитайте NetGuard</string>
-    <string name="msg_terms">Чрез даряването, вие се съгласявате с <a href="http://www.netguard.me/#terms"> общите условия</a></string>
+    <string name="msg_terms">Дарявайки, вие се съгласявате с <a href="http://www.netguard.me/#terms">общите условия</a></string>
     <string name="msg_dimming">Ако не можете да натиснете OK в следващия диалогов прозорец, то вероятно друго приложение манипулира екрана (затъмняване на екрана).</string>
-    <string name="msg_mbday">± %1$.3f▲ %2$.3f▼ Мб/ден</string>
-    <string name="msg_kb">%1$7.3f▲ %2$7.3f▼ Кб</string>
-    <string name="msg_mb">%1$7.3f▲ %2$7.3f▼ Мб</string>
-    <string name="msg_gb">%1$7.3f▲ %2$7.3f▼ Гб</string>
+    <string name="msg_mbday">&#177; %1$.3f&#9650; %2$.3f&#9660; MB/ден</string>
+    <string name="msg_kbsec">%7.3f KB/s</string>
+    <string name="msg_mbsec">%7.3f MB/s</string>
+    <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
+    <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
+    <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
     <string name="msg_count">%dx</string>
-    <string name="msg_doze">За правилната работа на приложението моля, не активирайте оптимизация на батерията за NetGuard. \n\nв следващия диалогов прозорец, изберете \"Всички приложения\" в горната част, докоснете върху NetGuard в списъка. Изберете и потвърдете \"Не оптимизирай\".</string>
-    <string name="msg_datasaving">За постоянни резултати трябва да изключите \"Android data saving\" за NetGuard \n\nВ следващия диалогов прозорец, разрешете \"Background data\" и \"Unrestricted data usage\"</string>
+    <string name="msg_doze">За правилната работа на приложението моля, не активирайте оптимизация на батерията за NetGuard.
+\n\nв следващия диалогов прозорец, изберете \"Всички приложения\" в горната част, докоснете върху NetGuard в списъка. Изберете и потвърдете \"Не оптимизирай\".</string>
+    <string name="msg_datasaving">За постоянни резултати трябва да изключите \"Android data saving\" за NetGuard.
+\n\nВ следващия диалогов прозорец, разрешете \"Background data\" и \"Unrestricted data usage\"</string>
     <string name="msg_filter">Филтрирането на трафика ще накара Android да причисли използвания трафик и консумация на батерия към NetGuard, а не към приложенията, които реално са извършили консумацията им</string>
     <string name="msg_filter4">Андроид 4 изисква филтрирането да бъде включено</string>
     <string name="msg_log_disabled">Rегистрирането на трафика е изключено, използвайте опцията по-горе за да разрешите регистрирането. Регистрирането на трафика може да доведе до допълнителна употреба на батерията.</string>
@@ -207,6 +352,7 @@
     <string name="msg_always_on">Друга VPN услуга е настроена като \"Винаги включена VPN услуга\"</string>
     <string name="msg_always_on_lockdown">Изключете \"Блокиране на връзки без VPN\" в настройките на Android VPN, за да използвате NetGuard в режим на филтриране</string>
     <string name="msg_private_dns">Изключете \"Private DNS\" в мрежовите настройки на Android, за да използвате NetGuard в режим на филтриране</string>
+
     <string name="title_lockdown_enabled">Трафикът е заключен</string>
     <string name="title_unmetered_allowed">Неограниченият трафик е разрешен</string>
     <string name="title_unmetered_blocked">Неограниченият трафик е блокиран</string>
@@ -219,45 +365,57 @@
     <string name="title_interactive_allowed">Позволи, когато екранът е включен</string>
     <string name="title_roaming_blocked">Блокиране при роуминг</string>
     <string name="title_metered">По подразбиране, връзката по Wi-Fi се счита за неограничен трафик, а мобилна връзка за ограничен</string>
+
     <string name="title_internet">няма разрешение за интернет достъп</string>
     <string name="title_disabled">е изключен</string>
     <string name="title_messaging">Входящите съобщения се получават от услугите на Google Play, а не от това приложение, и следователно не могат да бъдат блокирани чрез блокиране на това приложение</string>
     <string name="title_download">Изтеглянията се извършват от мениджъра за изтегляне, а не от това приложение, и следователно не могат да бъдат блокирани чрез блокиране на това приложение</string>
     <string name="title_apply">Прилагане на павилата и условията</string>
     <string name="title_conditions">Условия</string>
-    <string name="title_screen_wifi">Позволяване на  Wi-Fi, когато екранът е включен</string>
+    <string name="title_screen_wifi">Позволяване на Wi-Fi, когато екранът е включен</string>
     <string name="title_screen_other">Позволяване на мобилни данни, когато екранът е включен</string>
     <string name="title_roaming_symbol">Р</string>
     <string name="title_roaming">Блокиране при роуминг</string>
+    <string name="label_ttl">TTL: %s с</string>
+    <string name="label_uid">UID: %s</string>
     <string name="title_lockdown">Разрешаване по време на заключен трафик</string>
     <string name="title_related">Поради текущ филтър</string>
     <string name="title_access">Опити за достъп</string>
     <string name="title_precedence">Правилата за достъп имат предимство пред други правила</string>
     <string name="title_options">Настройки</string>
     <string name="title_notify">Известяване при опити за достъп до интернет</string>
+
     <string name="title_logging_disabled">Дневникът или филтрирането не са включени</string>
     <string name="title_logging_enabled">Дневникът и филтрирането са включени</string>
     <string name="title_logging_configure">Настройки</string>
+
     <string name="title_enable_logging">Запис в дневника само на забранените адреси</string>
     <string name="title_enable_filtering">Включване на филтрирането, за да се записват и разрешените</string>
     <string name="title_enable_notify">Известяване при нов записан адрес</string>
     <string name="title_enable_help0">Това са общи настройки за всички приложения</string>
     <string name="title_enable_help1">Филтрирането е необходимо и за разрешаване или забраняване на отделни адреси</string>
     <string name="title_enable_help2">Включване на дневника (по-малко) или филтрирането (повече) може да има отражение върху разхода на батерия, а също и върху скоростта на мрежата</string>
+
     <string name="title_rate">Оценяване</string>
     <string name="title_allow">Разрешаване</string>
     <string name="title_block">Забраняване</string>
+    <string name="title_wifi">Wi-Fi</string>
+    <string name="title_mobile">Мобилни</string>
     <string name="title_allow_wifi">Разрешаване на Wi-Fi</string>
     <string name="title_block_wifi">Забраняване на Wi-Fi</string>
     <string name="title_allow_other">Разрешаване на мобилни данни</string>
     <string name="title_block_other">Забраняване на мобилни данни</string>
-    <string name="title_root">права на суперпотрбител</string>
-    <string name="title_mediaserver">сървър за медиа</string>
+    <string name="title_root">root</string>
+    <string name="title_mediaserver">mediaserver</string>
+    <string name="title_gpsdaemon" translatable="false">GPS daemon</string>
+    <string name="title_dnsdaemon" translatable="false">DNS daemon</string>
     <string name="title_nobody">никой</string>
     <string name="title_dontask">Без ново питане</string>
+
     <string name="title_log_whois">Whois %1$s</string>
     <string name="title_log_port">Порт %1$d</string>
     <string name="title_log_copy">Копиране</string>
+
     <string name="title_pro">Платени възможности</string>
     <string name="title_pro_description">Налични са следните платени възможности:</string>
     <string name="title_pro_log">Преглед на дневника с блокиран трафик</string>
@@ -274,19 +432,20 @@
     <string name="title_pro_challenge">Предизвикателство</string>
     <string name="title_pro_reponse">Отговор</string>
     <string name="title_pro_feature">Това е платена възможност</string>
-    <string name="title_pro_subscription">        Месечен абонамент от 1 или 2 евро (без такси и данъци) ще включи всички платени възможности.
+    <string name="title_pro_subscription">
+        Месечен абонамент от 1 или 2 евро (без такси и данъци) ще включи всички платени възможности.
         Можете да спрете или управлявате абонамента от раздела за абонаменти в приложението на Play Store.
     </string>
-    <string-array name="themeNames">
-        <item>синьо-зелено/оранжево</item>
-        <item>синьо/оранжево</item>
-        <item>лилаво/червено</item>
-        <item>кехлибарено/синьо</item>
-        <item>оранжево/сиво</item>
-        <item>зелено</item>
-    </string-array>
-    <string-array name="protocolNames">
+    <string name="title_pro_already">Платените възможности вече са активирани</string>    <string-array name="protocolNames">
         <item>UDP</item>
         <item>TCP</item>
     </string-array>
+
+    <string-array name="protocolValues" translatable="false">
+        <item>17</item>
+        <item>6</item>
+    </string-array>
+
+    <string name="label_dns_summary">%1$d записа • %2$d изтекли</string>
+
 </resources>

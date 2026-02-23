@@ -1,45 +1,452 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name" translatable="false">NetGuard Next</string>
+    <string name="app_description">NetGuard Next යනු රූට් (root) අවශ්‍යතාවයකින් තොරව අන්තර්ජාල ප්‍රවේශය අවහිර කිරීමට සරල සහ උසස් ක්‍රම ලබා දෙන යෙදුමකි. ඔබගේ Wi-Fi සහ/හෝ ජංගම දත්ත සම්බන්ධතා සඳහා එක් එක් යෙදුම් සහ ලිපින වලට තනි තනිව ප්‍රවේශය ලබා දීමට හෝ ප්‍රතික්ෂේප කිරීමට මෙහිදී හැකියාව ඇත.</string>
+    <string name="app_copyright" translatable="false">Copyright \u00A9 2015–2025 by M. Bokhorst (M66B)</string>
+    <string name="app_android">NetGuard සඳහා Android 5.1 හෝ ඊට පසු සංස්කරණයක් අවශ්‍ය වේ</string>
+    <string name="app_eula" translatable="false">THIS SOFTWARE IS PROVIDED BY THE AUTHOR \'\'AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
+    <string name="app_privacy"><a href="https://www.netguard.me/privacy/">පෞද්ගලිකත්ව ප්‍රතිපත්තිය</a></string>
+    <string name="app_first">NetGuard සංවර්ධනය කිරීමට සහ පරීක්ෂා කිරීමට මහත් සැලකිල්ලක් දක්වා ඇත, කෙසේ වෙතත් NetGuard සෑම උපාංගයකම නිවැරදිව ක්‍රියා කරන බවට සහතික විය නොහැක.</string>
+    <string name="app_agree">මම එකඟයි</string>
+    <string name="app_disagree">මම එකඟ නැත</string>
+    <string name="app_support">NetGuard හට ඔබගේ උදව් අවශ්‍යයි. ව්‍යාපෘතිය පවත්වාගෙන යාම සඳහා Pro විශේෂාංග මිලදී ගැනීමට තට්ටු කරන්න.</string>
+    <string name="app_qap">
+        සියලුම යෙදුම් විමසීමට අවසර ඉල්ලා සිටීම නිසා Google විසින් Play Store වෙතින් යෙදුම ඉවත් කිරීමට නියමිතව තිබුණි.
+        මෙම අවසරය අවශ්‍ය වන්නේ මන්දැයි හොඳ සාධාරණීකරණයක් ඉදිරිපත් කළත් අභියාචනා පහක්ම ප්‍රතික්ෂේප විය.
+        යෙදුමේ මෙම සංස්කරණය තවදුරටත් මෙම අවසරය ඉල්ලා නොසිටියි,
+        එසේ වුවද, ඇන්ඩ්‍රොයිඩ් යෙදුම් ලැයිස්තුවෙන් හස්තීයව ආරම්භ කළ නොහැකි සමහර (පද්ධති) යෙදුම් හැර අනෙකුත් සියලුම යෙදුම් තවමත් ලැයිස්තුගත කරනු ඇත.
+        ඔබේ උපාංගය නිවැරදිව ක්‍රියාත්මක වන බව සහතික කිරීම සඳහා මෙම යෙදුම්වල අන්තර්ජාල ගමනාගමනයට සැමවිටම ඉඩ දෙනු ලැබේ.
+        මෙය ගැටළුවක් යැයි ඔබ සිතන්නේ නම්, ඔබට යෙදුමේ GitHub අනුවාදයට යාවත්කාලීන කර නැවත සියලුම (පද්ධති) යෙදුම් කළමනාකරණය කළ හැකිය.
+    </string>
+
+    <string name="channel_foreground">ක්‍රියාත්මක වන සේවාවන්</string>
+    <string name="channel_notify">පොදු දැනුම්දීම්</string>
+    <string name="channel_access">ප්‍රවේශ දැනුම්දීම්</string>
+
+    <string name="menu_search">යෙදුම් සොයන්න</string>
+    <string name="menu_filter">යෙදුම් පෙරන්න</string>
     <string name="menu_app_user">පරිශීලක යෙදුම් පෙන්වන්න</string>
+    <string name="menu_app_system">පද්ධති යෙම් පෙන්වන්න</string>
+    <string name="menu_app_nointernet">අන්තර්ජාලය නොමැති යෙදුම් පෙන්වන්න</string>
+    <string name="menu_app_disabled">අක්‍රිය කළ යෙදුම් පෙන්වන්න</string>
+    <string name="menu_sort">යෙදුම් පෙළගස්වන්න</string>
+    <string name="menu_sort_name">නම අනුව පෙළගස්වන්න</string>
+    <string name="menu_sort_uid">UID අනුව පෙළගස්වන්න</string>
+    <string name="menu_sort_data">දත්ත භාවිතය අනුව පෙළගස්වන්න</string>
+    <string name="menu_launch">යෙදුම අරඹන්න</string>
+    <string name="menu_log">ලොගය පෙන්වන්න</string>
     <string name="menu_settings">සැකසුම්</string>
+    <string name="menu_home">මුල් පිටුව</string>
+    <string name="menu_invite">ආරාධනා කරන්න</string>
+    <string name="menu_legend">සංකේත විස්තරය</string>
     <string name="menu_support">සහාය</string>
-    <string name="menu_about">පිලිබඳ</string>
-    <string name="menu_apps">වෙනත් යෙදුම්</string>
+    <string name="menu_about">පිළිබඳව</string>
+    <string name="menu_apps">අනෙකුත් යෙදුම්</string>
+    <string name="menu_firewall">ගිනිපවුර (Firewall)</string>
+    <string name="status_enabled">ගිනිපවුර ක්‍රියාත්මකයි</string>
+    <string name="status_disabled">ගිනිපවුර අක්‍රියයි</string>
+    <string name="widget_firewall_enabled">Firewall ක්‍රියාත්මකයි</string>
+    <string name="widget_firewall_disabled">Firewall අක්‍රියයි</string>
+    <string name="widget_lockdown_enabled">අගුලු දැමීම ක්‍රියාත්මකයි</string>
+    <string name="widget_lockdown_disabled">අගුලු දැමීම අක්‍රියයි</string>
+    <string name="notify_traffic_title">දත්ත ගමනාගමන නිරීක්ෂකය</string>
+    <string name="notify_traffic_summary">ඉහළට %1$s • පහළට %2$s • උපරිමය %3$s</string>
+    <string name="notify_traffic_debug">සැසි %1$d/%2$d/%3$d • ගොනු %4$d/%5$d</string>
+    <string name="ui_loading">පූරණය වෙමින්…</string>
+    <string name="ui_empty_logs_title">තවමත් ගමනාගමනයක් නොමැත</string>
+    <string name="ui_empty_logs_body">සම්බන්ධතා ඇති වූ විට ඒවා මෙහි දිස්වනු ඇත.</string>
+    <string name="ui_empty_apps_title">යෙදුම් කිසිවක් හමු නොවීය</string>
+    <string name="ui_empty_apps_body">ලැයිස්තුව නැවුම් කිරීමට උත්සාහ කරන්න.</string>
+    <string name="ui_empty_dns_title">තවමත් විසඳන ලද DNS නොමැත</string>
+    <string name="ui_empty_dns_body">අන්තර්ජාලයේ සැරිසැරීමෙන් පසු DNS ප්‍රතිචාර මෙහි දිස්වනු ඇත.</string>
+    <string name="ui_dns_filter_empty">මෙම පෙරහනට ගැලපෙන DNS ඇතුළත් කිරීම් නොමැත.</string>
+    <string name="ui_empty_forwarding_title">ඉදිරියට යැවීමේ නීති නොමැත</string>
+    <string name="ui_empty_forwarding_body">දත්ත ගමනාගමනය ඉදිරියට යැවීම ආරම්භ කිරීමට නීතියක් එක් කරන්න.</string>
+    <string name="ui_forwarding_filter_empty">මෙම පෙරහනට ගැලපෙන ඉදිරියට යැවීමේ නීති නොමැත.</string>
+    <string name="ui_empty_pro_body">සහාය දැක්වීමෙන් අමතර විශේෂාංග විවෘත වන අතර ව්‍යාපෘතිය පවත්වාගෙන යාමට උපකාරී වේ.</string>
+    <string name="ui_empty_pro_details">Pro මඟින්: පෙරීම, ලොගයන්, දැනුම්දීම්, තේමාවන් සහ වේග සීමාවන් විවෘත වේ.</string>
+    <string name="ui_home_hint">සෑම යෙදුමකටම අන්තර්ජාල ප්‍රවේශය පාලනය කරන්න.</string>
+    <string name="ui_home_quick_actions">ඉක්මන් ක්‍රියා</string>
+    <string name="ui_apps_title">ගිනිපවුර</string>
+    <string name="ui_logs_title">දත්ත ගමනාගමන ලොගය</string>
+    <string name="ui_logs_filters">පෙරහන්</string>
+    <string name="ui_logs_filter_status">තත්ත්වය</string>
+    <string name="ui_logs_filter_protocol">ප්‍රොටෝකෝලය</string>
+    <string name="ui_logs_filter_view">දසුන</string>
+    <string name="ui_logs_group_timeline">කාලරාමුව</string>
+    <string name="ui_logs_group_by_app">යෙදුම අනුව</string>
+    <string name="ui_logs_unknown_source">නොදන්නා මූලාශ්‍රයකි</string>
+    <string name="ui_settings_title">සැකසුම්</string>
+    <string name="ui_dns_title">විසඳන ලද DNS</string>
+    <string name="ui_forwarding_title">Port Forwarding</string>
+    <string name="ui_dns_hint">මෑතකදී විසඳන ලද වසම් සහ ප්‍රතිචාර.</string>
+    <string name="ui_forwarding_hint">ඉදිරියට යැවීමේ නීති සහ ඉලක්කගත යෙදුම් කළමනාකරණය කරන්න.</string>
+    <string name="ui_dns_active">සක්‍රියයි</string>
+    <string name="ui_rule_custom">අභිරුචි</string>
+    <string name="ui_dns_expired">කාලය ඉකුත් වී ඇත</string>
+    <string name="ui_filter_all">සියල්ල</string>
+    <string name="ui_filter_empty">මෙම පෙරහනට ගැලපෙන යෙදුම් නොමැත.</string>
+    <string name="ui_apps_search_empty">මෙම සෙවුමට ගැලපෙන යෙදුම් නොමැත.</string>
+    <string name="ui_learn_more">වැඩිදුර ඉගෙන ගන්න</string>
+    <string name="status_running">දත්ත ගමනාගමනය පෙරෙමින් පවතී</string>
+    <string name="status_not_running">දත්ත ගමනාගමනය පෙරෙන්නේ නැත</string>
+    <string name="action_enable">ක්‍රියාත්මක කරන්න</string>
+    <string name="action_disable">අක්‍රිය කරන්න</string>
+    <string name="home_apps_hint">යෙදුම් නීති සහ දත්ත භාවිතය සමාලෝචනය කරන්න</string>
+    <string name="home_logs_hint">මෑත කාලීන ජාල ක්‍රියාකාරකම් පරීක්ෂා කරන්න</string>
+
+    <!-- Accessibility -->
+    <string name="action_expand">විස්තර විහිදුවන්න</string>
+    <string name="action_collapse">විස්තර හකුළන්න</string>
+    <string name="action_navigate">විවෘත කරන්න</string>
+    <string name="action_toggle_firewall">ගිනිපවුර මාරු කරන්න</string>
+    <string name="action_clear_search">සෙවුම මකන්න</string>
+    <string name="search_settings">සැකසුම් තුළ සොයන්න</string>
+    <string name="content_desc_security_status">ගිනිපවුරේ ආරක්ෂක තත්ත්වය</string>
+    <string name="content_desc_app_icon">%s සඳහා යෙදුම් නිරූපකය</string>
+    <string name="content_desc_show_info">%1$s පිළිබඳ තොරතුරු පෙන්වන්න</string>
+
+    <!-- Dashboard stats -->
+    <string name="stat_blocked_today">අවහිර කළ ඒවා</string>
+    <string name="stat_allowed_today">ඉඩ දුන් ඒවා</string>
+    <string name="stat_active_rules">සක්‍රිය නීති</string>
+
+    <!-- Tooltips -->
+    <string name="tooltip_rcode">අවහිර කළ වසම් සඳහා යවන ලද DNS ප්‍රතිචාර කේතය. 3 (NXDOMAIN) යනු වසම නොපවතින බවයි.</string>
+    <string name="tooltip_ttl">DNS කෑෂ් ඇතුළත් කිරීම් සඳහා අවම කාලය තත්පර වලින්.</string>
+    <string name="tooltip_pcap">දෝෂ නිරාකරණය සඳහා සියලුම ජාල පැකට් පටිගත කරන්න. විශාල ගොනු සාදනු ලබයි.</string>
+    <string name="tooltip_filter">දත්ත ගමනාගමන බාධා කර විශ්ලේෂණය කරන්න. එක් එක් ලිපින අවහිර කිරීම සඳහා අවශ්‍ය වේ. වැඩි බැටරි ප්‍රමාණයක් වැය වේ.</string>
+    <string name="tooltip_lockdown">පැහැදිලිවම ඉඩ දී ඇති යෙදුම් හැර අනෙකුත් සියලුම ගමනාගමනය අවහිර කරන්න. ප්‍රවේශමෙන් භාවිතා කරන්න.</string>
+
+    <string name="menu_protocol_udp" translatable="false">UDP</string>
+    <string name="menu_protocol_tcp" translatable="false">TCP</string>
     <string name="menu_protocol_other">වෙනත්</string>
-    <string name="menu_reset">යලි පිහිටුවන්න</string>
-    <string name="menu_add">එකතු කරන්න</string>
+    <string name="menu_traffic_allowed">ඉඩ දුන්</string>
+    <string name="menu_traffic_blocked">අවහිර කළ</string>
+    <string name="menu_live">සජීවී යාවත්කාලීන කිරීම්</string>
+    <string name="menu_refresh">නැවුම් කරන්න</string>
+    <string name="menu_ok">හරි</string>
+    <string name="menu_cancel">අවලංගු කරන්න</string>
+    <string name="menu_resolve">නම් පෙන්වන්න</string>
+    <string name="menu_organization">සංවිධානය පෙන්වන්න</string>
+    <string name="menu_pcap_enabled">PCAP සක්‍රියයි</string>
+    <string name="menu_pcap_export">PCAP අපනයනය</string>
+    <string name="menu_clear">මකන්න</string>
+    <string name="menu_export">අපනයනය කරන්න</string>
+    <string name="menu_reset">නැවත සකසන්න</string>
+
+    <string name="menu_add">එක් කරන්න</string>
     <string name="menu_delete">මකන්න</string>
-    <string name="title_protocol">කෙටුම්පත</string>
+
+    <string name="menu_cleanup">පිරිසිදු කරන්න</string>
+
+    <string name="title_protocol">ප්‍රොටෝකෝලය</string>
+    <string name="title_dport">මූලාශ්‍ර පෝට් එක</string>
+    <string name="title_raddr">ගමනාන්ත ලිපිනය</string>
+    <string name="title_rport">ගමනාන්ත පෝට් එක</string>
+    <string name="title_ruid">ඉලක්කගත යෙදුම</string>
+    <string name="title_external">බාහිර සේවාදායකයක් සඳහා \'nobody\' තෝරන්න</string>
+
+    <string name="setting_defaults">පෙරනිමි (සුදු/කළු ලැයිස්තුව)</string>
+    <string name="setting_whitelist_wifi">Wi-Fi අවහිර කරන්න</string>
+    <string name="setting_whitelist_other">ජංගම දත්ත අවහිර කරන්න</string>
+    <string name="setting_screen_wifi">තිරය ක්‍රියාත්මකව පවතින විට Wi-Fi වලට ඉඩ දෙන්න</string>
+    <string name="setting_screen_other">තිරය ක්‍රියාත්මකව පවතින විට ජංගම දත්ත වලට ඉඩ දෙන්න</string>
+    <string name="setting_whitelist_roaming">Roaming අවහිර කරන්න</string>
+
     <string name="setting_options">විකල්ප</string>
     <string name="setting_theme">තේමාව: %1$s</string>
     <string name="setting_dark">අඳුරු තේමාව භාවිතා කරන්න</string>
-    <string name="setting_update">යාවත්කාලීනයන් සඳහා පිරික්සන්න</string>
-    <string name="setting_system">පද්ධති යෙදුම් කළමනාකරණය</string>
+    <string name="setting_theme_palette">වර්ණ විලාසයක් තෝරන්න</string>
+    <string name="setting_dynamic_unavailable">Dynamic වර්ණ සඳහා Android 12 හෝ ඊට පසු සංස්කරණයක් අවශ්‍ය වේ.</string>
+    <string name="setting_appearance_mode">පෙනුම</string>
+    <string name="setting_appearance_mode_title">අඳුරු මාදිලිය</string>
+    <string name="setting_appearance_mode_summary">අක්‍රිය, ක්‍රියාත්මක හෝ පද්ධතියට අනුව තෝරන්න.</string>
+    <string name="setting_appearance_preview">වත්මන්: %1$s · %2$s</string>
+    <string name="setting_appearance_auto">ස්වයංක්‍රීය</string>
+    <string name="setting_appearance_light">දීප්තිමත්</string>
+    <string name="setting_appearance_dark">අඳුරු</string>
+    <string name="theme_dynamic" translatable="false">Dynamic</string>
+    <string name="setting_install">නව ස්ථාපනයන් ගැන දන්වන්න</string>
+    <string name="setting_screen_on">\'තිරය ක්‍රියාත්මක විට\' නීති යොදන්න</string>
+    <string name="setting_auto">මිනිත්තු %1$s කට පසු ස්වයංක්‍රීයව ක්‍රියාත්මක කරන්න</string>
+    <string name="setting_delay">තිරය නිවීයාම මිනිත්තු %1$s කින් ප්‍රමාද කරන්න</string>
+    <string name="setting_update">යාවත්කාලීන පරීක්ෂා කරන්න</string>
+    <string name="setting_update_now">දැන් පරීක්ෂා කරන්න</string>
+    <string name="setting_update_checking">පරීක්ෂා කරමින්...</string>
+
+    <string name="setting_network_options">ජාල විකල්ප</string>
+    <string name="setting_subnet">Subnet routing</string>
+    <string name="setting_tethering">අන්තර්ජාලය බෙදා ගැනීමට (tethering) ඉඩ දෙන්න</string>
+    <string name="setting_lan">LAN ප්‍රවේශයට ඉඩ දෙන්න</string>
+    <string name="setting_ip6">IPv6 දත්ත ගමනාගමනය සක්‍රිය කරන්න</string>
+    <string name="setting_wifi_home">Wi-Fi නිවාස ජාල: %1$s</string>
+    <string name="setting_metered">සීමා සහිත (metered) Wi-Fi ජාල කළමනාකරණය</string>
+    <string name="setting_metered_2g">2G සීමා රහිත ලෙස සලකන්න</string>
+    <string name="setting_metered_3g">3G සීමා රහිත ලෙස සලකන්න</string>
+    <string name="setting_metered_4g">LTE සීමා රහිත ලෙස සලකන්න</string>
+    <string name="setting_national_roaming">දේශීය Roaming නොසලකා හරින්න</string>
+    <string name="setting_eu_roaming">යුරෝපා සංගම් Roaming නොසලකා හරින්න</string>
+    <string name="setting_call">ඇමතුම් වලදී අක්‍රිය කරන්න</string>
+    <string name="setting_lockdown_wifi">Wi-Fi අගුලු දමන්න</string>
+    <string name="setting_lockdown_other">ජංගම දත්ත අගුලු දමන්න</string>
+    <string name="setting_reload_onconnectivity">සෑම සම්බන්ධතා වෙනසකදීම නැවත පූරණය කරන්න</string>
+
+    <string name="setting_advanced_options">උසස් විකල්ප</string>
+    <string name="setting_system">පද්ධති යෙදුම් කළමනාකරණය කරන්න</string>
+    <string name="setting_log_app">අන්තර්ජාල ප්‍රවේශයන් සටහන් කරන්න</string>
+    <string name="setting_log_retention_days">දත්ත ලොගය තබා ගන්නා දින ගණන</string>
+    <string name="setting_access">අන්තර්ජාලයට ප්‍රවේශ වන විට දන්වන්න</string>
+    <string name="setting_filter">ගමනාගමනය පෙරන්න</string>
+    <string name="setting_filter_udp">UDP ගමනාගමනය පෙරන්න</string>
+    <string name="setting_handover">නැවත පූරණය කිරීමේදී බාධාවකින් තොරව VPN මාරු කිරීම</string>
+    <string name="setting_clear_onreload">නැවත පූරණය කිරීමේදී සම්බන්ධතා වසා දමන්න</string>
+    <string name="setting_lockdown">ගමනාගමනය අගුලු දමන්න</string>
+    <string name="setting_malware" translatable="false">Malware protection</string>
+    <string name="setting_track_usage">ජාල භාවිතය නිරීක්ෂණය කරන්න</string>
+    <string name="setting_reset_usage">ජාල භාවිතය නැවත සකසන්න</string>
+    <string name="setting_show_resolved">විසඳන ලද වසම් නාම පෙන්වන්න</string>
     <string name="setting_block_domains">වසම් නාම අවහිර කරන්න</string>
+    <string name="setting_rcode">DNS ප්‍රතිචාර කේතය: %s</string>
+    <string name="setting_forwarding">Port Forwarding</string>
+    <string name="setting_vpn4">VPN IPv4: %s</string>
+    <string name="setting_vpn6">VPN IPv6: %s</string>
+    <string name="setting_dns">VPN DNS: %s</string>
+    <string name="setting_dns2">ද්විතියික DNS: %s</string>
+    <string name="setting_validate">මෙහිදී තහවුරු කරන්න: %s</string>
+    <string name="setting_ttl">අවම DNS TTL: %s s</string>
+    <string name="setting_socks5_enabled">SOCKS5 ප්‍රොක්සි භාවිතා කරන්න</string>
+    <string name="setting_socks5_addr">SOCKS5 ලිපිනය: %s</string>
+    <string name="setting_socks5_port">SOCKS5 පෝට් එක: %s</string>
+    <string name="setting_socks5_username">SOCKS5 පරිශීලක නාමය: %s</string>
+    <string name="setting_socks5_password">SOCKS5 මුරපදය: %s</string>
+    <string name="setting_pcap_record_size">PCAP පටිගත කිරීමේ ප්‍රමාණය: %s B</string>
+    <string name="setting_pcap_file_size">PCAP උපරිම ගොනු ප්‍රමාණය: %s MB</string>
+    <string name="setting_pcap">ජාල ගමනාගමනය පටිගත කරන්න (PCAP)</string>
+    <string name="setting_watchdog">මුරකරුවා (Watchdog): සෑම මිනිත්තු %s කට වරක්</string>
+
+    <string name="setting_stats_category">වේගය පිළිබඳ දැනුම්දීම</string>
+    <string name="setting_stats">වේගය පිළිබඳ දැනුම්දීම පෙන්වන්න</string>
+    <string name="setting_stats_top">වැඩිපුරම භාවිත කරන යෙදුම් පෙන්වන්න</string>
+    <string name="setting_stats_frequency">නියැදි පරතරය: %s ms</string>
+    <string name="setting_stats_samples">නියැදි සංඛ්‍යාව: %s</string>
+
+    <string name="setting_backup">සංරක්ෂිතය (Backup)</string>
+    <string name="setting_export">සැකසුම් අපනයනය කරන්න</string>
+    <string name="setting_import">සැකසුම් ආනයනය කරන්න</string>
+    <string name="setting_hosts">Hosts ගොනුව ආනයනය කරන්න</string>
+    <string name="setting_hosts_append">Hosts ගොනුව ආනයනය කරන්න (එක් කරන්න)</string>
+    <string name="setting_hosts_url">Hosts ගොනුව බාගත කිරීමේ URL එක</string>
+    <string name="setting_hosts_download">Hosts ගොනුව බාගත කරන්න</string>
+    <string name="setting_use_hosts">Hosts ගොනුව භාවිතා කරන්න</string>
+
+    <string name="setting_technical">තාක්ෂණික තොරතුරු</string>
+    <string name="setting_technical_general">පොදු</string>
     <string name="setting_technical_networks">ජාල</string>
+    <string name="setting_technical_subscription">දායකත්ව</string>
+    <string name="setting_section_appearance">පෙනුම</string>
+    <string name="setting_section_firewall">ගිනිපවුරු නීති</string>
+    <string name="setting_section_advanced">උසස් හැසිරීම්</string>
+    <string name="setting_section_hosts">Hosts සහ DNS</string>
+    <string name="setting_section_network">ජාල වින්‍යාසය</string>
+    <string name="setting_section_dns">DNS විස්තර</string>
+    <string name="setting_section_proxy">ප්‍රොක්සි</string>
+    <string name="setting_section_vpn">VPN වින්‍යාසය</string>
+    <string name="setting_section_background">පසුබිම් කාර්යයන්</string>
+    <string name="setting_section_diagnostics">රෝග විනිශ්චය</string>
+    <string name="setting_section_support">සහාය</string>
+
+    <string name="summary_install">අලුතින් ස්ථාපනය කරන ලද යෙදුම් සෘජුවම සැකසීමට තත්ව තීරුවේ දැනුම්දීමක් පෙන්වන්න (pro විශේෂාංගයකි)</string>
+    <string name="summary_auto">විජට් භාවිතයෙන් අක්‍රිය කිරීමෙන් පසුව, තෝරාගත් මිනිත්තු ගණනකට පසුව NetGuard ස්වයංක්‍රීයව නැවත ක්‍රියාත්මක කරන්න (මෙම විකල්පය අක්‍රිය කිරීමට ශුන්‍යය ඇතුළත් කරන්න)</string>
+    <string name="summary_delay">තිරය නිවා දැමූ පසුව, තෝරාගත් මිනිත්තු ගණනක් සඳහා තිරය ක්‍රියාත්මකව තිබියදී අදාළ වන නීති ක්‍රියාත්මකව තබන්න (මෙම විකල්පය අක්‍රිය කිරීමට ශුන්‍යය ඇතුළත් කරන්න)</string>
+    <string name="summary_update">දිනකට දෙවරක් GitHub හි නව නිකුත් කිරීම් පරීක්ෂා කරන්න</string>
+
+    <string name="summary_tethering">Android සංස්කරණය අනුව, අන්තර්ජාලය බෙදා ගැනීම ක්‍රියා කළ හෝ නොකළ හැකිය. බෙදා හරින ලද දත්ත ගමනාගමනය පෙරීමට නොහැකිය.</string>
+    <string name="summary_subnet">Subnet routing සක්‍රිය කරන්න; එමඟින් Wi-Fi ඇමතුම් ලබා ගැනීමට හැකි වනු ඇත, නමුත් Android හි දෝෂ ඇති වීමට සහ බැටරි පරිභෝජනය වැඩි වීමට ඉඩ ඇත</string>
+    <string name="summary_lan">10.0.0.0/8, 172.16.0.0/12 සහ 192.168.0.0/16 වැනි දේශීය ජාල ලිපින වලට සම්බන්ධ වීමට යෙදුම් වලට ඉඩ දෙන්න</string>
+    <string name="summary_ip6">IP version 6 දත්ත ගමනාගමනය NetGuard හරහා යොමු කරන්න, එවිට එය තෝරා බේරා ඉඩ දීමට හෝ අවහිර කිරීමට හැකිය</string>
+    <string name="summary_wifi_home">තෝරාගත් ජාල සඳහා පමණක් Wi-Fi ජාල නීති යොදන්න (අනෙකුත් Wi-Fi ජාල සඳහා ජංගම ජාල නීති යොදනු ඇත)</string>
+    <string name="summary_metered">සීමා සහිත (metered) Wi-Fi ජාල සඳහා ජංගම ජාල නීති යොදන්න (ගෙවන ලද, බෙදා ගත්)</string>
+    <string name="summary_metered_2g">2G දත්ත සම්බන්ධතා සඳහා Wi-Fi ජාල නීති යොදන්න</string>
+    <string name="summary_metered_3g">3G දත්ත සම්බන්ධතා සඳහා Wi-Fi ජාල නීති යොදන්න</string>
+    <string name="summary_metered_4g">LTE දත්ත සම්බන්ධතා සඳහා Wi-Fi ජාල නීති යොදන්න</string>
+    <string name="summary_national_roaming">සිම්පත සහ ජංගම ජාලය එකම රටක වන විට Roaming නීති අදාළ නොකරන්න</string>
+    <string name="summary_eu_roaming">සිම්පත සහ ජංගම ජාලය යුරෝපා සංගමය තුළ වන විට Roaming නීති අදාළ නොකරන්න (නිවසේදී මෙන් Roaming)</string>
+    <string name="summary_call">ඉන්කමින් හෝ අවුට්ගොයින් ටෙලිෆෝන් ඇමතුමකදී NetGuard අක්‍රිය කරන්න. IP/Wi-Fi ඇමතුම් ගැටළු මඟහරවා ගැනීමට මෙය භාවිතා කළ හැක.</string>
+
+    <string name="summary_system">පද්ධති යෙදුම් සඳහා නීති අර්ථ දක්වන්න (ප්‍රවීණයන් සඳහා)</string>
+    <string name="summary_log_app">යෙදුම් අන්තර්ජාලයට ප්‍රවේශ වීමට උත්සාහ කිරීම සටහන් කරන්න. මෙහිදී අමතර බැටරි ප්‍රමාණයක් වැය විය හැක.</string>
+    <string name="summary_log_retention_days">පිරිසිදු කිරීම් වලදී පැරණි දත්ත ලොගයන් ස්වයංක්‍රීයව ඉවත් කරන්න. සදහටම තබා ගැනීමට 0 ලෙස සකසන්න.</string>
+    <string name="summary_access">යෙදුමක් නව අන්තර්ජාල ලිපිනයකට ප්‍රවේශ වීමට උත්සාහ කරන විට තත්ව තීරුවේ දැනුම්දීමක් පෙන්වන්න (පෙරීම අක්‍රිය කර ඇති විට, අවහිර කළ උත්සාහයන් ගැන පමණක් දන්වනු ලැබේ)</string>
+    <string name="summary_filter">VPN උමගෙන් පිටතට යන IP පැකට් පෙරන්න. මෙහිදී අමතර බැටරි ප්‍රමාණයක් වැය විය හැක.</string>
+    <string name="summary_track_usage">ප්‍රතීක ආප් සහ ලිපිනය සඳහා යවන ලද සහ ලැබුණු බයිට් ගණන නිරීක්ෂණය කරන්න. මෙහිදී අමතර බැටරි ප්‍රමාණයක් වැය විය හැක.</string>
+    <string name="summary_block_domains">අවහිර කළ වසම් නාම සඳහා වින්‍යාස කළ DNS ප්‍රතිචාර කේතය සමඟ පිළිතුරු දෙන්න. Hosts ගොනුවක් නොමැති විට මෙම ස්විචය අක්‍රිය වේ.</string>
+    <string name="summary_rcode">පෙරනිමි අගය 3 (NXDOMAIN) වේ, එහි අර්ථය \'නොපවතින වසම\' යන්නයි.</string>
+    <string name="summary_validate">Port 443 (https) හි අන්තර්ජාල සම්බන්ධතාවය තහවුරු කිරීමට භාවිතා කරන වසම් නාමය.</string>
+    <string name="summary_socks5_enabled">කෙලින්ම TCP දත්ත ගමනාගමනය පමණක් ප්‍රොක්සි සේවාදායකය වෙත යවනු ලැබේ</string>
+    <string name="summary_watchdog">NetGuard තවමත් ක්‍රියාත්මක දැයි වරින් වර පරීක්ෂා කරන්න (මෙම විකල්පය අක්‍රිය කිරීමට ශුන්‍යය ඇතුළත් කරන්න). මෙහිදී අමතර බැටරි ප්‍රමාණයක් වැය විය හැක.</string>
+
+    <string name="summary_stats">තත්ව තීරුවේ දැනුම්දීම තුළ ජාල වේග ප්‍රස්ථාරය පෙන්වන්න</string>
+
+    <string-array name="default_wifi_home"></string-array>
+
     <string name="msg_sure">ඔබට විශ්වාසද?</string>
-    <string name="msg_downloading">\n%1s බාගත වෙමින්</string>
+    <string name="msg_started">නීති ක්‍රියාත්මක කරමින් පවතී</string>
+    <string name="msg_packages">%1$d කට ඉඩ දී ඇත, %2$d ක් අවහිර කර ඇත</string>
+    <string name="msg_hosts">%1$d කට ඉඩ දී ඇත, %2$d ක් අවහිර කර ඇත, host ධාරිතාව %3$d</string>
+    <string name="msg_waiting">සිදුවීමක් බලාපොරොත්තුවෙන් පවතී</string>
+    <string name="msg_disabled">NetGuard අක්‍රිය කර ඇත, NetGuard ක්‍රියාත්මක කිරීමට ඉහළ ඇති ස්විචය භාවිතා කරන්න</string>
+    <string name="msg_notifications">දැනුම්දීම් අවසර ලබා දීමට තට්ටු කරන්න (ප්‍රවේශ උත්සාහයන්, දෝෂ පණිවිඩ ආදිය සඳහා)</string>
+    <string name="msg_revoked">NetGuard අක්‍රිය කර ඇත, බොහෝ දුරට වෙනත් VPN යෙදුමක් භාවිත කිරීම මෙයට හේතුව විය හැක</string>
+    <string name="msg_installed">\'%1$s\' ස්ථාපනය කරන ලදී</string>
+    <string name="msg_installed_n">ස්ථාපනය කර ඇත</string>
+    <string name="msg_malware" translatable="false">Possible malware: \'%1$s\'</string>
+    <string name="msg_access">%1$s අන්තර්ජාලයට ප්‍රවේශ වීමට උත්සාහ කරන ලදී</string>
+    <string name="msg_access_n">අන්තර්ජාල ප්‍රවේශ උත්සාහයක්</string>
+    <string name="msg_completed">ක්‍රියාව අවසන්</string>
+    <string name="msg_invalid">කරුණාකර අගයන් පරීක්ෂා කර නැවත උත්සාහ කරන්න.</string>
+    <string name="msg_export_failed">අපනයනය අසාර්ථකයි: %1$s</string>
+    <string name="msg_vpn">NetGuard අන්තර්ජාල ගමනාගමනය පෙරීම සඳහා දේශීය VPN එකක් භාවිතා කරයි.
+එමනිසා, කරුණාකර ඊළඟ පණිවිඩයේදී VPN සම්බන්ධතාවයකට ඉඩ දෙන්න.
+ඔබේ අන්තර්ජාල දත්ත වෙනත් දුරස්ථ VPN සේවාදායකයකට යවනු නොලැබේ.</string>
+    <string name="msg_autostart">NetGuard ස්වයංක්‍රීයව ආරම්භ කළ නොහැකි විය. මෙය බොහෝ විට ඔබේ Android සංස්කරණයේ දෝෂයක් නිසා විය හැක.</string>
+    <string name="msg_error">අපේක්ෂා නොකළ දෝෂයක් සිදුවිය: \'%s\'</string>
+    <string name="msg_start_failed">ඇන්ඩ්‍රොයිඩ් පද්ධතිය මෙම අවස්ථාවේදී VPN සේවාව ආරම්භ කිරීම ප්‍රතික්ෂේප කළේය. මෙය බොහෝ විට ඔබේ Android සංස්කරණයේ දෝෂයක් නිසා විය හැක.</string>
+    <string name="msg_try">NetGuard උත්සාහ කර බලන්න</string>
+    <string name="msg_terms">පරිත්‍යාග කිරීමෙන් ඔබ <a href="http://www.netguard.me/#terms">නියමයන් සහ කොන්දේසි</a> වලට එකඟ වේ</string>
+    <string name="msg_dimming">ඔබට ඊළඟ පණිවිඩයේ OK එබීමට නොහැකි නම්, වෙනත් යෙදුමක් තිරය මත ක්‍රියාත්මක වෙමින් තිබිය හැක.</string>
+    <string name="msg_mbday">&#177; %1$.3f&#9650; %2$.3f&#9660; MB/දිනකට</string>
+    <string name="msg_kbsec">%7.3f KB/s</string>
+    <string name="msg_mbsec">%7.3f MB/s</string>
+    <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
+    <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
+    <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
+    <string name="msg_count">%dx</string>
+    <string name="msg_doze">ස්ථාවර ප්‍රතිඵල සඳහා, NetGuard සඳහා Android බැටරි ප්‍රශස්තකරණය (battery optimization) අක්‍රිය කළ යුතුය.
+\n\nඊළඟ පණිවිඩයේ, ඉහළින් \"All apps\" තෝරන්න, ලැයිස්තුවේ ඇති NetGuard මත තට්ටු කර \"Don\'t optimize\" තෝරා තහවුරු කරන්න.</string>
+    <string name="msg_datasaving">ස්ථාවර ප්‍රතිඵල සඳහා, NetGuard සඳහා Android දත්ත සුරැකීමේ විකල්ප අක්‍රිය කළ යුතුය.
+\n\nඊළඟ පණිවිඩයේ, \"Background data\" සහ \"Unrestricted data usage\" යන විකල්ප සක්‍රිය කරන්න.</string>
+    <string name="msg_filter">පෙරීම (filtering) භාවිතා කිරීමෙන් Android පද්ධතිය දත්ත සහ බල භාවිතය මුල් යෙදුම් වලට වඩා NetGuard වෙත පවරනු ඇත.</string>
+    <string name="msg_filter4">Android 4 සඳහා පෙරීම (filtering) සක්‍රිය කළ යුතුය</string>
+    <string name="msg_log_disabled">දත්ත ගමනාගමන සටහන් කිරීම (logging) අක්‍රියයි, එය සක්‍රිය කිරීමට ඉහළ ඇති ස්විචය භාවිතා කරන්න. මෙය අමතර බැටරි ප්‍රමාණයක් වැය වීමට හේතු විය හැක.</string>
+    <string name="msg_clear_rules">මෙය නීති සහ කොන්දේසි ඒවායේ පෙරනිමි අගයන්ට නැවත සකසනු ඇත</string>
+    <string name="msg_reset_access">මෙය ඉඩ දීමේ/අවහිර කිරීමේ නීති රහිතව තිබූ ප්‍රවේශ උත්සාහයන්ගේ සටහන් මකනු ඇත</string>
+    <string name="msg_import_last">අවසන් වරට ආනයනය කළේ: %s</string>
+    <string name="msg_downloading">බාගත වෙමින් පවතී\n%1s</string>
+    <string name="msg_downloaded">Hosts ගොනුව බාගත කරන ලදී</string>
+    <string name="msg_download_last">අවසන් වරට බාගත කළේ: %s</string>
+    <string name="msg_start_forward">%1$s පෝට් %2$d සිට \'%5$s\' හි %3$s:%4$d වෙත ඉදිරියට යැවීම ආරම්භ කරන්නද?</string>
+    <string name="msg_stop_forward">%1$s පෝට් %2$d හි ඉදිරියට යැවීම නවත්වන්නද?</string>
+    <string name="msg_metered">ජාලය සීමා සහිතයි (metered)</string>
+    <string name="msg_inactive">සක්‍රිය අන්තර්ජාල සම්බන්ධතාවයක් නොමැත</string>
+    <string name="msg_queue">NetGuard කාර්යබහුලයි</string>
+    <string name="msg_update">යාවත්කාලීනයක් ඇත, බාගත කිරීමට තට්ටු කරන්න</string>
+    <string name="msg_usage">යෙදුමක් අසල ඇති අයිකන මත තට්ටු කිරීමෙන් ඔබට Wi-Fi හෝ ජංගම අන්තර්ජාල ප්‍රවේශය ලැබීමට (කොළ පැහැය) හෝ ප්‍රතික්ෂේප කිරීමට (රතු පැහැය) හැකිය</string>
+    <string name="msg_fairemail">ඔබ ඔබේ පෞද්ගලිකත්වය සුරැකීමට NetGuard ස්ථාපනය කළේ නම්, ඔබට විවෘත මූලාශ්‍ර, පෞද්ගලිකත්ව හිතකාමී විද්‍යුත් තැපැල් යෙදුමක් වන <a href="https://email.faircode.eu/">FairEmail</a> පිළිබඳවද උනන්දු විය හැක.</string>
+    <string name="msg_whitelist">අන්තර්ජාල ප්‍රවේශය පෙරනිමියෙන් ඉඩ දී ඇත (blacklist මාදිලිය), මෙය සැකසුම් තුළ වෙනස් කළ හැක</string>
+    <string name="msg_push">ලැබෙන (push) පණිවිඩ බොහෝ දුරට හසුරුවනු ලබන්නේ Play services පද්ධති සංරචකය මඟිනි, එයට පෙරනිමියෙන් අන්තර්ජාල ප්‍රවේශය ඇත</string>
+    <string name="msg_system">සියලුම (පද්ධති) යෙදුම් කළමනාකරණය කිරීම සැකසුම් තුළ සක්‍රිය කළ හැක</string>
+    <string name="msg_issue">කරුණාකර ගැටළුව විස්තර කර ගැටළුව ඇති වූ වේලාව සඳහන් කරන්න:</string>
+    <string name="msg_vpn_cancelled">VPN සම්බන්ධතාවය අවලංගු කරන ලදී\nඔබ වෙනත් VPN එකක් සැමවිටම ක්‍රියාත්මක වන පරිදි සකසා තිබේද?</string>
+    <string name="msg_on">NetGuard සක්‍රියව තිබියදී උපාංගය ක්‍රියා විරහිත කිරීමෙන්, උපාංගය නැවත ක්‍රියාත්මක කරන විට NetGuard ස්වයංක්‍රීයව ආරම්භ වේ</string>
+    <string name="msg_unavailable">මෙම විශේෂාංගය මෙම Android සංස්කරණයේ නොමැත</string>
+    <string name="msg_always_on">වෙනත් VPN එකක් සැමවිටම ක්‍රියාත්මක වන පරිදි සකසා ඇත</string>
+    <string name="msg_always_on_lockdown">NetGuard හි පෙරීමේ මාදිලිය භාවිත කිරීමට Android VPN සැකසුම් වල \"Block connections without VPN\" අක්‍රිය කරන්න</string>
+    <string name="msg_private_dns">NetGuard හි පෙරීමේ මාදිලිය භාවිත කිරීමට Android ජාල සැකසුම් වල \"Private DNS\" අක්‍රිය කරන්න</string>
+
+    <string name="title_lockdown_enabled">ගමනාගමනය අගුලු දමා ඇත</string>
+    <string name="title_unmetered_allowed">සීමා රහිත ගමනාගමනයට ඉඩ දී ඇත</string>
+    <string name="title_unmetered_blocked">සීමා රහිත ගමනාගමනය අවහිර කර ඇත</string>
+    <string name="title_unmetered_disabled">සීමා රහිත නීති අදාළ නොවේ</string>
+    <string name="title_metered_allowed">සීමා සහිත ගමනාගමනයට ඉඩ දී ඇත</string>
+    <string name="title_metered_blocked">සීමා සහිත ගමනාගමනය අවහිර කර ඇත</string>
+    <string name="title_metered_disabled">සීමා සහිත නීති අදාළ නොවේ</string>
+    <string name="title_host_allowed">ලිපිනයට ඉඩ දී ඇත</string>
+    <string name="title_host_blocked">ලිපිනය අවහිර කර ඇත</string>
+    <string name="title_interactive_allowed">තිරය ක්‍රියාත්මකව පවතින විට ඉඩ දෙන්න</string>
+    <string name="title_roaming_blocked">Roaming වලදී අවහිර කරන්න</string>
+    <string name="title_metered">පෙරනිමියෙන් Wi-Fi සම්බන්ධතාවයක් සීමා රහිත ලෙසද, ජංගම සම්බන්ධතාවයක් සීමා සහිත ලෙසද සලකනු ලැබේ</string>
+
+    <string name="title_internet">අන්තර්ජාල අවසර නැත</string>
+    <string name="title_disabled">අක්‍රිය කර ඇත</string>
+    <string name="title_messaging">ලැබෙන පණිවිඩ Google Play සේවාවන් මඟින් ලැබෙන බැවින්, මෙම යෙදුම අවහිර කිරීමෙන් ඒවා අවහිර කළ නොහැක</string>
+    <string name="title_download">බාගත කිරීම් සිදු කරනු ලබන්නේ බාගැනීම් කළමනාකරු විසිනි, එබැවින් මෙම යෙදුම අවහිර කිරීමෙන් ඒවා අවහිර කළ නොහැක</string>
+    <string name="title_apply">නීති සහ කොන්දේසි යොදන්න</string>
     <string name="title_conditions">කොන්දේසි</string>
+    <string name="title_screen_wifi">තිරය ක්‍රියාත්මකව පවතින විට Wi-Fi වලට ඉඩ දෙන්න</string>
+    <string name="title_screen_other">තිරය ක්‍රියාත්මකව පවතින විට ජංගම දත්ත වලට ඉඩ දෙන්න</string>
+    <string name="title_roaming_symbol">R</string>
+    <string name="title_roaming">Roaming වලදී අවහිර කරන්න</string>
+    <string name="label_ttl">TTL: %s s</string>
+    <string name="label_uid">UID: %s</string>
+    <string name="title_lockdown">අගුලු දැමූ (lockdown) මාදිලියේදී ඉඩ දෙන්න</string>
+    <string name="title_related">සම්බන්ධිත පෙරණය</string>
+    <string name="title_access">ප්‍රවේශ උත්සාහයන්</string>
+    <string name="title_precedence">ප්‍රවේශ නීති අනෙකුත් නීති වලට වඩා ප්‍රමුඛ වේ</string>
     <string name="title_options">විකල්ප</string>
-    <string name="title_logging_configure">වින්‍යාසගත කරන්න</string>
+    <string name="title_notify">අන්තර්ජාල ප්‍රවේශ උත්සාහයන් ගැන දන්වන්න</string>
+
+    <string name="title_logging_disabled">සටහන් කිරීම (logging) හෝ පෙරීම සක්‍රිය නැත</string>
+    <string name="title_logging_enabled">සටහන් කිරීම සහ පෙරීම සක්‍රියයි</string>
+    <string name="title_logging_configure">වින්‍යාස කරන්න</string>
+
+    <string name="title_enable_logging">අවහිර කළ ලිපින පමණක් සටහන් කිරීම සක්‍රිය කරන්න</string>
+    <string name="title_enable_filtering">ඉඩ දුන් ලිපින ද සටහන් කිරීමට පෙරීම සක්‍රිය කරන්න</string>
+    <string name="title_enable_notify">අලුතින් සටහන් වූ ලිපින සඳහා ප්‍රවේශ දැනුම්දීම් සක්‍රිය කරන්න</string>
+    <string name="title_enable_help0">මෙම සැකසුම් සියලුම යෙදුම් වලට අදාළ වන පොදු සැකසුම් වේ</string>
+    <string name="title_enable_help1">තනි තනි ලිපින වලට ඉඩ දීමට හෝ අවහිර කිරීමට පෙරීම අවශ්‍ය වේ</string>
+    <string name="title_enable_help2">සටහන් කිරීම (අඩුවෙන්) හෝ පෙරීම (වැඩියෙන්) සක්‍රිය කිරීමෙන් බැටරි භාවිතය වැඩි විය හැකි අතර ජාල වේගයට බලපෑ හැකිය</string>
+
+    <string name="title_rate">අගය කරන්න</string>
+    <string name="title_allow">අනුවමත කරන්න</string>
+    <string name="title_block">අවහිර කරන්න</string>
+    <string name="title_wifi">Wi-Fi</string>
+    <string name="title_mobile">ජංගම දත්ත</string>
+    <string name="title_allow_wifi">Wi-Fi වලට ඉඩ දෙන්න</string>
+    <string name="title_block_wifi">Wi-Fi අවහිර කරන්න</string>
+    <string name="title_allow_other">ජංගම දත්ත වලට ඉඩ දෙන්න</string>
+    <string name="title_block_other">ජංගම දත්ත අවහිර කරන්න</string>
+    <string name="title_root">root</string>
+    <string name="title_mediaserver">මිඩියා සර්වර්</string>
+    <string name="title_gpsdaemon" translatable="false">GPS daemon</string>
+    <string name="title_dnsdaemon" translatable="false">DNS daemon</string>
+    <string name="title_nobody">කෙහෙිවෙකුත් නැත</string>
     <string name="title_dontask">නැවත අසන්න එපා</string>
-    <string name="title_log_copy">පිටපත්</string>
+
+    <string name="title_log_whois">Whois %1$s</string>
+    <string name="title_log_port">පෝට් %1$d</string>
+    <string name="title_log_copy">කපිටත් කරන්න</string>
+
+    <string name="title_pro">Pro විශේෂාංග</string>
+    <string name="title_pro_description">පහත සඳහන් Pro විශේෂාංග ලබා ගත හැක:</string>
+    <string name="title_pro_log">අවහිර කළ ගමනාගමන ලොගය බලන්න</string>
+    <string name="title_pro_filter">ජාල ගමනාගමනය පෙරන්න</string>
     <string name="title_pro_notify">නව යෙදුම් දැනුම්දීම්</string>
     <string name="title_pro_speed">ජාල වේග ප්‍රස්ථාර දැනුම්දීම</string>
     <string name="title_pro_theme">පෙනුම (තේමාව, වර්ණ)</string>
+    <string name="title_pro_all">ඉහත සියලුම pro විශේෂාංග</string>
+    <string name="title_pro_dev">සංවර්ධනයට සහාය වන්න</string>
     <string name="title_pro_buy">මිලදී ගන්න</string>
-    <string name="title_pro_bought">සබල කර ඇත</string>
+    <string name="title_pro_bought">සක්‍රියයි</string>
+    <string name="title_pro_unavailable">නොමැත</string>
+    <string name="title_pro_details">අධික විස්තර සඳහා මාතෘකාවක් මත තට්ටු කරන්න</string>
+    <string name="title_pro_challenge">අභියෝගය</string>
     <string name="title_pro_reponse">ප්‍රතිචාරය</string>
-    <string-array name="themeNames">
-        <item>teal/orange</item>
-        <item>නිල්/තැඹිලි</item>
-        <item>දම්/රතු</item>
-        <item>amber/blue</item>
-        <item>තැඹිලි/අළු</item>
-        <item>කොළ</item>
+    <string name="title_pro_feature">මෙය pro විශේෂාංගයකි</string>
+    <string name="title_pro_subscription">
+        යුරෝ 1 හෝ 2 ක මාසික දායකත්වයක් (දේශීය බදු හැර) සියලුම pro විශේෂාංග සක්‍රිය කරනු ඇත.
+        ඔබට Play Store යෙදුමේ දායකත්ව ටැබය හරහා දායකත්වයක් අවලංගු කිරීමට හෝ කළමනාකරණය කිරීමට හැකිය.
+    </string>
+    <string name="title_pro_already">Pro විශේෂාංග දැනටමත් සක්‍රිය කර ඇත</string>    <string-array name="protocolNames">
+        <item>UDP</item>
+        <item>TCP</item>
     </string-array>
-    <string-array name="protocolNames">
-        <item>යූ.ඩී.පී.</item>
-        <item>ස.පා.කෙ (TCP)</item>
+
+    <string-array name="protocolValues" translatable="false">
+        <item>17</item>
+        <item>6</item>
     </string-array>
+
+    <string name="label_dns_summary">%1$d ඇතුළත් කිරීම් • %2$d කාලය ඉකුත් වූ ඒවා</string>
+
 </resources>

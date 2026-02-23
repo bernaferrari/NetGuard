@@ -1,299 +1,453 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_description">NetGuard обеспечивает простые и широкие способы заблокировать доступ к интернету, который ещё и не требует root-прав. Приложениям и адресам можно индивидуально разрешить или заблокировать доступ к Wi-Fi и/или мобильной связи.</string>
-    <string name="app_android">Для работы NetGuard требуется Android 5.1 или более поздняя версия</string>
-    <string name="app_xposed">Xposed вызывает слишком много сбоев, что может привести к удалению NetGuard из магазина Google Play, поэтому NetGuard не поддерживается, пока установлен Xposed</string>
+    <string name="app_name" translatable="false">NetGuard Next</string>
+    <string name="app_description">NetGuard Next предоставляет простые и расширенные способы блокировки доступа в Интернет без необходимости root-прав. Приложениям и адресам можно индивидуально разрешить или запретить доступ к Wi-Fi и/или мобильному соединению.</string>
+    <string name="app_copyright" translatable="false">Copyright \u00A9 2015–2025 by M. Bokhorst (M66B)</string>
+    <string name="app_android">Для NetGuard требуется Android 5.1 или новее</string>
+    <string name="app_eula" translatable="false">THIS SOFTWARE IS PROVIDED BY THE AUTHOR \'\'AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
     <string name="app_privacy"><a href="https://www.netguard.me/privacy/">Политика конфиденциальности</a></string>
-    <string name="app_first">Разработке и тестированию NetGuard было уделено большое внимание, однако невозможно гарантировать, что NetGuard будет корректно работать на каждом устройстве.</string>
+    <string name="app_first">Разработке и тестированию NetGuard было уделено большое внимание, однако невозможно гарантировать корректную работу NetGuard на каждом устройстве.</string>
     <string name="app_agree">Я согласен</string>
     <string name="app_disagree">Я не согласен</string>
-    <string name="app_support">NetGuard нуждается в вашей помощи. Нажмите, чтобы приобрести функции PRO для помощи проекту.</string>
-    <string name="app_qap">Google собирался удалить приложение из Play Store, поскольку оно запросило разрешение на список всех приложений.
-        Пять апелляций и убедительное обоснование того, почему необходимо это разрешение, были отклонены.
+    <string name="app_support">NetGuard нуждается в вашей помощи. Нажмите, чтобы приобрести Pro-функции и поддержать проект.</string>
+    <string name="app_qap">
+        Google собирался удалить приложение из Play Store, так как оно запрашивало разрешение на опрос всех приложений.
+        Пять апелляций и подробное обоснование необходимости этого разрешения были отклонены.
         Эта версия приложения больше не запрашивает это разрешение,
-        и несмотря на это, почти все приложения все равно будут в списке,
-        за исключением некоторых (системных) приложений, которые невозможно запустить вручную из списка приложений Android.
-        Интернет-трафик этих приложений всегда будет разрешен, чтобы обеспечить правильную работу вашего устройства.
-        Если вы считаете, что это проблема, вы можете обновить версию приложения на GitHub и снова управлять всеми (системными) приложениями.
+        и несмотря на это, почти все приложения по-прежнему будут отображаться в списке,
+        за исключением некоторых (системных) приложений, которые нельзя запустить вручную.
+        Интернет-трафик этих приложений всегда будет разрешен для обеспечения корректной работы вашего устройства.
+        Если вы считаете это проблемой, вы можете обновить приложение до версии с GitHub и снова управлять всеми (системными) приложениями.
     </string>
+
     <string name="channel_foreground">Запущенные службы</string>
     <string name="channel_notify">Общие уведомления</string>
-    <string name="channel_access">Доступ к уведомлениям</string>
+    <string name="channel_access">Уведомления о доступе</string>
+
     <string name="menu_search">Поиск приложения</string>
     <string name="menu_filter">Фильтр приложений</string>
-    <string name="menu_app_user">Показать пользовательские приложения</string>
-    <string name="menu_app_system">Показать системные приложения</string>
-    <string name="menu_app_nointernet">Показать приложения без интернета</string>
-    <string name="menu_app_disabled">Показать отключенные приложения</string>
+    <string name="menu_app_user">Пользовательские приложения</string>
+    <string name="menu_app_system">Системные приложения</string>
+    <string name="menu_app_nointernet">Приложения без Интернета</string>
+    <string name="menu_app_disabled">Отключенные приложения</string>
     <string name="menu_sort">Сортировка приложений</string>
     <string name="menu_sort_name">Сортировать по имени</string>
     <string name="menu_sort_uid">Сортировать по UID</string>
-    <string name="menu_sort_data">Сортировать по исп. данным</string>
-    <string name="menu_log">Журнал</string>
+    <string name="menu_sort_data">Сортировать по трафику</string>
+    <string name="menu_launch">Запустить приложение</string>
+    <string name="menu_log">Показать журнал</string>
     <string name="menu_settings">Настройки</string>
+    <string name="menu_home">Главная</string>
     <string name="menu_invite">Пригласить</string>
     <string name="menu_legend">Легенда</string>
     <string name="menu_support">Поддержка</string>
     <string name="menu_about">О приложении</string>
     <string name="menu_apps">Другие приложения</string>
+    <string name="menu_firewall">Брандмауэр</string>
+    <string name="status_enabled">Брандмауэр включен</string>
+    <string name="status_disabled">Брандмауэр выключен</string>
+    <string name="widget_firewall_enabled">Брандмауэр ВКЛ</string>
+    <string name="widget_firewall_disabled">Брандмауэр ВЫКЛ</string>
+    <string name="widget_lockdown_enabled">Блокировка ВКЛ</string>
+    <string name="widget_lockdown_disabled">Блокировка ВЫКЛ</string>
+    <string name="notify_traffic_title">Монитор трафика</string>
+    <string name="notify_traffic_summary">Отдача %1$s • Прием %2$s • Пик %3$s</string>
+    <string name="notify_traffic_debug">Сессии %1$d/%2$d/%3$d • Файлы %4$d/%5$d</string>
+    <string name="ui_loading">Загрузка…</string>
+    <string name="ui_empty_logs_title">Трафика пока нет</string>
+    <string name="ui_empty_logs_body">Как только появятся соединения, они отобразятся здесь.</string>
+    <string name="ui_empty_apps_title">Приложения не найдены</string>
+    <string name="ui_empty_apps_body">Попробуйте обновить список.</string>
+    <string name="ui_empty_dns_title">DNS пока не разрешены</string>
+    <string name="ui_empty_dns_body">Ответы DNS появятся здесь после просмотра страниц.</string>
+    <string name="ui_dns_filter_empty">Нет DNS-записей, соответствующих фильтру.</string>
+    <string name="ui_empty_forwarding_title">Нет правил перенаправления</string>
+    <string name="ui_empty_forwarding_body">Добавьте правило, чтобы начать перенаправление трафика.</string>
+    <string name="ui_forwarding_filter_empty">Нет правил перенаправления, соответствующих фильтру.</string>
+    <string name="ui_empty_pro_body">Поддержка открывает доп. функции и помогает проекту жить.</string>
+    <string name="ui_empty_pro_details">Pro открывает: фильтрацию, журналы, уведомления, темы и лимиты скорости.</string>
+    <string name="ui_home_hint">Управляйте доступом в Интернет для каждого приложения.</string>
+    <string name="ui_home_quick_actions">Быстрые действия</string>
+    <string name="ui_apps_title">Брандмауэр</string>
+    <string name="ui_logs_title">Журнал трафика</string>
+    <string name="ui_logs_filters">Фильтры</string>
+    <string name="ui_logs_filter_status">Статус</string>
+    <string name="ui_logs_filter_protocol">Протокол</string>
+    <string name="ui_logs_filter_view">Вид</string>
+    <string name="ui_logs_group_timeline">Хронология</string>
+    <string name="ui_logs_group_by_app">По приложениям</string>
+    <string name="ui_logs_unknown_source">Неизвестный источник</string>
+    <string name="ui_settings_title">Настройки</string>
+    <string name="ui_dns_title">Разрешенные DNS</string>
+    <string name="ui_forwarding_title">Перенаправление портов</string>
+    <string name="ui_dns_hint">Недавно разрешенные домены и ответы.</string>
+    <string name="ui_forwarding_hint">Управление правилами перенаправления и целевыми приложениями.</string>
+    <string name="ui_dns_active">Активно</string>
+    <string name="ui_rule_custom">Свой</string>
+    <string name="ui_dns_expired">Истекло</string>
+    <string name="ui_filter_all">Все</string>
+    <string name="ui_filter_empty">Нет приложений, соответствующих фильтру.</string>
+    <string name="ui_apps_search_empty">Нет приложений, соответствующих поиску.</string>
+    <string name="ui_learn_more">Подробнее</string>
+    <string name="status_running">Трафик фильтруется</string>
+    <string name="status_not_running">Трафик не фильтруется</string>
+    <string name="action_enable">Включить</string>
+    <string name="action_disable">Выключить</string>
+    <string name="home_apps_hint">Просмотр правил приложений и трафика</string>
+    <string name="home_logs_hint">Инспекция недавней сетевой активности</string>
+
+    <!-- Accessibility -->
+    <string name="action_expand">Развернуть детали</string>
+    <string name="action_collapse">Свернуть детали</string>
+    <string name="action_navigate">Открыть</string>
+    <string name="action_toggle_firewall">Переключить брандмауэр</string>
+    <string name="action_clear_search">Очистить поиск</string>
+    <string name="search_settings">Поиск в настройках</string>
+    <string name="content_desc_security_status">Статус безопасности брандмауэра</string>
+    <string name="content_desc_app_icon">Иконка приложения для %s</string>
+    <string name="content_desc_show_info">Показать информацию о %1$s</string>
+
+    <!-- Dashboard stats -->
+    <string name="stat_blocked_today">Заблокировано</string>
+    <string name="stat_allowed_today">Разрешено</string>
+    <string name="stat_active_rules">Активные правила</string>
+
+    <!-- Tooltips -->
+    <string name="tooltip_rcode">Код ответа DNS для заблокированных доменов. Значение 3 (NXDOMAIN) означает, что домен не существует.</string>
+    <string name="tooltip_ttl">Минимальное время жизни (TTL) для записей DNS-кеша в секундах.</string>
+    <string name="tooltip_pcap">Запись всех сетевых пакетов для отладки. Создает большие файлы.</string>
+    <string name="tooltip_filter">Перехват и анализ трафика. Требуется для блокировки по адресам. Потребляет больше заряда.</string>
+    <string name="tooltip_lockdown">Блокировка всего трафика, кроме явно разрешенных приложений. Используйте осторожно.</string>
+
+    <string name="menu_protocol_udp" translatable="false">UDP</string>
+    <string name="menu_protocol_tcp" translatable="false">TCP</string>
     <string name="menu_protocol_other">Другое</string>
     <string name="menu_traffic_allowed">Разрешено</string>
     <string name="menu_traffic_blocked">Заблокировано</string>
     <string name="menu_live">Обновления в реальном времени</string>
     <string name="menu_refresh">Обновить</string>
-    <string name="menu_resolve">Показать названия</string>
+    <string name="menu_ok">OK</string>
+    <string name="menu_cancel">Отмена</string>
+    <string name="menu_resolve">Показать имена</string>
     <string name="menu_organization">Показать организацию</string>
     <string name="menu_pcap_enabled">PCAP включен</string>
-    <string name="menu_pcap_export">PCAP экспорт</string>
+    <string name="menu_pcap_export">Экспорт PCAP</string>
     <string name="menu_clear">Очистить</string>
     <string name="menu_export">Экспорт</string>
     <string name="menu_reset">Сброс</string>
+
     <string name="menu_add">Добавить</string>
     <string name="menu_delete">Удалить</string>
+
     <string name="menu_cleanup">Очистка</string>
+
     <string name="title_protocol">Протокол</string>
     <string name="title_dport">Исходный порт</string>
     <string name="title_raddr">Адрес назначения</string>
     <string name="title_rport">Порт назначения</string>
     <string name="title_ruid">Целевое приложение</string>
-    <string name="title_external">Для внешнего сервера выберите \"никто\"</string>
-    <string name="setting_defaults">По умолчанию</string>
-    <string name="setting_whitelist_wifi">Блокировать Wi-Fi по умолч.</string>
-    <string name="setting_whitelist_other">Блокировать моб. сеть по умолч.</string>
-    <string name="setting_screen_wifi">Разрешить Wi-Fi при вкл. экране по умолч.</string>
-    <string name="setting_screen_other">Разрешить моб. сеть при вкл. экране по умолч.</string>
-    <string name="setting_whitelist_roaming">Блокировать роуминг по умолч.</string>
+    <string name="title_external">Для внешнего сервера выберите \'nobody\'</string>
+
+    <string name="setting_defaults">По умолчанию (белый/черный список)</string>
+    <string name="setting_whitelist_wifi">Блокировать Wi-Fi</string>
+    <string name="setting_whitelist_other">Блокировать мобильную сеть</string>
+    <string name="setting_screen_wifi">Разрешить Wi-Fi при вкл. экране</string>
+    <string name="setting_screen_other">Разрешить мобильную сеть при вкл. экране</string>
+    <string name="setting_whitelist_roaming">Блокировать роуминг</string>
+
     <string name="setting_options">Опции</string>
     <string name="setting_theme">Тема: %1$s</string>
-    <string name="setting_dark">Использовать темную тему</string>
+    <string name="setting_dark">Темная тема</string>
+    <string name="setting_theme_palette">Выберите стиль цвета</string>
+    <string name="setting_dynamic_unavailable">Динамические цвета требуют Android 12 или новее.</string>
+    <string name="setting_appearance_mode">Режим оформления</string>
+    <string name="setting_appearance_mode_title">Темная тема</string>
+    <string name="setting_appearance_mode_summary">Выкл, Вкл или Как в системе.</string>
+    <string name="setting_appearance_preview">Сейчас: %1$s · %2$s</string>
+    <string name="setting_appearance_auto">Авто</string>
+    <string name="setting_appearance_light">Светлая</string>
+    <string name="setting_appearance_dark">Темная</string>
+    <string name="theme_dynamic" translatable="false">Dynamic</string>
     <string name="setting_install">Уведомлять о новой установке</string>
-    <string name="setting_screen_on">Применить правила при вкл. экране</string>
-    <string name="setting_auto">Авто запуск через %1$s минут</string>
-    <string name="setting_delay">Задержка экрана %1$s минут</string>
-    <string name="setting_update">Проверять наличие обновлений</string>
-    <string name="setting_network_options">Параметры сети</string>
+    <string name="setting_screen_on">Применять правила \'при вкл. экране\'</string>
+    <string name="setting_auto">Авто-включение через %1$s мин.</string>
+    <string name="setting_delay">Задержка выкл. экрана %1$s мин.</string>
+    <string name="setting_update">Проверять обновления</string>
+    <string name="setting_update_now">Проверить сейчас</string>
+    <string name="setting_update_checking">Проверка...</string>
+
+    <string name="setting_network_options">Сетевые опции</string>
     <string name="setting_subnet">Маршрутизация подсети</string>
-    <string name="setting_tethering">Разрешить привязку</string>
+    <string name="setting_tethering">Разрешить тетеринг</string>
     <string name="setting_lan">Разрешить доступ к LAN</string>
-    <string name="setting_ip6">Включить IPv6-трафик</string>
-    <string name="setting_wifi_home">Домашняя сеть Wi-Fi: %1$s</string>
-    <string name="setting_metered">Регулировать огранич. Wi-Fi сети</string>
-    <string name="setting_metered_2g">Не учитывать 2G</string>
-    <string name="setting_metered_3g">Не учитывать 3G</string>
-    <string name="setting_metered_4g">Не учитывать LTE</string>
-    <string name="setting_national_roaming">Игнорировать роуминг внутри страны</string>
+    <string name="setting_ip6">Включить трафик IPv6</string>
+    <string name="setting_wifi_home">Домашние Wi-Fi сети: %1$s</string>
+    <string name="setting_metered">Обработка лимитных Wi-Fi сетей</string>
+    <string name="setting_metered_2g">Считать 2G безлимитным</string>
+    <string name="setting_metered_3g">Считать 3G безлимитным</string>
+    <string name="setting_metered_4g">Считать LTE безлимитным</string>
+    <string name="setting_national_roaming">Игнорировать нац. роуминг</string>
     <string name="setting_eu_roaming">Игнорировать роуминг ЕС</string>
-    <string name="setting_call">Отключить при звонке</string>
+    <string name="setting_call">Отключать при звонке</string>
     <string name="setting_lockdown_wifi">Блокировка Wi-Fi</string>
-    <string name="setting_lockdown_other">Блокировка моб. сети</string>
-    <string name="setting_reload_onconnectivity">Перезагрузка при каждом изменении подключения</string>
-    <string name="setting_advanced_options">Дополнительные опции</string>
-    <string name="setting_system">Управлять сист. приложениями</string>
-    <string name="setting_log_app">Журнал доступа к сети интернет</string>
-    <string name="setting_access">Уведомить при доступе в интернет</string>
-    <string name="setting_filter">Фильтр трафика</string>
-    <string name="setting_filter_udp">Фильтр UDP трафика</string>
-    <string name="setting_handover">Бесшовная передача VPN при перезагрузке</string>
-    <string name="setting_clear_onreload">Закрыть соединения при перезагрузке</string>
+    <string name="setting_lockdown_other">Блокировка мобильной сети</string>
+    <string name="setting_reload_onconnectivity">Перезагружать при смене сети</string>
+
+    <string name="setting_advanced_options">Расширенные опции</string>
+    <string name="setting_system">Управлять системными приложениями</string>
+    <string name="setting_log_app">Журналировать доступ в Интернет</string>
+    <string name="setting_log_retention_days">Дней хранения журнала трафика</string>
+    <string name="setting_access">Уведомлять о доступе в Интернет</string>
+    <string name="setting_filter">Фильтровать трафик</string>
+    <string name="setting_filter_udp">Фильтровать UDP-трафик</string>
+    <string name="setting_handover">Бесшовный переход VPN при перезагрузке</string>
+    <string name="setting_clear_onreload">Закрывать соединения при перезагрузке</string>
     <string name="setting_lockdown">Блокировка трафика</string>
-    <string name="setting_track_usage">Отслеживание использования сети</string>
-    <string name="setting_reset_usage">Сброс сетевого использования</string>
-    <string name="setting_show_resolved">Показать разрешенные доменные имена</string>
+    <string name="setting_malware" translatable="false">Защита от вредоносного ПО</string>
+    <string name="setting_track_usage">Отслеживать использование сети</string>
+    <string name="setting_reset_usage">Сбросить статистику сети</string>
+    <string name="setting_show_resolved">Показать разрешенные домены</string>
     <string name="setting_block_domains">Блокировать доменные имена</string>
     <string name="setting_rcode">Код ответа DNS: %s</string>
     <string name="setting_forwarding">Перенаправление портов</string>
     <string name="setting_vpn4">VPN IPv4: %s</string>
     <string name="setting_vpn6">VPN IPv6: %s</string>
     <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_validate">Проверить на: %s</string>
-    <string name="setting_ttl">Минимальный DNS TTL: %s сек</string>
-    <string name="setting_socks5_enabled">Использовать прокси SOCKS5</string>
-    <string name="setting_socks5_addr">Адрес SOCKS5: %s</string>
-    <string name="setting_socks5_port">Порт SOCKS5: %s</string>
-    <string name="setting_socks5_username">Логин SOCKS5: %s</string>
-    <string name="setting_socks5_password">Пароль SOCKS5: %s</string>
+    <string name="setting_dns2">Вторичный DNS: %s</string>
+    <string name="setting_validate">Проверка на: %s</string>
+    <string name="setting_ttl">Мин. DNS TTL: %s с</string>
+    <string name="setting_socks5_enabled">Использовать SOCKS5 прокси</string>
+    <string name="setting_socks5_addr">SOCKS5 адрес: %s</string>
+    <string name="setting_socks5_port">SOCKS5 порт: %s</string>
+    <string name="setting_socks5_username">SOCKS5 логин: %s</string>
+    <string name="setting_socks5_password">SOCKS5 пароль: %s</string>
     <string name="setting_pcap_record_size">Размер записи PCAP: %s Б</string>
-    <string name="setting_pcap_file_size">Макс. размер PCAP файла: %s МБ</string>
-    <string name="setting_watchdog">Сторожевой таймер: каждые %s минут</string>
-    <string name="setting_stats_category">Скорость в статус-баре</string>
-    <string name="setting_stats">Показать скорость в статус-баре</string>
-    <string name="setting_stats_top">Показать топовое приложение</string>
-    <string name="setting_stats_frequency">Частота замеров: %s мс</string>
-    <string name="setting_stats_samples">Число замеров: %s с</string>
+    <string name="setting_pcap_file_size">Макс. размер файла PCAP: %s МБ</string>
+    <string name="setting_pcap">Запись сетевого трафика (PCAP)</string>
+    <string name="setting_watchdog">Watchdog: каждые %s мин.</string>
+
+    <string name="setting_stats_category">Уведомление о скорости</string>
+    <string name="setting_stats">Показать скорость в уведомлении</string>
+    <string name="setting_stats_top">Показывать топ приложений</string>
+    <string name="setting_stats_frequency">Интервал выборки: %s мс</string>
+    <string name="setting_stats_samples">Количество выборок: %s</string>
+
     <string name="setting_backup">Резервное копирование</string>
     <string name="setting_export">Экспорт настроек</string>
     <string name="setting_import">Импорт настроек</string>
-    <string name="setting_hosts">Импорт hosts-файла</string>
-    <string name="setting_hosts_append">Импорт hosts-файла (добавить)</string>
-    <string name="setting_hosts_url">Ссылка для скачивания hosts-файла</string>
-    <string name="setting_hosts_download">Скачать hosts-файл</string>
+    <string name="setting_hosts">Импорт файла hosts</string>
+    <string name="setting_hosts_append">Импорт файла hosts (дозапись)</string>
+    <string name="setting_hosts_url">URL для скачивания файла hosts</string>
+    <string name="setting_hosts_download">Скачать файл hosts</string>
+    <string name="setting_use_hosts">Использовать файл hosts</string>
+
     <string name="setting_technical">Техническая информация</string>
     <string name="setting_technical_general">Общее</string>
-    <string name="setting_technical_networks">Сеть</string>
+    <string name="setting_technical_networks">Сети</string>
     <string name="setting_technical_subscription">Подписки</string>
-    <string name="summary_install">Показать уведомление в статус-баре для непосредственной настройки недавно установленных приложений (Pro-функция)</string>
-    <string name="summary_auto">После отключения через виджет, автоматически включить NetGuard снова после указанного количества минут (введите ноль, чтобы отключить эту опцию)</string>
-    <string name="summary_delay">После выключения экрана, держать экран активным в течение выбранного количества минут (введите ноль, чтобы отключить эту опцию)</string>
-    <string name="summary_update">Проверять наличие новых версий на GitHub два раза в день</string>
-    <string name="summary_tethering">В зависимости от версии Android, привязывание может либо работать, либо не работать. Привязанный трафик не может быть отфильтрован.</string>
-    <string name="summary_subnet">Включение маршрутизации подсети; может дать возможность использования Wi-Fi звонков, но также может вызвать ошибки в Android и увеличить расход заряда батареи</string>
-    <string name="summary_lan">Разрешить приложениям подключаться к локальным сетевым адресам таким, как 10.0.0.0/8, 172.16.0.0/12 и 192.168.0.0/16</string>
-    <string name="summary_ip6">Пересылка трафика IPv6 к NetGuard может быть выборочно разрешена или заблокирована</string>
-    <string name="summary_wifi_home">Применить правила Wi-Fi сети только для выбранной сети (для других Wi-Fi сетей применяются правила мобильной сети)</string>
-    <string name="summary_metered">Применить правила для лимитированных (платных, ограниченных) Wi-Fi сетей</string>
-    <string name="summary_metered_2g">Применить правила Wi-Fi-сети для передачи данных через 2G</string>
-    <string name="summary_metered_3g">Применить правила Wi-Fi-сети для передачи данных через 3G</string>
-    <string name="summary_metered_4g">Применить правила Wi-Fi-сети для передачи данных через LTE</string>
-    <string name="summary_national_roaming">Не применять правила роуминга, если SIM-карта и мобильная сеть из одной страны</string>
-    <string name="summary_eu_roaming">Не применять правила роуминга, если страна SIM-карты и мобильная сеть находится в пределах Евросоюза (как у себя дома)</string>
-    <string name="summary_call">Отключить NetGuard при входящем или исходящем телефонном звонке. Эту опцию можно использовать для решения проблем с IP/Wi-Fi.</string>
-    <string name="summary_system">Определить правила для системных приложений (для профи)</string>
-    <string name="summary_log_app">Журнал попыток доступа приложений к сети интернет. Это может привести к большему потреблению заряда аккумулятора.</string>
-    <string name="summary_access">Показать уведомление в строке состояния, когда приложение пытается получить доступ к новому Интернет-адресу (когда фильтрация отключена, будут показаны только заблокированные попытки доступа в Интернет)</string>
-    <string name="summary_filter">Фильтровать IP-пакеты, проходящие через VPN. Это может привести к большему потреблению заряда аккумулятора.</string>
-    <string name="summary_track_usage">Отслеживать количество отправленных и полученных байтов для каждого приложения и адресов. Это может привести к большему потреблению заряда аккумулятора.</string>
-    <string name="summary_block_domains">Отвечать кодом ответа настроенного DNS для заблокированных доменных имен. Этот переключатель отключен, если доступных host-файлов нет.</string>
-    <string name="summary_rcode">Значение по умолчанию - 3 (NXDOMAIN); это означает «несуществующий домен».</string>
-    <string name="summary_validate">Доменное имя, используемое для проверки интернет-соединения через порт 443 (https).</string>
-    <string name="summary_socks5_enabled">На прокси-сервер будет направляться только TCP трафик</string>
-    <string name="summary_watchdog">Периодически проверять, запущен ли NetGuard (введите ноль, чтобы отключить эту опцию). Это может привести к большему потреблению заряда аккумулятора.</string>
-    <string name="summary_stats">Показать график скорости сети в статус-баре</string>
+    <string name="setting_section_appearance">Оформление</string>
+    <string name="setting_section_firewall">Правила брандмауэра</string>
+    <string name="setting_section_advanced">Расширенное поведение</string>
+    <string name="setting_section_hosts">Hosts и DNS</string>
+    <string name="setting_section_network">Конфигурация сети</string>
+    <string name="setting_section_dns">Детали DNS</string>
+    <string name="setting_section_proxy">Прокси</string>
+    <string name="setting_section_vpn">Конфигурация VPN</string>
+    <string name="setting_section_background">Фоновые задачи</string>
+    <string name="setting_section_diagnostics">Диагностика</string>
+    <string name="setting_section_support">Поддержка</string>
+
+    <string name="summary_install">Уведомление в статус-баре для настройки новых приложений (Pro-функция)</string>
+    <string name="summary_auto">Авто-включение NetGuard через выбранное время после выключения (0 для отключения)</string>
+    <string name="summary_delay">После выключения экрана правила \'экран включен\' остаются активными (0 для отключения)</string>
+    <string name="summary_update">Проверка новых релизов на GitHub дважды в день</string>
+
+    <string name="summary_tethering">В зависимости от версии Android тетеринг может работать или нет. Такой трафик не фильтруется.</string>
+    <string name="summary_subnet">Разрешить маршрутизацию подсети; может включить Wi-Fi звонки, но может вызвать баги и расход батареи</string>
+    <string name="summary_lan">Разрешить приложениям подключаться к адресам локальной сети (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16)</string>
+    <string name="summary_ip6">Направлять IPv6 трафик в NetGuard для выборочной фильтрации</string>
+    <string name="summary_wifi_home">Применять правила Wi-Fi только для выбранной сети (для остальных - правила мобильной сети)</string>
+    <string name="summary_metered">Применять мобильные правила к лимитным Wi-Fi сетям (платные, тетеринг)</string>
+    <string name="summary_metered_2g">Применять Wi-Fi правила для 2G соединений</string>
+    <string name="summary_metered_3g">Применять Wi-Fi правила для 3G соединений</string>
+    <string name="summary_metered_4g">Применять Wi-Fi правила для LTE соединений</string>
+    <string name="summary_national_roaming">Не применять правила роуминга, если SIM и сеть одной страны</string>
+    <string name="summary_eu_roaming">Не применять правила роуминга внутри ЕС (роуминг как дома)</string>
+    <string name="summary_call">Отключать NetGuard во время звонков. Помогает при проблемах с IP/Wi-Fi звонками.</string>
+
+    <string name="summary_system">Настройка правил для системных приложений (для экспертов)</string>
+    <string name="summary_log_app">Журналировать попытки доступа в Интернет. Может увеличить расход батареи.</string>
+    <string name="summary_log_retention_days">Авто-удаление старых логов. Установите 0 для вечного хранения.</string>
+    <string name="summary_access">Уведомлять при попытке приложения выйти в сеть (если фильтрация выкл, только для заблокированных)</string>
+    <string name="summary_filter">Фильтровать IP-пакеты на выходе из VPN туннеля. Может увеличить расход батареи.</string>
+    <string name="summary_track_usage">Отслеживать объем данных для каждого приложения и адреса. Может увеличить расход батареи.</string>
+    <string name="summary_block_domains">Отвечать выбранным DNS-кодом для заблокированных доменов. Неактивно без файла hosts.</string>
+    <string name="summary_rcode">Значение по умолчанию 3 (NXDOMAIN) — \'домен не существует\'.</string>
+    <string name="summary_validate">Домен для проверки интернет-соединения на порту 443 (https).</string>
+    <string name="summary_socks5_enabled">Только TCP трафик будет направляться через прокси</string>
+    <string name="summary_watchdog">Периодическая проверка работы NetGuard (0 для отключения). Может увеличить расход батареи.</string>
+
+    <string name="summary_stats">Показывать график скорости сети в уведомлении</string>
+
+    <string-array name="default_wifi_home"></string-array>
+
     <string name="msg_sure">Вы уверены?</string>
-    <string name="msg_started">Определить правила</string>
+    <string name="msg_started">Применение правил</string>
     <string name="msg_packages">%1$d разрешено, %2$d заблокировано</string>
-    <string name="msg_hosts">%1$d разрешен, %2$d заблокирован, %3$d хостов</string>
+    <string name="msg_hosts">%1$d разрешено, %2$d заблокировано, %3$d хостов</string>
     <string name="msg_waiting">Ожидание события</string>
-    <string name="msg_disabled">NetGuard отключен, используйте переключатель выше для его включения</string>
-    <string name="msg_notifications">Нажмите, чтобы предоставить доступ к уведомлениям (для уведомлений о попытках доступа, сообщений об ошибках и т. д.)</string>
-    <string name="msg_revoked">NetGuard был отключен, скорее всего, из-за применения другого VPN-подключения</string>
+    <string name="msg_disabled">NetGuard отключен, включите его переключателем вверху</string>
+    <string name="msg_notifications">Нажмите, чтобы дать разрешение на уведомления (для попыток доступа, ошибок и т.д.)</string>
+    <string name="msg_revoked">NetGuard был отключен, вероятно, другим VPN-приложением</string>
     <string name="msg_installed">\'%1$s\' установлено</string>
-    <string name="msg_installed_n">Было установлено</string>
-    <string name="msg_access">%1$s попыток доступа в интернет</string>
-    <string name="msg_access_n">Попытка доступа в интернет</string>
+    <string name="msg_installed_n">Приложение установлено</string>
+    <string name="msg_malware" translatable="false">Possible malware: \'%1$s\'</string>
+    <string name="msg_access">%1$s: попытка доступа в Интернет</string>
+    <string name="msg_access_n">Попытка доступа в Интернет</string>
     <string name="msg_completed">Действие завершено</string>
-    <string name="msg_vpn">NetGuard использует локальный VPN для фильтрации интернет-трафика.
-По этой причине, пожалуйста, разрешите VPN-подключение в следующем диалоговом окне. Удаленному VPN-серверу ваш интернет-трафик не отправляется.</string>
-    <string name="msg_autostart">NetGuard не может быть запущен автоматически при загрузке из-за ошибки в вашей версии Android</string>
+    <string name="msg_invalid">Проверьте значения и попробуйте снова.</string>
+    <string name="msg_export_failed">Экспорт не удался: %1$s</string>
+    <string name="msg_vpn">NetGuard использует локальный VPN для фильтрации трафика.
+Разрешите VPN-соединение в следующем диалоге.
+Ваш трафик НЕ отправляется на удаленный VPN-сервер.</string>
+    <string name="msg_autostart">NetGuard не смог запуститься автоматически. Вероятно, это баг вашей версии Android.</string>
     <string name="msg_error">Произошла непредвиденная ошибка: \'%s\'</string>
-    <string name="msg_start_failed">В данный момент, Android отказался запустить VPN-сервис. Вероятно, это из-за ошибки в вашей версии Android.</string>
-    <string name="msg_try">Попробуйте новый фаервол NetGuard</string>
-    <string name="msg_terms">Делая пожертвование, Вы соглашаетесь с <a href="http://www.netguard.me/#terms">условиями &amp; положениями</a></string>
-    <string name="msg_dimming">Если вам не удается нажать ОК в следующем диалоговом окне (затемнение экрана), то, скорее всего, какое то другое приложение использует экран.</string>
-    <string name="msg_mbday">± %1$.3f▲ %2$.3f▼ МБ/день</string>
-    <string name="msg_kb">%1$7.3f▲ %2$7.3f▼ КБ</string>
-    <string name="msg_mb">%1$7.3f▲ %2$7.3f▼ МБ</string>
-    <string name="msg_gb">%1$7.3f▲ %2$7.3f▼ ГБ</string>
+    <string name="msg_start_failed">Android отказал в запуске VPN службы. Вероятно, это баг вашей версии Android.</string>
+    <string name="msg_try">Попробовать NetGuard</string>
+    <string name="msg_terms">Делая пожертвование, вы соглашаетесь с <a href="http://www.netguard.me/#terms">условиями и положениями</a></string>
+    <string name="msg_dimming">Если вы не можете нажать ОК, скорее всего, другое приложение (фильтр синего или яркости) перекрывает экран.</string>
+    <string name="msg_mbday">&#177; %1$.3f&#9650; %2$.3f&#9660; МБ/день</string>
+    <string name="msg_kbsec">%7.3f КБ/с</string>
+    <string name="msg_mbsec">%7.3f МБ/с</string>
+    <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; КБ</string>
+    <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; МБ</string>
+    <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; ГБ</string>
     <string name="msg_count">%dx</string>
-    <string name="msg_doze">Для достижения стабильных результатов экономия заряда аккумулятора Android для NetGuard должна быть отключена. \n\nВ следующем диалоговом окне, в верхней части, выберите «Все приложения», найдите NetGuard в списке и выберете его, затем выберите «Не экономить» и подтвердите.</string>
-    <string name="msg_datasaving">Для достижения стабильных результатов, ограничение данных Android должно быть отключено для NetGuard.
-\n\nВ следующем диалоговом окне включите опции \"Фоновые данные\" и \"Неограниченное использование данных\"</string>
-    <string name="msg_filter">Использование данной функции приводит к тому, что Android передает сетевые данные и использование заряда аккумулятора в пользование NetGuard; Android будет считать, что данные и заряд используются NetGuard, а не стандартными, для работы этой функции, приложениями.</string>
-    <string name="msg_filter4">На Android 4 фильтрация должна быть включена</string>
-    <string name="msg_log_disabled">Ведение журнала трафика отключено, используйте переключатель выше для его включения. Это может привести к большему потреблению заряда аккумулятора.</string>
-    <string name="msg_clear_rules">Это сбросит правила и условия на их значения по умолчанию</string>
-    <string name="msg_reset_access">Это удалит строки журнала попыток доступа правил разрешения/блокирования</string>
-    <string name="msg_import_last">Прошлый импорт: %s</string>
+    <string name="msg_doze">Для стабильной работы отключите оптимизацию батареи для NetGuard.
+\n\nВ следующем диалоге выберите \"Все приложения\", найдите NetGuard и выберите \"Не оптимизировать\".</string>
+    <string name="msg_datasaving">Для стабильной работы отключите экономию трафика для NetGuard.
+\n\nВ следующем диалоге включите \"Фоновые данные\" и \"Неограниченная передача данных\".</string>
+    <string name="msg_filter">При фильтрации Android будет приписывать трафик и расход заряда NetGuard, а не исходным приложениям.</string>
+    <string name="msg_filter4">Android 4 требует обязательного включения фильтрации</string>
+    <string name="msg_log_disabled">Логирование отключено. Используйте переключатель вверху для включения. Может увеличить расход батареи.</string>
+    <string name="msg_clear_rules">Это сбросит все правила и условия к стандартным значениям</string>
+    <string name="msg_reset_access">Это удалит строки лога попыток доступа без правил разрешить/блокировать</string>
+    <string name="msg_import_last">Последний импорт: %s</string>
     <string name="msg_downloading">Загрузка\n%1s</string>
-    <string name="msg_downloaded">hosts-файл загружен</string>
+    <string name="msg_downloaded">Файл hosts загружен</string>
     <string name="msg_download_last">Последняя загрузка: %s</string>
-    <string name="msg_start_forward">Начать пересылку из %1$s порта %2$d в %3$s:%4$d из %5$s?</string>
-    <string name="msg_stop_forward">Остановить пересылку из %1$s порта %2$d?</string>
-    <string name="msg_metered">Лимитированные сети</string>
-    <string name="msg_inactive">Отсутствует подключение к сети интернет</string>
+    <string name="msg_start_forward">Начать перенаправление с %1$s порт %2$d на %3$s:%4$d для \'%5$s\'?</string>
+    <string name="msg_stop_forward">Остановить перенаправление %1$s порт %2$d?</string>
+    <string name="msg_metered">Сеть лимитирована</string>
+    <string name="msg_inactive">Нет активного интернет-соединения</string>
     <string name="msg_queue">NetGuard занят</string>
-    <string name="msg_update">Доступно обновление, нажмите, чтобы загрузить</string>
-    <string name="msg_usage">Вы можете разрешить (зеленоватый цвет значка) или запретить (красноватый цвет значка) Wi-Fi или мобильный интернет, нажав на значок рядом с приложением</string>
-    <string name="msg_fairemail">Если вы установили NetGuard для защиты вашей конфиденциальности, вас может заинтересовать <a href="https://email.faircode.eu/"> FairEmail</a>, с открытым исходным кодом, дружественное приложение для конфиденциальности электронной почты</string>
-    <string name="msg_whitelist">Доступ в интернет разрешен по умолчанию, это может быть изменено в настройках</string>
-    <string name="msg_push">Push-сообщения, в основном, обрабатываются системными компонентами Google Play, которым по умолчанию разрешен доступ в Интернет</string>
-    <string name="msg_system">Управление системными приложениями может быть включено в дополнительных опциях</string>
-    <string name="msg_issue">Пожалуйста, опишите проблему и укажите момент возникновения проблемы:</string>
-    <string name="msg_vpn_cancelled">VPN соединение отменено\nХотите настроить другое соединение, чтобы VPN был всегда?</string>
-    <string name="msg_on">Выключение устройства с запущенным NetGuard автоматически запустит NetGuard при включении вашего устройства</string>
-    <string name="msg_unavailable">Эта функция недоступна в этой версии Android</string>
-    <string name="msg_always_on">Новый VPN установлен, как базовый VPN</string>
-    <string name="msg_always_on_lockdown">Отключите «Блокировать подключения без VPN» в настройках Android VPN, чтобы использовать NetGuard в режиме фильтрации</string>
-    <string name="msg_private_dns">Отключите «Частный DNS» в настройках сети Android, чтобы использовать NetGuard в режиме фильтрации</string>
-    <string name="title_lockdown_enabled">Трафик заблокирован</string>
+    <string name="msg_update">Доступно обновление, нажмите для загрузки</string>
+    <string name="msg_usage">Вы можете разрешить (зеленый) или запретить (красный) Wi-Fi или мобильный доступ, нажимая на иконки рядом с приложением</string>
+    <string name="msg_fairemail">Если вы используете NetGuard для приватности, вас может заинтересовать <a href="https://email.faircode.eu/">FairEmail</a> — почта с открытым кодом и защитой данных.</string>
+    <string name="msg_whitelist">Доступ разрешен по умолчанию (режим черного списка), это можно изменить в настройках</string>
+    <string name="msg_push">Входящие push-сообщения обычно обрабатываются сервисами Play, которым доступ разрешен по умолчанию</string>
+    <string name="msg_system">Управление всеми (системными) приложениями можно включить в настройках</string>
+    <string name="msg_issue">Опишите проблему и укажите время её возникновения:</string>
+    <string name="msg_vpn_cancelled">VPN соединение отменено. У вас настроен другой VPN в режиме \'Всегда включен\'?</string>
+    <string name="msg_on">Если NetGuard был включен при выключении устройства, он запустится автоматически при включении</string>
+    <string name="msg_unavailable">Эта функция недоступна в данной версии Android</string>
+    <string name="msg_always_on">Другой VPN установлен как \'Всегда включенный\'</string>
+    <string name="msg_always_on_lockdown">Выключите \"Блокировать соединения без VPN\" в настройках VPN Android для работы NetGuard</string>
+    <string name="msg_private_dns">Выключите \"Частный DNS\" в сетевых настройках Android для работы NetGuard</string>
+
+    <string name="title_lockdown_enabled">Трафик заблокирован (lockdown)</string>
     <string name="title_unmetered_allowed">Безлимитный трафик разрешен</string>
-    <string name="title_unmetered_blocked">Безлимитный трафик блокируется</string>
-    <string name="title_unmetered_disabled">Безлимитные правила не применяются</string>
-    <string name="title_metered_allowed">Лимитированный трафик разрешен</string>
-    <string name="title_metered_blocked">Лимитированный трафик блокируется</string>
-    <string name="title_metered_disabled">Лимитированные правила не применяются</string>
+    <string name="title_unmetered_blocked">Безлимитный трафик заблокирован</string>
+    <string name="title_unmetered_disabled">Правила безлимита не применяются</string>
+    <string name="title_metered_allowed">Лимитный трафик разрешен</string>
+    <string name="title_metered_blocked">Лимитный трафик заблокирован</string>
+    <string name="title_metered_disabled">Правила лимита не применяются</string>
     <string name="title_host_allowed">Адрес разрешен</string>
     <string name="title_host_blocked">Адрес заблокирован</string>
-    <string name="title_interactive_allowed">Разрешить, когда экран включен</string>
+    <string name="title_interactive_allowed">Разрешить при включенном экране</string>
     <string name="title_roaming_blocked">Блокировать в роуминге</string>
-    <string name="title_metered">По умолчанию Wi-Fi соединение считается безлимитным, а мобильная связь лимитированной</string>
-    <string name="title_internet">не имеет доступа в интернет</string>
+    <string name="title_metered">По умолчанию Wi-Fi считается безлимитным, а мобильная сеть — лимитной</string>
+
+    <string name="title_internet">не имеет разрешения на Интернет</string>
     <string name="title_disabled">отключено</string>
-    <string name="title_messaging">Входящие сообщения принимаются службами Google Play, а не этим приложением, поэтому не могут быть им заблокированы</string>
-    <string name="title_download">Загрузки выполняются менеджером загрузки, а не этим приложением, и поэтому не могут быть заблокированы путем блокировки этого приложения</string>
+    <string name="title_messaging">Входящие сообщения принимаются Сервисами Google Play, поэтому их нельзя заблокировать через это приложение</string>
+    <string name="title_download">Загрузки выполняются менеджером загрузок, поэтому их нельзя заблокировать через это приложение</string>
     <string name="title_apply">Применить правила и условия</string>
     <string name="title_conditions">Условия</string>
-    <string name="title_screen_wifi">Разрешить Wi-Fi при включенном экране</string>
-    <string name="title_screen_other">Разрешить мобильную сеть при включенном экране</string>
-    <string name="title_roaming_symbol">Р</string>
+    <string name="title_screen_wifi">Разрешить Wi-Fi при вкл. экране</string>
+    <string name="title_screen_other">Разрешить мобильную сеть при вкл. экране</string>
+    <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">Блокировать в роуминге</string>
-    <string name="title_lockdown">Разрешить в режиме блокировки трафика</string>
-    <string name="title_related">Фильтровать связные</string>
+    <string name="label_ttl">TTL: %s с</string>
+    <string name="label_uid">UID: %s</string>
+    <string name="title_lockdown">Разрешить в режиме блокировки</string>
+    <string name="title_related">Связанные фильтры</string>
     <string name="title_access">Попытки доступа</string>
-    <string name="title_precedence">Правила доступа имеют приоритет над другими правилами</string>
+    <string name="title_precedence">Правила доступа имеют приоритет над остальными</string>
     <string name="title_options">Опции</string>
-    <string name="title_notify">Уведомить о попытке доступа в интернет</string>
-    <string name="title_logging_disabled">Ведение журнала или фильтрация не включены</string>
-    <string name="title_logging_enabled">Ведение журнала и фильтрация включены</string>
+    <string name="title_notify">Уведомлять о попытках доступа</string>
+
+    <string name="title_logging_disabled">Логирование или фильтрация не включены</string>
+    <string name="title_logging_enabled">Логирование и фильтрация включены</string>
     <string name="title_logging_configure">Настроить</string>
-    <string name="title_enable_logging">Включить ведение журнала только заблокированных адресов</string>
-    <string name="title_enable_filtering">Включить фильтрацию для регистрации разрешенных адресов</string>
-    <string name="title_enable_notify">Включить уведомления о доступе для недавно зарегистрированных адресов</string>
-    <string name="title_enable_help0">Эти настройки являются глобальными, которые применяются ко всем приложениям</string>
-    <string name="title_enable_help1">Фильтрация также необходима для разрешения или блокировки отдельных адресов</string>
-    <string name="title_enable_help2">Включение ведения журнала или фильтрации может увеличить расход батареи и повлиять на скорость сети</string>
+
+    <string name="title_enable_logging">Логировать только заблокированные адреса</string>
+    <string name="title_enable_filtering">Включить фильтрацию для логирования разрешенных адресов</string>
+    <string name="title_enable_notify">Включить уведомления о новых попытках доступа</string>
+    <string name="title_enable_help0">Эти настройки являются глобальными для всех приложений</string>
+    <string name="title_enable_help1">Фильтрация также нужна для управления отдельными адресами</string>
+    <string name="title_enable_help2">Включение логов или фильтрации может увеличить расход батареи и повлиять на скорость</string>
+
     <string name="title_rate">Оценить</string>
     <string name="title_allow">Разрешить</string>
     <string name="title_block">Блокировать</string>
+    <string name="title_wifi">Wi-Fi</string>
+    <string name="title_mobile">Моб. сеть</string>
     <string name="title_allow_wifi">Разрешить Wi-Fi</string>
     <string name="title_block_wifi">Блокировать Wi-Fi</string>
     <string name="title_allow_other">Разрешить моб. сеть</string>
     <string name="title_block_other">Блокировать моб. сеть</string>
     <string name="title_root">root</string>
-    <string name="title_mediaserver">медиасервер</string>
-    <string name="title_nobody">никто</string>
+    <string name="title_mediaserver">mediaserver</string>
+    <string name="title_gpsdaemon" translatable="false">GPS daemon</string>
+    <string name="title_dnsdaemon" translatable="false">DNS daemon</string>
+    <string name="title_nobody">nobody</string>
     <string name="title_dontask">Больше не спрашивать</string>
-    <string name="title_log_whois">Протокол WHOIS: %1$s</string>
-    <string name="title_log_port">Порт: %1$d</string>
+
+    <string name="title_log_whois">Whois %1$s</string>
+    <string name="title_log_port">Порт %1$d</string>
     <string name="title_log_copy">Копировать</string>
+
     <string name="title_pro">Pro-функции</string>
-    <string name="title_pro_description">Доступны следующие Pro-функции:</string>
-    <string name="title_pro_log">Просмотр журнала заблокированного трафика</string>
-    <string name="title_pro_filter">Фильтр сетевого трафика</string>
-    <string name="title_pro_notify">Новые уведомления</string>
-    <string name="title_pro_speed">График скорости сети</string>
-    <string name="title_pro_theme">Внешний вид (темы, цвета)</string>
-    <string name="title_pro_all">Все выше перечисленные Pro-функции</string>
-    <string name="title_pro_dev">Поддержать разработчика</string>
+    <string name="title_pro_description">Доступны следующие pro-функции:</string>
+    <string name="title_pro_log">Просмотр лога заблокированного трафика</string>
+    <string name="title_pro_filter">Фильтрация сетевого трафика</string>
+    <string name="title_pro_notify">Уведомления о новых приложениях</string>
+    <string name="title_pro_speed">График скорости сети в уведомлении</string>
+    <string name="title_pro_theme">Оформление (темы, цвета)</string>
+    <string name="title_pro_all">Все вышеуказанные pro-функции</string>
+    <string name="title_pro_dev">Поддержать разработку</string>
     <string name="title_pro_buy">Купить</string>
-    <string name="title_pro_bought">Добавлено</string>
+    <string name="title_pro_bought">Включено</string>
     <string name="title_pro_unavailable">Недоступно</string>
-    <string name="title_pro_details">Нажмите на название для получения дополнительной информации</string>
-    <string name="title_pro_challenge">Задание</string>
+    <string name="title_pro_details">Нажмите на заголовок для подробностей</string>
+    <string name="title_pro_challenge">Запрос</string>
     <string name="title_pro_reponse">Ответ</string>
-    <string name="title_pro_feature">Доступно в Pro-версии</string>
-    <string name="title_pro_subscription">        Ежемесячная подписка за 1 или 2 евро (без учета местных налогов) активирует все функции Pro.
-        Вы можете отменить или управлять подпиской через вкладку подписок в Google Play Маркет.
+    <string name="title_pro_feature">Это pro-функция</string>
+    <string name="title_pro_subscription">
+        Месячная подписка за 1 или 2 евро (без учета налогов) активирует все pro-функции.
+        Вы можете управлять подпиской в приложении Play Store.
     </string>
-    <string-array name="themeNames">
-        <item>бирюзовый/оранжевый</item>
-        <item>синий/оранжевый</item>
-        <item>фиолетовый/красный</item>
-        <item>янтарный/синий</item>
-        <item>оранжевый/серый</item>
-        <item>зеленый</item>
-    </string-array>
-    <string-array name="protocolNames">
+    <string name="title_pro_already">Pro-функции уже активированы</string>    <string-array name="protocolNames">
         <item>UDP</item>
         <item>TCP</item>
     </string-array>
+
+    <string-array name="protocolValues" translatable="false">
+        <item>17</item>
+        <item>6</item>
+    </string-array>
+
+    <string name="label_dns_summary">%1$d записей • %2$d истекло</string>
+
 </resources>

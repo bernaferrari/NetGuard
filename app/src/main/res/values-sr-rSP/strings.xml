@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name" translatable="false">NetGuard Next</string>
     <string name="app_description">Нетгард нуди једноставне и напредне начине блокирања приступа интернету без потребе за рутовањем. Апликацијама и адресама се може појединачно дозволити или одбити приступ бежичној и/или мобилној вези.</string>
+    <string name="app_copyright" translatable="false">Copyright \u00A9 2015–2025 by M. Bokhorst (M66B)</string>
     <string name="app_android">Нетгард захтева Андроид 5.1 или новији</string>
-    <string name="app_xposed">\'Xposed\' изазива превише грешака које могу резултирати да Нетгард буде уклоњен са Гугл плеј продвнице. Стога, Нетгард није подржан док је \'Xposed\' инсталиран</string>
+    <string name="app_eula" translatable="false">THIS SOFTWARE IS PROVIDED BY THE AUTHOR \'\'AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
     <string name="app_privacy"><a href="https://www.netguard.me/privacy/">Политика приватности</a></string>
     <string name="app_first">Огромна пажња је посвећена развоју и тестирању Нетгард апликације. Међутим, немогуће је гарантовати да ће Нетгард радити исправно на сваком уређају.</string>
     <string name="app_agree">Слажем се</string>
     <string name="app_disagree">Не слажем се</string>
     <string name="app_support">Нетгарду треба ваша помоћ. Кликните да купите профи могућности да би пројекат живео.</string>
+    <string name="app_qap">
+        Google је намеравао да уклони апликацију из Play продавнице јер је захтевала дозволу за упит за све апликације.
+        Пет жалби и пружање доброг образложења зашто је ова дозвола потребна су одбијени.
+        Ова верзија апликације више не захтева ову дозволу,
+        и упркос томе, скоро све апликације ће и даље бити наведене,
+        осим неких (системских) апликација које се не могу покренути ручно са листе апликација за Android.
+        Интернет саобраћај ових апликација ће увек бити дозвољен како би се осигурало да ваш уређај настави да ради исправно.
+        Ако мислите да је ово проблем, можете се ажурирати на GitHub верзију апликације и поново управљати свим (системским) апликацијама.
+    </string>
+
     <string name="channel_foreground">Покренути сервиси</string>
     <string name="channel_notify">Општа обавештења</string>
     <string name="channel_access">Обавештења о приступу</string>
+
     <string name="menu_search">Тражење апликације</string>
     <string name="menu_filter">Филтер апликација</string>
     <string name="menu_app_user">Приказ корисничких</string>
@@ -21,18 +34,100 @@
     <string name="menu_sort_name">Сложи по називу</string>
     <string name="menu_sort_uid">Сложи по УИД</string>
     <string name="menu_sort_data">Сложи по утрошку података</string>
+    <string name="menu_launch">Покрени апликацију</string>
     <string name="menu_log">Приказ дневника</string>
     <string name="menu_settings">Поставке</string>
+    <string name="menu_home">Почетна</string>
     <string name="menu_invite">Позивница</string>
     <string name="menu_legend">Легенда</string>
     <string name="menu_support">Подршка</string>
     <string name="menu_about">О програму</string>
     <string name="menu_apps">Остале апликације</string>
+    <string name="menu_firewall">Заштитни зид</string>
+    <string name="status_enabled">Заштитни зид је укључен</string>
+    <string name="status_disabled">Заштитни зид је искључен</string>
+    <string name="widget_firewall_enabled">Заштитни зид УКЉ</string>
+    <string name="widget_firewall_disabled">Заштитни зид ИСКЉ</string>
+    <string name="widget_lockdown_enabled">Закључавање УКЉ</string>
+    <string name="widget_lockdown_disabled">Закључавање ИСКЉ</string>
+    <string name="notify_traffic_title">Монитор саобраћаја</string>
+    <string name="notify_traffic_summary">Слање %1$s • Пријем %2$s • Пик %3$s</string>
+    <string name="notify_traffic_debug">Сесије %1$d/%2$d/%3$d • Датотеке %4$d/%5$d</string>
+    <string name="ui_loading">Учитавање…</string>
+    <string name="ui_empty_logs_title">Још нема саобраћаја</string>
+    <string name="ui_empty_logs_body">Када се појаве везе, биће приказане овде.</string>
+    <string name="ui_empty_apps_title">Нису пронађене апликације</string>
+    <string name="ui_empty_apps_body">Покушајте да освежите листу.</string>
+    <string name="ui_empty_dns_title">Још нема разрешених ДНС-ова</string>
+    <string name="ui_empty_dns_body">Одговори ДНС-а ће се појавити овде након прегледања.</string>
+    <string name="ui_dns_filter_empty">Ниједан ДНС запис не одговара овом филтеру.</string>
+    <string name="ui_empty_forwarding_title">Нема правила за прослеђивање</string>
+    <string name="ui_empty_forwarding_body">Додајте правило да бисте започели прослеђивање саобраћаја.</string>
+    <string name="ui_forwarding_filter_empty">Ниједно правило за прослеђивање не одговара овом филтеру.</string>
+    <string name="ui_empty_pro_body">Подршка откључава додатне функције и одржава пројекат у животу.</string>
+    <string name="ui_empty_pro_details">Профи откључава: филтрирање, бележење, обавештења, теме и ограничења брзине.</string>
+    <string name="ui_home_hint">Контролишите приступ интернету за сваку апликацију.</string>
+    <string name="ui_home_quick_actions">Брзе акције</string>
+    <string name="ui_apps_title">Заштитни зид</string>
+    <string name="ui_logs_title">Дневник саобраћаја</string>
+    <string name="ui_logs_filters">Филтери</string>
+    <string name="ui_logs_filter_status">Статус</string>
+    <string name="ui_logs_filter_protocol">Протокол</string>
+    <string name="ui_logs_filter_view">Преглед</string>
+    <string name="ui_logs_group_timeline">Временска линија</string>
+    <string name="ui_logs_group_by_app">По апликацији</string>
+    <string name="ui_logs_unknown_source">Непознат извор</string>
+    <string name="ui_settings_title">Поставке</string>
+    <string name="ui_dns_title">Разрешени ДНС</string>
+    <string name="ui_forwarding_title">Прослеђивање портова</string>
+    <string name="ui_dns_hint">Недавно разрешени домени и одговори.</string>
+    <string name="ui_forwarding_hint">Управљајте правилима прослеђивања и циљним апликацијама. </string>
+    <string name="ui_dns_active">Активно</string>
+    <string name="ui_rule_custom">Прилагођено</string>
+    <string name="ui_dns_expired">Истекло</string>
+    <string name="ui_filter_all">Све</string>
+    <string name="ui_filter_empty">Ниједна апликација не одговара овом филтеру.</string>
+    <string name="ui_apps_search_empty">Ниједна апликација не одговара овој претрази.</string>
+    <string name="ui_learn_more">Сазнајте више</string>
+    <string name="status_running">Саобраћај се филтрира</string>
+    <string name="status_not_running">Саобраћај се не филтрира</string>
+    <string name="action_enable">Омогући</string>
+    <string name="action_disable">Онемогући</string>
+    <string name="home_apps_hint">Прегледајте правила апликације и употребу података</string>
+    <string name="home_logs_hint">Проверите недавну мрежну активност</string>
+
+    <!-- Accessibility -->
+    <string name="action_expand">Прошири детаље</string>
+    <string name="action_collapse">Скупи детаље</string>
+    <string name="action_navigate">Отвори</string>
+    <string name="action_toggle_firewall">Пребаци заштитни зид</string>
+    <string name="action_clear_search">Обриши претрагу</string>
+    <string name="search_settings">Претражи поставке</string>
+    <string name="content_desc_security_status">Безбедносни статус заштитног зида</string>
+    <string name="content_desc_app_icon">Иконица апликације за %s</string>
+    <string name="content_desc_show_info">Прикажи информације о %1$s</string>
+
+    <!-- Dashboard stats -->
+    <string name="stat_blocked_today">Блокирано</string>
+    <string name="stat_allowed_today">Дозвољено</string>
+    <string name="stat_active_rules">Активна правила</string>
+
+    <!-- Tooltips -->
+    <string name="tooltip_rcode">ДНС код одговора послат за блокиране домене. Подразумевано 3 (NXDOMAIN) значи да домен не постоји.</string>
+    <string name="tooltip_ttl">Минимално време трајања за уносе у ДНС кеш у секундама.</string>
+    <string name="tooltip_pcap">Снимите све мрежне пакете за лакше отклањање грешака. Прави велике датотеке.</string>
+    <string name="tooltip_filter">Пресретните и анализирајте саобраћај. Неопходно за блокирање по адреси. Троши више батерије.</string>
+    <string name="tooltip_lockdown">Блокирајте сав саобраћај осим експлицитно дозвољених апликација. Користите опрезно.</string>
+
+    <string name="menu_protocol_udp" translatable="false">UDP</string>
+    <string name="menu_protocol_tcp" translatable="false">TCP</string>
     <string name="menu_protocol_other">Остало</string>
     <string name="menu_traffic_allowed">Дозвољено</string>
     <string name="menu_traffic_blocked">Блокирано</string>
     <string name="menu_live">Жива ажурурања</string>
     <string name="menu_refresh">Освежи</string>
+    <string name="menu_ok">У реду</string>
+    <string name="menu_cancel">Откажи</string>
     <string name="menu_resolve">Приказ назива</string>
     <string name="menu_organization">Приказ организација</string>
     <string name="menu_pcap_enabled">„PCAP“ укључен</string>
@@ -40,29 +135,47 @@
     <string name="menu_clear">Очисти</string>
     <string name="menu_export">Извоз</string>
     <string name="menu_reset">Ресет</string>
+
     <string name="menu_add">Додај</string>
     <string name="menu_delete">Обриши</string>
+
     <string name="menu_cleanup">Чишћење</string>
+
     <string name="title_protocol">Протокол</string>
     <string name="title_dport">Изворни порт</string>
     <string name="title_raddr">Адреса одредишта</string>
     <string name="title_rport">Порт одредишта</string>
     <string name="title_ruid">Апликација одредишта</string>
     <string name="title_external">За спољни сервер изаберите „нико“</string>
+
     <string name="setting_defaults">Подразумевано (бела/црна листа)</string>
     <string name="setting_whitelist_wifi">Блокирај бежичну</string>
     <string name="setting_whitelist_other">Блокирај мобилну</string>
     <string name="setting_screen_wifi">Дозволи бежичну кад екран ради</string>
     <string name="setting_screen_other">Дозволи мобилну кад екран ради</string>
     <string name="setting_whitelist_roaming">Блокирај роминг</string>
+
     <string name="setting_options">Опције</string>
     <string name="setting_theme">Тема: %1$s</string>
     <string name="setting_dark">Користи тамну тему</string>
+    <string name="setting_theme_palette">Изаберите стил боје</string>
+    <string name="setting_dynamic_unavailable">Динамичне боје захтевају Android 12 или новији.</string>
+    <string name="setting_appearance_mode">Режим изгледа</string>
+    <string name="setting_appearance_mode_title">Тамни режим</string>
+    <string name="setting_appearance_mode_summary">Изаберите Искључено, Укључено или Прати систем.</string>
+    <string name="setting_appearance_preview">Тренутно: %1$s · %2$s</string>
+    <string name="setting_appearance_auto">Аутоматски</string>
+    <string name="setting_appearance_light">Светло</string>
+    <string name="setting_appearance_dark">Тамно</string>
+    <string name="theme_dynamic">Динамички</string>
     <string name="setting_install">Обавести при новим инсталацијама</string>
     <string name="setting_screen_on">Примени правило \'укљученог екрана\'</string>
     <string name="setting_auto">Сам укључи након %1$s мин.</string>
     <string name="setting_delay">Одложи угашен екран %1$s мин.</string>
     <string name="setting_update">Провери ажурирања</string>
+    <string name="setting_update_now">Провери сада</string>
+    <string name="setting_update_checking">Провера...</string>
+
     <string name="setting_network_options">Мрежне опције</string>
     <string name="setting_subnet">Подмрежно рутирање</string>
     <string name="setting_tethering">Дозволи тетеринг</string>
@@ -79,15 +192,18 @@
     <string name="setting_lockdown_wifi">Закључај бежичну</string>
     <string name="setting_lockdown_other">Закључај мобилну</string>
     <string name="setting_reload_onconnectivity">Учитај при свакој промени везе</string>
+
     <string name="setting_advanced_options">Напредне опције</string>
     <string name="setting_system">Управљај системским апликацијама</string>
     <string name="setting_log_app">Бележи приступ интернету</string>
+    <string name="setting_log_retention_days">Дани чувања дневника саобраћаја</string>
     <string name="setting_access">Обавести о приступу интернету</string>
     <string name="setting_filter">Филтрирај саобраћај</string>
     <string name="setting_filter_udp">Филтрирај УДП саобраћај</string>
     <string name="setting_handover">Глатко преузимање ВПН везе при поновном учитавању</string>
     <string name="setting_clear_onreload">Затварање веза при учитавању</string>
     <string name="setting_lockdown">Закључај саобраћај</string>
+    <string name="setting_malware">Заштита од злонамерног софтвера</string>
     <string name="setting_track_usage">Прати коришћење мреже</string>
     <string name="setting_reset_usage">Ресетуј коришћење мреже</string>
     <string name="setting_show_resolved">Прикажи разрешене називе домена</string>
@@ -97,6 +213,7 @@
     <string name="setting_vpn4">ВПН ИПв4: %s</string>
     <string name="setting_vpn6">ВПН ИПв6: %s</string>
     <string name="setting_dns">ВПН ДНС: %s</string>
+    <string name="setting_dns2">Секундарни ДНС: %s</string>
     <string name="setting_validate">Провери на: %s</string>
     <string name="setting_ttl">Време истека ДНС упита: %s сек.</string>
     <string name="setting_socks5_enabled">Користи СОКС5 прокси</string>
@@ -106,12 +223,15 @@
     <string name="setting_socks5_password">СОКС5 лозинка: %s</string>
     <string name="setting_pcap_record_size">„PCAP“ величина записа: %s B</string>
     <string name="setting_pcap_file_size">„PCAP“ макс. вел. фајла: %s MB</string>
+    <string name="setting_pcap">Сними мрежни саобраћај (PCAP)</string>
     <string name="setting_watchdog">Вочдог: сваких %s мин.</string>
+
     <string name="setting_stats_category">Обавештење о брзини</string>
     <string name="setting_stats">Приказ обавештења о брзини</string>
     <string name="setting_stats_top">Прикажи најкоришћеније</string>
     <string name="setting_stats_frequency">Интервал узорковања: %s ms</string>
-    <string name="setting_stats_samples">Број узорака: %s s</string>
+    <string name="setting_stats_samples">Број узорака: %s</string>
+
     <string name="setting_backup">Резервна копија</string>
     <string name="setting_export">Извези поставке</string>
     <string name="setting_import">Увези поставке</string>
@@ -119,14 +239,29 @@
     <string name="setting_hosts_append">Увези \'hosts\' фајл (придодај)</string>
     <string name="setting_hosts_url">УРЛ за преузимање \'hosts\' фајла</string>
     <string name="setting_hosts_download">Преузми \'hosts\' фајл</string>
+    <string name="setting_use_hosts">Користи hosts фајл</string>
+
     <string name="setting_technical">Технички подаци</string>
     <string name="setting_technical_general">Опште</string>
     <string name="setting_technical_networks">Мрежe</string>
     <string name="setting_technical_subscription">Претплате</string>
+    <string name="setting_section_appearance">Изглед</string>
+    <string name="setting_section_firewall">Правила заштитног зида</string>
+    <string name="setting_section_advanced">Напредно понашање</string>
+    <string name="setting_section_hosts">Домаћини и ДНС</string>
+    <string name="setting_section_network">Конфигурација мреже</string>
+    <string name="setting_section_dns">ДНС детаљи</string>
+    <string name="setting_section_proxy">Прокси</string>
+    <string name="setting_section_vpn">Конфигурација ВПН-а</string>
+    <string name="setting_section_background">Позадински задаци</string>
+    <string name="setting_section_diagnostics">Дијагностика</string>
+    <string name="setting_section_support">Подршка</string>
+
     <string name="summary_install">Приказ у статусној траци за директно подешавање ново инсталираних апликација (профи могућност)</string>
     <string name="summary_auto">Након искључивања путем виџета, аутоматски укључи Нетгард након изабраног броја минута (унесите нулу да искључите ову опцију)</string>
     <string name="summary_delay">Након гашења екрана, правила за упаљени екран биће активна изабрани број минута (унесите нулу да искључите опцију)</string>
     <string name="summary_update">Провери нова издања на Гитхабу два пута дневно</string>
+
     <string name="summary_tethering">Зависно од верзије Андроида, тетеринг ће можда радити а можда и не. Његов саобраћај се не може филтрирати.</string>
     <string name="summary_subnet">Укључује подмрежно рутирање. Може укључити бежично позивање али може изазвати грешке и повећати потрошњу батерије</string>
     <string name="summary_lan">Дозвољава апликацијама повезивање са адресама локалне мреже попут 10.0.0.0/8, 172.16.0.0/12 и 192.168.0.0/16</string>
@@ -138,30 +273,40 @@
     <string name="summary_metered_4g">Примени правила бежичне мреже за ЛТЕ мреже</string>
     <string name="summary_national_roaming">Не примењуј роминг правила када су државе СИМ картице и мобилне мреже исте</string>
     <string name="summary_eu_roaming">Не примењуј роминг правила када су државе СИМ картице и мобилне мреже из ЕУ (роминг као код куће)</string>
-    <string name="summary_call">Искључи Нетгард код телефонских позива. Ово може решити проблем позива преко ИП/бежичне везе.</string>
+    <string name="summary_call">Искључи Нетгард код телефонских позива. Ово може решити проблему позива преко ИП/бежичне везе.</string>
+
     <string name="summary_system">Одреди правила за системске апликације (за стручњаке)</string>
     <string name="summary_log_app">Бележи покушаје приступа интернету. Може повећати потрошњу батерије.</string>
+    <string name="summary_log_retention_days">Аутоматски уклоните старе дневнике саобраћаја током одржавања. Поставите на 0 за трајно чување.</string>
     <string name="summary_access">Прикажи обавештење кад апликација покуша приступ новој интернет адреси (кад је филтрирање искључено, само блокирани покушаји биће објављени)</string>
     <string name="summary_filter">Филтрирај ИП пакете који излазе из ВПН тунела. Може повећати потрошњу батерије.</string>
     <string name="summary_track_usage">Прати број послатих и примљених бајтова за сваку апликацију и адресу. Може повећати потрошњу батерије.</string>
     <string name="summary_block_domains">Одговори са подешеним ДНС кодом одговора за блокиране називе домена. Искључено је када \'hosts\' фајл није доступан.</string>
     <string name="summary_rcode">Подразумевана вредност је 3 (NXDOMAIN), што значи „непостојећи домен“.</string>
     <string name="summary_validate">Назив домена где се проверава интернет веза на порту 443 (https).</string>
-    <string name="summary_socks5_enabled">Само ТЦП саобраћај ће бити послат на проокси сервер</string>
+    <string name="summary_socks5_enabled">Само ТЦП саобраћај ће бити послат на прокси сервер</string>
     <string name="summary_watchdog">Периодично проверава да ли Нетгард и даље ради (нула искључује ову опцију). Може повећати потрошњу батерије.</string>
+
     <string name="summary_stats">Приказује график брзине мреже у обавештењима</string>
+
+    <string-array name="default_wifi_home"></string-array>
+
     <string name="msg_sure">Да ли сте сигурни?</string>
     <string name="msg_started">Примењујем правила</string>
     <string name="msg_packages">дозвољено %1$d, блокирано %2$d</string>
     <string name="msg_hosts">дозвољено %1$d, блокирано %2$d, домаћина %3$d</string>
     <string name="msg_waiting">Чекам на догађај</string>
     <string name="msg_disabled">Нетгард је искључен. Користите прекидач изнад да га укључите</string>
+    <string name="msg_notifications">Тапните да бисте доделили дозволе за обавештења (за обавештења о покушајима приступа, поруке о грешкама итд.)</string>
     <string name="msg_revoked">Нетгард је искључен. Вероватно од стране друге ВПН апликације</string>
     <string name="msg_installed">инсталирано \'%1$s\'</string>
     <string name="msg_installed_n">Је инсталирано</string>
+    <string name="msg_malware">Могући злонамерни софтвер: \'%1$s\'</string>
     <string name="msg_access">%1$s покушава приступ интернету</string>
     <string name="msg_access_n">Покушан приступ интернету</string>
     <string name="msg_completed">Радња извршена</string>
+    <string name="msg_invalid">Проверите вредности и покушајте поново.</string>
+    <string name="msg_export_failed">Извоз није успео: %1$s</string>
     <string name="msg_vpn">Нетгард користи локални ВПН за филтрирање интернет саобаћаја.
 Зато дозволите ВПН везе у следећем дијалогу.
 Ваш интернет саобраћај се не шаље на удаљени ВПН сервер.</string>
@@ -172,9 +317,11 @@
     <string name="msg_terms">Донирајући, сагласни сте са <a href="http://www.netguard.me/#terms">одредбама и условима</a></string>
     <string name="msg_dimming">Ако на следећем дијалогу не можете да изаберете „У реду“, могуће је да нека апликација управља екраном.</string>
     <string name="msg_mbday">± %1$.3f▲ %2$.3f▼ MB/дневно</string>
-    <string name="msg_kb">%1$7.3f▲ %2$7.3f▼ KB</string>
-    <string name="msg_mb">%1$7.3f▲ %2$7.3f▼ MB</string>
-    <string name="msg_gb">%1$7.3f▲ %2$7.3f▼ GB</string>
+    <string name="msg_kbsec">%7.3f KB/s</string>
+    <string name="msg_mbsec">%7.3f MB/s</string>
+    <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
+    <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
+    <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
     <string name="msg_count">%dx</string>
     <string name="msg_doze">Ради добрих резултата, Нетгард треба искључити из Андроидове оптимизације батерије.
 \n\nУ следећем дијалогу изаберите „Све апликације“, тапните на Нетгард у листи и изаберите „Не оптимизуј“.</string>
@@ -207,6 +354,7 @@
     <string name="msg_always_on">Други ВПН је постављен као увек активан ВПН</string>
     <string name="msg_always_on_lockdown">Искључите „Блокирај везе без ВПН“ у Андроид подешавањима да бисте користили режим филтрирања</string>
     <string name="msg_private_dns">Искључите „Лични ДНС“ у мрежним подешавањима да бисте користили режим филтрирања</string>
+
     <string name="title_lockdown_enabled">Саобраћај је онемогућен</string>
     <string name="title_unmetered_allowed">Немерени саобраћај је дозвољен</string>
     <string name="title_unmetered_blocked">Немерени саобраћај је блокиран</string>
@@ -219,6 +367,7 @@
     <string name="title_interactive_allowed">Дозволи када је екран укључен</string>
     <string name="title_roaming_blocked">Блокирај у ромингу</string>
     <string name="title_metered">Бежична мрежа је подразумевано немерена док се мобилна сматра да је са мереним протоком</string>
+
     <string name="title_internet">нема дозволе за интернет</string>
     <string name="title_disabled">је онемогућена</string>
     <string name="title_messaging">Долазне поруке се примају преко Гугл плеј сервиса тако да се не могу онемогућити блокирањем саме апликације</string>
@@ -229,35 +378,46 @@
     <string name="title_screen_other">Дозволи мобилну кад екран ради</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">Блокирај у ромингу</string>
+    <string name="label_ttl">TTL: %s сек.</string>
+    <string name="label_uid">UID: %s</string>
     <string name="title_lockdown">Дозволи и у блокади</string>
     <string name="title_related">Везано за филтер</string>
     <string name="title_access">Покушаји приступа</string>
     <string name="title_precedence">Правила приступа су важнија од осталих правила</string>
     <string name="title_options">Опције</string>
     <string name="title_notify">Обавести о покушајима приступа</string>
+
     <string name="title_logging_disabled">Бележење или филтрирање није укључено</string>
     <string name="title_logging_enabled">Бележење и филтрирање је укључено</string>
     <string name="title_logging_configure">Подешавање</string>
+
     <string name="title_enable_logging">Укључи бележење само блокираних адреса</string>
     <string name="title_enable_filtering">Укључи филтрирање да би се бележиле и дозвољене адресе</string>
     <string name="title_enable_notify">Укључи обавештење о приступу за нове убележене адресе</string>
     <string name="title_enable_help0">Ове поставке су глобалне и примењују се на све апликације</string>
     <string name="title_enable_help1">Филтрирање је неопходно за контролу појединачних адреса</string>
     <string name="title_enable_help2">Укључивање бележења или филтрирања може довести до трошења батерије и утицати на брзину мреже</string>
+
     <string name="title_rate">Оцени</string>
     <string name="title_allow">Дозволи</string>
     <string name="title_block">Блокирај</string>
+    <string name="title_wifi">Wi-Fi</string>
+    <string name="title_mobile">Мобилна</string>
     <string name="title_allow_wifi">Дозволи бежичну</string>
     <string name="title_block_wifi">Блокирај бежичну</string>
     <string name="title_allow_other">Дозволи мобилну</string>
     <string name="title_block_other">Блокирај мобилну</string>
     <string name="title_root">root</string>
     <string name="title_mediaserver">сервер медија</string>
+    <string name="title_gpsdaemon">GPS демон</string>
+    <string name="title_dnsdaemon">DNS демон</string>
     <string name="title_nobody">нико</string>
     <string name="title_dontask">Не питај поново</string>
-    <string name="title_log_whois">Ко је %1$s</string>
+
+    <string name="title_log_whois">Whois %1$s</string>
     <string name="title_log_port">Порт %1$d</string>
     <string name="title_log_copy">Копирај</string>
+
     <string name="title_pro">Профи могућности</string>
     <string name="title_pro_description">Следеће профи могућности су доступне:</string>
     <string name="title_pro_log">Преглед дневника блокираног саобраћаја</string>
@@ -274,19 +434,20 @@
     <string name="title_pro_challenge">Изазов</string>
     <string name="title_pro_reponse">Одговор</string>
     <string name="title_pro_feature">Ово је профи могућност</string>
-    <string name="title_pro_subscription">        Месечна претплата у износу од 1 или 2 € (без пореза) активираће све профи могућности.
+    <string name="title_pro_subscription">
+        Месечна претплата у износу од 1 или 2 € (без пореза) активираће све профи могућности.
         Претплату можете отказати или управљати њоме преко језичка Претплате у Плеј продавници.
     </string>
-    <string-array name="themeNames">
-        <item>тиркизно/наранџасто</item>
-        <item>плаво/наранџасто</item>
-        <item>пурпурно/црвено</item>
-        <item>жуто/плаво</item>
-        <item>наранџасто/сиво</item>
-        <item>зелено</item>
-    </string-array>
-    <string-array name="protocolNames">
+    <string name="title_pro_already">Профи могућности су већ активиране</string>    <string-array name="protocolNames">
         <item>УДП</item>
         <item>ТЦП</item>
     </string-array>
+
+    <string-array name="protocolValues" translatable="false">
+        <item>17</item>
+        <item>6</item>
+    </string-array>
+
+    <string name="label_dns_summary">%1$d уноса • %2$d истекло</string>
+
 </resources>

@@ -119,16 +119,17 @@ fun HomeScreen(
         }
     val canRequestNotificationPermission =
         Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
-            ContextCompat.checkSelfPermission(
-                context,
-                Manifest.permission.POST_NOTIFICATIONS,
-            ) != PackageManager.PERMISSION_GRANTED
+                ContextCompat.checkSelfPermission(
+                    context,
+                    Manifest.permission.POST_NOTIFICATIONS,
+                ) != PackageManager.PERMISSION_GRANTED
 
     DisposableEffect(lifecycleOwner, context, notificationManager) {
         val observer =
             LifecycleEventObserver { _, event ->
                 if (event == Lifecycle.Event.ON_RESUME) {
-                    notificationsEnabled = notificationManager.areNotificationsEnabled() && Util.canNotify(context)
+                    notificationsEnabled =
+                        notificationManager.areNotificationsEnabled() && Util.canNotify(context)
                 }
             }
         lifecycleOwner.lifecycle.addObserver(observer)
@@ -185,19 +186,14 @@ fun HomeScreen(
                 NotificationPermissionCard(
                     canRequestPermission = canRequestNotificationPermission && !hasRequestedNotificationPermission,
                     onRequestPermission = {
-                        notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                            notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+                        }
                     },
                     onOpenSettings = {
                         val intent =
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                                Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS).apply {
-                                    putExtra(Settings.EXTRA_APP_PACKAGE, context.packageName)
-                                }
-                            } else {
-                                Intent(
-                                    Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                                    Uri.fromParts("package", context.packageName, null),
-                                )
+                            Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS).apply {
+                                putExtra(Settings.EXTRA_APP_PACKAGE, context.packageName)
                             }
                         context.startActivity(intent)
                     },
@@ -349,7 +345,10 @@ private fun StatusCard(
     )
     val iconBadgeScale by animateFloatAsState(
         targetValue = if (enabled) 1f else 0.98f,
-        animationSpec = spring(stiffness = Spring.StiffnessMediumLow, dampingRatio = Spring.DampingRatioNoBouncy),
+        animationSpec = spring(
+            stiffness = Spring.StiffnessMediumLow,
+            dampingRatio = Spring.DampingRatioNoBouncy
+        ),
         label = "iconBadgeScale",
     )
     val carrierRotation = remember { Animatable(0f) }
@@ -387,13 +386,17 @@ private fun StatusCard(
     val sharedRotation = carrierRotation.value
     val shaderColorProgress by animateFloatAsState(
         targetValue = if (enabled) 1f else 0f,
-        animationSpec = tween(durationMillis = motion.durationSlow * 2, easing = FastOutSlowInEasing),
+        animationSpec = tween(
+            durationMillis = motion.durationSlow * 2,
+            easing = FastOutSlowInEasing
+        ),
         label = "shaderColorProgress",
     )
     val triggerToggle: (Boolean) -> Unit = { next ->
         onToggle(next)
     }
-    val badgeMorph = remember { Morph(start = MaterialShapes.Square, end = MaterialShapes.Cookie9Sided) }
+    val badgeMorph =
+        remember { Morph(start = MaterialShapes.Square, end = MaterialShapes.Cookie9Sided) }
     val badgeShape = remember(badgeMorph, morphProgress) {
         object : Shape {
             override fun createOutline(
@@ -470,7 +473,10 @@ private fun StatusCard(
                         Surface(
                             shape = badgeShape,
                             color = Color.Transparent,
-                            border = BorderStroke(1.5.dp, iconRingColor.copy(alpha = iconRingAlpha)),
+                            border = BorderStroke(
+                                1.5.dp,
+                                iconRingColor.copy(alpha = iconRingAlpha)
+                            ),
                             modifier = Modifier
                                 .size(72.dp)
                                 .graphicsLayer { rotationZ = sharedRotation },
@@ -563,7 +569,8 @@ private fun StatCard(
         ) {
             // Tinted circular icon badge — use onContainer colour for contrast when emphasized
             val iconTint = if (emphasized) onContainer else tint
-            val iconBg = if (emphasized) onContainer.copy(alpha = 0.15f) else tint.copy(alpha = 0.15f)
+            val iconBg =
+                if (emphasized) onContainer.copy(alpha = 0.15f) else tint.copy(alpha = 0.15f)
             Box(
                 modifier = Modifier
                     .size(48.dp)

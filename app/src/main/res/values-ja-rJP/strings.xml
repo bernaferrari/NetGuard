@@ -1,110 +1,219 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_description">NetGuard は、インターネットへのアクセスをブロックするシンプルで高度な方法を提供します - root 権限は必要ありません。Wi-Fi および/またはモバイル接続へのアクセスを、アプリケーションとアドレスで個別に許可または拒否することができます。</string>
-    <string name="app_android">NetGuard は Android 5.1 以降が必要です</string>
-    <string name="app_xposed">Xposed があまりにクラッシュを引き起こしすぎるため、NetGuard が Google Play ストアから削除される可能性があります。したがって Xposed がインストールされていると、NetGuard はサポートされていません</string>
+    <string name="app_name" translatable="false">NetGuard Next</string>
+    <string name="app_description">NetGuard Next は、インターネットへのアクセスをブロックするシンプルかつ高度な方法を提供します（root 権限不要）。アプリやアドレスごとに、Wi-Fi またはモバイル接続へのアクセスを個別に許可または拒否できます。</string>
+    <string name="app_copyright" translatable="false">Copyright \u00A9 2015–2025 by M. Bokhorst (M66B)</string>
+    <string name="app_android">NetGuard には Android 5.1 以降が必要です</string>
+    <string name="app_eula" translatable="false">THIS SOFTWARE IS PROVIDED BY THE AUTHOR \'\'AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
     <string name="app_privacy"><a href="https://www.netguard.me/privacy/">プライバシーポリシー</a></string>
-    <string name="app_first">NetGuard の開発およびテストには細心の注意を払いましたが、NetGuard がすべてのデバイスで正常に動作することを保証することはできません。</string>
+    <string name="app_first">NetGuard の開発とテストには細心の注意を払っていますが、すべてのデバイスで正しく動作することを保証することは不可能です。</string>
     <string name="app_agree">同意する</string>
     <string name="app_disagree">同意しない</string>
-    <string name="app_support">NetGuard にはあなたの支援が必要です。プロジェクトを維持するため、タップしてプロ版を購入してください。</string>
-    <string name="app_qap">        Google は、このアプリがすべてのアプリのクエリを実行する権限を要求することを理由に Play ストアから削除しようとしています。
-        5 回の不服申し立てと、この権限を必要とする理由の弁明はすべて拒否されました。
-        対策のため、このバージョンでは問題となった権限を要求しません。
-        それでもほとんどのアプリは一覧に表示されますが、いくつかの (システム) アプリは Android アプリリストから操作できません。
-        これらのアプリのインターネットトラフィックは、端末を正常に動作させ続けるために常に許可されます。
-        この変更が問題となる場合には、Github 版を使用するとシステムアプリを含むすべてのアプリを管理できます。
+    <string name="app_support">NetGuard はあなたの助けを必要としています。タップしてプロ機能を購入し、プロジェクトの継続を支援してください。</string>
+    <string name="app_qap">
+        Google は、このアプリがすべてのアプリを照会する権限を要求したため、Play ストアから削除しようとしました。
+        5 回の異議申し立てと、この権限が必要な理由についての十分な正当化は却下されました。
+        このバージョンのアプリはこの権限を要求しなくなりました。
+        それにもかかわらず、Android アプリリストから手動で起動できない一部の（システム）アプリを除き、ほとんどすべてのアプリが引き続きリストに表示されます。
+        デバイスが正常に動作し続けるように、これらのアプリのインターネットトラフィックは常に許可されます。
+        これが問題であると思われる場合は、アプリの GitHub バージョンに更新して、すべての（システム）アプリを再度管理できます。
     </string>
+
     <string name="channel_foreground">実行中のサービス</string>
-    <string name="channel_notify">全般通知</string>
+    <string name="channel_notify">一般通知</string>
     <string name="channel_access">アクセス通知</string>
+
     <string name="menu_search">アプリを検索</string>
     <string name="menu_filter">アプリをフィルター</string>
     <string name="menu_app_user">ユーザーアプリを表示</string>
     <string name="menu_app_system">システムアプリを表示</string>
-    <string name="menu_app_nointernet">インターネットを使用しないアプリを表示</string>
-    <string name="menu_app_disabled">無効になっているアプリを表示</string>
-    <string name="menu_sort">アプリの並び替え</string>
+    <string name="menu_app_nointernet">インターネット権限のないアプリを表示</string>
+    <string name="menu_app_disabled">無効なアプリを表示</string>
+    <string name="menu_sort">アプリを並べ替え</string>
     <string name="menu_sort_name">名前で並べ替え</string>
-    <string name="menu_sort_uid">UID で並べ替え</string>
-    <string name="menu_sort_data">データ使用状況で並べ替え</string>
+    <string name="menu_sort_uid">UIDで並べ替え</string>
+    <string name="menu_sort_data">データ使用量で並べ替え</string>
+    <string name="menu_launch">アプリを起動</string>
     <string name="menu_log">ログを表示</string>
     <string name="menu_settings">設定</string>
+    <string name="menu_home">ホーム</string>
     <string name="menu_invite">招待</string>
     <string name="menu_legend">凡例</string>
-    <string name="menu_support">支援</string>
+    <string name="menu_support">サポート</string>
     <string name="menu_about">アプリについて</string>
     <string name="menu_apps">他のアプリ</string>
+    <string name="menu_firewall">ファイアウォール</string>
+    <string name="status_enabled">ファイアウォール有効</string>
+    <string name="status_disabled">ファイアウォール無効</string>
+    <string name="widget_firewall_enabled">ファイアウォール ON</string>
+    <string name="widget_firewall_disabled">ファイアウォール OFF</string>
+    <string name="widget_lockdown_enabled">ロックダウン ON</string>
+    <string name="widget_lockdown_disabled">ロックダウン OFF</string>
+    <string name="notify_traffic_title">トラフィックモニター</string>
+    <string name="notify_traffic_summary">上り %1$s • 下り %2$s • ピーク %3$s</string>
+    <string name="notify_traffic_debug">セッション %1$d/%2$d/%3$d • ファイル %4$d/%5$d</string>
+    <string name="ui_loading">読み込み中…</string>
+    <string name="ui_empty_logs_title">トラフィックはまだありません</string>
+    <string name="ui_empty_logs_body">接続が発生すると、ここに表示されます。</string>
+    <string name="ui_empty_apps_title">アプリが見つかりません</string>
+    <string name="ui_empty_apps_body">リストを更新してみてください。</string>
+    <string name="ui_empty_dns_title">解決された DNS はまだありません</string>
+    <string name="ui_empty_dns_body">ブラウジング後、ここに DNS 応答が表示されます。</string>
+    <string name="ui_dns_filter_empty">このフィルターに一致する DNS エントリはありません。</string>
+    <string name="ui_empty_forwarding_title">転送ルールなし</string>
+    <string name="ui_empty_forwarding_body">トラフィックの転送を開始するにはルールを追加してください。</string>
+    <string name="ui_forwarding_filter_empty">このフィルターに一致する転送ルールはありません。</string>
+    <string name="ui_empty_pro_body">サポートにより追加機能が解放され、プロジェクトが維持されます。</string>
+    <string name="ui_empty_pro_details">プロ版解放：フィルタリング、ログ、通知、テーマ、速度制限。</string>
+    <string name="ui_home_hint">アプリごとにインターネットアクセスを制御します。</string>
+    <string name="ui_home_quick_actions">クイックアクション</string>
+    <string name="ui_apps_title">ファイアウォール</string>
+    <string name="ui_logs_title">トラフィックログ</string>
+    <string name="ui_logs_filters">フィルター</string>
+    <string name="ui_logs_filter_status">ステータス</string>
+    <string name="ui_logs_filter_protocol">プロトコル</string>
+    <string name="ui_logs_filter_view">表示</string>
+    <string name="ui_logs_group_timeline">タイムライン</string>
+    <string name="ui_logs_group_by_app">アプリごと</string>
+    <string name="ui_logs_unknown_source">不明なソース</string>
+    <string name="ui_settings_title">設定</string>
+    <string name="ui_dns_title">解決済み DNS</string>
+    <string name="ui_forwarding_title">ポート転送</string>
+    <string name="ui_dns_hint">最近解決されたドメインと応答。</string>
+    <string name="ui_forwarding_hint">転送ルールとターゲットアプリを管理します。</string>
+    <string name="ui_dns_active">アクティブ</string>
+    <string name="ui_rule_custom">カスタム</string>
+    <string name="ui_dns_expired">期限切れ</string>
+    <string name="ui_filter_all">すべて</string>
+    <string name="ui_filter_empty">このフィルターに一致するアプリはありません。</string>
+    <string name="ui_apps_search_empty">この検索に一致するアプリはありません。</string>
+    <string name="ui_learn_more">詳細を見る</string>
+    <string name="status_running">トラフィックをフィルタリング中</string>
+    <string name="status_not_running">トラフィックはフィルタリングされていません</string>
+    <string name="action_enable">有効にする</string>
+    <string name="action_disable">無効にする</string>
+    <string name="home_apps_hint">アプリのルールとデータ使用量を確認</string>
+    <string name="home_logs_hint">最近のネットワーク活動を検査</string>
+
+    <!-- Accessibility -->
+    <string name="action_expand">詳細を展開</string>
+    <string name="action_collapse">詳細を折り畳む</string>
+    <string name="action_navigate">開く</string>
+    <string name="action_toggle_firewall">ファイアウォールを切り替え</string>
+    <string name="action_clear_search">検索をクリア</string>
+    <string name="search_settings">設定を検索</string>
+    <string name="content_desc_security_status">ファイアウォールのセキュリティステータス</string>
+    <string name="content_desc_app_icon">%s のアプリアイコン</string>
+    <string name="content_desc_show_info">%1$s に関する情報を表示</string>
+
+    <!-- Dashboard stats -->
+    <string name="stat_blocked_today">ブロック</string>
+    <string name="stat_allowed_today">許可</string>
+    <string name="stat_active_rules">有効なルール</string>
+
+    <!-- Tooltips -->
+    <string name="tooltip_rcode">ブロックされたドメインに対して送信される DNS 応答コード。デフォルトの 3 (NXDOMAIN) はドメインが存在しないことを意味します。</string>
+    <string name="tooltip_ttl">DNS キャッシュエントリの最小有効期間（秒）。</string>
+    <string name="tooltip_pcap">デバッグのためにすべてのネットワークパケットを記録します。ファイルサイズが大きくなります。</string>
+    <string name="tooltip_filter">トラフィックを傍受して分析します。アドレスごとのブロックに必要です。バッテリーをより多く消費します。</string>
+    <string name="tooltip_lockdown">明示的に許可されたアプリ以外のすべてのトラフィックをブロックします。注意して使用してください。</string>
+
+    <string name="menu_protocol_udp" translatable="false">UDP</string>
+    <string name="menu_protocol_tcp" translatable="false">TCP</string>
     <string name="menu_protocol_other">その他</string>
-    <string name="menu_traffic_allowed">許可されたもの</string>
-    <string name="menu_traffic_blocked">ブロックされたもの</string>
-    <string name="menu_live">自動更新</string>
+    <string name="menu_traffic_allowed">許可</string>
+    <string name="menu_traffic_blocked">ブロック</string>
+    <string name="menu_live">リアルタイム更新</string>
     <string name="menu_refresh">更新</string>
-    <string name="menu_resolve">ホスト名で表示</string>
+    <string name="menu_ok">OK</string>
+    <string name="menu_cancel">キャンセル</string>
+    <string name="menu_resolve">名前を表示</string>
     <string name="menu_organization">組織を表示</string>
-    <string name="menu_pcap_enabled">PCAP を使用</string>
-    <string name="menu_pcap_export">PCAP のエクスポート</string>
+    <string name="menu_pcap_enabled">PCAP 有効</string>
+    <string name="menu_pcap_export">PCAP エクスポート</string>
     <string name="menu_clear">消去</string>
     <string name="menu_export">エクスポート</string>
     <string name="menu_reset">リセット</string>
+
     <string name="menu_add">追加</string>
     <string name="menu_delete">削除</string>
+
     <string name="menu_cleanup">クリーンアップ</string>
+
     <string name="title_protocol">プロトコル</string>
-    <string name="title_dport">送信元ポート</string>
+    <string name="title_dport">ソースポート</string>
     <string name="title_raddr">宛先アドレス</string>
     <string name="title_rport">宛先ポート</string>
-    <string name="title_ruid">宛先アプリ</string>
-    <string name="title_external">外部サーバーの場合は「nobody」を選択してください</string>
-    <string name="setting_defaults">デフォルト (ホワイト/ブラックリスト)</string>
-    <string name="setting_whitelist_wifi">既定で Wi-Fi をブロック</string>
-    <string name="setting_whitelist_other">既定でモバイルをブロック</string>
-    <string name="setting_screen_wifi">既定で画面点灯中 Wi-Fi を許可</string>
-    <string name="setting_screen_other">既定で画面点灯中モバイルを許可</string>
-    <string name="setting_whitelist_roaming">既定でローミングをブロック</string>
+    <string name="title_ruid">ターゲットアプリ</string>
+    <string name="title_external">外部サーバーの場合は \'nobody\' を選択してください</string>
+
+    <string name="setting_defaults">デフォルト（ホワイト/ブラックリスト）</string>
+    <string name="setting_whitelist_wifi">Wi-Fi をブロック</string>
+    <string name="setting_whitelist_other">モバイル通信をブロック</string>
+    <string name="setting_screen_wifi">画面点灯時に Wi-Fi を許可</string>
+    <string name="setting_screen_other">画面点灯時にモバイル通信を許可</string>
+    <string name="setting_whitelist_roaming">ローミングをブロック</string>
+
     <string name="setting_options">オプション</string>
     <string name="setting_theme">テーマ: %1$s</string>
     <string name="setting_dark">ダークテーマを使用</string>
-    <string name="setting_install">アプリインストール時に通知</string>
-    <string name="setting_screen_on">‘“画面が点灯中” ルール’ を使用</string>
-    <string name="setting_auto">%1$s 分後に自動的に有効にする</string>
-    <string name="setting_delay">%1$s 分、画面消灯を遅延</string>
-    <string name="setting_update">アップデートの確認</string>
+    <string name="setting_theme_palette">カラースタイルを選択</string>
+    <string name="setting_dynamic_unavailable">ダイナミックカラーには Android 12 以降が必要です。</string>
+    <string name="setting_appearance_mode">外観モード</string>
+    <string name="setting_appearance_mode_title">ダークモード</string>
+    <string name="setting_appearance_mode_summary">オフ、オン、またはシステムに従うを選択します。</string>
+    <string name="setting_appearance_preview">現在: %1$s · %2$s</string>
+    <string name="setting_appearance_auto">自動</string>
+    <string name="setting_appearance_light">ライト</string>
+    <string name="setting_appearance_dark">ダーク</string>
+    <string name="theme_dynamic" translatable="false">Dynamic</string>
+    <string name="setting_install">新規インストール時に通知</string>
+    <string name="setting_screen_on">「画面点灯時」ルールを適用</string>
+    <string name="setting_auto">%1$s 分後に自動有効化</string>
+    <string name="setting_delay">画面オフ後 %1$s 分間ルールを維持</string>
+    <string name="setting_update">アップデートを確認</string>
+    <string name="setting_update_now">今すぐ確認</string>
+    <string name="setting_update_checking">確認中...</string>
+
     <string name="setting_network_options">ネットワークオプション</string>
-    <string name="setting_subnet">サブネットのルーティング</string>
+    <string name="setting_subnet">サブネットルーティング</string>
     <string name="setting_tethering">テザリングを許可</string>
     <string name="setting_lan">LAN アクセスを許可</string>
-    <string name="setting_ip6">IPv6 トラフィックを有効にする</string>
+    <string name="setting_ip6">IPv6 トラフィックを有効化</string>
     <string name="setting_wifi_home">Wi-Fi ホームネットワーク: %1$s</string>
-    <string name="setting_metered">従量制の Wi-Fi ネットワークを扱う</string>
-    <string name="setting_metered_2g">定額制 2G を考慮する</string>
-    <string name="setting_metered_3g">定額制 3G を考慮する</string>
-    <string name="setting_metered_4g">定額制 LTE を考慮する</string>
-    <string name="setting_national_roaming">国内ローミングを無視する</string>
-    <string name="setting_eu_roaming">EU のローミングを無視</string>
-    <string name="setting_call">呼び出し中は無効</string>
-    <string name="setting_lockdown_wifi">Wi-Fi を封鎖対象にする</string>
-    <string name="setting_lockdown_other">モバイルを封鎖対象にする</string>
-    <string name="setting_reload_onconnectivity">接続が変更されるたびに再読み込み</string>
+    <string name="setting_metered">従量制 Wi-Fi ネットワークの処理</string>
+    <string name="setting_metered_2g">2G を非従量制として扱う</string>
+    <string name="setting_metered_3g">3G を非従量制として扱う</string>
+    <string name="setting_metered_4g">LTE を非従量制として扱う</string>
+    <string name="setting_national_roaming">国内ローミングを無視</string>
+    <string name="setting_eu_roaming">EU ローミングを無視</string>
+    <string name="setting_call">通話中は無効化</string>
+    <string name="setting_lockdown_wifi">Wi-Fi をロックダウン</string>
+    <string name="setting_lockdown_other">モバイル通信をロックダウン</string>
+    <string name="setting_reload_onconnectivity">接続変更のたびにリロード</string>
+
     <string name="setting_advanced_options">高度なオプション</string>
-    <string name="setting_system">システムアプリの管理</string>
-    <string name="setting_log_app">インターネットアクセスをログ</string>
+    <string name="setting_system">システムアプリを管理</string>
+    <string name="setting_log_app">インターネットアクセスを記録</string>
+    <string name="setting_log_retention_days">トラフィックログの保持日数</string>
     <string name="setting_access">インターネットアクセス時に通知</string>
-    <string name="setting_filter">トラフィックをフィルター</string>
-    <string name="setting_filter_udp">Netguard</string>
-    <string name="setting_handover">再読み込み時にシームレスVPNハンドオーバー</string>
-    <string name="setting_clear_onreload">再読み込み時に接続を閉じる</string>
-    <string name="setting_lockdown">トラフィックを封鎖</string>
-    <string name="setting_track_usage">ネットワークの使用状況を追跡</string>
-    <string name="setting_reset_usage">ネットワークの使用状況をリセット</string>
-    <string name="setting_show_resolved">解決済みのドメイン名を表示</string>
+    <string name="setting_filter">トラフィックをフィルタリング</string>
+    <string name="setting_filter_udp">UDP トラフィックをフィルタリング</string>
+    <string name="setting_handover">リロード時のシームレスな VPN ハンドオーバー</string>
+    <string name="setting_clear_onreload">リロード時に接続を閉じる</string>
+    <string name="setting_lockdown">トラフィックをロックダウン</string>
+    <string name="setting_malware" translatable="false">Malware protection</string>
+    <string name="setting_track_usage">ネットワーク使用量を追跡</string>
+    <string name="setting_reset_usage">ネットワーク使用量をリセット</string>
+    <string name="setting_show_resolved">解決されたドメイン名を表示</string>
     <string name="setting_block_domains">ドメイン名をブロック</string>
     <string name="setting_rcode">DNS 応答コード: %s</string>
     <string name="setting_forwarding">ポート転送</string>
     <string name="setting_vpn4">VPN IPv4: %s</string>
     <string name="setting_vpn6">VPN IPv6: %s</string>
     <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_validate">検証: %s</string>
+    <string name="setting_dns2">セカンダリ DNS: %s</string>
+    <string name="setting_validate">検証先: %s</string>
     <string name="setting_ttl">最小 DNS TTL: %s 秒</string>
     <string name="setting_socks5_enabled">SOCKS5 プロキシを使用</string>
     <string name="setting_socks5_addr">SOCKS5 アドレス: %s</string>
@@ -113,183 +222,231 @@
     <string name="setting_socks5_password">SOCKS5 パスワード: %s</string>
     <string name="setting_pcap_record_size">PCAP レコードサイズ: %s B</string>
     <string name="setting_pcap_file_size">PCAP 最大ファイルサイズ: %s MB</string>
-    <string name="setting_watchdog">監視タイマー: %s 分毎</string>
+    <string name="setting_pcap">ネットワークトラフィックを記録 (PCAP)</string>
+    <string name="setting_watchdog">ウォッチドッグ: %s 分ごと</string>
+
     <string name="setting_stats_category">速度通知</string>
-    <string name="setting_stats">通信速度を通知で表示</string>
+    <string name="setting_stats">速度通知を表示</string>
     <string name="setting_stats_top">上位アプリを表示</string>
-    <string name="setting_stats_frequency">サンプリング間隔: %s ミリ秒</string>
-    <string name="setting_stats_samples">サンプル数: %s s</string>
+    <string name="setting_stats_frequency">サンプリング間隔: %s ms</string>
+    <string name="setting_stats_samples">サンプル数: %s</string>
+
     <string name="setting_backup">バックアップ</string>
     <string name="setting_export">設定をエクスポート</string>
     <string name="setting_import">設定をインポート</string>
     <string name="setting_hosts">hosts ファイルをインポート</string>
-    <string name="setting_hosts_append">hosts ファイルのインポート (追加)</string>
+    <string name="setting_hosts_append">hosts ファイルをインポート (追記)</string>
     <string name="setting_hosts_url">hosts ファイルのダウンロード URL</string>
     <string name="setting_hosts_download">hosts ファイルをダウンロード</string>
+    <string name="setting_use_hosts">hosts ファイルを使用</string>
+
     <string name="setting_technical">技術情報</string>
-    <string name="setting_technical_general">概要</string>
+    <string name="setting_technical_general">一般</string>
     <string name="setting_technical_networks">ネットワーク</string>
     <string name="setting_technical_subscription">サブスクリプション</string>
-    <string name="summary_install">ステータスバーに通知を表示して、新しくインストールしたアプリの設定を直接行えます (プロ版の機能)</string>
-    <string name="summary_auto">ウィジェットで NetGuard を無効にした後、指定時間(分)経過で自動的に有効にもどします\nこのオプションを無効にするには 0 を入力してください</string>
-    <string name="summary_delay">画面消灯後も、「画面が点灯中」ルールを指定時間(分)の間有効にします\nこのオプションを無効にするには 0 を入力してください</string>
-    <string name="summary_update">新しいリリースを Github で毎日 2 回確認します</string>
-    <string name="summary_tethering">Android のバージョンによって、テザリングが動作する、または動作しない可能性があります。テザリングされたトラフィックはフィルターできません。</string>
-    <string name="summary_subnet">サブネットのルーティングを有効にします; Wi-Fi の通話を有効にすることができるかもしれませんが Android のバグを誘発したり、バッテリー使用量が増加する可能性があります。</string>
-    <string name="summary_lan">10.0.0.0/8、172.16.0.0/12、192.168.0.0/16 のような、ローカル エリア ネットワークのアドレスに接続するアプリケーションを許可します</string>
-    <string name="summary_ip6">NetGuard に IP バージョン 6 トラフィックをルーティングして、許可かブロックを選択することができます。</string>
-    <string name="summary_wifi_home">選択したネットワークにのみ Wi-Fi ネットワークのルールを適用します (他の Wi-Fi ネットワークにはモバイルネットワークのルールを適用します)</string>
-    <string name="summary_metered">従量制 (有料、テザリング) Wi-Fi ネットワークにモバイル ネットワーク ルールを適用します</string>
-    <string name="summary_metered_2g">2G データ接続の Wi-Fi ネットワーク ルールを適用します</string>
-    <string name="summary_metered_3g">3G データ接続の Wi-Fi ネットワーク ルールを適用します</string>
-    <string name="summary_metered_4g">LTE データ接続の Wi-Fi ネットワーク ルールを適用します</string>
-    <string name="summary_national_roaming">SIM およびモバイル ネットワークの国が同じときは、ローミングのルールを適用しません</string>
-    <string name="summary_eu_roaming">SIM およびモバイル ネットワークが EU 内の国ではローミングルールを適用しない (自国同様)</string>
-    <string name="summary_call">電話の着信または発信時に NetGuard を無効にします。これは、IP/Wi-Fi の呼び出しの問題を回避するためにも使用できます。</string>
-    <string name="summary_system">システムアプリのルールを定義 (上級者向け)</string>
-    <string name="summary_log_app">アプリのインターネットへのアクセスをログ記録します。バッテリー使用量が増えることがあります。</string>
-    <string name="summary_access">アプリが初のインターネットアドレスにアクセスしようとするとき、ステータスバーに通知を表示します (フィルターが無効なときは、ブロックしたインターネットアクセスの試行のみ通知されます)</string>
-    <string name="summary_filter">VPN トンネルを出る IP パケットをフィルターします。バッテリー使用量が増えることがあります。</string>
-    <string name="summary_track_usage">各アプリとアドレスごとの送受信バイト数を追跡します。バッテリー使用量が増えることがあります。</string>
-    <string name="summary_block_domains">ブロックしたドメイン名に対して、設定した DNS 応答コードで応答します。hosts ファイルが使用できない場合、このスイッチは無効です。</string>
-    <string name="summary_rcode">デフォルト値は 3 (NXDOMAIN) です。\'ドメインが存在しない\' の意味です。</string>
-    <string name="summary_validate">ポート 443 (https) でインターネット接続の検証に使用するドメイン名。</string>
-    <string name="summary_socks5_enabled">プロキシサーバーには TCP トラフィックのみが送信されます</string>
-    <string name="summary_watchdog">NetGuard が実行されているかどうかを定期的にチェックします (0 を入力すると、このオプションを無効にします)。余分にバッテリーを使用することがあります。</string>
-    <string name="summary_stats">通知領域にネットワーク速度のグラフを表示します</string>
-    <string name="msg_sure">よろしいですか?</string>
-    <string name="msg_started">ルールを適用中です</string>
-    <string name="msg_packages">許可 %1$d、ブロック %2$d</string>
-    <string name="msg_hosts">許可 %1$d、ブロック %2$d、ホスト %3$d</string>
-    <string name="msg_waiting">イベントの待機中</string>
-    <string name="msg_disabled">NetGuard は無効です。有効にするには上のスイッチを使用してください</string>
-    <string name="msg_notifications">タップすると通知の権限を付与します (アクセス試行通知、エラーメッセージなど)</string>
-    <string name="msg_revoked">NetGuard が無効にされました。別の VPN ベースのアプリケーションを使用した可能性があります</string>
+    <string name="setting_section_appearance">外観</string>
+    <string name="setting_section_firewall">ファイアウォールルール</string>
+    <string name="setting_section_advanced">高度な動作</string>
+    <string name="setting_section_hosts">Hosts と DNS</string>
+    <string name="setting_section_network">ネットワーク設定</string>
+    <string name="setting_section_dns">DNS の詳細</string>
+    <string name="setting_section_proxy">プロキシ</string>
+    <string name="setting_section_vpn">VPN 設定</string>
+    <string name="setting_section_background">バックグラウンドタスク</string>
+    <string name="setting_section_diagnostics">診断</string>
+    <string name="setting_section_support">サポート</string>
+
+    <string name="summary_install">ステータスバーに通知を表示し、新しくインストールしたアプリを直接設定できます（プロ機能）</string>
+    <string name="summary_auto">ウィジェットを使用して無効にした後、選択した分数が経過すると自動的に NetGuard を再度有効にします（0 を入力するとこのオプションは無効になります）</string>
+    <string name="summary_delay">画面をオフにした後、選択した分数の間「画面点灯時」ルールをアクティブに保ちます（0 を入力するとこのオプションは無効になります）</string>
+    <string name="summary_update">GitHub で新しいリリースを 1 日 2 回確認します</string>
+
+    <string name="summary_tethering">Android のバージョンによって、テザリングが動作する場合と動作しない場合があります。テザリングされたトラフィックはフィルタリングできません。</string>
+    <string name="summary_subnet">サブネットルーティングを有効にします。Wi-Fi 通話が可能になる場合がありますが、Android のバグを引き起こし、バッテリー使用量が増える可能性もあります。</string>
+    <string name="summary_lan">10.0.0.0/8、172.16.0.0/12、192.168.0.0/16 などのローカルエリアネットワークアドレスへの接続をアプリに許可します。</string>
+    <string name="summary_ip6">IPv6 トラフィックを NetGuard にルーティングし、選択的に許可またはブロックできるようにします。</string>
+    <string name="summary_wifi_home">選択したネットワークに対してのみ Wi-Fi ネットワークルールを適用します（他の Wi-Fi ネットワークにはモバイルネットワークルールを適用します）。</string>
+    <string name="summary_metered">従量制（有料、テザリング）Wi-Fi ネットワークにモバイルネットワークルールを適用します。</string>
+    <string name="summary_metered_2g">2G データ接続に Wi-Fi ネットワークルールを適用します。</string>
+    <string name="summary_metered_3g">3G データ接続に Wi-Fi ネットワークルールを適用します。</string>
+    <string name="summary_metered_4g">LTE データ接続に Wi-Fi ネットワークルールを適用します。</string>
+    <string name="summary_national_roaming">SIM とモバイルネットワークの国が同じ場合はローミングルールを適用しません。</string>
+    <string name="summary_eu_roaming">SIM とモバイルネットワークの国が EU 内の場合はローミングルールを適用しません（roam like at home）。</string>
+    <string name="summary_call">着信または発信時に NetGuard を無効にします。これは、IP/Wi-Fi 通話の問題を回避するために使用できます。</string>
+
+    <string name="summary_system">システムアプリのルールを定義します（専門家向け）。</string>
+    <string name="summary_log_app">アプリのインターネットアクセス試行を記録します。これにより、バッテリーの使用量が増える可能性があります。</string>
+    <string name="summary_log_retention_days">メンテナンス中に古いトラフィックログを自動的に削除します。無期限に保持するには 0 を設定してください。</string>
+    <string name="summary_access">アプリが新しいインターネットアドレスにアクセスしようとしたときにステータスバー通知を表示します（フィルタリングが無効な場合は、ブロックされたアクセス試行のみ通知されます）。</string>
+    <string name="summary_filter">VPN トンネルから送信される IP パケットをフィルタリングします。これにより、バッテリーの使用量が増える可能性があります。</string>
+    <string name="summary_track_usage">アプリおよびアドレスごとに送受信されたバイト数を追跡します。これにより、バッテリーの使用量が増える可能性があります。</string>
+    <string name="summary_block_domains">ブロックされたドメイン名に対して構成された DNS 応答コードで応答します。hosts ファイルが利用できない場合、このスイッチは無効になります。</string>
+    <string name="summary_rcode">デフォルト値は 3 (NXDOMAIN) で、「存在しないドメイン」を意味します。</string>
+    <string name="summary_validate">ポート 443 (https) でインターネット接続を検証するために使用されるドメイン名。</string>
+    <string name="summary_socks5_enabled">TCP トラフィックのみがプロキシサーバーに送信されます。</string>
+    <string name="summary_watchdog">NetGuard がまだ実行されているかどうかを定期的に確認します（0 を入力するとこのオプションは無効になります）。これにより、バッテリーの使用量が増える可能性があります。</string>
+
+    <string name="summary_stats">ステータスバー通知にネットワーク速度グラフを表示します</string>
+
+    <string-array name="default_wifi_home"></string-array>
+
+    <string name="msg_sure">本当によろしいですか？</string>
+    <string name="msg_started">ルールを適用しています</string>
+    <string name="msg_packages">%1$d 許可、%2$d ブロック</string>
+    <string name="msg_hosts">%1$d 許可、%2$d ブロック、%3$d ホスト</string>
+    <string name="msg_waiting">イベントを待機中</string>
+    <string name="msg_disabled">NetGuard は無効です。上のスイッチを使用して有効にしてください。</string>
+    <string name="msg_notifications">タップして通知権限を付与してください（アクセス試行通知、エラーメッセージなどのため）。</string>
+    <string name="msg_revoked">おそらく別の VPN ベースのアプリを使用したため、NetGuard が無効になりました。</string>
     <string name="msg_installed">\'%1$s\' がインストールされました</string>
-    <string name="msg_installed_n">インストールされています</string>
-    <string name="msg_access">%1$s がインターネット アクセスを試みました。</string>
+    <string name="msg_installed_n">インストールされました</string>
+    <string name="msg_malware" translatable="false">Possible malware: \'%1$s\'</string>
+    <string name="msg_access">%1$s がインターネットアクセスを試みました</string>
     <string name="msg_access_n">インターネットアクセスを試みました</string>
-    <string name="msg_completed">操作を完了しました</string>
-    <string name="msg_vpn">NetGuard は、ローカル VPN を使用してインターネット トラフィックをフィルターします。このため、次のダイアログ ボックスで VPN 接続を許可してください。インター ネット トラフィックはリモート VPN サーバーには送信されません。</string>
-    <string name="msg_autostart">お使いの Android のバージョンのバグのため、起動時に自動的に NetGuard を開始できませんでした</string>
+    <string name="msg_completed">アクションが完了しました</string>
+    <string name="msg_invalid">値を確認して、もう一度お試しください。</string>
+    <string name="msg_export_failed">エクスポートに失敗しました: %1$s</string>
+    <string name="msg_vpn">NetGuard はローカル VPN を使用してインターネットトラフィックをフィルタリングします。
+そのため、次のダイアログで VPN 接続を許可してください。
+インターネットトラフィックはリモート VPN サーバーに送信されません。</string>
+    <string name="msg_autostart">NetGuard を自動的に起動できませんでした。これはおそらく Android のバージョンのバグによるものです。</string>
     <string name="msg_error">予期しないエラーが発生しました: \'%s\'</string>
-    <string name="msg_start_failed">現時点では Android が VPN サービスを開始することを拒否しました。これはお使いの Android バージョンでのバグの可能性があります。</string>
-    <string name="msg_try">NetGuard を試してください</string>
-    <string name="msg_terms">寄付によって <a href="http://www.netguard.me/#terms">利用規約</a> に同意します</string>
-    <string name="msg_dimming">次のダイアログボックスで OK を押すことができない場合、別の (画面調光) アプリが画面を操作している可能性があります。</string>
-    <string name="msg_mbday">± %1$.3f▲ %2$.3f▼ MB/日</string>
-    <string name="msg_kb">%1$7.3f▲ %2$7.3f▼ KB</string>
-    <string name="msg_mb">%1$7.3f▲ %2$7.3f▼ MB</string>
-    <string name="msg_gb">%1$7.3f▲ %2$7.3f▼ GB</string>
-    <string name="msg_count">%dx</string>
-    <string name="msg_doze">一貫性のある結果のため、NetGuard は Android のバッテリー最適化を無効にする必要があります。\n\nIn 次のダイアログで、上部の「すべてのアプリ」を選択し、リストで NetGuard をタップし、「最適化しない」を選択および確認してください。</string>
-    <string name="msg_datasaving">一貫性のある結果を得るために、NetGuard は Android のデータの保存オプションを無効にする必要があります\n\n次のダイアログで、オプション「バック グラウンド データ」と「無制限のデータ使用」を有効にしてください。</string>
-    <string name="msg_filter">フィルターを使用すると、Android はデータと電力を、元のアプリではなく、NetGuard が使用しているものとみなします。</string>
-    <string name="msg_filter4">Android 4 は、フィルターを有効にする必要があります</string>
-    <string name="msg_log_disabled">トラフィックのログ記録は無効です。有効にするには上のスイッチを使用してください。トラフィックのログ記録は、余分にバッテリーを使用することがあります。</string>
-    <string name="msg_clear_rules">ルールと条件がデフォルト値にリセットされます</string>
-    <string name="msg_reset_access">アクセス試行ログ中、許可/ブロックのルールがない行を削除します。</string>
+    <string name="msg_start_failed">Android が現時点で VPN サービスの開始を拒否しました。これはおそらく Android のバージョンのバグによるものです。</string>
+    <string name="msg_try">NetGuard を試す</string>
+    <string name="msg_terms">寄付することにより、<a href="http://www.netguard.me/#terms">利用規約</a>に同意したことになります。</string>
+    <string name="msg_dimming">次のダイアログで OK を押せない場合は、別の（画面調光）アプリが画面を操作している可能性があります。</string>
+    <string name="msg_mbday">&#177; %1$.3f&#9650; %2$.3f&#9660; MB/日</string>
+    <string name="msg_kbsec">%7.3f KB/s</string>
+    <string name="msg_mbsec">%7.3f MB/s</string>
+    <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
+    <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
+    <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
+    <string name="msg_count">%d回</string>
+    <string name="msg_doze">安定した結果を得るには、NetGuard の Android バッテリー最適化を無効にする必要があります。
+\n\n次のダイアログで、上部の「すべてのアプリ」を選択し、リストで NetGuard をタップして「最適化しない」を選択して確認してください。</string>
+    <string name="msg_datasaving">安定した結果を得るには、NetGuard の Android 데이터 절약 옵션을 비활성화해야 합니다.
+\n\n다음 대화 상자에서 「백그라운드 데이터」 및 「데이터 통신 제한 없음」 옵션을 활성화하세요。</string>
+    <string name="msg_filter">フィルタリングを使用すると、Android はデータと電力の使用量を NetGuard に帰属させます。Android は、元のアプリではなく NetGuard がデータと電力を使用していると想定します。</string>
+    <string name="msg_filter4">Android 4 ではフィルタリングを有効にする必要があります</string>
+    <string name="msg_log_disabled">トラフィックログは無効です。上のスイッチを使用してログを有効にしてください。トラフィックログにより、バッテリーの使用量が増える可能性があります。</string>
+    <string name="msg_clear_rules">これにより、ルールと条件がデフォルト値にリセットされます</string>
+    <string name="msg_reset_access">これにより、許可/ブロックルールのないアクセス試行ログ行が削除されます</string>
     <string name="msg_import_last">最終インポート: %s</string>
     <string name="msg_downloading">ダウンロード中\n%1s</string>
-    <string name="msg_downloaded">Hosts ファイルをダウンロードしました</string>
+    <string name="msg_downloaded">hosts ファイルをダウンロードしました</string>
     <string name="msg_download_last">最終ダウンロード: %s</string>
-    <string name="msg_start_forward">%1$s ポート %2$d から \'%5$s\' の %3$s:%4$d に転送を開始しますか?</string>
-    <string name="msg_stop_forward">%1$s ポート %2$d の転送を停止しますか?</string>
+    <string name="msg_start_forward">%1$s ポート %2$d から \'%5$s\' の %3$s:%4$d への転送を開始しますか？</string>
+    <string name="msg_stop_forward">%1$s ポート %2$d の転送を停止しますか？</string>
     <string name="msg_metered">ネットワークは従量制です</string>
-    <string name="msg_inactive">アクティブなインターネット接続がありません</string>
+    <string name="msg_inactive">アクティブなインターネット接続はありません</string>
     <string name="msg_queue">NetGuard はビジーです</string>
-    <string name="msg_update">更新できます。タップするとダウンロードします</string>
-    <string name="msg_usage">アプリの横にあるアイコンをタップして、Wi-Fi またはモバイルインターネットアクセスを、許可 (緑) または拒否 (赤) することができます</string>
-    <string name="msg_fairemail">プライバシーを保護するために NetGuard をインストールした場合、オープンソースのプライバシーフレンドリーなメールアプリ <a href="https://email.faircode.eu/">FairEmail</a> にもご興味ありませんか</string>
-    <string name="msg_whitelist">デフォルトで、インターネットアクセスが許可されます。これは設定で変更することができます</string>
-    <string name="msg_push">プッシュメッセージは、システムコンポーネントの Play サービス (デフォルトでインターネットアクセスが許可されています) によって主に処理されます。</string>
-    <string name="msg_system">システムアプリの管理は、設定内で有効にできます</string>
-    <string name="msg_issue">問題と、問題のあった時刻を記述してください:</string>
-    <string name="msg_vpn_cancelled">VPN 接続がキャンセルされました\n別の VPN を、常時使用 VPN として設定しましたか?</string>
-    <string name="msg_on">NetGuard を有効にしてデバイスの電源を切ると、デバイスの電源投入時に NetGuard が自動的に開始されます</string>
-    <string name="msg_unavailable">この機能はこのAndroidのバージョンでは利用できません。</string>
-    <string name="msg_always_on">別の VPN が、常時オン VPN として設定されます</string>
-    <string name="msg_always_on_lockdown">フィルタリングモードで NetGuard を使用するには、Android VPN 設定で \"VPN でない接続をブロック\" をオフにしてください</string>
-    <string name="msg_private_dns">フィルタ リングモードで NetGuard を使用するには Android のネットワーク設定で \"プライベート DNS\" をオフにしてください</string>
-    <string name="title_lockdown_enabled">トラフィックを封鎖</string>
-    <string name="title_unmetered_allowed">定額制のトラフィックを許可</string>
-    <string name="title_unmetered_blocked">定額制のトラフィックをブロック</string>
-    <string name="title_unmetered_disabled">定額制ルールは適用されません</string>
-    <string name="title_metered_allowed">従量制のトラフィックを許可</string>
-    <string name="title_metered_blocked">従量制のトラフィックをブロック</string>
-    <string name="title_metered_disabled">従量制は適用されません</string>
-    <string name="title_host_allowed">アドレスを許可</string>
-    <string name="title_host_blocked">アドレスをブロック</string>
-    <string name="title_interactive_allowed">画面が点灯中は許可</string>
+    <string name="msg_update">アップデートがあります。タップしてダウンロードしてください</string>
+    <string name="msg_usage">アプリの横にあるアイコンをタップして、Wi-Fi またはモバイルインターネットアクセスを許可（緑色）または拒否（赤色）できます</string>
+    <string name="msg_fairemail">プライバシーを保護するために NetGuard をインストールした場合は、オープンソースでプライバシーに配慮したメールアプリ <a href="https://email.faircode.eu/">FairEmail</a> にも興味があるかもしれません。</string>
+    <string name="msg_whitelist">インターネットアクセスはデフォルトで許可されています（ブラックリストモード）。これは設定で変更できます。</string>
+    <string name="msg_push">着信（プッシュ）メッセージは主にシステムコンポーネントの Play サービスによって処理されます。Play サービスはデフォルトでインターネットアクセスが許可されています。</string>
+    <string name="msg_system">すべての（システム）アプリの管理は設定で有効にできます</string>
+    <string name="msg_issue">問題を説明し、問題が発生した時刻を記入してください:</string>
+    <string name="msg_vpn_cancelled">VPN 接続がキャンセルされました\n別の VPN を「常時接続 VPN」として構成しましたか？</string>
+    <string name="msg_on">NetGuard を有効にした状態でデバイスの電源をオフにすると、デバイスの電源をオンにしたときに NetGuard が自動的に起動します</string>
+    <string name="msg_unavailable">この機能はこの Android バージョンでは利用できません</string>
+    <string name="msg_always_on">別の VPN が常時接続 VPN として設定されています</string>
+    <string name="msg_always_on_lockdown">フィルタリングモードで NetGuard を使用するには、Android の VPN 設定で「VPN なしの接続をブロック」をオフにしてください</string>
+    <string name="msg_private_dns">フィルタリングモードで NetGuard を使用するには、Android のネットワーク設定で「プライベート DNS」をオフにしてください</string>
+
+    <string name="title_lockdown_enabled">トラフィックが制限されています</string>
+    <string name="title_unmetered_allowed">非従量制トラフィックは許可されています</string>
+    <string name="title_unmetered_blocked">非従量制トラフィックはブロックされています</string>
+    <string name="title_unmetered_disabled">非従量制ルールは適用されません</string>
+    <string name="title_metered_allowed">従量制トラフィックは許可されています</string>
+    <string name="title_metered_blocked">従量制トラフィックはブロックされています</string>
+    <string name="title_metered_disabled">従量制ルールは適用されません</string>
+    <string name="title_host_allowed">アドレスは許可されています</string>
+    <string name="title_host_blocked">アドレスはブロックされています</string>
+    <string name="title_interactive_allowed">画面がオンのときに許可</string>
     <string name="title_roaming_blocked">ローミング時にブロック</string>
-    <string name="title_metered">デフォルトで Wi-Fi 接続は定額制、モバイル接続は従量制と見なされます</string>
-    <string name="title_internet">インターネット アクセス許可がありません</string>
-    <string name="title_disabled">無効</string>
-    <string name="title_messaging">このアプリをブロックしても、受信メッセージはこのアプリではなく Google Play サービスによって受信されるため、ブロックできません</string>
-    <string name="title_download">このアプリではなくダウンロードマネージャーによってダウンロードが実行されるため、このアプリをブロックしてもダウンロードはブロックできません</string>
+    <string name="title_metered">デフォルトでは、Wi-Fi 接続は非従量制、モバイル接続は従量制と見なされます</string>
+
+    <string name="title_internet">インターネット権限がありません</string>
+    <string name="title_disabled">無効です</string>
+    <string name="title_messaging">着信メッセージは Google Play サービスによって受信され、このアプリによって受信されないため、このアプリをブロックしてもブロックできません</string>
+    <string name="title_download">ダウンロードはダウンロードマネージャーによって実行され、このアプリによって実行されないため、このアプリをブロックしてもブロックできません</string>
     <string name="title_apply">ルールと条件を適用</string>
     <string name="title_conditions">条件</string>
-    <string name="title_screen_wifi">画面が点灯中は Wi-Fi 通信を許可</string>
-    <string name="title_screen_other">画面が点灯中はモバイル通信を許可</string>
+    <string name="title_screen_wifi">画面がオンのときに Wi-Fi を許可</string>
+    <string name="title_screen_other">画面がオンのときにモバイル通信を許可</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">ローミング時にブロック</string>
-    <string name="title_lockdown">封鎖中でも通信を許可</string>
-    <string name="title_related">フィルター関連</string>
+    <string name="label_ttl">TTL: %s 秒</string>
+    <string name="label_uid">UID: %s</string>
+    <string name="title_lockdown">ロックダウンモードで許可</string>
+    <string name="title_related">フィルタリング関連</string>
     <string name="title_access">アクセス試行</string>
-    <string name="title_precedence">アクセスルールは他のルールよりも優先します</string>
+    <string name="title_precedence">アクセスルールは他のルールより優先されます</string>
     <string name="title_options">オプション</string>
-    <string name="title_notify">インターネットアクセスの試みを通知</string>
-    <string name="title_logging_disabled">ログまたはフィルターが有効になっていません</string>
-    <string name="title_logging_enabled">ログとフィルターが有効です</string>
-    <string name="title_logging_configure">設定</string>
-    <string name="title_enable_logging">ログを有効にする (ブロックされたアドレスのみ)</string>
-    <string name="title_enable_filtering">フィルターを有効にし、許可されたアドレスもログ記録する</string>
-    <string name="title_enable_notify">新しくログを記録したアドレスのアクセス通知を有効にする</string>
-    <string name="title_enable_help0">これらの設定はすべてのアプリケーションに適用されるグローバル設定です</string>
-    <string name="title_enable_help1">個々のアドレスを許可またはブロックするためにフィルターも必要です</string>
-    <string name="title_enable_help2">ログやフィルターを有効にすると、バッテリーの使用量が増えたり、ネットワーク速度に影響を与える可能性があります(ログ:少なめ、フィルター:多め)</string>
+    <string name="title_notify">インターネットアクセス試行を通知</string>
+
+    <string name="title_logging_disabled">ログ記録またはフィルタリングが有効になっていません</string>
+    <string name="title_logging_enabled">ログ記録とフィルタリングが有効になっています</string>
+    <string name="title_logging_configure">構成</string>
+
+    <string name="title_enable_logging">ブロックされたアドレスのみログ記録を有効にする</string>
+    <string name="title_enable_filtering">フィルタリングを有効にして許可されたアドレスもログ記録する</string>
+    <string name="title_enable_notify">新しくログ記録されたアドレスのアクセス通知を有効にする</string>
+    <string name="title_enable_help0">これらの設定はすべてのアプリに適用されるグローバル設定です</string>
+    <string name="title_enable_help1">個別のアドレスを許可またはブロックするにはフィルタリングも必要です</string>
+    <string name="title_enable_help2">ログ記録（少）またはフィルタリング（多）を有効にすると、バッテリーの使用量が増えたり、ネットワーク速度に影響したりする可能性があります</string>
+
     <string name="title_rate">評価</string>
     <string name="title_allow">許可</string>
     <string name="title_block">ブロック</string>
-    <string name="title_allow_wifi">Wi-Fi 通信を許可</string>
-    <string name="title_block_wifi">Wi-Fi 通信をブロック</string>
+    <string name="title_wifi">Wi-Fi</string>
+    <string name="title_mobile">モバイル</string>
+    <string name="title_allow_wifi">Wi-Fi を許可</string>
+    <string name="title_block_wifi">Wi-Fi をブロック</string>
     <string name="title_allow_other">モバイル通信を許可</string>
     <string name="title_block_other">モバイル通信をブロック</string>
-    <string name="title_root">ルート</string>
-    <string name="title_mediaserver">メディアサーバー</string>
+    <string name="title_root">root</string>
+    <string name="title_mediaserver">mediaserver</string>
+    <string name="title_gpsdaemon" translatable="false">GPS daemon</string>
+    <string name="title_dnsdaemon" translatable="false">DNS daemon</string>
     <string name="title_nobody">nobody</string>
     <string name="title_dontask">次回から表示しない</string>
+
     <string name="title_log_whois">Whois %1$s</string>
     <string name="title_log_port">ポート %1$d</string>
     <string name="title_log_copy">コピー</string>
-    <string name="title_pro">プロ版の機能</string>
-    <string name="title_pro_description">次のプロ版の機能が利用可能です:</string>
-    <string name="title_pro_log">ブロックされたトラフィックのログを表示</string>
-    <string name="title_pro_filter">ネットワーク トラフィックのフィルター</string>
-    <string name="title_pro_notify">新しいアプリの通知</string>
+
+    <string name="title_pro">プロ機能</string>
+    <string name="title_pro_description">以下のプロ機能が利用可能です:</string>
+    <string name="title_pro_log">ブロックされたトラフィックログを表示</string>
+    <string name="title_pro_filter">ネットワークトラフィックをフィルタリング</string>
+    <string name="title_pro_notify">新着アプリ通知</string>
     <string name="title_pro_speed">ネットワーク速度グラフ通知</string>
-    <string name="title_pro_theme">外観 (テーマ、色)</string>
-    <string name="title_pro_all">上記すべてのプロ版の機能</string>
-    <string name="title_pro_dev">開発を支援する</string>
-    <string name="title_pro_buy">購入する</string>
-    <string name="title_pro_bought">有効</string>
+    <string name="title_pro_theme">外観（テーマ、色）</string>
+    <string name="title_pro_all">上記のすべてのプロ機能</string>
+    <string name="title_pro_dev">開発を支援</string>
+    <string name="title_pro_buy">購入</string>
+    <string name="title_pro_bought">有効化済み</string>
     <string name="title_pro_unavailable">利用不可</string>
-    <string name="title_pro_details">詳細情報はタイトルをタップします</string>
+    <string name="title_pro_details">詳細についてはタイトルをタップしてください</string>
     <string name="title_pro_challenge">チャレンジ</string>
     <string name="title_pro_reponse">レスポンス</string>
-    <string name="title_pro_feature">これはプロ版の機能です</string>
-    <string name="title_pro_subscription">1 または 2 ユーロ (地方税を除く) の月額サブスクリプションで、すべてのプロ版の機能を有効にします。
-Play ストアアプリの定期購入タブから、定期購入をキャンセルまたは管理できます。    </string>
-    <string-array name="themeNames">
-        <item>ティール/オレンジ</item>
-        <item>ブルー/オレンジ</item>
-        <item>パープル/レッド</item>
-        <item>アンバー/ブルー</item>
-        <item>オレンジ/グレー</item>
-        <item>グリーン</item>
-    </string-array>
-    <string-array name="protocolNames">
+    <string name="title_pro_feature">これはプロ機能です</string>
+    <string name="title_pro_subscription">
+        月額 1 または 2 ユーロ（地方税を除く）のサブスクリプションで、すべてのプロ機能が有効になります。
+        Play ストアアプリのサブスクリプションタブからサブスクリプションをキャンセルまたは管理できます。
+    </string>
+    <string name="title_pro_already">プロ機能はすでに有効になっています</string>    <string-array name="protocolNames">
         <item>UDP</item>
         <item>TCP</item>
     </string-array>
+
+    <string-array name="protocolValues" translatable="false">
+        <item>17</item>
+        <item>6</item>
+    </string-array>
+
+    <string name="label_dns_summary">%1$d エントリ • %2$d 期限切れ</string>
+
 </resources>

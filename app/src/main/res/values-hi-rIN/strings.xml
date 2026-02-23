@@ -1,288 +1,453 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_description">NetGuard इंटरनेट तक पहुंच को अवरुद्ध करने के लिए सरल और उन्नत तरीके प्रदान करता है - कोई रूट आवश्यक नहीं है। ऐप्स और पते व्यक्तिगत रूप से आपके वाई-फाई और/या मोबाइल कनेक्शन तक पहुंच की अनुमति या अस्वीकार किए जा सकते हैं।</string>
+    <string name="app_name" translatable="false">NetGuard Next</string>
+    <string name="app_description">NetGuard इंटरनेट तक पहुंच को अवरुद्ध करने के लिए सरल और उन्नत तरीके प्रदान करता है - कोई रूट आवश्यक नहीं है। ऐप्स और पते व्यक्तिगत रूप से आपके वाई-फाई और/या mobile कनेक्शन तक पहुंच की अनुमति या अस्वीकार किए जा सकते हैं।</string>
+    <string name="app_copyright" translatable="false">Copyright \u00A9 2015–2025 by M. Bokhorst (M66B)</string>
     <string name="app_android">NetGuard को Android 5.1 या बाद के संस्करण की आवश्यकता है</string>
-    <string name="app_xposed">Xposed बहुत से दुर्घटनाओं का कारण बनता है, जिसके परिणामस्वरूप Google Play Store से NetGuard को हटाया जा सकता है, इसलिए NetGuard समर्थित नहीं है, जब तक Xposed स्थापित है</string>
+    <string name="app_eula" translatable="false">THIS SOFTWARE IS PROVIDED BY THE AUTHOR \'\'AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
     <string name="app_privacy"><a href="https://www.netguard.me/privacy/">गोपनीयता नीति</a></string>
     <string name="app_first">नेटगार्ड को विकसित करने और परीक्षण करने के लिए बहुत सावधानी बरती गई है, हालांकि यह गारंटी देना असंभव है कि नेटगार्ड हर डिवाइस पर सही ढंग से काम करेगा।</string>
     <string name="app_agree">मैं सहमत हूँ</string>
     <string name="app_disagree">मैं असहमत हूं</string>
     <string name="app_support">नेटगार्ड को आपकी मदद की जरूरत है। प्रोजेक्ट को चालू रखने के लिए प्रो फीचर्स खरीदने के लिए टैप करें।</string>
-    <string name="channel_foreground">गतिशील सेवाएं</string>
-    <string name="channel_notify">सामांय सूचनाएं</string>
-    <string name="channel_access">अधिसूचनाओं में जाएँ</string>
-    <string name="menu_search">आवेदन के लिए खोजें</string>
-    <string name="menu_filter">फ़िल्टर अनुप्रयोगों</string>
-    <string name="menu_app_user">उपयोगकर्ता को दिखाने के अनुप्रयोगों</string>
-    <string name="menu_app_system">सिस्टम ऐप्स दिखाएँ।</string>
-    <string name="menu_app_nointernet">बिना इंटरनेट के ऐप दिखाएं</string>
+    <string name="app_qap">
+        Google ऐप को Play Store से हटाने वाला था क्योंकि इसने सभी ऐप्स को क्वेरी करने की अनुमति मांगी थी।
+        पांच अपील और यह अनुमति क्यों आवश्यक है, इसके बारे में एक अच्छा औचित्य प्रदान करने को खारिज कर दिया गया था।
+        ऐप का यह संस्करण अब इस अनुमति का अनुरोध नहीं करता है,
+        और इसके बावजूद, लगभग सभी ऐप्स अभी भी सूचीबद्ध होंगे,
+        सिवाय कुछ (सिस्टम) ऐप्स के जिन्हें Android ऐप सूची से मैन्युअल रूप से प्रारंभ नहीं किया जा सकता है।
+        इन ऐप्स के इंटरनेट ट्रैफ़िक को हमेशा यह सुनिश्चित करने की अनुमति दी जाएगी कि आपका डिवाइस सही ढंग से काम करता रहे।
+        अगर आपको लगता है कि यह एक समस्या है, तो आप ऐप के GitHub संस्करण में अपडेट कर सकते हैं और सभी (सिस्टम) ऐप्स को फिर से प्रबंधित कर सकते हैं।
+    </string>
+
+    <string name="channel_foreground">चल रही सेवाएं</string>
+    <string name="channel_notify">सामान्य सूचनाएं</string>
+    <string name="channel_access">पहुँच सूचनाएं</string>
+
+    <string name="menu_search">ऐप खोजें</string>
+    <string name="menu_filter">ऐप्स फ़िल्टर करें</string>
+    <string name="menu_app_user">उपयोगकर्ता ऐप्स दिखाएं</string>
+    <string name="menu_app_system">सिस्टम ऐप्स दिखाएं</string>
+    <string name="menu_app_nointernet">बिना इंटरनेट वाले ऐप्स दिखाएं</string>
     <string name="menu_app_disabled">अक्षम ऐप्स दिखाएं</string>
-    <string name="menu_sort">क्रमबद्ध अनुप्रयोगों</string>
-    <string name="menu_sort_name">नाम पर क्रमबद्ध</string>
-    <string name="menu_sort_uid">यूआईडी पर क्रमबद्ध</string>
-    <string name="menu_sort_data">डेटा के उपयोग पर क्रमबद्ध</string>
-    <string name="menu_log">लॉग दिखाएँ</string>
+    <string name="menu_sort">ऐप्स क्रमित करें</string>
+    <string name="menu_sort_name">नाम से क्रमित करें</string>
+    <string name="menu_sort_uid">UID से क्रमित करें</string>
+    <string name="menu_sort_data">डेटा उपयोग से क्रमित करें</string>
+    <string name="menu_launch">ऐप लॉन्च करें</string>
+    <string name="menu_log">लॉग दिखाएं</string>
     <string name="menu_settings">सेटिंग्स</string>
-    <string name="menu_invite">आमंत्रण</string>
-    <string name="menu_legend">किंवदंती</string>
+    <string name="menu_home">होम</string>
+    <string name="menu_invite">आमंत्रित करें</string>
+    <string name="menu_legend">लेजेंड</string>
     <string name="menu_support">सहायता</string>
     <string name="menu_about">के बारे में</string>
     <string name="menu_apps">अन्य ऐप्स</string>
+    <string name="menu_firewall">फ़ायरवॉल</string>
+    <string name="status_enabled">फ़ायरवॉल सक्षम</string>
+    <string name="status_disabled">फ़ायरवॉल अक्षम</string>
+    <string name="widget_firewall_enabled">फ़ायरवॉल चालू</string>
+    <string name="widget_firewall_disabled">फ़ायरवॉल बंद</string>
+    <string name="widget_lockdown_enabled">लॉकडाउन चालू</string>
+    <string name="widget_lockdown_disabled">लॉकडाउन बंद</string>
+    <string name="notify_traffic_title">ट्रैफ़िक मॉनिटर</string>
+    <string name="notify_traffic_summary">अप %1$s • डाउन %2$s • पीक %3$s</string>
+    <string name="notify_traffic_debug">सत्र %1$d/%2$d/%3$d • फ़ाइलें %4$d/%5$d</string>
+    <string name="ui_loading">लोड हो रहा है…</string>
+    <string name="ui_empty_logs_title">अभी तक कोई ट्रैफ़िक नहीं</string>
+    <string name="ui_empty_logs_body">कनेक्शन दिखाई देने पर, वे यहाँ दिखाई देंगे।</string>
+    <string name="ui_empty_apps_title">कोई ऐप नहीं मिला</string>
+    <string name="ui_empty_apps_body">सूची को ताज़ा करने का प्रयास करें।</string>
+    <string name="ui_empty_dns_title">अभी तक कोई रिज़ॉल्व किया गया DNS नहीं</string>
+    <string name="ui_empty_dns_body">ब्राउज़ करने के बाद DNS प्रतिक्रियाएं यहाँ दिखाई देंगी।</string>
+    <string name="ui_dns_filter_empty">इस फ़िल्टर से कोई DNS प्रविष्टि मेल नहीं खाती।</string>
+    <string name="ui_empty_forwarding_title">कोई फ़ॉरवर्डिंग नियम नहीं</string>
+    <string name="ui_empty_forwarding_body">ट्रैफ़िक फ़ॉरवर्ड करना शुरू करने के लिए एक नियम जोड़ें।</string>
+    <string name="ui_forwarding_filter_empty">इस फ़िल्टर से कोई फ़ॉरवर्डिंग नियम मेल नहीं खाता।</string>
+    <string name="ui_empty_pro_body">समर्थन अतिरिक्त सुविधाओं को अनलॉक करता है और प्रोजेक्ट को जीवित रखता है।</string>
+    <string name="ui_empty_pro_details">प्रो अनलॉक: फ़िल्टरिंग, लॉगिंग, सूचनाएं, थीम और गति सीमाएं।</string>
+    <string name="ui_home_hint">हर ऐप के लिए इंटरनेट एक्सेस नियंत्रित करें।</string>
+    <string name="ui_home_quick_actions">त्वरित कार्रवाइयां</string>
+    <string name="ui_apps_title">फ़ायरवॉल</string>
+    <string name="ui_logs_title">ट्रैफ़िक लॉग</string>
+    <string name="ui_logs_filters">फ़िल्टर</string>
+    <string name="ui_logs_filter_status">स्थिति</string>
+    <string name="ui_logs_filter_protocol">प्रोटोकॉल</string>
+    <string name="ui_logs_filter_view">देखें</string>
+    <string name="ui_logs_group_timeline">समयरेखा</string>
+    <string name="ui_logs_group_by_app">ऐप द्वारा</string>
+    <string name="ui_logs_unknown_source">अज्ञात स्रोत</string>
+    <string name="ui_settings_title">सेटिंग्स</string>
+    <string name="ui_dns_title">रिज़ॉल्व किया गया DNS</string>
+    <string name="ui_forwarding_title">पोर्ट फ़ॉरवर्डिंग</string>
+    <string name="ui_dns_hint">हाल ही में रिज़ॉल्व किए गए डोमेन और प्रतिक्रियाएं।</string>
+    <string name="ui_forwarding_hint">फ़ॉरवर्डिंग नियमों और लक्षित ऐप्स को प्रबंधित करें।</string>
+    <string name="ui_dns_active">सक्रिय</string>
+    <string name="ui_rule_custom">कस्टम</string>
+    <string name="ui_dns_expired">समय सीमा समाप्त</string>
+    <string name="ui_filter_all">सभी</string>
+    <string name="ui_filter_empty">इस फ़िल्टर से कोई ऐप मेल नहीं खाता।</string>
+    <string name="ui_apps_search_empty">इस खोज से कोई ऐप मेल नहीं खाता।</string>
+    <string name="ui_learn_more">अधिक जानें</string>
+    <string name="status_running">ट्रैफ़िक फ़िल्टर किया जा रहा है</string>
+    <string name="status_not_running">ट्रैफ़िक फ़िल्टर नहीं किया जा रहा है</string>
+    <string name="action_enable">सक्षम करें</string>
+    <string name="action_disable">अक्षम करें</string>
+    <string name="home_apps_hint">ऐप नियमों और डेटा उपयोग की समीक्षा करें</string>
+    <string name="home_logs_hint">हाल की नेटवर्क गतिविधि का निरीक्षण करें</string>
+
+    <!-- Accessibility -->
+    <string name="action_expand">विवरण विस्तृत करें</string>
+    <string name="action_collapse">विवरण संक्षिप्त करें</string>
+    <string name="action_navigate">खोलें</string>
+    <string name="action_toggle_firewall">फ़ायरवॉल टॉगल करें</string>
+    <string name="action_clear_search">खोज साफ़ करें</string>
+    <string name="search_settings">सेटिंग्स खोजें</string>
+    <string name="content_desc_security_status">फ़ायरवॉल सुरक्षा स्थिति</string>
+    <string name="content_desc_app_icon">%s के लिए ऐप आइकन</string>
+    <string name="content_desc_show_info">%1$s के बारे में जानकारी दिखाएं</string>
+
+    <!-- Dashboard stats -->
+    <string name="stat_blocked_today">अवरुद्ध</string>
+    <string name="stat_allowed_today">अनुमत</string>
+    <string name="stat_active_rules">सक्रिय नियम</string>
+
+    <!-- Tooltips -->
+    <string name="tooltip_rcode">अवरुद्ध डोमेन के लिए भेजा गया DNS प्रतिक्रिया कोड। डिफ़ॉल्ट 3 (NXDOMAIN) का अर्थ है डोमेन मौजूद नहीं है।</string>
+    <string name="tooltip_ttl">DNS कैश प्रविष्टियों के लिए न्यूनतम समय-से-जीना सेकंड में।</string>
+    <string name="tooltip_pcap">डिबगिंग के लिए सभी नेटवर्क पैकेट रिकॉर्ड करें। बड़ी फ़ाइलें बनाता है।</string>
+    <string name="tooltip_filter">ट्रैफ़िक को इंटरसेप्ट और विश्लेषण करें। प्रति-पता अवरोधन के लिए आवश्यक। अधिक बैटरी का उपयोग करता है।</string>
+    <string name="tooltip_lockdown">स्पष्ट रूप से अनुमत ऐप्स को छोड़कर सभी ट्रैफ़िक को ब्लॉक करें। सावधानी के साथ उपयोग करें।</string>
+
+    <string name="menu_protocol_udp" translatable="false">UDP</string>
+    <string name="menu_protocol_tcp" translatable="false">TCP</string>
     <string name="menu_protocol_other">अन्य</string>
-    <string name="menu_traffic_allowed">अनुमति है</string>
-    <string name="menu_traffic_blocked">अवरोधित</string>
+    <string name="menu_traffic_allowed">अनुमत</string>
+    <string name="menu_traffic_blocked">अवरुद्ध</string>
     <string name="menu_live">लाइव अपडेट</string>
-    <string name="menu_refresh">नवीकरण</string>
-    <string name="menu_resolve">नाम दिखाएँ</string>
-    <string name="menu_organization">संगठन दिखाएँ</string>
+    <string name="menu_refresh">ताज़ा करें</string>
+    <string name="menu_ok">ठीक है</string>
+    <string name="menu_cancel">रद्द करें</string>
+    <string name="menu_resolve">नाम दिखाएं</string>
+    <string name="menu_organization">संगठन दिखाएं</string>
     <string name="menu_pcap_enabled">PCAP सक्षम</string>
     <string name="menu_pcap_export">PCAP निर्यात</string>
-    <string name="menu_clear">खाली करें</string>
-    <string name="menu_export">निर्यात</string>
-    <string name="menu_reset">रीसेट</string>
-    <string name="menu_add">जोड़ें</string>
-    <string name="menu_delete">मिटाए</string>
-    <string name="menu_cleanup">Depending on the Android version, tethering may work or may not work. Tethered traffic cannot be filtered.</string>
+    <string name="menu_clear">साफ़ करें</string>
+    <string name="menu_export">निर्यात करें</string>
+    <string name="menu_reset">रीसेट करें</string>
+
+    <string name="menu_add">जोड़ें</string>
+    <string name="menu_delete">हटाएं</string>
+
+    <string name="menu_cleanup">सफाई</string>
+
     <string name="title_protocol">प्रोटोकॉल</string>
     <string name="title_dport">स्रोत पोर्ट</string>
     <string name="title_raddr">गंतव्य पता</string>
     <string name="title_rport">गंतव्य पोर्ट</string>
     <string name="title_ruid">गंतव्य ऐप</string>
-    <string name="title_external">बाहरी सर्वर के लिए \'कोई नहीं\' का चयन करें</string>
-    <string name="setting_defaults">चूक</string>
-    <string name="setting_whitelist_wifi">वाईफ़ाई अवरोधित करें</string>
-    <string name="setting_whitelist_other">मोबाइल अवरोधित करें</string>
-    <string name="setting_screen_wifi">जब स्क्रीन चालू हो तब वाईफ़ाई की अनुमति दें</string>
-    <string name="setting_screen_other">जब स्क्रीन चालू हो तब मोबाइल की अनुमति दें</string>
-    <string name="setting_whitelist_roaming">ब्लॉक रोमिंग</string>
+    <string name="title_external">बाहरी सर्वर के लिए \'कोई नहीं\' चुनें</string>
+
+    <string name="setting_defaults">डिफ़ॉल्ट (सफेद/ब्लैकलिस्ट)</string>
+    <string name="setting_whitelist_wifi">वाई-फ़ाई ब्लॉक करें</string>
+    <string name="setting_whitelist_other">मोबाइल ब्लॉक करें</string>
+    <string name="setting_screen_wifi">स्क्रीन चालू होने पर वाई-फ़ाई की अनुमति दें</string>
+    <string name="setting_screen_other">स्क्रीन चालू होने पर मोबाइल की अनुमति दें</string>
+    <string name="setting_whitelist_roaming">रोमिंग ब्लॉक करें</string>
+
     <string name="setting_options">विकल्प</string>
-    <string name="setting_theme">दिखावट: %1$s</string>
-    <string name="setting_dark">डार्क थीम का इस्तेमाल करें</string>
-    <string name="setting_install">नई स्थापना पर सूचित करें</string>
-    <string name="setting_screen_on">लागू करें \'जब स्क्रीन चालू हो\' नियम</string>
-    <string name="setting_auto">%1$s मिनट के बाद स्वतः सक्षम</string>
-    <string name="setting_delay">देरी स्क्रीन बंद %1$s मिनट</string>
-    <string name="setting_update">नवीनतम के लिए जाँच करें</string>
+    <string name="setting_theme">थीम: %1$s</string>
+    <string name="setting_dark">डार्क थीम का उपयोग करें</string>
+    <string name="setting_theme_palette">एक रंग शैली चुनें</string>
+    <string name="setting_dynamic_unavailable">डायनेमिक रंगों के लिए Android 12 या बाद के संस्करण की आवश्यकता होती है।</string>
+    <string name="setting_appearance_mode">दिखावट मोड</string>
+    <string name="setting_appearance_mode_title">डार्क मोड</string>
+    <string name="setting_appearance_mode_summary">बंद, चालू या सिस्टम का पालन करें चुनें।</string>
+    <string name="setting_appearance_preview">वर्तमान: %1$s · %2$s</string>
+    <string name="setting_appearance_auto">स्वचालित</string>
+    <string name="setting_appearance_light">हल्का</string>
+    <string name="setting_appearance_dark">गहरा</string>
+    <string name="theme_dynamic">डायनेमिक</string>
+    <string name="setting_install">नए इंस्टाल पर सूचित करें</string>
+    <string name="setting_screen_on">\'स्क्रीन चालू होने पर\' नियम लागू करें</string>
+    <string name="setting_auto">%1$s मिनट के बाद स्वतः सक्षम करें</string>
+    <string name="setting_delay">स्क्रीन बंद होने में %1$s मिनट की देरी</string>
+    <string name="setting_update">अपडेट के लिए जांचें</string>
+    <string name="setting_update_now">Check now</string>
+    <string name="setting_update_checking">जाँचा जा रहा है...</string>
+
     <string name="setting_network_options">नेटवर्क विकल्प</string>
     <string name="setting_subnet">सबनेट रूटिंग</string>
     <string name="setting_tethering">टेदरिंग की अनुमति दें</string>
-    <string name="setting_lan">LAN पहुँच की अनुमति दें</string>
-    <string name="setting_ip6">IPv6 यातायात सक्षम करें</string>
-    <string name="setting_wifi_home">Wi-Fi घर नेटवर्क: %1$s</string>
-    <string name="setting_metered">मीटर्ड Wi-Fi नेटवर्क संभालें</string>
-    <string name="setting_metered_2g">2G unmetered चुनें</string>
-    <string name="setting_metered_3g">3G unmetered चुनें</string>
-    <string name="setting_metered_4g">LTE unmetered चुनें</string>
+    <string name="setting_lan">LAN एक्सेस की अनुमति दें</string>
+    <string name="setting_ip6">IPv6 ट्रैफ़िक सक्षम करें</string>
+    <string name="setting_wifi_home">वाई-फ़ाई होम नेटवर्क: %1$s</string>
+    <string name="setting_metered">मीटर्ड वाई-फ़ाई नेटवर्क संभालें</string>
+    <string name="setting_metered_2g">2G को अनमीटर्ड मानें</string>
+    <string name="setting_metered_3g">3G को अनमीटर्ड मानें</string>
+    <string name="setting_metered_4g">LTE को अनमीटर्ड मानें</string>
     <string name="setting_national_roaming">राष्ट्रीय रोमिंग पर ध्यान न दें</string>
-    <string name="setting_eu_roaming">EU roaming को अनदेखा करें</string>
+    <string name="setting_eu_roaming">यूरोपीय संघ रोमिंग पर ध्यान न दें</string>
     <string name="setting_call">कॉल पर अक्षम करें</string>
-    <string name="setting_lockdown_wifi">लॉकडाउन Wi-Fi</string>
+    <string name="setting_lockdown_wifi">लॉकडाउन वाई-फ़ाई</string>
     <string name="setting_lockdown_other">लॉकडाउन मोबाइल</string>
-    <string name="setting_reload_onconnectivity">प्रत्येक कनेक्टिविटी परिवर्तन पर पुनः लोड करें</string>
+    <string name="setting_reload_onconnectivity">हर कनेक्टिविटी परिवर्तन पर पुनः लोड करें</string>
+
     <string name="setting_advanced_options">उन्नत विकल्प</string>
-    <string name="setting_system">सिस्टम अनुप्रयोग प्रबंधित करें</string>
-    <string name="setting_log_app">इंटरनेट उपयोग लॉग करें</string>
-    <string name="setting_access">इंटरनेट का उपयोग होने पर सूचित करें</string>
-    <string name="setting_filter">इंटरनेट यातायात छाटें</string>
-    <string name="setting_filter_udp">फ़िल्टर UDP ट्रैफ़िक</string>
-    <string name="setting_handover">Seamless VPN handover on reload</string>
-    <string name="setting_clear_onreload">पुनः लोड पर कनेक्शन बंद करें</string>
-    <string name="setting_lockdown">लॉकडाउन आवागमन</string>
-    <string name="setting_track_usage">नेटवर्क के उपयोग को ट्रैक करें</string>
+    <string name="setting_system">सिस्टम ऐप्स प्रबंधित करें</string>
+    <string name="setting_log_app">इंटरनेट एक्सेस लॉग करें</string>
+    <string name="setting_log_retention_days">ट्रैफ़िक लॉग प्रतिधारण दिन</string>
+    <string name="setting_access">इंटरनेट एक्सेस पर सूचित करें</string>
+    <string name="setting_filter">ट्रैफ़िक फ़िल्टर करें</string>
+    <string name="setting_filter_udp">UDP ट्रैफ़िक फ़िल्टर करें</string>
+    <string name="setting_handover">पुनः लोड होने पर निर्बाध VPN हैंडओवर</string>
+    <string name="setting_clear_onreload">पुनः लोड होने पर कनेक्शन बंद करें</string>
+    <string name="setting_lockdown">लॉकडाउन ट्रैफ़िक</string>
+    <string name="setting_malware">मैलवेयर सुरक्षा</string>
+    <string name="setting_track_usage">नेटवर्क उपयोग ट्रैक करें</string>
     <string name="setting_reset_usage">नेटवर्क उपयोग रीसेट करें</string>
-    <string name="setting_show_resolved">Show resolved domain names</string>
-    <string name="setting_block_domains">ब्लॉक डोमेन नाम</string>
+    <string name="setting_show_resolved">रिज़ॉल्व किए गए डोमेन नाम दिखाएं</string>
+    <string name="setting_block_domains">डोमेन नाम ब्लॉक करें</string>
     <string name="setting_rcode">DNS प्रतिक्रिया कोड: %s</string>
-    <string name="setting_forwarding">पोर्ट अग्रेषण</string>
+    <string name="setting_forwarding">पोर्ट फ़ॉरवर्डिंग</string>
     <string name="setting_vpn4">VPN IPv4: %s</string>
     <string name="setting_vpn6">VPN IPv6: %s</string>
     <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_validate">%s पर मान्य</string>
-    <string name="setting_ttl">न्यूनतम DNS TTL: %s s</string>
+    <string name="setting_dns2">द्वितीयक DNS: %s</string>
+    <string name="setting_validate">यहाँ मान्य करें: %s</string>
+    <string name="setting_ttl">न्यूनतम DNS TTL: %s सेकंड</string>
     <string name="setting_socks5_enabled">SOCKS5 प्रॉक्सी का उपयोग करें</string>
     <string name="setting_socks5_addr">SOCKS5 पता: %s</string>
     <string name="setting_socks5_port">SOCKS5 पोर्ट: %s</string>
     <string name="setting_socks5_username">SOCKS5 उपयोगकर्ता नाम: %s</string>
     <string name="setting_socks5_password">SOCKS5 पासवर्ड: %s</string>
     <string name="setting_pcap_record_size">PCAP रिकॉर्ड आकार: %s B</string>
-    <string name="setting_pcap_file_size">PCAP मैक्स। फ़ाइल का आकार: %s MB</string>
-    <string name="setting_watchdog">प्रहरी: प्रत्येक %s मिनट</string>
+    <string name="setting_pcap_file_size">PCAP अधिकतम फ़ाइल आकार: %s MB</string>
+    <string name="setting_pcap">नेटवर्क ट्रैफ़िक रिकॉर्ड करें (PCAP)</string>
+    <string name="setting_watchdog">वॉचडॉग: हर %s मिनट</string>
+
     <string name="setting_stats_category">गति अधिसूचना</string>
     <string name="setting_stats">गति अधिसूचना दिखाएं</string>
-    <string name="setting_stats_top">शीर्ष अनुप्रयोगों दिखाएँ</string>
+    <string name="setting_stats_top">शीर्ष ऐप्स दिखाएं</string>
     <string name="setting_stats_frequency">नमूना अंतराल: %s ms</string>
-    <string name="setting_stats_samples">नमूनों की संख्या: %s s</string>
-    <string name="setting_backup">Backup</string>
-    <string name="setting_export">सेटिंग्स निर्यात</string>
+    <string name="setting_stats_samples">नमूनों की संख्या: %s</string>
+
+    <string name="setting_backup">बैकअप</string>
+    <string name="setting_export">सेटिंग्स निर्यात करें</string>
     <string name="setting_import">सेटिंग्स आयात करें</string>
-    <string name="setting_hosts">होस्ट्स फ़ाइल आयात करें</string>
-    <string name="setting_hosts_append">होस्ट फ़ाइल आयात करें (परिशिष्ट)</string>
-    <string name="setting_hosts_url">होस्ट्स फ़ाइल डाउनलोड URL</string>
-    <string name="setting_hosts_download">होस्ट्स फ़ाइल डाउनलोड करें</string>
+    <string name="setting_hosts">होस्ट फ़ाइल आयात करें</string>
+    <string name="setting_hosts_append">होस्ट फ़ाइल आयात करें (जोड़ें)</string>
+    <string name="setting_hosts_url">होस्ट फ़ाइल डाउनलोड URL</string>
+    <string name="setting_hosts_download">होस्ट फ़ाइल डाउनलोड करें</string>
+    <string name="setting_use_hosts">होस्ट फ़ाइल का उपयोग करें</string>
+
     <string name="setting_technical">तकनीकी जानकारी</string>
     <string name="setting_technical_general">सामान्य</string>
     <string name="setting_technical_networks">नेटवर्क</string>
     <string name="setting_technical_subscription">सदस्यता</string>
-    <string name="summary_install">नया अनुप्रयोग स्थापित होने पर तत्काल व्यवस्थित करने के लिये सूचना दखाएँ (प्रो सुविधा)</string>
-    <string name="summary_auto">विजेट के उपयोग से अक्षम करने के बाद, स्वचालित रूप से चयनित मिनटों के बाद नेटगार्ड को फिर से सक्षम करें (इस विकल्प को निष्क्रिय करने के लिए शून्य दर्ज करें)</string>
-    <string name="summary_delay">स्क्रीन बंद करने के बाद, स्क्रीन पर नियम मिनट की चयनित संख्या के लिए सक्रिय रखें (इस विकल्प को अक्षम करने के लिए शून्य दर्ज करें)</string>
-    <string name="summary_update">दिन में दो बार GitHub पर नए रिलीज के लिए जाँच करें</string>
-    <string name="summary_tethering">Android संस्करण के आधार पर, टेदरिंग काम कर सकती है और नहीं भी। टेथर्ड ट्रैफ़िक को फ़िल्टर नहीं किया जा सकता है।</string>
-    <string name="summary_subnet">सबनेट रूटिंग सक्षम; और हो सकता है Wi-Fi कॉलिंग, सक्षम करें लेकिन हो सकता है एंड्रॉयड में कीड़े भी ट्रिगर बैटरी उपयोग बढ़ाएँ</string>
-    <string name="summary_lan">स्थानीय क्षेत्र नेटवर्क पते, 10.0.0.0/8, 172.16.0.0/12 और 192.168.0.0/16 की तरह करने के लिए कनेक्ट करने के लिए अनुप्रयोग की अनुमति दें</string>
-    <string name="summary_ip6">IP संस्करण 6 यातायात रूट करने के लिए NetGuard तो यह चुनिंदा की अनुमति प्रतिबंधित कर सकते हो या</string>
-    <string name="summary_wifi_home">केवल चयनित नेटवर्क के लिए Wi-Fi नेटवर्क नियम लागू होते हैं (अन्य Wi-Fi नेटवर्क के लिए मोबाइल नेटवर्क नियम लागू)</string>
-    <string name="summary_metered">मीटर्ड (भुगतान किया है, सीमित) करने के लिए Wi-Fi नेटवर्क मोबाइल नेटवर्क नियम लागू करें</string>
-    <string name="summary_metered_2g">2 जी डेटा कनेक्शन के लिए वाई-फाई नेटवर्क नियम लागू करें</string>
-    <string name="summary_metered_3g">2 जी डेटा कनेक्शन के लिए वाई-फाई नेटवर्क नियम लागू करें</string>
-    <string name="summary_metered_4g">2 जी डेटा कनेक्शन के लिए वाई-फाई नेटवर्क नियम लागू करें</string>
-    <string name="summary_national_roaming">रोमिंग नियम लागू नहीं होते हैं, जब सिम और मोबाइल नेटवर्क देश ही हैं</string>
-    <string name="summary_eu_roaming">जब सिम और मोबाइल नेटवर्क देश यूरोपीय संघ के भीतर हैं रोमिंग नियम लागू न करें (घर पर तरह घूमते रहें)</string>
-    <string name="summary_call">आने वाले या जावक टेलीफोन कॉल पर NetGuard अक्षम करें। इसका उपयोग IP/ Wi-Fi कॉलिंग समस्याओं के काम करने के लिए किया जा सकता है।</string>
-    <string name="summary_system">(विशेषज्ञों) के लिए सिस्टम अनुप्रयोगों के लिए नियमों को परिभाषित</string>
-    <string name="summary_log_app">ऐप्स के लिए इंटरनेट एक्सेस करने के प्रयास लॉग करें। इसके परिणामस्वरूप अतिरिक्त बैटरी का उपयोग हो सकता है।</string>
-    <string name="summary_access">एक नए इंटरनेट पते तक पहुँचने के लिए कोई अनुप्रयोग का प्रयास करता है, जब एक स्थिति बार सूचना दिखाएँ (फ़िल्टरिंग अक्षम किया गया है, जब केवल अवरुद्ध इंटरनेट का उपयोग प्रयास को सूचित किया जाएगा)</string>
-    <string name="summary_filter">VPN टनल से बाहर जा रहा IP पैकेट फ़िल्टर। यह अतिरिक्त बैटरी उपयोग में परिणाम हो सकता है।</string>
-    <string name="summary_track_usage">भेजा है और प्रत्येक अनुप्रयोग और पते के लिए प्राप्त बाइट्स की संख्या ट्रैक। यह अतिरिक्त बैटरी उपयोग में परिणाम हो सकता है।</string>
-    <string name="summary_block_domains">ब्लॉक किए गए डोमेन नाम के लिए कॉन्फ़िगर किया गया DNS प्रतिसाद कोड के साथ प्रतिसाद दें । यह स्विच अक्षम है जब कोई होस्ट्स फ़ाइल उपलब्ध नहीं है ।</string>
-    <string name="summary_rcode">डिफ़ॉल्ट मान 3 (NXDOMAIN) है, जिसका अर्थ है \'गैर-मौजूद डोमेन\'।</string>
-    <string name="summary_validate">डोमेन नेम का उपयोग पोर्ट 443 (https) पर इंटरनेट कनेक्शन को मान्य करने के लिए किया जाता है।</string>
-    <string name="summary_socks5_enabled">केवल TCP यातायात प्रॉक्सी सर्वर से भेजा जाएगा</string>
-    <string name="summary_watchdog">समय-समय पर NetGuard अभी भी चल रहा है या नहीं की जाँच करें (इस विकल्प को अक्षम करने के लिए शून्य दर्ज करें)। यह अतिरिक्त बैटरी उपयोग में परिणाम हो सकता है।</string>
-    <string name="summary_stats">स्थिति पट्टी में सूचना नेटवर्क गति ग्राफ़ दिखाएँ</string>
-    <string name="msg_sure">क्या आपको यकीन है?</string>
-    <string name="msg_started">नियमों को लागू करने के</string>
-    <string name="msg_packages">अनुमति, %2$d अवरुद्ध %1$d</string>
-    <string name="msg_hosts">%1$d की अनुमति दी, %2$d ब्लॉक, %3$d होस्ट्स</string>
-    <string name="msg_waiting">घटना के लिए प्रतीक्षा कर रहा है</string>
-    <string name="msg_disabled">NetGuard अक्षम है, NetGuard को सक्षम करने के लिए ऊपर दिए गए स्विच का उपयोग करें</string>
-    <string name="msg_revoked">NetGuard, होने की संभावना द्वारा किसी अन्य VPN आधारित अनुप्रयोग का उपयोग करके अक्षम कर दिया गया है</string>
-    <string name="msg_installed">\'%1$s\' स्थापित</string>
-    <string name="msg_installed_n">स्थापित किया गया है</string>
-    <string name="msg_access">%1$s इंटरनेट का उपयोग करने का प्रयास किया</string>
-    <string name="msg_access_n">इंटरनेट का उपयोग करने का प्रयास किया</string>
-    <string name="msg_completed">क्रिया पूर्ण</string>
-    <string name="msg_vpn">NetGuard इंटरनेट ट्रैफ़िक को फ़िल्टर करने के लिए एक स्थानीय वीपीएन का उपयोग करता है। इस कारण के लिए, कृपया अगले संवाद में एक VPN कनेक्शन की अनुमति दें। अपने इंटरनेट यातायात एक दूरस्थ VPN सर्वर को नहीं भेजा जा रहा है।</string>
-    <string name="msg_autostart">NetGuard स्वचालित रूप से प्रारंभ नहीं हो सका। यह आपके Android संस्करण में बग के कारण होने की संभावना है।</string>
-    <string name="msg_error">कोई अनपेक्षित त्रुटि उत्पन्न हुई: \'%s\'</string>
-    <string name="msg_start_failed">एंड्रायड ने इस समय वीपीएन सेवा शुरू करने से इनकार कर दिया । यह आपके एंड्रॉयड संस्करण में एक बग के कारण होने की संभावना है.</string>
-    <string name="msg_try">NetGuard को आज़माएं</string>
-    <string name="msg_terms">दान करने से आप <a href="http://www.netguard.me/#terms"> &amp; नियम और शर्तों के लिए सहमत हैं </a></string>
-    <string name="msg_dimming">यदि आप अगले संवाद में ओके नहीं दबा सकते हैं, तो एक किसी (स्क्रीन डिमिंग) ऐप से स्क्रीन के हेरफेर होने की संभावना है।</string>
-    <string name="msg_mbday">± %1$.3f▲ %2$.3f▼ MB/दिन</string>
-    <string name="msg_kb">%1$7.3f▲ %2$7.3f▼ KB</string>
-    <string name="msg_mb">%1$7.3f▲ %2$7.3f▼ MB</string>
-    <string name="msg_gb">%1$7.3f▲ %2$7.3f▼ KB</string>
+    <string name="setting_section_appearance">दिखावट</string>
+    <string name="setting_section_firewall">फ़ायरवॉल नियम</string>
+    <string name="setting_section_advanced">उन्नत व्यवहार</string>
+    <string name="setting_section_hosts">होस्ट और DNS</string>
+    <string name="setting_section_network">नेटवर्क कॉन्फ़िगरेशन</string>
+    <string name="setting_section_dns">DNS विवरण</string>
+    <string name="setting_section_proxy">प्रॉक्सी</string>
+    <string name="setting_section_vpn">VPN कॉन्फ़िगरेशन</string>
+    <string name="setting_section_background">पृष्ठभूमि कार्य</string>
+    <string name="setting_section_diagnostics">निदान</string>
+    <string name="setting_section_support">सहायता</string>
+
+    <string name="summary_install">नए इंस्टॉल किए गए ऐप्स को सीधे कॉन्फ़िगर करने के लिए स्टेटस बार नोटिफिकेशन दिखाएं (प्रो फीचर)</string>
+    <string name="summary_auto">विजेट का उपयोग करके अक्षम करने के बाद, चयनित मिनटों के बाद नेटगार्ड को फिर से स्वतः सक्षम करें (इस विकल्प को अक्षम करने के लिए शून्य दर्ज करें)</string>
+    <string name="summary_delay">स्क्रीन बंद करने के बाद, चयनित मिनटों के लिए स्क्रीन ऑन नियमों को सक्रिय रखें (इस विकल्प को अक्षम करने के लिए शून्य दर्ज करें)</string>
+    <string name="summary_update">दिन में दो बार GitHub पर नई रिलीज़ की जांच करें</string>
+
+    <string name="summary_tethering">Android संस्करण के आधार पर, टेदरिंग काम कर सकती है या नहीं। टेथर्ड ट्रैफ़िक को फ़िल्टर नहीं किया जा सकता है।</string>
+    <string name="summary_subnet">सबनेट रूटिंग सक्षम करें; वाई-फ़ाई कॉलिंग सक्षम हो सकती है, लेकिन यह एंड्रॉइड में बग भी पैदा कर सकती है और बैटरी उपयोग बढ़ा सकती है</string>
+    <string name="summary_lan">ऐप्स को स्थानीय क्षेत्र नेटवर्क पतों, जैसे 10.0.0.0/8, 172.16.0.0/12 और 192.168.0.0/16 से कनेक्ट करने की अनुमति दें</string>
+    <string name="summary_ip6">आईपी संस्करण 6 ट्रैफ़िक को नेटगार्ड पर रूट करें ताकि इसे चुनिंदा रूप से अनुमति या ब्लॉक किया जा सके</string>
+    <string name="summary_wifi_home">केवल चयनित नेटवर्क के लिए वाई-फ़ाई नेटवर्क नियम लागू करें (अन्य वाई-फ़ाई नेटवर्क के लिए मोबाइल नेटवर्क नियम लागू करें)</string>
+    <string name="summary_metered">मीटर्ड (भुगतान किए गए, टेथर्ड) वाई-फ़ाई नेटवर्क पर मोबाइल नेटवर्क नियम लागू करें</string>
+    <string name="summary_metered_2g">2G डेटा कनेक्शन के लिए वाई-फ़ाई नेटवर्क नियम लागू करें</string>
+    <string name="summary_metered_3g">3G डेटा कनेक्शन के लिए वाई-फ़ाई नेटवर्क नियम लागू करें</string>
+    <string name="summary_metered_4g">LTE डेटा कनेक्शन के लिए वाई-फ़ाई नेटवर्क नियम लागू करें</string>
+    <string name="summary_national_roaming">जब सिम और मोबाइल नेटवर्क देश समान हों तो रोमिंग नियम लागू न करें</string>
+    <string name="summary_eu_roaming">जब सिम और मोबाइल नेटवर्क देश यूरोपीय संघ के भीतर हों तो रोमिंग नियम लागू न करें (घर की तरह रोमिंग)</string>
+    <string name="summary_call">आने वाली या जाने वाली टेलीफोन कॉल पर नेटगार्ड अक्षम करें। इसका उपयोग आईपी/वाई-फ़ाई कॉलिंग समस्याओं को हल करने के लिए किया जा सकता है।</string>
+
+    <string name="summary_system">सिस्टम ऐप्स के लिए नियम परिभाषित करें (विशेषज्ञों के लिए)</string>
+    <string name="summary_log_app">ऐप्स के लिए इंटरनेट एक्सेस करने के प्रयासों को लॉग करें। इससे अतिरिक्त बैटरी उपयोग हो सकता है।</string>
+    <string name="summary_log_retention_days">हाउसकीपिंग के दौरान पुराने ट्रैफ़िक लॉग को स्वचालित रूप से हटा दें। लॉग को हमेशा के लिए रखने के लिए 0 सेट करें।</string>
+    <string name="summary_access">जब कोई ऐप नए इंटरनेट पते तक पहुंचने का प्रयास करता है तो स्टेटस बार नोटिफिकेशन दिखाएं (जब फ़िल्टरिंग अक्षम होती है, तो केवल अवरुद्ध इंटरनेट एक्सेस प्रयासों को अधिसूचित किया जाएगा)</string>
+    <string name="summary_filter">VPN टनल से बाहर जाने वाले IP पैकेट को फ़िल्टर करें। इससे अतिरिक्त बैटरी उपयोग हो सकता है।</string>
+    <string name="summary_track_usage">प्रत्येक ऐप और पते के लिए भेजे और प्राप्त किए गए बाइट्स की संख्या को ट्रैक करें। इससे अतिरिक्त बैटरी उपयोग हो सकता है।</string>
+    <string name="summary_block_domains">अवरुद्ध डोमेन नामों के लिए कॉन्फ़िगर किए गए DNS प्रतिक्रिया कोड के साथ उत्तर दें। जब कोई होस्ट फ़ाइल उपलब्ध न हो तो यह स्विच अक्षम हो जाता है।</string>
+    <string name="summary_rcode">डिफ़ॉल्ट मान 3 (NXDOMAIN) है, जिसका अर्थ है \'अस्तित्वहीन डोमेन\'।</string>
+    <string name="summary_validate">पोर्ट 443 (https) पर इंटरनेट कनेक्शन को मान्य करने के लिए उपयोग किया जाने वाला डोमेन नाम।</string>
+    <string name="summary_socks5_enabled">केवल TCP ट्रैफ़िक प्रॉक्सी सर्वर को भेजा जाएगा</string>
+    <string name="summary_watchdog">समय-समय पर जांचें कि नेटगार्ड अभी भी चल रहा है या नहीं (इस विकल्प को अक्षम करने के लिए शून्य दर्ज करें)। इससे अतिरिक्त बैटरी उपयोग हो सकता है।</string>
+
+    <string name="summary_stats">स्टेटस बार नोटिफिकेशन में नेटवर्क स्पीड ग्राफ़ दिखाएं</string>
+
+    <string-array name="default_wifi_home"></string-array>
+
+    <string name="msg_sure">क्या आप सुनिश्चित हैं?</string>
+    <string name="msg_started">नियम लागू किए जा रहे हैं</string>
+    <string name="msg_packages">%1$d अनुमत, %2$d अवरुद्ध</string>
+    <string name="msg_hosts">%1$d अनुमत, %2$d अवरुद्ध, %3$d होस्ट</string>
+    <string name="msg_waiting">घटना की प्रतीक्षा की जा रही है</string>
+    <string name="msg_disabled">नेटगार्ड अक्षम है, नेटगार्ड को सक्षम करने के लिए ऊपर दिए गए स्विच का उपयोग करें</string>
+    <string name="msg_notifications">अधिसूचना अनुमति देने के लिए टैप करें (पहुंच प्रयास सूचनाएं, त्रुटि संदेश आदि के लिए)</string>
+    <string name="msg_revoked">नेटगार्ड अक्षम कर दिया गया है, संभवतः किसी अन्य VPN आधारित ऐप के उपयोग के कारण</string>
+    <string name="msg_installed">\'%1$s\' इंस्टॉल किया गया</string>
+    <string name="msg_installed_n">इंस्टॉल हो गया है</string>
+    <string name="msg_malware">संभावित मैलवेयर: \'%1$s\'</string>
+    <string name="msg_access">%1$s ने इंटरनेट एक्सेस करने का प्रयास किया</string>
+    <string name="msg_access_n">इंटरनेट एक्सेस का प्रयास किया गया</string>
+    <string name="msg_completed">कार्रवाई पूर्ण</string>
+    <string name="msg_invalid">कृपया मानों की जांच करें और पुनः प्रयास करें।</string>
+    <string name="msg_export_failed">निर्यात विफल: %1$s</string>
+    <string name="msg_vpn">नेटगार्ड इंटरनेट ट्रैफ़िक को फ़िल्टर करने के लिए स्थानीय VPN का उपयोग करता है।
+इस कारण से, कृपया अगले संवाद में VPN कनेक्शन की अनुमति दें।
+आपका इंटरनेट ट्रैफ़िक किसी रिमोट VPN सर्वर पर नहीं भेजा जा रहा है।</string>
+    <string name="msg_autostart">नेटगार्ड स्वचालित रूप से शुरू नहीं हो सका। यह संभवतः आपके एंड्रॉइड संस्करण में बग के कारण है।</string>
+    <string name="msg_error">एक अप्रत्याशित त्रुटि हुई है: \'%s\'</string>
+    <string name="msg_start_failed">एंड्रॉइड ने इस समय VPN सेवा शुरू करने से इनकार कर दिया। यह संभवतः आपके एंड्रॉइड संस्करण में बग के कारण है।</string>
+    <string name="msg_try">नेटगार्ड आज़माएं</string>
+    <string name="msg_terms">दान करके आप <a href="http://www.netguard.me/#terms">नियम और शर्तों</a> से सहमत होते हैं</string>
+    <string name="msg_dimming">यदि आप अगले संवाद में ठीक (OK) नहीं दबा सकते हैं, तो कोई अन्य (स्क्रीन डिमिंग) ऐप संभवतः स्क्रीन में हेरफेर कर रहा है।</string>
+    <string name="msg_mbday">&#177; %1$.3f&#9650; %2$.3f&#9660; MB/दिन</string>
+    <string name="msg_kbsec">%7.3f KB/s</string>
+    <string name="msg_mbsec">%7.3f MB/s</string>
+    <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
+    <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
+    <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
     <string name="msg_count">%dx</string>
-    <string name="msg_doze">एकरूप परिणाम के लिए, के लिए NetGuard Android बैटरी ऑप्टिमाइजेशन अक्षम किया जाना चाहिए। \n\nIn अगले संवाद, \"सभी apps\" शीर्ष पर का चयन करें, का चयन करें और सूची में NetGuard पर टैप करें और \"ऑप्टिमाइज़ नहीं\" की पुष्टि करें।</string>
-    <string name="msg_datasaving">NetGuard \n\nIn अगले संवाद, सक्षम करें के लिए विकल्प \"पृष्ठभूमि डेटा\" और \"अप्रतिबंधित डेटा उपयोग\" संगत परिणामों के लिए, Android डेटा बचत विकल्प निष्क्रिय किया जाना चाहिए</string>
-    <string name="msg_filter">फ़िल्टरिंग का उपयोग कर Android विशेषता डेटा और पावर NetGuard करने के लिए उपयोग करने के लिए कारण होगा - डेटा और पावर NetGuard, बजाय द्वारा मूल अनुप्रयोग उपयोग किया जा रहा हैं Android मानता है</string>
-    <string name="msg_filter4">एंड्रॉयड 4 सक्षम होने के लिए फ़िल्टरिंग की आवश्यकता है</string>
+    <string name="msg_doze">संगत परिणामों के लिए, नेटगार्ड के लिए एंड्रॉइड बैटरी ऑप्टिमाइज़ेशन अक्षम होना चाहिए।
+\n\nअगले संवाद में, शीर्ष पर \"सभी ऐप\" चुनें, सूची में नेटगार्ड पर टैप करें और \"ऑप्टिमाइज़ न करें\" चुनें और पुष्टि करें।</string>
+    <string name="msg_datasaving">संगत परिणामों के लिए, netguard के लिए एंड्रॉइड डेटा बचत विकल्प अक्षम होना चाहिए।
+\n\nअगले संवाद में, विकल्प \"पृष्ठभूमि डेटा\" और \"अप्रतिबंधित डेटा उपयोग\" सक्षम करें।</string>
+    <string name="msg_filter">फ़िल्टरिंग का उपयोग करने से एंड्रॉइड डेटा और पावर उपयोग का श्रेय नेटगार्ड को देगा - एंड्रॉइड मान लेता है कि डेटा और पावर मूल ऐप्स के बजाय नेटगार्ड द्वारा उपयोग किए जा रहे हैं।</string>
+    <string name="msg_filter4">Android 4 के लिए फ़िल्टरिंग सक्षम होना आवश्यक है</string>
     <string name="msg_log_disabled">ट्रैफ़िक लॉगिंग अक्षम है, लॉगिंग सक्षम करने के लिए ऊपर दिए गए स्विच का उपयोग करें। ट्रैफ़िक लॉगिंग के परिणामस्वरूप अतिरिक्त बैटरी उपयोग हो सकता है।</string>
-    <string name="msg_clear_rules">यह नियमों और शर्तों को उनके डिफ़ॉल्ट मानों के लिए रीसेट करेगा</string>
-    <string name="msg_reset_access">यह पहुँच की अनुमति दें/ब्लॉक नियम बिना प्रयास लॉग लाइनों को हटा देगा</string>
+    <string name="msg_clear_rules">यह नियमों और शर्तों को उनके डिफ़ॉल्ट मानों पर रीसेट कर देगा</string>
+    <string name="msg_reset_access">यह बिना अनुमति/ब्लॉक नियमों के एक्सेस प्रयास लॉग लाइनों को हटा देगा</string>
     <string name="msg_import_last">अंतिम आयात: %s</string>
-    <string name="msg_downloading">Downloading\n%1s</string>
-    <string name="msg_downloaded">होस्ट्स फ़ाइल डाउनलोड</string>
-    <string name="msg_download_last">पिछले डाउनलोड: %s</string>
-    <string name="msg_start_forward">अग्रेषण %1$s पोर्ट %2$d से प्रारंभ करने के लिए \'%5$s\' का %3$s:%4$d?</string>
-    <string name="msg_stop_forward">%1$s पोर्ट %2$d का अग्रेषण रोकना?</string>
-    <string name="msg_metered">नेटवर्क मीटर है</string>
-    <string name="msg_inactive">कोई इंटरनेट कनेक्शन नहीं</string>
-    <string name="msg_queue">NetGuard व्यस्त है</string>
-    <string name="msg_update">उपलब्ध अद्यतन के लिए, डाउनलोड करने के लिए टैप करें</string>
-    <string name="msg_usage">आप कर सकते हैं या (हरा) की अनुमति दें (लाल) Wi-Fi या मोबाइल इंटरनेट का उपयोग करने के लिए किसी अनुप्रयोग के आगे चिह्न पर दोहन द्वारा इनकार</string>
-    <string name="msg_fairemail">यदि आपने अपनी निजता की रक्षा के लिए NetGuard स्थापित किया है, तो आप एक ओपन सोर्स, प्राइवेसी के अनुकूल ईमेल ऐप, <a href="https://email.faircode.eu/"> FairEmail </a> में भी रुचि रख सकते हैं,</string>
-    <string name="msg_whitelist">इंटरनेट का उपयोग की अनुमति दी है डिफ़ॉल्ट रूप से, यह सेटिंग में परिवर्तित किया जा सकता</string>
-    <string name="msg_push">पुश संदेश ज्यादातर सिस्टम घटक प्ले सेवाओं द्वारा, जो डिफ़ॉल्ट रूप से इंटरनेट तक पहुँच की अनुमति दी है नियंत्रित किया जाता है</string>
-    <string name="msg_system">सिस्टम अनुप्रयोगों के प्रबंधन सेटिंग्स में सक्षम कर सकते हैं</string>
-    <string name="msg_issue">कृपया समस्या का वर्णन करें और समस्या के समय से संकेत मिलता है:</string>
-    <string name="msg_vpn_cancelled">VPN कनेक्शन रद्द\nक्या आपने किसी अन्य VPN को हमेशा चलने पर कॉन्फ़िगर किया है?</string>
-    <string name="msg_on">NetGuard के साथ अपने डिवाइस को बंद करने पर, आपके डिवाइस के शुरू होने के साथ NetGuard स्वचालित रूप से शुरू होगा।</string>
+    <string name="msg_downloading">डाउनलोड हो रहा है\n%1s</string>
+    <string name="msg_downloaded">होस्ट फ़ाइल डाउनलोड की गई</string>
+    <string name="msg_download_last">अंतिम डाउनलोड: %s</string>
+    <string name="msg_start_forward">%1$s पोर्ट %2$d से \'%5$s\' के %3$s:%4$d पर फ़ॉरवर्डिंग शुरू करें?</string>
+    <string name="msg_stop_forward">%1$s पोर्ट %2$d की फ़ॉरवर्डिंग बंद करें?</string>
+    <string name="msg_metered">नेटवर्क मीटर्ड है</string>
+    <string name="msg_inactive">कोई सक्रिय इंटरनेट कनेक्शन नहीं</string>
+    <string name="msg_queue">नेटगार्ड व्यस्त है</string>
+    <string name="msg_update">अपडेट उपलब्ध है, डाउनलोड करने के लिए टैप करें</string>
+    <string name="msg_usage">आप किसी ऐप के बगल में दिए गए आइकन पर टैप करके वाई-फ़ाई या मोबाइल इंटरनेट एक्सेस की अनुमति (हरा) या अस्वीकार (लाल) कर सकते हैं</string>
+    <string name="msg_fairemail">यदि आपने अपनी गोपनीयता की रक्षा के लिए नेटगार्ड इंस्टॉल किया है, तो आपको <a href="https://email.faircode.eu/">FairEmail</a> में भी रुचि हो सकती है, जो एक ओपन सोर्स, गोपनीयता के अनुकूल ईमेल ऐप है।</string>
+    <string name="msg_whitelist">इंटरनेट एक्सेस डिफ़ॉल्ट रूप से अनुमत है (ब्लैकलिस्ट मोड), इसे सेटिंग्स में बदला जा सकता है</string>
+    <string name="msg_push">आने वाले (पुश) संदेश ज्यादातर सिस्टम घटक Play सेवाओं द्वारा नियंत्रित किए जाते हैं, जिन्हें डिफ़ॉल्ट रूप से इंटरनेट एक्सेस की अनुमति है</string>
+    <string name="msg_system">सभी (सिस्टम) ऐप्स को प्रबंधित करना सेटिंग्स में सक्षम किया जा सकता है</string>
+    <string name="msg_issue">कृपया समस्या का वर्णन करें और समस्या का समय बताएं:</string>
+    <string name="msg_vpn_cancelled">VPN कनेक्शन रद्द कर दिया गया\nक्या आपने किसी अन्य VPN को हमेशा चालू रहने वाले VPN के रूप में कॉन्फ़िगर किया है?</string>
+    <string name="msg_on">नेटगार्ड सक्षम होने पर अपने डिवाइस को बंद करने से, आपके डिवाइस को चालू करने पर नेटगार्ड स्वतः शुरू हो जाएगा</string>
     <string name="msg_unavailable">यह सुविधा इस एंड्रॉइड संस्करण पर उपलब्ध नहीं है</string>
-    <string name="msg_always_on">अन्य VPN हमेशा चालू रहने लिए निर्धारित हैं</string>
-    <string name="msg_always_on_lockdown">फ़िल्टरिंग मोड में NetGuard का उपयोग करने के लिए Android VPN सेटिंग्स में \"VPN के बिना ब्लॉक कनेक्शन\" को बंद करें</string>
-    <string name="msg_private_dns">फ़िल्टरिंग मोड में नेटगार्ड का उपयोग करने के लिए Android नेटवर्क सेटिंग्स में \"प्राइवेट DNS\" बंद करें</string>
-    <string name="title_lockdown_enabled">आवागमन बंद है</string>
-    <string name="title_unmetered_allowed">Unmetered यातायात की अनुमति है</string>
-    <string name="title_unmetered_blocked">Unmetered यातायात अवरुद्ध है</string>
-    <string name="title_unmetered_disabled">अनमित किए गए नियम लागू नहीं हैं</string>
-    <string name="title_metered_allowed">मीटर के जरिए यातायात की अनुमति है</string>
-    <string name="title_metered_blocked">मीटर के जरिए यातायात अवरुद्ध है</string>
-    <string name="title_metered_disabled">मीटर लगाए गए नियम लागू नहीं होते</string>
-    <string name="title_host_allowed">पते की अनुमति है</string>
-    <string name="title_host_blocked">पता ब्लॉक किया गया है</string>
+    <string name="msg_always_on">एक अन्य VPN हमेशा चालू रहने वाले VPN के रूप में सेट है</string>
+    <string name="msg_always_on_lockdown">फ़िल्टरिंग मोड में नेटगार्ड का उपयोग करने के लिए एंड्रॉइड VPN सेटिंग्स में \"VPN के बिना कनेक्शन ब्लॉक करें\" को बंद करें</string>
+    <string name="msg_private_dns">फ़िल्टरिंग मोड में नेटगार्ड का उपयोग करने के लिए एंड्रॉइड नेटवर्क सेटिंग्स में \"निजी DNS\" बंद करें</string>
+
+    <string name="title_lockdown_enabled">ट्रैफ़िक बंद है</string>
+    <string name="title_unmetered_allowed">अनमीटर्ड ट्रैफ़िक अनुमत है</string>
+    <string name="title_unmetered_blocked">अनमीटर्ड ट्रैफ़िक अवरुद्ध है</string>
+    <string name="title_unmetered_disabled">अनमीटर्ड नियम लागू नहीं होते</string>
+    <string name="title_metered_allowed">मीटर्ड ट्रैफ़िक अनुमत है</string>
+    <string name="title_metered_blocked">मीटर्ड ट्रैफ़िक अवरुद्ध है</string>
+    <string name="title_metered_disabled">मीटर्ड नियम लागू नहीं होते</string>
+    <string name="title_host_allowed">पता अनुमत है</string>
+    <string name="title_host_blocked">पता अवरुद्ध है</string>
     <string name="title_interactive_allowed">स्क्रीन चालू होने पर अनुमति दें</string>
-    <string name="title_roaming_blocked">रोमिंग पर ब्लॉक</string>
-    <string name="title_metered">द्वारा डिफ़ॉल्ट एक Wi-Fi कनेक्शन unmetered माना जाता है और मीटर के जरिए किया जा करने के लिए एक मोबाइल कनेक्शन</string>
+    <string name="title_roaming_blocked">रोमिंग पर ब्लॉक करें</string>
+    <string name="title_metered">डिफ़ॉल्ट रूप से वाई-फ़ाई कनेक्शन को अनमीटर्ड और मोबाइल कनेक्शन को मीटर्ड माना जाता है</string>
+
     <string name="title_internet">इंटरनेट की अनुमति नहीं है</string>
     <string name="title_disabled">अक्षम है</string>
-    <string name="title_messaging">आने वाले संदेश Google Play सेवाओं द्वारा प्राप्त किए जाते हैं और इस एप्लिकेशन द्वारा नहीं और इसलिए इस एप्लिकेशन को अवरुद्ध करके नहीं रोका जा सकता है</string>
-    <string name="title_download">डाउनलोड प्रबंधक द्वारा डाउनलोड किए जाते हैं और इस एप्लिकेशन द्वारा नहीं किए जाते हैं और इसलिए इस एप्लिकेशन को अवरुद्ध करके नहीं किया जा सकता है</string>
-    <string name="title_apply">नियम और शर्तें लागू</string>
+    <string name="title_messaging">आने वाले संदेश Google Play सेवाओं द्वारा प्राप्त किए जाते हैं न कि इस ऐप द्वारा, इसलिए इस ऐप को ब्लॉक करके उन्हें ब्लॉक नहीं किया जा सकता</string>
+    <string name="title_download">डाउनलोड डाउनलोड प्रबंधक द्वारा किए जाते हैं न कि इस ऐप द्वारा, इसलिए इस ऐप को ब्लॉक करके उन्हें ब्लॉक नहीं किया जा सकता</string>
+    <string name="title_apply">नियम और शर्तें लागू करें</string>
     <string name="title_conditions">शर्तें</string>
-    <string name="title_screen_wifi">जब स्क्रीन चालू हो तब वाईफ़ाई की अनुमति दें</string>
-    <string name="title_screen_other">जब स्क्रीन चालू हो तब मोबाइल की अनुमति दें</string>
+    <string name="title_screen_wifi">स्क्रीन चालू होने पर वाई-फ़ाई की अनुमति दें</string>
+    <string name="title_screen_other">स्क्रीन चालू होने पर मोबाइल की अनुमति दें</string>
     <string name="title_roaming_symbol">R</string>
-    <string name="title_roaming">रोमिंग पर ब्लॉक</string>
+    <string name="title_roaming">रोमिंग पर ब्लॉक करें</string>
+    <string name="label_ttl">TTL: %s सेकंड</string>
+    <string name="label_uid">UID: %s</string>
     <string name="title_lockdown">लॉकडाउन मोड में अनुमति दें</string>
-    <string name="title_related">संबंधित फ़िल्टर करें</string>
-    <string name="title_access">का उपयोग प्रयास</string>
-    <string name="title_precedence">पहुँच नियम अन्य नियमों पर पूर्वता ले</string>
+    <string name="title_related">फ़िल्टर संबंधित</string>
+    <string name="title_access">पहुँच प्रयास</string>
+    <string name="title_precedence">पहुँच नियम अन्य नियमों पर वरीयता लेते हैं</string>
     <string name="title_options">विकल्प</string>
-    <string name="title_notify">इंटरनेट का उपयोग प्रयास को सूचित करें</string>
-    <string name="title_logging_disabled">लॉगिंग और फ़िल्टरिंग सक्षम नहीं हैं</string>
+    <string name="title_notify">इंटरनेट एक्सेस प्रयासों को सूचित करें</string>
+
+    <string name="title_logging_disabled">लॉगिंग या फ़िल्टरिंग सक्षम नहीं है</string>
     <string name="title_logging_enabled">लॉगिंग और फ़िल्टरिंग सक्षम हैं</string>
-    <string name="title_logging_configure">विन्यस्त करें</string>
-    <string name="title_enable_logging">केवल अवरोधित पतों का लॉगिंग सक्षम करें</string>
-    <string name="title_enable_filtering">लॉग करने के लिए फ़िल्टरिंग अनुमति पते भी सक्षम करें</string>
-    <string name="title_enable_notify">नए लॉग किए गए पते के लिए पहुंच सूचनाएं सक्षम करें</string>
-    <string name="title_enable_help0">ये सेटिंग सभी ऐप्लिकेशन पर लागू होने वाली वैश्विक सेटिंग होती हैं</string>
-    <string name="title_enable_help1">व्यक्तिगत पते को अनुमति देने या ब्लॉक करने के लिए फ़िल्टरिंग की भी आवश्यकता है</string>
-    <string name="title_enable_help2">लॉगिंग (कम) या फ़िल्टरिंग (अधिक) को सक्षम करने से बैटरी उपयोग बढ़ सकता है और यह नेटवर्क की गति को प्रभावित कर सकता है</string>
+    <string name="title_logging_configure">कॉन्फ़िगर करें</string>
+
+    <string name="title_enable_logging">केवल अवरुद्ध पतों की लॉगिंग सक्षम करें</string>
+    <string name="title_enable_filtering">अनुमत पतों को भी लॉग करने के लिए फ़िल्टरिंग सक्षम करें</string>
+    <string name="title_enable_notify">नए लॉग किए गए पतों के लिए पहुंच सूचनाएं सक्षम करें</string>
+    <string name="title_enable_help0">ये सेटिंग्स वैश्विक सेटिंग्स हैं जो सभी ऐप्स पर लागू होती हैं</string>
+    <string name="title_enable_help1">व्यक्तिगत पतों को अनुमति देने या ब्लॉक करने के लिए फ़िल्टरिंग भी आवश्यक है</string>
+    <string name="title_enable_help2">लॉगिंग (कम) या फ़िल्टरिंग (अधिक) सक्षम करने से बैटरी उपयोग बढ़ सकता है और नेटवर्क गति प्रभावित हो सकती है</string>
+
     <string name="title_rate">रेट करें</string>
-    <string name="title_allow">अनुमति</string>
-    <string name="title_block">ब्लॉक</string>
+    <string name="title_allow">अनुमति दें</string>
+    <string name="title_block">ब्लॉक करें</string>
+    <string name="title_wifi">वाई-फ़ाई</string>
+    <string name="title_mobile">मोबाइल</string>
     <string name="title_allow_wifi">वाई-फ़ाई की अनुमति दें</string>
-    <string name="title_block_wifi">वाईफ़ाई अवरोधित करें</string>
+    <string name="title_block_wifi">वाई-फ़ाई ब्लॉक करें</string>
     <string name="title_allow_other">मोबाइल की अनुमति दें</string>
-    <string name="title_block_other">मोबाइल अवरोधित करें</string>
-    <string name="title_root">रूट</string>
+    <string name="title_block_other">मोबाइल ब्लॉक करें</string>
+    <string name="title_root">root</string>
     <string name="title_mediaserver">mediaserver</string>
-    <string name="title_nobody">कोई भी नहीं</string>
-    <string name="title_dontask">पुन: न पूछें</string>
+    <string name="title_gpsdaemon">GPS डेमॉन</string>
+    <string name="title_dnsdaemon">DNS डेमॉन</string>
+    <string name="title_nobody">nobody</string>
+    <string name="title_dontask">दोबारा न पूछें</string>
+
     <string name="title_log_whois">Whois %1$s</string>
     <string name="title_log_port">पोर्ट %1$d</string>
     <string name="title_log_copy">कॉपी करें</string>
-    <string name="title_pro">प्रो सुविधाएँ</string>
-    <string name="title_pro_description">निम्न प्रो सुविधाएँ उपलब्ध हैं:</string>
+
+    <string name="title_pro">प्रो विशेषताएं</string>
+    <string name="title_pro_description">निम्नलिखित प्रो विशेषताएं उपलब्ध हैं:</string>
     <string name="title_pro_log">अवरुद्ध ट्रैफ़िक लॉग देखें</string>
     <string name="title_pro_filter">नेटवर्क ट्रैफ़िक फ़िल्टर करें</string>
-    <string name="title_pro_notify">नए आवेदन सूचना</string>
-    <string name="title_pro_speed">नेटवर्क गति ग्राफ अधिसूचना</string>
+    <string name="title_pro_notify">नई ऐप सूचनाएं</string>
+    <string name="title_pro_speed">नेटवर्क स्पीड ग्राफ़ सूचना</string>
     <string name="title_pro_theme">दिखावट (थीम, रंग)</string>
-    <string name="title_pro_all">उपरोक्त सभी प्रो सुविधाएं</string>
-    <string name="title_pro_dev">विकासकर्ता को आर्थिक समर्थन दीजिए</string>
-    <string name="title_pro_buy">ख़रीदें</string>
+    <string name="title_pro_all">उपरोक्त सभी प्रो विशेषताएं</string>
+    <string name="title_pro_dev">विकास में सहायता करें</string>
+    <string name="title_pro_buy">खरीदें</string>
     <string name="title_pro_bought">सक्षम</string>
     <string name="title_pro_unavailable">अनुपलब्ध</string>
-    <string name="title_pro_details">अधिक जानकारी के लिए एक शीर्षक पर टैप करें</string>
+    <string name="title_pro_details">अधिक जानकारी के लिए शीर्षक पर टैप करें</string>
     <string name="title_pro_challenge">चुनौती</string>
     <string name="title_pro_reponse">प्रतिक्रिया</string>
     <string name="title_pro_feature">यह एक प्रो फीचर है</string>
-    <string name="title_pro_subscription">        1 या 2 यूरो (स्थानीय कर को छोड़कर) की मासिक सदस्यता सभी प्रो सुविधाओं को सक्रिय करेगी।
-        आप प्ले स्टोर ऐप में सदस्यता टैब के माध्यम से सदस्यता को रद्द या प्रबंधित कर सकते हैं।
+    <string name="title_pro_subscription">
+        1 या 2 यूरो (स्थानीय करों को छोड़कर) की मासिक सदस्यता सभी प्रो सुविधाओं को सक्रिय कर देगी।
+        आप Play Store ऐप में सदस्यता टैब के माध्यम से सदस्यता रद्द या प्रबंधित कर सकते हैं।
     </string>
-    <string-array name="themeNames">
-        <item>चैती / नारंगी</item>
-        <item>नीला/ नारंगी</item>
-        <item>बैंगनी/लाल</item>
-        <item>एम्बर/ब्लू</item>
-        <item>ऑरेंज/ग्रे</item>
-        <item>हरा</item>
-    </string-array>
-    <string-array name="protocolNames">
+    <string name="title_pro_already">प्रो विशेषताएं पहले ही सक्रिय हैं</string>    <string-array name="protocolNames">
         <item>UDP</item>
         <item>TCP</item>
     </string-array>
+
+    <string-array name="protocolValues" translatable="false">
+        <item>17</item>
+        <item>6</item>
+    </string-array>
+
+    <string name="label_dns_summary">%1$d प्रविष्टियाँ • %2$d समाप्त</string>
+
 </resources>

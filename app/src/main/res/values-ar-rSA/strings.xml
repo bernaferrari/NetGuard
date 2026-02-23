@@ -1,290 +1,452 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_description">NetGuard يوفر طرق بسيطة ومتقدمة لمنع الوصول إلى شبكة الإنترنت - لا يلزم الجذر. يمكن السماح أو الرفض بشكل فردي للتطبيقات والعناوين النفاذ إلى الواي فاي أو الإتصال عبر الجوال.</string>
-    <string name="app_android">NetGuard requires Android 5.1 or later</string>
-    <string name="app_xposed">يسبب Xposed الكثير من الأعطال ، مما قد يؤدي إلى إزالة NetGuard من متجر Google Play ، لذلك لا يتم دعم NetGuard إن تم تثبيت Xposed</string>
+    <string name="app_name" translatable="false">NetGuard Next</string>
+    <string name="app_description">يوفر NetGuard Next طرقًا بسيطة ومتقدمة لمنع الوصول إلى الإنترنت - بدون الحاجة إلى صلاحيات الروت. يمكن السماح للتطبيقات والعناوين أو رفضها بشكل فردي للوصول إلى شبكة Wi-Fi و/أو اتصال الجوال.</string>
+    <string name="app_copyright" translatable="false">Copyright \u00A9 2015–2025 by M. Bokhorst (M66B)</string>
+    <string name="app_android">يتطلب NetGuard إصدار أندرويد 5.1 أو أحدث</string>
+    <string name="app_eula" translatable="false">THIS SOFTWARE IS PROVIDED BY THE AUTHOR \'\'AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
     <string name="app_privacy"><a href="https://www.netguard.me/privacy/">سياسة الخصوصية</a></string>
-    <string name="app_first">تم تطوير وتجربة NetGuard بعناية فائقة ولكن من الممكن ألّا يعمل NetGuard بشكل جيد في بعض الاجهزة.</string>
-    <string name="app_agree">أنا أوافق</string>
+    <string name="app_first">تم بذل عناية كبيرة في تطوير واختبار NetGuard، ولكن من المستحيل ضمان عمل NetGuard بشكل صحيح على كل جهاز.</string>
+    <string name="app_agree">أوافق</string>
     <string name="app_disagree">لا أوافق</string>
-    <string name="app_support">NetGuard يحتاج لدعمكم. اضغط لشراء الخصائص المتقدمة ودعم استمرارية المشروع.</string>
-    <string name="app_qap">.</string>
-    <string name="channel_foreground">الخدمات قيد التشغيل</string>
-    <string name="channel_notify">الإشعارات العامة</string>
-    <string name="channel_access">إشعارات النفاذ</string>
+    <string name="app_support">NetGuard يحتاج إلى مساعدتكم. اضغط لشراء ميزات المحترفين لدعم استمرار المشروع.</string>
+    <string name="app_qap">
+        حاولت Google إزالة هذا التطبيق من متجر Play لأنه طلب إذنًا للاستعلام عن جميع التطبيقات.
+        تم رفض خمسة استئنافات وتبريرات كافية لسبب الحاجة إلى هذا الإذن.
+        لم يعد هذا الإصدار من التطبيق يطلب هذا الإذن.
+        ومع ذلك، سيستمر إدراج جميع التطبيقات تقريبًا، باستثناء بعض تطبيقات (النظام) التي لا يمكن تشغيلها يدويًا من قائمة تطبيقات أندرويد.
+        سيتم دائمًا السماح بحركة مرور الإنترنت لهذه التطبيقات لضمان استمرار عمل جهازك بشكل صحيح.
+        إذا كنت تعتقد أن هذه مشكلة، يمكنك التحديث إلى إصدار GitHub من التطبيق وإدارة جميع تطبيقات (النظام) مرة أخرى.
+    </string>
+
+    <string name="channel_foreground">الخدمة قيد التشغيل</string>
+    <string name="channel_notify">إشعارات عامة</string>
+    <string name="channel_access">إشعارات الوصول</string>
+
     <string name="menu_search">البحث عن تطبيقات</string>
     <string name="menu_filter">تصفية التطبيقات</string>
-    <string name="menu_app_user">إظهار تطبيقات المستخدم</string>
-    <string name="menu_app_system">إظهار تطبيقات النظام</string>
-    <string name="menu_app_nointernet">إظهار التطبيقات غير المتصلة بالإنترنت</string>
-    <string name="menu_app_disabled">إظهار التطبيقات المعطلة</string>
-    <string name="menu_sort">تصنيف التطبيقات</string>
+    <string name="menu_app_user">عرض تطبيقات المستخدم</string>
+    <string name="menu_app_system">عرض تطبيقات النظام</string>
+    <string name="menu_app_nointernet">عرض التطبيقات بدون إذن إنترنت</string>
+    <string name="menu_app_disabled">عرض التطبيقات المعطلة</string>
+    <string name="menu_sort">فرز التطبيقات</string>
     <string name="menu_sort_name">فرز حسب الاسم</string>
-    <string name="menu_sort_uid">فرز حسب رمز المستخدم</string>
-    <string name="menu_sort_data">فرز حسب استخدام البيانات</string>
-    <string name="menu_log">إظهار السجل</string>
+    <string name="menu_sort_uid">فرز حسب UID</string>
+    <string name="menu_sort_data">فرز حسب الاستهلاك</string>
+    <string name="menu_launch">تشغيل التطبيق</string>
+    <string name="menu_log">عرض السجل</string>
     <string name="menu_settings">الإعدادات</string>
+    <string name="menu_home">الرئيسية</string>
     <string name="menu_invite">دعوة</string>
-    <string name="menu_legend">Legend</string>
+    <string name="menu_legend">الرموز</string>
     <string name="menu_support">الدعم</string>
-    <string name="menu_about">عن التطبيق</string>
+    <string name="menu_about">حول</string>
     <string name="menu_apps">تطبيقات أخرى</string>
+    <string name="menu_firewall">جدار الحماية</string>
+    <string name="status_enabled">جدار الحماية مفعل</string>
+    <string name="status_disabled">جدار الحماية معطل</string>
+    <string name="widget_firewall_enabled">جدار الحماية: تشغيل</string>
+    <string name="widget_firewall_disabled">جدار الحماية: إيقاف</string>
+    <string name="widget_lockdown_enabled">الإغلاق: تشغيل</string>
+    <string name="widget_lockdown_disabled">الإغلاق: إيقاف</string>
+    <string name="notify_traffic_title">مراقب حركة المرور</string>
+    <string name="notify_traffic_summary">رفع %1$s • تحميل %2$s • الذروة %3$s</string>
+    <string name="notify_traffic_debug">جلسة %1$d/%2$d/%3$d • ملف %4$d/%5$d</string>
+    <string name="ui_loading">جاري التحميل…</string>
+    <string name="ui_empty_logs_title">لا توجد حركة مرور بعد</string>
+    <string name="ui_empty_logs_body">بمجرد ظهور اتصالات، سيتم عرضها هنا.</string>
+    <string name="ui_empty_apps_title">لم يتم العثور على تطبيقات</string>
+    <string name="ui_empty_apps_body">يرجى محاولة تحديث القائمة.</string>
+    <string name="ui_empty_dns_title">لا توجد سجلات DNS بعد</string>
+    <string name="ui_empty_dns_body">بعد التصفح، ستظهر ردود DNS هنا.</string>
+    <string name="ui_dns_filter_empty">لا توجد إدخالات DNS تطابق هذا الفلتر.</string>
+    <string name="ui_empty_forwarding_title">لا توجد قواعد توجيه</string>
+    <string name="ui_empty_forwarding_body">أضف قاعدة لبدء توجيه حركة المرور.</string>
+    <string name="ui_forwarding_filter_empty">لا توجد قواعد توجيه تطابق هذا الفلتر.</string>
+    <string name="ui_empty_pro_body">دعمكم يفتح ميزات إضافية ويبقي المشروع مستمراً.</string>
+    <string name="ui_empty_pro_details">فتح المحترفين: التصفية، السجلات، الإشعارات، السمات، وحدود السرعة.</string>
+    <string name="ui_home_hint">تحكم في وصول كل تطبيق للإنترنت.</string>
+    <string name="ui_home_quick_actions">إجراءات سريعة</string>
+    <string name="ui_apps_title">جدار الحماية</string>
+    <string name="ui_logs_title">سجل حركة المرور</string>
+    <string name="ui_logs_filters">الفلاتر</string>
+    <string name="ui_logs_filter_status">الحالة</string>
+    <string name="ui_logs_filter_protocol">البروتوكول</string>
+    <string name="ui_logs_filter_view">العرض</string>
+    <string name="ui_logs_group_timeline">الجدول الزمني</string>
+    <string name="ui_logs_group_by_app">حسب التطبيق</string>
+    <string name="ui_logs_unknown_source">مصدر غير معروف</string>
+    <string name="ui_settings_title">الإعدادات</string>
+    <string name="ui_dns_title">DNS الذي تم حله</string>
+    <string name="ui_forwarding_title">توجيه المنافذ</string>
+    <string name="ui_dns_hint">النطاقات والردود التي تم حلها مؤخرًا.</string>
+    <string name="ui_forwarding_hint">إدارة قواعد التوجيه والتطبيقات المستهدفة.</string>
+    <string name="ui_dns_active">نشط</string>
+    <string name="ui_rule_custom">مخصص</string>
+    <string name="ui_dns_expired">منتهي الصلاحية</string>
+    <string name="ui_filter_all">الكل</string>
+    <string name="ui_filter_empty">لا توجد تطبيقات تطابق هذا الفلتر.</string>
+    <string name="ui_apps_search_empty">لا توجد تطبيقات تطابق هذا البحث.</string>
+    <string name="ui_learn_more">لمعرفة المزيد</string>
+    <string name="status_running">حركة المرور قيد التصفية</string>
+    <string name="status_not_running">حركة المرور ليست قيد التصفية</string>
+    <string name="action_enable">تفعيل</string>
+    <string name="action_disable">تعطيل</string>
+    <string name="home_apps_hint">مراجعة قواعد التطبيق واستخدام البيانات</string>
+    <string name="home_logs_hint">فحص نشاط الشبكة الأخير</string>
+
+    <!-- Accessibility -->
+    <string name="action_expand">توسيع التفاصيل</string>
+    <string name="action_collapse">طي التفاصيل</string>
+    <string name="action_navigate">فتح</string>
+    <string name="action_toggle_firewall">تبديل جدار الحماية</string>
+    <string name="action_clear_search">مسح البحث</string>
+    <string name="search_settings">البحث في الإعدادات</string>
+    <string name="content_desc_security_status">حالة أمان جدار الحماية</string>
+    <string name="content_desc_app_icon">أيقونة تطبيق %s</string>
+    <string name="content_desc_show_info">عرض معلومات حول %1$s</string>
+
+    <!-- Dashboard stats -->
+    <string name="stat_blocked_today">محظور</string>
+    <string name="stat_allowed_today">مسموح</string>
+    <string name="stat_active_rules">القواعد النشطة</string>
+
+    <!-- Tooltips -->
+    <string name="tooltip_rcode">رمز رد DNS الذي يتم إرساله للنطاقات المحظورة. القيمة الافتراضية 3 (NXDOMAIN) تعني أن النطاق غير موجود.</string>
+    <string name="tooltip_ttl">الحد الأدنى لقيمة وقت البقاء (TTL) بالثواني لإدخالات ذاكرة التخزين المؤقت لـ DNS.</string>
+    <string name="tooltip_pcap">تسجيل جميع حزم الشبكة لتصحيح الأخطاء. سيؤدي هذا إلى إنشاء ملفات كبيرة.</string>
+    <string name="tooltip_filter">اعتراض وتحليل حركة المرور. مطلوب للحظر حسب العنوان. سيستهلك المزيد من البطارية.</string>
+    <string name="tooltip_lockdown">حظر جميع حركة المرور باستثناء التطبيقات المسموح بها صراحة. استخدم بحذر.</string>
+
+    <string name="menu_protocol_udp" translatable="false">UDP</string>
+    <string name="menu_protocol_tcp" translatable="false">TCP</string>
     <string name="menu_protocol_other">أخرى</string>
     <string name="menu_traffic_allowed">مسموح</string>
     <string name="menu_traffic_blocked">محظور</string>
-    <string name="menu_live">تحديثات حية</string>
+    <string name="menu_live">تحديث مباشر</string>
     <string name="menu_refresh">تحديث</string>
+    <string name="menu_ok">موافق</string>
+    <string name="menu_cancel">إلغاء</string>
     <string name="menu_resolve">إظهار الأسماء</string>
     <string name="menu_organization">إظهار المنظمة</string>
-    <string name="menu_pcap_enabled">تمكين PCAP</string>
+    <string name="menu_pcap_enabled">PCAP مفعل</string>
     <string name="menu_pcap_export">تصدير PCAP</string>
-    <string name="menu_clear">محو</string>
+    <string name="menu_clear">مسح</string>
     <string name="menu_export">تصدير</string>
     <string name="menu_reset">إعادة تعيين</string>
+
     <string name="menu_add">إضافة</string>
     <string name="menu_delete">حذف</string>
+
     <string name="menu_cleanup">تنظيف</string>
+
     <string name="title_protocol">البروتوكول</string>
-    <string name="title_dport">منفذ المصدر</string>
+    <string name="title_dport">المنفذ المصدر</string>
     <string name="title_raddr">عنوان الوجهة</string>
-    <string name="title_rport">منفذ الوجهة</string>
-    <string name="title_ruid">تطبيق الوجهة</string>
-    <string name="title_external">لخادم خارجي اختر \"لا أحد\"</string>
-    <string name="setting_defaults">الافتراضي (القائمة البيضاء/السوداء)</string>
-    <string name="setting_whitelist_wifi">حظر الواي فاي</string>
-    <string name="setting_whitelist_other">حظر شبكة الهاتف</string>
-    <string name="setting_screen_wifi">السماح بشبكة Wi-Fi عندما تكون الشاشة نشطة</string>
-    <string name="setting_screen_other">السماح لشبكة الهاتف عندما تكون الشاشة نشطة</string>
+    <string name="title_rport">المنفذ الوجهة</string>
+    <string name="title_ruid">التطبيق المستهدف</string>
+    <string name="title_external">اختر \'nobody\' للخوادم الخارجية</string>
+
+    <string name="setting_defaults">الافتراضيات (القائمة البيضاء/السوداء)</string>
+    <string name="setting_whitelist_wifi">حظر Wi-Fi</string>
+    <string name="setting_whitelist_other">حظر الجوال</string>
+    <string name="setting_screen_wifi">السماح بـ Wi-Fi عند تشغيل الشاشة</string>
+    <string name="setting_screen_other">السماح بالجوال عند تشغيل الشاشة</string>
     <string name="setting_whitelist_roaming">حظر التجوال</string>
-    <string name="setting_options">الخيارات</string>
-    <string name="setting_theme">المظهر: %1$s</string>
-    <string name="setting_dark">استخدم المظهر الداكن</string>
-    <string name="setting_install">اخطار عند التثبيت الجديد</string>
-    <string name="setting_screen_on">تطبيق القواعد \'عندما تكون الشاشة مفتوحة\'</string>
-    <string name="setting_auto">تمكين تلقائي بعد %1$s دقيقة/دقائق</string>
-    <string name="setting_delay">تأخير تعتيم الشاشة %1$s دقيقة/دقائق</string>
-    <string name="setting_update">فحص توفر التحديثات</string>
+
+    <string name="setting_options">خيارات</string>
+    <string name="setting_theme">السمة: %1$s</string>
+    <string name="setting_dark">استخدام السمة الداكنة</string>
+    <string name="setting_theme_palette">اختر نمط الألوان</string>
+    <string name="setting_dynamic_unavailable">تتطلب الألوان الديناميكية أندرويد 12 أو أحدث.</string>
+    <string name="setting_appearance_mode">وضع المظهر</string>
+    <string name="setting_appearance_mode_title">الوضع الداكن</string>
+    <string name="setting_appearance_mode_summary">اختر إيقاف، تشغيل، أو حسب النظام.</string>
+    <string name="setting_appearance_preview">الحالي: %1$s · %2$s</string>
+    <string name="setting_appearance_auto">تلقائي</string>
+    <string name="setting_appearance_light">فاتح</string>
+    <string name="setting_appearance_dark">داكن</string>
+    <string name="theme_dynamic" translatable="false">Dynamic</string>
+    <string name="setting_install">إشعار عند تثبيت تطبيق جديد</string>
+    <string name="setting_screen_on">تطبيق قواعد \'عند تشغيل الشاشة\'</string>
+    <string name="setting_auto">تفعيل تلقائي بعد %1$s دقيقة</string>
+    <string name="setting_delay">تأخير بعد إغلاق الشاشة لمد %1$s دقيقة</string>
+    <string name="setting_update">التحقق من التحديثات</string>
+    <string name="setting_update_now">تحقق الآن</string>
+    <string name="setting_update_checking">جاري التحقق...</string>
+
     <string name="setting_network_options">خيارات الشبكة</string>
     <string name="setting_subnet">توجيه الشبكة الفرعية</string>
-    <string name="setting_tethering">السماح بالربط ومشاركة الاتصال</string>
-    <string name="setting_lan">السماح بالوصول إلى شبكة المنطقة المحلية</string>
+    <string name="setting_tethering">السماح بمشاركة الاتصال</string>
+    <string name="setting_lan">السماح بالوصول إلى الشبكة المحلية (LAN)</string>
     <string name="setting_ip6">تمكين حركة مرور IPv6</string>
-    <string name="setting_wifi_home">شبكات الواي فاي المنزلية: %1$s</string>
-    <string name="setting_metered">تعامل مع شبكات Wi-Fi المقاسة</string>
-    <string name="setting_metered_2g">إعتبر الجيل الثاني غير مقاس</string>
-    <string name="setting_metered_3g">إعتبر الجيل الثالث غير مقاس</string>
-    <string name="setting_metered_4g">إعتبر شبكات LTE غير مقاسة</string>
-    <string name="setting_national_roaming">تجاهل خدمة التجوال المحلية</string>
+    <string name="setting_wifi_home">شبكة Wi-Fi المنزلية: %1$s</string>
+    <string name="setting_metered">معالجة شبكات Wi-Fi المحدودة</string>
+    <string name="setting_metered_2g">اعتبار 2G غير محدودة</string>
+    <string name="setting_metered_3g">اعتبار 3G غير محدودة</string>
+    <string name="setting_metered_4g">اعتبار LTE غير محدودة</string>
+    <string name="setting_national_roaming">تجاهل التجوال الوطني</string>
     <string name="setting_eu_roaming">تجاهل تجوال الاتحاد الأوروبي</string>
-    <string name="setting_call">تعطيل أثناء المكالمة</string>
-    <string name="setting_lockdown_wifi">أقفل الواي فاي</string>
-    <string name="setting_lockdown_other">اقفل شبكة الهاتف</string>
-    <string name="setting_reload_onconnectivity">إعادة التحميل عند كل تغيير في الاتصال</string>
-    <string name="setting_advanced_options">الخيارات المتقدمة</string>
+    <string name="setting_call">التعطيل أثناء المكالمات</string>
+    <string name="setting_lockdown_wifi">إغلاق Wi-Fi</string>
+    <string name="setting_lockdown_other">إغلاق بيانات الجوال</string>
+    <string name="setting_reload_onconnectivity">إعادة التحميل عند تغير الاتصال</string>
+
+    <string name="setting_advanced_options">خيارات متقدمة</string>
     <string name="setting_system">إدارة تطبيقات النظام</string>
-    <string name="setting_log_app">تسجيل النفاذ إلى الإنترنت</string>
-    <string name="setting_access">إخطار عند الوصول إلى الإنترنت</string>
-    <string name="setting_filter">تصفية حركة البيانات</string>
-    <string name="setting_filter_udp">تصفية حركة البيانات UDP</string>
-    <string name="setting_handover">تسليم VPN سلس عند إعادة التحميل</string>
-    <string name="setting_clear_onreload">إغلاق الاتصالات عند التحديث</string>
-    <string name="setting_lockdown">اقفل حركة مرور البيانات</string>
-    <string name="setting_track_usage">متابعة استخدام الشبكة</string>
+    <string name="setting_log_app">تسجيل الوصول للإنترنت</string>
+    <string name="setting_log_retention_days">أيام الاحتفاظ بسجلات حركة المرور</string>
+    <string name="setting_access">إشعار عند الوصول للإنترنت</string>
+    <string name="setting_filter">تصفية حركة المرور</string>
+    <string name="setting_filter_udp">تصفية حركة مرور UDP</string>
+    <string name="setting_handover">تسليم VPN بسلاسة عند إعادة التحميل</string>
+    <string name="setting_clear_onreload">إغلاق الاتصالات عند إعادة التحميل</string>
+    <string name="setting_lockdown">إغلاق حركة المرور</string>
+    <string name="setting_malware" translatable="false">الحماية من البرامج الضارة</string>
+    <string name="setting_track_usage">تتبع استخدام الشبكة</string>
     <string name="setting_reset_usage">إعادة تعيين استخدام الشبكة</string>
-    <string name="setting_show_resolved">عرض أسماء النطاقات التي تم حلها</string>
-    <string name="setting_block_domains">حظر أسماء نطاقات</string>
-    <string name="setting_rcode">رمز استجابة نظام أسماء النطاقات: %s</string>
-    <string name="setting_forwarding">توجيه المنفذ</string>
-    <string name="setting_vpn4">الشبكة الافتراضية الخاصة IPv4: %s</string>
-    <string name="setting_vpn6">الشبكة الإفتراضية الخاصة IPv6: %s</string>
-    <string name="setting_dns">DNS للشبكة الافتراضية الخاصة: %s</string>
-    <string name="setting_validate">تم التحقق منه في: %s</string>
-    <string name="setting_ttl">مدة الحياة الدنيا لـ DNS: %s ثا</string>
-    <string name="setting_socks5_enabled">استخدام وكيل SOCKS5</string>
+    <string name="setting_show_resolved">إظهار أسماء النطاقات التي تم حلها</string>
+    <string name="setting_block_domains">حظر أسماء النطاقات</string>
+    <string name="setting_rcode">رمز رد DNS: %s</string>
+    <string name="setting_forwarding">توجيه المنافذ</string>
+    <string name="setting_vpn4">VPN IPv4: %s</string>
+    <string name="setting_vpn6">VPN IPv6: %s</string>
+    <string name="setting_dns">VPN DNS: %s</string>
+    <string name="setting_dns2">DNS ثانوي: %s</string>
+    <string name="setting_validate">التحقق في: %s</string>
+    <string name="setting_ttl">أدنى DNS TTL: %s ثانية</string>
+    <string name="setting_socks5_enabled">استخدام بروكسي SOCKS5</string>
     <string name="setting_socks5_addr">عنوان SOCKS5: %s</string>
     <string name="setting_socks5_port">منفذ SOCKS5: %s</string>
-    <string name="setting_socks5_username">اسم المستخدم SOCKS5: %s</string>
-    <string name="setting_socks5_password">كلمة المرور SOCKS5: %s</string>
-    <string name="setting_pcap_record_size">سجل PCAP حجمه: %s ب</string>
-    <string name="setting_pcap_file_size">حجم ملف PCAP الأعلى: %s م ب</string>
-    <string name="setting_watchdog">توقيت Watchdog: كل %s دقائق</string>
-    <string name="setting_stats_category">اشعار السرعة</string>
-    <string name="setting_stats">إظهار إشعار السرعة</string>
-    <string name="setting_stats_top">إظهار التطبيقات الأعلى</string>
-    <string name="setting_stats_frequency">الفاصل الزمني للعينة: %s مللي ثانية</string>
-    <string name="setting_stats_samples">عدد العينات: %s ثا</string>
-    <string name="setting_backup">النسخ الاحتياطي</string>
+    <string name="setting_socks5_username">اسم مستخدم SOCKS5: %s</string>
+    <string name="setting_socks5_password">كلمة مرور SOCKS5: %s</string>
+    <string name="setting_pcap_record_size">حجم سجل PCAP: %s ب</string>
+    <string name="setting_pcap_file_size">أقصى حجم لملف PCAP: %s م.ب</string>
+    <string name="setting_pcap">تسجيل حركة مرور الشبكة (PCAP)</string>
+    <string name="setting_watchdog">المراقب: كل %s دقيقة</string>
+
+    <string name="setting_stats_category">إشعارات السرعة</string>
+    <string name="setting_stats">إظهار إشعارات السرعة</string>
+    <string name="setting_stats_top">إظهار أهم التطبيقات</string>
+    <string name="setting_stats_frequency">فاصل العينة: %s ملي ثانية</string>
+    <string name="setting_stats_samples">عدد العينات: %s</string>
+
+    <string name="setting_backup">نسخ احتياطي</string>
     <string name="setting_export">تصدير الإعدادات</string>
     <string name="setting_import">استيراد الإعدادات</string>
     <string name="setting_hosts">استيراد ملف hosts</string>
     <string name="setting_hosts_append">استيراد ملف hosts (إلحاق)</string>
-    <string name="setting_hosts_url">رابط تنزيل ملف hosts</string>
-    <string name="setting_hosts_download">تنزيل ملف المضيفين hosts</string>
-    <string name="setting_technical">المعلومات التقنية</string>
-    <string name="setting_technical_general">الإعدادات العامة</string>
+    <string name="setting_hosts_url">رابط تحميل ملف hosts</string>
+    <string name="setting_hosts_download">تحميل ملف hosts</string>
+    <string name="setting_use_hosts">استخدام ملف hosts</string>
+
+    <string name="setting_technical">معلومات تقنية</string>
+    <string name="setting_technical_general">عام</string>
     <string name="setting_technical_networks">الشبكات</string>
-    <string name="setting_technical_subscription">الإشتراكات</string>
-    <string name="summary_install">إظهار إعلام في شريط المعلومات للتطبيقات المثبتة حديثا (ميزة برو)</string>
-    <string name="summary_auto">بعد تعطيل NetGuard باستخدام الويدجت، فعل NetGuard تلقائيا مرة أخرى بعد عدد محدد من الدقائق  (ادخل صفر لتعطيل هذا الخيار)</string>
-    <string name="summary_delay">بعد إغلاق الشاشة، إبقاء الشاشة على القواعد نشطة لعدد محدد من الدقائق (ادخل صفر لتعطيل هذا الخيار)</string>
-    <string name="summary_update">التحقق من وجود إصدارات جديدة في GitHub مرتين يوميا</string>
-    <string name="summary_tethering">وفقا لاصدار الأندرويد، ربط الانترنت قد يعمل وقد لا يعمل، الانترنت المربوط(المشارك) لا يمكن تصفيتة.</string>
-    <string name="summary_subnet">يُمكّن توجيه الشبكة الفرعية؛ و قد يُمكّن اتصال Wi-Fi ، ولكن قد يؤدي أيضًا إلى ظهور أخطاء في Android وزيادة استخدام البطارية</string>
-    <string name="summary_lan">السماح للتطبيقات بالاتصال بعناوين شبكة الاتصال المحلية ، مثل 10.0.0.0/8، 172.16.0.0/12 و 192.168.0.0/16</string>
-    <string name="summary_ip6">توجيه حركة مرور IP الإصدار 6 إلى NetGuard حيث يمكن بشكل انتقائي السماح بها أو المنع</string>
-    <string name="summary_wifi_home">تطبيق قواعد الشبكة اللاسلكية للشبكة المحددة فقط (تطبيق قواعد شبكة الجوال لباقي الشبكات اللاسلكية)</string>
-    <string name="summary_metered">تطبيق قواعد شبكة الهاتف النقال للشبكات اللاسلكية المقاسة (مدفوعة الأجر، المربوطة)</string>
-    <string name="summary_metered_2g">تطبيق قواعد الشبكة اللاسلكية لاتصالات شبكات 2G</string>
-    <string name="summary_metered_3g">تطبيق قواعد الشبكة اللاسلكية لاتصالات شبكات 3G</string>
-    <string name="summary_metered_4g">تطبيق قواعد الشبكة اللاسلكية لاتصالات شبكات LTE</string>
-    <string name="summary_national_roaming">لا تطبق قواعد التجوال عندما تكون الشريحة ودولة شبكـة المحمول هي نفسها</string>
-    <string name="summary_eu_roaming">لا تـفعل الـتـجـوال عـنـدمـا تـكـون الشريحة من نفس دولة شـبـكـة الـمـحـمـول</string>
-    <string name="summary_call">تعطيل NetGuard على المكالمات الهاتفية الواردة أو الصادرة. يمكن استخدام هذا حل مشاكل الاتصال حول IP/Wi-Fi.</string>
-    <string name="summary_system">تحديد القواعد لتطبيقات النظام (للخبراء)</string>
-    <string name="summary_log_app">تسجل محاولات وصول التطبيقات إلى الإنترنت. قد ينتج عن هذا استخدام إضافي للبطارية.</string>
-    <string name="summary_access">إظهار إعلام شريط المعلومات عندما يحاول تطبيق الوصول إلى عنوان إنترنت جديد (عند التصفية معطل، إلا محاولات الوصول إلى الإنترنت المحظورة فسيتم الإخطار)</string>
-    <string name="summary_filter">تصفية حزم IP الخارجة من نفق VPN. قد ينتج عن هذا استخدام إضافي للبطارية.</string>
-    <string name="summary_track_usage">تتبع عدد وحدات البايت المرسلة والمتلقاة لكل تطبيق وعنوان. قد ينتج عن هذا استخدام إضافي للبطارية.</string>
-    <string name="summary_block_domains">الاستجابة ب \'اسم خاطئ\' (NXDOMAIN) لأسماء النطاقات المحظورة. يعطل هذا الخيار عند عدم وجود ملف المضيفين.</string>
-    <string name="summary_rcode">الـقيمة الافتراضية هي 3 (NXDOMAIN)، وهذا يعني \'أنّ اسم النطاق غير موجود\'.</string>
-    <string name="summary_validate">اسم النطاق المستخدم للتحقق من صحة اتصال الإنترنت عن طريق منفذ 443 (https).</string>
-    <string name="summary_socks5_enabled">يـــتـــم إرســال حــركـــة مـــرور TCP فـــقـــط إلـــى الـــمـــلـــقـــم الـــوكــيـــل</string>
-    <string name="summary_watchdog">الــفـــحـــص الــدوري إذا كــان قـــيـــد تـــشـــغـــيـــل NetGuard (فــأدخـــل صـــفـــر لـــتـــعـــطـــيـــل هـــذا الــخـــيـــار). قـــد يـــســـتـــلـــزم هـــذا إســـتـــخـــدام أكـــثـــر لـلـــبـــطــاريـــة.</string>
-    <string name="summary_stats">إظهار الرسم البياني لسرعة الشبكة على شريط حالة الإشعارات</string>
+    <string name="setting_technical_subscription">الاشتراك</string>
+    <string name="setting_section_appearance">المظهر</string>
+    <string name="setting_section_firewall">قواعد جدار الحماية</string>
+    <string name="setting_section_advanced">السلوك المتقدم</string>
+    <string name="setting_section_hosts">Hosts و DNS</string>
+    <string name="setting_section_network">تكوين الشبكة</string>
+    <string name="setting_section_dns">تفاصيل DNS</string>
+    <string name="setting_section_proxy">البروكسي</string>
+    <string name="setting_section_vpn">تكوين VPN</string>
+    <string name="setting_section_background">المهام الخلفية</string>
+    <string name="setting_section_diagnostics">التشخيص</string>
+    <string name="setting_section_support">الدعم</string>
+
+    <string name="summary_install">إظهار إشعار في شريط الحالة لتكوين التطبيقات المثبتة حديثًا مباشرة (ميزة المحترفين)</string>
+    <string name="summary_auto">إعادة تفعيل NetGuard تلقائيًا بعد عدد الدقائق المختار بعد تعطيله باستخدام الويدجت (أدخل صفرًا لتعطيل هذا الخيار)</string>
+    <string name="summary_delay">إبقاء قواعد \'عند تشغيل الشاشة\' نشطة لعدد الدقائق المختار بعد إغلاق الشاشة (أدخل صفرًا لتعطيل هذا الخيار)</string>
+    <string name="summary_update">التحقق من الإصدارات الجديدة على GitHub مرتين يوميًا</string>
+
+    <string name="summary_tethering">اعتمادًا على إصدار أندرويد، قد تعمل مشاركة الاتصال وقد لا تعمل. لا يمكن تصفية حركة المرور المشاركة.</string>
+    <string name="summary_subnet">تمكين توجيه الشبكة الفرعية؛ قد يسمح بمكالمات Wi-Fi، ولكن قد يؤدي أيضًا إلى أخطاء في أندرويد وزيادة استهلاك البطارية</string>
+    <string name="summary_lan">السماح للتطبيقات بالاتصال بعناوين الشبكة المحلية، مثل 10.0.0.0/8 و 172.16.0.0/12 و 192.168.0.0/16</string>
+    <string name="summary_ip6">توجيه حركة مرور IPv6 عبر NetGuard ليتم السماح بها أو حظرها بشكل انتقائي</string>
+    <string name="summary_wifi_home">تطبيق قواعد شبكة Wi-Fi للشبكة المختارة فقط (تطبيق قواعد شبكة الجوال لشبكات Wi-Fi الأخرى)</string>
+    <string name="summary_metered">تطبيق قواعد شبكة الجوال على شبكات Wi-Fi المحدودة (مدفوعة، مشاركة اتصال)</string>
+    <string name="summary_metered_2g">تطبيق قواعد شبكة Wi-Fi على اتصالات بيانات 2G</string>
+    <string name="summary_metered_3g">تطبيق قواعد شبكة Wi-Fi على اتصالات بيانات 3G</string>
+    <string name="summary_metered_4g">تطبيق قواعد شبكة Wi-Fi على اتصالات بيانات LTE</string>
+    <string name="summary_national_roaming">عدم تطبيق قواعد التجوال عندما تكون دولة شريحة SIM ودولة شبكة الجوال هما نفسهما</string>
+    <string name="summary_eu_roaming">عدم تطبيق قواعد التجوال عندما تكون دولة شريحة SIM ودولة شبكة الجوال داخل الاتحاد الأوروبي (التجوال كأنك في المنزل)</string>
+    <string name="summary_call">تعطيل NetGuard أثناء المكالمات الواردة أو الصادرة. يمكن استخدام هذا لتجنب مشاكل مكالمات IP/Wi-Fi.</string>
+
+    <string name="summary_system">تحديد قواعد لتطبيقات النظام (للخبراء)</string>
+    <string name="summary_log_app">تسجيل محمحاولات الوصول للإنترنت بواسطة التطبيقات. قد يؤدي ذلك إلى استهلاك إضافي للبطارية.</string>
+    <string name="summary_log_retention_days">إزالة سجلات حركة المرور القديمة تلقائيًا أثناء الصيانة. اضبط على 0 للاحتفاظ بها للأبد.</string>
+    <string name="summary_access">إظهار إشعار في شريط الحالة عندما يحاول تطبيق الوصول إلى عنوان إنترنت جديد (عند تعطيل التصفية، سيتم الإشعار بمحاولات الوصول المحظورة فقط)</string>
+    <string name="summary_filter">تصفية حزم IP الخارجة من نفق VPN. قد يؤدي ذلك إلى استهلاك إضافي للبطارية.</string>
+    <string name="summary_track_usage">تتبع البايتات المرسلة والمستقبلة لكل تطبيق وعنوان. قد يؤدي ذلك إلى استهلاك إضافي للبطارية.</string>
+    <string name="summary_block_domains">الرد برمز رد DNS المكون للنطاقات المحظورة. سيتم تعطيل هذا المفتاح في حالة عدم توفر ملف hosts.</string>
+    <string name="summary_rcode">القيمة الافتراضية هي 3 (NXDOMAIN)، والتي تعني \'النطاق غير موجود\'.</string>
+    <string name="summary_validate">اسم النطاق المستخدم للتحقق من اتصال الإنترنت على المنفذ 443 (https).</string>
+    <string name="summary_socks5_enabled">سيتم إرسال حركة مرور TCP فقط إلى خادم البروكسي</string>
+    <string name="summary_watchdog">التحقق دوريًا مما إذا كان NetGuard لا يزال قيد التشغيل (أدخل صفرًا لتعطيل هذا الخيار). قد يؤدي ذلك إلى استهلاك إضافي للبطارية.</string>
+
+    <string name="summary_stats">إظهار رسم بياني لسرعة الشبكة في إشعار شريط الحالة</string>
+
+    <string-array name="default_wifi_home"></string-array>
+
     <string name="msg_sure">هل أنت متأكد؟</string>
-    <string name="msg_started">فرض الـقـواعد</string>
+    <string name="msg_started">تطبيق القواعد</string>
     <string name="msg_packages">%1$d مسموح، %2$d محظور</string>
-    <string name="msg_hosts">%1$d مسموحة ، %2$d محظورة ، %3$d مضيفين</string>
-    <string name="msg_waiting">في انتظار حدث</string>
-    <string name="msg_disabled">التطبيق غير مُفعّل، قم بتنشيط نات غارد بالضغط على الزر في الأعلى</string>
-    <string name="msg_notifications">انقر لمنح أذونات الإشعارات (لإشعارات محاولة الوصول، رسائل الخطأ، إلخ)</string>
-    <string name="msg_revoked">تم تعطيل NetGuard، يُحتمل أنّ السبب راجع إلى استخدام تطبيق VPN آخر في آن واحد</string>
-    <string name="msg_installed">\'%1$s\' مثبت</string>
-    <string name="msg_installed_n">تم تثبيته</string>
-    <string name="msg_access">لقد حاول %1$s الوصول إلى الإنترنت</string>
-    <string name="msg_access_n">حاوَلَ الوصول إلى الإنترنت</string>
+    <string name="msg_hosts">%1$d مسموح، %2$d محظور، %3$d مضيف</string>
+    <string name="msg_waiting">في انتظار الأحداث</string>
+    <string name="msg_disabled">NetGuard معطل، يرجى استخدام المفتاح في الأعلى لتفعيل NetGuard</string>
+    <string name="msg_notifications">اضغط لمنح إذن الإشعارات (لإشعارات محاولات الوصول، رسائل الخطأ، إلخ)</string>
+    <string name="msg_revoked">تم تعطيل NetGuard، ربما بسبب استخدام تطبيق VPN آخر</string>
+    <string name="msg_installed">تم تثبيت \'%1$s\'</string>
+    <string name="msg_installed_n">تم التثبيت</string>
+    <string name="msg_malware" translatable="false">برنامج ضار محتمل: \'%1$s\'</string>
+    <string name="msg_access">حاول %1$s الوصول إلى الإنترنت</string>
+    <string name="msg_access_n">حاول الوصول إلى الإنترنت</string>
     <string name="msg_completed">اكتمل الإجراء</string>
-    <string name="msg_vpn">يستخدم NetGuard شبكة VPN محلية لتصفية حركة الانترنت. لهذا، يرجى السماح لاتصال VPN في مربع الحوار القادم. حركة الانترنت الخاصة بك لا يتم ارسالها الى خادم VPN بعيد.</string>
-    <string name="msg_autostart">لا يمكن بدء NetGuard بشكل تلقائي عند التشغيل بسبب وجود خلل في إصدار الاندرويد الخاص بك</string>
+    <string name="msg_invalid">يرجى التحقق من القيمة والمحاولة مرة أخرى.</string>
+    <string name="msg_export_failed">فشل التصدير: %1$s</string>
+    <string name="msg_vpn">يستخدم NetGuard شبكة VPN محلية لتصفية حركة مرور الإنترنت.
+لهذا السبب، يرجى السماح باتصال VPN في الحوار التالي.
+لن يتم إرسال حركة مرور الإنترنت الخاصة بك إلى أي خادم VPN بعيد.</string>
+    <string name="msg_autostart">تعذر بدء NetGuard تلقائيًا. من المحتمل جدًا أن يكون ذلك بسبب خطأ في إصدار أندرويد الخاص بك.</string>
     <string name="msg_error">حدث خطأ غير متوقع: \'%s\'</string>
-    <string name="msg_start_failed">أنـــدرويـــت رفـــض أن تـــبـــدأ خـــدمـــة VPN فـــي هـــذه اللـــحـــظـــة. مـــن الـــمـــحـــتـــمـــل بـــســـبـــب عـــطـــل فـــي نـــســـخـــة أنـــدرويــت الـــخـــاص بـــك.</string>
-    <string name="msg_try">جـرّب NetGuard</string>
-    <string name="msg_terms">عند تبرعك فهذا يعني انك مواقق على الشروط والاحكام. <a href="http://www.netguard.me/#terms">احكام &amp; شروط</a></string>
-    <string name="msg_dimming">إن لم تستطع الضغط على زر الموافقة في مربع الحوار القادم فهذا معناه أنه يوجد برنامج آخر يتحكم في الشاشة.</string>
-    <string name="msg_mbday">± %1$.3f▲ %2$.3f▼ ميغابيت/يوم</string>
-    <string name="msg_kb">%1$7.3f▲ %2$7.3f▼ كيلو بايت</string>
-    <string name="msg_mb">%1$7.3f▲ %2$7.3f▼ ميجا بايت</string>
-    <string name="msg_gb">%1$7.3f▲ %2$7.3f▼ جيجابايت</string>
-    <string name="msg_count">%dس</string>
-    <string name="msg_doze">للحصول على نتائج متناسقة، يجب تعطيل تحسينات البطارية للاندرويد لـ NetGuard. عن طريق \n\n ، حدد \"جميع التطبيقات\" في الجزء العلوي، انقر على NetGuard في القائمة وتحديد وتأكيد \"تعطيل تحسينات البطارية\".</string>
-    <string name="msg_datasaving">للحصول على نتائج متسقة، يجب تعطيل البيانات الروبوت توفير خيارات ل NetGuard \n\nIn مربع الحوار التالي، تمكين خيارات \"بيانات أساسية\" و \"استخدام البيانات غير المقيد\"</string>
-    <string name="msg_filter">استخدام التصفية سيتسبب بأن ينسب الأندرويد استخدام البيانات والطاقة الى NetGuard - يفترض الأندرويد أن البيانات والطاقة تستخدمان من قبل NetGuard بدلاً من التطبيقات الأصلية</string>
-    <string name="msg_filter4">أنـــدرويـــد 4 يـــتـــطـــلــَّــب إجــراء تـــصـــفـــيـــة لـلـتـــمـــكـــيـــن</string>
-    <string name="msg_log_disabled">تسجيل الحركة معطل، استخدم رمز التبديل أعلاه لتمكين التسجيل. قد يؤدي تسجيل الحركة الى استخدام إضافي للبطارية.</string>
-    <string name="msg_clear_rules">هذا سوف يعيد تعيين القواعد والشروط إلى قيمها الافتراضية</string>
-    <string name="msg_reset_access">هذا سيؤدي إلى حذف خطوط سجل محاولة الوصول دون قواعد السماح/الحظر</string>
+    <string name="msg_start_failed">رفض أندرويد بدء خدمة VPN في الوقت الحالي. من المحتمل جدًا أن يكون ذلك بسبب خطأ في إصدار أندرويد الخاص بك.</string>
+    <string name="msg_try">تجربة NetGuard</string>
+    <string name="msg_terms">من خلال التبرع، فإنك توافق على <a href="http://www.netguard.me/#terms">الشروط والأحكام</a></string>
+    <string name="msg_dimming">إذا لم تتمكن من الضغط على موافق في الحوار التالي، فمن المحتمل أن يكون هناك تطبيق آخر (تعتيم الشاشة) يتحكم في الشاشة.</string>
+    <string name="msg_mbday">&#177; %1$.3f&#9650; %2$.3f&#9660; م.ب/يوم</string>
+    <string name="msg_kbsec">%7.3f ك.ب/ثانية</string>
+    <string name="msg_mbsec">%7.3f م.ب/ثانية</string>
+    <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; ك.ب</string>
+    <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; م.ب</string>
+    <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; ج.ب</string>
+    <string name="msg_count">%d مرة</string>
+    <string name="msg_doze">للحصول على نتائج متسقة، يجب تعطيل تحسين البطارية في أندرويد لـ NetGuard.
+\n\nفي الحوار التالي، اختر \"جميع التطبيقات\" في الأعلى، واضغط على NetGuard في القائمة واختر وأكد \"عدم التحسين\".</string>
+    <string name="msg_datasaving">للحصول على نتائج متسقة، يجب تعطيل خيار توفير البيانات في أندرويد لـ NetGuard.
+\n\nفي الحوار التالي، فعل خياري \"بيانات الخلفية\" و \"استخدام البيانات غير المحدود\".</string>
+    <string name="msg_filter">سيؤدي استخدام التصفية إلى قيام أندرويد بنسب استخدام البيانات والطاقة إلى NetGuard - سيعتقد أندرويد أن البيانات والطاقة يستهلكها NetGuard بدلاً من التطبيق الأصلي.</string>
+    <string name="msg_filter4">يتطلب أندرويد 4 تفعيل التصفية</string>
+    <string name="msg_log_disabled">سجل حركة المرور معطل، يرجى استخدام المفتاح في الأعلى لتفعيله. قد يؤدي التسجيل إلى استهلاك إضافي للبطارية.</string>
+    <string name="msg_clear_rules">سيؤدي هذا إلى إعادة تعيين القواعد والشروط إلى القيم الافتراضية</string>
+    <string name="msg_reset_access">سيؤدي هذا إلى حذف أسطر سجل محاولات الوصول التي لا تحتوي على قواعد سماح/حظر</string>
     <string name="msg_import_last">آخر استيراد: %s</string>
-    <string name="msg_downloading">جارٍ تنزيل\n%1s</string>
-    <string name="msg_downloaded">تم تنزيل ملف المضيفين</string>
-    <string name="msg_download_last">آخر تنزيل: %s</string>
-    <string name="msg_start_forward">ابدأ إعادة التوجيه من %1$s منفذ %2$d الى %3$s:%4$d من %5$s؟</string>
-    <string name="msg_stop_forward">إيقاف إعادة توجيه %1$s منفذ %2$d؟</string>
-    <string name="msg_metered">الشبكة مقاسة</string>
+    <string name="msg_downloading">جاري التحميل\n%1s</string>
+    <string name="msg_downloaded">تم تحميل ملف hosts</string>
+    <string name="msg_download_last">آخر تحميل: %s</string>
+    <string name="msg_start_forward">بدء التوجيه من %1$s منفذ %2$d إلى %3$s:%4$d لـ \'%5$s\'؟</string>
+    <string name="msg_stop_forward">إيقاف التوجيه من %1$s منفذ %2$d؟</string>
+    <string name="msg_metered">الشبكة محدودة</string>
     <string name="msg_inactive">لا يوجد اتصال إنترنت نشط</string>
     <string name="msg_queue">NetGuard مشغول</string>
-    <string name="msg_update">هناك تحديث متوفر، اضغط لتنزيله</string>
-    <string name="msg_usage">يــمــكــنــك الــســمــاح (مــخــضــر) أو الــرفــض (الــمــحــمــر) واي فاي أو دخــول شــبــكــة الــمــحــمــول بــواســطــة الـــضـــغـــط عــلــى الــرمــوز الــمــوجــودة بــجــانــب الــتــطــبــيــق</string>
-    <string name="msg_fairemail">إذا قمت بتثبيت NetGuard لحماية خصوصيتك، فقد تكون مهتمًا ب<a href="https://email.faircode.eu/">FairEmail</a>، تطبيق بريد إلكتروني مفتوح المصدر ومناسب للخصوصية أيضًا</string>
-    <string name="msg_whitelist">الدخول للإنترنت مسموح بشكل إفتراضي، وهذا يمكن تغييرة في الإعدادات</string>
-    <string name="msg_push">معظم الرسائل يتم معالجتها بواسطة خدمات النظام المتاحة، وهي التى مسموحة بدخول الإنترنت بشكل إفتراضي</string>
-    <string name="msg_system">يمكنك تمكين إدارة تطبيقات النظام في الخيارات المتقدمة</string>
-    <string name="msg_issue">الرجاء أوصف المشكلة وبيّن وقت المشكلة</string>
-    <string name="msg_vpn_cancelled">لــقــد ألـغــي الإتــصــال عــن طــريــق n/ VPN هــل تــريــد تــكــويــن VPN آخــر حــتــى تــكــون عـلـى إتــصــال دائــم عــن طــريــق VPN ؟</string>
-    <string name="msg_on">إيقاف جهازك مع تشغيل NetGuard، سؤدي لعمل NetGuard تلقائياً عند تشغيل الجهاز</string>
-    <string name="msg_unavailable">هذه الوظيفة غير متوفرة في هذا الاصدار</string>
-    <string name="msg_always_on">يتم تعيين VPN آخر دوماً على VPN</string>
-    <string name="msg_always_on_lockdown">اوقف \"حجب الاتصلات التي لا تستخدم VPN\" في اعدادات VPN الخاص باندرويد لتتمكن من استخدام NetGuard في وضع التصفية</string>
-    <string name="msg_private_dns">اوقف \"DNS شخصي\" في اعدادات الشبكة الخاصة باندرويد لتتمكن من استخدام NetGuard في وضع التصفية</string>
-    <string name="title_lockdown_enabled">تم تأمين مرور المعلومات</string>
-    <string name="title_unmetered_allowed">الحركة الغير مقاسة مسموحة</string>
-    <string name="title_unmetered_blocked">الحركة الغير مقاسة محظورة</string>
-    <string name="title_unmetered_disabled">لا يتم تطبيق قواعد unmetered</string>
-    <string name="title_metered_allowed">الحركة المقاسة مسموحة</string>
-    <string name="title_metered_blocked">الحركة المقاسة محظورة</string>
-    <string name="title_metered_disabled">لا يتم تطبيق قواعد metered</string>
-    <string name="title_host_allowed">العنوان مسموح</string>
+    <string name="msg_update">يوجد تحديث متاح، اضغط للتحميل</string>
+    <string name="msg_usage">يمكنك السماح (باللون الأخضر) أو رفض (باللون الأحمر) وصول Wi-Fi أو الجوال للإنترنت بالضغط على الأيقونات بجوار التطبيق</string>
+    <string name="msg_fairemail">إذا قمت بتثبيت NetGuard لحماية خصوصيتك، فقد تكون مهتمًا أيضًا بتطبيق البريد الإلكتروني مفتوح المصدر والمهتم بالخصوصية <a href="https://email.faircode.eu/">FairEmail</a>.</string>
+    <string name="msg_whitelist">الوصول للإنترنت مسموح به افتراضيًا (وضع القائمة السوداء)، يمكن تغيير ذلك في الإعدادات</string>
+    <string name="msg_push">يتم التعامل مع الرسائل الواردة (push) بشكل أساسي بواسطة مكون النظام خدمات Play، المسموح له بالوصول للإنترنت افتراضيًا</string>
+    <string name="msg_system">يمكن تفعيل إدارة جميع تطبيقات (النظام) في الإعدادات</string>
+    <string name="msg_issue">يرجى وصف المشكلة وذكر وقت حدوثها:</string>
+    <string name="msg_vpn_cancelled">تم إلغاء اتصال VPN\nهل قمت بتكوين VPN آخر كـ \"VPN دائم التشغيل\"؟</string>
+    <string name="msg_on">سيؤدي إغلاق الجهاز مع تفعيل NetGuard إلى بدء NetGuard تلقائيًا عند تشغيل الجهاز</string>
+    <string name="msg_unavailable">هذه الميزة غير متوفرة في إصدار أندرويد هذا</string>
+    <string name="msg_always_on">تم تعيين VPN آخر كـ VPN دائم التشغيل</string>
+    <string name="msg_always_on_lockdown">قم بإيقاف \"حظر الاتصالات بدون VPN\" في إعدادات VPN في أندرويد لاستخدام NetGuard في وضع التصفية</string>
+    <string name="msg_private_dns">قم بإيقاف \"DNS الخاص\" في إعدادات الشبكة في أندرويد لاستخدام NetGuard في وضع التصفية</string>
+
+    <string name="title_lockdown_enabled">حركة المرور مقيدة</string>
+    <string name="title_unmetered_allowed">حركة المرور غير المحدودة مسموحة</string>
+    <string name="title_unmetered_blocked">حركة المرور غير المحدودة محظورة</string>
+    <string name="title_unmetered_disabled">لا يتم تطبيق قواعد غير محدودة</string>
+    <string name="title_metered_allowed">حركة المرور المحدودة مسموحة</string>
+    <string name="title_metered_blocked">حركة المرور المحدودة محظورة</string>
+    <string name="title_metered_disabled">لا يتم تطبيق قواعد محدودة</string>
+    <string name="title_host_allowed">العنوان مسموح به</string>
     <string name="title_host_blocked">العنوان محظور</string>
-    <string name="title_interactive_allowed">السماح عند تكون الشاشة فعالة</string>
-    <string name="title_roaming_blocked">حظر أثناء التجوال</string>
-    <string name="title_metered">بشكل افتراضي، تعتبر شبكات الاتصال اللاسلكي غير مقاسة وشبكات اتصال الهاتف مقاسة</string>
-    <string name="title_internet">ليس لديه اذن انترنت</string>
+    <string name="title_interactive_allowed">مسموح عند تشغيل الشاشة</string>
+    <string name="title_roaming_blocked">محظور عند التجوال</string>
+    <string name="title_metered">افتراضيًا، تعتبر اتصالات Wi-Fi غير محدودة واتصالات الجوال محدودة</string>
+
+    <string name="title_internet">لا يوجد إذن إنترنت</string>
     <string name="title_disabled">معطل</string>
-    <string name="title_messaging">يتم تلقي الرسائل الواردة بواسطة خدمات Google Play وليس عن طريق هذا التطبيق، وبالتالي لا يمكن حظرها عن طريق حظر هذا التطبيق</string>
-    <string name="title_download">يتم التحميل بواسطة مدير التحميلات وليس بواسطة هذا التطبيق ، وبالتالي لا يمكن حظرها عن طريق حظر هذا التطبيق</string>
+    <string name="title_messaging">يتم استقبال الرسائل الواردة بواسطة خدمات Google Play وليس بواسطة هذا التطبيق، لذا لا يمكن منعها عن طريق حظر هذا التطبيق</string>
+    <string name="title_download">يتم إجراء التحميلات بواسطة مدير التحميل وليس بواسطة هذا التطبيق، لذا لا يمكن منعها عن طريق حظر هذا التطبيق</string>
     <string name="title_apply">تطبيق القواعد والشروط</string>
     <string name="title_conditions">الشروط</string>
-    <string name="title_screen_wifi">السماح للشبكات اللاسلكية عندما تكون الشاشة فعالة</string>
-    <string name="title_screen_other">السماح لشبكة الهاتف عندما تكون الشاشة فعالة</string>
-    <string name="title_roaming_symbol">تجوال</string>
-    <string name="title_roaming">حظر أثناء التجوال</string>
-    <string name="title_lockdown">السماح في وضع التأمين</string>
-    <string name="title_related">تصفية ذي الصلة</string>
+    <string name="title_screen_wifi">السماح بـ Wi-Fi عند تشغيل الشاشة</string>
+    <string name="title_screen_other">السماح بالجوال عند تشغيل الشاشة</string>
+    <string name="title_roaming_symbol">R</string>
+    <string name="title_roaming">محظور عند التجوال</string>
+    <string name="label_ttl">TTL: %s ثانية</string>
+    <string name="label_uid">UID: %s</string>
+    <string name="title_lockdown">مسموح في وضع الإغلاق</string>
+    <string name="title_related">متعلق بالتصفية</string>
     <string name="title_access">محاولات الوصول</string>
-    <string name="title_precedence">قواعد الوصول لها الأسبقية على غيرها من القواعد</string>
-    <string name="title_options">الخيارات</string>
-    <string name="title_notify">تنبيه عن محاولات الوصول إلى إنترنت</string>
-    <string name="title_logging_disabled">لم يتم تمكين التسجيل أو التصفية</string>
-    <string name="title_logging_enabled">تم تمكين التسجيل والتصفية</string>
-    <string name="title_logging_configure">ضبط</string>
-    <string name="title_enable_logging">تمكين تسجيل العناوين المحظورة فقط</string>
-    <string name="title_enable_filtering">تمكين التصفية لسجل العناوين المسموح بها</string>
-    <string name="title_enable_notify">تفعيل إشعارات الدخول لأحدث العناوين المسجلة</string>
-    <string name="title_enable_help0">مساعدة تفعيل العنوان</string>
-    <string name="title_enable_help1">تالصفية مطلوبة أيضا للسماح أو حظر العناوين الفردية</string>
-    <string name="title_enable_help2">تمكين تسجيل الدخول (أقل) أو التصفية (أكثر) قد يؤدي إلى زيادة استخدام البطارية وقد تؤثر على سرعة الشبكة</string>
-    <string name="title_rate">قيّم التطبيق</string>
+    <string name="title_precedence">قواعد الوصول لها الأولوية على القواعد الأخرى</string>
+    <string name="title_options">خيارات</string>
+    <string name="title_notify">إشعار بمحاولات الوصول للإنترنت</string>
+
+    <string name="title_logging_disabled">لم يتم تفعيل التسجيل أو التصفية</string>
+    <string name="title_logging_enabled">تم تفعيل التسجيل والتصفية</string>
+    <string name="title_logging_configure">تكوين</string>
+
+    <string name="title_enable_logging">تفعيل تسجيل العناوين المحظورة فقط</string>
+    <string name="title_enable_filtering">تفعيل التصفية لتسجيل العناوين المسموح بها أيضًا</string>
+    <string name="title_enable_notify">تفعيل إشعارات الوصول للعناوين المسجلة حديثًا</string>
+    <string name="title_enable_help0">هذه إعدادات عامة تنطبق على جميع التطبيقات</string>
+    <string name="title_enable_help1">تطلب التصفية أيضًا للسماح أو الحظر لعناوين فردية</string>
+    <string name="title_enable_help2">تفعيل التسجيل (قليلاً) أو التصفية (أكثر) قد يزيد من استهلاك البطارية أو يؤثر على سرعة الشبكة</string>
+
+    <string name="title_rate">تقييم</string>
     <string name="title_allow">سماح</string>
     <string name="title_block">حظر</string>
-    <string name="title_allow_wifi">السماح ل Wi-Fi</string>
+    <string name="title_wifi">Wi-Fi</string>
+    <string name="title_mobile">جوال</string>
+    <string name="title_allow_wifi">السماح بـ Wi-Fi</string>
     <string name="title_block_wifi">حظر Wi-Fi</string>
-    <string name="title_allow_other">السماح للجوال</string>
-    <string name="title_block_other">حظر المحمول</string>
-    <string name="title_root">الجذر</string>
-    <string name="title_mediaserver">خادم الوسائط</string>
-    <string name="title_nobody">لا أحد</string>
+    <string name="title_allow_other">السماح بالجوال</string>
+    <string name="title_block_other">حظر الجوال</string>
+    <string name="title_root">root</string>
+    <string name="title_mediaserver">mediaserver</string>
+    <string name="title_gpsdaemon" translatable="false">GPS daemon</string>
+    <string name="title_dnsdaemon" translatable="false">DNS daemon</string>
+    <string name="title_nobody">nobody</string>
     <string name="title_dontask">لا تسأل مرة أخرى</string>
-    <string name="title_log_whois">بيانات تسجيل اسم النطاق %1$s</string>
+
+    <string name="title_log_whois">Whois %1$s</string>
     <string name="title_log_port">منفذ %1$d</string>
     <string name="title_log_copy">نسخ</string>
-    <string name="title_pro">ميزات النسخة الكاملة</string>
-    <string name="title_pro_description">الميزات التالية للنسخة الكاملة متوفرة:</string>
-    <string name="title_pro_log">عرض سجل الحركة المحظورة</string>
-    <string name="title_pro_filter">تصفية حركة الشبكة</string>
-    <string name="title_pro_notify">تنبيهات تطبيق جديد</string>
-    <string name="title_pro_speed">تنبيه رسم بياني لسرعة الشبكة</string>
-    <string name="title_pro_theme">المظهر (المظهر، ألوان)</string>
-    <string name="title_pro_all">كل ميزات النسخة الكاملة أعلاه</string>
-    <string name="title_pro_dev">دعــم الــتـــطـــويـــر</string>
+
+    <string name="title_pro">ميزات المحترفين</string>
+    <string name="title_pro_description">تتوفر ميزات المحترفين التالية:</string>
+    <string name="title_pro_log">عرض سجل حركة المرور المحظورة</string>
+    <string name="title_pro_filter">تصفية حركة مرور الشبكة</string>
+    <string name="title_pro_notify">إشعارات التطبيقات الجديدة</string>
+    <string name="title_pro_speed">إشعار رسم بياني لسرعة الشبكة</string>
+    <string name="title_pro_theme">المظهر (السمات، الألوان)</string>
+    <string name="title_pro_all">جميع ميزات المحترفين أعلاه</string>
+    <string name="title_pro_dev">دعم التطوير</string>
     <string name="title_pro_buy">شراء</string>
     <string name="title_pro_bought">مفعل</string>
-    <string name="title_pro_unavailable">غير متاح</string>
-    <string name="title_pro_details">اضغط على العنوان لمزيد مِن المعلومات</string>
-    <string name="title_pro_challenge">تحدّي</string>
+    <string name="title_pro_unavailable">غير متوفر</string>
+    <string name="title_pro_details">اضغط على العنوان لمزيد من المعلومات</string>
+    <string name="title_pro_challenge">التحدي</string>
     <string name="title_pro_reponse">الاستجابة</string>
-    <string name="title_pro_feature">هذه ميزة الإصدار المهنية</string>
-    <string name="title_pro_subscription">        اشتراكات شهرية بقيمة ١  أو ٢ يورو (باستثناء الضرائب المحلية) ستفعل كافة الميزات المحترفة.
-        يمكنك إلغاء أو إدارة اشتراك عبر لسان الاشتراكات في تطبيق Play store.
+    <string name="title_pro_feature">هذه ميزة للمحترفين</string>
+    <string name="title_pro_subscription">
+        سيؤدي الاشتراك بمبلغ 1 أو 2 يورو شهريًا (باستثناء الضرائب المحلية) إلى تفعيل جميع ميزات المحترفين.
+        يمكنك إلغاء أو إدارة اشتراكك من علامة تبويب الاشتراكات في تطبيق متجر Play.
     </string>
-    <string-array name="themeNames">
-        <item>أزرق مخضر/برتقالي</item>
-        <item>أزرق/برتقالي</item>
-        <item>بنفسجي/أحمر</item>
-        <item>عنبر/ أزرق</item>
-        <item>برتقالي/ رمادي</item>
-        <item>أخضر</item>
-    </string-array>
-    <string-array name="protocolNames">
+    <string name="title_pro_already">ميزات المحترفين مفعلة بالفعل</string>    <string-array name="protocolNames">
         <item>UDP</item>
         <item>TCP</item>
     </string-array>
+
+    <string-array name="protocolValues" translatable="false">
+        <item>17</item>
+        <item>6</item>
+    </string-array>
+
+    <string name="label_dns_summary">%1$d إدخالات • %2$d منتهية الصلاحية</string>
+
 </resources>

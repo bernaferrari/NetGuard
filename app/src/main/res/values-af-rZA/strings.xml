@@ -1,2 +1,451 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name" translatable="false">NetGuard Next</string>
+    <string name="app_description">NetGuard Next bied eenvoudige en gevorderde maniere om toegang tot die internet te blokkeer - geen root nodig nie. Programme en adresse kan individueel toegelaat of geweier word vir toegang tot jou Wi-Fi en/of mobiele verbinding.</string>
+    <string name="app_copyright" translatable="false">Copyright \u00A9 2015–2025 by M. Bokhorst (M66B)</string>
+    <string name="app_android">NetGuard benodig Android 5.1 of later</string>
+    <string name="app_eula" translatable="false">THIS SOFTWARE IS PROVIDED BY THE AUTHOR \'\'AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
+    <string name="app_privacy"><a href="https://www.netguard.me/privacy/">Privaatheidsbeleid</a></string>
+    <string name="app_first">Groot sorg is geneem om NetGuard te ontwikkel en te toets, maar dit is onmoontlik om te waarborg dat NetGuard op elke toestel korrek sal werk.</string>
+    <string name="app_agree">Ek stem in</string>
+    <string name="app_disagree">Ek stem nie in nie</string>
+    <string name="app_support">NetGuard benodig jou hulp. Tik om pro-funksies te koop om die projek aan die gang te hou.</string>
+    <string name="app_qap">
+        Google sou die toepassing uit die Play Winkel verwyder omdat dit toestemming versoek het om alle toepassings te navraag.
+        Vyf appèlle en die verskaffing van \'n goeie regverdiging oor waarom hierdie toestemming nodig is, is verwerp.
+        Hierdie weergawe van die toepassing versoek hierdie toestemming nie meer nie, en ondanks dit, sal byna alle toepassings nog gelys word, behalwe sommige (stelsel) toepassings wat nie handmatig vanuit die Android-toepassinglys begin kan word nie.
+        Die internetverkeer van hierdie toepassings sal altyd toegelaat word om te verseker dat jou toestel korrek bly werk.
+        As jy dink dit is \'n probleem, kan jy opdateer na die GitHub-weergawe van die toepassing en alle (stelsel) toepassings weer bestuur.
+    </string>
+
+    <string name="channel_foreground">Lopende dienste</string>
+    <string name="channel_notify">Algemene kennisgewings</string>
+    <string name="channel_access">Toegangskennisgewings</string>
+
+    <string name="menu_search">Soek vir toepassing</string>
+    <string name="menu_filter">Filtreer toepassings</string>
+    <string name="menu_app_user">Wys gebruikerstoepassings</string>
+    <string name="menu_app_system">Wys stelseltoepassings</string>
+    <string name="menu_app_nointernet">Wys toepassings sonder internet</string>
+    <string name="menu_app_disabled">Wys gedeaktiveerde toepassings</string>
+    <string name="menu_sort">Sorteer toepassings</string>
+    <string name="menu_sort_name">Sorteer volgens naam</string>
+    <string name="menu_sort_uid">Sorteer volgens uid</string>
+    <string name="menu_sort_data">Sorteer volgens datagebruik</string>
+    <string name="menu_launch">Lanseer toepassing</string>
+    <string name="menu_log">Wys log</string>
+    <string name="menu_settings">Instellings</string>
+    <string name="menu_home">Tuis</string>
+    <string name="menu_invite">Nooi uit</string>
+    <string name="menu_legend">Legende</string>
+    <string name="menu_support">Ondersteuning</string>
+    <string name="menu_about">Oor</string>
+    <string name="menu_apps">Ander toepassings</string>
+    <string name="menu_firewall">Brandmuur</string>
+    <string name="status_enabled">Brandmuur geaktiveer</string>
+    <string name="status_disabled">Brandmuur gedeaktiveer</string>
+    <string name="widget_firewall_enabled">Brandmuur AAN</string>
+    <string name="widget_firewall_disabled">Brandmuur AF</string>
+    <string name="widget_lockdown_enabled">Sluit AAN</string>
+    <string name="widget_lockdown_disabled">Sluit AF</string>
+    <string name="notify_traffic_title">Verkeersmonitor</string>
+    <string name="notify_traffic_summary">Op %1$s • Af %2$s • Piek %3$s</string>
+    <string name="notify_traffic_debug">Sessies %1$d/%2$d/%3$d • Lêers %4$d/%5$d</string>
+    <string name="ui_loading">Laai…</string>
+    <string name="ui_empty_logs_title">Nog geen verkeer nie</string>
+    <string name="ui_empty_logs_body">Sodra verbinding verskyn, sal hulle hier wys.</string>
+    <string name="ui_empty_apps_title">Geen toepassings gevind nie</string>
+    <string name="ui_empty_apps_body">Probeer om die lys te verfris.</string>
+    <string name="ui_empty_dns_title">Nog geen opgeloste DNS nie</string>
+    <string name="ui_empty_dns_body">DNS-antwoorde sal hier verskyn nadat jy blaai.</string>
+    <string name="ui_dns_filter_empty">Geen DNS-inskrywings pas by hierdie filter nie.</string>
+    <string name="ui_empty_forwarding_title">Geen aanstuur-reëls nie</string>
+    <string name="ui_empty_forwarding_body">Voeg \'n reël by om verkeer te begin aanstuur.</string>
+    <string name="ui_forwarding_filter_empty">Geen aanstuur-reëls pas by hierdie filter nie.</string>
+    <string name="ui_empty_pro_body">Ondersteuning ontsluit ekstra funksies en hou die projek lewendig.</string>
+    <string name="ui_empty_pro_details">Pro ontsluit: filtrering, aanmelding, kennisgewings, temas en spoedlimiete.</string>
+    <string name="ui_home_hint">Beheer internettoegang vir elke toepassing.</string>
+    <string name="ui_home_quick_actions">Vinnige aksies</string>
+    <string name="ui_apps_title">Brandmuur</string>
+    <string name="ui_logs_title">Verkeerslog</string>
+    <string name="ui_logs_filters">Filters</string>
+    <string name="ui_logs_filter_status">Status</string>
+    <string name="ui_logs_filter_protocol">Protokol</string>
+    <string name="ui_logs_filter_view">Bekyk</string>
+    <string name="ui_logs_group_timeline">Tydlyn</string>
+    <string name="ui_logs_group_by_app">Volgens toepassing</string>
+    <string name="ui_logs_unknown_source">Onbekende bron</string>
+    <string name="ui_settings_title">Instellings</string>
+    <string name="ui_dns_title">Opgeloste DNS</string>
+    <string name="ui_forwarding_title">Poort aanstuur</string>
+    <string name="ui_dns_hint">Onlangs opgeloste domeine en antwoorde.</string>
+    <string name="ui_forwarding_hint">Bestuur aanstuur-reëls en teikentoepassings.</string>
+    <string name="ui_dns_active">Aktief</string>
+    <string name="ui_rule_custom">Doelgemaak</string>
+    <string name="ui_dns_expired">Verstryk</string>
+    <string name="ui_filter_all">Alles</string>
+    <string name="ui_filter_empty">Geen toepassings pas by hierdie filter nie.</string>
+    <string name="ui_apps_search_empty">Geen toepassings pas by hierdie soektog nie.</string>
+    <string name="ui_learn_more">Leer meer</string>
+    <string name="status_running">Verkeer word gefiltreer</string>
+    <string name="status_not_running">Verkeer word nie gefiltreer nie</string>
+    <string name="action_enable">Aktiveer</string>
+    <string name="action_disable">Deaktiveer</string>
+    <string name="home_apps_hint">Hersien toepassingsreëls en datagebruik</string>
+    <string name="home_logs_hint">Ondersoek onlangse netwerkaktiwiteit</string>
+
+    <!-- Accessibility -->
+    <string name="action_expand">Brei besonderhede uit</string>
+    <string name="action_collapse">Vou besonderhede in</string>
+    <string name="action_navigate">Maak oop</string>
+    <string name="action_toggle_firewall">Wissel brandmuur</string>
+    <string name="action_clear_search">Vee soektog uit</string>
+    <string name="search_settings">Soek instellings</string>
+    <string name="content_desc_security_status">Brandmuur sekuriteitstatus</string>
+    <string name="content_desc_app_icon">Toepassing-ikoon vir %s</string>
+    <string name="content_desc_show_info">Wys inligting oor %1$s</string>
+
+    <!-- Dashboard stats -->
+    <string name="stat_blocked_today">Geblokkeer</string>
+    <string name="stat_allowed_today">Toegelaat</string>
+    <string name="stat_active_rules">Aktiewe reëls</string>
+
+    <!-- Tooltips -->
+    <string name="tooltip_rcode">DNS-antwoordkode gestuur vir geblokkeerde domeine. Verstek 3 (NXDOMAIN) beteken domein bestaan nie.</string>
+    <string name="tooltip_ttl">Minimum tyd-tot-lewe vir DNS-kasinskrywings in sekondes.</string>
+    <string name="tooltip_pcap">Neem alle netwerkpakkette op vir ontfouting. Skep groot lêers.</string>
+    <string name="tooltip_filter">Onderskep en ontleed verkeer. Vereis vir per-adres blokkering. Gebruik meer battery.</string>
+    <string name="tooltip_lockdown">Blokkeer alle verkeer behalwe uitdruklik toegelate toepassings. Gebruik versigtig.</string>
+
+    <string name="menu_protocol_udp" translatable="false">UDP</string>
+    <string name="menu_protocol_tcp" translatable="false">TCP</string>
+    <string name="menu_protocol_other">Ander</string>
+    <string name="menu_traffic_allowed">Toegelaat</string>
+    <string name="menu_traffic_blocked">Geblokkeer</string>
+    <string name="menu_live">Regstreekse opdaterings</string>
+    <string name="menu_refresh">Verfris</string>
+    <string name="menu_ok">OK</string>
+    <string name="menu_cancel">Kanselleer</string>
+    <string name="menu_resolve">Wys name</string>
+    <string name="menu_organization">Wys organisasie</string>
+    <string name="menu_pcap_enabled">PCAP geaktiveer</string>
+    <string name="menu_pcap_export">PCAP uitvoer</string>
+    <string name="menu_clear">Vee uit</string>
+    <string name="menu_export">Voer uit</string>
+    <string name="menu_reset">Stel terug</string>
+
+    <string name="menu_add">Voeg by</string>
+    <string name="menu_delete">Vee uit</string>
+
+    <string name="menu_cleanup">Skoonmaak</string>
+
+    <string name="title_protocol">Protokol</string>
+    <string name="title_dport">Bronpoort</string>
+    <string name="title_raddr">Bestemmingsadres</string>
+    <string name="title_rport">Bestemmingspoort</string>
+    <string name="title_ruid">Bestemmingstoepassing</string>
+    <string name="title_external">Vir \'n eksterne bediener kies \'nobody\'</string>
+
+    <string name="setting_defaults">Verstek (wit/swartlys)</string>
+    <string name="setting_whitelist_wifi">Blokkeer Wi-Fi</string>
+    <string name="setting_whitelist_other">Blokkeer mobiel</string>
+    <string name="setting_screen_wifi">Laat Wi-Fi toe wanneer skerm aan is</string>
+    <string name="setting_screen_other">Laat mobiel toe wanneer skerm aan is</string>
+    <string name="setting_whitelist_roaming">Blokkeer roaming</string>
+
+    <string name="setting_options">Opsies</string>
+    <string name="setting_theme">Tema: %1$s</string>
+    <string name="setting_dark">Gebruik donker tema</string>
+    <string name="setting_theme_palette">Kies \'n kleurstyl</string>
+    <string name="setting_dynamic_unavailable">Dinamiese kleure benodig Android 12 of later.</string>
+    <string name="setting_appearance_mode">Voorkomsmodus</string>
+    <string name="setting_appearance_mode_title">Donkermodus</string>
+    <string name="setting_appearance_mode_summary">Kies Af, Aan, of Volg stelsel.</string>
+    <string name="setting_appearance_preview">Huidig: %1$s · %2$s</string>
+    <string name="setting_appearance_auto">Outo</string>
+    <string name="setting_appearance_light">Lig</string>
+    <string name="setting_appearance_dark">Donker</string>
+    <string name="theme_dynamic" translatable="false">Dynamic</string>
+    <string name="setting_install">Stel in kennis by nuwe installasie</string>
+    <string name="setting_screen_on">Pas \'wanneer skerm aan\' reëls toe</string>
+    <string name="setting_auto">Outo aktiveer na %1$s minute</string>
+    <string name="setting_delay">Vertraag skerm af %1$s minute</string>
+    <string name="setting_update">Gaan vir opdaterings</string>
+    <string name="setting_update_now">Kontroleer nou</string>
+    <string name="setting_update_checking">Gaan tans nasien...</string>
+
+    <string name="setting_network_options">Netwerkopsies</string>
+    <string name="setting_subnet">Subnet roetering</string>
+    <string name="setting_tethering">Laat tethering toe</string>
+    <string name="setting_lan">Laat LAN-toegang toe</string>
+    <string name="setting_ip6">Aktiveer IPv6-verkeer</string>
+    <string name="setting_wifi_home">Wi-Fi tuisnetwerke: %1$s</string>
+    <string name="setting_metered">Hanteer gemete Wi-Fi-netwerke</string>
+    <string name="setting_metered_2g">Beskou 2G as ongemete</string>
+    <string name="setting_metered_3g">Beskou 3G as ongemete</string>
+    <string name="setting_metered_4g">Beskou LTE as ongemete</string>
+    <string name="setting_national_roaming">Ignoreer nasionale roaming</string>
+    <string name="setting_eu_roaming">Ignoreer EU-roaming</string>
+    <string name="setting_call">Deaktiveer tydens oproep</string>
+    <string name="setting_lockdown_wifi">Sluit Wi-Fi</string>
+    <string name="setting_lockdown_other">Sluit mobiel</string>
+    <string name="setting_reload_onconnectivity">Herlaai by elke verbindingsverandering</string>
+
+    <string name="setting_advanced_options">Gevorderde opsies</string>
+    <string name="setting_system">Bestuur stelseltoepassings</string>
+    <string name="setting_log_app">Meld internettoegang</string>
+    <string name="setting_log_retention_days">Verkeerslog retensie dae</string>
+    <string name="setting_access">Stel in kennis by internettoegang</string>
+    <string name="setting_filter">Filtreer verkeer</string>
+    <string name="setting_filter_udp">Filtreer UDP-verkeer</string>
+    <string name="setting_handover">Naatlose VPN-oorgang by herlaai</string>
+    <string name="setting_clear_onreload">Sluit verbindinge by herlaai</string>
+    <string name="setting_lockdown">Sluit verkeer</string>
+    <string name="setting_malware" translatable="false">Wanware beskerming</string>
+    <string name="setting_track_usage">Volg netwerkgebruik</string>
+    <string name="setting_reset_usage">Stel netwerkgebruik terug</string>
+    <string name="setting_show_resolved">Wys opgeloste domeinname</string>
+    <string name="setting_block_domains">Blokkeer domeinname</string>
+    <string name="setting_rcode">DNS-antwoordkode: %s</string>
+    <string name="setting_forwarding">Poort aanstuur</string>
+    <string name="setting_vpn4">VPN IPv4: %s</string>
+    <string name="setting_vpn6">VPN IPv6: %s</string>
+    <string name="setting_dns">VPN DNS: %s</string>
+    <string name="setting_dns2">Sekondêre DNS: %s</string>
+    <string name="setting_validate">Valideer by: %s</string>
+    <string name="setting_ttl">Minimum DNS TTL: %s s</string>
+    <string name="setting_socks5_enabled">Gebruik SOCKS5 instaanbediener</string>
+    <string name="setting_socks5_addr">SOCKS5 adres: %s</string>
+    <string name="setting_socks5_port">SOCKS5 poort: %s</string>
+    <string name="setting_socks5_username">SOCKS5 gebruikersnaam: %s</string>
+    <string name="setting_socks5_password">SOCKS5 wagwoord: %s</string>
+    <string name="setting_pcap_record_size">PCAP rekordgrootte: %s B</string>
+    <string name="setting_pcap_file_size">PCAP maks. lêergrootte: %s MB</string>
+    <string name="setting_pcap">Neem netwerkverkeer op (PCAP)</string>
+    <string name="setting_watchdog">Waghond: elke %s minute</string>
+
+    <string name="setting_stats_category">Spoedkennisgewing</string>
+    <string name="setting_stats">Wys spoedkennisgewing</string>
+    <string name="setting_stats_top">Wys top toepassings</string>
+    <string name="setting_stats_frequency">Steekproefinterval: %s ms</string>
+    <string name="setting_stats_samples">Aantal steekproewe: %s</string>
+
+    <string name="setting_backup">Rugsteun</string>
+    <string name="setting_export">Voer instellings uit</string>
+    <string name="setting_import">Voer instellings in</string>
+    <string name="setting_hosts">Voer hosts-lêer in</string>
+    <string name="setting_hosts_append">Voer hosts-lêer in (voeg by)</string>
+    <string name="setting_hosts_url">Hosts-lêer aflaai URL</string>
+    <string name="setting_hosts_download">Laai hosts-lêer af</string>
+    <string name="setting_use_hosts">Gebruik hosts-lêer</string>
+
+    <string name="setting_technical">Tegniese inligting</string>
+    <string name="setting_technical_general">Algemeen</string>
+    <string name="setting_technical_networks">Netwerke</string>
+    <string name="setting_technical_subscription">Subskripsie</string>
+    <string name="setting_section_appearance">Voorkoms</string>
+    <string name="setting_section_firewall">Brandmuurreëls</string>
+    <string name="setting_section_advanced">Gevorderde gedrag</string>
+    <string name="setting_section_hosts">Hosts &amp; DNS</string>
+    <string name="setting_section_network">Netwerkopstelling</string>
+    <string name="setting_section_dns">DNS-besonderhede</string>
+    <string name="setting_section_proxy">Instaanbediener</string>
+    <string name="setting_section_vpn">VPN-opstelling</string>
+    <string name="setting_section_background">Agtergrondtake</string>
+    <string name="setting_section_diagnostics">Diagnostiek</string>
+    <string name="setting_section_support">Ondersteuning</string>
+
+    <string name="summary_install">Wys statusbalkkennisgewing om nuut geïnstalleerde toepassings direk op te stel (pro-funksie)</string>
+    <string name="summary_auto">Na deaktivering met die widget, aktiveer NetGuard outomaties weer na die geselekteerde aantal minute (voer nul in om hierdie opsie te deaktiveer)</string>
+    <string name="summary_delay">Na die skerm af skakel, hou skerm aan reëls aktief vir die geselekteerde aantal minute (voer nul in om hierdie opsie te deaktiveer)</string>
+    <string name="summary_update">Gaan vir nuwe vrystellings op GitHub twee keer per dag</string>
+
+    <string name="summary_tethering">Afhangende van die Android-weergawe, kan tethering werk of nie werk nie. Getetherde verkeer kan nie gefiltreer word nie.</string>
+    <string name="summary_subnet">Aktiveer subnet roetering; kan Wi-Fi-bellings aktiveer, maar kan ook foute in Android versoorsaak en batterygebruik verhoog</string>
+    <string name="summary_lan">Laat toepassings toe om met lokale area netwerkadresse te verbind, soos 10.0.0.0/8, 172.16.0.0/12 en 192.168.0.0/16</string>
+    <string name="summary_ip6">Roeteer IP weergawe 6-verkeer na NetGuard sodat dit selektief toegelaat of geblokkeer kan word</string>
+    <string name="summary_wifi_home">Pas Wi-Fi netwerkreëls toe vir geselekteerde netwerk slegs (pas mobiele netwerkreëls toe vir ander Wi-Fi-netwerke)</string>
+    <string name="summary_metered">Pas mobiele netwerkreëls toe op gemete (betaalde, getetherde) Wi-Fi-netwerke</string>
+    <string name="summary_metered_2g">Pas Wi-Fi netwerkreëls toe vir 2G data-verbindinge</string>
+    <string name="summary_metered_3g">Pas Wi-Fi netwerkreëls toe vir 3G data-verbindinge</string>
+    <string name="summary_metered_4g">Pas Wi-Fi netwerkreëls toe vir LTE data-verbindinge</string>
+    <string name="summary_national_roaming">Moenie roaming-reëls toepas wanneer die SIM- en mobiele netwerkland dieselfde is nie</string>
+    <string name="summary_eu_roaming">Moenie roaming-reëls toepas wanneer die SIM- en mobiele netwerkland binne the EU is nie (roam soos tuis)</string>
+    <string name="summary_call">Deaktiveer NetGuard op inkomende of uitgaande telefoonoproep. Dit kan gebruik word om IP/Wi-Fi oproepprobleme te omseil.</string>
+
+    <string name="summary_system">Definieer reëls vir stelseltoepassings (vir kundiges)</string>
+    <string name="summary_log_app">Meld pogings om toegang tot die internet te kry vir toepassings. Dit kan tot ekstra batterygebruik lei.</string>
+    <string name="summary_log_retention_days">Verwyder outomaties ou verkeerslogboeke tydens skoonmaak. Stel 0 om logboeke vir ewig te hou.</string>
+    <string name="summary_access">Wys \'n statusbalkkennisgewing wanneer \'n toepassing probeer om toegang tot \'n nuwe internetadres te kry (wanneer filtrering gedeaktiveer is, sal slegs geblokkeerde internettoegangspogings aangemeld word)</string>
+    <string name="summary_filter">Filtreer IP-pakkies wat uit die VPN-tonnel uitgaan. Dit kan tot ekstra batterygebruik lei.</string>
+    <string name="summary_track_usage">Volg die aantal grepe gestuur en ontvang vir elke toepassing en adres. Dit kan tot ekstra batterygebruik lei.</string>
+    <string name="summary_block_domains">Reageer met die gekonfigureerde DNS-antwoordkode vir geblokkeerde domeinname. Hierdie skakel is gedeaktiveer wanneer geen hosts-lêer beskikbaar is nie.</string>
+    <string name="summary_rcode">Die verstekwaarde is 3 (NXDOMAIN), wat beteken \'nie-bestaande domein\'.</string>
+    <string name="summary_validate">Domeinnaam gebruik om die internetverbinding te valideer by poort 443 (https).</string>
+    <string name="summary_socks5_enabled">Slegs TCP-verkeer sal na die instaanbediener gestuur word</string>
+    <string name="summary_watchdog">Gaan periodiek na of NetGuard nog loop (voer nul in om hierdie opsie te deaktiveer). Dit kan tot ekstra batterygebruik lei.</string>
+
+    <string name="summary_stats">Wys netwerksnelheidgrafiek in statusbalkkennisgewing</string>
+
+    <string-array name="default_wifi_home"></string-array>
+
+    <string name="msg_sure">Is jy seker?</string>
+    <string name="msg_started">Dwing reëls af</string>
+    <string name="msg_packages">%1$d toegelaat, %2$d geblokkeer</string>
+    <string name="msg_hosts">%1$d toegelaat, %2$d geblokkeer, %3$d hosts</string>
+    <string name="msg_waiting">Wag vir gebeurtenis</string>
+    <string name="msg_disabled">NetGuard is gedeaktiveer, gebruik die skakel hierbo om NetGuard te aktiveer</string>
+    <string name="msg_notifications">Tik om kennisgewingstoestemmings te verleen (vir toegangspogingkennisgewings, foutboodskappe, ens.)</string>
+    <string name="msg_revoked">NetGuard is gedeaktiveer, waarskynlik deur \'n ander VPN-gebaseerde toepassing te gebruik</string>
+    <string name="msg_installed">\'%1$s\' geïnstalleer</string>
+    <string name="msg_installed_n">Is geïnstalleer</string>
+    <string name="msg_malware" translatable="false">Moontlike wanware: \'%1$s\'</string>
+    <string name="msg_access">%1$s het internettoegang probeer</string>
+    <string name="msg_access_n">Het internettoegang probeer</string>
+    <string name="msg_completed">Aksie voltooi</string>
+    <string name="msg_invalid">Gaan asseblief die waardes na en probeer weer.</string>
+    <string name="msg_export_failed">Uitvoer misluk: %1$s</string>
+    <string name="msg_vpn">NetGuard gebruik \'n plaaslike VPN om internetverkeer te filtreer.
+Om hierdie rede, laat asseblief \'n VPN-verbinding in die volgende dialoog toe.
+Jou internetverkeer word nie na \'n afgeleë VPN-bediener gestuur nie.</string>
+    <string name="msg_autostart">NetGuard kon nie outomaties begin nie. Dit is waarskynlik as gevolg van \'n fout in jou Android-weergawe.</string>
+    <string name="msg_error">\'n Onverwagte fout het voorgekom: \'%s\'</string>
+    <string name="msg_start_failed">Android het geweier om die VPN-diens op hierdie oomblik te begin. Dit is waarskynlik as gevolg van \'n fout in jou Android-weergawe.</string>
+    <string name="msg_try">Probeer NetGuard</string>
+    <string name="msg_terms">Deur te skenk stem jy in tot die <a href="http://www.netguard.me/#terms">bepalings &amp; voorwaardes</a></string>
+    <string name="msg_dimming">As jy nie OK in die volgende dialoog kan druk nie, manipuleer \'n ander (skerm verdonker) toepassing waarskynlik die skerm.</string>
+    <string name="msg_mbday">&#177; %1$.3f&#9650; %2$.3f&#9660; MB/dag</string>
+    <string name="msg_kbsec">%7.3f KB/s</string>
+    <string name="msg_mbsec">%7.3f MB/s</string>
+    <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
+    <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
+    <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
+    <string name="msg_count">%dx</string>
+    <string name="msg_doze">Vir konsekwente resultate moet die Android-batteryoptimalisasies vir NetGuard gedeaktiveer word.
+\n\nIn die volgende dialoog, kies \"Alle toepassings\" bo-aan, tik op NetGuard in die lys en kies en bevestig \"Moenie optimaliseer\".</string>
+    <string name="msg_datasaving">Vir konsekwente resultate moet die Android-databesparingsopsies vir NetGuard gedeaktiveer word.
+\n\nIn die volgende dialoog, aktiveer die opsies \"Agtergronddata\" en \"Onbeperkte datagebruik\".</string>
+    <string name="msg_filter">Die gebruik van filtrering sal veroorsaak dat Android data- en kraggebruik aan NetGuard toeskryf - Android neem aan dat die data en krag deur NetGuard gebruik word, eerder as die oorspronklike toepassings</string>
+    <string name="msg_filter4">Android 4 vereis dat filtrering geaktiveer word</string>
+    <string name="msg_log_disabled">Verkeersaanmelding is gedeaktiveer, gebruik die skakel hierbo om aanmelding te aktiveer. Verkeersaanmelding kan tot ekstra batterygebruik lei.</string>
+    <string name="msg_clear_rules">Dit sal die reëls en voorwaardes na hul verstekwaardes terugstel</string>
+    <string name="msg_reset_access">Dit sal toegangspoging-logreëls sonder toelaat/blokkeer-reëls uitvee</string>
+    <string name="msg_import_last">Laaste invoer: %s</string>
+    <string name="msg_downloading">Laai af\n%1s</string>
+    <string name="msg_downloaded">Hosts-lêer afgelaai</string>
+    <string name="msg_download_last">Laaste aflaai: %s</string>
+    <string name="msg_start_forward">Begin aanstuur van %1$s poort %2$d na %3$s:%4$d van \'%5$s\'?</string>
+    <string name="msg_stop_forward">Stop aanstuur van %1$s poort %2$d?</string>
+    <string name="msg_metered">Netwerk is gemete</string>
+    <string name="msg_inactive">Geen aktiewe internetverbinding nie</string>
+    <string name="msg_queue">NetGuard is besig</string>
+    <string name="msg_update">Opdatering beskikbaar, tik om af te laai</string>
+    <string name="msg_usage">Jy kan Wi-Fi of mobiele internettoegang toelaat (groenerig) of weier (rooierig) deur op die ikone langs \'n toepassing te tik</string>
+    <string name="msg_fairemail">As jy NetGuard geïnstalleer het om jou privaatheid te bescherm, is jy dalk ook geïnteresseerd in <a href="https://email.faircode.eu/">FairEmail</a>, \'n oopbron, privaatheidsvriendelike e-pos toepassing</string>
+    <string name="msg_whitelist">Internettoegang is by verstek toegelaat (swartlysmodus), dit kan in die instellings verander word</string>
+    <string name="msg_push">Inkomende (stoot) boodskappe word meestal deur die stelselkomponent Play-diens hanteer, wat by verstek internettoegang toegelaat word</string>
+    <string name="msg_system">Bestuur van alle (stelsel) toepassings kan in die instellings geaktiveer word</string>
+    <string name="msg_issue">Beskryf asseblief die probleem en dui die tyd van die probleem aan:</string>
+    <string name="msg_vpn_cancelled">VPN-verbinding gekanselleer\nHet jy \'n ander VPN as altyd-aan VPN opgestel?</string>
+    <string name="msg_on">Deur jou toestel af te skakel met NetGuard geaktiveer, sal NetGuard outomaties begin wanneer jy jou toestel aanskakel</string>
+    <string name="msg_unavailable">Hierdie funksie is nie beskikbaar op hierdie Android-weergawe nie</string>
+    <string name="msg_always_on">\'n Ander VPN is as Altyd-aan VPN ingestel</string>
+    <string name="msg_always_on_lockdown">Skakel \"Blokkeer verbindinge sonder VPN\" af in Android VPN-instellings om NetGuard in filtreringsmodus te gebruik</string>
+    <string name="msg_private_dns">Skakel \"Privaat DNS\" af in Android netwerkinstellings om NetGuard in filtreringsmodus te gebruik</string>
+
+    <string name="title_lockdown_enabled">Verkeer is gesluit</string>
+    <string name="title_unmetered_allowed">Ongemete verkeer is toegelaat</string>
+    <string name="title_unmetered_blocked">Ongemete verkeer is geblokkeer</string>
+    <string name="title_unmetered_disabled">Ongemete reëls word nie toegepas nie</string>
+    <string name="title_metered_allowed">Gemete verkeer is toegelaat</string>
+    <string name="title_metered_blocked">Gemete verkeer is geblokkeer</string>
+    <string name="title_metered_disabled">Gemete reëls word nie toegepas nie</string>
+    <string name="title_host_allowed">Adres is toegelaat</string>
+    <string name="title_host_blocked">Adres is geblokkeer</string>
+    <string name="title_interactive_allowed">Laat toe wanneer skerm aan is</string>
+    <string name="title_roaming_blocked">Blokkeer tydens roaming</string>
+    <string name="title_metered">By verstek word \'n Wi-Fi-verbinding as ongemete beskou en \'n mobiele verbinding as gemete</string>
+
+    <string name="title_internet">het geen internettoestemming nie</string>
+    <string name="title_disabled">is gedeaktiveer</string>
+    <string name="title_messaging">Inkomende boodskappe word deur Google Play-diens ontvang en nie deur hierdie toepassing en kan dus nie geblokkeer word deur hierdie toepassing te blokkeer nie</string>
+    <string name="title_download">Aflaaie word deur die aflaaibestuurder uitgevoer en nie deur hierdie toepassing en kan dus nie geblokkeer word deur hierdie toepassing te blokkeer nie</string>
+    <string name="title_apply">Pas reëls en voorwaardes toe</string>
+    <string name="title_conditions">Voorwaardes</string>
+    <string name="title_screen_wifi">Laat Wi-Fi toe wanneer skerm aan is</string>
+    <string name="title_screen_other">Laat mobiel toe wanneer skerm aan is</string>
+    <string name="title_roaming_symbol">R</string>
+    <string name="title_roaming">Blokkeer tydens roaming</string>
+    <string name="label_ttl">TTL: %s s</string>
+    <string name="label_uid">UID: %s</string>
+    <string name="title_lockdown">Laat in sluitmodus toe</string>
+    <string name="title_related">Filtreer verwante</string>
+    <string name="title_access">Toegangspogings</string>
+    <string name="title_precedence">Toegangsreëls het voorkeur bo ander reëls</string>
+    <string name="title_options">Opsies</string>
+    <string name="title_notify">Stel in kennis van internettoegangspogings</string>
+
+    <string name="title_logging_disabled">Aanmelding of filtrering is nie geaktiveer nie</string>
+    <string name="title_logging_enabled">Aanmelding en filtrering is geaktiveer</string>
+    <string name="title_logging_configure">Stel op</string>
+
+    <string name="title_enable_logging">Aktiveer aanmelding van slegs geblokkeerde adresse</string>
+    <string name="title_enable_filtering">Aktiveer filtrering om ook toegelate adresse aan te meld</string>
+    <string name="title_enable_notify">Aktiveer toegangskennisgewings vir nuut aangemelde adresse</string>
+    <string name="title_enable_help0">Hierdie instellings is globale instellings wat op alle toepassings van toepassing is</string>
+    <string name="title_enable_help1">Filtrering is ook vereis om individuele adresse toe te laat of te blokkeer</string>
+    <string name="title_enable_help2">Aktivering van aanmelding (minder) of filtrering (meer) kan batterygebruik verhoog en netwerksnelheid beïnvloed</string>
+
+    <string name="title_rate">Gradeer</string>
+    <string name="title_allow">Laat toe</string>
+    <string name="title_block">Blokkeer</string>
+    <string name="title_wifi">Wi-Fi</string>
+    <string name="title_mobile">Mobiel</string>
+    <string name="title_allow_wifi">Laat Wi-Fi toe</string>
+    <string name="title_block_wifi">Blokkeer Wi-Fi</string>
+    <string name="title_allow_other">Laat mobiel toe</string>
+    <string name="title_block_other">Blokkeer mobiel</string>
+    <string name="title_root">root</string>
+    <string name="title_mediaserver">mediaserver</string>
+    <string name="title_gpsdaemon" translatable="false">GPS daemon</string>
+    <string name="title_dnsdaemon" translatable="false">DNS daemon</string>
+    <string name="title_nobody">niemand</string>
+    <string name="title_dontask">Moenie weer vra nie</string>
+
+    <string name="title_log_whois">Whois %1$s</string>
+    <string name="title_log_port">Poort %1$d</string>
+    <string name="title_log_copy">Kopieer</string>
+
+    <string name="title_pro">Pro-funksies</string>
+    <string name="title_pro_description">Die volgende pro-funksies is beskikbaar:</string>
+    <string name="title_pro_log">Bekyk geblokkeerde verkeerslog</string>
+    <string name="title_pro_filter">Filtreer netwerkverkeer</string>
+    <string name="title_pro_notify">Nuwe toepassingskennisgewings</string>
+    <string name="title_pro_speed">Netwerksnelheidgrafiek-kennisgewing</string>
+    <string name="title_pro_theme">Voorkoms (tema, kleure)</string>
+    <string name="title_pro_all">Alle bogenoemde pro-funksies</string>
+    <string name="title_pro_dev">Ondersteun ontwikkeling</string>
+    <string name="title_pro_buy">Koop</string>
+    <string name="title_pro_bought">Geaktiveer</string>
+    <string name="title_pro_unavailable">Nie beskikbaar nie</string>
+    <string name="title_pro_details">Tik op \'n titel vir meer inligting</string>
+    <string name="title_pro_challenge">Uitdaging</string>
+    <string name="title_pro_reponse">Antwoord</string>
+    <string name="title_pro_feature">Dit is \'n pro-funksie</string>
+    <string name="title_pro_subscription">
+        \'n Maandelikse intekening van 1 of 2 euro (uitgesluit plaaslike belastings) sal alle pro-funksies aktiveer.
+        Jy kan \'n intekening kanselleer of bestuur via die intekenings-oortjie in die Play Winkel-toepassing.
+    </string>
+    <string name="title_pro_already">Die pro-funksies is reeds geaktiveer</string>    <string-array name="protocolNames">
+        <item>UDP</item>
+        <item>TCP</item>
+    </string-array>
+
+    <string-array name="protocolValues" translatable="false">
+        <item>17</item>
+        <item>6</item>
+    </string-array>
+
+    <string name="label_dns_summary">%1$d inskrywings • %2$d verstryk</string>
+
+</resources>

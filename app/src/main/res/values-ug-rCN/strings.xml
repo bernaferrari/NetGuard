@@ -1,8 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name" translatable="false">NetGuard Next</string>
     <string name="app_description">روتسىز تورنى توسۇشقا بولىدۇ. wifi ۋە سىمسىز تورنى باشقۇرغىلى بولىدۇ.</string>
+    <string name="app_copyright" translatable="false">Copyright \u00A9 2015–2025 by M. Bokhorst (M66B)</string>
+    <string name="app_android">NetGuard ئۈچۈن Android 5.1 ياكى ئۇنىڭدىن يۇقىرى نەشرى كېرەك</string>
+    <string name="app_eula" translatable="false">THIS SOFTWARE IS PROVIDED BY THE AUTHOR \'\'AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
+    <string name="app_privacy"><a href="https://www.netguard.me/privacy/">مەخپىيەتلىك تۈزۈمى</a></string>
+    <string name="app_first">NetGuard نى تەرەققىي قىلدۇرۇش ۋە سىناق قىلىشقا ئىنتايىن ئەھمىيەت بېرىلدى، ئەمما NetGuard نىڭ ھەر بىر ئۈسكۈنىدە نورمال ئىشلىشىگە كاپالەتلىك قىلغىلى بولمايدۇ.</string>
     <string name="app_agree">قوشۇلىمەن</string>
     <string name="app_disagree">قوشۇلمايمەن</string>
+    <string name="app_support">NetGuard سىزنىڭ ياردىمىڭىزگە موھتاج. Pro ئىقتىدارلارنى سېتىۋېلىپ تۈرنى قوللاڭ.</string>
+    <string name="app_qap">
+        Google ئەپنى Play Store دىن چىقىرىۋەتمەكچى بولغان، چۈنكى ئۇ بارلىق ئەپلەرنى سۈرۈشتۈرۈش ھوقۇقىنى تەلەپ قىلغان.
+        بەش قېتىملىق ئىلتىماس ۋە بۇ ھوقۇقنىڭ نېمە ئۈچۈن كېرەكلىكى ھەققىدىكى چۈشەندۈرۈشلەر رەت قىلىنغان.
+        ئەپنىڭ بۇ نەشرى ئەمدى بۇ ھوقۇقنى تەلەپ قىلمايدۇ،
+        شۇنداقتىمۇ، ئاندىرويىد ئەپ تىزىملىكىدىن ئۆزىڭىز قوزغىتالمىغان بەزى (سىستېما) ئەپلىرىدىن باشقا ھەممە ئەپ يەنىلا تىزىملىكتە كۆرۈنىدۇ.
+        بۇ ئەپلەرنىڭ تور ئېقىمىغا ھەمىشە يول قويۇلۇپ، تېلېفونىڭىزنىڭ نورمال ئىشلىشىگە كاپالەتلىك قىلىنىدۇ.
+        ئەگەر بۇنى مەسىلە دەپ قارىسىڭىز، ئەپنىڭ GitHub نەشرىگە يېڭىلاپ، بارلىق (سىستېما) ئەپلىرىنى قايتىدىن باشقۇرالايسىز.
+    </string>
+
+    <string name="channel_foreground">ئىجرا بولۇۋاتقان مۇلازىمەتلەر</string>
+    <string name="channel_notify">ئادەتتىكى ئۇقتۇرۇشلار</string>
+    <string name="channel_access">زىيارەت ئۇقتۇرۇشلىرى</string>
+
     <string name="menu_search">ئەپ ئىزدەش</string>
     <string name="menu_filter">ئەپ تاسقاش</string>
     <string name="menu_app_user">ئىشلەتكۈچى ئەپ كۆرۈنۈش</string>
@@ -13,49 +33,151 @@
     <string name="menu_sort_name">ئىسىم تەرتىپ</string>
     <string name="menu_sort_uid">Uid تەرتىپ</string>
     <string name="menu_sort_data">تور ئىشلىتىش تەرتىپى</string>
+    <string name="menu_launch">ئەپ قوزغىتىش</string>
     <string name="menu_log">تارىخ كۆرۈنۈش</string>
     <string name="menu_settings">تەڭشەش</string>
+    <string name="menu_home">باش بەت</string>
     <string name="menu_invite">تەكلىپ</string>
     <string name="menu_legend">چۈشەندۈرۈش</string>
     <string name="menu_support">قوللاش</string>
     <string name="menu_about">ھەققىدە</string>
+    <string name="menu_apps">باشقا ئەپلەر</string>
+    <string name="menu_firewall">تور توسۇغۇچ</string>
+    <string name="status_enabled">تور توسۇغۇچ قوزغىتىلدى</string>
+    <string name="status_disabled">تور توسۇغۇچ چەكلەندى</string>
+    <string name="widget_firewall_enabled">تور توسۇغۇچ ئوچۇق</string>
+    <string name="widget_firewall_disabled">تور توسۇغۇچ يېپىق</string>
+    <string name="widget_lockdown_enabled">قۇلۇپ ئوچۇق</string>
+    <string name="widget_lockdown_disabled">قۇلۇپ يېپىق</string>
+    <string name="notify_traffic_title">تور كۆزەتكۈچى</string>
+    <string name="notify_traffic_summary">چىقىرىش %1$s • كىرىش %2$s • ئەڭ يۇقىرى %3$s</string>
+    <string name="notify_traffic_debug">ئاممىۋى %1$d/%2$d/%3$d • ھۆججەتلەر %4$d/%5$d</string>
+    <string name="ui_loading">يۈكلىنىۋاتىدۇ…</string>
+    <string name="ui_empty_logs_title">تېخى تور ئېقىمى يوق</string>
+    <string name="ui_empty_logs_body">ئۇلىنىش كۆرۈلسە، بۇ يەردە كۆرۈنىدۇ.</string>
+    <string name="ui_empty_apps_title">ئەپ تېپىلمىدى</string>
+    <string name="ui_empty_apps_body">تىزىملىكنى يېڭىلاپ سىناپ بېقىڭ.</string>
+    <string name="ui_empty_dns_title">تېخى DNS يېشىلمىدى</string>
+    <string name="ui_empty_dns_body">تور كۆرگەندىن كېيىن DNS جاۋابلىرى بۇ يەردە كۆرۈنىدۇ.</string>
+    <string name="ui_dns_filter_empty">بۇ سۈزگۈچكە ماس كېلىدىغان DNS ئۇچۇرى يوق.</string>
+    <string name="ui_empty_forwarding_title">يۆتكەش قائىدىسى يوق</string>
+    <string name="ui_empty_forwarding_body">تور ئېقىمىنى يۆتكەش ئۈچۈن قائىدە قوشۇڭ.</string>
+    <string name="ui_forwarding_filter_empty">بۇ سۈزگۈچكە ماس كېلىدىغان يۆتكەش قائىدىسى يوق.</string>
+    <string name="ui_empty_pro_body">قوللاش قوشۇمچە ئىقتىدارلارنى ئاچىدۇ ۋە تۈرنى داۋاملاشتۇرىدۇ.</string>
+    <string name="ui_empty_pro_details">Pro ئاچىدىغان ئىقتىدارلار: سۈزۈش، خاتىرىلەش، ئۇقتۇرۇش، تېما ۋە سۈرئەت چەكلىمىسى.</string>
+    <string name="ui_home_hint">ھەر بىر ئەپنىڭ تور زىيارىتىنى كونترول قىلىڭ.</string>
+    <string name="ui_home_quick_actions">تېز مەشغۇلاتلار</string>
+    <string name="ui_apps_title">تور توسۇغۇچ</string>
+    <string name="ui_logs_title">تور خاتىرىسى</string>
+    <string name="ui_logs_filters">سۈزگۈچ</string>
+    <string name="ui_logs_filter_status">ھالەت</string>
+    <string name="ui_logs_filter_protocol">كېلىشىم</string>
+    <string name="ui_logs_filter_view">كۆرۈنۈش</string>
+    <string name="ui_logs_group_timeline">ۋاقىت ئوقى</string>
+    <string name="ui_logs_group_by_app">ئەپ بويىچە</string>
+    <string name="ui_logs_unknown_source">نامەلۇم مەنبە</string>
+    <string name="ui_settings_title">تەڭشەكلەر</string>
+    <string name="ui_dns_title">يېشىلگەن DNS</string>
+    <string name="ui_forwarding_title">ئېغىز يۆتكەش</string>
+    <string name="ui_dns_hint">يېقىندا يېشىلگەن نام ۋە جاۋابلار.</string>
+    <string name="ui_forwarding_hint">يۆتكەش قائىدىسى ۋە نىشانلىق ئەپلەرنى باشقۇرۇڭ.</string>
+    <string name="ui_dns_active">ئاكتىپ</string>
+    <string name="ui_rule_custom">ئۆزىڭىز بەلگىلىگەن</string>
+    <string name="ui_dns_expired">ۋاقىتى ئۆتكەن</string>
+    <string name="ui_filter_all">ھەممىسى</string>
+    <string name="ui_filter_empty">بۇ سۈزگۈچكە ماس كېلىدىغان ئەپ يوق.</string>
+    <string name="ui_apps_search_empty">بۇ ئىزدەشكە ماس كېلىدىغان ئەپ يوق.</string>
+    <string name="ui_learn_more">تېخىمۇ كۆپ بىلىش</string>
+    <string name="status_running">تور ئېقىمى سۈزۈلۈۋاتىدۇ</string>
+    <string name="status_not_running">تور ئېقىمى سۈزۈلمەيۋاتىدۇ</string>
+    <string name="action_enable">قوزغىتىش</string>
+    <string name="action_disable">چەكلەش</string>
+    <string name="home_apps_hint">ئەپ قائىدىسى ۋە تور ئىشلىتىشنى تەكشۈرۈش</string>
+    <string name="home_logs_hint">يېقىنقى تور پائالىيىتىنى تەكشۈرۈش</string>
+
+    <!-- Accessibility -->
+    <string name="action_expand">تەپسىلاتىنى كېڭەيتىش</string>
+    <string name="action_collapse">تەپسىلاتىنى يىغىش</string>
+    <string name="action_navigate">ئېچىش</string>
+    <string name="action_toggle_firewall">تور توسۇغۇچنى ئالماشتۇرۇش</string>
+    <string name="action_clear_search">ئىزدەشنى تازىلاش</string>
+    <string name="search_settings">تەڭشەكلەردىن ئىزدەش</string>
+    <string name="content_desc_security_status">تور توسۇغۇچ بىخەتەرلىك ھالىتى</string>
+    <string name="content_desc_app_icon">%s ئەپ سىنبەلگىسى</string>
+    <string name="content_desc_show_info">%1$s ھەققىدە ئۇچۇر كۆرسىتىش</string>
+
+    <!-- Dashboard stats -->
+    <string name="stat_blocked_today">توسۇلدى</string>
+    <string name="stat_allowed_today">يول قويۇلدى</string>
+    <string name="stat_active_rules">ئاكتىپ قائىدىلەر</string>
+
+    <!-- Tooltips -->
+    <string name="tooltip_rcode">توسۇلغان نام ئۈچۈن ئەۋەتىلگەن DNS جاۋاب كودى. سۈكۈتتىكى 3 (NXDOMAIN) نامنىڭ مەۋجۇت ئەمەسلىكىنى بىلدۈرىدۇ.</string>
+    <string name="tooltip_ttl">DNS غەملىكىدىكى ئەڭ قىسقا مەۋجۇت بولۇش ۋاقتى (سېكۇنت).</string>
+    <string name="tooltip_pcap">بارلىق تور بوغچىلىرىنى خاتىرىلەش. چوڭ ھۆججەت ھاسىل قىلىدۇ. </string>
+    <string name="tooltip_filter">تور ئېقىمىنى تۇتۇش ۋە تەھلىل قىلىش. ئادرېس بويىچە توسۇش ئۈچۈن كېرەك. توكنى كۆپ ئىشلىتىدۇ.</string>
+    <string name="tooltip_lockdown">يول قويۇلغان ئەپلەردىن باشقا ھەممە تورنى توسۇش. ئېھتىيات بىلەن ئىشلىتىڭ.</string>
+
+    <string name="menu_protocol_udp" translatable="false">UDP</string>
+    <string name="menu_protocol_tcp" translatable="false">TCP</string>
     <string name="menu_protocol_other">باشقا</string>
     <string name="menu_traffic_allowed">يول قويۇلدى</string>
     <string name="menu_traffic_blocked">توسۇلدى</string>
     <string name="menu_live">ۋاقتىدا يېڭلاش</string>
     <string name="menu_refresh">يېڭىلاڭ</string>
+    <string name="menu_ok">ماقۇل</string>
+    <string name="menu_cancel">بىكار قىلىش</string>
     <string name="menu_resolve">نامى كۆرۈنۈش</string>
     <string name="menu_organization">گورۇپپا كۆرۈنۈش</string>
     <string name="menu_pcap_enabled">PCAP قوزغىتىش</string>
     <string name="menu_pcap_export">PCAP چىقىرىش</string>
     <string name="menu_clear">تازىلاش</string>
+    <string name="menu_export">چىقىرىش</string>
     <string name="menu_reset">ئەسلىگە قايتۇرۇش</string>
+
     <string name="menu_add">قوشۇش</string>
     <string name="menu_delete">ئۆچۈرۈش</string>
+
     <string name="menu_cleanup">تازىلاش</string>
+
     <string name="title_protocol">كېلىشىم</string>
     <string name="title_dport">مەنبە ئېغزى</string>
     <string name="title_raddr">ئورنى</string>
     <string name="title_rport">چىقىرىش ئورنى</string>
     <string name="title_ruid">نىشانلىق ئەپ</string>
     <string name="title_external">سىرتقى مۇلازىمىترغا تاللاش \'nobody\'</string>
+
     <string name="setting_defaults">سۈكۈتتىكى (ئاق/قارا تىزىملىك)</string>
     <string name="setting_whitelist_wifi">توسۇش Wi-Fi</string>
     <string name="setting_whitelist_other">ئېقىم توسۇش</string>
     <string name="setting_screen_wifi">يول قويۇش Wi-Fi ئېكران يورۇن ۋاقىتتا</string>
     <string name="setting_screen_other">ئېكران يورۇن ۋاقىتتا ئېقىمغا يول قويۇش</string>
     <string name="setting_whitelist_roaming">كەزمە مۇلازىمەت توسۇش</string>
+
     <string name="setting_options">تاللاشلار</string>
     <string name="setting_theme">ئۇسلۇب: %1$s</string>
     <string name="setting_dark">قاراڭغۇ ئۆرنەك ئىشلەت</string>
+    <string name="setting_theme_palette">رەڭ ئۇسلۇبىنى تاللاڭ</string>
+    <string name="setting_dynamic_unavailable">Dynamic رەڭلەر ئۈچۈن Android 12 ياكى ئۇنىڭدىن يۇقىرى نەشرى كېرەك.</string>
+    <string name="setting_appearance_mode">كۆرۈنۈش ھالىتى</string>
+    <string name="setting_appearance_mode_title">قاراڭغۇ ھالەت</string>
+    <string name="setting_appearance_mode_summary">تاقالغان، ئوچۇق ياكى سىستېمىغا ئەگىشىشنى تاللاڭ.</string>
+    <string name="setting_appearance_preview">نۆۋەتتە: %1$s · %2$s</string>
+    <string name="setting_appearance_auto">ئاپتوماتىك</string>
+    <string name="setting_appearance_light">يورۇق</string>
+    <string name="setting_appearance_dark">قاراڭغۇ</string>
+    <string name="theme_dynamic">ھەرىكەتچان</string>
     <string name="setting_install">يېڭى قاچىلاشتا ئۇقتۇرۇش</string>
     <string name="setting_screen_on">\'ئېكران ئوچۇق\' قائىدىسنى ئىشلىتىش</string>
     <string name="setting_auto">ئاپتۇماتىك يول قويۇش %1$s مىنۇتتىن كېيىن</string>
     <string name="setting_delay">ئېكران ئۆچۈش %1$s مىنۇت كىچكىش</string>
     <string name="setting_update">يېڭىلانمىنى تەكشۈرۈش</string>
+    <string name="setting_update_now">ھازىر تەكشۈر</string>
+    <string name="setting_update_checking">تەكشۈرۈۋاتىدۇ...</string>
+
     <string name="setting_network_options">تور تاللاش</string>
     <string name="setting_subnet">روتىر</string>
-    <string name="setting_tethering">باغلاشقا يول قويۇش</string>
+    <string name="setting_tethering">باغلاشقا يول قويۇش (tethering)</string>
     <string name="setting_lan">Root ھوقۇقىغا يول قويۇش</string>
     <string name="setting_ip6">قوزغىتىش IPv6 traffic</string>
     <string name="setting_wifi_home">Wi-Fi باش توربەت: %1$s</string>
@@ -65,24 +187,33 @@
     <string name="setting_metered_4g">LTE ھىسابلىمغان تورنى قوشۇش</string>
     <string name="setting_national_roaming">روتىر تورىنى ھېسابلىماسلىق</string>
     <string name="setting_eu_roaming">EU كەزمە تورنى موھىم بىلمەسلىك</string>
+    <string name="setting_call">تېلېفوندا چەكلىمە قويۇش</string>
     <string name="setting_lockdown_wifi">قۇلۇپلانغان Wi-Fi</string>
     <string name="setting_lockdown_other">تور ئېتىلگەن</string>
+    <string name="setting_reload_onconnectivity">ھەر قېتىم ئۇلىنىش ئۆزگەرگەندە قايتا يۈكلەش</string>
+
     <string name="setting_advanced_options">ئالىي تاللانما</string>
     <string name="setting_system">سىستېما ئەپلىرى باشقۇرۇش</string>
     <string name="setting_log_app">ئىنتېرنېتنى زىيارەت ھوقۇقى</string>
+    <string name="setting_log_retention_days">تور خاتىرىسىنى ساقلاش كۈنى</string>
     <string name="setting_access">ئىنتېرنېتنى زىيارەت ھوقۇقى ئۇقتۇرۇش</string>
     <string name="setting_filter">تور ئۆتكۈزۈش</string>
-    <string name="setting_clear_onreload">قايتا قوشۇلغاندا ئۇلىغاننى ئۈزۈش</string>
+    <string name="setting_filter_udp">UDP ئېقىمىنى سۈزۈش</string>
+    <string name="setting_handover">قايتا قوزغالغاندا VPN نى يوچۇقسىز ئۆتكۈزۈپ بېرىش</string>
+    <string name="setting_clear_onreload">قايتا قوزغالغاندا ئۇلىنىشلارنى ئۈزۈش</string>
     <string name="setting_lockdown">تور قۇلۇپلاش</string>
+    <string name="setting_malware">زىيانلىق يۇمشاق دېتالدىن مۇداپىئەلىنىش</string>
     <string name="setting_track_usage">تور ئىشلىتىشقا ئەگىشىش</string>
     <string name="setting_reset_usage">تور ئىشلىتىشقا قايتا تەڭشىەش</string>
     <string name="setting_show_resolved">يەشكەن ئادرېس كۆرۈنۈش</string>
     <string name="setting_block_domains">توسۇلغان ئادىرس نام</string>
     <string name="setting_rcode">DNS كود: %s</string>
-    <string name="setting_forwarding">يۆتكەش ئېغىز</string>
+    <string name="setting_forwarding">ئېغىز يۆتكەش</string>
     <string name="setting_vpn4">VPN IPv4: %s</string>
     <string name="setting_vpn6">VPN IPv6: %s</string>
     <string name="setting_dns">VPN DNS: %s</string>
+    <string name="setting_dns2">قوشۇمچە DNS: %s</string>
+    <string name="setting_validate">دەلىللەش ئورنى: %s</string>
     <string name="setting_ttl">ئەڭ كىچىك DNS TTL: %s s</string>
     <string name="setting_socks5_enabled">ئىشلىتىش ۋاكالەتلىك SOCKS5</string>
     <string name="setting_socks5_addr">SOCKS5 ئادرېس: %s</string>
@@ -91,161 +222,231 @@
     <string name="setting_socks5_password">SOCKS5 پارول: %s</string>
     <string name="setting_pcap_record_size">PCAP نۇمۇر چوڭلۇقى: %s B</string>
     <string name="setting_pcap_file_size">PCAP ئەڭ چوڭ. ھۆججەت: %s MB</string>
+    <string name="setting_pcap">تور ئېقىمىنى خاتىرىلەش (PCAP)</string>
     <string name="setting_watchdog">كۈزۈتۈش: ھەر %s مىنۇت</string>
+
     <string name="setting_stats_category">سۈرئەت ئۇقتۇرۇش</string>
     <string name="setting_stats">سۈرئەت ئۇقتۇرۇش كۆرۈنۈش</string>
     <string name="setting_stats_top">كۆپ ئىشلىتىدىغىنى كۆرۈنۈش</string>
     <string name="setting_stats_frequency">ۋاقىت ئارلىقى: %s ms</string>
-    <string name="setting_stats_samples">سانى: %s s</string>
+    <string name="setting_stats_samples">سانى: %s</string>
+
     <string name="setting_backup">زاپاسلاش</string>
     <string name="setting_export">چىقىرىش تەڭشەك</string>
     <string name="setting_import">كىرگۈزۈش تەڭشەك</string>
     <string name="setting_hosts">ئاساسىي ھۆججەت كىرگۈزۈش</string>
+    <string name="setting_hosts_append">Hosts ھۆججىتى كىرگۈزۈش (قوشۇپ يېزىش)</string>
     <string name="setting_hosts_url">ھۆججەت چۈشۈرۈش URL</string>
     <string name="setting_hosts_download">چۈشۈرۈلگەن ھۆججەت</string>
+    <string name="setting_use_hosts">Hosts ھۆججىتىنى ئىشلىتىش</string>
+
     <string name="setting_technical">تېخنىك ئۇچۇرى</string>
     <string name="setting_technical_general">ئاممىباب</string>
     <string name="setting_technical_networks">تور</string>
     <string name="setting_technical_subscription">زاكاس</string>
+    <string name="setting_section_appearance">كۆرۈنۈش</string>
+    <string name="setting_section_firewall">تور توسۇش قائىدىسى</string>
+    <string name="setting_section_advanced">ئالىي ھەرىكەت</string>
+    <string name="setting_section_hosts">Hosts ۋە DNS</string>
+    <string name="setting_section_network">تور سەپلىمىسى</string>
+    <string name="setting_section_dns">DNS تەپسىلاتى</string>
+    <string name="setting_section_proxy">ۋاكالەتچى</string>
+    <string name="setting_section_vpn">VPN سەپلىمىسى</string>
+    <string name="setting_section_background">ئارقا پىلان ۋەزىپىلىرى</string>
+    <string name="setting_section_diagnostics">ئېنىقلاش</string>
+    <string name="setting_section_support">قوللاش</string>
+
     <string name="summary_install">ئىستون ئوقتۇرشىدا كۆرۈنۈش يېڭى قاچىلانغان ئەپلەرگە ئىشلىتىلدۇ (Pro نەشر)</string>
-    <string name="summary_auto">قوشۇمچە ئەپچىنى ئىشلىتىشنى چەكلىگەندىن كېيىن،تاللىغان ۋاقىتتىن كېيىن NetGuard ئاپتۇماتىك قوزغىلىدۇ(0 نى كىرگۈزۈپ بۇ ئىقتىدارنى چەكلەش)</string>
-    <string name="summary_delay">ئېكران ئۆچكەندىن كېيىن، ئېكراندىكى تاللىغان ۋاقىتىنىڭ ئاكتىپ ھالىتىنى ساقلاڭ(0 نى كىرگۈزۈپ بۇ ئىقتىدارنى چەكلەش)</string>
+    <string name="summary_auto">قوشۇمچە ئەپچىنى ئىشلىتىشنى چەكلىگەندىن كېيىن، تاللىغان ۋاقىتتىن كېيىن NetGuard ئاپتۇماتىك قوزغىلىدۇ (0 نى كىرگۈزۈپ بۇ ئىقتىدارنى چەكلەش)</string>
+    <string name="summary_delay">ئېكران ئۆچكەندىن كېيىن، ئېكراندىكى تاللىغان ۋاقىتىنىڭ ئاكتىپ ھالىتىنى ساقلاڭ (0 نى كىرگۈزۈپ بۇ ئىقتىدارنى چەكلەش)</string>
     <string name="summary_update">كۈندە GitHub يېڭى نەشرنى تەكشۈرۈش</string>
-    <string name="summary_tethering">Android نەشرى ئوخشىماسلىقىشا ئاساسەن،باشقۇرىدۇ.</string>
-    <string name="summary_lan">يەرلىك تورغا ئۇلىنىشقا يول قويۇش مەسلەن 10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16</string>
+
+    <string name="summary_tethering">Android نەشرى ئوخشىماسلىقىشا ئاساسەن، باشقۇرىدۇ. تېتېرىڭ ئېقىمىنى سۈزگىلى بولمايدۇ.</string>
+    <string name="summary_subnet">تارماق تور روتىرىنى قوزغىتىش؛ Wi-Fi تېلېفوننى قوزغىتىشى مۇمكىن، ئەمما ئاندىرويىدتا خاتالىق كەلتۈرۈپ چىقىرىپ، توك سەرپىياتىنى ئاشۇرۇۋېتىشى مۇمكىن.</string>
+    <string name="summary_lan">يەرلىك تورغا ئۇلىنىشقا يول قويۇش مەسلەن 10.0.0.0/8, 172.16.0.0/12 ۋە 192.168.0.0/16</string>
     <string name="summary_ip6">IP 6 بۇ ئەپ ئارقىلىق يول قويۇشقا ياكى توسۇشقا بولىدۇ</string>
-    <string name="summary_wifi_home">پەقەت تاللىغانغا تورغا Wi-Fi تور قائىدىسنى ئىشلىتىش(باشقا Wi-Fi تورىغا كۆچمە تور قائىدىسنى ئىشلىتىش)</string>
+    <string name="summary_wifi_home">پەقەت تاللىغان تورغا Wi-Fi تور قائىدىسنى ئىشلىتىش (باشقا Wi-Fi تورىغا كۆچمە تور قائىدىسنى ئىشلىتىش)</string>
     <string name="summary_metered">كۆچمە تور قائىدىسى Wi-Fi ،(ھەقلىق) نى ھىسابلاشقا ئىشلىتىلدۇ</string>
-    <string name="summary_metered_2g">2G تورغا wifi تۇر ئۇلاش ئۇسۇلىنى قوللىنىش</string>
-    <string name="summary_metered_3g">3G تورغا wifi تۇر ئۇلاش ئۇسۇلىنى قوللىنىش</string>
-    <string name="summary_metered_4g">LTE تورغا wifi تۇر ئۇلاش ئۇسۇلىنى قوللىنىش</string>
+    <string name="summary_metered_2g">2G تورغا Wi-Fi تور ئۇلاش قائىدىسىنى ئىشلىتىش</string>
+    <string name="summary_metered_3g">3G تورغا Wi-Fi تور ئۇلاش قائىدىسىنى ئىشلىتىش</string>
+    <string name="summary_metered_4g">LTE تورغا Wi-Fi تور ئۇلاش قائىدىسىنى ئىشلىتىش</string>
     <string name="summary_national_roaming">SIM كارتىسى ۋە كۆچمە تور، خەلقئارا \ رايون ، كەزمە مۇلازىمەت ئوخشاش بولغاندا قائىدىسى ئىشلەتمەيدۇ</string>
-    <string name="summary_system">ئىشلىتىش قائىدىسىگە چۈشەنچە(كەسپى)</string>
-    <string name="summary_log_app">ئەپنىڭ تورغا ئولىنىشنى خاتىرلەيدۇ،بۇ قوشۇمچە توك ئىشلتشى مومكىن.</string>
-    <string name="summary_access">بىر ئەپ يېڭى تور ئادىرسىغا ئۇلانغاندا ئۇقتۇرۇش ئىستونىدا كۆرۈنۈش،(تور ئۇلىندىغىنىلا كۆرۈنىدۇ)</string>
-    <string name="summary_filter">VPN دىن چىققان IP سانلىق مەلۇماتىنى شاللاش،قوشۇمچە توك ئىشلىتشى مومكىن.</string>
+    <string name="summary_eu_roaming">SIM كارتىسى ۋە كۆچمە تور دۆلىتى ياۋروپا ئىتتىپاقى ئىچىدە بولسا، كەزمە تور قائىسىنى قوللانماسلىق</string>
+    <string name="summary_call">تېلېفون كەلسە ياكى ئۇرۇلسا NetGuard نى چەكلەش. بۇ IP/Wi-Fi تېلېفون مەسىلىسىنى ھەل قىلىشقا ئىشلىتىلىدۇ.</string>
+
+    <string name="summary_system">ئىشلىتىش قائىدىسىگە چۈشەنچە (كەسپى)</string>
+    <string name="summary_log_app">ئەپنىڭ تورغا ئۇلىنىشنى خاتىرلەيدۇ، بۇ قوشۇمچە توك ئىشلتشى مومكىن.</string>
+    <string name="summary_log_retention_days">ئاپتوماتىك كونا تور خاتىرىسىنى ئۆچۈرۈش. مەڭگۈ ساقلاش ئۈچۈن 0 قىلىڭ.</string>
+    <string name="summary_access">بىر ئەپ يېڭى تور ئادىرسىغا ئۇلانغاندا ئۇقتۇرۇش ئىستونىدا كۆرۈنۈش (تور ئۇلىندىغىنىلا كۆرۈنىدۇ)</string>
+    <string name="summary_filter">VPN دىن چىققان IP سانلىق مەلۇماتىنى شاللاش، قوشۇمچە توك ئىشلىتشى مومكىن.</string>
     <string name="summary_track_usage">ھەر بىر ئەپنىڭ ئىشلىتىش ۋە يوللاش خاتىرسىنى تەكشۈرۈش توكنى كۆپ ئىسراپ قىلىدۇ.</string>
-    <string name="summary_rcode">سۈكۈتتىكى قىممەت 3 (NXDOMAIN)،\"يوق ئادىرس\" نى بىلدۈرىدۇ.</string>
+    <string name="summary_block_domains">توسۇلغان نام ئۈچۈن DNS جاۋاب كودى قايتۇرۇش. Hosts ھۆججىتى بولمىسا بۇنى ئىشلەتكىلى بولمايدۇ.</string>
+    <string name="summary_rcode">سۈكۈتتىكى قىممەت 3 (NXDOMAIN)، \"يوق ئادىرس\" نى بىلدۈرىدۇ.</string>
+    <string name="summary_validate">443 (https) ئېغىزىدا تور ئۇلىنىشىنى جەزملەشتۈرۈش ئۈچۈن ئىشلىتىلىدىغان نام.</string>
     <string name="summary_socks5_enabled">پەقەت TCP ئېقىم مىقدارى ۋاكالىتەن مۇلازىمەتچى ئەۋەتىپ بېرىلىدۇ</string>
-    <string name="summary_watchdog">ۋاقىت بەلگىلەپ NetGuard نىڭ ھەرىكىتىنى تەكشۈرۈش.(0 نى كىرگۈزۈپ بۇ تاللاشنى چەكلەش)، بۇ بەلكىم توك ئىسراپچىلىقىنى كەلتۈرۈپ چېقىرىشى مومكىن.</string>
+    <string name="summary_watchdog">ۋاقىت بەلگىلەپ NetGuard نىڭ ھەرىكىتىنى تەكشۈرۈش. (0 نى كىرگۈزۈپ بۇ تاللاشنى چەكلەش)، بۇ بەلكىم توك سەرپىياتىنى ئاشۇرۇۋېتىشى مۇمكىن.</string>
+
     <string name="summary_stats">ئىستوندا تور سۈرئىتى كۆرۈنۈش</string>
+
+    <string-array name="default_wifi_home"></string-array>
+
     <string name="msg_sure">جەزىملەشتۈرەمسىز?</string>
-    <string name="msg_started">ئىجرا قانۇقى</string>
-    <string name="msg_packages">%1$d تول قويۇلدى, %2$d توسۇلدى</string>
-    <string name="msg_hosts">%1$d يول قويۇلدى, %2$d توسۇلدىd, %3$d hosts</string>
+    <string name="msg_started">قائىدىلەر ئىجرا قىلىنىۋاتىدۇ</string>
+    <string name="msg_packages">%1$d يول قويۇلدى, %2$d توسۇلدى</string>
+    <string name="msg_hosts">%1$d يول قويۇلدى, %2$d توسۇلدى, %3$d hosts</string>
     <string name="msg_waiting">يېڭى پائالىيەتنى ساقلاش</string>
-    <string name="msg_disabled">NetGuard توسۇلدى،ئۈستىدىن قوزغىتىڭ</string>
-    <string name="msg_revoked">NetGuard چەكلەندى،بەلكىم باشقا بىر ئەپ تەرپىدىن بولغان</string>
+    <string name="msg_disabled">NetGuard توسۇلدى، ئۈستىدىن قوزغىتىڭ</string>
+    <string name="msg_notifications">ئۇقتۇرۇش ھوقۇقى بېرىش ئۈچۈن بېسىڭ (زىيارەت سىناش، خاتالىق ئۇچۇرلىرى قاتارلىقلار ئۈچۈن)</string>
+    <string name="msg_revoked">NetGuard چەكلەندى، بەلكىم باشقا بىر ئەپ تەرپىدىن بولغان</string>
     <string name="msg_installed">\'%1$s\' قاچىلاندى</string>
     <string name="msg_installed_n">قاچىلانغان</string>
+    <string name="msg_malware">ئېھتىماللىق بار زىيانلىق يۇمشاق دېتال: \'%1$s\'</string>
     <string name="msg_access">%1$s تور چىقىشنى سىناش</string>
     <string name="msg_access_n">تور چىقىشنى سىناش</string>
     <string name="msg_completed">تامام</string>
-    <string name="msg_vpn">NetGuard uses a local VPN to filter internet traffic.
-For this reason, please allow a VPN connection in the next dialog.
-VPN مۇلازىمىتى چېقىرۋىتىش يوللانمىغان.</string>
-    <string name="msg_autostart">NetGuard ئاپتۇماتىك قوزغىلالمىدى،سىزنىڭ تېلېىفونىڭىزنىڭ نەشردىكى مەسلە بولشى مومكىن.</string>
+    <string name="msg_invalid">قىممەتنى تەكشۈرۈپ قايتا سىناڭ.</string>
+    <string name="msg_export_failed">چىقىرىش مەغلۇپ بولدى: %1$s</string>
+    <string name="msg_vpn">NetGuard تور ئېقىمىنى سۈزۈش ئۈچۈن يەرلىك VPN ئىشلىتىدۇ.
+شۇڭلاشقا كېيىنكى سۆھبەت كۆزنىكىدە VPN ئۇلىنىشىغا يول قويۇڭ.
+تور ئېقىمىڭىز يىراقتىكى VPN مۇلازىمېتىرىغا ئەۋەتىلمەيدۇ.</string>
+    <string name="msg_autostart">NetGuard ئاپتۇماتىك قوزغىلالمىدى، سىزنىڭ تېلېىفونىڭىزنىڭ نەشردىكى مەسلىسى بولشى مومكىن.</string>
     <string name="msg_error">ئويلىمغان خاتالىق: \'%s\'</string>
-    <string name="msg_start_failed">VPN مۇلازىمتىنى رەت قىلدى،سىزنىڭ تېلېىفونىڭىزنىڭ نەشردىكى مەسلە بولشى مومكىن.</string>
+    <string name="msg_start_failed">VPN مۇلازىمتىنى رەت قىلدى، سىزنىڭ تېلېىفونىڭىزنىڭ نەشردىكى مەسلىسى بولشى مومكىن.</string>
     <string name="msg_try">سىناش NetGuard</string>
-    <string name="msg_terms">قوشۇلسىڭىز <a href="http://www.netguard.me/#terms">terms &amp; conditions</a></string>
-    <string name="msg_dimming">ئەگەر سىز مۇقۇملاشنى باسالمىسىڭىز. يەنە بىر (كۆزنەك) ئەپ ئىجرا بولىدۇ.</string>
-    <string name="msg_mbday">± %1$.3f▲ %2$.3f▼ MB/كۈن</string>
-    <string name="msg_kb">%1$7.3f▲ %2$7.3f▼ KB</string>
-    <string name="msg_mb">%1$7.3f▲ %2$7.3f▼ MB</string>
-    <string name="msg_gb">%1$7.3f▲ %2$7.3f▼ GB</string>
+    <string name="msg_terms">قوشۇلسىڭىز <a href="http://www.netguard.me/#terms">شەرتلەر ۋە بەلگىلىمىلەر</a></string>
+    <string name="msg_dimming">ئەگەر سىز مۇقۇملاشنى باسالمىسىڭىز، يەنە بىر ئەپ ئېكراننى كونترول قىلىۋاتقان بولۇشى مۇمكىن.</string>
+    <string name="msg_mbday">&#177; %1$.3f&#9650; %2$.3f&#9660; MB/كۈن</string>
+    <string name="msg_kbsec">%7.3f KB/s</string>
+    <string name="msg_mbsec">%7.3f MB/s</string>
+    <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
+    <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
+    <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
     <string name="msg_count">%dx</string>
+    <string name="msg_doze">تۇراقلىق نەتىجە ئۈچۈن NetGuard نىڭ باتارېيەنى ئەلالاشتۇرۇش چەكلىمىسىنى بىكار قىلىش كېرەك.
+\n\nكېيىنكى كۆزنەكتە، ئۈستىدىن \"بارلىق ئەپلەر\"نى تاللاپ، تىزىملىكتىن NetGuard نى تېپىپ \"ئەلالاشتۇرما\"نى تاللاڭ.</string>
+    <string name="msg_datasaving">تۇراقلىق نەتىجە ئۈچۈن NetGuard نىڭ ئاندىرويىد تور تېجەش تاللانمىسىنى چەكلەش كېرەك.
+\n\nكېيىنكى كۆزنەكتە \"ئارقا پىلان تورى\" ۋە \"چەكسىز تور ئىشلىتىش\"نى قوزغىتىڭ.</string>
+    <string name="msg_filter">سۈزگۈچ ئىشلەتكەندە، ئاندىرويىد تور ۋە توك سەرپىياتىنى NetGuard غا يۈكلەيدۇ - ئەسلىدىكى ئەپلەرگە يۈكلىمەيدۇ.</string>
     <string name="msg_filter4">Android 4 ئۆتكۈزۈش ئىقتىدارىنى ئېچىش كېرەك</string>
-    <string name="msg_clear_rules">قائىدە ۋە تەڭشەكنى ئەسلىگە كەلتۈرىدۇ</string>
-    <string name="msg_reset_access">تول قويغان/توسۇۋالغان زىيارەت خاتىرسىنى ئۆچۈرىدۇ</string>
+    <string name="msg_log_disabled">تور خاتىرىسى تاقالغان، يۇقىرىدىكى ئالماشتۇرغۇچ بىلەن قوزغىتىڭ. خاتىرىلەش توكنى كۆپ سەرپ قىلىشى مۇمكىن.</string>
+    <string name="msg_clear_rules">بۇ قائىدە ۋە شەرتلەرنى سۈكۈتتىكى قىممىتىگە قايتۇرىدۇ</string>
+    <string name="msg_reset_access">بۇ يول قويۇش/توسۇش قائىدىسى يوق زىيارەت خاتىرىلىرىنى ئۆچۈرىدۇ</string>
     <string name="msg_import_last">ئاخىرقى قوشۇش: %s</string>
     <string name="msg_downloading">چۈشۈرۋاتىدۇ\n%1s</string>
-    <string name="msg_downloaded">چۈشۈرۈلدى</string>
+    <string name="msg_downloaded">Hosts ھۆججىتى چۈشۈرۈلدى</string>
     <string name="msg_download_last">يېقىندا چۈشۈرگىنى: %s</string>
-    <string name="msg_start_forward">يوللاشنى باشلاش %1$s port %2$d to %3$s:%4$d of \'%5$s\'?</string>
-    <string name="msg_stop_forward">يوللاشنى توختىتىش %1$s port %2$d?</string>
-    <string name="msg_metered">تور ئۆلچەش</string>
-    <string name="msg_inactive">ئىنتېرنېت باغلىنىشى يوق</string>
-    <string name="msg_queue">تور باشقۇرغۇچ ئالدىراش</string>
-    <string name="msg_update">بېسىپ، يېڭلاڭ</string>
-    <string name="msg_usage">ئەپ يىنىدىكى رەسىمنى بېسىپ تور ۋە wifi غا ئۇلىنىشنى باشقۇرالايسىز،يول قويۇش(يېشىل) ياكى رەت قىلىش(قىزىل)</string>
-    <string name="msg_whitelist">تورغا ئۇلىنىش سۈكۈتتىكى ھالەت(قارا تىزىملىك)،تەڭشەكتىن ئۆزگەرتكىلى بولىدۇ</string>
-    <string name="msg_system">بارلىق (سىستېما) ئەپنى تەڭشەكتىن باشقۇرغىلى بولىدۇ</string>
-    <string name="msg_issue">خاتالىق يۈز بەرگەندىكى مەسلىنى دوكلات قىلىڭ:</string>
-    <string name="msg_vpn_cancelled">VPN ئۇلاش بىكار قىلىندى\nيەنە بىر VPN تەڭشەكنى مەڭگۈلۈك ئىشلىتەمسىز?</string>
-    <string name="msg_on">NetGuard نى ئىشلىتىپ توك مەنبەسىنى ئېتىشنى قوزغىتىش،تېلېفون قوزغالغاندا NetGuard ئاپتۇماتىك قوزغىلىدۇ</string>
-    <string name="msg_unavailable">Android نەشىر بۇ ئىقتىدار ئىشلەيدۇ</string>
-    <string name="title_lockdown_enabled">قۇلۇپلاندى</string>
-    <string name="title_unmetered_allowed">يول قويۇلدى</string>
-    <string name="title_unmetered_blocked">قۇلۇپلاندى</string>
-    <string name="title_unmetered_disabled">ئۆلچىمىگەن قانۇنى ئىشلىتىلمىدى</string>
-    <string name="title_metered_allowed">تور ئۆلچەش يول قويۇلدى</string>
-    <string name="title_metered_blocked">تور ئۆلچەش توسۇلدى</string>
-    <string name="title_metered_disabled">تور ئۆلچەش قانۇنى ئىشلىتىلمىدى</string>
-    <string name="title_host_allowed">ئادرېس يول قويۇلدى</string>
+    <string name="msg_start_forward">%1$s نىڭ %2$d ئېغىزىدىن %3$s:%4$d گە \'%5$s\' ئۈچۈن يۆتكەشنى باشلامسىز؟</string>
+    <string name="msg_stop_forward">%1$s نىڭ %2$d ئېغىزىدىكى يۆتكەشنى توختىتامسىز؟</string>
+    <string name="msg_metered">تور ئۆلچەشلىك</string>
+    <string name="msg_inactive">ئاكتىپ تور ئۇلىنىشى يوق</string>
+    <string name="msg_queue">NetGuard ئالدىراش</string>
+    <string name="msg_update">يېڭىلانما بار، بېسىپ چۈشۈرۈڭ</string>
+    <string name="msg_usage">ئەپ يىنىدىكى رەسىمنى بېسىپ تور ۋە wifi غا ئۇلىنىشنى باشقۇرالايسىز، يول قويۇش (يېشىل) ياكى رەت قىلىش (قىزىل)</string>
+    <string name="msg_fairemail">ئەگەر سىز مەخپىيەتلىكىڭىزنى قوغداش ئۈچۈن NetGuard نى قاچىلىغان بولسىڭىز، مەخپىيەتلىكنى قوغدايدىغان <a href="https://email.faircode.eu/">FairEmail</a> غا قىزىقىشىڭىز مۇمكىن.</string>
+    <string name="msg_whitelist">تورغا ئۇلىنىش سۈكۈتتىكى ھالەت (قارا تىزىملىك ھالىتى)، بۇنى تەڭشەكتىن ئۆزگەرتكىلى بولىدۇ</string>
+    <string name="msg_push">كىرىش ئۇچۇرلىرى (push) ئادەتتە سىستېما تەركىبى بولغان Play مۇلازىمىتى تەرىپىدىن بىر تەرەپ قىلىنىدۇ، ئۇنىڭغا سۈكۈتتە يول قويۇلىدۇ</string>
+    <string name="msg_system">بارلىق (سىستېما) ئەپلەرنى باشقۇرۇشنى تەڭشەكتىن قوزغىتىشقا بولىدۇ</string>
+    <string name="msg_issue">خاتالىق يۈز بەرگەندىكى مەسلىنى ۋە ۋاقتىنى دوكلات قىلىڭ:</string>
+    <string name="msg_vpn_cancelled">VPN ئۇلىنىشى بىكار قىلىندى. باشقا بىر VPN نى ھەمىشە ئوچۇق قىلىپ سەپلىگەنمىدىڭىز؟</string>
+    <string name="msg_on">NetGuard ئوچۇق ھالەتتە تېلېفوننى تاقىسىڭىز، تېلېفون قوزغالغاندا NetGuard ئاپتۇماتىك قوزغىلىدۇ</string>
+    <string name="msg_unavailable">بۇ ئىقتىدار بۇ ئاندىرويىد نەشرىدە يوق</string>
+    <string name="msg_always_on">باشقا بىر VPN ھەمىشە ئوچۇق VPN قىلىپ بەلگىلەنگەن</string>
+    <string name="msg_always_on_lockdown">سۈزۈش ھالىتىدە NetGuard نى ئىشلىتىش ئۈچۈن ئاندىرويىد VPN تەڭشىكىدىن \"VPN سىز ئۇلىنىشنى توسۇش\"نى تاقاڭ</string>
+    <string name="msg_private_dns">سۈزۈش ھالىتىدە NetGuard نى ئىشلىتىش ئۈچۈن ئاندىرويىد تور تەڭشىكىدىن \"شەخسىي DNS\"نى تاقاڭ</string>
+
+    <string name="title_lockdown_enabled">تور ئېقىمى چەكلەندى</string>
+    <string name="title_unmetered_allowed">ئۆلچەمسىز ئېقىمغا يول قويۇلدى</string>
+    <string name="title_unmetered_blocked">ئۆلچەمسىز ئېقىم توسۇلدى</string>
+    <string name="title_unmetered_disabled">ئۆلچەمسىز قائىدىلەر قوللىنىلمىدى</string>
+    <string name="title_metered_allowed">ئۆلچەملىك ئېقىمغا يول قويۇلدى</string>
+    <string name="title_metered_blocked">ئۆلچەملىك ئېقىم توسۇلدى</string>
+    <string name="title_metered_disabled">ئۆلچەملىك قائىدىلەر قوللىنىلمىدى</string>
+    <string name="title_host_allowed">ئادرېسقا يول قويۇلدى</string>
     <string name="title_host_blocked">ئادرېس توسۇلدى</string>
-    <string name="title_interactive_allowed">ئېكران يورۇن ۋاقىتتا يول قويۇش</string>
-    <string name="title_roaming_blocked">كەزمە مۇلازىمەت توسۇش</string>
-    <string name="title_metered">سۈكۈتتىكى ھالەتتە Wifi تورىنى ھىسابلىمايدۇ. كۆچمە تور ھىسابلىندۇ</string>
-    <string name="title_internet">تور ھوقوقى يوق</string>
-    <string name="title_disabled">توسۇلدى</string>
-    <string name="title_apply">ئىشلىتىش قائىدىسى ۋە شەرت</string>
-    <string name="title_conditions">شەرت</string>
-    <string name="title_screen_wifi">ئېكران يورۇن ۋاقىتتا Wi-Fiيول قويۇش</string>
-    <string name="title_screen_other">ئېكران يورۇن ۋاقىتتا ئېقىمغا يول قويۇش</string>
+    <string name="title_interactive_allowed">ئېكران ئوچۇق بولسا يول قويۇش</string>
+    <string name="title_roaming_blocked">كەزمە توردا توسۇش</string>
+    <string name="title_metered">سۈكۈتتە Wi-Fi ئۆلچەمسىز، كۆچمە تور ئۆلچەملىك تور دەپ قارىلىدۇ</string>
+
+    <string name="title_internet">تور زىيارەت ھوقۇقى يوق</string>
+    <string name="title_disabled">چەكلەندى</string>
+    <string name="title_messaging">كىرىش ئۇچۇرلىرى Play مۇلازىمىتى تەرىپىدىن قوبۇل قىلىنىدۇ، بۇ ئەپنى توسۇش ئارقىلىق ئۇنى توسۇۋالغىلى بولمايدۇ</string>
+    <string name="title_download">چۈشۈرۈشلەر چۈشۈرۈش باشقۇرغۇچىسى تەرىپىدىن ئىجرا قىلىنىدۇ، بۇ ئەپنى توسۇش ئارقىلىق ئۇنى توسۇۋالغىلى بولمايدۇ</string>
+    <string name="title_apply">قائىدە ۋە شەرتلەرنى قوللىنىش</string>
+    <string name="title_conditions">شەرتلەر</string>
+    <string name="title_screen_wifi">ئېكران ئوچۇق بولسا Wi-Fi غا يول قويۇش</string>
+    <string name="title_screen_other">ئېكران ئوچۇق بولسا كۆچمە تورغا يول قويۇش</string>
     <string name="title_roaming_symbol">R</string>
-    <string name="title_roaming">كەزمە مۇلازىمەت توسۇش</string>
-    <string name="title_lockdown">قۇلۇپ ھالىتىدە يول قويۇش</string>
-    <string name="title_related">مۇناسۋەتلىك ئەپنى ئۆتكۈزۈش</string>
-    <string name="title_access">زىيارەتنى سىناش</string>
-    <string name="title_precedence">زىيارەت تەرتىپ ئەڭ ئالدىدا</string>
+    <string name="title_roaming">كەزمە توردا توسۇش</string>
+    <string name="label_ttl">TTL: %s s</string>
+    <string name="label_uid">UID: %s</string>
+    <string name="title_lockdown">قۇلۇپلاش ھالىتىدە يول قويۇش</string>
+    <string name="title_related">مۇناسىۋەتلىك سۈزۈش</string>
+    <string name="title_access">زىيارەت سىناشلىرى</string>
+    <string name="title_precedence">زىيارەت قائىدىسى باشقا قائىدىلەردىن ئۈستۈن تۇرىدۇ</string>
     <string name="title_options">تاللاشلار</string>
-    <string name="title_notify">تور ئۇقتۇرۇشنى سىناش</string>
-    <string name="title_logging_disabled">خاتىرىلەش قوزغالمىدى</string>
-    <string name="title_logging_enabled">خاتىرىلەش قوزغاىتىش</string>
-    <string name="title_logging_configure">ئورۇنلاشتۇرۇش</string>
-    <string name="title_enable_logging">تورسۇلغان ئادىرىسنىلا خاتىرلەش</string>
-    <string name="title_enable_filtering">يول قويغان ئادىرىسنى تاسقاشنى قوزغىتىش</string>
-    <string name="title_enable_help1">تاق ئادىرسنى توسۇش ياكى يول قويۇشنى ئۆتكۈزۈش</string>
-    <string name="title_enable_help2">كۈندىلىك خاتىرىنى قوزغىتىش(ئازراق) ياكى ئۆتكۈزىۋىتىش (كۆپ) توكنى كۆپ ئىشلىتىشى ۋە تور سۈرئىتىگە تەسىر كۆرسىتشى مومكىن</string>
-    <string name="title_rate">سۈرئەت</string>
+    <string name="title_notify">تور زىيارەت سىناشلىرىنى ئۇقتۇرۇش</string>
+
+    <string name="title_logging_disabled">خاتىرىلەش ياكى سۈزۈش قوزغالمىدى</string>
+    <string name="title_logging_enabled">خاتىرىلەش ۋە سۈزۈش قوزغىتىلدى</string>
+    <string name="title_logging_configure">سەپلەش</string>
+
+    <string name="title_enable_logging">پەقەت توسۇلغان ئادرېسلارنىلا خاتىرىلەشنى قوزغىتىش</string>
+    <string name="title_enable_filtering">يول قويۇلغان ئادرېسلارنىمۇ خاتىرىلەش ئۈچۈن سۈزۈشنى قوزغىتىش</string>
+    <string name="title_enable_notify">يېڭىدىن خاتىرىلەنگەن ئادرېسلار ئۈچۈن زىيارەت ئۇقتۇرۇشىنى قوزغىتىش</string>
+    <string name="title_enable_help0">بۇ تەڭشەكلەر بارلىق ئەپلەرگە قوللىنىلىدىغان ئومۇمىي تەڭشەكلەر</string>
+    <string name="title_enable_help1">تاق ئادرېسلارنى توسۇش ياكى يول قويۇش ئۈچۈن سۈزۈشمۇ كېرەك</string>
+    <string name="title_enable_help2">خاتىرىلەش ياكى سۈزۈشنى قوزغىتىش توك سەرپىياتىنى ئاشۇرۇۋېتىشى ياكى تور سۈرئىتىگە تەسىر قىلىشى مۇمكىن</string>
+
+    <string name="title_rate">باھالاش</string>
     <string name="title_allow">يول قويۇش</string>
-    <string name="title_block">توسۋېلىش</string>
-    <string name="title_allow_wifi">يول قويۇش Wi-Fi</string>
-    <string name="title_block_wifi">توسۇش Wi-Fi</string>
-    <string name="title_allow_other">كۆچمە تور يول قويۇش</string>
-    <string name="title_block_other">كۆچمە ئېقىم توسۇش</string>
-    <string name="title_root">روتroot</string>
-    <string name="title_mediaserver">ۋاسىتە مۇلازىمېتىر</string>
-    <string name="title_nobody">ھىچكىشى</string>
+    <string name="title_block">توسۇش</string>
+    <string name="title_wifi">Wi-Fi</string>
+    <string name="title_mobile">كۆچمە تور</string>
+    <string name="title_allow_wifi">Wi-Fi غا يول قويۇش</string>
+    <string name="title_block_wifi">Wi-Fi نى توسۇش</string>
+    <string name="title_allow_other">كۆچمە تورغا يول قويۇش</string>
+    <string name="title_block_other">كۆچمە تورنى توسۇش</string>
+    <string name="title_root">root</string>
+    <string name="title_mediaserver">mediaserver</string>
+    <string name="title_gpsdaemon">GPS مۇلازىمەتچىسى</string>
+    <string name="title_dnsdaemon">DNS مۇلازىمەتچىسى</string>
+    <string name="title_nobody">ھېچكىم</string>
     <string name="title_dontask">قايتا سورىما</string>
-    <string name="title_log_whois">كىم %1$s</string>
+
+    <string name="title_log_whois">Whois %1$s</string>
     <string name="title_log_port">ئېغىز %1$d</string>
-    <string name="title_pro">Pro نەشر</string>
-    <string name="title_pro_description">Pro نەشردە تۆۋەندىكى ئىقتىدار بار:</string>
-    <string name="title_pro_log">توسۇلغان تارىخنى كۆرۈش</string>
-    <string name="title_pro_filter">تور ئىقىم ئۆتكۈزۈش</string>
-    <string name="title_pro_notify">يېڭى ئەپ ئۇقتۇرشى</string>
-    <string name="title_pro_speed">تور سۈرئەت ئۇقتۇرۇش</string>
-    <string name="title_pro_theme">كۆرۈنۈش (ئۇسلۇپ, رەڭ)</string>
-    <string name="title_pro_all">Pro يۇقىرقى ئىقتىدار</string>
-    <string name="title_pro_dev">قوللاش</string>
-    <string name="title_pro_buy">سېتىۋىلىش</string>
-    <string name="title_pro_bought">قوزغىتىلغان</string>
+    <string name="title_log_copy">كۆچۈرۈش</string>
+
+    <string name="title_pro">Pro ئىقتىدارلار</string>
+    <string name="title_pro_description">تۆۋەندىكى Pro ئىقتىدارلارنى ئىشلەتكىلى بولىدۇ:</string>
+    <string name="title_pro_log">توسۇلغان تور خاتىرىسىنى كۆرۈش</string>
+    <string name="title_pro_filter">تور ئېقىمىنى سۈزۈش</string>
+    <string name="title_pro_notify">يېڭى ئەپ ئۇقتۇرۇشلىرى</string>
+    <string name="title_pro_speed">تور سۈرئىتى گرافىك ئۇقتۇرۇشى</string>
+    <string name="title_pro_theme">كۆرۈنۈش (تېما، رەڭلەر)</string>
+    <string name="title_pro_all">يۇقىرىدىكى بارلىق Pro ئىقتىدارلار</string>
+    <string name="title_pro_dev">تەرەققىياتنى قوللاش</string>
+    <string name="title_pro_buy">سېتىۋېلىش</string>
+    <string name="title_pro_bought">قوزغىتىلدى</string>
     <string name="title_pro_unavailable">ئىشلەتكىلى بولمايدۇ</string>
-    <string name="title_pro_details">تېىمىنى بېسىپ كۆپ ئۇچۇرغا ئېرشىڭ</string>
-    <string name="title_pro_challenge">چاقىرماق</string>
-    <string name="title_pro_reponse">ئىنكاس</string>
-    <string-array name="themeNames">
-        <item>كۆك يېشىل/سىرىق</item>
-        <item>كۆك/سىرىق</item>
-        <item>بىنەپشە رەڭ/قىزىل</item>
-        <item>كەھرىۋا رەڭلىك/كۆك</item>
-        <item>سىرىق/كۈل رەڭ</item>
-        <item>يېشىل</item>
-    </string-array>
-    <string-array name="protocolNames">
+    <string name="title_pro_details">تېمىنى بېسىپ تېخىمۇ كۆپ ئۇچۇرغا ئېرىشىڭ</string>
+    <string name="title_pro_challenge">خىرىس</string>
+    <string name="title_pro_reponse">جاۋاب</string>
+    <string name="title_pro_feature">بۇ بىر Pro ئىقتىدار</string>
+    <string name="title_pro_subscription">
+        ئايغا 1 ياكى 2 ياۋرو (باجنى ئۆز ئىچىگە ئالمايدۇ) تۆلەپ بارلىق Pro ئىقتىدارلارنى قوزغىتالايدىغان ئەزالىق.
+        ئەزالىقنى Play Store دىن بىكار قىلالايسىز ياكى باشقۇرالايسىز.
+    </string>
+    <string name="title_pro_already">Pro ئىقتىدارلار ئاللىقاچان قوزغىتىلغان</string>    <string-array name="protocolNames">
         <item>UDP</item>
         <item>TCP</item>
     </string-array>
+
+    <string-array name="protocolValues" translatable="false">
+        <item>17</item>
+        <item>6</item>
+    </string-array>
+
+    <string name="label_dns_summary">%1$d تۈر • %2$d ۋاقتى ئۆتكەن</string>
+
 </resources>

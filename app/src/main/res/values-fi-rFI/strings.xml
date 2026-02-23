@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name" translatable="false">NetGuard Next</string>
     <string name="app_description">NetGuard tarjoaa yksinkertaisia ja edistyneitä keinoja estää yhteydet internettiin - ilman tarvetta root-oikeuksille. Sovelluksille ja osoitteille voi yksilöllisesti sallia tai estää pääsyn Wi-Fi- ja/tai mobiiliyhteyteesi.</string>
+    <string name="app_copyright" translatable="false">Copyright \u00A9 2015–2025 by M. Bokhorst (M66B)</string>
     <string name="app_android">NetGuard edellyttää vähintään Android versiota 5.1</string>
-    <string name="app_xposed">Xposed aiheuttaa liikaa kaatumisia, minkä takia NetGuard saatetaan poistaa Google Play Kaupasta, joten NetGuard ei ole tuettu, kun Xposed on asennettuna</string>
+    <string name="app_eula" translatable="false">THIS SOFTWARE IS PROVIDED BY THE AUTHOR \'\'AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
     <string name="app_privacy"><a href="https://www.netguard.me/privacy/">Tietosuojakäytäntö</a></string>
     <string name="app_first">NetGuardia kehitettäessä ja testatessa on noudatettu suurta huolellisuutta, mutta on mahdotonta taata, että se toimii oikein kaikissa laitteissa.</string>
     <string name="app_agree">Hyväksyn</string>
     <string name="app_disagree">En hyväksy</string>
     <string name="app_support">NetGuard tarvitsee apuasi. Napauttamalla voit ostaa pro-ominaisuudet pitääksesi projektin käynnissä.</string>
+    <string name="app_qap">
+        Google aikoi poistaa sovelluksen Play Kaupasta, koska se pyysi lupaa kyselyihin kaikista sovelluksista.
+        Viisi valitusta ja hyvän perustelun antaminen sille, miksi tätä lupaa tarvitaan, hylättiin.
+        Tämä sovelluksen versio ei enää pyydä tätä lupaa,
+        ja tästä huolimatta lähes kaikki sovellukset luetellaan edelleen,
+        lukuun ottamatta joitakin (järjestelmä) sovelluksia, joita ei voi käynnistää manuaalisesti Android-sovellusluettelosta.
+        Näiden sovellusten internet-liikenne on aina sallittua gailusi moitteettoman toiminnan varmistamiseksi.
+        Jos uskot tämän olevan ongelma, voit päivittää sovelluksen GitHub-versioon ja hallita kaikkia (järjestelmä) sovelluksia uudelleen.
+    </string>
+
     <string name="channel_foreground">Käynnissä olevat palvelut</string>
     <string name="channel_notify">Yleiset ilmoitukset</string>
     <string name="channel_access">Yhteysilmoitukset</string>
+
     <string name="menu_search">Etsi sovellusta</string>
     <string name="menu_filter">Suodata sovelluksia</string>
     <string name="menu_app_user">Näytä käyttäjän sovellukset</string>
@@ -21,84 +34,188 @@
     <string name="menu_sort_name">Järjestä nimen mukaan</string>
     <string name="menu_sort_uid">Järjestä uid:n mukaan</string>
     <string name="menu_sort_data">Järjestä datan käytön mukaan</string>
+    <string name="menu_launch">Käynnistä sovellus</string>
     <string name="menu_log">Näytä loki</string>
     <string name="menu_settings">Asetukset</string>
+    <string name="menu_home">Koti</string>
     <string name="menu_invite">Kutsu</string>
     <string name="menu_legend">Selite</string>
     <string name="menu_support">Tuki</string>
     <string name="menu_about">Tietoja</string>
     <string name="menu_apps">Muut sovellukset</string>
+    <string name="menu_firewall">Palomuuri</string>
+    <string name="status_enabled">Palomuuri käytössä</string>
+    <string name="status_disabled">Palomuuri poissa käytöstä</string>
+    <string name="widget_firewall_enabled">Palomuuri PÄÄLLÄ</string>
+    <string name="widget_firewall_disabled">Palomuuri POIS</string>
+    <string name="widget_lockdown_enabled">Sulkutila PÄÄLLÄ</string>
+    <string name="widget_lockdown_disabled">Sulkutila POIS</string>
+    <string name="notify_traffic_title">Liikenteen seuranta</string>
+    <string name="notify_traffic_summary">Ylös %1$s • Alas %2$s • Piikki %3$s</string>
+    <string name="notify_traffic_debug">Istunnot %1$d/%2$d/%3$d • Tiedostot %4$d/%5$d</string>
+    <string name="ui_loading">Ladataan…</string>
+    <string name="ui_empty_logs_title">Ei vielä liikennettä</string>
+    <string name="ui_empty_logs_body">Kun yhteyksiä ilmestyy, ne näkyvät täällä.</string>
+    <string name="ui_empty_apps_title">Sovelluksia ei löytynyt</string>
+    <string name="ui_empty_apps_body">Yritä päivittää luettelo.</string>
+    <string name="ui_empty_dns_title">Ei vielä selvitettyjä DNS-tietoja</string>
+    <string name="ui_empty_dns_body">DNS-vastaukset näkyvät täällä selailun jälkeen.</string>
+    <string name="ui_dns_filter_empty">Mikään DNS-merkintä ei vastaa tätä suodatinta.</string>
+    <string name="ui_empty_forwarding_title">Ei uudelleenohjaussääntöjä</string>
+    <string name="ui_empty_forwarding_body">Lisää sääntö aloittaaksesi liikenteen uudelleenohjauksen.</string>
+    <string name="ui_forwarding_filter_empty">Mikään uudelleenohjaussääntö ei vastaa tätä suodatinta.</string>
+    <string name="ui_empty_pro_body">Tuki avaa lisäominaisuuksia ja pitää projektin elossa.</string>
+    <string name="ui_empty_pro_details">Pro avaa: suodatuksen, lokit, ilmoitukset, teemat ja nopeusrajoitukset.</string>
+    <string name="ui_home_hint">Hallitse jokaisen sovelluksen internet-yhteyttä.</string>
+    <string name="ui_home_quick_actions">Pikatoiminnot</string>
+    <string name="ui_apps_title">Palomuuri</string>
+    <string name="ui_logs_title">Liikenneloki</string>
+    <string name="ui_logs_filters">Suodattimet</string>
+    <string name="ui_logs_filter_status">Tila</string>
+    <string name="ui_logs_filter_protocol">Protokolla</string>
+    <string name="ui_logs_filter_view">Näkymä</string>
+    <string name="ui_logs_group_timeline">Aikajana</string>
+    <string name="ui_logs_group_by_app">Sovelluksen mukaan</string>
+    <string name="ui_logs_unknown_source">Tuntematon lähde</string>
+    <string name="ui_settings_title">Asetukset</string>
+    <string name="ui_dns_title">Selvitetyt DNS-tiedot</string>
+    <string name="ui_forwarding_title">Portin uudelleenohjaus</string>
+    <string name="ui_dns_hint">Viimeksi selvitetyt verkkotunnukset ja vastaukset.</string>
+    <string name="ui_forwarding_hint">Hallitse uudelleenohjaussääntöjä ja kohdesovelluksia.</string>
+    <string name="ui_dns_active">Aktiivinen</string>
+    <string name="ui_rule_custom">Mukautettu</string>
+    <string name="ui_dns_expired">Vanhentunut</string>
+    <string name="ui_filter_all">Kaikki</string>
+    <string name="ui_filter_empty">Mikään sovellus ei vastaa tätä suodatinta.</string>
+    <string name="ui_apps_search_empty">Mikään sovellus ei vastaa tätä hakua.</string>
+    <string name="ui_learn_more">Lue lisää</string>
+    <string name="status_running">Liikennettä suodatetaan</string>
+    <string name="status_not_running">Liikennettä ei suodateta</string>
+    <string name="action_enable">Ota käyttöön</string>
+    <string name="action_disable">Poista käytöstä</string>
+    <string name="home_apps_hint">Tarkista sovellussäännöt ja datan käyttö</string>
+    <string name="home_logs_hint">Tarkasta viimeaikainen verkkotoiminta</string>
+
+    <!-- Accessibility -->
+    <string name="action_expand">Laajenna tiedot</string>
+    <string name="action_collapse">Tiivistä tiedot</string>
+    <string name="action_navigate">Avaa</string>
+    <string name="action_toggle_firewall">Vaihda palomuurin tilaa</string>
+    <string name="action_clear_search">Tyhjennä haku</string>
+    <string name="search_settings">Hae asetuksista</string>
+    <string name="content_desc_security_status">Palomuurin suojaustila</string>
+    <string name="content_desc_app_icon">Sovelluksen kuvake: %s</string>
+    <string name="content_desc_show_info">Näytä tiedot kohteesta %1$s</string>
+
+    <!-- Dashboard stats -->
+    <string name="stat_blocked_today">Estetty</string>
+    <string name="stat_allowed_today">Sallittu</string>
+    <string name="stat_active_rules">Aktiiviset säännöt</string>
+
+    <!-- Tooltips -->
+    <string name="tooltip_rcode">DNS-vastauskoodi, joka lähetetään estetyille verkkotunnuksille. Oletus 3 (NXDOMAIN) tarkoittaa, ettei verkkotunnusta ole olemassa.</string>
+    <string name="tooltip_ttl">DNS-välimuistin merkintöjen vähimmäiselinikä sekunneissa.</string>
+    <string name="tooltip_pcap">Tallenna kaikki verkkopaketit vianmääritystä varten. Luo suuria tiedostoja.</string>
+    <string name="tooltip_filter">Sieppaa ja analysoi liikennettä. Vaaditaan osoitekohtaiseen estämiseen. Kuluttaa enemmän akkua.</string>
+    <string name="tooltip_lockdown">Estä kaikki liikenne paitsi erikseen sallituilta sovelluksilta. Käytä varoen.</string>
+
+    <string name="menu_protocol_udp" translatable="false">UDP</string>
+    <string name="menu_protocol_tcp" translatable="false">TCP</string>
     <string name="menu_protocol_other">Muu</string>
     <string name="menu_traffic_allowed">Sallittu</string>
     <string name="menu_traffic_blocked">Estetty</string>
-    <string name="menu_live">Automaattipäivitykset</string>
+    <string name="menu_live">Live-päivitykset</string>
     <string name="menu_refresh">Päivitä</string>
+    <string name="menu_ok">OK</string>
+    <string name="menu_cancel">Peruuta</string>
     <string name="menu_resolve">Näytä nimet</string>
     <string name="menu_organization">Näytä organisaatio</string>
     <string name="menu_pcap_enabled">PCAP käytössä</string>
     <string name="menu_pcap_export">PCAP vienti</string>
     <string name="menu_clear">Tyhjennä</string>
     <string name="menu_export">Vie</string>
-    <string name="menu_reset">Palauta oletukset</string>
+    <string name="menu_reset">Nollaa</string>
+
     <string name="menu_add">Lisää</string>
     <string name="menu_delete">Poista</string>
-    <string name="menu_cleanup">Siistiminen</string>
+
+    <string name="menu_cleanup">Siivous</string>
+
     <string name="title_protocol">Protokolla</string>
     <string name="title_dport">Lähdeportti</string>
     <string name="title_raddr">Kohdeosoite</string>
     <string name="title_rport">Kohdeportti</string>
     <string name="title_ruid">Kohdesovellus</string>
-    <string name="title_external">Valitse \"ei kukaan\" halutessasi ulkoisen palvelimen</string>
-    <string name="setting_defaults">Oletusarvot (valkoinen/musta lista)</string>
+    <string name="title_external">Ulkoinen palvelin: valitse \"ei kukaan\"</string>
+
+    <string name="setting_defaults">Oletusasetukset (sallitut/estetyt)</string>
     <string name="setting_whitelist_wifi">Estä Wi-Fi</string>
     <string name="setting_whitelist_other">Estä mobiili</string>
     <string name="setting_screen_wifi">Salli Wi-Fi näytön ollessa päällä</string>
     <string name="setting_screen_other">Salli mobiili näytön ollessa päällä</string>
     <string name="setting_whitelist_roaming">Estä verkkovierailu</string>
-    <string name="setting_options">Asetukset</string>
+
+    <string name="setting_options">Vaihtoehdot</string>
     <string name="setting_theme">Teema: %1$s</string>
     <string name="setting_dark">Käytä tummaa teemaa</string>
-    <string name="setting_install">Ilmoita uusista asennuksista</string>
-    <string name="setting_screen_on">Käytä \'näyttö päällä\'-sääntöjä</string>
-    <string name="setting_auto">Automaattinen käyttöönotto %1$s minuutin jälkeen</string>
-    <string name="setting_delay">Näyttö pois päältä viive %1$s minuuttia</string>
-    <string name="setting_update">Tarkasta päivitykset</string>
+    <string name="setting_theme_palette">Valitse värityyli</string>
+    <string name="setting_dynamic_unavailable">Dynaamiset värit vaativat Android 12:n tai uudemman.</string>
+    <string name="setting_appearance_mode">Ulkoasutila</string>
+    <string name="setting_appearance_mode_title">Tumma tila</string>
+    <string name="setting_appearance_mode_summary">Valitse Pois, Päällä tai Seuraa järjestelmää.</string>
+    <string name="setting_appearance_preview">Nykyinen: %1$s · %2$s</string>
+    <string name="setting_appearance_auto">Automaattinen</string>
+    <string name="setting_appearance_light">Vaalea</string>
+    <string name="setting_appearance_dark">Tumma</string>
+    <string name="theme_dynamic">Dynaaminen</string>
+    <string name="setting_install">Ilmoita uudesta asennuksesta</string>
+    <string name="setting_screen_on">Käytä \"näyttö päällä\" -sääntöjä</string>
+    <string name="setting_auto">Ota käyttöön automaattisesti %1$s minuutin kuluttua</string>
+    <string name="setting_delay">Viivästytä näytön sammumista %1$s minuuttia</string>
+    <string name="setting_update">Tarkista päivitykset</string>
+    <string name="setting_update_now">Tarkista nyt</string>
+    <string name="setting_update_checking">Tarkistetaan...</string>
+
     <string name="setting_network_options">Verkkoasetukset</string>
     <string name="setting_subnet">Aliverkon reititys</string>
-    <string name="setting_tethering">Salli internetin jako</string>
-    <string name="setting_lan">Salli pääsy LAN verkkoon</string>
-    <string name="setting_ip6">Ota käyttöön IPv6 liikenne</string>
-    <string name="setting_wifi_home">Wi-Fi kotiverkot: %1$s</string>
-    <string name="setting_metered">Hallitse käytön mukaan laskutettavia yhteyksiä</string>
-    <string name="setting_metered_2g">Älä huomioi 2G:tä käytön mukaan laskutettavana</string>
-    <string name="setting_metered_3g">Älä huomioi 3G:tä käytön mukaan laskutettavana</string>
-    <string name="setting_metered_4g">Älä huomioi LTE:tä käytön mukaan laskutettavana</string>
-    <string name="setting_national_roaming">Älä huomioi kotimaan verkkovierailua</string>
-    <string name="setting_eu_roaming">Älä huomioi EU-verkkovierailua</string>
+    <string name="setting_tethering">Salli jaettu yhteys</string>
+    <string name="setting_lan">Salli LAN-pääsy</string>
+    <string name="setting_ip6">Ota käyttöön IPv6-liikenne</string>
+    <string name="setting_wifi_home">Wi-Fi-kotiverkot: %1$s</string>
+    <string name="setting_metered">Hallitse käytön mukaan laskutettavia Wi-Fi-verkkoja</string>
+    <string name="setting_metered_2g">Pidä 2G-yhteyttä rajoittamattomana</string>
+    <string name="setting_metered_3g">Pidä 3G-yhteyttä rajoittamattomana</string>
+    <string name="setting_metered_4g">Pidä LTE-yhteyttä rajoittamattomana</string>
+    <string name="setting_national_roaming">Sivuuta kotimaan verkkovierailu</string>
+    <string name="setting_eu_roaming">Sivuuta EU-verkkovierailu</string>
     <string name="setting_call">Poista käytöstä puhelun aikana</string>
     <string name="setting_lockdown_wifi">Lukitse Wi-Fi</string>
     <string name="setting_lockdown_other">Lukitse mobiili</string>
-    <string name="setting_reload_onconnectivity">Lataa uudelleen aina yhteyden vaihtuessa</string>
+    <string name="setting_reload_onconnectivity">Lataa uudelleen aina yhteyden muuttuessa</string>
+
     <string name="setting_advanced_options">Lisäasetukset</string>
     <string name="setting_system">Hallitse järjestelmäsovelluksia</string>
-    <string name="setting_log_app">Tallenna internet yhteydet lokiin</string>
-    <string name="setting_access">Ilmoita internetyhteydestä</string>
+    <string name="setting_log_app">Kirjaa internet-yhteydet lokiin</string>
+    <string name="setting_log_retention_days">Liikennelokin säilytysaika (päivää)</string>
+    <string name="setting_access">Ilmoita internet-yhteydestä</string>
     <string name="setting_filter">Suodata liikennettä</string>
     <string name="setting_filter_udp">Suodata UDP-liikennettä</string>
-    <string name="setting_handover">Saumaton VPN-yhteyden siirto uudelleen ladattaessa</string>
-    <string name="setting_clear_onreload">Sulje yhteydet uudelleen ladattaessa</string>
-    <string name="setting_lockdown">Lukitse liikenne</string>
+    <string name="setting_handover">Saumaton VPN-siirto ladattaessa uudelleen</string>
+    <string name="setting_clear_onreload">Sulje yhteydet ladattaessa uudelleen</string>
+    <string name="setting_lockdown">Sulkutilan liikenne</string>
+    <string name="setting_malware">Haittaohjelmasuojaus</string>
     <string name="setting_track_usage">Seuraa verkon käyttöä</string>
     <string name="setting_reset_usage">Nollaa verkon käyttö</string>
     <string name="setting_show_resolved">Näytä selvitetyt verkkotunnukset</string>
-    <string name="setting_block_domains">Estä verkkotunnuksia</string>
+    <string name="setting_block_domains">Estä verkkotunnukset</string>
     <string name="setting_rcode">DNS-vastauskoodi: %s</string>
-    <string name="setting_forwarding">Porttien uudelleenohjaus</string>
+    <string name="setting_forwarding">Portin uudelleenohjaus</string>
     <string name="setting_vpn4">VPN IPv4: %s</string>
     <string name="setting_vpn6">VPN IPv6: %s</string>
     <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_validate">Yhteyden validoinnin kohde: %s</string>
-    <string name="setting_ttl">DNS TTL-vähimmäisarvo: %s s</string>
+    <string name="setting_dns2">Toissijainen DNS: %s</string>
+    <string name="setting_validate">Vahvista osoitteessa: %s</string>
+    <string name="setting_ttl">DNS TTL:n vähimmäisarvo: %s s</string>
     <string name="setting_socks5_enabled">Käytä SOCKS5-välityspalvelinta</string>
     <string name="setting_socks5_addr">SOCKS5-osoite: %s</string>
     <string name="setting_socks5_port">SOCKS5-portti: %s</string>
@@ -106,185 +223,231 @@
     <string name="setting_socks5_password">SOCKS5-salasana: %s</string>
     <string name="setting_pcap_record_size">PCAP-tallenteen koko: %s B</string>
     <string name="setting_pcap_file_size">PCAP:n suurin tiedostokoko: %s MB</string>
-    <string name="setting_watchdog">Watchdog: joka %s minuutti</string>
+    <string name="setting_pcap">Tallenna verkkoliikenne (PCAP)</string>
+    <string name="setting_watchdog">Watchdog: %s minuutin välein</string>
+
     <string name="setting_stats_category">Nopeusilmoitus</string>
     <string name="setting_stats">Näytä nopeusilmoitus</string>
-    <string name="setting_stats_top">Näytä yleisimmät ohjelmat</string>
-    <string name="setting_stats_frequency">Näytteistysväli: %s ms</string>
-    <string name="setting_stats_samples">Näytteiden määrä: %s s</string>
-    <string name="setting_backup">Varmuuskopiointi</string>
+    <string name="setting_stats_top">Näytä suosituimmat sovellukset</string>
+    <string name="setting_stats_frequency">Näytteenottoväli: %s ms</string>
+    <string name="setting_stats_samples">Näytteiden määrä: %s</string>
+
+    <string name="setting_backup">Varmuuskopio</string>
     <string name="setting_export">Vie asetukset</string>
     <string name="setting_import">Tuo asetukset</string>
     <string name="setting_hosts">Tuo hosts-tiedosto</string>
-    <string name="setting_hosts_append">Tuo hosts-tiedosto (lisää olemassa olevaan)</string>
-    <string name="setting_hosts_url">Hosts-tiedoston URL-osoite</string>
+    <string name="setting_hosts_append">Tuo hosts-tiedosto (lisää)</string>
+    <string name="setting_hosts_url">Hosts-tiedoston latausosoite</string>
     <string name="setting_hosts_download">Lataa hosts-tiedosto</string>
+    <string name="setting_use_hosts">Käytä hosts-tiedostoa</string>
+
     <string name="setting_technical">Tekniset tiedot</string>
     <string name="setting_technical_general">Yleiset</string>
-    <string name="setting_technical_networks">Verkkoyhteydet</string>
+    <string name="setting_technical_networks">Verkot</string>
     <string name="setting_technical_subscription">Tilaukset</string>
-    <string name="summary_install">Näytä tilapalkki-ilmoitus muokataksesi suoraan asetuksia uusille asennetuille ohjelmille (pro-ominaisuus)</string>
-    <string name="summary_auto">Ota NetGuard automaattisesti käyttöön kytkettyäsi sen pois widgetillä (näin monen minuutin kuluttua, 0 kytkee toiminnon pois)</string>
-    <string name="summary_delay">Pidä näyttö päällä -asetuksia aktiivisina näytön sammuttua (näin monta minuuttia, 0 kytkee toiminnon pois)</string>
-    <string name="summary_update">Tarkasta päivitykset kahdesti päivässä GitHubista</string>
-    <string name="summary_tethering">Internetin jakaminen saattaa toimia Android-versiosta riippuen. Jaettua liikennettä ei voi suodattaa.</string>
-    <string name="summary_subnet">Ota käyttöön aliverkon reititys; saattaa ottaa käyttöön Wi-Fi-puhelut, mutta saattaa myös aktivoida Androidissa olevia bugeja ja lisätä akun käyttöä</string>
-    <string name="summary_lan">Salli ohjelmien yhdistää lähiverkon osoitteisiin, kuten 10.0.0.0/8, 172.16.0.0/12 ja 198.168.0.0/16</string>
+    <string name="setting_section_appearance">Ulkoasu</string>
+    <string name="setting_section_firewall">Palomuurisäännöt</string>
+    <string name="setting_section_advanced">Lisäasetukset</string>
+    <string name="setting_section_hosts">Hosts ja DNS</string>
+    <string name="setting_section_network">Verkkoasetukset</string>
+    <string name="setting_section_dns">DNS-tiedot</string>
+    <string name="setting_section_proxy">Välityspalvelin</string>
+    <string name="setting_section_vpn">VPN-asetukset</string>
+    <string name="setting_section_background">Taustatehtävät</string>
+    <string name="setting_section_diagnostics">Diagnostiikka</string>
+    <string name="setting_section_support">Tuki</string>
+
+    <string name="summary_install">Näytä tilapalkin ilmoitus uusien sovellusten määrittämiseksi (pro-ominaisuus)</string>
+    <string name="summary_auto">Widgetillä tapahtuvan käytöstä poiston jälkeen ota NetGuard käyttöön automaattisesti valitun minuuttimäärän kuluttua (aseta 0 poistaaksesi tämän)</string>
+    <string name="summary_delay">Kun näyttö sammuu, pidä näytön ollessa päällä käytettävät säännöt aktiivisina valitun minuuttimäärän ajan (aseta 0 poistaaksesi tämän)</string>
+    <string name="summary_update">Tarkista uudet versiot GitHubista kahdesti päivässä</string>
+
+    <string name="summary_tethering">Android-versiosta riippuen internetin jako saattaa toimia tai olla toimimatta. Jaettua liikennettä ei voi suodattaa.</string>
+    <string name="summary_subnet">Ota käyttöön aliverkon reititys; saattaa mahdollistaa Wi-Fi-puhelut, mutta saattaa myös aiheuttaa virheitä Androidissa ja lisätä akun käyttöä</string>
+    <string name="summary_lan">Salli sovellusten yhdistää lähiverkon osoitteisiin (esim. 10.0.0.0/8, 172.16.0.0/12 ja 192.168.0.0/16)</string>
     <string name="summary_ip6">Reititä IPv6-liikenne NetGuardiin, jotta se voidaan valikoiden sallia tai estää</string>
-    <string name="summary_wifi_home">Käytä Wi-Fi-verkkojen sääntöjä vain valitulle verkolle (käytä mobiiliverkon sääntöjä muille Wi-Fi verkoille)</string>
-    <string name="summary_metered">Käytä mobiiliverkkojen sääntöjä käytön mukaan laskutettaville (maksulliset, mobiilijako) Wi-Fi-verkoille</string>
+    <string name="summary_wifi_home">Käytä Wi-Fi-verkon sääntöjä vain valituissa verkoissa (käytä mobiiliverkon sääntöjä muissa Wi-Fi-verkoissa)</string>
+    <string name="summary_metered">Käytä mobiiliverkon sääntöjä käytön mukaan laskutettavissa Wi-Fi-verkoissa</string>
     <string name="summary_metered_2g">Käytä Wi-Fi-verkon sääntöjä 2G-yhteyksille</string>
     <string name="summary_metered_3g">Käytä Wi-Fi-verkon sääntöjä 3G-yhteyksille</string>
     <string name="summary_metered_4g">Käytä Wi-Fi-verkon sääntöjä LTE-yhteyksille</string>
-    <string name="summary_national_roaming">Älä käytä verkkovierailun sääntöjä, kun SIM-kortti ja mobiiliverkko ovat samasta maasta</string>
-    <string name="summary_eu_roaming">Älä käytä verkkovierailun sääntöjä, kun SIM-kortti ja mobiiliverkko ovat molemmat EU-maasta (kotimaanhintaiset verkkovierailut)</string>
-    <string name="summary_call">Laita NetGuard pois käytöstä puheluiden aikana. Tämä kiertää mahdollisia IP-/Wi-Fi-puheluongelmia.</string>
-    <string name="summary_system">Määritä sääntöjä järjestelmäsovelluksille (kokeneille käyttäjille)</string>
-    <string name="summary_log_app">Kirjaa lokiin yritykset yhdistää internetiin. Tämä saattaa lisätä akun käyttöä.</string>
-    <string name="summary_access">Näytä tilapalkin ilmoitus, kun sovellukset yrittävät yhdistää uuteen internetosoitteeseen (vain estetyt yritykset näytetään, jos suodatus ei ole käytössä)</string>
-    <string name="summary_filter">Suodata VPN-tunnelista ulospäin kulkevat IP-paketit. Tämä saattaa lisätä akun käyttöä.</string>
-    <string name="summary_track_usage">Seuraa jokaisen sovelluksen ja osoitteen lähettämien ja vastaanottamien tavuja lukumäärää. Tämä saattaa lisätä akun käyttöä.</string>
-    <string name="summary_block_domains">Vastaa asetetulla DNS-vastauskoodilla estettyihin verkkotunnuksiin kohdistuviin pyyntöihin. Tämä valinta on kytketty pois päältä, jos hosts-tiedostoa ei ole saatavilla.</string>
-    <string name="summary_rcode">Oletusarvo on 3 (NXDOMAIN), joka tarkoittaa \'verkkotunnusta ei ole olemassa\'.</string>
-    <string name="summary_validate">Verkkotunnus, jonka porttiin 443 (https) yhdistämällä validoidaan internetyhteys.</string>
+    <string name="summary_national_roaming">Älä käytä verkkovierailusääntöjä, kun SIM-kortti ja mobiiliverkko ovat samasta maasta</string>
+    <string name="summary_eu_roaming">Älä käytä verkkovierailusääntöjä, kun SIM-kortti ja mobiiliverkko ovat molemmat EU-maasta</string>
+    <string name="summary_call">Poista NetGuard käytöstä puhelun aikana. Tätä voidaan käyttää IP/Wi-Fi-puheluongelmien välttämiseen.</string>
+
+    <string name="summary_system">Määritä säännöt järjestelmäsovelluksille (asiantuntijoille)</string>
+    <string name="summary_log_app">Kirjaa sovellusten yritykset käyttää internetiä. Tämä saattaa kuluttaa akkua.</string>
+    <string name="summary_log_retention_days">Poista automaattisesti vanhat liikennelokit huollon aikana. Aseta 0 säilyttääksesi ne ikuisesti.</string>
+    <string name="summary_access">Näytä tilapalkin ilmoitus, kun sovellus yrittää käyttää uutta internet-osoitetta (vain estetyt yritykset ilmoitetaan, jos suodatus ei ole käytössä)</string>
+    <string name="summary_filter">Suodata VPN-tunnelista lähtevät IP-paketit. Tämä saattaa kuluttaa akkua.</string>
+    <string name="summary_track_usage">Seuraa kunkin sovelluksen ja osoitteen lähettämiä ja vastaanottamia tavuja. Tämä saattaa kuluttaa akkua.</string>
+    <string name="summary_block_domains">Vastaa määritetyllä DNS-vastauskoodilla estettyihin verkkotunnuksiin. Tämä on pois käytöstä, jos hosts-tiedostoa ei ole.</string>
+    <string name="summary_rcode">Oletusarvo on 3 (NXDOMAIN), mikä tarkoittaa olematonta verkkotunnusta.</string>
+    <string name="summary_validate">Verkkotunnus, jota käytetään internet-yhteyden vahvistamiseen portissa 443 (https).</string>
     <string name="summary_socks5_enabled">Vain TCP-liikenne lähetetään välityspalvelimelle</string>
-    <string name="summary_watchdog">Tarkasta väliajoin NetGuardin päälläolo (aseta 0 kytkeäksesi tämä pois käytöstä). Tämä saattaa lisätä akun käyttöä.</string>
-    <string name="summary_stats">Näytä verkkoyhteyden nopeuskuvaaja tilapalkin ilmoituksessa</string>
+    <string name="summary_watchdog">Tarkista säännöllisesti, onko NetGuard edelleen käynnissä (aseta 0 poistaaksesi tämän). Tämä saattaa kuluttaa akkua.</string>
+
+    <string name="summary_stats">Näytä verkon nopeuskaavio tilapalkin ilmoituksessa</string>
+
+    <string-array name="default_wifi_home"></string-array>
+
     <string name="msg_sure">Oletko varma?</string>
-    <string name="msg_started">Toimeenpanee sääntöjä</string>
+    <string name="msg_started">Sääntöjä sovelletaan</string>
     <string name="msg_packages">%1$d sallittu, %2$d estetty</string>
-    <string name="msg_hosts">%1$d sallittu, %2$d estetty, %3$d osoitetta</string>
-    <string name="msg_waiting">Odottaa tapahtumaa</string>
-    <string name="msg_disabled">NetGuard ei ole käytössä, ota se käyttöön</string>
-    <string name="msg_revoked">NetGuard on poistettu käytöstä luultavasti käyttämällä toista VPN-sovellusta</string>
+    <string name="msg_hosts">%1$d sallittu, %2$d estetty, %3$d hosts-tietoa</string>
+    <string name="msg_waiting">Odotetaan tapahtumaa</string>
+    <string name="msg_disabled">NetGuard on pois käytöstä. Ota se käyttöön yllä olevasta kytkimestä.</string>
+    <string name="msg_notifications">Napauta antaaksesi ilmoitusluvat (yhteysyrityksiä, virheilmoituksia jne. varten)</string>
+    <string name="msg_revoked">NetGuard on poistettu käytöstä, todennäköisesti toisen VPN-sovelluksen takia</string>
     <string name="msg_installed">\'%1$s\' asennettu</string>
     <string name="msg_installed_n">On asennettu</string>
-    <string name="msg_access">%1$s yritti ottaa yhteyttä internetiin</string>
-    <string name="msg_access_n">Yritetty internetyhteyttä</string>
-    <string name="msg_completed">Toiminto suoritettu</string>
-    <string name="msg_vpn">NetGuard käyttää paikallista VPN-yhteyttä internetyhteyksien suodattamiseen. Tämän takia tulee sallia VPN-yhteys seuraavassa valikossa. Verkkoliikennettäsi ei ohjata ulkoiselle VPN-palvelimelle.</string>
-    <string name="msg_autostart">NetGuard ei voinut käynnistyä automaattisesti. Tämä johtunee ohjelmistovirheestä Android-versiossasi.</string>
+    <string name="msg_malware">Mahdollinen haittaohjelma: \'%1$s\'</string>
+    <string name="msg_access">%1$s yritti käyttää internetiä</string>
+    <string name="msg_access_n">Internet-yhteyttä yritetty</string>
+    <string name="msg_completed">Toiminto valmis</string>
+    <string name="msg_invalid">Tarkista arvot ja yritä uudelleen.</string>
+    <string name="msg_export_failed">Vienti epäonnistui: %1$s</string>
+    <string name="msg_vpn">NetGuard käyttää paikallista VPN:ää internet-liikenteen suodattamiseen.
+Tästä syystä salli VPN-yhteys seuraavassa ikkunassa.
+Internet-liikennettäsi ei lähetetä ulkoiselle VPN-palvelimelle.</string>
+    <string name="msg_autostart">NetGuard ei voinut käynnistyä automaattisesti. Tämä johtuu todennäköisesti Android-version virheestä.</string>
     <string name="msg_error">Tapahtui odottamaton virhe: \'%s\'</string>
-    <string name="msg_start_failed">Android esti VPN-yhteyden käynnistymisen. Tämä johtunee ohjelmistovirheestä Android-versiossasi.</string>
+    <string name="msg_start_failed">Android kieltäytyi käynnistämästä VPN-palvelua juuri nyt. Tämä johtuu todennäköisesti Android-version virheestä.</string>
     <string name="msg_try">Kokeile NetGuardia</string>
-    <string name="msg_terms">Lahjoittamalla hyväksyt <a href="http://www.netguard.me/#terms">terms &amp; ehdot</a></string>
-    <string name="msg_dimming">Jos et voi valita OK seuraavassa kohdassa, jokin näyttöä hallinnoiva (himmentävä) sovellus luultavasti estää sen.</string>
-    <string name="msg_mbday">± %1$.3f▲ %2$.3f▼ MB/päivä</string>
-    <string name="msg_kb">%1$7.3f▲ %2$7.3f▼ KB</string>
-    <string name="msg_mb">%1$7.3f▲ %2$7.3f▼ MB</string>
-    <string name="msg_gb">%1$7.3f▲ %2$7.3f▼ GB</string>
+    <string name="msg_terms">Lahjoittamalla hyväksyt <a href="http://www.netguard.me/#terms">käyttöehdot</a></string>
+    <string name="msg_dimming">Jos et voi painaa OK-painiketta, jokin toinen (näyttöä himmentävä) sovellus todennäköisesti hallitsee näyttöä.</string>
+    <string name="msg_mbday">&#177; %1$.3f&#9650; %2$.3f&#9660; MB/päivä</string>
+    <string name="msg_kbsec">%7.3f KB/s</string>
+    <string name="msg_mbsec">%7.3f MB/s</string>
+    <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
+    <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
+    <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
     <string name="msg_count">%dx</string>
-    <string name="msg_doze">Androidin akun käytön optimointi tulisi sulkea NetGuardin osalta luotettavan toiminnan takaamiseksi.
-\n\nValitse seuraavassa valikossa ylhäältä \"Kaikki ohjelmat\", NetGuard ja valitse sekä hyväksy \"Älä optimoi\".</string>
-    <string name="msg_datasaving">Androidin dataa säästävät asetukset tulisi laittaa pois päältä NetGuardin osalta luotettavan toiminnan takaamiseksi.
-\n\nOta käyttöön seuraavassa valikossa vaihtoehdot \"Taustatiedonsiirto\" ja \"Rajoittamaton datan käyttö\"</string>
-    <string name="msg_filter">Verkkoliikenteen suodatus saa Androidin kohdistamaan datan ja akun käytön NetGuard-sovellukselle, eikä dataa ja akkua todellisuudessa käyttäville sovelluksille</string>
-    <string name="msg_filter4">Android 4 edellyttää suodatuksen kytkemistä päälle</string>
-    <string name="msg_log_disabled">Verkkoliikenteen lokiin kirjaaminen ei ole käytössä. Kirjaamisen käyttäminen saattaa lisätä akun käyttöä.</string>
-    <string name="msg_clear_rules">Tämä palauttaa säännöt ja ehdot oletusarvoihinsa</string>
-    <string name="msg_reset_access">Tämä poistaa yritettyjen yhteyksien lokimerkinnät ilman salli/estä sääntöjä</string>
-    <string name="msg_import_last">Edellinen tuonti: %s</string>
+    <string name="msg_doze">Luotettavan toiminnan varmistamiseksi Androidin akun optimointi tulee poistaa käytöstä NetGuardin osalta.
+\n\nValitse seuraavassa ikkunassa ylhäältä \"Kaikki sovellukset\", etsi NetGuard ja valitse \"Älä optimoi\".</string>
+    <string name="msg_datasaving">Luotettavan toiminnan varmistamiseksi Androidin datansäästöasetukset tulee poistaa käytöstä NetGuardin osalta.
+\n\nOta seuraavassa ikkunassa käyttöön asetukset \"Taustadata\" ja \"Rajoittamaton datan käyttö\".</string>
+    <string name="msg_filter">Suodatuksen käyttö saa Androidin kohdistamaan datan ja akun kulutuksen NetGuardiin alkuperäisten sovellusten sijaan.</string>
+    <string name="msg_filter4">Android 4 vaatii suodatuksen käyttöönoton</string>
+    <string name="msg_log_disabled">Liikenteen lokitus on pois käytöstä. Ota se käyttöön yllä olevasta kytkimestä. Lokitus saattaa kuluttaa akkua.</string>
+    <string name="msg_clear_rules">Tämä nollaa säännöt ja ehdot oletusarvoihin</string>
+    <string name="msg_reset_access">Tämä poistaa yhteysyritysten lokitiedot ilman salli/estä-sääntöjä</string>
+    <string name="msg_import_last">Viimeisin tuonti: %s</string>
     <string name="msg_downloading">Ladataan\n%1s</string>
     <string name="msg_downloaded">Hosts-tiedosto ladattu</string>
-    <string name="msg_download_last">Edellinen lataus: %s</string>
-    <string name="msg_start_forward">Aloita uudelleenohjaus osoitteen %1$s portista %2$d osoitteeseen %3$s:%4$d sovelluksille \'%5$s\'?</string>
-    <string name="msg_stop_forward">Lopeta uudelleenohjaus osoitteen %1$s portista %2$d?</string>
-    <string name="msg_metered">Verkko on käytön mukaan laskutettava</string>
-    <string name="msg_inactive">Ei aktiivista internetyhteyttä</string>
+    <string name="msg_download_last">Viimeisin lataus: %s</string>
+    <string name="msg_start_forward">Aloitetaanko portin %1$s %2$d uudelleenohjaus kohteeseen %3$s:%4$d sovellukselle \'%5$s\'?</string>
+    <string name="msg_stop_forward">Lopetetaanko portin %1$s %2$d uudelleenohjaus?</string>
+    <string name="msg_metered">Verkko on rajoitettu</string>
+    <string name="msg_inactive">Ei aktiivista internet-yhteyttä</string>
     <string name="msg_queue">NetGuard on varattu</string>
-    <string name="msg_update">Päivitys saatavilla, valitse ladataksesi</string>
-    <string name="msg_usage">Voit sallia (vihertävä) tai estää (punertava) sovelluksen pääsyn internetiin Wi-Fi- tai mobiiliverkon kautta sovelluksen vieressä olevista kuvakkeista</string>
-    <string name="msg_fairemail">Jos asensit NetGuardin suojellaksesi yksityisyyttäsi, voit olla kiinnostunut myös <a href="https://email.faircode.eu/">FairEmailista</a>, avoimen lähdekoodin, yksityisyysystävällisestä sähköpostisovelluksesta</string>
-    <string name="msg_whitelist">Internetyhteys on sallittu oletuksena (musta lista -tila), tämän voi muuttaa asetuksista</string>
-    <string name="msg_push">Järjestelmäsovellus Play Palvelut käsittelee pääsääntöisesti saapuvat (push) viestit ja sen pääsy internetiin on sallittu oletuksena</string>
-    <string name="msg_system">Kaikkien sovellusten (myös järjestelmäsovellusten) hallinnoinnin voi ottaa käyttöön asetuksista</string>
-    <string name="msg_issue">Kuvaile ongelmatilanne ja ilmoita milloin ongelma ilmenee:</string>
-    <string name="msg_vpn_cancelled">VPN-yhteys on peruttu\n Oletko asettanut toisen VPN-yhteyden aina käytössä olevaksi?</string>
-    <string name="msg_on">Laitteen sammuttaminen, kun NetGuard on käytössä, käynnistää NetGuardin automaattisesti laitteen käynnistyksen yhteydessä</string>
+    <string name="msg_update">Päivitys saatavilla, napauta ladataksesi</string>
+    <string name="msg_usage">Voit sallia (vihreä) tai estää (punainen) Wi-Fi- tai mobiilinetin käytön napauttamalla sovelluksen vieressä olevia kuvakkeita</string>
+    <string name="msg_fairemail">Jos asensit NetGuardin suojellaksesi yksityisyyttäsi, saatat olla kiinnostunut myös <a href="https://email.faircode.eu/">FairEmailista</a>, joka on avoimen lähdekoodin sähköpostisovellus.</string>
+    <string name="msg_whitelist">Internet-yhteys on sallittu oletuksena (estolista-tila). Tätä voidaan muuttaa asetuksista.</string>
+    <string name="msg_push">Saapuvat (push) viestit hoitaa yleensä järjestelmän Play-palvelut, jolla on oletuksena internet-pääsy</string>
+    <string name="msg_system">Järjestelmäsovellusten hallinta voidaan ottaa käyttöön asetuksista</string>
+    <string name="msg_issue">Kuvaile ongelma ja ilmoita sen tapahtumisaika:</string>
+    <string name="msg_vpn_cancelled">VPN-yhteys peruutettu. Oletko määrittänyt toisen VPN:n aina päällä olevaksi?</string>
+    <string name="msg_on">Jos sammutat laitteen NetGuardin ollessa päällä, se käynnistyy automaattisesti uudelleenkäynnistyksen yhteydessä</string>
     <string name="msg_unavailable">Tämä ominaisuus ei ole saatavilla tässä Android-versiossa</string>
-    <string name="msg_always_on">Toinen VPN on asetettu aina käytössä olevaksi</string>
-    <string name="msg_always_on_lockdown">Kytke Androidin VPN-asetuksissa pois \"Estä yhteydet, jotka eivät käytä VPN:ää\" käyttääksesi NetGuardin suodatustilaa</string>
-    <string name="msg_private_dns">Kytke pois \"Yksityinen DNS\" Androidin verkkoasetuksissa käyttääksesi NetGuardin suodatustilaa</string>
-    <string name="title_lockdown_enabled">Liikenne on lukittu</string>
-    <string name="title_unmetered_allowed">Liikenne, joka ei ole käytön mukaan laskutettava, on sallittu</string>
-    <string name="title_unmetered_blocked">Liikenne, joka ei ole käytön mukaan laskutettava, on estetty</string>
-    <string name="title_unmetered_disabled">Sääntöjä liikenteelle, joka ei ole käytön mukaan laskutettava, ei käytetä</string>
-    <string name="title_metered_allowed">Käytön mukaan laskutettava liikenne on sallittu</string>
-    <string name="title_metered_blocked">Käytön mukaan laskutettava liikenne on estetty</string>
-    <string name="title_metered_disabled">Käytön mukaan laskutettavalle liikenteelle olevia sääntöjä ei käytetä</string>
+    <string name="msg_always_on">Toinen VPN on asetettu aina päällä olevaksi</string>
+    <string name="msg_always_on_lockdown">Ota pois päältä \"Estä yhteydet ilman VPN-yhteyttä\" Androidin VPN-asetuksista käyttääksesi NetGuardin suodatustilaa</string>
+    <string name="msg_private_dns">Ota pois päältä \"Yksityinen DNS\" Androidin verkkoasetuksista käyttääksesi NetGuardin suodatustilaa</string>
+
+    <string name="title_lockdown_enabled">Liikenne on suljettu</string>
+    <string name="title_unmetered_allowed">Rajoittamaton liikenne sallittu</string>
+    <string name="title_unmetered_blocked">Rajoittamaton liikenne estetty</string>
+    <string name="title_unmetered_disabled">Rajoittamattoman liikenteen sääntöjä ei sovelleta</string>
+    <string name="title_metered_allowed">Rajoitettu liikenne sallittu</string>
+    <string name="title_metered_blocked">Rajoitettu liikenne estetty</string>
+    <string name="title_metered_disabled">Rajoitetun liikenteen sääntöjä ei sovelleta</string>
     <string name="title_host_allowed">Osoite on sallittu</string>
     <string name="title_host_blocked">Osoite on estetty</string>
     <string name="title_interactive_allowed">Salli näytön ollessa päällä</string>
     <string name="title_roaming_blocked">Estä verkkovierailun aikana</string>
-    <string name="title_metered">Oletuksena mobiiliyhteyttä pidetään käytön mukaan laskutettavana mutta Wi-Fi-yhteyttä ei</string>
-    <string name="title_internet">ei ole internetoikeuksia</string>
+    <string name="title_metered">Oletuksena Wi-Fi-yhteyttä pidetään rajoittamattomana ja mobiiliyhteyttä rajoitettuna</string>
+
+    <string name="title_internet">ei internet-lupaa</string>
     <string name="title_disabled">on poistettu käytöstä</string>
-    <string name="title_messaging">Google Play Palvelut ottaa vastaan tulevat viestit, joten tämän sovelluksen estäminen ei estä viestejä</string>
-    <string name="title_download">Latauksista vastaa latausten hallinta, eikä tämän sovelluksen estäminen estä niitä</string>
+    <string name="title_messaging">Google Play -palvelut vastaanottaa saapuvat viestit, joten tämän sovelluksen estäminen ei estä viestejä</string>
+    <string name="title_download">Lataushallinta hoitaa lataukset, joten tämän sovelluksen estäminen ei estä niitä</string>
     <string name="title_apply">Käytä sääntöjä ja ehtoja</string>
     <string name="title_conditions">Ehdot</string>
     <string name="title_screen_wifi">Salli Wi-Fi näytön ollessa päällä</string>
     <string name="title_screen_other">Salli mobiili näytön ollessa päällä</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">Estä verkkovierailun aikana</string>
-    <string name="title_lockdown">Salli lukitustilassa</string>
+    <string name="label_ttl">TTL: %s s</string>
+    <string name="label_uid">UID: %s</string>
+    <string name="title_lockdown">Salli sulkutilassa</string>
     <string name="title_related">Suodata liittyvät</string>
-    <string name="title_access">Yhteysyritykset</string>
-    <string name="title_precedence">Yhteyksien säännöt ovat etusijalla ennen muita sääntöjä</string>
+    <string name="title_access">Pääsy-yritykset</string>
+    <string name="title_precedence">Pääsysäännöt ovat etusijalla muihin sääntöihin nähden</string>
     <string name="title_options">Asetukset</string>
-    <string name="title_notify">Ilmoita internetyhteysyrityksistä</string>
-    <string name="title_logging_disabled">Lokiin kirjaaminen tai suodatus eivät ole käytössä</string>
-    <string name="title_logging_enabled">Lokiin kirjaaminen ja suodatus ovat käytössä</string>
+    <string name="title_notify">Ilmoita internetin käyttöyrityksistä</string>
+
+    <string name="title_logging_disabled">Lokitus tai suodatus ei ole käytössä</string>
+    <string name="title_logging_enabled">Lokitus ja suodatus ovat käytössä</string>
     <string name="title_logging_configure">Määritä</string>
-    <string name="title_enable_logging">Ota käyttöön vain estettyjen osoitteiden lokiin kirjaaminen</string>
-    <string name="title_enable_filtering">Ota käyttöön myös sallittujen osoitteiden lokiin kirjaaminen</string>
-    <string name="title_enable_notify">Ota käyttöön yhteysilmoitukset uusille lokiin kirjatuille osoitteille</string>
-    <string name="title_enable_help0">Nämä asetukset ovat globaaleja ja vaikuttavat kaikkiin sovelluksiin</string>
-    <string name="title_enable_help1">Suodatus vaaditaan yksittäisten osoitteiden sallimiseksi tai estämiseksi</string>
-    <string name="title_enable_help2">Akun käyttö saattaa lisääntyä ja verkkoliikeenteen nopeus saattaa hidastua lokiin kirjaamisesta (vähän) ja suodatuksesta (enemmän)</string>
+
+    <string name="title_enable_logging">Kirjaa lokiin vain estetyt osoitteet</string>
+    <string name="title_enable_filtering">Ota suodatus käyttöön kirjataksesi also sallitut osoitteet too</string>
+    <string name="title_enable_notify">Ota yhteysilmoitukset käyttöön uusille lokiin kirjatuille osoitteille</string>
+    <string name="title_enable_help0">Nämä ovat globaaleja asetuksia, jotka koskevat kaikkia sovelluksia</string>
+    <string name="title_enable_help1">Suodatusta tarvitaan myös yksittäisten osoitteiden sallimiseen tai estämiseen</string>
+    <string name="title_enable_help2">Lokituksen (vähemmän) tai suodatuksen (enemmän) käyttöönotto saattaa lisätä akun kulutusta ja vaikuttaa nopeuteen</string>
+
     <string name="title_rate">Arvostele</string>
     <string name="title_allow">Salli</string>
     <string name="title_block">Estä</string>
+    <string name="title_wifi">Wi-Fi</string>
+    <string name="title_mobile">Mobiili</string>
     <string name="title_allow_wifi">Salli Wi-Fi</string>
     <string name="title_block_wifi">Estä Wi-Fi</string>
     <string name="title_allow_other">Salli mobiili</string>
     <string name="title_block_other">Estä mobiili</string>
     <string name="title_root">root</string>
     <string name="title_mediaserver">mediapalvelin</string>
+    <string name="title_gpsdaemon">GPS daemon</string>
+    <string name="title_dnsdaemon">DNS daemon</string>
     <string name="title_nobody">ei kukaan</string>
     <string name="title_dontask">Älä kysy uudelleen</string>
+
     <string name="title_log_whois">Whois %1$s</string>
     <string name="title_log_port">Portti %1$d</string>
     <string name="title_log_copy">Kopioi</string>
+
     <string name="title_pro">Pro-ominaisuudet</string>
     <string name="title_pro_description">Seuraavat pro-ominaisuudet ovat saatavilla:</string>
     <string name="title_pro_log">Näytä estetyn liikenteen loki</string>
     <string name="title_pro_filter">Suodata verkkoliikennettä</string>
-    <string name="title_pro_notify">Ilmoitukset uusista sovelluksista</string>
-    <string name="title_pro_speed">Verkkoyhteyden nopeuskuvaaja ilmoituksessa</string>
-    <string name="title_pro_theme">Ulkonäkö (teema, värit)</string>
-    <string name="title_pro_all">Kaikki ylläolevat pro-ominaisuudet</string>
+    <string name="title_pro_notify">Uusien sovellusten ilmoitukset</string>
+    <string name="title_pro_speed">Verkon nopeuskaavio ilmoituksessa</string>
+    <string name="title_pro_theme">Ulkoasu (teema, värit)</string>
+    <string name="title_pro_all">Kaikki yllä olevat pro-ominaisuudet</string>
     <string name="title_pro_dev">Tue kehitystä</string>
     <string name="title_pro_buy">Osta</string>
     <string name="title_pro_bought">Käytössä</string>
     <string name="title_pro_unavailable">Ei saatavilla</string>
-    <string name="title_pro_details">Valitse otsikko saadaksesi lisätietoja</string>
+    <string name="title_pro_details">Napauta otsikkoa saadaksesi lisätietoja</string>
     <string name="title_pro_challenge">Haaste</string>
     <string name="title_pro_reponse">Vastaus</string>
     <string name="title_pro_feature">Tämä on pro-ominaisuus</string>
-    <string name="title_pro_subscription">        1 tai 2 euron kuukausitilaus (paikallisia veroja lukuun ottamatta) aktivoi kaikki pro-ominaisuudet.
-        Voit peruuttaa tilauksen tai hallita sitä Play-kauppa sovelluksen tilausvälilehdeltä.
+    <string name="title_pro_subscription">
+        1 tai 2 euron kuukausitilaus (ilman paikallisia veroja) aktivoi kaikki pro-ominaisuudet.
+        Voit peruuttaa tai hallita tilausta Play Kaupan tilausvälilehdeltä.
     </string>
-    <string-array name="themeNames">
-        <item>sinivihreä/oranssi</item>
-        <item>sininen/oranssi</item>
-        <item>purppura/oranssi</item>
-        <item>ruskeankeltainen/sininen</item>
-        <item>oranssi/harmaa</item>
-        <item>vihreä</item>
-    </string-array>
-    <string-array name="protocolNames">
+    <string name="title_pro_already">Pro-ominaisuudet on jo aktivoitu</string>    <string-array name="protocolNames">
         <item>UDP</item>
         <item>TCP</item>
     </string-array>
+
+    <string-array name="protocolValues" translatable="false">
+        <item>17</item>
+        <item>6</item>
+    </string-array>
+
+    <string name="label_dns_summary">%1$d merkintää • %2$d vanhentunut</string>
+
 </resources>

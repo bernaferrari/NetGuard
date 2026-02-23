@@ -1,5 +1,8 @@
 package eu.faircode.netguard.ui.screens
 
+import android.content.BroadcastReceiver
+import android.content.Intent
+import android.content.IntentFilter
 import android.net.Uri
 import android.os.Build
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -52,6 +55,7 @@ import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -71,6 +75,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -160,6 +165,42 @@ fun SettingsScreen(
     }
 
     var showHostImportHint by remember { mutableStateOf(false) }
+    var updateCheckInProgress by remember { mutableStateOf(false) }
+    var updateCheckMessage by remember { mutableStateOf<String?>(null) }
+
+    DisposableEffect(context) {
+        val receiver =
+            object : BroadcastReceiver() {
+                override fun onReceive(receiverContext: android.content.Context?, intent: Intent?) {
+                    if (intent?.action != ServiceSinkhole.ACTION_UPDATE_CHECK_RESULT) return
+
+                    updateCheckInProgress = false
+
+                    val status = intent.getStringExtra(ServiceSinkhole.EXTRA_UPDATE_CHECK_STATUS)
+                    val version = intent.getStringExtra(ServiceSinkhole.EXTRA_UPDATE_CHECK_VERSION)
+                    updateCheckMessage =
+                        when (status) {
+                            "available" ->
+                                if (!version.isNullOrBlank()) {
+                                    context.getString(R.string.setting_update_result_available, version)
+                                } else {
+                                    context.getString(R.string.setting_update_result_available_unknown)
+                                }
+                            "upToDate" -> context.getString(R.string.setting_update_result_up_to_date)
+                            "unavailable" -> context.getString(R.string.setting_update_result_unavailable)
+                            else -> context.getString(R.string.setting_update_result_failed)
+                        }
+                }
+            }
+
+        val filter = IntentFilter(ServiceSinkhole.ACTION_UPDATE_CHECK_RESULT)
+        ContextCompat.registerReceiver(context, receiver, filter, ContextCompat.RECEIVER_NOT_EXPORTED)
+
+        onDispose {
+            runCatching { context.unregisterReceiver(receiver) }
+        }
+    }
+
     val importHostsLauncher =
         rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
             if (uri != null) {
@@ -736,8 +777,38 @@ fun SettingsScreen(
                 SettingToggleRow(
                     title = stringResource(R.string.setting_update),
                     checked = bool("update_check", true),
-                    isLast = true,
                 ) { Prefs.putBoolean("update_check", it) }
+
+                FilledTonalButton(
+                    onClick = {
+                        updateCheckInProgress = true
+                        updateCheckMessage = null
+                        ServiceSinkhole.checkForUpdateNow("settings", context)
+                    },
+                    enabled = !updateCheckInProgress,
+                    modifier = Modifier.align(Alignment.Start),
+                ) {
+                    if (updateCheckInProgress) {
+                        CircularProgressIndicator(
+                            modifier = Modifier.size(18.dp),
+                            strokeWidth = 2.dp,
+                        )
+                        Spacer(modifier = Modifier.width(spacing.small))
+                        Text(text = stringResource(R.string.setting_update_checking))
+                    } else {
+                        Icon(imageVector = Icons.Default.Refresh, contentDescription = null)
+                        Spacer(modifier = Modifier.width(spacing.small))
+                        Text(text = stringResource(R.string.setting_update_now))
+                    }
+                }
+
+                updateCheckMessage?.let { message ->
+                    Text(
+                        text = message,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
             }
 
             // Diagnostics Section

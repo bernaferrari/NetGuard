@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name" translatable="false">NetGuard Next</string>
     <string name="app_description">Ang NetGuard ay nagbibigay daan sa payak at pinahusay na mga pamamaraan upang hadlangan ang pag-access sa internet - na hindi nangangailangan ng pag-root. Ang mga app at mga addresses ay maaring isa-isang pahintulutan o hadlangan sa pag-access sa iyong Wi-Fi at/o koneksiyon sa mobile.</string>
-    <string name="app_xposed">Ang Xposed ay nagdudulot ng maraming pagkakataon ng pag-crash, na maaaring magresulta sa pagtanggal ng NetGuard mula sa Google Play Store, dahil dito and NetGuard ay hindi suportado habang naka-install ang Xposed</string>
+    <string name="app_copyright" translatable="false">Copyright \u00A9 2015–2025 by M. Bokhorst (M66B)</string>
+    <string name="app_android">Ang NetGuard ay nangangailangan ng Android 5.1 o mas bago</string>
+    <string name="app_eula" translatable="false">THIS SOFTWARE IS PROVIDED BY THE AUTHOR \'\'AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
     <string name="app_privacy"><a href="https://www.netguard.me/privacy/">Patakaran sa Pagiging Pribado</a></string>
+    <string name="app_first">Ang malaking pag-iingat ay kinuha upang bumuo at subukan ang NetGuard, gayunpaman imposible na garantiya na ang NetGuard ay gagana nang tama sa bawat device.</string>
     <string name="app_agree">Sumasang-ayon ako</string>
     <string name="app_disagree">Hindi ako sumasang-ayon</string>
+    <string name="app_support">Kailangan ng NetGuard ang iyong tulong. Tapikin para bumili ng mga pro feature para mapanatili ang proyekto.</string>
+    <string name="app_qap">
+        Ang Google ay tatanggalin sana ang app mula sa Play Store dahil humiling ito ng pahintulot na i-query ang lahat ng app.
+        Limang apela at pagbibigay ng magandang katuwiran tungkol sa kung bakit kailangan ang pahintulot na ito ay tinanggihan.
+        Ang bersyong ito ng app ay hindi na humihiling ng pahintulot na ito,
+        at sa kabila nito, halos lahat ng app ay nakalista pa rin,
+        maliban sa ilang (system) app na hindi masisimulan nang manu-mano mula sa listahan ng Android app.
+        Ang internet traffic ng mga app na ito ay laging papayagan upang matiyak na ang iyong device ay patuloy na gumagana nang tama.
+        Kung sa tingin mo ay problema ito, maaari kang mag-update sa bersyong GitHub ng app at pamahalaan muli ang lahat ng (system) app.
+    </string>
+
     <string name="channel_foreground">Gumaganang mga serbisyo</string>
     <string name="channel_notify">Karaniwang mga notipikasyon</string>
     <string name="channel_access">I-access ang mga notipikasyon</string>
+
     <string name="menu_search">Maghanap ng app</string>
     <string name="menu_filter">Salain ang mga app</string>
     <string name="menu_app_user">Ipakita ang mga app ng user</string>
@@ -18,49 +34,151 @@
     <string name="menu_sort_name">Ayusin ayon sa pangalan</string>
     <string name="menu_sort_uid">Ayusin ayon sa uid</string>
     <string name="menu_sort_data">Ayusin ayon sa paggamit ng data</string>
+    <string name="menu_launch">Starta app</string>
     <string name="menu_log">Ipakita ang mga tala</string>
     <string name="menu_settings">Mga setting</string>
+    <string name="menu_home">Home</string>
     <string name="menu_invite">Imbitahan</string>
     <string name="menu_legend">Paliwanag ng mga simbolong ginamit</string>
     <string name="menu_support">Suporta</string>
     <string name="menu_about">Tungkol sa</string>
+    <string name="menu_apps">Iba pang mga app</string>
+    <string name="menu_firewall">Firewall</string>
+    <string name="status_enabled">Firewall ay pinagana</string>
+    <string name="status_disabled">Firewall ay hindi pinagana</string>
+    <string name="widget_firewall_enabled">Firewall BUHAY</string>
+    <string name="widget_firewall_disabled">Firewall PATAY</string>
+    <string name="widget_lockdown_enabled">Lockdown BUHAY</string>
+    <string name="widget_lockdown_disabled">Lockdown PATAY</string>
+    <string name="notify_traffic_title">Tagasubaybay ng traffic</string>
+    <string name="notify_traffic_summary">Up %1$s • Down %2$s • Peak %3$s</string>
+    <string name="notify_traffic_debug">Mga Session %1$d/%2$d/%3$d • Mga File %4$d/%5$d</string>
+    <string name="ui_loading">Kinakarga…</string>
+    <string name="ui_empty_logs_title">Wala pang traffic</string>
+    <string name="ui_empty_logs_body">Sa sandaling lumitaw ang mga koneksyon, ipapakita sila rito.</string>
+    <string name="ui_empty_apps_title">Walang nakitang mga app</string>
+    <string name="ui_empty_apps_body">Subukang i-refresh ang listahan.</string>
+    <string name="ui_empty_dns_title">Wala pang naresolbang DNS</string>
+    <string name="ui_empty_dns_body">Ang mga sagot ng DNS ay lilitaw rito matapos mag-browse.</string>
+    <string name="ui_dns_filter_empty">Walang mga DNS entry na tumutugma sa filter na ito.</string>
+    <string name="ui_empty_forwarding_title">Walang mga tuntunin sa pagpapasa</string>
+    <string name="ui_empty_forwarding_body">Magdagdag ng tuntunin upang simulan ang pagpasa ng traffic.</string>
+    <string name="ui_forwarding_filter_empty">Walang mga tuntunin sa pagpapasa na tumutugma sa filter na ito.</string>
+    <string name="ui_empty_pro_body">Ang suporta ay nagbubukas ng mga dagdag na feature at pinapanatiling buhay ang proyekto. </string>
+    <string name="ui_empty_pro_details">Pro ay nagbubukas: pagsasala, pagtatala, mga notipikasyon, mga tema, at mga limitasyon sa bilis.</string>
+    <string name="ui_home_hint">Kontrolin ang access sa internet para sa bawat app.</string>
+    <string name="ui_home_quick_actions">Mabilisang mga aksyon</string>
+    <string name="ui_apps_title">Firewall</string>
+    <string name="ui_logs_title">Tala ng traffic</string>
+    <string name="ui_logs_filters">Mga filter</string>
+    <string name="ui_logs_filter_status">Katayuan</string>
+    <string name="ui_logs_filter_protocol">Protocol</string>
+    <string name="ui_logs_filter_view">Tingin</string>
+    <string name="ui_logs_group_timeline">Timeline</string>
+    <string name="ui_logs_group_by_app">Ayon sa app</string>
+    <string name="ui_logs_unknown_source">Hindi kilalang pinagmulan</string>
+    <string name="ui_settings_title">Mga setting</string>
+    <string name="ui_dns_title">Naresolbang DNS</string>
+    <string name="ui_forwarding_title">Pagpasa ng port</string>
+    <string name="ui_dns_hint">Mga kamakailang naresolbang domain at mga sagot.</string>
+    <string name="ui_forwarding_hint">Pangasiwaan ang mga tuntunin sa pagpapasa at mga target app. </string>
+    <string name="ui_dns_active">Aktibo</string>
+    <string name="ui_rule_custom">Custom</string>
+    <string name="ui_dns_expired">Nag-expire na</string>
+    <string name="ui_filter_all">Lahat</string>
+    <string name="ui_filter_empty">Walang mga app na tumutugma sa filter na ito.</string>
+    <string name="ui_apps_search_empty">Walang mga app na tumutugma sa paghahanap na ito.</string>
+    <string name="ui_learn_more">Matuto pa</string>
+    <string name="status_running">Ang traffic ay sinasala</string>
+    <string name="status_not_running">Ang traffic ay hindi sinasala</string>
+    <string name="action_enable">Paganahin</string>
+    <string name="action_disable">Huwag paganahin</string>
+    <string name="home_apps_hint">Suriin ang mga tuntunin ng app at paggamit ng data</string>
+    <string name="home_logs_hint">Siyasatin ang kamakailang aktibidad sa network</string>
+
+    <!-- Accessibility -->
+    <string name="action_expand">Palawakin ang mga detalye</string>
+    <string name="action_collapse">Itago ang mga detalye</string>
+    <string name="action_navigate">Buksan</string>
+    <string name="action_toggle_firewall">I-toggle ang firewall</string>
+    <string name="action_clear_search">Obririh ang paghahanap</string>
+    <string name="search_settings">Mga setting ng paghahanap</string>
+    <string name="content_desc_security_status">Katayuan ng seguridad ng firewall</string>
+    <string name="content_desc_app_icon">App icon para sa %s</string>
+    <string name="content_desc_show_info">Ipakita ang impormasyon tungkol sa %1$s</string>
+
+    <!-- Dashboard stats -->
+    <string name="stat_blocked_today">Nakablock</string>
+    <string name="stat_allowed_today">Pinahihintulutan</string>
+    <string name="stat_active_rules">Aktibong mga tuntunin</string>
+
+    <!-- Tooltips -->
+    <string name="tooltip_rcode">Code para sa sagot ng DNS na ipinapadala para sa mga hinarangang domain. Ang default na 3 (NXDOMAIN) ay nangangahulugang ang domain ay hindi umiiral.</string>
+    <string name="tooltip_ttl">Minimum na time-to-live para sa mga DNS cache entry sa loob ng ilang segundo.</string>
+    <string name="tooltip_pcap">Itala ang lahat ng packet sa network para sa pag-debug. Lumilikha ng malalaking file.</string>
+    <string name="tooltip_filter">Harangin at suriin ang traffic. Kinakailangan para sa pagharang ayon sa address. Mas malakas gumamit ng baterya.</string>
+    <string name="tooltip_lockdown">Harangan ang lahat ng traffic maliban sa mga app na tahasang pinahihintulutan. Gamitin nang may pag-iingat.</string>
+
+    <string name="menu_protocol_udp" translatable="false">UDP</string>
+    <string name="menu_protocol_tcp" translatable="false">TCP</string>
     <string name="menu_protocol_other">Iba pa</string>
     <string name="menu_traffic_allowed">Pinahihintulutan</string>
     <string name="menu_traffic_blocked">Nakablock</string>
     <string name="menu_live">Live na mga update</string>
     <string name="menu_refresh">I-refresh</string>
+    <string name="menu_ok">OK</string>
+    <string name="menu_cancel">Kanselahin</string>
     <string name="menu_resolve">Ipakita ang mga pangalan</string>
     <string name="menu_organization">Ipakita ang organisasyon</string>
     <string name="menu_pcap_enabled">Gumagana sa PCAP</string>
     <string name="menu_pcap_export">PCAP export</string>
     <string name="menu_clear">Nalinis</string>
+    <string name="menu_export">I-export</string>
     <string name="menu_reset">I-reset</string>
+
     <string name="menu_add">Idagdag</string>
     <string name="menu_delete">Burahin</string>
+
     <string name="menu_cleanup">Linisin</string>
+
     <string name="title_protocol">Protocol</string>
     <string name="title_dport">Port na pinagmulan</string>
     <string name="title_raddr">Address na patutunguhan</string>
     <string name="title_rport">Port na patutunguhan</string>
     <string name="title_ruid">App na patutunguhan</string>
     <string name="title_external">Para sa panlabas na server piliin ang \'nobody\'</string>
+
     <string name="setting_defaults">Mga default (white/blacklist)</string>
     <string name="setting_whitelist_wifi">Harangan ang Wi-Fi</string>
     <string name="setting_whitelist_other">Harangan ang mobile</string>
     <string name="setting_screen_wifi">Pahintulutan ang Wi-Fi kung buhay ang screen</string>
     <string name="setting_screen_other">Pahintulutan ang mobile kung buhay ang screen</string>
     <string name="setting_whitelist_roaming">Harangan ang roaming</string>
+
     <string name="setting_options">Mga pagpipilian</string>
     <string name="setting_theme">Tema: %1$s</string>
     <string name="setting_dark">Gamitin ang madilim na theme</string>
+    <string name="setting_theme_palette">Pumili ng istilo ng kulay</string>
+    <string name="setting_dynamic_unavailable">Ang mga dynamic na kulay ay nangangailangan ng Android 12 o mas bago.</string>
+    <string name="setting_appearance_mode">Mode ng hitsura</string>
+    <string name="setting_appearance_mode_title">Madilim na mode</string>
+    <string name="setting_appearance_mode_summary">Pumili sa Patay, Buhay, o Sundin ang system.</string>
+    <string name="setting_appearance_preview">Kasalukuyan: %1$s · %2$s</string>
+    <string name="setting_appearance_auto">Auto</string>
+    <string name="setting_appearance_light">Maliwanag</string>
+    <string name="setting_appearance_dark">Madilim</string>
+    <string name="theme_dynamic" translatable="false">Dynamic</string>
     <string name="setting_install">Abisuhan sa bagong install</string>
     <string name="setting_screen_on">Gamitin ang mga \'kung buhay ang screen\' na tuntunin</string>
     <string name="setting_auto">Awtomatikong paganahin matapos ang %1$s minuto</string>
     <string name="setting_delay">Ipagpaliban ang pagpatay ng screen ng %1$s minuto</string>
     <string name="setting_update">Magsaliksik ng mga update</string>
+    <string name="setting_update_now">Suriin ngayon</string>
+    <string name="setting_update_checking">Sinusuri...</string>
+
     <string name="setting_network_options">Mga opsyon para sa Network</string>
     <string name="setting_subnet">Pag-route gamit ang subnet</string>
-    <string name="setting_tethering">Pahintulutan ang pag-tether</string>
+    <string name="setting_tethering">Pahintulutan ang pag-tether (tethering)</string>
     <string name="setting_lan">Pahintulutan ang LAN access</string>
     <string name="setting_ip6">Paganahin ang IPv6 traffic</string>
     <string name="setting_wifi_home">Mga network para sa Wi-Fi sa tahanan: %1$s</string>
@@ -74,13 +192,18 @@
     <string name="setting_lockdown_wifi">I-lockdown ang Wi-Fi</string>
     <string name="setting_lockdown_other">I-lockdown ang mobile</string>
     <string name="setting_reload_onconnectivity">I-reload sa bawat pagbabago ng koneksyon</string>
+
     <string name="setting_advanced_options">Mas pinahusay na mga option</string>
     <string name="setting_system">Pangasiwaan ang mga system app</string>
     <string name="setting_log_app">I-tala ang access sa internet</string>
+    <string name="setting_log_retention_days">Mga araw ng pagpapanatili ng tala ng traffic</string>
     <string name="setting_access">Abisuhan sa pag-access ng internet</string>
     <string name="setting_filter">Salain ang traffic</string>
-    <string name="setting_clear_onreload">Isara ang konesyon kapag nag-reload</string>
+    <string name="setting_filter_udp">Salain ang UDP traffic</string>
+    <string name="setting_handover">Swabeng paglipat ng VPN sa pag-reload</string>
+    <string name="setting_clear_onreload">Isara ang mga koneksyon sa pag-reload</string>
     <string name="setting_lockdown">I-lockdown ang traffic</string>
+    <string name="setting_malware" translatable="false">Proteksyon sa malware</string>
     <string name="setting_track_usage">Alamin ang gamit sa network</string>
     <string name="setting_reset_usage">I-reset and paggamit ng network</string>
     <string name="setting_show_resolved">Ipakita ang mga pangalan ng naresolbang domain</string>
@@ -90,34 +213,55 @@
     <string name="setting_vpn4">VPN IPv4: %s</string>
     <string name="setting_vpn6">VPN IPv6: %s</string>
     <string name="setting_dns">VPN DNS: %s</string>
+    <string name="setting_dns2">Pangalawang DNS: %s</string>
+    <string name="setting_validate">Patunayan sa: %s</string>
     <string name="setting_ttl">Minimum DNS TTL: %s s</string>
-    <string name="setting_socks5_enabled">Use SOCKS5 proxy</string>
-    <string name="setting_socks5_addr">SOCKS5 address: %s</string>
-    <string name="setting_socks5_port">SOCKS5 port: %s</string>
-    <string name="setting_socks5_username">SOCKS5 username: %s</string>
-    <string name="setting_socks5_password">SOCKS5 password: %s</string>
-    <string name="setting_pcap_record_size">PCAP record size: %s B</string>
+    <string name="setting_socks5_enabled">Gamitin ang SOCKS5 proxy</string>
+    <string name="setting_socks5_addr">Address ng SOCKS5: %s</string>
+    <string name="setting_socks5_port">Port ng SOCKS5: %s</string>
+    <string name="setting_socks5_username">Username ng SOCKS5: %s</string>
+    <string name="setting_socks5_password">Password ng SOCKS5: %s</string>
+    <string name="setting_pcap_record_size">Sukat ng record ng PCAP: %s B</string>
     <string name="setting_pcap_file_size">Pinakamataas na limitasyon ng PCAP para sukat ng file: %s MB</string>
+    <string name="setting_pcap">Itala ang traffic sa network (PCAP)</string>
     <string name="setting_watchdog">Watchdog: kada %s minuto</string>
+
     <string name="setting_stats_category">Notipikasyon ng bilis</string>
     <string name="setting_stats">Ipakita ang notipikasyon ng bilis</string>
     <string name="setting_stats_top">Ipakita ang mga pangunahing app</string>
-    <string name="setting_stats_frequency">Halimbawa ng agwat: %s ms</string>
-    <string name="setting_stats_samples">Bilang ng mga halimbawa: %s s</string>
-    <string name="setting_backup">Backup</string>
+    <string name="setting_stats_frequency">Interval ng sample: %s ms</string>
+    <string name="setting_stats_samples">Bilang ng mga sample: %s</string>
+
+    <string name="setting_backup">Muling pagkupkop (Backup)</string>
     <string name="setting_export">I-export ang mga setting</string>
     <string name="setting_import">I-import ang mga setting</string>
     <string name="setting_hosts">I-angkat ang mga host file</string>
+    <string name="setting_hosts_append">I-angkat ang hosts file (idugtong)</string>
     <string name="setting_hosts_url">Ang URL sa pag-download ng mga host file</string>
     <string name="setting_hosts_download">I-download ang mga host file</string>
+    <string name="setting_use_hosts">Gamitin ang hosts file</string>
+
     <string name="setting_technical">Impormasyong pang-teknikal</string>
     <string name="setting_technical_general">Pangkalahatan</string>
     <string name="setting_technical_networks">Mga network</string>
     <string name="setting_technical_subscription">Mga subskripsyon</string>
+    <string name="setting_section_appearance">Hitsura</string>
+    <string name="setting_section_firewall">Mga tuntunin ng firewall</string>
+    <string name="setting_section_advanced">Mas pinahusay na asal</string>
+    <string name="setting_section_hosts">Mga host at DNS</string>
+    <string name="setting_section_network">Kompigurasyon ng network</string>
+    <string name="setting_section_dns">Mga detalye ng DNS</string>
+    <string name="setting_section_proxy">Proxy</string>
+    <string name="setting_section_vpn">Kompigurasyon ng VPN</string>
+    <string name="setting_section_background">Mga gawain sa background</string>
+    <string name="setting_section_diagnostics">Mga diagnostic</string>
+    <string name="setting_section_support">Suporta</string>
+
     <string name="summary_install">Ipakita ang notipikasyon sa status bar upang direktang makompigura ang mga bagong install na app (pro feature)</string>
     <string name="summary_auto">Pagkatapos i-disable gamit ang widget, automatikong paganahin ang NetGuard muli matapos ang bilang ng minuto na iyong napili (ilagay ang zero upang hindi gumana ang opsyon na ito)</string>
     <string name="summary_delay">Matapos patayin ang screen, patuloy na paganahin ang mga tuntunin ayon sa piniling bilang ng minuto (ilagay ang 0 upang di paganahin ito)</string>
     <string name="summary_update">Magsaliksik ng mga bagong labas sa GitHub dalawang beses sa isang araw</string>
+
     <string name="summary_tethering">Depende sa bersyon ng Android, ang pag-tether ay maaring gumana o hindi gumana. Ang traffic dulot ng pagtether ay hindi maaaring salain.</string>
     <string name="summary_subnet">Paganahin ang routing ng subnet; maaaring magpagana ng pagtawag gamit ang Wi-Fi, ngunit maaari ding magresulta sa mga bugs sa Android at magpataas ng paggamit ng baterya</string>
     <string name="summary_lan">Pahintulutan ang mga app na komunekta sa local area network addresses, gaya ng 10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16</string>
@@ -128,30 +272,41 @@
     <string name="summary_metered_3g">Gamitin ang mga tuntunin sa Wi-Fi para sa koneksiyong 3G data</string>
     <string name="summary_metered_4g">Gamitin ang mga tuntunin sa Wi-Fi para sa koneksiyong LTE data</string>
     <string name="summary_national_roaming">Huwag gamitin ang mga tuntunin sa roaming kung ang bansa ng SIM at mobile network ay pareho</string>
-    <string name="summary_eu_roaming">Huwag gamitin ang mga tuntunin sa roaming kung ang bansa ng SIM at mobile network ay parehong nasa EU (roam like at home)</string>
+    <string name="summary_eu_roaming">Huwag gamitin ang mga tuntunin sa roaming kung ang bansa ng SIM at mobile network ay parehong nasa EU (roam tulad ng sa bahay)</string>
     <string name="summary_call">Huwag paganahin ang NetGuard kapag may papasok o papalabas na tawag sa telepono. Maaari itong gamitin upang maresolba ang mga problema sa IP/Wi-Fi na mga tawag.</string>
+
     <string name="summary_system">Tukuyin ang mga alituntunin para sa mga app ng sistema (para sa mga dalubhasa)</string>
     <string name="summary_log_app">I-lista ang mga tangkang pag-gamit ng internet para sa mga app. Maaari itong magresulta sa dagdag na gamit sa baterya.</string>
-    <string name="summary_access">Ipakita ang isang status bar na magbibigay abiso kapag ang isang app ay magsusubok na gumamit ng bagong internet address (kapag ang pag-sasala ay naka -disable, ang mga hinarangan lamang na tangkang pag-access sa internet ang itatala)</string>
+    <string name="summary_log_retention_days">Awtomatikong alisin ang mga lumang tala ng traffic habang naglilinis. Itakda ang 0 para panatilihin ang mga tala magpakailanman.</string>
+    <string name="summary_access">Ipakita ang isang status bar na magbibigay abiso kapag ang isang app ay magsusubok na gumamit ng bagong internet address (kapag ang pag-sasala ay naka-disable, ang mga hinarangan lamang na tangkang pag-access sa internet ang itatala)</string>
     <string name="summary_filter">Salain ang mga IP packet na palabas sa VPN tunnel. Maaari itong magresulta sa dagdag na gamit sa baterya.</string>
-    <string name="summary_track_usage">Alamin ang bilang ng mga byte na napadala at natanggap para sa bawat isang app at address. Maaari itong magresulta sa dagdag na gamit sa batterya.</string>
+    <string name="summary_track_usage">Alamin ang bilang ng mga byte na napadala at natanggap para sa bawat isang app at address. Maaari itong magresulta sa dagdag na gamit sa baterya.</string>
     <string name="summary_block_domains">Sumagot gamit ang na-configure response code ng DNS para sa mga nahaharangang mga pangalan ng domain. Ang switch ay hindi gumagana kapag walang magagamit na hosts file.</string>
     <string name="summary_rcode">Ang nakatalagang value ay 3 (NXDOMAIN), na ang ibig sabihin ay \'hindi umiiral na domain\'.</string>
+    <string name="summary_validate">Domain name na ginamit upang patunayan ang koneksyon sa internet sa port 443 (https).</string>
     <string name="summary_socks5_enabled">Tanging ang TCP traffic ang ipapadala sa proxy serber</string>
     <string name="summary_watchdog">Maya\'t mayang suriin kung ang NetGuard ay tumatakbo pa (ilagay ang zero upang di paganahin ito). Ito ay maaaring magresulta sa mas malakas ng pagamit ng baterya.</string>
+
     <string name="summary_stats">Ipakita ang graph para sa bilis ng network bilang isang abiso sa status bar</string>
+
+    <string-array name="default_wifi_home"></string-array>
+
     <string name="msg_sure">Sigurado ka ba?</string>
     <string name="msg_started">Pinatutupad ang mga tuntunin</string>
     <string name="msg_packages">%1$d pinahihintulutan, %2$d hinaharangan</string>
     <string name="msg_hosts">%1$d pinahihintulutan, %2$d hinaharangan, %3$d mga host</string>
     <string name="msg_waiting">Naghihintay ng kaganapan</string>
     <string name="msg_disabled">Ang NetGuard ay hindi pinagagana, gamitin ang switch sa itaas upang paganahin ang NetGuard</string>
+    <string name="msg_notifications">Pindutin upang magbigay ng pahintulot sa notipikasyon (para sa mga notipikasyon ng tangkang pag-access, mga mensahe ng error, atbp.)</string>
     <string name="msg_revoked">Ang NetGuard ay tumigil sa pag-gana, marahil dahil sa pagamit ng iba pang app na VPN based</string>
     <string name="msg_installed">\'%1$s\' naka-install</string>
     <string name="msg_installed_n">Ay naka-install na</string>
-    <string name="msg_access">%1$s tangkang pag-access sa internet</string>
+    <string name="msg_malware" translatable="false">Possible malware: \'%1$s\'</string>
+    <string name="msg_access">%1$s: tangkang pag-access sa internet</string>
     <string name="msg_access_n">Tangkang pag-access sa internet</string>
     <string name="msg_completed">Tapos na ang Aksyon</string>
+    <string name="msg_invalid">Pakisuri ang mga halaga at subukang muli.</string>
+    <string name="msg_export_failed">Nabigo ang pag-export: %1$s</string>
     <string name="msg_vpn">Ang NetGuard ay gumagamit ng lokal na VPN upang masala ang internet traffic.
 Sa kadahilanang ito, mangyari lamang pahintulutan ang isang koneksyon sa VPN sa susunod na dialogo.
 Ang iyong internet traffic ay hindi pinapadala sa isang liblib na vpn serber.</string>
@@ -159,15 +314,19 @@ Ang iyong internet traffic ay hindi pinapadala sa isang liblib na vpn serber.</s
     <string name="msg_error">Naganap ang hindi inaasahang error: \'%s\'</string>
     <string name="msg_start_failed">Tumanggi ang Android na simulang ang serbisyo ng VPN sa sandaling ito. Marahil dahil ito sa isang bug sa bersyon ng iyong Android.</string>
     <string name="msg_try">Subukan ang NetGuard</string>
-    <string name="msg_terms">Sa pagbibigay ng donasyon ikaw ay sumasang-ayon sa <a href="http://www.netguard.me/#terms">mga tuntunin&amp; mga kundisyon</a></string>
+    <string name="msg_terms">Sa pagbibigay ng donasyon ikaw ay sumasang-ayon sa <a href="http://www.netguard.me/#terms">mga tuntunin at mga kundisyon</a></string>
     <string name="msg_dimming">Kung hindi mo mapindot ang OK sa susunod na dialog, maaaring may ibang (screen dimming) na mga app ang nagmamanipula sa screen.</string>
-    <string name="msg_mbday">± %1$.3f▲ %2$.3f▼ MB/araw</string>
-    <string name="msg_kb">%1$7.3f▲ %2$7.3f▼ KB</string>
-    <string name="msg_mb">%1$7.3f▲ %2$7.3f▼ MB</string>
-    <string name="msg_gb">%1$7.3f▲ %2$7.3f▼ GB</string>
+    <string name="msg_mbday">&#177; %1$.3f&#9650; %2$.3f&#9660; MB/araw</string>
+    <string name="msg_kbsec">%7.3f KB/s</string>
+    <string name="msg_mbsec">%7.3f MB/s</string>
+    <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
+    <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
+    <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
     <string name="msg_count">%dx</string>
-    <string name="msg_doze">Para sa pare-parehong resulta, ang pag-optimize ng baterya sa Android ay dapat hindi paganahin para sa NetGuard.\n\nSa susunod na diyalogo, piliin ang \"Lahat ng mga app\" sa itaas, pindutin ang NetGuard mula sa listahan at piliin at kumpirmahin \"Huwag I-optimize\".</string>
-    <string name="msg_datasaving">Para sa pare-parehong resulta, ang pagtitipid ng datos sa Android ay dapat hindi paganahin para sa NetGuard\n\nSa susunod na diyalogo, piliin ang \"datos na sanligan\" at \"malayang pagamit ng datos\"</string>
+    <string name="msg_doze">Para sa pare-parehong resulta, ang pag-optimize ng baterya sa Android ay dapat hindi paganahin para sa NetGuard.
+\n\nSa susunod na diyalogo, piliin ang \"Lahat ng mga app\" sa itaas, pindutin ang NetGuard mula sa listahan at piliin at kumpirmahin \"Huwag I-optimize\".</string>
+    <string name="msg_datasaving">Para sa pare-parehong resulta, ang pagtitipid ng datos sa Android ay dapat hindi paganahin para sa NetGuard
+\n\nSa susunod na diyalogo, piliin ang \"Background data\" at \"Unrestricted data usage\"</string>
     <string name="msg_filter">Ang paggamit ng pagsasala ay magdudulot sa Android na ipalagay na nagbibigay ito sa NetGuard ng datos at gamit sa baterya - inaakala ng Android na ang datos at baterya ay ginagamit ng NetGuard, at hindi ang orihinal na mga app</string>
     <string name="msg_filter4">Nangangailangan ng pagsasala ang Android 4 upang mapagana</string>
     <string name="msg_log_disabled">Ang paglilista ng traffic ay hindi gumagana, gamitin ang switch sa itaas upang mapagana ang paglilista. Ang paglilista ng traffic ay maaaring magdulot ng dagdag na gamit sa baterya.</string>
@@ -177,13 +336,14 @@ Ang iyong internet traffic ay hindi pinapadala sa isang liblib na vpn serber.</s
     <string name="msg_downloading">Nagda-download\n%1s</string>
     <string name="msg_downloaded">Ang mga file ng mga host ay na-download na</string>
     <string name="msg_download_last">Huling download: %s</string>
-    <string name="msg_start_forward">Simulan ang pagpapasa mula sa %1$s port %2$d papunta sa %3$s:%4$d ng %5$s?</string>
+    <string name="msg_start_forward">Simulan ang pagpapasa mula sa %1$s port %2$d papunta sa %3$s:%4$d ng \'%5$s\'?</string>
     <string name="msg_stop_forward">Ihinto ang pagpapasa ng %1$s port %2$d?</string>
     <string name="msg_metered">De-metro ang network</string>
     <string name="msg_inactive">Kasalukuyang walang koneksyon sa internet</string>
-    <string name="msg_queue">Ang NetGuard ay may iba pang ginagawa</string>
+    <string name="msg_queue">Ang NetGuard ay busy</string>
     <string name="msg_update">May update na magagamit, pindutin upang i-download</string>
-    <string name="msg_usage">Maaari mong pahintulutan (mala-luntian) or tanggihan (mamula-mula) ang pag-access sa internet ng Wi-Fi o mobile sa pamamagitan ng pagpindot ng mga imahe na nasa tabi ng isang app</string>
+    <string name="msg_usage">Maaari mong pahintulutan (luntian) or tanggihan (mamula-mula) ang pag-access sa internet ng Wi-Fi o mobile sa pamamagitan ng pagpindot ng mga imahe na nasa tabi ng isang app</string>
+    <string name="msg_fairemail">Kung na-install mo ang NetGuard upang protektahan ang iyong pagiging pribado, baka interesado ka rin sa <a href="https://email.faircode.eu/">FairEmail</a>, isang open source, privacy friendly na email app, rin</string>
     <string name="msg_whitelist">Ang pag-access sa internet ay pinahihintulutan (blacklist mode), ito ay maaring ibahin sa mga setting</string>
     <string name="msg_push">Ang paparating (push) na mga mensahe ay karaniwan pinangangasiwaan ng system component Play services, na may pahintulot na i-access ang internet</string>
     <string name="msg_system">Ang pangangasiwa ng lahat (sistema) ng mga app ay maaaring paganahin sa mga setting</string>
@@ -192,56 +352,73 @@ Ang iyong internet traffic ay hindi pinapadala sa isang liblib na vpn serber.</s
     <string name="msg_on">Kapag pinower-down mo ang iyong device na naka-enable ang NetGuard, awtomatikong gagana ang NetGuard sa pag-power up ng iyong device</string>
     <string name="msg_unavailable">Ang katangiang ito ay hindi magagamit sa bersyon ng iyong Android</string>
     <string name="msg_always_on">May isa pang VPN na nakatalaga bilang VPN na palaging nakabukas</string>
+    <string name="msg_always_on_lockdown">I-off ang \"Harangan ang mga koneksyon nang walang VPN\" sa mga setting ng Android VPN upang magamit ang NetGuard sa mode ng pagsasala</string>
+    <string name="msg_private_dns">I-off ang \"Private DNS\" sa mga setting ng network ng Android upang magamit ang NetGuard sa mode ng pagsasala</string>
+
     <string name="title_lockdown_enabled">Ang traffic ay naka-lock down</string>
     <string name="title_unmetered_allowed">Ang hindi de-metrong traffic ay pinapahintulutan</string>
     <string name="title_unmetered_blocked">Ang hindi de-metrong traffic ay hinaharangan</string>
     <string name="title_unmetered_disabled">Ang hindi de-metrong alituntunin ay hindi ginagamit</string>
-    <string name="title_metered_allowed">Pahintulutan ang metered traffic</string>
-    <string name="title_metered_blocked">Hinaharangan ang metered traffic</string>
+    <string name="title_metered_allowed">Ang de-metrong traffic ay pinapahintulutan</string>
+    <string name="title_metered_blocked">Ang de-metrong traffic ay hinaharangan</string>
     <string name="title_metered_disabled">Ang mga de-metrong alituntunin ay hindi ginagamit</string>
     <string name="title_host_allowed">Pinapahintulutan ang address</string>
     <string name="title_host_blocked">Hindi pinapahintulutan ang address</string>
     <string name="title_interactive_allowed">Pahintulutan kung buhay ang screen</string>
     <string name="title_roaming_blocked">Harangan kapag naka-roaming</string>
     <string name="title_metered">Ang koneksyon sa Wi-Fi ay kinikilala bilang hindi de-metro at ang koneksyon sa mobile bilang de-metro</string>
+
     <string name="title_internet">walang pahintulot para sa internet</string>
     <string name="title_disabled">ay hindi gumagana</string>
+    <string name="title_messaging">Ang mga papasok na mensahe ay natatanggap ng mga serbisyo ng Google Play at hindi ng app na ito at samakatuwid ay hindi maaaring harangan sa pamamagitan ng pagharang sa app na ito</string>
+    <string name="title_download">Ang mga pag-download ay isinasagawa ng download manager at hindi ng app na ito at samakatuwid ay hindi maaaring harangan sa pamamagitan ng pagharang sa app na ito</string>
     <string name="title_apply">Gamitin ang mga tuntunin at mga kondisyones</string>
     <string name="title_conditions">Mga kundisyon</string>
     <string name="title_screen_wifi">Pahintulutan ang Wi-Fi kung buhay ang screen</string>
     <string name="title_screen_other">Pahintulutan ang mobile kung buhay ang screen</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">Harangan kapag roaming</string>
+    <string name="label_ttl">TTL: %s s</string>
+    <string name="label_uid">UID: %s</string>
     <string name="title_lockdown">Pahintulutan sa mode na lockdown</string>
     <string name="title_related">Salain sa may kaugnayan</string>
     <string name="title_access">Mga pagtatangka na i-access</string>
     <string name="title_precedence">Ang mga tuntunin sa pag-access ay mas mauuna kaysa sa ibang mga tuntunin</string>
     <string name="title_options">Mga pagpipilian</string>
     <string name="title_notify">Abisuhan ukol sa mga tangkang pag-access sa internet</string>
+
     <string name="title_logging_disabled">Ang paglilista o pagsasala ay hindi gumagana</string>
     <string name="title_logging_enabled">Ang paglilista at pagsasala ay gumagana</string>
     <string name="title_logging_configure">I-configure</string>
+
     <string name="title_enable_logging">Paganahinang paglilista ng mga hinaharangang mga address lamang</string>
     <string name="title_enable_filtering">Paganahin ang pagsasala upang mailista rin ang mga address na may pahintulot</string>
     <string name="title_enable_notify">Paganahin ang mga abiso para sa access ng mga bagong listang mga address</string>
     <string name="title_enable_help0">Ang mga setting na ito ay pangkalahatang setting na magagamit sa lahat ng mga app</string>
     <string name="title_enable_help1">Ang pagsasala ay kinakailangan upang pahintulutan o harangan ang mga indibidwal na mga address</string>
     <string name="title_enable_help2">Ang pagpapagana ng paglilista (mas kaunti) o pagsasala (mas marami) ay maaaring dumagdag sa paggamit ng baterya at maaaring makaapekto sa bilis ng network</string>
-    <string name="title_rate">Halgahan</string>
+
+    <string name="title_rate">I-rate</string>
     <string name="title_allow">Pahintulutan</string>
     <string name="title_block">Harangan</string>
+    <string name="title_wifi">Wi-Fi</string>
+    <string name="title_mobile">Mobile</string>
     <string name="title_allow_wifi">Pahintulutan ang Wi-Fi</string>
     <string name="title_block_wifi">Harangan ang Wi-Fi</string>
     <string name="title_allow_other">Pahintulutan ang mobile</string>
     <string name="title_block_other">Harangan ang mobile</string>
     <string name="title_root">root</string>
     <string name="title_mediaserver">mediaserver</string>
+    <string name="title_gpsdaemon" translatable="false">GPS daemon</string>
+    <string name="title_dnsdaemon" translatable="false">DNS daemon</string>
     <string name="title_nobody">walang sinuman</string>
     <string name="title_dontask">Huwag mong itanong ulit</string>
-    <string name="title_log_whois">Sinosi %1$s</string>
+
+    <string name="title_log_whois">Whois %1$s</string>
     <string name="title_log_port">Port %1$d</string>
     <string name="title_log_copy">Kopyahin</string>
-    <string name="title_pro">Features ng Pro</string>
+
+    <string name="title_pro">Mga Pro feature</string>
     <string name="title_pro_description">Ang mga susunod na features ng pro ay maaaring gamitin:</string>
     <string name="title_pro_log">Tinganan ang listahan ng hinarangang traffic</string>
     <string name="title_pro_filter">Salain ang network traffic</string>
@@ -253,19 +430,24 @@ Ang iyong internet traffic ay hindi pinapadala sa isang liblib na vpn serber.</s
     <string name="title_pro_buy">Bilhin</string>
     <string name="title_pro_bought">Pinagana</string>
     <string name="title_pro_unavailable">Hindi Magagamit</string>
-    <string name="title_pro_details">Pinduting ang tile para sa mas maraming impormasyon</string>
+    <string name="title_pro_details">Pinduting ang titulon para sa mas maraming impormasyon</string>
     <string name="title_pro_challenge">Hamon</string>
     <string name="title_pro_reponse">Sagot</string>
-    <string-array name="themeNames">
-        <item>teal/kahel</item>
-        <item>asul/kahel</item>
-        <item>lila/pula</item>
-        <item>amber/asul</item>
-        <item>kahel/kulay-abo</item>
-        <item>luntian</item>
-    </string-array>
-    <string-array name="protocolNames">
+    <string name="title_pro_feature">Ito ay isang pro feature</string>
+    <string name="title_pro_subscription">
+        Ang buwanang subskripsyon na 1 o 2 euro (hindi kasama ang mga lokal na buwis) ay magpapagana sa lahat ng pro feature.
+        Maaari mong kanselahin o pamahalaan ang subskripsyon sa pamamagitan ng tab na mga subskripsyon sa Play store app.
+    </string>
+    <string name="title_pro_already">Ang mga pro feature ay aktibo na</string>    <string-array name="protocolNames">
         <item>UDP</item>
         <item>TCP</item>
     </string-array>
+
+    <string-array name="protocolValues" translatable="false">
+        <item>17</item>
+        <item>6</item>
+    </string-array>
+
+    <string name="label_dns_summary">%1$d na mga entry • %2$d na nag-expire</string>
+
 </resources>

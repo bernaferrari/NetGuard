@@ -493,19 +493,6 @@ object Util {
     }
 
     @JvmStatic
-    fun hasXposed(context: Context): Boolean {
-        if (true || !isPlayStoreInstall(context)) {
-            return false
-        }
-        for (ste in Thread.currentThread().stackTrace) {
-            if (ste.className.startsWith("de.robv.android.xposed")) {
-                return true
-            }
-        }
-        return false
-    }
-
-    @JvmStatic
     fun ownFault(context: Context, ex: Throwable): Boolean {
         if (ex is OutOfMemoryError) {
             return false

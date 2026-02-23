@@ -1,93 +1,208 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_description">NetGuard는 루트 없이 인터넷 접근을 막는 간단하면서도 발전된 방법을 제공합니다. 각각의 앱이나 주소가 Wi-Fi나 모바일 데이터에 접근하는 것을 허용할 지, 거부할 지 설정할 수 있습니다.</string>
-    <string name="app_android">NetGuard 는 안드로이드 버전 5.1 이상에서 작동합니다</string>
-    <string name="app_xposed">Xposed와 너무 많은 충돌을 일으켜서 NetGuard가 Google Play 스토어에서 내려갈 수 있기 때문에, Xposed가 설치되어 있는 동안에는 NetGuard를 사용할 수 없습니다</string>
-    <string name="app_privacy"><a href="https://www.netguard.me/privacy/">개인정보 보호 정책</a></string>
-    <string name="app_first">NetGuard의 제작과 테스트에 많은 시간을 쏟았지만, 모든 기기에서 완벽하게 돌아가는 걸 장담할 수는 없습니다.</string>
-    <string name="app_agree">동의합니다</string>
-    <string name="app_disagree">동의하지 않습니다</string>
-    <string name="app_support">NetGuard는 당신의 도움이 필요합니다. PRO 기능을 구매하여 프로젝트가 지속될 수 있게 해 주세요.</string>
+    <string name="app_name" translatable="false">NetGuard Next</string>
+    <string name="app_description">NetGuard Next는 루트 권한 없이 인터넷 접속을 차단하는 간편하고 고급스러운 방법을 제공합니다. 앱 및 주소별로 Wi-Fi 및/또는 모바일 연결에 대한 액세스를 개별적으로 허용하거나 거부할 수 있습니다.</string>
+    <string name="app_copyright" translatable="false">Copyright \u00A9 2015–2025 by M. Bokhorst (M66B)</string>
+    <string name="app_android">NetGuard는 Android 5.1 이상이 필요합니다.</string>
+    <string name="app_eula" translatable="false">THIS SOFTWARE IS PROVIDED BY THE AUTHOR \'\'AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
+    <string name="app_privacy"><a href="https://www.netguard.me/privacy/">개인정보 보호정책</a></string>
+    <string name="app_first">NetGuard를 개발하고 테스트하는 데 세심한 주의를 기울였으나, 모든 기기에서 올바르게 작동한다고 보장할 수는 없습니다.</string>
+    <string name="app_agree">동의함</string>
+    <string name="app_disagree">동의하지 않음</string>
+    <string name="app_support">NetGuard는 여러분의 도움이 필요합니다. 프로젝트를 계속 유지할 수 있도록 Pro 기능을 구매해 주세요.</string>
+    <string name="app_qap">
+        Google은 모든 앱을 조회할 수 있는 권한을 요청했다는 이유로 Play 스토어에서 이 앱을 삭제하려 했습니다.
+        다섯 차례의 항소와 이 권한이 필요한 이유에 대한 타당한 설명이 모두 거부되었습니다.
+        이 버전의 앱은 더 이상 이 권한을 요청하지 않지만,
+        그럼에도 불구하고 Android 앱 목록에서 수동으로 시작할 수 없는 일부(시스템) 앱을 제외하고 거의 모든 앱이 여전히 목록에 표시됩니다.
+        기기가 계속 올바르게 작동하도록 이러한 앱의 인터넷 트래픽은 항상 허용됩니다.
+        이것이 문제라고 생각되면 앱의 GitHub 버전으로 업데이트하여 모든(시스템) 앱을 다시 관리할 수 있습니다.
+    </string>
+
     <string name="channel_foreground">실행 중인 서비스</string>
     <string name="channel_notify">일반 알림</string>
-    <string name="channel_access">알림 접근</string>
+    <string name="channel_access">접근 알림</string>
+
     <string name="menu_search">앱 검색</string>
-    <string name="menu_filter">앱 필터</string>
+    <string name="menu_filter">앱 필터링</string>
     <string name="menu_app_user">사용자 앱 표시</string>
     <string name="menu_app_system">시스템 앱 표시</string>
-    <string name="menu_app_nointernet">인터넷 미사용 앱 표시</string>
+    <string name="menu_app_nointernet">인터넷 권한 없는 앱 표시</string>
     <string name="menu_app_disabled">비활성화된 앱 표시</string>
     <string name="menu_sort">앱 정렬</string>
-    <string name="menu_sort_name">이름순</string>
-    <string name="menu_sort_uid">UID순</string>
-    <string name="menu_sort_data">데이터 사용량 순</string>
+    <string name="menu_sort_name">이름순 정렬</string>
+    <string name="menu_sort_uid">UID순 정렬</string>
+    <string name="menu_sort_data">데이터 사용량순 정렬</string>
+    <string name="menu_launch">앱 실행</string>
     <string name="menu_log">로그 표시</string>
     <string name="menu_settings">설정</string>
+    <string name="menu_home">홈</string>
     <string name="menu_invite">초대</string>
-    <string name="menu_legend">개요</string>
+    <string name="menu_legend">범례</string>
     <string name="menu_support">지원</string>
-    <string name="menu_about">넷가드 정보</string>
+    <string name="menu_about">정보</string>
     <string name="menu_apps">다른 앱</string>
+    <string name="menu_firewall">방화벽</string>
+    <string name="status_enabled">방화벽 활성화됨</string>
+    <string name="status_disabled">방화벽 비활성화됨</string>
+    <string name="widget_firewall_enabled">방화벽 ON</string>
+    <string name="widget_firewall_disabled">방화벽 OFF</string>
+    <string name="widget_lockdown_enabled">잠금 ON</string>
+    <string name="widget_lockdown_disabled">잠금 OFF</string>
+    <string name="notify_traffic_title">트래픽 모니터</string>
+    <string name="notify_traffic_summary">업 %1$s • 다운 %2$s • 피크 %3$s</string>
+    <string name="notify_traffic_debug">세션 %1$d/%2$d/%3$d • 파일 %4$d/%5$d</string>
+    <string name="ui_loading">로딩 중…</string>
+    <string name="ui_empty_logs_title">아직 트래픽 없음</string>
+    <string name="ui_empty_logs_body">연결이 나타나면 여기에 표시됩니다.</string>
+    <string name="ui_empty_apps_title">앱을 찾을 수 없음</string>
+    <string name="ui_empty_apps_body">목록을 새로고침해 보세요.</string>
+    <string name="ui_empty_dns_title">아직 확인된 DNS 없음</string>
+    <string name="ui_empty_dns_body">브라우징 후 여기에 DNS 응답이 표시됩니다.</string>
+    <string name="ui_dns_filter_empty">이 필터와 일치하는 DNS 항목이 없습니다.</string>
+    <string name="ui_empty_forwarding_title">전달 규칙 없음</string>
+    <string name="ui_empty_forwarding_body">트래픽 전달을 시작하려면 규칙을 추가하세요.</string>
+    <string name="ui_forwarding_filter_empty">이 필터와 일치하는 전달 규칙이 없습니다.</string>
+    <string name="ui_empty_pro_body">지원을 통해 추가 기능을 잠금 해제하고 프로젝트를 유지할 수 있습니다.</string>
+    <string name="ui_empty_pro_details">Pro 해제: 필터링, 로깅, 알림, 테마 및 속도 제한.</string>
+    <string name="ui_home_hint">모든 앱의 인터넷 액세스를 제어하세요.</string>
+    <string name="ui_home_quick_actions">빠른 작업</string>
+    <string name="ui_apps_title">방화벽</string>
+    <string name="ui_logs_title">트래픽 로그</string>
+    <string name="ui_logs_filters">필터</string>
+    <string name="ui_logs_filter_status">상태</string>
+    <string name="ui_logs_filter_protocol">프로토콜</string>
+    <string name="ui_logs_filter_view">보기</string>
+    <string name="ui_logs_group_timeline">타임라인</string>
+    <string name="ui_logs_group_by_app">앱별</string>
+    <string name="ui_logs_unknown_source">알 수 없는 소스</string>
+    <string name="ui_settings_title">설정</string>
+    <string name="ui_dns_title">확인된 DNS</string>
+    <string name="ui_forwarding_title">포트 포워딩</string>
+    <string name="ui_dns_hint">최근 확인된 도메인 및 응답.</string>
+    <string name="ui_forwarding_hint">전달 규칙 및 대상 앱을 관리합니다.</string>
+    <string name="ui_dns_active">활성</string>
+    <string name="ui_rule_custom">사용자 정의</string>
+    <string name="ui_dns_expired">만료됨</string>
+    <string name="ui_filter_all">모두</string>
+    <string name="ui_filter_empty">이 필터와 일치하는 앱이 없습니다.</string>
+    <string name="ui_apps_search_empty">이 검색과 일치하는 앱이 없습니다.</string>
+    <string name="ui_learn_more">자세히 알아보기</string>
+    <string name="status_running">트래픽이 필터링되고 있습니다</string>
+    <string name="status_not_running">트래픽이 필터링되지 않고 있습니다</string>
+    <string name="action_enable">활성화</string>
+    <string name="action_disable">비활성화</string>
+    <string name="home_apps_hint">앱 규칙 및 데이터 사용량 검토</string>
+    <string name="home_logs_hint">최근 네트워크 활동 조사</string>
+
+    <!-- Accessibility -->
+    <string name="action_expand">세부 정보 확장</string>
+    <string name="action_collapse">세부 정보 축소</string>
+    <string name="action_navigate">열기</string>
+    <string name="action_toggle_firewall">방화벽 전환</string>
+    <string name="action_clear_search">검색 지우기</string>
+    <string name="search_settings">설정 검색</string>
+    <string name="content_desc_security_status">방화벽 보안 상태</string>
+    <string name="content_desc_app_icon">%s 앱 아이콘</string>
+    <string name="content_desc_show_info">%1$s에 대한 정보 표시</string>
+
+    <!-- Dashboard stats -->
+    <string name="stat_blocked_today">차단됨</string>
+    <string name="stat_allowed_today">허용됨</string>
+    <string name="stat_active_rules">활성 규칙</string>
+
+    <!-- Tooltips -->
+    <string name="tooltip_rcode">차단된 도메인에 대해 전송되는 DNS 응답 코드입니다. 기본값 3(NXDOMAIN)은 도메인이 존재하지 않음을 의미합니다.</string>
+    <string name="tooltip_ttl">DNS 캐시 항목의 최소 TTL(Time-to-Live) 값(초)입니다.</string>
+    <string name="tooltip_pcap">디버깅을 위해 모든 네트워크 패킷을 기록합니다. 파일 크기가 커질 수 있습니다.</string>
+    <string name="tooltip_filter">트래픽을 가로채고 분석합니다. 주소별 차단에 필요하며 배터리를 더 많이 소모합니다.</string>
+    <string name="tooltip_lockdown">명시적으로 허용된 앱을 제외한 모든 트래픽을 차단합니다. 주의해서 사용하세요.</string>
+
+    <string name="menu_protocol_udp" translatable="false">UDP</string>
+    <string name="menu_protocol_tcp" translatable="false">TCP</string>
     <string name="menu_protocol_other">기타</string>
     <string name="menu_traffic_allowed">허용됨</string>
     <string name="menu_traffic_blocked">차단됨</string>
     <string name="menu_live">실시간 업데이트</string>
     <string name="menu_refresh">새로고침</string>
+    <string name="menu_ok">확인</string>
+    <string name="menu_cancel">취소</string>
     <string name="menu_resolve">이름 표시</string>
     <string name="menu_organization">조직 표시</string>
     <string name="menu_pcap_enabled">PCAP 활성화됨</string>
     <string name="menu_pcap_export">PCAP 내보내기</string>
-    <string name="menu_clear">비우기</string>
+    <string name="menu_clear">지우기</string>
     <string name="menu_export">내보내기</string>
     <string name="menu_reset">초기화</string>
+
     <string name="menu_add">추가</string>
-    <string name="menu_delete">제거</string>
-    <string name="menu_cleanup">비우기</string>
+    <string name="menu_delete">삭제</string>
+
+    <string name="menu_cleanup">정리</string>
+
     <string name="title_protocol">프로토콜</string>
     <string name="title_dport">소스 포트</string>
-    <string name="title_raddr">목적 주소</string>
-    <string name="title_rport">목적 포트</string>
-    <string name="title_ruid">목적 앱</string>
-    <string name="title_external">외부 서버의 경우 \'미지정\'을 선택하십시오</string>
-    <string name="setting_defaults">기본값 (차단/허용 목록)</string>
-    <string name="setting_whitelist_wifi">Wi-Fi 차단을 기본 설정으로</string>
-    <string name="setting_whitelist_other">모바일 데이터 차단을 기본 설정으로</string>
+    <string name="title_raddr">대상 주소</string>
+    <string name="title_rport">대상 포트</string>
+    <string name="title_ruid">대상 앱</string>
+    <string name="title_external">외부 서버의 경우 \'nobody\'를 선택하세요</string>
+
+    <string name="setting_defaults">기본값 (화이트/블랙리스트)</string>
+    <string name="setting_whitelist_wifi">Wi-Fi 차단</string>
+    <string name="setting_whitelist_other">모바일 차단</string>
     <string name="setting_screen_wifi">화면이 켜져 있을 때 Wi-Fi 허용</string>
-    <string name="setting_screen_other">화면이 켜져 있을 때 모바일 데이터 허용</string>
+    <string name="setting_screen_other">화면이 켜져 있을 때 모바일 허용</string>
     <string name="setting_whitelist_roaming">로밍 차단</string>
-    <string name="setting_options">설정</string>
+
+    <string name="setting_options">옵션</string>
     <string name="setting_theme">테마: %1$s</string>
     <string name="setting_dark">어두운 테마 사용</string>
-    <string name="setting_install">새 앱을 설치할 때 알림</string>
+    <string name="setting_theme_palette">색상 스타일 선택</string>
+    <string name="setting_dynamic_unavailable">다이내믹 컬러는 Android 12 이상이 필요합니다.</string>
+    <string name="setting_appearance_mode">디자인 모드</string>
+    <string name="setting_appearance_mode_title">다크 모드</string>
+    <string name="setting_appearance_mode_summary">끄기, 켜기 또는 시스템 설정을 선택합니다.</string>
+    <string name="setting_appearance_preview">현재: %1$s · %2$s</string>
+    <string name="setting_appearance_auto">자동</string>
+    <string name="setting_appearance_light">라이트</string>
+    <string name="setting_appearance_dark">다크</string>
+    <string name="theme_dynamic" translatable="false">Dynamic</string>
+    <string name="setting_install">새 앱 설치 시 알림</string>
     <string name="setting_screen_on">\'화면이 켜져 있을 때\' 규칙 적용</string>
     <string name="setting_auto">%1$s분 후 자동 활성화</string>
-    <string name="setting_delay">%1$s분 간 화면 꺼짐 지연</string>
+    <string name="setting_delay">화면 꺼짐 %1$s분 지연</string>
     <string name="setting_update">업데이트 확인</string>
+    <string name="setting_update_now">지금 확인</string>
+    <string name="setting_update_checking">확인 중...</string>
+
     <string name="setting_network_options">네트워크 옵션</string>
     <string name="setting_subnet">서브넷 라우팅</string>
-    <string name="setting_tethering">테터링 허용</string>
-    <string name="setting_lan">LAN 접근 허용</string>
-    <string name="setting_ip6">IPv6 트래픽 사용</string>
+    <string name="setting_tethering">테더링 허용</string>
+    <string name="setting_lan">LAN 액세스 허용</string>
+    <string name="setting_ip6">IPv6 트래픽 활성화</string>
     <string name="setting_wifi_home">Wi-Fi 홈 네트워크: %1$s</string>
-    <string name="setting_metered">과금 Wi-Fi 네트워크 제어</string>
-    <string name="setting_metered_2g">비과금 2G 고려</string>
-    <string name="setting_metered_3g">비과금 3G 고려</string>
-    <string name="setting_metered_4g">비과금 LTE 고려</string>
-    <string name="setting_national_roaming">국제 로밍 무시</string>
+    <string name="setting_metered">종량제 Wi-Fi 네트워크 처리</string>
+    <string name="setting_metered_2g">2G를 종량제 아님으로 간주</string>
+    <string name="setting_metered_3g">3G를 종량제 아님으로 간주</string>
+    <string name="setting_metered_4g">LTE를 종량제 아님으로 간주</string>
+    <string name="setting_national_roaming">국내 로밍 무시</string>
     <string name="setting_eu_roaming">EU 로밍 무시</string>
     <string name="setting_call">통화 중 비활성화</string>
-    <string name="setting_lockdown_wifi">Wi-Fi 차단</string>
-    <string name="setting_lockdown_other">모바일 데이터 차단</string>
-    <string name="setting_reload_onconnectivity">연결 변경 시마다 다시 불러오기</string>
-    <string name="setting_advanced_options">고급 설정</string>
-    <string name="setting_system">시스템 앱 설정</string>
-    <string name="setting_log_app">인터넷 접속 로그</string>
-    <string name="setting_access">인터넷 접속 시 알림</string>
-    <string name="setting_filter">트래픽 필터</string>
-    <string name="setting_filter_udp">UDP 트래픽 필터</string>
-    <string name="setting_handover">재시작 시 끊김 없이 VPN 전환</string>
-    <string name="setting_clear_onreload">다시 불러올 때 연결 종료</string>
-    <string name="setting_lockdown">트래픽 차단</string>
+    <string name="setting_lockdown_wifi">Wi-Fi 잠금</string>
+    <string name="setting_lockdown_other">모바일 데이터 잠금</string>
+    <string name="setting_reload_onconnectivity">연결이 바뀔 때마다 다시 로드</string>
+
+    <string name="setting_advanced_options">고급 옵션</string>
+    <string name="setting_system">시스템 앱 관리</string>
+    <string name="setting_log_app">인터넷 액세스 기록</string>
+    <string name="setting_log_retention_days">트래픽 로그 보관 일수</string>
+    <string name="setting_access">인터넷 액세스 시 알림</string>
+    <string name="setting_filter">트래픽 필터링</string>
+    <string name="setting_filter_udp">UDP 트래픽 필터링</string>
+    <string name="setting_handover">로드 시 원활한 VPN 핸드오버</string>
+    <string name="setting_clear_onreload">로드 시 연결 닫기</string>
+    <string name="setting_lockdown">트래픽 잠금</string>
+    <string name="setting_malware" translatable="false">Malware protection</string>
     <string name="setting_track_usage">네트워크 사용량 추적</string>
     <string name="setting_reset_usage">네트워크 사용량 초기화</string>
     <string name="setting_show_resolved">확인된 도메인 이름 표시</string>
@@ -97,197 +212,241 @@
     <string name="setting_vpn4">VPN IPv4: %s</string>
     <string name="setting_vpn6">VPN IPv6: %s</string>
     <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_validate">검증 주소: %s</string>
-    <string name="setting_ttl">최소 DNS TTL: %s초</string>
+    <string name="setting_dns2">보조 DNS: %s</string>
+    <string name="setting_validate">유효성 검사 위치: %s</string>
+    <string name="setting_ttl">최소 DNS TTL: %s s</string>
     <string name="setting_socks5_enabled">SOCKS5 프록시 사용</string>
     <string name="setting_socks5_addr">SOCKS5 주소: %s</string>
     <string name="setting_socks5_port">SOCKS5 포트: %s</string>
-    <string name="setting_socks5_username">SOCKS5 사용자명: %s</string>
+    <string name="setting_socks5_username">SOCKS5 사용자 이름: %s</string>
     <string name="setting_socks5_password">SOCKS5 비밀번호: %s</string>
-    <string name="setting_pcap_record_size">PCAP 기록 크기: %sB</string>
-    <string name="setting_pcap_file_size">PCAP 최대. 파일 크기: %sMB</string>
+    <string name="setting_pcap_record_size">PCAP 기록 크기: %s B</string>
+    <string name="setting_pcap_file_size">PCAP 최대 파일 크기: %s MB</string>
+    <string name="setting_pcap">네트워크 트래픽 기록 (PCAP)</string>
     <string name="setting_watchdog">워치독: %s분마다</string>
+
     <string name="setting_stats_category">속도 알림</string>
     <string name="setting_stats">속도 알림 표시</string>
     <string name="setting_stats_top">상위 앱 표시</string>
-    <string name="setting_stats_frequency">샘플 간격: %sms</string>
-    <string name="setting_stats_samples">샘플 수: %s s</string>
+    <string name="setting_stats_frequency">샘플 간격: %s ms</string>
+    <string name="setting_stats_samples">샘플 수: %s</string>
+
     <string name="setting_backup">백업</string>
     <string name="setting_export">설정 내보내기</string>
     <string name="setting_import">설정 가져오기</string>
-    <string name="setting_hosts">Hosts 파일 가져오기</string>
-    <string name="setting_hosts_append">호스트 파일 가져오기 (추가)</string>
-    <string name="setting_hosts_url">Hosts 파일 다운로드 URL</string>
-    <string name="setting_hosts_download">Hosts 파일 다운로드</string>
-    <string name="setting_technical">기술적 정보</string>
+    <string name="setting_hosts">hosts 파일 가져오기</string>
+    <string name="setting_hosts_append">hosts 파일 가져오기 (추가)</string>
+    <string name="setting_hosts_url">hosts 파일 다운로드 URL</string>
+    <string name="setting_hosts_download">hosts 파일 다운로드</string>
+    <string name="setting_use_hosts">hosts 파일 사용</string>
+
+    <string name="setting_technical">기술 정보</string>
     <string name="setting_technical_general">일반</string>
     <string name="setting_technical_networks">네트워크</string>
     <string name="setting_technical_subscription">구독</string>
-    <string name="summary_install">새로 설치된 앱을 곧바로 설정하기 위해 상태 표시줄 알림 표시 (PRO 기능)</string>
-    <string name="summary_auto">위젯 아용을 비활성화한 후, 설정한 시간(분) 후에 NetGuard를 자동으로 다시 활성화합니다(설정을 끄려면 0을 입력하세요).</string>
-    <string name="summary_delay">화면을 끈 후, 선택한 시간(분) 동안 화면이 켜졌을 때의 규칙을 유지합니다(이 설정을 끄려면 0을 입력).</string>
-    <string name="summary_update">하루에 두 번 GitHub에 새 릴리즈가 있는지 확인합니다</string>
-    <string name="summary_tethering">안드로이드 버전에 따라 테더링이 작동하거나 작동하지 않을 수 있습니다. 테더링 트래픽은 필터링할 수 없습니다.</string>
-    <string name="summary_subnet">서브넷 라우팅을 활성화합니다. Wi-Fi 통화가 가능하게 될 수도 있지만, Android 내에서 버그가 발생하고 배터리 사용량이 증가할 수 있습니다.</string>
-    <string name="summary_lan">앱이 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16과 같은 근거리 통신망에 연결할 수 있도록 허용합니다.</string>
-    <string name="summary_ip6">IPv6을 NetGuard로 라우팅하여 선택적으로 허용 및 차단할 수 있도록 합니다.</string>
-    <string name="summary_wifi_home">선택한 네트워크에만 Wi-Fi 네트워크 규칙 적용 (다른 Wi-Fi 네트워크에 대해서는 모바일 네트워크 규칙 적용)</string>
-    <string name="summary_metered">과금(요금 발생, 테더링) Wi-Fi 네트워크에 모바일 네트워크 규칙 적용</string>
+    <string name="setting_section_appearance">디자인</string>
+    <string name="setting_section_firewall">방화벽 규칙</string>
+    <string name="setting_section_advanced">고급 동작</string>
+    <string name="setting_section_hosts">Hosts 및 DNS</string>
+    <string name="setting_section_network">네트워크 구성</string>
+    <string name="setting_section_dns">DNS 세부 정보</string>
+    <string name="setting_section_proxy">프록시</string>
+    <string name="setting_section_vpn">VPN 구성</string>
+    <string name="setting_section_background">백그라운드 작업</string>
+    <string name="setting_section_diagnostics">진단</string>
+    <string name="setting_section_support">지원</string>
+
+    <string name="summary_install">새로 설치된 앱을 직접 구성할 수 있도록 상태 표시줄 알림 표시 (Pro 기능)</string>
+    <string name="summary_auto">위젯을 사용하여 비활성화한 후 선택한 시간(분)이 지나면 NetGuard를 자동으로 다시 활성화 (비활성화하려면 0 입력)</string>
+    <string name="summary_delay">화면을 끈 후 선택한 시간(분) 동안 화면 켜짐 규칙을 활성 상태로 유지 (비활성화하려면 0 입력)</string>
+    <string name="summary_update">GitHub에서 하루에 두 번 새로운 릴리스 확인</string>
+
+    <string name="summary_tethering">Android 버전에 따라 테더링이 작동하거나 작동하지 않을 수 있습니다. 테더링된 트래픽은 필터링할 수 없습니다.</string>
+    <string name="summary_subnet">서브넷 라우팅 활성화. Wi-Fi 통화가 가능해질 수 있지만 Android 버그가 발생하거나 배터리 소모가 늘어날 수 있습니다.</string>
+    <string name="summary_lan">10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16과 같은 로컬 영역 네트워크 주소에 앱이 연결되도록 허용</string>
+    <string name="summary_ip6">IPv6 트래픽을 NetGuard로 라우팅하여 선택적으로 허용 또는 차단</string>
+    <string name="summary_wifi_home">선택한 네트워크에 대해서만 Wi-Fi 네트워크 규칙 적용 (다른 Wi-Fi 네트워크에는 모바일 네트워크 규칙 적용)</string>
+    <string name="summary_metered">종량제(유료, 테더링) Wi-Fi 네트워크에 모바일 네트워크 규칙 적용</string>
     <string name="summary_metered_2g">2G 데이터 연결에 Wi-Fi 네트워크 규칙 적용</string>
     <string name="summary_metered_3g">3G 데이터 연결에 Wi-Fi 네트워크 규칙 적용</string>
     <string name="summary_metered_4g">LTE 데이터 연결에 Wi-Fi 네트워크 규칙 적용</string>
-    <string name="summary_national_roaming">SIM과 모바일 네트워크의 국가가 같은 경우 로밍 규칙을 적용하지 않음</string>
-    <string name="summary_eu_roaming">SIM과 모바일 네트워크의 국가가 EU 소속인 경우 로밍 규칙을 적용하지 않음 (roam like at home)</string>
-    <string name="summary_call">전화를 수발신할 때 NetGuard를 비활성화합니다. IP/Wi-Fi 전화 이용 시 발생하는 문제를 해결할 때 사용할 수 있습니다.</string>
-    <string name="summary_system">시스템 앱에 대한 규칙 정의 (숙련자용)</string>
-    <string name="summary_log_app">앱의 인터넷 접속 시도를 기록합니다. 배터리 사용량이 증가할 수 있습니다.</string>
-    <string name="summary_access">앱이 새 인터넷 주소로 접근하려 할 때 상태 표시줄에 알림을 표시합니다 (필터링이 비활성화된 경우, 차단된 인터넷 접근 시도만 알림)</string>
-    <string name="summary_filter">VPN 터널로 나가는 IP 패킷을 필터링합니다. 배터리 사용량이 증가할 수 있습니다.</string>
-    <string name="summary_track_usage">각 앱 및 주소에서 송수신한 바이트 수를 추적합니다. 배터리 사용량이 증가할 수 있습니다.</string>
-    <string name="summary_block_domains">차단된 도메인 이름에 대하여 \'구성됨\' DNS 응답 코드로 응답합니다. 호스트 파일을 사용할 수 없는 경우 비활성화됩니다.</string>
-    <string name="summary_rcode">기본값은 3(NXDOMAIN)입니다. 이는 \'존재하지 않는 도메인\'이라는 뜻입니다.</string>
-    <string name="summary_validate">포트 443(HTTPS)을 통한 인터넷 연결을 인증하는 데 쓰이는 도메인 이름입니다.</string>
-    <string name="summary_socks5_enabled">TCP 트래픽만이 프록시 서버로 전송될 것입니다</string>
-    <string name="summary_watchdog">NetGuard가 계속 작동하고 있는지 주기적으로 확인합니다. (이 설정을 비활성화하려면 0 입력) 배터리 사용량이 증가할 수 있습니다.</string>
-    <string name="summary_stats">상태 표시줄 알림에 네트워크 속도 그래프를 표시합니다</string>
-    <string name="msg_sure">계속 하시겠습니까?</string>
+    <string name="summary_national_roaming">SIM과 모바일 네트워크 국가가 같을 때 로밍 규칙을 적용하지 않음</string>
+    <string name="summary_eu_roaming">SIM과 모바일 네트워크 국가가 EU 내에 있을 때 로밍 규칙을 적용하지 않음 (roam like at home)</string>
+    <string name="summary_call">수신 또는 발신 전화 시 NetGuard 비활성화. IP/Wi-Fi 통화 문제를 해결하는 데 사용할 수 있습니다.</string>
+
+    <string name="summary_system">시스템 앱에 대한 규칙 정의 (전문가용)</string>
+    <string name="summary_log_app">앱의 인터넷 액세스 시도 기록. 배터리 소모가 늘어날 수 있습니다.</string>
+    <string name="summary_log_retention_days">정리 시 오래된 트래픽 로그 자동 삭제. 영구 보관하려면 0으로 설정.</string>
+    <string name="summary_access">앱이 새 인터넷 주소에 접속하려고 할 때 상태 표시줄 알림 표시 (필터링 비활성화 시 차단된 시도만 알림)</string>
+    <string name="summary_filter">VPN 터널에서 나가는 IP 패킷 필터링. 배터리 소모가 늘어날 수 있습니다.</string>
+    <string name="summary_track_usage">각 앱 및 주소별 송수신 바이트 수 추적. 배터리 소모가 늘어날 수 있습니다.</string>
+    <string name="summary_block_domains">차단된 도메인에 대해 구성된 DNS 응답 코드로 응답. hosts 파일이 없으면 비활성화됩니다.</string>
+    <string name="summary_rcode">기본값은 3 (NXDOMAIN)이며, \'존재하지 않는 도메인\'을 의미합니다.</string>
+    <string name="summary_validate">포트 443 (HTTPS)에서 인터넷 연결을 확인하는 데 사용되는 도메인 이름.</string>
+    <string name="summary_socks5_enabled">TCP 트래픽만 프록시 서버로 전송됩니다</string>
+    <string name="summary_watchdog">NetGuard가 실행 중인지 주기적으로 확인 (비활성화하려면 0 입력). 배터리 소모가 늘어날 수 있습니다.</string>
+
+    <string name="summary_stats">상태 표시줄 알림에 네트워크 속도 그래프 표시</string>
+
+    <string-array name="default_wifi_home"></string-array>
+
+    <string name="msg_sure">정말입니까?</string>
     <string name="msg_started">규칙 적용 중</string>
-    <string name="msg_packages">%1$d건 허용됨, %2$d건 차단됨</string>
-    <string name="msg_hosts">%1$d건 허용됨, %2$d건 차단됨, 호스트 %3$d개</string>
-    <string name="msg_waiting">이벤트를 기다리는 중</string>
-    <string name="msg_disabled">넷가드가 해제되어 있습니다. 상단 스위치를 사용해 넷가드를 활성화하세요.</string>
-    <string name="msg_notifications">눌러서 알림 권한을 부여합니다 (접근 시도 알림, 오류 메시지 등을 표시할 때 필요)</string>
-    <string name="msg_revoked">다른 VPN 기반 앱이 사용 중이라 NetGuard가 꺼졌습니다</string>
+    <string name="msg_packages">%1$d 허용, %2$d 차단됨</string>
+    <string name="msg_hosts">%1$d 허용, %2$d 차단됨, %3$d 호스트</string>
+    <string name="msg_waiting">이벤트 대기 중</string>
+    <string name="msg_disabled">NetGuard가 비활성화됨. 상단 스위치를 눌러 활성화하세요</string>
+    <string name="msg_notifications">알림 권한을 부여하려면 누르세요 (접속 시도 알림, 오류 메시지 등을 위해)</string>
+    <string name="msg_revoked">NetGuard가 비활성화됨. 다른 VPN 앱 사용으로 인한 것일 수 있습니다</string>
     <string name="msg_installed">\'%1$s\' 설치됨</string>
     <string name="msg_installed_n">설치되었습니다</string>
-    <string name="msg_access">%1$s 앱이 인터넷 접속 시도함</string>
-    <string name="msg_access_n">인터넷 접속 시도됨</string>
+    <string name="msg_malware" translatable="false">Possible malware: \'%1$s\'</string>
+    <string name="msg_access">%1$s이(가) 인터넷 액세스를 시도함</string>
+    <string name="msg_access_n">인터넷 액세스 시도됨</string>
     <string name="msg_completed">작업 완료</string>
-    <string name="msg_vpn">NetGuard는 인터넷 트래픽을 필터링하기 위해 로컬 VPN을 이용합니다.
-이에 따라, 다음 창에서 VPN 연결을 허용해주시기 바랍니다.
-당신의 인터넷 트래픽은 원격 VPN 서버로 전송되지 않습니다.</string>
-    <string name="msg_autostart">NetGuard가 자동으로 시작하는 데 실패했습니다. 사용 중인 Android 버전의 버그로 추정됩니다.</string>
-    <string name="msg_error">예기치 못한 오류가 발생했습니다: \'%s\'</string>
-    <string name="msg_start_failed">현재 Android에서 VPN 서비스 시작을 거부했습니다. 해당 Android 버전의 오류로 추정됩니다.</string>
-    <string name="msg_try">NetGuard를 이용해보세요</string>
-    <string name="msg_terms">후원하면 <a href="http://www.netguard.me/#terms">이용 약관</a>에 동의하게 됩니다</string>
-    <string name="msg_dimming">다음 창에서 확인 버튼을 누를 수 없는 경우, 다른(화면 감광 등의) 앱이 화면을 제어하고 있을 가능성이 높습니다.</string>
-    <string name="msg_mbday">± %1$.3f▲ %2$.3f▼ MB/일</string>
-    <string name="msg_kb">%1$7.3f▲ %2$7.3f▼ KB</string>
-    <string name="msg_mb">%1$7.3f▲ %2$7.3f▼ MB</string>
-    <string name="msg_gb">%1$7.3f▲ %2$7.3f▼ GB</string>
+    <string name="msg_invalid">값을 확인하고 다시 시도하세요.</string>
+    <string name="msg_export_failed">내보내기 실패: %1$s</string>
+    <string name="msg_vpn">NetGuard는 로컬 VPN을 사용하여 인터넷 트래픽을 필터링합니다.
+이러한 이유로 다음 대화 상자에서 VPN 연결을 허용해 주세요.
+트래픽은 원격 VPN 서버로 전송되지 않습니다.</string>
+    <string name="msg_autostart">NetGuard가 자동으로 시작되지 않았습니다. 사용 중인 Android 버전의 버그일 수 있습니다.</string>
+    <string name="msg_error">예기치 않은 오류 발생: \'%s\'</string>
+    <string name="msg_start_failed">Android가 현재 VPN 서비스 시작을 거부했습니다. 사용 중인 Android 버전의 버그일 수 있습니다.</string>
+    <string name="msg_try">NetGuard 사용해 보기</string>
+    <string name="msg_terms">기부함으로써 <a href="http://www.netguard.me/#terms">이용 약관</a>에 동의하게 됩니다</string>
+    <string name="msg_dimming">다음 대화 상자에서 확인을 누를 수 없다면, 다른 앱(화면 어둡게 하기 등)이 화면을 제어하고 있는 것일 수 있습니다.</string>
+    <string name="msg_mbday">&#177; %1$.3f&#9650; %2$.3f&#9660; MB/일</string>
+    <string name="msg_kbsec">%7.3f KB/s</string>
+    <string name="msg_mbsec">%7.3f MB/s</string>
+    <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
+    <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
+    <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
     <string name="msg_count">%d회</string>
-    <string name="msg_doze">NetGuard가 안정적으로 동작하려면 안드로이드 배터리 최적화 설정이 꺼져 있어야 합니다.
-\n\n다음 창에서, 상단의 \"모든 앱\"을 누른 다음, 목록에서 NetGuard를 찾아 누른 다음 제외하십시오.</string>
-    <string name="msg_datasaving">NetGuard가 안정적으로 동작하려면 안드로이드 데이터 절약 설정이 꺼져 있어야 합니다.
-\n\n다음 창에서, \"백그라운드 데이터 사용\" 및 \"무제한 데이터 사용\" 설정을 켜십시오.</string>
-    <string name="msg_filter">필터링을 사용하면 Android에서는 데이터나 배터리를 NetGuard에서 사용하는 것으로 인식할 수 있습니다. 즉 Android는 데이터와 배터리의 사용이 본래 앱이 아닌 NetGuard에서 발생한다고 가정하는 것입니다.</string>
-    <string name="msg_filter4">안드로이드 4에서는 필터링을 활성화해야 합니다</string>
-    <string name="msg_log_disabled">트래픽 기록이 꺼졌습니다. 기록을 시작하려면 위 스위치를 누르세요. 트래픽 기록 시 배터리 사용량이 증가할 수 있습니다.</string>
-    <string name="msg_clear_rules">규칙과 조건이 기본값으로 초기화됩니다</string>
-    <string name="msg_reset_access">허용/차단 규칙이 적용되지 않은 상태에서 접근을 시도한 내역이 삭제됩니다</string>
-    <string name="msg_import_last">마지막 파일 추출: %s</string>
-    <string name="msg_downloading">\n%1s 다운로드 중</string>
-    <string name="msg_downloaded">호스트 파일 다운로드 됨</string>
-    <string name="msg_download_last">마지막 다운로드: %s</string>
-    <string name="msg_start_forward">%1$s 포트 %2$d에서 \'%5$s\'의 %3$s:%4$d로 포워딩을 시작하시겠습니까?</string>
-    <string name="msg_stop_forward">%1$s 포트 %2$d의 포워딩을 중단하시겠습니까?</string>
-    <string name="msg_metered">과금 네트워크입니다</string>
-    <string name="msg_inactive">인터넷에 연결할 수 없습니다</string>
+    <string name="msg_doze">일관된 결과를 위해 NetGuard에 대한 Android 배터리 최적화를 비활성화해야 합니다.
+\n\n다음 대화 상자 상단에서 \"모든 앱\"을 선택하고 목록에서 NetGuard를 탭한 후 \"최적화하지 않음\"을 선택하고 확인하세요.</string>
+    <string name="msg_datasaving">일관된 결과를 위해 NetGuard에 대한 Android 데이터 절약 옵션을 비활성화해야 합니다.
+\n\n다음 대화 상자에서 \"백그라운드 데이터\" 및 \"무제한 데이터 사용\" 옵션을 활성화하세요.</string>
+    <string name="msg_filter">필터링을 사용하면 Android가 데이터 및 배터리 사용량을 NetGuard의 것으로 간주하게 됩니다. 실제 앱이 아닌 NetGuard가 사용하는 것으로 인식합니다.</string>
+    <string name="msg_filter4">Android 4는 필터링 활성화가 필요합니다</string>
+    <string name="msg_log_disabled">트래픽 로깅이 비활성화됨. 상단 스위치로 활성화하세요. 로깅은 배터리를 추가로 소모할 수 있습니다.</string>
+    <string name="msg_clear_rules">모든 규칙과 조건을 기본값으로 재설정합니다</string>
+    <string name="msg_reset_access">허용/차단 규칙이 없는 접속 시도 로그를 삭제합니다</string>
+    <string name="msg_import_last">최근 가져오기: %s</string>
+    <string name="msg_downloading">다운로드 중\n%1s</string>
+    <string name="msg_downloaded">hosts 파일 다운로드됨</string>
+    <string name="msg_download_last">최근 download: %s</string>
+    <string name="msg_start_forward">%1$s 포트 %2$d에서 \'%5$s\'의 %3$s:%4$d(으)로 전달을 시작할까요？</string>
+    <string name="msg_stop_forward">%1$s 포트 %2$d의 전달을 중단할까요？</string>
+    <string name="msg_metered">종량제 네트워크입니다</string>
+    <string name="msg_inactive">활성 인터넷 연결 없음</string>
     <string name="msg_queue">NetGuard가 사용 중입니다</string>
-    <string name="msg_update">업데이트 이용 가능, 눌러서 다운로드하세요</string>
-    <string name="msg_usage">앱 옆에 있는 아이콘을 눌러 Wi-Fi 또는 모바일 인터넷 접속을 허용(초록) 또는 거부(빨강)할 수 있습니다.</string>
-    <string name="msg_fairemail">개인정보를 보호하기 위하여 NetGuard를 설치하셨다면, 개인정보 보호를 중시하는 오픈소스 메일 앱인 <a href="https://email.faircode.eu/">FairEmail</a>에도 흥미를 가지실 것 같습니다</string>
-    <string name="msg_whitelist">인터넷 접근은 기본적으로 허용됩니다(차단 목록 모드). 설정에서 이를 변경할 수 있습니다.</string>
-    <string name="msg_push">대부분의 수신되는 (푸시) 메시지는 기본적으로 인터넷 접근이 허용되는 Play 서비스 시스템 구성 요소에 의해 처리됩니다.</string>
-    <string name="msg_system">모든 (시스템) 앱 관리는 설정에서 켤 수 있습니다.</string>
-    <string name="msg_issue">문제와 문제 발생 시점에 대해 설명해주십시오:</string>
-    <string name="msg_vpn_cancelled">VPN 연결 취소됨\n다른 VPN을 연결 유지 VPN으로 설정하셨습니까?</string>
-    <string name="msg_on">NetGuard가 켜진 채로 기기의 전원을 끄면, 기기를 켰을 때 NetGuard도 자동으로 실행됩니다</string>
-    <string name="msg_unavailable">이 안드로이드 버전에서는 지원하지 않는 기능입니다.</string>
+    <string name="msg_update">업데이트 가능, 눌러서 다운로드</string>
+    <string name="msg_usage">앱 옆의 아이콘을 눌러 Wi-Fi 또는 모바일 인터넷 접속을 허용(녹색)하거나 거부(빨간색)할 수 있습니다</string>
+    <string name="msg_fairemail">개인정보 보호를 위해 NetGuard를 설치했다면, 오픈 소스 기반의 개인정보 보호 이메일 앱 <a href="https://email.faircode.eu/">FairEmail</a>에도 관심이 있으실 것입니다.</string>
+    <string name="msg_whitelist">인터넷 액세스는 기본적으로 허용됩니다 (블랙리스트 모드). 설정에서 변경 가능합니다.</string>
+    <string name="msg_push">수신(푸시) 메시지는 주로 시스템 구성 요소인 Play 서비스에서 처리하며, 이는 기본적으로 인터넷 액세스가 허용됩니다.</string>
+    <string name="msg_system">모든 (시스템) 앱 관리는 설정에서 활성화할 수 있습니다</string>
+    <string name="msg_issue">문제를 설명하고 발생 시간을 적어주세요:</string>
+    <string name="msg_vpn_cancelled">VPN 연결 취소됨\n다른 VPN을 항상 켜져 있는 VPN으로 설정했나요?</string>
+    <string name="msg_on">NetGuard가 활성화된 상태에서 전원을 끄면 다시 켤 때 자동으로 시작됩니다</string>
+    <string name="msg_unavailable">이 기능은 현재 Android 버전에서 사용할 수 없습니다</string>
     <string name="msg_always_on">다른 VPN이 항상 켜져 있는 VPN으로 설정되어 있습니다</string>
-    <string name="msg_always_on_lockdown">필터링 모드로 NetGuard를 사용하려면 안드로이드 VPN 설정에서 \"VPN 제외 연결 차단\" 설정을 끄십시오</string>
-    <string name="msg_private_dns">필터링 모드로 NetGuard를 사용하려면 안드로이드 네트워크 설정에서 \"사설 DNS\" 설정을 끄십시오</string>
-    <string name="title_lockdown_enabled">트래픽이 차단되었습니다</string>
-    <string name="title_unmetered_allowed">비과금 트래픽 허용됨</string>
-    <string name="title_unmetered_blocked">비과금 트래픽 차단됨</string>
-    <string name="title_unmetered_disabled">비과금 규칙이 적용되지 않음</string>
-    <string name="title_metered_allowed">과금 트래픽 허용됨</string>
-    <string name="title_metered_blocked">과금 트래픽 차단됨</string>
-    <string name="title_metered_disabled">과금 규칙이 적용되지 않음</string>
-    <string name="title_host_allowed">주소가 허용되었습니다</string>
-    <string name="title_host_blocked">주소가 차단되었습니다</string>
-    <string name="title_interactive_allowed">화면이 켜져있을 때 허용</string>
-    <string name="title_roaming_blocked">로밍시 차단</string>
-    <string name="title_metered">일반적으로 Wi-Fi 연결은 비과금, 모바일 데이터 연결은 과금으로 취급합니다</string>
-    <string name="title_internet">인터넷을 사용할 수 없습니다</string>
-    <string name="title_disabled">꺼짐</string>
-    <string name="title_messaging">메시지는 이 앱이 아닌 Google Play 서비스로부터 받는 것이므로 이 앱의 메시지를 차단한다고 메시지가 차단되지 않습니다</string>
-    <string name="title_download">다운로드는 이 앱이 아닌 다운로드 관리자에 의해 수행되므로 이 앱을 차단하여 다운로드를 차단할 수는 없음</string>
+    <string name="msg_always_on_lockdown">Android VPN 설정에서 \"VPN 없이 연결 차단\"을 꺼야 NetGuard 필터링 모드를 사용할 수 있습니다</string>
+    <string name="msg_private_dns">Android 네트워크 설정에서 \"프라이빗 DNS\"를 꺼야 NetGuard 필터링 모드를 사용할 수 있습니다</string>
+
+    <string name="title_lockdown_enabled">트래픽이 잠겼습니다</string>
+    <string name="title_unmetered_allowed">비종량제 트래픽 허용됨</string>
+    <string name="title_unmetered_blocked">비종량제 트래픽 차단됨</string>
+    <string name="title_unmetered_disabled">비종량제 규칙이 적용되지 않음</string>
+    <string name="title_metered_allowed">종량제 트래픽 허용됨</string>
+    <string name="title_metered_blocked">종량제 트래픽 차단됨</string>
+    <string name="title_metered_disabled">종량제 규칙이 적용되지 않음</string>
+    <string name="title_host_allowed">주소가 허용됨</string>
+    <string name="title_host_blocked">주소가 차단됨</string>
+    <string name="title_interactive_allowed">화면이 켜져 있을 때 허용</string>
+    <string name="title_roaming_blocked">로밍 시 차단</string>
+    <string name="title_metered">기본적으로 Wi-Fi는 비종량제, 모바일은 종량제로 간주됩니다</string>
+
+    <string name="title_internet">인터넷 권한이 없음</string>
+    <string name="title_disabled">비활성화됨</string>
+    <string name="title_messaging">수신 메시지는 Google Play 서비스에서 받으며 이 앱에서 받지 않으므로, 이 앱을 차단해도 메시지는 차단되지 않습니다</string>
+    <string name="title_download">다운로드는 다운로드 관리자가 수행하며 이 앱에서 수행하지 않으므로, 이 앱을 차단해도 다운로드는 차단되지 않습니다</string>
     <string name="title_apply">규칙 및 조건 적용</string>
     <string name="title_conditions">조건</string>
     <string name="title_screen_wifi">화면이 켜져 있을 때 Wi-Fi 허용</string>
-    <string name="title_screen_other">화면이 켜져 있을 때 모바일 데이터 허용</string>
+    <string name="title_screen_other">화면이 켜져 있을 때 모바일 허용</string>
     <string name="title_roaming_symbol">R</string>
-    <string name="title_roaming">로밍시 차단</string>
-    <string name="title_lockdown">차단 모드에서 허용</string>
-    <string name="title_related">관련 항목도 필터링</string>
+    <string name="title_roaming">로밍 시 차단</string>
+    <string name="label_ttl">TTL: %s 초</string>
+    <string name="label_uid">UID: %s</string>
+    <string name="title_lockdown">잠금 모드에서 허용</string>
+    <string name="title_related">필터 관련</string>
     <string name="title_access">접근 시도</string>
-    <string name="title_precedence">접근 관련 규칙이 다른 규칙보다 우선 적용됨</string>
-    <string name="title_options">설정</string>
-    <string name="title_notify">인터넷 접속 시도 알림</string>
-    <string name="title_logging_disabled">로깅이나 필터링 꺼짐</string>
-    <string name="title_logging_enabled">로깅 및 필터링 켜짐</string>
-    <string name="title_logging_configure">환경설정</string>
-    <string name="title_enable_logging">차단된 주소의 로깅만 활성화</string>
-    <string name="title_enable_filtering">허용된 주소도 기록하도록 필터링 활성화</string>
-    <string name="title_enable_notify">새로 기록된 주소에 대하여 접근 알림 활성화</string>
+    <string name="title_precedence">접근 규칙은 다른 규칙보다 우선합니다</string>
+    <string name="title_options">옵션</string>
+    <string name="title_notify">인터넷 액세스 시도 알림</string>
+
+    <string name="title_logging_disabled">로깅 또는 필터링이 활성화되지 않음</string>
+    <string name="title_logging_enabled">로깅 및 필터링 활성화됨</string>
+    <string name="title_logging_configure">구성</string>
+
+    <string name="title_enable_logging">차단된 주소만 로깅 활성화</string>
+    <string name="title_enable_filtering">필터링을 활성화하여 허용된 주소도 기록</string>
+    <string name="title_enable_notify">새로 기록된 주소에 대한 알림 활성화</string>
     <string name="title_enable_help0">이 설정은 모든 앱에 적용되는 전역 설정입니다</string>
-    <string name="title_enable_help1">주소를 개별적으로 허용하거나 차단하려면 필터링도 필요</string>
-    <string name="title_enable_help2">로그(영향 적음)나 필터링(영향 큼)을 사용하면 배터리 사용량이 증가하고 네트워크 속도에 영향을 끼칠 수 있습니다</string>
-    <string name="title_rate">평가</string>
+    <string name="title_enable_help1">개별 주소를 허용하거나 차단하려면 필터링도 필요합니다</string>
+    <string name="title_enable_help2">로깅(약간) 또는 필터링(더 많이)을 활성화하면 배터리 소모가 늘어나거나 네트워크 속도에 영향을 줄 수 있습니다</string>
+
+    <string name="title_rate">평가하기</string>
     <string name="title_allow">허용</string>
     <string name="title_block">차단</string>
+    <string name="title_wifi">Wi-Fi</string>
+    <string name="title_mobile">모바일</string>
     <string name="title_allow_wifi">Wi-Fi 허용</string>
     <string name="title_block_wifi">Wi-Fi 차단</string>
-    <string name="title_allow_other">모바일 데이터 허용</string>
-    <string name="title_block_other">모바일 데이터 차단</string>
-    <string name="title_root">루트</string>
-    <string name="title_mediaserver">미디어 서버</string>
-    <string name="title_nobody">미지정</string>
-    <string name="title_dontask">다시 보지 않기</string>
+    <string name="title_allow_other">모바일 허용</string>
+    <string name="title_block_other">모바일 차단</string>
+    <string name="title_root">root</string>
+    <string name="title_mediaserver">mediaserver</string>
+    <string name="title_gpsdaemon" translatable="false">GPS daemon</string>
+    <string name="title_dnsdaemon" translatable="false">DNS daemon</string>
+    <string name="title_nobody">nobody</string>
+    <string name="title_dontask">다시 묻지 않음</string>
+
     <string name="title_log_whois">Whois %1$s</string>
     <string name="title_log_port">포트 %1$d</string>
     <string name="title_log_copy">복사</string>
-    <string name="title_pro">PRO 기능</string>
-    <string name="title_pro_description">아래의 PRO 기능들을 이용할 수 있습니다:</string>
-    <string name="title_pro_log">차단된 트래픽 내역 보기</string>
-    <string name="title_pro_filter">네트워크 트래픽 필터</string>
-    <string name="title_pro_notify">새 앱 알림</string>
+
+    <string name="title_pro">Pro 기능</string>
+    <string name="title_pro_description">다음과 같은 Pro 기능을 사용할 수 있습니다:</string>
+    <string name="title_pro_log">차단된 트래픽 로그 보기</string>
+    <string name="title_pro_filter">네트워크 트래픽 필터링</string>
+    <string name="title_pro_notify">새 앱 설치 알림</string>
     <string name="title_pro_speed">네트워크 속도 그래프 알림</string>
-    <string name="title_pro_theme">표시 (테마, 색상)</string>
-    <string name="title_pro_all">PRO 버전의 모든 기능</string>
+    <string name="title_pro_theme">디자인 (테마, 색상)</string>
+    <string name="title_pro_all">위의 모든 Pro 기능</string>
     <string name="title_pro_dev">개발 지원</string>
-    <string name="title_pro_buy">구입</string>
-    <string name="title_pro_bought">활성화</string>
-    <string name="title_pro_unavailable">이용 불가</string>
-    <string name="title_pro_details">제목을 눌러 자세한 정보를 확인하세요</string>
-    <string name="title_pro_challenge">도전</string>
+    <string name="title_pro_buy">구매</string>
+    <string name="title_pro_bought">활성화됨</string>
+    <string name="title_pro_unavailable">사용 불가</string>
+    <string name="title_pro_details">자세한 정보를 보려면 제목을 누르세요</string>
+    <string name="title_pro_challenge">챌린지</string>
     <string name="title_pro_reponse">응답</string>
-    <string name="title_pro_feature">PRO 기능입니다</string>
-    <string name="title_pro_subscription">        월간 구독료 1, 2유로만 지불하여도(지역 세금 제외) 모든 PRO 기능을 이용할 수 있습니다.
+    <string name="title_pro_feature">이것은 Pro 기능입니다</string>
+    <string name="title_pro_subscription">
+        월 1~2유로(현지 세금 제외)의 정기 구독으로 모든 Pro 기능을 사용할 수 있습니다.
         Play 스토어 앱의 구독 탭에서 구독을 취소하거나 관리할 수 있습니다.
     </string>
-    <string-array name="themeNames">
-        <item>암청/주황</item>
-        <item>파랑/주황</item>
-        <item>보라/빨강</item>
-        <item>황토/파랑</item>
-        <item>주황/회색</item>
-        <item>초록</item>
-    </string-array>
-    <string-array name="protocolNames">
+    <string name="title_pro_already">Pro 기능이 이미 활성화되었습니다</string>    <string-array name="protocolNames">
         <item>UDP</item>
         <item>TCP</item>
     </string-array>
+
+    <string-array name="protocolValues" translatable="false">
+        <item>17</item>
+        <item>6</item>
+    </string-array>
+
+    <string name="label_dns_summary">%1$d개 항목 • %2$d개 만료됨</string>
+
 </resources>

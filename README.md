@@ -1,84 +1,105 @@
-# NetGuard Next
+# Re-NetGuard
 
-<p>
-  <img alt="License: GPLv3" src="https://img.shields.io/badge/License-GPLv3-blue.svg" />
-  <img alt="Platform: Android" src="https://img.shields.io/badge/Platform-Android-3DDC84.svg" />
-  <img alt="Min SDK: 26" src="https://img.shields.io/badge/minSdk-26-orange.svg" />
+<p align="center">
+  <img src="assets/home.png" alt="Re-NetGuard overview" width="980">
 </p>
 
-No-root Android firewall with a Material 3 Expressive experience, adaptive navigation, and a redesigned traffic log.
-
-This project is a modernized fork of the original NetGuard firewall for Android.
-It keeps the no-root, VPN-based firewall model from upstream, but refreshes the app architecture and UX for current Android and Material 3 patterns.
-
-## Screenshots
-
-<p>
-  <img src="screenshots/01-main.png" width="220" alt="Home screen" />
-  <img src="screenshots/02-main-details.png" width="220" alt="Firewall details screen" />
-  <img src="screenshots/03-main-access.png" width="220" alt="App access screen" />
-  <img src="screenshots/08-notifications.png" width="220" alt="Notifications screen" />
+<p align="center">
+  <strong>Local-first, no-root firewall control with a modern Material 3 experience.</strong><br>
+  Built with Kotlin 2.3, Jetpack Compose, and a first-party Android-only architecture.
 </p>
 
-More screenshots are available in `screenshots/`.
-
-## Upstream Reference
-
-This fork is based on the original NetGuard project by Marcel Bokhorst (M66B):
-https://github.com/M66B/NetGuard
-
-## What Is Different In This Fork
-
-This fork focuses on a modern UI and navigation model while keeping the core firewall behavior:
-
-- Kotlin + Jetpack Compose UI rewrite
-- Material 3 expressive styling
-- Adaptive navigation (bottom bar on compact layouts, rail/suite behavior on larger layouts)
-- Tablet-friendly master/detail flow for firewall rules
-- Cleaner back-stack behavior across tabs
-- Redesigned traffic log screen with timeline and "By app" views
-- App icon support in log rows and in the app picker
-- Protocol/status filters and searchable app picker
-- In-app guidance to enable filtering when allowed traffic logs are needed
-- Improved touch/ripple clipping consistency in settings and controls
-- Modernized settings UX with clearer grouped options
-
-### Modern UI Preview
-
-<p>
-  <img src="assets/home.png" width="220" alt="Redesigned home screen" />
-  <img src="assets/firewall.png" width="220" alt="Redesigned firewall screen" />
-  <img src="assets/details.png" width="220" alt="Redesigned app details screen" />
-  <img src="assets/settings.png" width="220" alt="Redesigned settings screen" />
+<p align="center">
+  <a href="https://kotlinlang.org/" target="_blank" rel="noreferrer"><img src="https://img.shields.io/badge/Kotlin-2.3.10-blue.svg?logo=kotlin" alt="Kotlin"></a>
+  <a href="https://developer.android.com/compose" target="_blank" rel="noreferrer"><img src="https://img.shields.io/badge/Jetpack%20Compose-1.10.x-orange.svg?logo=jetpackcompose" alt="Compose"></a>
+  <a href="LICENSE" target="_blank" rel="noreferrer"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License"></a>
+  <a href="#" target="_blank" rel="noreferrer"><img src="https://img.shields.io/badge/Platform-Android-lightgrey.svg" alt="Platform"></a>
 </p>
 
-These screens highlight this fork's updated look-and-feel.
+---
 
-## Core Capabilities
+**Re-NetGuard** is a modernized fork of [NetGuard](https://github.com/M66B/NetGuard) created by Marcel Bokhorst. It preserves NetGuard’s no-root, VPN-based filtering model and adds a refreshed Material 3 Expressive Android UX with improved workflows for logs, rules, and settings.
 
-- No-root firewall using Android `VpnService`
-- Per-app allow/block rules for Wi-Fi and mobile data
-- Optional filtering mode for per-address visibility and controls
-- DNS and forwarding screens
-- Traffic log with protocol/status filtering
-- Log retention configuration
-- Open-source codebase under GPLv3
+## 🚀 Why Re-NetGuard
 
-## Important Behavior Notes
+- **No-root by design**
+  - Uses Android `VpnService` with local filtering, no external proxy dependency.
+- **UI-first redesign**
+  - Material 3 Expressive visuals, cleaner spacing, and improved interaction behavior.
+- **Modern navigation**
+  - Adaptive patterns for phone and tablet form factors.
+- **Safer controls**
+  - Clearer toggles, better feedback, and improved update-check visibility.
+- **Stronger log clarity**
+  - Upgraded traffic timeline views with status, protocol, and app-level context.
+- **Localization-aware**
+  - Translated update states and expanded language coverage.
 
-- This app uses a local VPN tunnel, not a remote VPN server.
-- If filtering is disabled, traffic logging may mainly show blocked attempts. Enable filtering to capture full allowed traffic context.
-- Some OEM ROMs have VPN stack bugs that can affect startup or reliability.
+## 📸 Screenshots
 
-## Project Layout
+| Home | Details | App Access |
+| :---: | :---: | :---: |
+| ![Home](assets/home.png) | ![Firewall](assets/firewall.png) | ![App details](assets/details.png) |
+| **Settings** |
+| ![Settings](assets/settings.png) |
 
-- App module: `app/`
-- UI code: `app/src/main/kotlin/eu/faircode/netguard/ui/`
-- Screens: `app/src/main/kotlin/eu/faircode/netguard/ui/screens/`
-- Main tabs: `app/src/main/kotlin/eu/faircode/netguard/ui/main/`
-- Native engine: `app/src/main/jni/netguard/`
-- Resources: `app/src/main/res/`
+## 🛠️ Tech Stack
 
-## License
+- **Language:** Kotlin
+- **UI:** Jetpack Compose + Material 3 Expressive
+- **Architecture:** Compose-first Android app, Hilt DI, coroutine-based workflows
+- **Navigation:** Navigation 3 / Adaptive Navigation 3 / Adaptive Navigation Suite
+- **Data/State:** DataStore, WorkManager
+- **Networking:** OkHttp (where used in platform services)
+- **Theming:** Material Kolor for dynamic color and palette handling
+- **Native layer:** C++ JNI core for firewall engine
+- **Build:** Gradle + Kotlin plugin 2.3.x, Android Gradle Plugin 9.0.1
 
-Licensed under GNU GPLv3. See `LICENSE`.
+## 🏗️ Project Structure
+
+- `app/`: Android application module (entry point + UI + services)
+- `app/src/main/kotlin/eu/faircode/netguard/ui/`: Compose screen structure and app shell
+- `app/src/main/kotlin/eu/faircode/netguard/`: Firewall services and system integration
+- `app/src/main/kotlin/eu/faircode/netguard/ui/screens/`: Main screen implementations
+- `app/src/main/kotlin/eu/faircode/netguard/ui/main/`: Navigation and host-level UI containers
+- `app/src/main/kotlin/eu/faircode/netguard/ServiceSinkhole.kt`: Update checks, background tasks, filtering pipeline
+- `app/src/main/jni/netguard/`: Native networking engine
+
+## 🏁 Getting Started
+
+### Prerequisites
+
+- **Android Studio** (current stable)
+- **JDK 17+**
+- **Android SDK** with API 26+ target device support
+
+### Build
+
+```bash
+./gradlew :app:assembleDebug
+```
+
+### Run
+
+```bash
+./gradlew :app:installDebug
+```
+
+### Install from release bundle
+
+You can also build a release variant configured for production checks and shrinker behavior. See your build types in `app/build.gradle.kts`.
+
+## ⚠️ Behavior Notes
+
+- This app is local-first and does not proxy traffic through a third-party backend.
+- Some device manufacturers apply stricter VPN policies; behavior can vary across ROMs.
+- Certain background/network capabilities depend on notification, battery optimization, and device permissions.
+
+## 🤝 Credits
+
+- Forked from the original [NetGuard](https://github.com/M66B/NetGuard) by Marcel Bokhorst.
+- Reworked into **Re-NetGuard** with a modern Compose + Material 3 redesign.
+
+## 📜 License
+
+Re-NetGuard is licensed under **GNU GPLv3**. See [`LICENSE`](LICENSE) for details.

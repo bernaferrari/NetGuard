@@ -3,7 +3,6 @@
     <string name="app_description">NetGuard Next provides simple and advanced ways to block access to the internet - no root required. Apps and addresses can individually be allowed or denied access to your Wi-Fi and/or mobile connection.</string>
     <string name="app_copyright" translatable="false">Copyright \u00A9 2015–2025 by M. Bokhorst (M66B)</string>
     <string name="app_android">NetGuard requires Android 5.1 or later</string>
-    <string name="app_xposed">Xposed causes too many crashes, which might result in NetGuard being removed from the Google Play Store, therefore NetGuard isn\'t supported while Xposed is installed</string>
     <string name="app_eula" translatable="false">THIS SOFTWARE IS PROVIDED BY THE AUTHOR \'\'AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
     <string name="app_privacy"><a href="https://www.netguard.me/privacy/">Privacy policy</a></string>
     <string name="app_first">Great care has been taken to develop and test NetGuard, however it is impossible to guarantee NetGuard will work correctly on every device.</string>
@@ -173,6 +172,13 @@
     <string name="setting_auto">Auto enable after %1$s minutes</string>
     <string name="setting_delay">Delay screen off %1$s minutes</string>
     <string name="setting_update">Check for updates</string>
+    <string name="setting_update_now">Check now</string>
+    <string name="setting_update_checking">Checking...</string>
+    <string name="setting_update_result_available">Update available: %1$s</string>
+    <string name="setting_update_result_available_unknown">Update available</string>
+    <string name="setting_update_result_up_to_date">You are up to date.</string>
+    <string name="setting_update_result_failed">Could not check for updates.</string>
+    <string name="setting_update_result_unavailable">Update checks are not available for this build.</string>
 
     <string name="setting_network_options">Network options</string>
     <string name="setting_subnet">Subnet routing</string>
@@ -436,43 +442,7 @@ Your internet traffic is not being sent to a remote VPN server.</string>
         A monthly subscriptions of 1 or 2 euros (excluding local taxes) will activate all pro features.
         You can cancel or manage a subscription via the subscriptions tab in the Play store app.
     </string>
-    <string name="title_pro_already">The pro features are already activated</string>
-
-    <string-array name="themeNames">
-        <item>teal/orange</item>
-        <item>blue/orange</item>
-        <item>purple/red</item>
-        <item>amber/blue</item>
-        <item>orange/grey</item>
-        <item>green</item>
-    </string-array>
-
-    <string-array name="themeValues" translatable="false">
-        <item>teal</item>
-        <item>blue</item>
-        <item>purple</item>
-        <item>amber</item>
-        <item>orange</item>
-        <item>green</item>
-    </string-array>
-
-    <string-array name="logLevelNames" translatable="false">
-        <item>Verbose</item>
-        <item>Debug</item>
-        <item>Info</item>
-        <item>Warning</item>
-        <item>Error</item>
-    </string-array>
-
-    <string-array name="logLevelValues" translatable="false">
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-    </string-array>
-
-    <string-array name="protocolNames">
+    <string name="title_pro_already">The pro features are already activated</string>    <string-array name="protocolNames">
         <item>UDP</item>
         <item>TCP</item>
     </string-array>
@@ -484,5 +454,4 @@ Your internet traffic is not being sent to a remote VPN server.</string>
 
     <string name="label_dns_summary">%1$d entries • %2$d expired</string>
 
-    <string name="fingerprint" translatable="false">ef46f813d2c8a064d72c936b9b96d1cccc989378</string>
 </resources>

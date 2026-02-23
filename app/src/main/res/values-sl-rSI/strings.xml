@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_description">NetGuard zagotavlja preprost in napreden način za blokiranje interneta - koren nu potreben. Aplikacije in naslovi so lahko posamično dovoljeni ali blokirani pri dostopanju do vašega Wi-Fi in/ali mobilne povezave.</string>
-    <string name="app_xposed">Xposed povzroča preveč zrušitev, ki lahko vodijo k odstranitvjiji NetGuard iz Google Play Store, zato NetGuard nemore delovati ko je Xposed naložen</string>
+    <string name="app_name" translatable="false">NetGuard Next</string>
+    <string name="app_description">NetGuard zagotavlja preprost in napreden način za blokiranje interneta - koren ni potreben. Aplikacije in naslovi so lahko posamično dovoljeni ali blokirani pri dostopanju do vašega Wi-Fi in/ali mobilne povezave.</string>
+    <string name="app_copyright" translatable="false">Copyright \u00A9 2015–2025 by M. Bokhorst (M66B)</string>
+    <string name="app_android">NetGuard zahteva Android 5.1 ali novejši</string>
+    <string name="app_eula" translatable="false">THIS SOFTWARE IS PROVIDED BY THE AUTHOR \'\'AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
     <string name="app_privacy"><a href="https://www.netguard.me/privacy/">Politika zasebnosti</a></string>
+    <string name="app_first">Pri razvoju in testiranju NetGuarda je bila posvečena velika pozornost, vendar ni mogoče zagotoviti, da bo NetGuard pravilno deloval na vsaki napravi.</string>
     <string name="app_agree">Strinjam se</string>
     <string name="app_disagree">Ne strinjam se</string>
-    <string name="channel_foreground">Izvajajo storitve</string>
+    <string name="app_support">NetGuard potrebuje vašo pomoč. Tapnite za nakup pro funkcij, da projekt še naprej deluje.</string>
+    <string name="app_qap">
+        Google je nameraval aplikacijo odstraniti iz trgovine Play, ker je zahtevala dovoljenje za poizvedovanje po vseh aplikacijah.
+        Pet pritožb in predložitev dobre utemeljitve, zakaj je to dovoljenje potrebno, je bilo zavrnjenih.
+        Ta različica aplikacije tega dovoljenja ne zahteva več,
+        in kljub temu bodo skoraj vse aplikacije še vedno navedene,
+        razen nekaterih (sistemskih) aplikacij, ki jih ni mogoče zagnati ročno s seznama aplikacij za Android.
+        Internetni promet teh aplikacij bude vedno dovoljen, da se zagotovi pravilno delovanje vaše naprave.
+        Če menite, da je to težava, lahko posodobite na različico aplikacije GitHub in znova upravljate vse (sistemske) aplikacije.
+    </string>
+
+    <string name="channel_foreground">Delujoče storitve</string>
     <string name="channel_notify">Splošna obvestila</string>
     <string name="channel_access">Dostopanje do obvestil</string>
+
     <string name="menu_search">Iskalnik aplikacij</string>
     <string name="menu_filter">Filter aplikacij</string>
     <string name="menu_app_user">Prikaži uporabniške aplikacije</string>
@@ -18,199 +34,416 @@
     <string name="menu_sort_name">Razvrsti po imenu</string>
     <string name="menu_sort_uid">Razvrsti po Uid</string>
     <string name="menu_sort_data">Razvrsti po porabi podatkov</string>
+    <string name="menu_launch">Zaženi aplikacijo</string>
     <string name="menu_log">Pokaži dvenvnik</string>
     <string name="menu_settings">Nastavitve</string>
+    <string name="menu_home">Domov</string>
     <string name="menu_invite">Povabi</string>
-    <string name="menu_legend">Legenda</string>
+    <string name="menu_legend">圖例</string>
     <string name="menu_support">Pomoč</string>
     <string name="menu_about">O programu</string>
+    <string name="menu_apps">Druge aplikacije</string>
+    <string name="menu_firewall">Požarni zid</string>
+    <string name="status_enabled">Požarni zid omogočen</string>
+    <string name="status_disabled">Požarni zid onemogočen</string>
+    <string name="widget_firewall_enabled">Požarni zid VKLOP</string>
+    <string name="widget_firewall_disabled">Požarni zid IZKLOP</string>
+    <string name="widget_lockdown_enabled">Zaklepanje VKLOP</string>
+    <string name="widget_lockdown_disabled">Zaklepanje IZKLOP</string>
+    <string name="notify_traffic_title">Monitor prometa</string>
+    <string name="notify_traffic_summary">Gor %1$s • Dol %2$s • Vrh %3$s</string>
+    <string name="notify_traffic_debug">Relacije %1$d/%2$d/%3$d • Súbory %4$d/%5$d</string>
+    <string name="ui_loading">Nalaganje…</string>
+    <string name="ui_empty_logs_title">Ni še prometa</string>
+    <string name="ui_empty_logs_body">Ko se pojavijo povezave, se bodo prikazale tukaj.</string>
+    <string name="ui_empty_apps_title">Ni najdenih aplikacij</string>
+    <string name="ui_empty_apps_body">Poskusite osvežiti seznam.</string>
+    <string name="ui_empty_dns_title">Še ni razrešenih DNS</string>
+    <string name="ui_empty_dns_body">Odgovori DNS se bodo pojavili tukaj po brskanju.</string>
+    <string name="ui_dns_filter_empty">Noben vnos DNS se ne ujema s tem filtrom.</string>
+    <string name="ui_empty_forwarding_title">Ni pravil posredovanja</string>
+    <string name="ui_empty_forwarding_body">Dodajte pravilo za začetek posredovanja prometa.</string>
+    <string name="ui_forwarding_filter_empty">Nobeno pravilo posredovanja se ne ujema s tem filtrom.</string>
+    <string name="ui_empty_pro_body">Podpora odklene dodatne funkcije in ohranja projekt pri življenju.</string>
+    <string name="ui_empty_pro_details">Pro odklene: filtriranje, beleženje, obvestila, teme in omejitve hitrosti.</string>
+    <string name="ui_home_hint">Nadzirajte dostop do interneta za vsako aplikacijo.</string>
+    <string name="ui_home_quick_actions">Hitra dejanja</string>
+    <string name="ui_apps_title">Požarni zid</string>
+    <string name="ui_logs_title">Dnevnik prometa</string>
+    <string name="ui_logs_filters">Filtri</string>
+    <string name="ui_logs_filter_status">Stanje</string>
+    <string name="ui_logs_filter_protocol">Protokol</string>
+    <string name="ui_logs_filter_view">Pogled</string>
+    <string name="ui_logs_group_timeline">Časovnica</string>
+    <string name="ui_logs_group_by_app">Po aplikaciji</string>
+    <string name="ui_logs_unknown_source">Neznan vir</string>
+    <string name="ui_settings_title">Nastavitve</string>
+    <string name="ui_dns_title">Razrešeni DNS</string>
+    <string name="ui_forwarding_title">Posredovanje vrat</string>
+    <string name="ui_dns_hint">Nedavno razrešene domene in odgovori.</string>
+    <string name="ui_forwarding_hint">Upravljajte pravila posredovanja in ciljne aplikacije.</string>
+    <string name="ui_dns_active">Aktivno</string>
+    <string name="ui_rule_custom">Po meri</string>
+    <string name="ui_dns_expired">Poteklo</string>
+    <string name="ui_filter_all">Vse</string>
+    <string name="ui_filter_empty">Nobena aplikacija se ne ujema s tem filtrom.</string>
+    <string name="ui_apps_search_empty">Nobena aplikacija se ne ujema s tem iskanjem.</string>
+    <string name="ui_learn_more">Več o tem</string>
+    <string name="status_running">Promet se filtrira</string>
+    <string name="status_not_running">Promet se ne filtrira</string>
+    <string name="action_enable">Omogoči</string>
+    <string name="action_disable">Onemogoči</string>
+    <string name="home_apps_hint">Preglejte pravila aplikacij in porabo podatkov</string>
+    <string name="home_logs_hint">Preglejte nedavno omrežno aktivnost</string>
+
+    <!-- Accessibility -->
+    <string name="action_expand">Razširi podrobnosti</string>
+    <string name="action_collapse">Strni podrobnosti</string>
+    <string name="action_navigate">Odpri</string>
+    <string name="action_toggle_firewall">Preklopi požarni zid</string>
+    <string name="action_clear_search">Počisti iskanje</string>
+    <string name="search_settings">Nastavitve iskanja</string>
+    <string name="content_desc_security_status">Varnostno stanje požarnega zidu</string>
+    <string name="content_desc_app_icon">Ikona aplikacije za %s</string>
+    <string name="content_desc_show_info">Prikaži informacije o %1$s</string>
+
+    <!-- Dashboard stats -->
+    <string name="stat_blocked_today">Blokirano</string>
+    <string name="stat_allowed_today">Dovoljeno</string>
+    <string name="stat_active_rules">Aktivna pravila</string>
+
+    <!-- Tooltips -->
+    <string name="tooltip_rcode">Koda odgovora DNS, poslana za blokirane domene. Privzeto 3 (NXDOMAIN) pomeni, da domena ne obstaja.</string>
+    <string name="tooltip_ttl">Najkrajši čas do izteka (TTL) za vnose v predpomnilniku DNS v sekundah.</string>
+    <string name="tooltip_pcap">Posnemite ves omrežni promet za odpravljanje napak. Ustvari velike datoteke.</string>
+    <string name="tooltip_filter">Prestrezi in analiziraj promet. Zahtevano za blokiranje posameznih naslovov. Porabi več baterije.</string>
+    <string name="tooltip_lockdown">Blokiraj ves promet, razen eksplicitno dovoljenih aplikacij. Uporabljajte previdno.</string>
+
+    <string name="menu_protocol_udp" translatable="false">UDP</string>
+    <string name="menu_protocol_tcp" translatable="false">TCP</string>
     <string name="menu_protocol_other">Drugo</string>
     <string name="menu_traffic_allowed">Dovoljenje</string>
     <string name="menu_traffic_blocked">Blokirano</string>
     <string name="menu_live">Posodobitve v živo</string>
     <string name="menu_refresh">Osveži</string>
+    <string name="menu_ok">OK</string>
+    <string name="menu_cancel">Prekliči</string>
     <string name="menu_resolve">Pokaži imena</string>
     <string name="menu_organization">Pokaži organizacije</string>
     <string name="menu_pcap_enabled">PCAP omogočeno</string>
     <string name="menu_pcap_export">PCAP izvoz</string>
     <string name="menu_clear">Počisti</string>
+    <string name="menu_export">Izvoz</string>
     <string name="menu_reset">Ponastavitavi</string>
+
     <string name="menu_add">Dodaj</string>
     <string name="menu_delete">Izbriši</string>
+
     <string name="menu_cleanup">Počisti</string>
+
     <string name="title_protocol">Protokol</string>
     <string name="title_dport">Izvorna vrata</string>
-    <string name="title_raddr">Ciljni naslova</string>
+    <string name="title_raddr">Ciljni naslov</string>
     <string name="title_rport">Namembno pristanišče</string>
     <string name="title_ruid">Namembna aplikacija</string>
-    <string name="title_external">Za zunjani strežnik izberite \"nihče\"</string>
+    <string name="title_external">Za zunanji strežnik izberite \"nihče\"</string>
+
     <string name="setting_defaults">Privzete nastavitve (bela/črna lista)</string>
     <string name="setting_whitelist_wifi">Blokiraj Wi-Fi</string>
-    <string name="setting_whitelist_other">Blokiraj moblini</string>
+    <string name="setting_whitelist_other">Blokiraj mobilni</string>
     <string name="setting_screen_wifi">Dovoli Wi-Fi kadar je zaslon prižgan</string>
     <string name="setting_screen_other">Dovoli mobilno ko je zaslon prižgan</string>
     <string name="setting_whitelist_roaming">Blokiraj gostovanje</string>
+
     <string name="setting_options">Možnosti</string>
-    <string name="setting_theme">Tema:%1$s</string>
+    <string name="setting_theme">Tema: %1$s</string>
     <string name="setting_dark">Uporabi temno temo</string>
+    <string name="setting_theme_palette">Izberite slog barv</string>
+    <string name="setting_dynamic_unavailable">Dinamične barve zahtevajo Android 12 ali novejši.</string>
+    <string name="setting_appearance_mode">Način videza</string>
+    <string name="setting_appearance_mode_title">Temni način</string>
+    <string name="setting_appearance_mode_summary">Izberite Izklopljeno, Vklopljeno ali Sledi sistemu.</string>
+    <string name="setting_appearance_preview">Trenutno: %1$s · %2$s</string>
+    <string name="setting_appearance_auto">Samodejno</string>
+    <string name="setting_appearance_light">Svetlo</string>
+    <string name="setting_appearance_dark">Temno</string>
+    <string name="theme_dynamic">Dinamično</string>
     <string name="setting_install">Obvesti ko je na novo nameščeno</string>
     <string name="setting_screen_on">Uporabi pravila \'ko je zaslon vklopljen\'</string>
-    <string name="setting_auto">Samedojeno omogoči po %1$s minutah</string>
-    <string name="setting_delay">Zakasnitev ko je zaslon izključen po %1$s</string>
+    <string name="setting_auto">Samodejno omogoči po %1$s minutah</string>
+    <string name="setting_delay">Zakasnitev izklopa zaslona po %1$s minutah</string>
     <string name="setting_update">Preverite za posodobitev</string>
+    <string name="setting_update_now">Check now</string>
+    <string name="setting_update_checking">Preverjanje...</string>
+
     <string name="setting_network_options">Možnosti omrežja</string>
     <string name="setting_subnet">Podmrežno usmerjenje</string>
-    <string name="setting_tethering">Omogoči privezovanje</string>
+    <string name="setting_tethering">Omogoči privezovanje (tethering)</string>
     <string name="setting_lan">Dovoli LAN dostop</string>
     <string name="setting_ip6">Omogočenje IPv6 prometa</string>
-    <string name="setting_wifi_home">Wi-Fi domače omrežke:%1$s</string>
-    <string name="setting_metered_2g">Razmislite 2G nemerjeno</string>
-    <string name="setting_metered_3g">Razmislite 3G nemerjeno</string>
-    <string name="setting_metered_4g">Razmislite LTE nemerjeno</string>
+    <string name="setting_wifi_home">Wi-Fi domače omrežje: %1$s</string>
+    <string name="setting_metered">Upravljanje omejenih omrežij Wi-Fi</string>
+    <string name="setting_metered_2g">Považuj 2G za nemerjeno</string>
+    <string name="setting_metered_3g">Považuj 3G za nemerjeno</string>
+    <string name="setting_metered_4g">Považuj LTE za nemerjeno</string>
     <string name="setting_national_roaming">Prezri nacionalno gostovanje</string>
     <string name="setting_eu_roaming">Prezri Eu gostovanje</string>
     <string name="setting_call">Onemogoči na klic</string>
     <string name="setting_lockdown_wifi">Zakleni Wi-Fi</string>
     <string name="setting_lockdown_other">Zakleni mobilne</string>
+    <string name="setting_reload_onconnectivity">Ponovno naloži ob vsaki spremembi povezave</string>
+
     <string name="setting_advanced_options">Napredne nastavitve</string>
     <string name="setting_system">Upravljanje sistema aplikacij</string>
     <string name="setting_log_app">Dnevnik internetnega dostopa</string>
+    <string name="setting_log_retention_days">Dnevi hrambe dnevnika prometa</string>
     <string name="setting_access">Obvesti o dostopu do interneta</string>
     <string name="setting_filter">Filtriranje prometa</string>
+    <string name="setting_filter_udp">Filtriranje prometa UDP</string>
+    <string name="setting_handover">Brezhibna primopredaja VPN ob ponovnem nalaganju</string>
+    <string name="setting_clear_onreload">Zapri povezave ob ponovnem nalaganju</string>
     <string name="setting_lockdown">Zakleni promet</string>
-    <string name="setting_track_usage">Sledite usporabi omrežja</string>
+    <string name="setting_malware">Zaščita pred zlonamerno programsko opremo</string>
+    <string name="setting_track_usage">Sledite uporabi omrežja</string>
     <string name="setting_reset_usage">Ponastavitev omrežne porabe</string>
     <string name="setting_show_resolved">Pokaži rešitev domenskih imen</string>
     <string name="setting_block_domains">Blokiraj lokalne domene</string>
     <string name="setting_rcode">DNS odzivna koda: %s</string>
-    <string name="setting_forwarding">Posredovanje portov</string>
+    <string name="setting_forwarding">Posredovanje vrat</string>
     <string name="setting_vpn4">VPN IPv4: %s</string>
     <string name="setting_vpn6">VPN IPv6: %s</string>
     <string name="setting_dns">VPN DNS: %s</string>
+    <string name="setting_dns2">Sekundarni DNS: %s</string>
+    <string name="setting_validate">Preveri pri: %s</string>
     <string name="setting_ttl">Minimalen DNS TTL: %s s</string>
-    <string name="setting_socks5_enabled">Uporabi SOCK5 proxy</string>
+    <string name="setting_socks5_enabled">Uporabi SOCKS5 proxy</string>
     <string name="setting_socks5_addr">SOCKS5 naslov: %s</string>
     <string name="setting_socks5_port">SOCKS5 vrata: %s</string>
     <string name="setting_socks5_username">SOCKS5 uporabniško ime: %s</string>
     <string name="setting_socks5_password">SOCKS5 geslo: %s</string>
     <string name="setting_pcap_record_size">PCAP zapis velikosti: %s B</string>
-    <string name="setting_pcap_file_size">PCAP max. file size: %s MB</string>
-    <string name="setting_watchdog">Varuh: every %s minut</string>
+    <string name="setting_pcap_file_size">PCAP največja velikost datoteke: %s MB</string>
+    <string name="setting_pcap">Snemaj omrežni promet (PCAP)</string>
+    <string name="setting_watchdog">Varuh: vsakih %s minut</string>
+
     <string name="setting_stats_category">Hitrost obvestil</string>
     <string name="setting_stats">Pokaži hitrost obvestil</string>
     <string name="setting_stats_top">Pokaži najvišje aplikacije</string>
     <string name="setting_stats_frequency">Vzorčni interval: %s ms</string>
-    <string name="setting_stats_samples">Število vzorcev: %s s</string>
+    <string name="setting_stats_samples">Število vzorcev: %s</string>
+
     <string name="setting_backup">Varnostna kopija</string>
     <string name="setting_export">Izvoz nastavitev</string>
     <string name="setting_import">Uvoz nastavitev</string>
     <string name="setting_hosts">Uvoz datotek gostov</string>
+    <string name="setting_hosts_append">Uvozi datoteko hosts (dodaj)</string>
+    <string name="setting_hosts_url">URL za prenos datoteke hosts</string>
     <string name="setting_hosts_download">Prenos datotek gostov</string>
+    <string name="setting_use_hosts">Uporabi datoteko hosts</string>
+
+    <string name="setting_technical">Tehnične informacije</string>
     <string name="setting_technical_general">Splošno</string>
     <string name="setting_technical_networks">Omrežje</string>
     <string name="setting_technical_subscription">Naročnina</string>
-    <string name="summary_install">Pokaži obvestila o novo nameščenih aplikacijah in njihovih configuracijah (profesionalne funkcije)</string>
-    <string name="summary_auto">Ko onemogočite uporabo widge samodejno vklopi NetGuard za izbrano število minut ( vnesite 0 za izklopitev te možnosti)</string>
-    <string name="summary_delay">Po izklopitvi zaslona pustite na zaslona pravila za določeno število minut ( vnesite 0 za izklopitev te možnosti)</string>
+    <string name="setting_section_appearance">Videz</string>
+    <string name="setting_section_firewall">Pravila požarnega zidu</string>
+    <string name="setting_section_advanced">Napredno vedenje</string>
+    <string name="setting_section_hosts">Gostitelji in DNS</string>
+    <string name="setting_section_network">Konfiguracija omrežja</string>
+    <string name="setting_section_dns">Podrobnosti DNS</string>
+    <string name="setting_section_proxy">Proxy</string>
+    <string name="setting_section_vpn">Konfiguracija VPN</string>
+    <string name="setting_section_background">Naloge v ozadju</string>
+    <string name="setting_section_diagnostics">Diagnostika</string>
+    <string name="setting_section_support">Podpora</string>
+
+    <string name="summary_install">Pokaži obvestila o novo nameščenih aplikacijah in njihovih konfiguracijah (pro funkcija)</string>
+    <string name="summary_auto">Ko onemogočite uporabo widgeta, samodejno ponovno vklopi NetGuard po izbranem številu minut (vnesite 0 za onemogočitev te možnosti)</string>
+    <string name="summary_delay">Po izklopu zaslona pustite pravila za vklopljen zaslon aktivna določeno število minut (vnesite 0 za onemogočitev te možnosti)</string>
     <string name="summary_update">Poišči nove izdaje na GitHub dvakrat dnevno</string>
+
     <string name="summary_tethering">Odvisno od različice Androida bo vezanje delovalo ali pa tudi ne. Vezanje prometa ni mogoče filtrirati.</string>
     <string name="summary_subnet">Omogoči podmrežno usmerjanje; lahko omogoči Wi-Fi klicanje ampak lahko sproži hrošče v Androidu in poveča uporabo porabe baterije</string>
     <string name="summary_lan">Dovoli aplikacijam povezavo z naslovi lokalnih omrežji kot so 10.0.0.0/8, 172.16.0.0/12 in 192.168.0.0/16</string>
-    <string name="summary_ip6">Usmeri IP različice 6promet NetGuard tako da je lahko selektivno dovoljen ali blokiran</string>
-    <string name="summary_wifi_home">Omogoči Wi-Fi pravila samo za izbrano omrežje (omogoči pravila mobilnega omrežja za ostala Wi-Fi omrežja)</string>
+    <string name="summary_ip6">Usmeri IP različice 6 promet NetGuardu tako da je lahko selektivno dovoljen ali blokiran</string>
+    <string name="summary_wifi_home">Uporabi Wi-Fi pravila samo za izbrano omrežje (uporabi pravila mobilnega omrežja za ostala Wi-Fi omrežja)</string>
     <string name="summary_metered">Pravila mobilnega omrežja veljajo tudi za (plačana, pripeta) Wi-Fi omrežja</string>
     <string name="summary_metered_2g">Wi-Fi omrežna pravila veljajo za 2G podatkovne povezave</string>
     <string name="summary_metered_3g">Wi-Fi omrežna pravila veljajo za 3G podatkovne povezave</string>
     <string name="summary_metered_4g">Wi-Fi omrežna pravila veljajo za LTE podatkovne povezave</string>
-    <string name="summary_national_roaming">Pravila gostovanje ne veljajo ko so SIM in moblna omrežja države enaka</string>
-    <string name="summary_eu_roaming">Pravila gostovanja ne veljajo kadar so SIM in mobila omrežja v EU (gostuj kot doma)</string>
-    <string name="summary_call">Onemogoči NetGuard ob dohodnih klicih ali odhodnih klicih. To se lahko uporablja za delo okoli IP/Wi-Fi klicnih težav.</string>
+    <string name="summary_national_roaming">Pravila gostovanja ne veljajo ko so SIM in mobilna omrežja države enaka</string>
+    <string name="summary_eu_roaming">Pravila gostovanja ne veljajo kadar so SIM in mobilna omrežja v EU (gostuj kot doma)</string>
+    <string name="summary_call">Onemogoči NetGuard ob dohodnih klicih ali odhodnih klicih. To se lahko uporablja za odpravljanje težav z IP/Wi-Fi klici.</string>
+
     <string name="summary_system">Definirana pravila za sistem aplikacije (za strokovnjake)</string>
+    <string name="summary_log_app">Beleži poskuse dostopa do interneta za aplikacije. To lahko povzroči dodatno porabo baterije.</string>
+    <string name="summary_log_retention_days">Samodejno odstrani stare dnevnike prometa med vzdrževanjem. Nastavite 0 za trajno hrambo dnevnikov.</string>
+    <string name="summary_access">Pokaži obvestilo v vrstici stanja, ko aplikacija poskuša dostopati do novega internetnega naslova (ko je filtriranje onemogočeno, bodo obveščeni le blokirani poskusi dostopa do interneta)</string>
+    <string name="summary_filter">Filtriraj IP pakete, ki gredo iz tunela VPN. To lahko povzroči dodatno porabo baterije.</string>
+    <string name="summary_track_usage">Sledi številu poslanih in prejetih bajtov za vsako aplikacijo in naslov. To lahko povzroči dodatno porabo baterije.</string>
+    <string name="summary_block_domains">Odgovori z nastavljeno kodo odgovora DNS za blokirana domenska imena. To stikalo je onemogočeno, če datoteka hosts ni na voljo.</string>
+    <string name="summary_rcode">Privzeta vrednost je 3 (NXDOMAIN), kar pomeni \"neobstoječa domena\".</string>
+    <string name="summary_validate">Domensko ime, uporabljeno za preverjanje internetne povezave na vratih 443 (https).</string>
+    <string name="summary_socks5_enabled">Na proxy strežnik bo poslan samo promet TCP</string>
+    <string name="summary_watchdog">Občasno preveri, ali NetGuard še vedno deluje (vnesite nič, da onemogočite to možnost). To lahko povzroči dodatno porabo baterije.</string>
+
+    <string name="summary_stats">Pokaži graf hitrosti omrežja v obvestilu v vrstici stanja</string>
+
+    <string-array name="default_wifi_home"></string-array>
+
     <string name="msg_sure">Ali ste prepričani?</string>
     <string name="msg_started">Uveljavljanje pravil</string>
-    <string name="msg_packages">%1$d dovoljen, %2$d blokiran</string>
-    <string name="msg_hosts">%1$d dovoljen, %2$d blokiran, %3$d gostitelj</string>
+    <string name="msg_packages">%1$d dovoljenih, %2$d blokiranih</string>
+    <string name="msg_hosts">%1$d dovoljenih, %2$d blokiranih, %3$d gostiteljev</string>
     <string name="msg_waiting">Čakanje na dogodek</string>
-    <string name="msg_disabled">NetGuard je onemogočen uporabi stikalo zgoraj da omogočite NetGuard</string>
-    <string name="msg_revoked">NetGuard je bil onemogočen vrjetno z uporabo druge VPN aplikacije</string>
-    <string name="msg_installed">%1$s je nameščen</string>
+    <string name="msg_disabled">NetGuard je onemogočen, uporabite stikalo zgoraj, da ga omogočite</string>
+    <string name="msg_notifications">Tapnite, da udelite dovoljenja za obvestila (za obvestila o poskusih dostopa, sporočila o napakah itd.)</string>
+    <string name="msg_revoked">NetGuard je bil onemogočen, verjetno z uporabo druge VPN aplikacije</string>
+    <string name="msg_installed">\'%1$s\' je nameščen</string>
     <string name="msg_installed_n">Je bila nameščena</string>
-    <string name="msg_access">%1$s poskus dostopa do interneta</string>
+    <string name="msg_malware">Možna zlonamerna programska oprema: \'%1$s\'</string>
+    <string name="msg_access">%1$s: poskus dostopa do interneta</string>
     <string name="msg_access_n">Poskus dostopa do interneta</string>
     <string name="msg_completed">Dejanje se je dokončalo</string>
+    <string name="msg_invalid">Preverite vrednosti in poskusite znova.</string>
+    <string name="msg_export_failed">Izvoz ni uspel: %1$s</string>
+    <string name="msg_vpn">NetGuard uporablja lokalni VPN za filtriranje internetnega prometa. Iz tega razloga v naslednjem pogovornem oknu dovolite povezavo VPN. Vaš internetni promet se ne pošilja na oddaljeni strežnik VPN.</string>
+    <string name="msg_autostart">NetGuard se ni mogel samodejno zagnati. To je verjetno posledica hrošča v vaši različici Androida.</string>
+    <string name="msg_error">Prišlo je do nepričakovane napake: \'%s\'</string>
+    <string name="msg_start_failed">Android trenutno zavrača zagon storitve VPN. To je verjetno posledica hrošča v vaši različici Androida.</string>
     <string name="msg_try">Poskusi NetGuard</string>
-    <string name="msg_terms">Z doniranjem se strinjate z <a href="http://www.netguard.me/#terms"> &amp; pogoji</a></string>
-    <string name="msg_dimming">Če v naslednjem pogovornem oknu ne morete pritisniti OK, po usej vrjetnosti druga aplikacija upravlja zaslon naprave (zatemnitev zaslona).</string>
-    <string name="msg_mbday">± %1$.3f▲ %2$.3f▼ MB/day</string>
-    <string name="msg_kb">%1$7.3f▲ %2$7.3f▼ KB</string>
-    <string name="msg_mb">%1$7.3f▲ %2$7.3f▼ MB</string>
-    <string name="msg_gb">%1$7.3f▲ %2$7.3f▼ GB</string>
+    <string name="msg_terms">Z doniranjem se strinjate s <a href="http://www.netguard.me/#terms">pogoji in določili</a></string>
+    <string name="msg_dimming">Če v naslednjem pogovornem oknu ne morete pritisniti OK, po vsej verjetnosti druga aplikacija upravlja zaslon naprave (zatemnitev zaslona).</string>
+    <string name="msg_mbday">&#177; %1$.3f&#9650; %2$.3f&#9660; MB/dan</string>
+    <string name="msg_kbsec">%7.3f KB/s</string>
+    <string name="msg_mbsec">%7.3f MB/s</string>
+    <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
+    <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
+    <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
     <string name="msg_count">%dx</string>
+    <string name="msg_doze">Za dosledne rezultate bi morale biti optimizacije baterije Android onemogočene za NetGuard.\n\nV naslednjem pogovornem oknu na vrhu izberite \"Vse aplikacije\", na seznamu tapnite NetGuard ter izberite in potrdite \"Ne optimiziraj\".</string>
+    <string name="msg_datasaving">Za dosledne rezultate bi morale biti možnosti varčevanja s podatki Android onemogočene za NetGuard\n\nV naslednjem pogovornem oknu omogočite možnosti \"Podatki v ozadju\" in \"Neomejena uporaba podatkov\"</string>
+    <string name="msg_filter">Uporaba filtriranja bo povzročila, da bo Android porabo podatkov in energije pripisal NetGuardu - Android predvideva, da podatke in energijo uporablja NetGuard, ne pa izvirne aplikacije</string>
+    <string name="msg_filter4">Android 4 zahteva omogočeno filtriranje</string>
+    <string name="msg_log_disabled">Beleženje prometa je onemogočeno, uporabite stikalo zgoraj, da ga omogočite. Beleženje prometa lahko povzroči dodatno porabo baterije.</string>
+    <string name="msg_clear_rules">To bo ponastavilo pravila in pogoje na njihove privzete vrednosti</string>
+    <string name="msg_reset_access">To bo izbrisalo vrstice dnevnika poskusov dostopa brez pravil dovolitve/blokiranja</string>
     <string name="msg_import_last">Zadnji uvoz: %s</string>
     <string name="msg_downloading">Prenos\n%1s</string>
-    <string name="msg_downloaded">Prenos gostiteljevih datotek</string>
+    <string name="msg_downloaded">Datoteka hosts je prenesena</string>
     <string name="msg_download_last">Zadnji prenos: %s</string>
-    <string name="msg_start_forward">Začetek posredovanja %1$s port %2$d do %3$s:%4$d od%5$s?</string>
-    <string name="msg_stop_forward">Prenehajte s posredovanjem %1$s port %2$d?</string>
-    <string name="msg_metered">Omrežje je merjeno</string>
+    <string name="msg_start_forward">Začni posredovanje iz %1$s vrat %2$d na %3$s:%4$d od \'%5$s\'?</string>
+    <string name="msg_stop_forward">Ustavi posredovanje %1$s vrat %2$d?</string>
+    <string name="msg_metered">Omrežje je omejeno</string>
     <string name="msg_inactive">Ni aktivne internetne povezave</string>
     <string name="msg_queue">NetGuard je zaseden</string>
+    <string name="msg_update">Na voljo je posodobitev, tapnite za prenos</string>
+    <string name="msg_usage">Dovolitev (zelenkasto) ali zavrnitev (rdečkasto) dostopa do Wi-Fi ali mobilnega interneta lahko nastavite s tapkanjem na ikone ob aplikaciji</string>
+    <string name="msg_fairemail">Če ste NetGuard namestili za zaščito svoje zasebnosti, vas morda zanima tudi <a href="https://email.faircode.eu/">FairEmail</a>, odprtokodna e-poštna aplikacija, prijazna do zasebnosti</string>
+    <string name="msg_whitelist">Dostop do interneta je privzeto dovoljen (način črnega seznama), to lahko spremenite v nastavitvah</string>
+    <string name="msg_push">Dohodna (push) sporočila večinoma obravnava sistemska komponenta storitev Play, ki ima privzeto dovoljen dostop do interneta</string>
+    <string name="msg_system">Upravljanje vseh (sistemskih) aplikacij lahko omogočite v nastavitvah</string>
+    <string name="msg_issue">Opišite težavo in navedite čas nastanka težave:</string>
+    <string name="msg_vpn_cancelled">Povezava VPN je bila preklicana\nSte drug VPN konfigurirali kot vedno vklopljen VPN?</string>
+    <string name="msg_on">Izklop naprave z omogočenim NetGuardom bo ob vklopu naprave samodejno zagnal NetGuard</string>
+    <string name="msg_unavailable">Ta funkcia ni na voljo v tej različici Androida</string>
+    <string name="msg_always_on">Drug VPN je nastavljen kot vedno vklopljen VPN</string>
+    <string name="msg_always_on_lockdown">V nastavitvah Android VPN izklopite »Blokiraj povezave brez VPN«, če želite uporabljati NetGuard v načinu filtriranja</string>
+    <string name="msg_private_dns">V nastavitvah omrežja Android izklopite »Zasebni DNS«, če želite uporabljati NetGuard v načinu filtriranja</string>
+
+    <string name="title_lockdown_enabled">Promet je zaklenjen</string>
+    <string name="title_unmetered_allowed">Nemerjen promet je dovoljen</string>
+    <string name="title_unmetered_blocked">Nemerjen promet je blokiran</string>
+    <string name="title_unmetered_disabled">Nemerjena pravila se ne uporabljajo</string>
+    <string name="title_metered_allowed">Merjen promet je dovoljen</string>
+    <string name="title_metered_blocked">Merjen promet je blokiran</string>
+    <string name="title_metered_disabled">Merjena pravila se ne uporabljajo</string>
     <string name="title_host_allowed">Naslov je dovoljen</string>
     <string name="title_host_blocked">Naslov je blokiran</string>
     <string name="title_interactive_allowed">Dovoli ko je zaslon vklopljen</string>
     <string name="title_roaming_blocked">Blokiraj med gostovanjem</string>
-    <string name="title_metered">Privzeto je Wi-Fi povezava tretirana tako da je neomejena in mobile povezave lahko merijo</string>
+    <string name="title_metered">Privzeto se povezava Wi-Fi obravnava kot neomejena, mobilna povezava pa kot omejena</string>
+
     <string name="title_internet">nima internetnih dovoljenj</string>
     <string name="title_disabled">je onemogočen</string>
+    <string name="title_messaging">Dohodna sporočila prejmejo storitve Google Play in ne ta aplikacija, zato jih z blokiranjem te aplikacije ni mogoče blokirati</string>
+    <string name="title_download">Prenose izvaja upravitelj prenosov in ne ta aplikacija, zato jih z blokiranjem te aplikacije ni mogoče blokirati</string>
     <string name="title_apply">Uporabljaj pravila in pogoje</string>
     <string name="title_conditions">Pogoji</string>
     <string name="title_screen_wifi">Dovoli Wi-Fi ko je zaslon vklopljen</string>
-    <string name="title_screen_other">Dovoli mobilno ko je zaslon vkloplejn</string>
+    <string name="title_screen_other">Dovoli mobilno ko je zaslon vklopljen</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">Blokiraj med gostovanjem</string>
+    <string name="label_ttl">TTL: %s s</string>
+    <string name="label_uid">UID: %s</string>
     <string name="title_lockdown">Dovoli v zaklenjenem načinu</string>
     <string name="title_related">Filtriraj povezane</string>
     <string name="title_access">Poskusi dostopa</string>
+    <string name="title_precedence">Pravila dostopa imajo prednost pred drugimi pravili</string>
     <string name="title_options">Možnosti</string>
+    <string name="title_notify">Obvesti o poskusih dostopa do interneta</string>
+
+    <string name="title_logging_disabled">Beleženje ali filtriranje ni omogočeno</string>
+    <string name="title_logging_enabled">Beleženje in filtriranje sta omogočena</string>
     <string name="title_logging_configure">Konfiguracija</string>
+
+    <string name="title_enable_logging">Omogoči beleženje samo blokiranih naslovov</string>
+    <string name="title_enable_filtering">Omogoči filtriranje za beleženje tudi dovoljenih naslovov</string>
+    <string name="title_enable_notify">Omogoči obvestila o dostopu za na novo zabeležene naslove</string>
+    <string name="title_enable_help0">Te nastavitve so globalne nastavitve, ki veljajo za vse aplikacije</string>
+    <string name="title_enable_help1">Filtriranje je potrebno tudi za dovolitev ali blokiranje posameznih naslovov</string>
+    <string name="title_enable_help2">Omogočanje beleženja (manj) ali filtriranja (več) lahko poveča porabo baterije in lahko vpliva na hitrost omrežja</string>
+
     <string name="title_rate">Oceni</string>
     <string name="title_allow">Dovoli</string>
     <string name="title_block">Blokiraj</string>
-    <string name="title_allow_wifi">Omogočajo Wifi</string>
-    <string name="title_block_wifi">Blokirajo Wi-Fi</string>
+    <string name="title_wifi">Wi-Fi</string>
+    <string name="title_mobile">Mobilno</string>
+    <string name="title_allow_wifi">Omogoči Wifi</string>
+    <string name="title_block_wifi">Blokiraj Wi-Fi</string>
     <string name="title_allow_other">Dovoli mobilno</string>
-    <string name="title_block_other">Blokirajo mobilno</string>
-    <string name="title_root">izvor</string>
+    <string name="title_block_other">Blokiraj mobilno</string>
+    <string name="title_root">root</string>
     <string name="title_mediaserver">mediaserver</string>
+    <string name="title_gpsdaemon">GPS demon</string>
+    <string name="title_dnsdaemon">DNS demon</string>
     <string name="title_nobody">nihče</string>
     <string name="title_dontask">Ne sprašuj več</string>
+
     <string name="title_log_whois">Whois %1$s</string>
-    <string name="title_log_port">Pristanišče %1$d</string>
+    <string name="title_log_port">Vrata %1$d</string>
+    <string name="title_log_copy">Kopiraj</string>
+
     <string name="title_pro">Profesionalne funkcije</string>
-    <string name="title_pro_description">Naslednje profesionalne funkcije so na voljo:</string>
+    <string name="title_pro_description">Na voljo so naslednje profesionalne funkcije:</string>
     <string name="title_pro_log">Pogled dnevnika blokiranega prometa</string>
-    <string name="title_pro_filter">Filter omrežnega prometa</string>
+    <string name="title_pro_filter">Filtriranje omrežnega prometa</string>
     <string name="title_pro_notify">Nova obvestila aplikacij</string>
-    <string name="title_pro_speed">Graf omrežne hitrosti</string>
-    <string name="title_pro_theme">Videz (barva, tema)</string>
+    <string name="title_pro_speed">Obvestilo z grafom omrežne hitrosti</string>
+    <string name="title_pro_theme">Videz (tema, barve)</string>
     <string name="title_pro_all">Vse zgoraj navedene profesionalne funkcije</string>
-    <string name="title_pro_dev">Podproa razvoja</string>
+    <string name="title_pro_dev">Podpora razvoja</string>
     <string name="title_pro_buy">Kupi</string>
     <string name="title_pro_bought">Omogočeno</string>
     <string name="title_pro_unavailable">Ni na voljo</string>
     <string name="title_pro_details">Pritisnite na naslov za več informacij</string>
     <string name="title_pro_challenge">Izziv</string>
     <string name="title_pro_reponse">Odziv</string>
-    <string-array name="themeNames">
-        <item>modro zelena/oranžna</item>
-        <item>modra/oranžna</item>
-        <item>violična/rdeča</item>
-        <item>jantarna/modra</item>
-        <item>oranžna/siva</item>
-        <item>zelena</item>
-    </string-array>
-    <string-array name="protocolNames">
+    <string name="title_pro_feature">To je profesionalna funkcija</string>
+    <string name="title_pro_subscription">
+        Mesečna naročnina v višini 1 ali 2 evra (brez lokalnih davkov) bo aktivirala vse profesionalne funkcije.
+        Naročnino lahko prekličete ali upravljate prek zavihka z naročninami v trgovini Play.
+    </string>
+    <string name="title_pro_already">Profesionalne funkcije so že aktivirane</string>    <string-array name="protocolNames">
         <item>UDP</item>
         <item>TCP</item>
     </string-array>
+
+    <string-array name="protocolValues" translatable="false">
+        <item>17</item>
+        <item>6</item>
+    </string-array>
+
+    <string name="label_dns_summary">%1$d vnosov • %2$d poteklih</string>
+
 </resources>

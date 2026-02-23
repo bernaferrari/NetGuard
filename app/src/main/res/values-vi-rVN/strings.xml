@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name" translatable="false">NetGuard Next</string>
     <string name="app_description">NetGuard cung cấp những cách đơn giản và nâng cao để chặn quyền truy cập vào internet - không yêu cầu root. Ứng dụng và địa chỉ có thể được cá nhân cho phép hoặc từ chối truy cập Wi-Fi và/hoặc kết nối di động của bạn.</string>
+    <string name="app_copyright" translatable="false">Copyright \u00A9 2015–2025 by M. Bokhorst (M66B)</string>
     <string name="app_android">NetGuard yêu cầu Android 5.1 hoặc cao hơn</string>
-    <string name="app_xposed">Xposed gây ra quá nhiều lỗi, mà có ảnh hưởng đến NetGuard bị gỡ bỏ khỏicửa hàng Google Play; Do đó, NetGuard sẽ không được hỗ trợ nếu Xposed được cài đặt.</string>
+    <string name="app_eula" translatable="false">THIS SOFTWARE IS PROVIDED BY THE AUTHOR \'\'AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
     <string name="app_privacy"><a href="https://www.netguard.me/privacy/">Chính sách riêng tư</a></string>
     <string name="app_first">Tôi đã rất cẩn thận để phát triển và thử nghiệm NetGuard, tuy nhiên không thể đảm bảo NetGuard sẽ làm việc chính xác trên mọi thiết bị.</string>
     <string name="app_agree">Tôi đồng ý</string>
     <string name="app_disagree">Tôi không đồng ý</string>
     <string name="app_support">NetGuard cần sự giúp đỡ của bạn. Nhấn để mua các tính năng Pro để giữ cho dự án hoạt động.</string>
+    <string name="app_qap">
+        Google đã định gỡ bỏ ứng dụng khỏi Cửa hàng Play vì ứng dụng này yêu cầu quyền truy vấn tất cả các ứng dụng khác.
+        Năm lần kháng cáo và đưa ra lý do chính đáng về việc tại sao quyền này là cần thiết đều bị từ chối.
+        Phiên bản ứng dụng này không còn yêu cầu quyền này nữa,
+        và mặc dù vậy, hầu hết tất cả các ứng dụng vẫn sẽ được liệt kê,
+        ngoại trừ một số ứng dụng (hệ thống) không thể khởi động thủ công từ danh sách ứng dụng Android.
+        Lưu lượng truy cập internet của các ứng dụng này sẽ luôn được cho phép để đảm bảo thiết bị của bạn tiếp tục hoạt động chính xác.
+        Nếu bạn nghĩ đây là một vấn đề, bạn có thể cập nhật lên phiên bản GitHub của ứng dụng và quản lý lại tất cả các ứng dụng (hệ thống).
+    </string>
+
     <string name="channel_foreground">Các dịch vụ đang chạy</string>
     <string name="channel_notify">Thông báo chung</string>
     <string name="channel_access">Truy cập thông báo</string>
+
     <string name="menu_search">Tìm kiếm ứng dụng</string>
     <string name="menu_filter">Lọc ứng dụng</string>
     <string name="menu_app_user">Hiển thị ứng dụng của người dùng</string>
@@ -21,51 +34,151 @@
     <string name="menu_sort_name">Sắp xếp theo tên</string>
     <string name="menu_sort_uid">Sắp xếp theo uid</string>
     <string name="menu_sort_data">Sắp xếp theo mức dữ liệu sử dụng</string>
+    <string name="menu_launch">Khởi chạy ứng dụng</string>
     <string name="menu_log">Xem lịch sử</string>
     <string name="menu_settings">Cài đặt</string>
+    <string name="menu_home">Trang chủ</string>
     <string name="menu_invite">Mời</string>
     <string name="menu_legend">Chú giải</string>
     <string name="menu_support">Hỗ trợ</string>
     <string name="menu_about">Giới thiệu</string>
     <string name="menu_apps">Ứng dụng khác</string>
+    <string name="menu_firewall">Tường lửa</string>
+    <string name="status_enabled">Tường lửa đã bật</string>
+    <string name="status_disabled">Tường lửa đã tắt</string>
+    <string name="widget_firewall_enabled">Tường lửa BẬT</string>
+    <string name="widget_firewall_disabled">Tường lửa TẮT</string>
+    <string name="widget_lockdown_enabled">Khóa BẬT</string>
+    <string name="widget_lockdown_disabled">Khóa TẮT</string>
+    <string name="notify_traffic_title">Giám sát lưu lượng</string>
+    <string name="notify_traffic_summary">Tải lên %1$s • Tải xuống %2$s • Đỉnh %3$s</string>
+    <string name="notify_traffic_debug">Phiên %1$d/%2$d/%3$d • Tệp %4$d/%5$d</string>
+    <string name="ui_loading">Đang tải…</string>
+    <string name="ui_empty_logs_title">Chưa có lưu lượng</string>
+    <string name="ui_empty_logs_body">Khi có kết nối, chúng sẽ hiển thị ở đây.</string>
+    <string name="ui_empty_apps_title">Không tìm thấy ứng dụng</string>
+    <string name="ui_empty_apps_body">Vui lòng thử làm mới danh sách.</string>
+    <string name="ui_empty_dns_title">Chưa có DNS được giải quyết</string>
+    <string name="ui_empty_dns_body">Phản hồi DNS sẽ xuất hiện ở đây sau khi duyệt web.</string>
+    <string name="ui_dns_filter_empty">Không có mục DNS nào khớp với bộ lọc này.</string>
+    <string name="ui_empty_forwarding_title">Không có quy tắc chuyển tiếp</string>
+    <string name="ui_empty_forwarding_body">Thêm một quy tắc để bắt đầu chuyển tiếp lưu lượng.</string>
+    <string name="ui_forwarding_filter_empty">Không có quy tắc chuyển tiếp nào khớp với bộ lọc này.</string>
+    <string name="ui_empty_pro_body">Hỗ trợ mở khóa các tính năng bổ sung và duy trì dự án.</string>
+    <string name="ui_empty_pro_details">Pro mở khóa: lọc, ghi nhật ký, thông báo, chủ đề và giới hạn tốc độ.</string>
+    <string name="ui_home_hint">Kiểm soát truy cập internet cho mọi ứng dụng.</string>
+    <string name="ui_home_quick_actions">Thao tác nhanh</string>
+    <string name="ui_apps_title">Tường lửa</string>
+    <string name="ui_logs_title">Nhật ký lưu lượng</string>
+    <string name="ui_logs_filters">Bộ lọc</string>
+    <string name="ui_logs_filter_status">Trạng thái</string>
+    <string name="ui_logs_filter_protocol">Giao thức</string>
+    <string name="ui_logs_filter_view">Chế độ xem</string>
+    <string name="ui_logs_group_timeline">Dòng thời gian</string>
+    <string name="ui_logs_group_by_app">Theo ứng dụng</string>
+    <string name="ui_logs_unknown_source">Không rõ nguồn gốc</string>
+    <string name="ui_settings_title">Cài đặt</string>
+    <string name="ui_dns_title">DNS đã giải quyết</string>
+    <string name="ui_forwarding_title">Chuyển tiếp cổng</string>
+    <string name="ui_dns_hint">Các tên miền và phản hồi đã giải quyết gần đây.</string>
+    <string name="ui_forwarding_hint">Quản lý các quy tắc chuyển tiếp và ứng dụng đích. </string>
+    <string name="ui_dns_active">Đang hoạt động</string>
+    <string name="ui_rule_custom">Tùy chỉnh</string>
+    <string name="ui_dns_expired">Đã hết hạn</string>
+    <string name="ui_filter_all">Tất cả</string>
+    <string name="ui_filter_empty">Không có ứng dụng nào khớp với bộ lọc này.</string>
+    <string name="ui_apps_search_empty">Không có ứng dụng nào khớp với tìm kiếm này.</string>
+    <string name="ui_learn_more">Tìm hiểu thêm</string>
+    <string name="status_running">Lưu lượng đang được lọc</string>
+    <string name="status_not_running">Lưu lượng không được lọc</string>
+    <string name="action_enable">Bật</string>
+    <string name="action_disable">Tắt</string>
+    <string name="home_apps_hint">Xem xét quy tắc ứng dụng và mức sử dụng dữ liệu</string>
+    <string name="home_logs_hint">Kiểm tra hoạt động mạng gần đây</string>
+
+    <!-- Accessibility -->
+    <string name="action_expand">Mở rộng chi tiết</string>
+    <string name="action_collapse">Thu nhỏ chi tiết</string>
+    <string name="action_navigate">Mở</string>
+    <string name="action_toggle_firewall">Chuyển đổi tường lửa</string>
+    <string name="action_clear_search">Xóa tìm kiếm</string>
+    <string name="search_settings">Cài đặt tìm kiếm</string>
+    <string name="content_desc_security_status">Trạng thái bảo mật tường lửa</string>
+    <string name="content_desc_app_icon">Biểu tượng ứng dụng cho %s</string>
+    <string name="content_desc_show_info">Hiển thị thông tin về %1$s</string>
+
+    <!-- Dashboard stats -->
+    <string name="stat_blocked_today">Đã chặn</string>
+    <string name="stat_allowed_today">Cho phép</string>
+    <string name="stat_active_rules">Quy tắc đang hoạt động</string>
+
+    <!-- Tooltips -->
+    <string name="tooltip_rcode">Mã phản hồi DNS được gửi cho các tên miền bị chặn. Mặc định là 3 (NXDOMAIN) có nghĩa là tên miền không tồn tại.</string>
+    <string name="tooltip_ttl">Thời gian sống (TTL) tối thiểu cho các mục nhập bộ nhớ đệm DNS tính bằng giây.</string>
+    <string name="tooltip_pcap">Ghi lại tất cả các gói mạng để gỡ lỗi. Sẽ tạo ra các tệp lớn.</string>
+    <string name="tooltip_filter">Chặn và phân tích lưu lượng. Yêu cầu để chặn theo từng địa chỉ. Sử dụng nhiều pin hơn.</string>
+    <string name="tooltip_lockdown">Chặn tất cả lưu lượng trừ các ứng dụng được cho phép rõ ràng. Sử dụng thận trọng.</string>
+
+    <string name="menu_protocol_udp" translatable="false">UDP</string>
+    <string name="menu_protocol_tcp" translatable="false">TCP</string>
     <string name="menu_protocol_other">Khác</string>
     <string name="menu_traffic_allowed">Cho phép</string>
     <string name="menu_traffic_blocked">Đã chặn</string>
     <string name="menu_live">Cập nhật trực tiếp</string>
     <string name="menu_refresh">Làm mới</string>
+    <string name="menu_ok">OK</string>
+    <string name="menu_cancel">Hủy</string>
     <string name="menu_resolve">Tên hiển thị:</string>
     <string name="menu_organization">Hiển thị các tổ chức</string>
     <string name="menu_pcap_enabled">Kích hoạt PCAP</string>
     <string name="menu_pcap_export">Xuất PCAP</string>
     <string name="menu_clear">Xóa</string>
-    <string name="menu_export">Xuất ra</string>
+    <string name="menu_export">Xuất</string>
     <string name="menu_reset">Thiết lập lại</string>
+
     <string name="menu_add">Thêm</string>
     <string name="menu_delete">Xoá</string>
+
     <string name="menu_cleanup">Dọn dẹp</string>
+
     <string name="title_protocol">Giao thức</string>
     <string name="title_dport">Cổng nguồn</string>
     <string name="title_raddr">Địa chỉ nơi đến</string>
     <string name="title_rport">Cổng nơi đến</string>
     <string name="title_ruid">Ứng dụng đích đến</string>
     <string name="title_external">Đối với một máy chủ bên ngoài chọn \'nobody\'</string>
+
     <string name="setting_defaults">Mặc định (white/blacklist)</string>
     <string name="setting_whitelist_wifi">Chặn Wi-Fi</string>
     <string name="setting_whitelist_other">Chặn mạng di động</string>
     <string name="setting_screen_wifi">Cho phép Wi-Fi khi màn hình bật</string>
     <string name="setting_screen_other">Cho phép mạng di động khi màn hình bật</string>
     <string name="setting_whitelist_roaming">Chặn chuyển vùng</string>
+
     <string name="setting_options">Tuỳ chọn</string>
     <string name="setting_theme">Chủ đề: %1$s</string>
     <string name="setting_dark">Sử dụng chủ đề tối</string>
+    <string name="setting_theme_palette">Chọn một phong cách màu sắc</string>
+    <string name="setting_dynamic_unavailable">Màu sắc động yêu cầu Android 12 trở lên.</string>
+    <string name="setting_appearance_mode">Chế độ giao diện</string>
+    <string name="setting_appearance_mode_title">Chế độ tối</string>
+    <string name="setting_appearance_mode_summary">Chọn Tắt, Bật hoặc Theo hệ thống.</string>
+    <string name="setting_appearance_preview">Hiện tại: %1$s · %2$s</string>
+    <string name="setting_appearance_auto">Tự động</string>
+    <string name="setting_appearance_light">Sáng</string>
+    <string name="setting_appearance_dark">Tối</string>
+    <string name="theme_dynamic" translatable="false">Dynamic</string>
     <string name="setting_install">Thông báo khi có ứng dụng mới</string>
     <string name="setting_screen_on">Áp dụng quy tắc (khi bật màn hình)</string>
     <string name="setting_auto">Tự động kích hoạt sau %1$s phút</string>
     <string name="setting_delay">Trì hoãn màn hình tắt %1$s phút</string>
-    <string name="setting_update">Kiểm tra cập Nhật</string>
+    <string name="setting_update">Kiểm tra cập nhật</string>
+    <string name="setting_update_now">Kiểm tra ngay</string>
+    <string name="setting_update_checking">Đang kiểm tra...</string>
+
     <string name="setting_network_options">Tùy chọn mạng</string>
     <string name="setting_subnet">Định tuyến mạng con</string>
-    <string name="setting_tethering">Cho phép giới hạn</string>
+    <string name="setting_tethering">Cho phép điểm phát sóng (tethering)</string>
     <string name="setting_lan">Cho phép truy cập mạng LAN</string>
     <string name="setting_ip6">Kích hoạt lưu lượng truy cập IPv6</string>
     <string name="setting_wifi_home">Wi-Fi nhà mạng: %1$s</string>
@@ -79,54 +192,76 @@
     <string name="setting_lockdown_wifi">Khoá Wi-Fi</string>
     <string name="setting_lockdown_other">Khóa di động</string>
     <string name="setting_reload_onconnectivity">Tải lại mỗi lần đổi kết nối</string>
+
     <string name="setting_advanced_options">Tùy chọn nâng cao</string>
     <string name="setting_system">Quản lý ứng dụng hệ thống</string>
     <string name="setting_log_app">Thông báo truy cập internet</string>
+    <string name="setting_log_retention_days">Số ngày giữ nhật ký lưu lượng</string>
     <string name="setting_access">Thông báo truy cập internet</string>
     <string name="setting_filter">Lọc lưu lượng truy cập</string>
-    <string name="setting_filter_udp">Lọc lưu lượng truy cập</string>
-    <string name="setting_handover">Chuyển giao VPN khi tải lại</string>
+    <string name="setting_filter_udp">Lọc lưu lượng truy cập UDP</string>
+    <string name="setting_handover">Chuyển giao VPN liền mạch khi tải lại</string>
     <string name="setting_clear_onreload">Đóng kết nối khi tải lại</string>
-    <string name="setting_lockdown">Khóa truy cập</string>
+    <string name="setting_lockdown">Khóa lưu lượng</string>
+    <string name="setting_malware" translatable="false">Zararlı yazılım koruması</string>
     <string name="setting_track_usage">Theo dõi cách sử dụng mạng</string>
     <string name="setting_reset_usage">Đặt lại sử dụng mạng</string>
     <string name="setting_show_resolved">Hiển thị tên miền giải quyết</string>
     <string name="setting_block_domains">Chặn tên miền</string>
     <string name="setting_rcode">Mã phản hồi DNS: %s</string>
-    <string name="setting_forwarding">Cổng chuyển tiếp</string>
+    <string name="setting_forwarding">Chuyển tiếp cổng</string>
     <string name="setting_vpn4">VPN IPv4: %s</string>
     <string name="setting_vpn6">VPN IPv6: %s</string>
     <string name="setting_dns">VPN DNS: %s</string>
+    <string name="setting_dns2">DNS phụ: %s</string>
     <string name="setting_validate">Xác thực tại: %s</string>
     <string name="setting_ttl">Tối thiểu DNS TTL: %s s</string>
-    <string name="setting_socks5_enabled">Dùng Socks5 proxy</string>
-    <string name="setting_socks5_addr">Địa chỉ (Socks5): %s</string>
-    <string name="setting_socks5_port">Cổng (Socks5):%s</string>
-    <string name="setting_socks5_username">Username: %s</string>
-    <string name="setting_socks5_password">Password: %s</string>
-    <string name="setting_pcap_record_size">Kích thước ghi PCAP: %s B</string>
-    <string name="setting_pcap_file_size">Kích thước tập tin PCAP lớn nhất: %s MB</string>
-    <string name="setting_watchdog">Thời gian giám sát: mỗi %s phút</string>
-    <string name="setting_stats_category">Hiển thị thông báo tốc độ</string>
+    <string name="setting_socks5_enabled">Dùng SOCKS5 proxy</string>
+    <string name="setting_socks5_addr">Địa chỉ SOCKS5: %s</string>
+    <string name="setting_socks5_port">Cổng SOCKS5: %s</string>
+    <string name="setting_socks5_username">Tên người dùng SOCKS5: %s</string>
+    <string name="setting_socks5_password">Mật khẩu SOCKS5: %s</string>
+    <string name="setting_pcap_record_size">Kích thước bản ghi PCAP: %s B</string>
+    <string name="setting_pcap_file_size">Kích thước tệp PCAP tối đa: %s MB</string>
+    <string name="setting_pcap">Ghi lại lưu lượng mạng (PCAP)</string>
+    <string name="setting_watchdog">Giám sát: mỗi %s phút</string>
+
+    <string name="setting_stats_category">Thông báo tốc độ</string>
     <string name="setting_stats">Hiển thị thông báo tốc độ</string>
     <string name="setting_stats_top">Hiển thị các ứng dụng hàng đầu</string>
-    <string name="setting_stats_frequency">Khoảng thời gian mẫu: %s ms</string>
-    <string name="setting_stats_samples">Số mẫu: %s s</string>
+    <string name="setting_stats_frequency">Khoảng thời gian lấy mẫu: %s ms</string>
+    <string name="setting_stats_samples">Số lượng mẫu: %s</string>
+
     <string name="setting_backup">Sao lưu</string>
     <string name="setting_export">Xuất cài đặt</string>
     <string name="setting_import">Nhập cài đặt</string>
-    <string name="setting_hosts">Nhập file hosts</string>
-    <string name="setting_hosts_append">Chọn file host</string>
-    <string name="setting_hosts_url">URL tải file hosts</string>
-    <string name="setting_hosts_download">Tải về file hosts</string>
+    <string name="setting_hosts">Nhập tệp hosts</string>
+    <string name="setting_hosts_append">Nhập tệp hosts (thêm vào)</string>
+    <string name="setting_hosts_url">URL tải tệp hosts</string>
+    <string name="setting_hosts_download">Tải về tệp hosts</string>
+    <string name="setting_use_hosts">Sử dụng tệp hosts</string>
+
     <string name="setting_technical">Thông tin kỹ thuật</string>
-    <string name="setting_technical_general">Cài đặt chung</string>
+    <string name="setting_technical_general">Tổng quan</string>
     <string name="setting_technical_networks">Mạng</string>
-    <string name="setting_technical_subscription">Câu hỏi thường gặp</string>
+    <string name="setting_technical_subscription">Gói đăng ký</string>
+    <string name="setting_section_appearance">Giao diện</string>
+    <string name="setting_section_firewall">Quy tắc tường lửa</string>
+    <string name="setting_section_advanced">Hành vi nâng cao</string>
+    <string name="setting_section_hosts">Hosts &amp; DNS</string>
+    <string name="setting_section_network">Cấu hình mạng</string>
+    <string name="setting_section_dns">Chi tiết DNS</string>
+    <string name="setting_section_proxy">Proxy</string>
+    <string name="setting_section_vpn">Cấu hình VPN</string>
+    <string name="setting_section_background">Tác vụ nền</string>
+    <string name="setting_section_diagnostics">Chẩn đoán</string>
+    <string name="setting_section_support">Hỗ trợ</string>
+
     <string name="summary_install">Hiển thị thanh thông báo trạng thái trực tiếp cấu hình ứng dụng mới được cài đặt (tính năng pro)</string>
     <string name="summary_auto">Sau khi vô hiệu hóa bằng cách sử dụng các widget, tự động bật NetGuard một lần nữa sau số phút được chọn (nhập 0 để tắt tùy chọn này)</string>
     <string name="summary_delay">Sau khi màn hình tắt, giữ cho các quy tắc khi màn hình bật hoạt động trong số phút được chọn (nhập 0 để tắt tùy chọn này)</string>
     <string name="summary_update">Kiểm tra các phiên bản mới trên GitHub hai lần mỗi ngày</string>
+
     <string name="summary_tethering">Tùy thuộc vào phiên bản Android, việc giới hạn có thể làm việc hoặc có thể không làm việc. Giới hạn lưu lượng truy cập không thể được lọc.</string>
     <string name="summary_subnet">Kích hoạt định tuyến mạng con; có thể bật Wi-Fi calling, nhưng có thể cũng gây ra lỗi trong Android và làm tăng việc sử dụng pin</string>
     <string name="summary_lan">Cho phép các ứng dụng kết nối với địa chỉ mạng nội bộ, như 10.0.0.0/8, 172.16.0.0/12 và 192.168.0.0/16</string>
@@ -137,10 +272,12 @@
     <string name="summary_metered_3g">Áp dụng quy tắc mạng Wi-Fi cho kết nối dữ liệu 3G</string>
     <string name="summary_metered_4g">Áp dụng quy tắc mạng Wi-Fi cho kết nối dữ liệu LTE</string>
     <string name="summary_national_roaming">Không áp dụng quy tắc chuyển vùng khi SIM và mạng di động mạng quốc gia giống nhau</string>
-    <string name="summary_eu_roaming">Không áp dụng quy tắc chuyển vùng khi SIM và mạng di động mạng quốc gia giống nhau</string>
+    <string name="summary_eu_roaming">Không áp dụng quy tắc chuyển vùng khi SIM và quốc gia mạng di động nằm trong EU (chuyển vùng như ở nhà)</string>
     <string name="summary_call">Vô hiệu hóa NetGuard khi có cuộc gọi đến hoặc đi. Điều này có thể được sử dụng để khắc phục các sự cố gọi IP / Wi-Fi.</string>
+
     <string name="summary_system">Định nghĩa quy tắc cho các ứng dụng hệ thống (đối với các chuyên gia)</string>
     <string name="summary_log_app">Thông báo cố gắng truy cập internet cho các ứng dụng. Điều này có thể dẫn đến việc hao pin.</string>
+    <string name="summary_log_retention_days">Tự động xóa nhật ký lưu lượng cũ khi dọn dẹp. Đặt 0 để giữ nhật ký mãi mãi.</string>
     <string name="summary_access">Hiển thị một thanh thông báo trạng thái khi một ứng dụng cố gắng để truy cập vào một địa chỉ internet mới (khi lọc bị tắt, chỉ cố gắng truy cập internet bị chặn được thông báo)</string>
     <string name="summary_filter">Lọc gói tin IP đi ra khỏi đường hầm VPN. Điều này có thể dẫn đến việc hao pin.</string>
     <string name="summary_track_usage">Theo dõi số lượng byte gửi và nhận được cho mỗi ứng dụng và địa chỉ. Điều này có thể dẫn đến việc hao pin.</string>
@@ -149,19 +286,27 @@
     <string name="summary_validate">Tên miền được sử dụng để xác thực kết nối internet tại cổng 443 (https).</string>
     <string name="summary_socks5_enabled">Lưu lượng TCP sẽ được gửi đến máy chủ proxy</string>
     <string name="summary_watchdog">Định kỳ kiểm tra nếu NetGuard vẫn chạy (nhập 0 để tắt tùy chọn này). Điều này có thể dẫn đến việc hao pin.</string>
+
     <string name="summary_stats">Hiển thị đồ thị tốc độ mạng trên thanh thông báo trạng thái</string>
+
+    <string-array name="default_wifi_home"></string-array>
+
     <string name="msg_sure">Bạn có chắc không?</string>
     <string name="msg_started">Đang thực thi các quy tắc</string>
     <string name="msg_packages">%1$d cho phép, %2$d bị chặn</string>
     <string name="msg_hosts">%1$d cho phép, %2$d chặn, %3$d hosts</string>
     <string name="msg_waiting">Đang chờ đợi sự kiện</string>
     <string name="msg_disabled">NetGuard bị vô hiệu hóa, sử dụng nút gạt bên trên để kích hoạt NetGuard</string>
+    <string name="msg_notifications">Nhấn để cấp quyền thông báo (đối với thông báo cố gắng truy cập, thông báo lỗi, v.v.)</string>
     <string name="msg_revoked">NetGuard đã bị vô hiệu hóa, rất có thể do đang sử dụng một ứng dụng dựa trên VPN khác</string>
     <string name="msg_installed">\'%1$s\' được cài đặt</string>
     <string name="msg_installed_n">Đã được cài đặt</string>
+    <string name="msg_malware" translatable="false">Olası zararlı yazılım: \'%1$s\'</string>
     <string name="msg_access">%1$s cố gắng truy cập internet</string>
     <string name="msg_access_n">Cố gắng truy cập internet</string>
     <string name="msg_completed">Hoàn tất hành động</string>
+    <string name="msg_invalid">Vui lòng kiểm tra các giá trị và thử lại.</string>
+    <string name="msg_export_failed">Xuất không thành công: %1$s</string>
     <string name="msg_vpn">NetGuard sử dụng một local VPN để lọc lưu lượng truy cập internet. Vì lý do này, xin vui lòng cho phép một kết nối VPN trong hộp thoại tiếp theo. Lưu lượng truy cập internet của bạn không được gửi đến một máy chủ VPN từ xa.</string>
     <string name="msg_autostart">NetGuard không thể tự động khởi động. Điều này có khả năng là do một lỗi trong phiên bản Android của bạn.</string>
     <string name="msg_error">Lỗi không xác định đã xảy ra: \'%s\'</string>
@@ -169,16 +314,18 @@
     <string name="msg_try">Thử NetGuard</string>
     <string name="msg_terms">Bằng cách tặng, bạn đồng ý với các <a href="http://www.netguard.me/#terms"> điều khoản &amp; điều kiện</a></string>
     <string name="msg_dimming">Nếu bạn không thể nhấn OK trong hộp thoại kế tiếp, rất có thể một ứng dụng khác (màn hình mờ) đang thao tác với màn hình.</string>
-    <string name="msg_mbday">± %1$.3f▲ %2$.3f▼ MB/ngày</string>
-    <string name="msg_kb">%1$7.3f▲ %2$7.3f▼ KB</string>
-    <string name="msg_mb">%1$7.3f▲ %2$7.3f▼ MB</string>
-    <string name="msg_gb">%1$7.3f▲ %2$7.3f▼ GB</string>
+    <string name="msg_mbday">&#177; %1$.3f&#9650; %2$.3f&#9660; MB/ngày</string>
+    <string name="msg_kbsec">%7.3f KB/s</string>
+    <string name="msg_mbsec">%7.3f MB/s</string>
+    <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
+    <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
+    <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
     <string name="msg_count">%dx</string>
     <string name="msg_doze">Để có kết quả phù hợp, tối ưu hóa pin Android nên bị vô hiệu hóa cho NetGuard. \n\nTrong hộp thoại kế tiếp, chọn \"Tất cả ứng dụng\" ở phía trên cùng, bấm vào NetGuard trong danh sách và chọn và xác nhận \"Don\'t optimize\".</string>
     <string name="msg_datasaving">Để có kết quả phù hợp, tùy chọn tiết kiệm dữ liệu Android nên được vô hiệu hóa cho NetGuard \n\nTrong trong hộp thoại kế tiếp, cho phép tùy chọn \"Background data\" và \"Unrestricted data usage\"</string>
     <string name="msg_filter">Sử dụng bộ lọc sẽ làm cho Android hiểu lầm NetGuard sử dụng dữ liệu và năng lượng - Android giả định dữ liệu và năng lượng đang được sử dụng bởi NetGuard, chứ không phải là các ứng dụng ban đầu</string>
     <string name="msg_filter4">Android 4 yêu cầu lọc phải được kích hoạt</string>
-    <string name="msg_log_disabled">Thông báo lưu lượng truy cập bị vô hiệu hóa, sử dụng nút gạt bên trên để cho phép thông báo. Thông báo lưu lượng truy cập có thể dẫn đến việc sử dụng pin phụ.</string>
+    <string name="msg_log_disabled">Ghi nhật ký lưu lượng bị vô hiệu hóa, sử dụng công tắc ở trên để bật ghi nhật ký. Việc ghi nhật ký lưu lượng có thể dẫn đến việc sử dụng pin thêm.</string>
     <string name="msg_clear_rules">Điều này sẽ đặt lại các quy tắc và trạng thái về giá trị mặc định</string>
     <string name="msg_reset_access">Việc này sẽ xóa các dòng thông báo cố gắng truy cập mà không có quy tắc cho phép/chặn</string>
     <string name="msg_import_last">Lần nhập cuối: %s</string>
@@ -193,96 +340,110 @@
     <string name="msg_update">Đã có phiên bản mới, bấm vào để tải về</string>
     <string name="msg_usage">Bạn có thể cho phép (xanh lục) hoặc từ chối (màu đỏ) truy cập internet Wi-Fi hoặc mạng di động bằng cách bấm vào biểu tượng bên cạnh ứng dụng</string>
     <string name="msg_fairemail">Nếu bạn cài đặt NetGuard để bảo vệ riêng tư của bạn, bạn có thể quan tâm đến <a href="https://email.faircode.eu/">FairEmail</a>, một mã nguồn mở, các ứng dụng thân thiện với email bảo mật...</string>
-    <string name="msg_whitelist">Truy cập Internet mặc định được cho phép, điều này có thể thay đổi trong cài đặt</string>
+    <string name="msg_whitelist">Truy cập Internet mặc định được cho phép (chế độ danh sách đen), điều này có thể thay đổi trong cài đặt</string>
     <string name="msg_push">Đưa tin nhắn chủ yếu được xử lý bởi các thành phần Play services của hệ thống, mà mặc định cho phép truy cập internet</string>
     <string name="msg_system">Quản lý ứng dụng hệ thống có thể được kích hoạt trong cài đặt</string>
     <string name="msg_issue">Xin vui lòng mô tả các vấn đề và cho biết thời gian của vấn đề:</string>
     <string name="msg_vpn_cancelled">Đã hủy kết nối VPN \nBạn đã đặt cấu hình VPN thành luôn bật chưa?</string>
-    <string name="msg_on">NetGuard sẽ tự động khởi động khi bật nguồn thiết bị</string>
+    <string name="msg_on">Tắt nguồn thiết bị khi NetGuard đang bật sẽ tự động khởi động NetGuard khi bật lại nguồn thiết bị</string>
     <string name="msg_unavailable">Tính năng này không được cung cấp trong phiên bản này.</string>
     <string name="msg_always_on">Một VPN khác đã được bật, vui lòng tắt đi</string>
     <string name="msg_always_on_lockdown">Tắt \"Chặn các kết nối mà không cần VPN\" trong cài đặt Android VPN sử dụng NetGuard của chế độ lọc</string>
     <string name="msg_private_dns">Tắt \"DNS riêng\" trong cài đặt mạng Android để sử dụng NetGuard ở chế độ lọc</string>
+
     <string name="title_lockdown_enabled">Lưu lượng bị khóa</string>
     <string name="title_unmetered_allowed">Lưu lượng truy cập không trả phí được cho phép</string>
     <string name="title_unmetered_blocked">Lưu lượng truy cập không trả phí bị chặn</string>
-    <string name="title_unmetered_disabled">Quy tắc kiểm tra chưa được áp dụng</string>
+    <string name="title_unmetered_disabled">Các quy tắc không trả phí không được áp dụng</string>
     <string name="title_metered_allowed">Lưu lượng truy cập có trả phí được phép</string>
     <string name="title_metered_blocked">Lưu lượng truy cập có trả phí bị chặn</string>
-    <string name="title_metered_disabled">Quy tắc kiểm tra chưa được áp dụng</string>
+    <string name="title_metered_disabled">Các quy tắc trả phí không được áp dụng</string>
     <string name="title_host_allowed">Địa chỉ được cho phép</string>
     <string name="title_host_blocked">Địa chỉ bị chặn</string>
     <string name="title_interactive_allowed">Cho phép khi màn hình bật</string>
     <string name="title_roaming_blocked">Chặn khi chuyển vùng</string>
     <string name="title_metered">Theo mặc định, kết nối Wi-Fi được coi là không trả phí và kết nối điện thoại di động được coi là có trả phí</string>
+
     <string name="title_internet">không có sự cho phép của internet</string>
     <string name="title_disabled">bị vô hiệu hóa</string>
     <string name="title_messaging">Các thông báo đến được dịch vụ Google Play nhận và không phải ứng dụng này và do đó không thể bị chặn bằng cách chặn ứng dụng này</string>
     <string name="title_download">Các lượt tải xuống được trình quản lý tải xuống thực hiện và không phải ứng dụng này và do đó không thể bị chặn bằng cách chặn ứng dụng này</string>
-    <string name="title_apply">Áp dụng các quy tắc và trạng thái</string>
+    <string name="title_apply">Áp dụng các quy tắc và điều kiện</string>
     <string name="title_conditions">Điều kiện</string>
     <string name="title_screen_wifi">Cho phép Wi-Fi khi màn hình bật</string>
     <string name="title_screen_other">Cho phép mạng di động khi màn hình bật</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">Chặn khi chuyển vùng</string>
+    <string name="label_ttl">TTL: %s s</string>
+    <string name="label_uid">UID: %s</string>
     <string name="title_lockdown">Cho phép ở chế độ khóa</string>
     <string name="title_related">Lọc liên quan</string>
     <string name="title_access">Cố gắng truy cập</string>
     <string name="title_precedence">Quy tắc truy cập được ưu tiên hơn các quy tắc khác</string>
     <string name="title_options">Tuỳ chọn</string>
     <string name="title_notify">Thông báo các cố gắng truy cập internet</string>
+
     <string name="title_logging_disabled">Ghi nhật ký hoặc lọc không được kích hoạt</string>
-    <string name="title_logging_enabled">Ghi nhật ký hoặc lọc không được kích hoạt</string>
-    <string name="title_logging_configure">Đặt cấu hình</string>
-    <string name="title_enable_logging">Chỉ cho phép ghi nhật ký các địa chỉ bị chặn</string>
-    <string name="title_enable_filtering">Cho phép lọc để ghi nhật ký địa chỉ được phép</string>
-    <string name="title_enable_notify">Cho phép thông báo truy cập cho các địa chỉ mới đăng nhập</string>
+    <string name="title_logging_enabled">Ghi nhật ký và lọc được kích hoạt</string>
+    <string name="title_logging_configure">Cấu hình</string>
+
+    <string name="title_enable_logging">Chỉ ghi nhật ký các địa chỉ bị chặn</string>
+    <string name="title_enable_filtering">Cho phép lọc để ghi nhật ký cả các địa chỉ được phép</string>
+    <string name="title_enable_notify">Cho phép thông báo truy cập cho các địa chỉ mới được ghi nhật ký</string>
     <string name="title_enable_help0">Các cài đặt này là cài đặt chung áp dụng cho tất cả các ứng dụng</string>
     <string name="title_enable_help1">Lọc cũng được yêu cầu để cho phép hoặc chặn các địa chỉ riêng lẻ</string>
     <string name="title_enable_help2">Bật ghi nhật ký (ít hơn) hoặc lọc (nhiều hơn) có thể làm tăng mức sử dụng pin và có thể ảnh hưởng đến tốc độ mạng</string>
+
     <string name="title_rate">Đánh giá</string>
     <string name="title_allow">Cho phép</string>
     <string name="title_block">Chặn</string>
+    <string name="title_wifi">Wi-Fi</string>
+    <string name="title_mobile">Di động</string>
     <string name="title_allow_wifi">Cho phép sử dụng Wi-Fi</string>
     <string name="title_block_wifi">Chặn Wi-fi</string>
     <string name="title_allow_other">Cho phép điện thoại di động</string>
     <string name="title_block_other">Chặn điện thoại di động</string>
     <string name="title_root">root</string>
-    <string name="title_mediaserver">Máy chủ media</string>
+    <string name="title_mediaserver">mediaserver</string>
+    <string name="title_gpsdaemon" translatable="false">GPS daemon</string>
+    <string name="title_dnsdaemon" translatable="false">DNS daemon</string>
     <string name="title_nobody">không ai</string>
     <string name="title_dontask">Không hỏi lại</string>
+
     <string name="title_log_whois">Whois %1$s</string>
     <string name="title_log_port">Cổng %1$d</string>
     <string name="title_log_copy">Sao chép</string>
-    <string name="title_pro">Tính năng phiên bản Pro</string>
+
+    <string name="title_pro">Tính năng Pro</string>
     <string name="title_pro_description">Các tính năng phiên bản pro có sẵn:</string>
-    <string name="title_pro_log">Xem lưu lượng truy cập bị chặn</string>
-    <string name="title_pro_filter">Lọc lưu lượng truy cập mạng</string>
+    <string name="title_pro_log">Xem nhật ký lưu lượng bị chặn</string>
+    <string name="title_pro_filter">Lọc lưu lượng mạng</string>
     <string name="title_pro_notify">Thông báo ứng dụng mới</string>
-    <string name="title_pro_speed">Thông báo biểu đồ tốc độ mạng</string>
+    <string name="title_pro_speed">Thông báo đồ thị tốc độ mạng</string>
     <string name="title_pro_theme">Giao diện (chủ đề, màu sắc)</string>
-    <string name="title_pro_all">Tất cả các tính năng phiên bản pro trên</string>
-    <string name="title_pro_dev">Hỗ trợ phát triển sản phẩm</string>
+    <string name="title_pro_all">Tất cả các tính năng pro ở trên</string>
+    <string name="title_pro_dev">Hỗ trợ phát triển</string>
     <string name="title_pro_buy">Mua</string>
-    <string name="title_pro_bought">Kích hoạt</string>
+    <string name="title_pro_bought">Đã bật</string>
     <string name="title_pro_unavailable">Không có sẵn</string>
     <string name="title_pro_details">Nhấn vào một tiêu đề để biết thêm thông tin</string>
     <string name="title_pro_challenge">Thử thách</string>
-    <string name="title_pro_reponse">Phản ứng:</string>
+    <string name="title_pro_reponse">Phản hồi</string>
     <string name="title_pro_feature">Đây là một tính năng pro</string>
-    <string name="title_pro_subscription">        Một gói đăng ký 1 hoặc 2 euro (chưa bao gồm thuế ở địa phương) sẽ kích hoạt tất cả tính năng pro.
-        Bạn có thể huỷ hoặc quản lý gói đăng ký qua tab gói đăng ký trong ứng dụng CH Play.
+    <string name="title_pro_subscription">
+        Gói đăng ký hàng tháng trị giá 1 hoặc 2 euro (không bao gồm thuế địa phương) sẽ kích hoạt tất cả các tính năng pro.
+        Bạn có thể hủy hoặc quản lý gói đăng ký thông qua tab gói đăng ký trong ứng dụng Play Store.
     </string>
-    <string-array name="themeNames">
-        <item>xanh mòng két/cam</item>
-        <item>xanh dương/cam</item>
-        <item>tím/đỏ</item>
-        <item>hổ phách/xanh dương</item>
-        <item>cam/xám</item>
-        <item>xanh lá cây</item>
-    </string-array>
-    <string-array name="protocolNames">
+    <string name="title_pro_already">Các tính năng chuyên nghiệp đã được kích hoạt</string>    <string-array name="protocolNames">
         <item>UDP</item>
         <item>TCP</item>
     </string-array>
+
+    <string-array name="protocolValues" translatable="false">
+        <item>17</item>
+        <item>6</item>
+    </string-array>
+
+    <string name="label_dns_summary">%1$d mục • %2$d đã hết hạn</string>
+
 </resources>

@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_description">A NetGuard egyszerűen és speciálisan blokkolja az internet hozzáférést - nem szükséges root jogosultság hozzá. Az alkalmazásokat és a címeket külön-külön lehet engedélyezni vagy letiltani a Wi-Fi és/vagy a mobil kapcsolatokon.</string>
+    <string name="app_name" translatable="false">NetGuard Next</string>
+    <string name="app_description">NetGuard Next egyszerűen és speciálisan blokkolja az internet hozzáférést - nem szükséges root jogosultság hozzá. Az alkalmazásokat és a címeket külön-külön lehet engedélyezni vagy letiltani a Wi-Fi és/vagy a mobil kapcsolatokon.</string>
+    <string name="app_copyright" translatable="false">Copyright \u00A9 2015–2025 by M. Bokhorst (M66B)</string>
     <string name="app_android">A NetGuard használatához Android 5.1 vagy újabb szükséges</string>
-    <string name="app_xposed">Az Xposed túl sokszor összeomlik, ami a NetGuard eltávolítását eredményezheti a Google Play Áruházból, ezért a NetGuard nem támogatott amikor az Xposed telepítve van</string>
+    <string name="app_eula" translatable="false">THIS SOFTWARE IS PROVIDED BY THE AUTHOR \'\'AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
     <string name="app_privacy"><a href="https://www.netguard.me/privacy/">Adatvédelmi irányelvek</a></string>
     <string name="app_first">Nagy figyelmet fordítanak arra, hogy fejlesszék és teszteljék NetGuard-ot, de arra lehetetlen garanciát vállalni, hogy a NetGuard minden eszközön jól fog működni.</string>
     <string name="app_agree">Elfogadom</string>
     <string name="app_disagree">Nem fogadom el</string>
     <string name="app_support">A NetGuard-nak szüksége van a segítségére. Koppintson a pro szolgáltatások megvásárlásához, hogy a projekt fennmaradhasson.</string>
+    <string name="app_qap">
+        A Google el akarta távolítani az alkalmazást a Play Áruházból, mert engedélyt kért az összes alkalmazás lekérdezésére.
+        Öt fellebbezést és egy jó indoklást arra vonatkozóan, hogy miért van szükség erre az engedélyre, elutasítottak.
+        Az alkalmazás ezen verziója már nem kéri ezt az engedélyt,
+        és ennek ellenére majdnem minden alkalmazás továbbra is listázva lesz,
+        kivéve néhány (rendszer) alkalmazást, amelyeket nem lehet manuálisan elindítani az Android alkalmazáslistájából.
+        Ezeknek az alkalmazásoknak az internetes forgalma mindig engedélyezve lesz az eszköz megfelelő működésének biztosítása érdekében.
+        Ha úgy gondolja, hogy ez probléma, frissíthet az alkalmazás GitHub-verziójára, és újra kezelheti az összes (rendszer) alkalmazást.
+    </string>
+
     <string name="channel_foreground">Futó szolgáltatások</string>
     <string name="channel_notify">Általános értesítések</string>
     <string name="channel_access">Hozzáférés az értesítésekhez</string>
+
     <string name="menu_search">Alkalmazás keresése</string>
     <string name="menu_filter">Alkalmazás szűrő</string>
     <string name="menu_app_user">Felhasználói alkalmazások mutatása</string>
@@ -21,82 +34,186 @@
     <string name="menu_sort_name">Rendezés név szerint</string>
     <string name="menu_sort_uid">Rendezés UID szerint</string>
     <string name="menu_sort_data">Rendezés adat használat szerint</string>
+    <string name="menu_launch">Alkalmazás indítása</string>
     <string name="menu_log">Napló mutatása</string>
     <string name="menu_settings">Beállítások</string>
+    <string name="menu_home">Kezdőlap</string>
     <string name="menu_invite">Meghívás</string>
     <string name="menu_legend">Jelmagyarázat</string>
     <string name="menu_support">Támogatás</string>
     <string name="menu_about">Névjegy</string>
     <string name="menu_apps">Egyéb alkalmazások</string>
+    <string name="menu_firewall">Tűzfal</string>
+    <string name="status_enabled">Tűzfal engedélyezve</string>
+    <string name="status_disabled">Tűzfal letiltva</string>
+    <string name="widget_firewall_enabled">Tűzfal BE</string>
+    <string name="widget_firewall_disabled">Tűzfal KI</string>
+    <string name="widget_lockdown_enabled">Lezárás BE</string>
+    <string name="widget_lockdown_disabled">Lezárás KI</string>
+    <string name="notify_traffic_title">Forgalomfigyelő</string>
+    <string name="notify_traffic_summary">Fel %1$s • Le %2$s • Csúcs %3$s</string>
+    <string name="notify_traffic_debug">Munkamenetek %1$d/%2$d/%3$d • Fájlok %4$d/%5$d</string>
+    <string name="ui_loading">Betöltés…</string>
+    <string name="ui_empty_logs_title">Még nincs forgalom</string>
+    <string name="ui_empty_logs_body">Amint kapcsolatok jönnek létre, itt fognak megjelenni.</string>
+    <string name="ui_empty_apps_title">Nem található alkalmazás</string>
+    <string name="ui_empty_apps_body">Próbálja meg frissíteni a listát.</string>
+    <string name="ui_empty_dns_title">Még nincs feloldott DNS</string>
+    <string name="ui_empty_dns_body">A DNS válaszok böngészés után itt fognak megjelenni.</string>
+    <string name="ui_dns_filter_empty">Nincs a szűrőnek megfelelő DNS bejegyzés.</string>
+    <string name="ui_empty_forwarding_title">Nincsenek továbbítási szabályok</string>
+    <string name="ui_empty_forwarding_body">Adjon hozzá egy szabályt a forgalom továbbításának megkezdéséhez.</string>
+    <string name="ui_forwarding_filter_empty">Nincs a szűrőnek megfelelő továbbítási szabály.</string>
+    <string name="ui_empty_pro_body">A támogatás extra funkciókat old fel és életben tartja a projektet.</string>
+    <string name="ui_empty_pro_details">Pro funkciók: szűrés, naplózás, értesítések, témák és sebességkorlátok.</string>
+    <string name="ui_home_hint">Vezérelje az internet-hozzáférést minden alkalmazáshoz.</string>
+    <string name="ui_home_quick_actions">Gyorsműveletek</string>
+    <string name="ui_apps_title">Tűzfal</string>
+    <string name="ui_logs_title">Forgalmi napló</string>
+    <string name="ui_logs_filters">Szűrők</string>
+    <string name="ui_logs_filter_status">Állapot</string>
+    <string name="ui_logs_filter_protocol">Protokoll</string>
+    <string name="ui_logs_filter_view">Nézet</string>
+    <string name="ui_logs_group_timeline">Idővonal</string>
+    <string name="ui_logs_group_by_app">Alkalmazás szerint</string>
+    <string name="ui_logs_unknown_source">Ismeretlen forrás</string>
+    <string name="ui_settings_title">Beállítások</string>
+    <string name="ui_dns_title">Feloldott DNS</string>
+    <string name="ui_forwarding_title">Port továbbítás</string>
+    <string name="ui_dns_hint">Nemrég feloldott domainek és válaszok.</string>
+    <string name="ui_forwarding_hint">Továbbítási szabályok és célalkalmazások kezelése.</string>
+    <string name="ui_dns_active">Aktív</string>
+    <string name="ui_rule_custom">Egyéni</string>
+    <string name="ui_dns_expired">Lejárt</string>
+    <string name="ui_filter_all">Összes</string>
+    <string name="ui_filter_empty">Nincs a szűrőnek megfelelő alkalmazás.</string>
+    <string name="ui_apps_search_empty">Nincs a keresésnek megfelelő alkalmazás.</string>
+    <string name="ui_learn_more">Tudjon meg többet</string>
+    <string name="status_running">A forgalom szűrése folyamatban</string>
+    <string name="status_not_running">A forgalom nincs szűrve</string>
+    <string name="action_enable">Engedélyezés</string>
+    <string name="action_disable">Letiltás</string>
+    <string name="home_apps_hint">Alkalmazásszabályok és adathasználat áttekintése</string>
+    <string name="home_logs_hint">Legutóbbi hálózati tevékenység vizsgálata</string>
+
+    <!-- Accessibility -->
+    <string name="action_expand">Részletek kibontása</string>
+    <string name="action_collapse">Részletek összecsukása</string>
+    <string name="action_navigate">Megnyitás</string>
+    <string name="action_toggle_firewall">Tűzfal átkapcsolása</string>
+    <string name="action_clear_search">Keresés törlése</string>
+    <string name="search_settings">Keresés a beállításokban</string>
+    <string name="content_desc_security_status">Tűzfal biztonsági állapota</string>
+    <string name="content_desc_app_icon">Alkalmazás ikonja: %s</string>
+    <string name="content_desc_show_info">Információk mutatása erről: %1$s</string>
+
+    <!-- Dashboard stats -->
+    <string name="stat_blocked_today">Blokkolva</string>
+    <string name="stat_allowed_today">Engedélyezve</string>
+    <string name="stat_active_rules">Aktív szabályok</string>
+
+    <!-- Tooltips -->
+    <string name="tooltip_rcode">A blokkolt domainekre küldött DNS válaszkód. Az alapértelmezett 3 (NXDOMAIN) azt jelenti, hogy a domain nem létezik.</string>
+    <string name="tooltip_ttl">A DNS gyorsítótár bejegyzéseinek minimális élettartama másodpercben.</string>
+    <string name="tooltip_pcap">Minden hálózati csomag rögzítése hibakereséshez. Nagy fájlokat hoz létre.</string>
+    <string name="tooltip_filter">Forgalom elfogása és elemzése. Szükséges a címenkénti blokkoláshoz. Több akkumulátort fogyaszt.</string>
+    <string name="tooltip_lockdown">Minden forgalom blokkolása, kivéve a kifejezetten engedélyezett alkalmazásokat. Használja óvatosan.</string>
+
+    <string name="menu_protocol_udp" translatable="false">UDP</string>
+    <string name="menu_protocol_tcp" translatable="false">TCP</string>
     <string name="menu_protocol_other">Egyéb</string>
     <string name="menu_traffic_allowed">Engedélyezve</string>
     <string name="menu_traffic_blocked">Letiltva</string>
-    <string name="menu_live">Élő frissítés</string>
-    <string name="menu_refresh">Frissités</string>
+    <string name="menu_live">Élő frissítések</string>
+    <string name="menu_refresh">Frissítés</string>
+    <string name="menu_ok">OK</string>
+    <string name="menu_cancel">Mégse</string>
     <string name="menu_resolve">Név mutatása</string>
     <string name="menu_organization">Szervezet mutatása</string>
     <string name="menu_pcap_enabled">PCAP engedélyezve</string>
     <string name="menu_pcap_export">PCAP exportálás</string>
     <string name="menu_clear">Törlés</string>
     <string name="menu_export">Exportálás</string>
-    <string name="menu_reset">Visszaállitás</string>
+    <string name="menu_reset">Visszaállítás</string>
+
     <string name="menu_add">Hozzáadás</string>
-    <string name="menu_delete">Tőrlés</string>
+    <string name="menu_delete">Törlés</string>
+
     <string name="menu_cleanup">Takarítás</string>
-    <string name="title_protocol">Protokol</string>
+
+    <string name="title_protocol">Protokoll</string>
     <string name="title_dport">Forrás port</string>
     <string name="title_raddr">Cél cím</string>
     <string name="title_rport">Cél port</string>
     <string name="title_ruid">Cél alkalmazás</string>
-    <string name="title_external">Egy külső szerver választva \'senki\'</string>
+    <string name="title_external">Külső szerver esetén válassza a \'senki\' lehetőséget</string>
+
     <string name="setting_defaults">Alapértelmezések (fehér/fekete lista)</string>
     <string name="setting_whitelist_wifi">Wi-Fi letiltása</string>
     <string name="setting_whitelist_other">Mobil letiltása</string>
-    <string name="setting_screen_wifi">Wi-Fi engedélyezése amikor a képernyő be van kapcsolva</string>
-    <string name="setting_screen_other">Mobil engedélyezése amikor a képernyő be van kapcsolva</string>
+    <string name="setting_screen_wifi">Wi-Fi engedélyezése ha a képernyő be van kapcsolva</string>
+    <string name="setting_screen_other">Mobil engedélyezése ha a képernyő be van kapcsolva</string>
     <string name="setting_whitelist_roaming">Roaming letiltása</string>
+
     <string name="setting_options">Beállítások</string>
     <string name="setting_theme">Téma: %1$s</string>
     <string name="setting_dark">Sötét téma használata</string>
-    <string name="setting_install">Értesítés új alkalmazás telepítésekor</string>
-    <string name="setting_screen_on">Az \'amikor a képernyő be van kapcsolva\' szabályok alkalmazása</string>
-    <string name="setting_auto">Automatikus engedélyezés %1$s perc után</string>
-    <string name="setting_delay">%1$s perc várakozás a képernyő kikapcsolása után</string>
+    <string name="setting_theme_palette">Válasszon színstílust</string>
+    <string name="setting_dynamic_unavailable">A dinamikus színekhez Android 12 vagy újabb szükséges.</string>
+    <string name="setting_appearance_mode">Megjelenési mód</string>
+    <string name="setting_appearance_mode_title">Sötét mód</string>
+    <string name="setting_appearance_mode_summary">Válasszon: Ki, Be vagy Rendszer követése.</string>
+    <string name="setting_appearance_preview">Aktuális: %1$s · %2$s</string>
+    <string name="setting_appearance_auto">Auto</string>
+    <string name="setting_appearance_light">Világos</string>
+    <string name="setting_appearance_dark">Sötét</string>
+    <string name="theme_dynamic">Dinamikus</string>
+    <string name="setting_install">Értesítés új telepítéskor</string>
+    <string name="setting_screen_on">\'Képernyő bekapcsolva\' szabályok alkalmazása</string>
+    <string name="setting_auto">Auto engedélyezés %1$s perc után</string>
+    <string name="setting_delay">Képernyő kikapcsolás késleltetése %1$s perc</string>
     <string name="setting_update">Frissítések ellenőrzése</string>
+    <string name="setting_update_now">Ellenőrizze most</string>
+    <string name="setting_update_checking">Ellenőrzés...</string>
+
     <string name="setting_network_options">Hálózati beállítások</string>
-    <string name="setting_subnet">Alhálózati útválasztó</string>
+    <string name="setting_subnet">Alhálózati útválasztás</string>
     <string name="setting_tethering">Tethering engedélyezése</string>
     <string name="setting_lan">LAN hozzáférés engedélyezése</string>
     <string name="setting_ip6">IPv6 forgalom engedélyezése</string>
-    <string name="setting_wifi_home">Otthoni Wi-Fi hálózat: %1$s</string>
+    <string name="setting_wifi_home">Otthoni Wi-Fi hálózatok: %1$s</string>
     <string name="setting_metered">Mért Wi-Fi hálózatok kezelése</string>
-    <string name="setting_metered_2g">Méretlen 2G megfontolása</string>
-    <string name="setting_metered_3g">Méretlen 3G megfontolása</string>
-    <string name="setting_metered_4g">Méretlen LTE megfontolása</string>
+    <string name="setting_metered_2g">2G hálózat méretlennek tekintése</string>
+    <string name="setting_metered_3g">3G hálózat méretlennek tekintése</string>
+    <string name="setting_metered_4g">LTE hálózat méretlennek tekintése</string>
     <string name="setting_national_roaming">Belföldi roaming figyelmen kívül hagyása</string>
-    <string name="setting_eu_roaming">Figyelmen kívül hagyja az EU roamingot</string>
+    <string name="setting_eu_roaming">EU roaming figyelmen kívül hagyása</string>
     <string name="setting_call">Letiltás hívás közben</string>
     <string name="setting_lockdown_wifi">Wi-Fi lezárás</string>
     <string name="setting_lockdown_other">Mobil lezárás</string>
-    <string name="setting_reload_onconnectivity">Újratöltés minden kapcsolat változáskor</string>
+    <string name="setting_reload_onconnectivity">Újratöltés minden kapcsolatváltozáskor</string>
+
     <string name="setting_advanced_options">Speciális beállítások</string>
-    <string name="setting_system">Rendszer alkalmazások kezelése</string>
-    <string name="setting_log_app">Internet hozzáférés naplózása</string>
-    <string name="setting_access">Értesítés internet hozzáféréskor</string>
-    <string name="setting_filter">Forgalom szűrés</string>
-    <string name="setting_filter_udp">UDP forgalom szűrő</string>
+    <string name="setting_system">Rendszeralkalmazások kezelése</string>
+    <string name="setting_log_app">Internet-hozzáférés naplózása</string>
+    <string name="setting_log_retention_days">Forgalmi napló megőrzési ideje (nap)</string>
+    <string name="setting_access">Értesítés internet-hozzáféréskor</string>
+    <string name="setting_filter">Forgalom szűrése</string>
+    <string name="setting_filter_udp">UDP forgalom szűrése</string>
     <string name="setting_handover">Zökkenőmentes VPN átadás újratöltéskor</string>
     <string name="setting_clear_onreload">Kapcsolatok lezárása újratöltéskor</string>
-    <string name="setting_lockdown">Forgalom lezárás</string>
-    <string name="setting_track_usage">Hálózat használat követés</string>
-    <string name="setting_reset_usage">Hálózat használat alaphelyzetbe</string>
-    <string name="setting_show_resolved">Mutassa a feloldott domain neveket</string>
+    <string name="setting_lockdown">Forgalom lezárása</string>
+    <string name="setting_malware">Rosszindulatú szoftverek elleni védelem</string>
+    <string name="setting_track_usage">Hálózathasználat követése</string>
+    <string name="setting_reset_usage">Hálózathasználat alaphelyzetbe</string>
+    <string name="setting_show_resolved">Feloldott domain nevek mutatása</string>
     <string name="setting_block_domains">Domain nevek letiltása</string>
     <string name="setting_rcode">DNS válasz kód: %s</string>
-    <string name="setting_forwarding">Port forward</string>
+    <string name="setting_forwarding">Port továbbítás</string>
     <string name="setting_vpn4">VPN IPv4: %s</string>
     <string name="setting_vpn6">VPN IPv6: %s</string>
     <string name="setting_dns">VPN DNS: %s</string>
+    <string name="setting_dns2">Másodlagos DNS: %s</string>
     <string name="setting_validate">Érvényesítés itt: %s</string>
     <string name="setting_ttl">Minimális DNS TTL: %s s</string>
     <string name="setting_socks5_enabled">SOCKS5 proxy használata</string>
@@ -104,187 +221,233 @@
     <string name="setting_socks5_port">SOCKS5 port: %s</string>
     <string name="setting_socks5_username">SOCKS5 felhasználónév: %s</string>
     <string name="setting_socks5_password">SOCKS5 jelszó: %s</string>
-    <string name="setting_pcap_record_size">PCAP rekord méret: %s B</string>
-    <string name="setting_pcap_file_size">PCAP max. fájl méret: %s MB</string>
+    <string name="setting_pcap_record_size">PCAP rekord mérete: %s B</string>
+    <string name="setting_pcap_file_size">PCAP max. fájlméret: %s MB</string>
+    <string name="setting_pcap">Hálózati forgalom rögzítése (PCAP)</string>
     <string name="setting_watchdog">Watchdog: minden %s percben</string>
+
     <string name="setting_stats_category">Sebesség értesítés</string>
-    <string name="setting_stats">Mutassa a sebesség értesítést</string>
-    <string name="setting_stats_top">Csúcs alkalmazások mutatása</string>
-    <string name="setting_stats_frequency">Mintavétel intervallum: %s ms</string>
-    <string name="setting_stats_samples">Minták száma: %s s</string>
+    <string name="setting_stats">Sebesség mutatása az értesítésben</string>
+    <string name="setting_stats_top">Legaktívabb alkalmazások mutatása</string>
+    <string name="setting_stats_frequency">Mintavételi időköz: %s ms</string>
+    <string name="setting_stats_samples">Minták száma: %s</string>
+
     <string name="setting_backup">Biztonsági mentés</string>
     <string name="setting_export">Beállítások exportálása</string>
     <string name="setting_import">Beállítások importálása</string>
-    <string name="setting_hosts">Hosts fájl importálás</string>
-    <string name="setting_hosts_append">Hosts fájl importálása (append)</string>
+    <string name="setting_hosts">Hosts fájl importálása</string>
+    <string name="setting_hosts_append">Hosts fájl importálása (hozzáfűzés)</string>
     <string name="setting_hosts_url">Hosts fájl letöltési URL</string>
     <string name="setting_hosts_download">Hosts fájl letöltése</string>
+    <string name="setting_use_hosts">Hosts fájl használata</string>
+
     <string name="setting_technical">Technikai információk</string>
-    <string name="setting_technical_general">Általános </string>
+    <string name="setting_technical_general">Általános</string>
     <string name="setting_technical_networks">Hálózatok</string>
     <string name="setting_technical_subscription">Előfizetések</string>
-    <string name="summary_install">Mutassa az értesítési sávon az újonan telepített alkalmazás közvetlen konfigurálási lehetőségét (Pro szolgáltatás)</string>
-    <string name="summary_auto">A widget használat után automatikusan engedélyezze a NetGuard használatát a beírt perc eltelte után (a nulla beírása letiltja ezt az opciót)</string>
-    <string name="summary_delay">A képernyő kikapcsolása után a szabályok a megadott perc időtartamig aktívak maradnak (a nulla beírása letiltja ezt az opciót)</string>
-    <string name="summary_update">Ellenőrizze naponta kétszer a GitHub-on az új kiadásokat</string>
-    <string name="summary_tethering">Az Android verziótól függően a Tethering vagy működik vagy nem. A Tethering forgalom nem szűrhető.</string>
-    <string name="summary_subnet">Engedélyezi a alhálózati útválasztót; lehet, hogy engedélyezi a Wi-Fi hívást, de lehet hogy hibát okoz az Androidban és növeli az akkumulátor használatot</string>
-    <string name="summary_lan">Engedélyezi az alkalmazások kapcsolódását a LAN hálózati címekhez, mint pl. 10.0.0.0/8, 172.16.0.0/12 és 192.168.0.0/16</string>
-    <string name="summary_ip6">Az IP v6 forgalmat a NetGuard szelektíven tudja tiltani vagy engedélyezni</string>
-    <string name="summary_wifi_home">Wi-Fi hálózat szabályok alkalmazása csak a kiválasztott hálózatokra (a többi Wi-Fi hálózatra a Mobil hálózati szabályokat alkalmazza)</string>
-    <string name="summary_metered">Mobil hálózati szabályok alkalmazása a mért (fizetős, kábeles) Wi-Fi hálózatokra</string>
-    <string name="summary_metered_2g">Wi-Fi hálózat szabályok alkalmazása a 2G adatátviteli kapcsolatokra</string>
-    <string name="summary_metered_3g">Wi-Fi hálózat szabályok alkalmazása a 3G adatátviteli kapcsolatokra</string>
-    <string name="summary_metered_4g">Wi-Fi hálózat szabályok alkalmazása az LTE adatátviteli kapcsolatokra</string>
-    <string name="summary_national_roaming">Ne alkalmazza roaming szabályokat, ha a SIM és a mobil hálózat országa azonos</string>
-    <string name="summary_eu_roaming">Ne alkalmazza a roaming szabályokat, amikor a SIM-kártya és a mobilhálózat országa az EU-n belül van (roam like at home)</string>
-    <string name="summary_call">A NetGuard letiltása a bejövő vagy kimenő telefonhívás alatt. Ez használható IP / Wi-Fi hívási problémák megoldására.</string>
-    <string name="summary_system">Szabályok megállapítása a rendszer alkalmazásokra (szakértő)</string>
-    <string name="summary_log_app">Naplózza az alkalmazások internet elérési kísérleteit. Emiatt kicsit magasabb lehet az akkumulátor használat.</string>
-    <string name="summary_access">Mutassa az értesítés sávban, amikor egy alkalmazás megpróbál hozzáférni egy új internet címhez (amikor a szűrés le van tiltva, csak zárolt internet hozzáférési kísérletekről küld értesítést)</string>
-    <string name="summary_filter">A szűrendő IP csomagok a VPN csatornán keresztül jutnak ki. Ez lehet, hogy egy kis többlet akkumulátor használattal járhat.</string>
-    <string name="summary_track_usage">Nyomon követheti a küldött és fogadott bájtok számát minden egyes alkalmazáshoz és címhez. Ez egy kis extra akkumulátor használattal járhat.</string>
-    <string name="summary_block_domains">A beállított DNS válasz kódot válaszolja a letiltott domain neveknek. Ez a kapcsoló le van tiltva, ha nincs elérhető hosts fájl.</string>
+    <string name="setting_section_appearance">Megjelenés</string>
+    <string name="setting_section_firewall">Tűzfal szabályok</string>
+    <string name="setting_section_advanced">Speciális viselkedés</string>
+    <string name="setting_section_hosts">Hosts és DNS</string>
+    <string name="setting_section_network">Hálózati konfiguráció</string>
+    <string name="setting_section_dns">DNS részletek</string>
+    <string name="setting_section_proxy">Proxy</string>
+    <string name="setting_section_vpn">VPN konfiguráció</string>
+    <string name="setting_section_background">Háttérfeladatok</string>
+    <string name="setting_section_diagnostics">Diagnostika</string>
+    <string name="setting_section_support">Támogatás</string>
+
+    <string name="summary_install">Értesítési sávon megjelenő értesítés az újonnan telepített alkalmazások közvetlen konfigurálásához (pro funkció)</string>
+    <string name="summary_auto">A widgettel történő letiltás után a NetGuard automatikusan újra engedélyezésre kerül a megadott percek után (0 a kikapcsoláshoz)</string>
+    <string name="summary_delay">A képernyő kikapcsolása után a \'képernyő be\' szabályok aktívak maradnak a megadott percekig (0 a kikapcsoláshoz)</string>
+    <string name="summary_update">Naponta kétszer ellenőrzi az új verziókat a GitHubon</string>
+
+    <string name="summary_tethering">Android verziótól függően a megosztás működhet vagy sem. A megosztott forgalom nem szűrhető.</string>
+    <string name="summary_subnet">Alhálózati útválasztás engedélyezése; lehetővé teheti a Wi-Fi hívást, de hibákat is okozhat és növelheti az akkumulátorhasználatot</string>
+    <string name="summary_lan">Alkalmazások kapcsolódásának engedélyezése helyi hálózati címekhez (pl. 10.0.0.0/8, 172.16.0.0/12 és 192.168.0.0/16)</string>
+    <string name="summary_ip6">IPv6 forgalom átirányítása a NetGuard felé a szelektív engedélyezéshez vagy blokkoláshoz</string>
+    <string name="summary_wifi_home">Wi-Fi szabályok alkalmazása csak a kiválasztott hálózatokra (egyéb hálózatokon a mobil szabályok érvényesek)</string>
+    <string name="summary_metered">Mobil hálózati szabályok alkalmazása a mért (fizetős, megosztott) Wi-Fi hálózatokra</string>
+    <string name="summary_metered_2g">Wi-Fi hálózati szabályok alkalmazása 2G adatkapcsolatokra</string>
+    <string name="summary_metered_3g">Wi-Fi hálózati szabályok alkalmazása 3G adatkapcsolatokra</string>
+    <string name="summary_metered_4g">Wi-Fi hálózati szabályok alkalmazása LTE adatkapcsolatokra</string>
+    <string name="summary_national_roaming">Ne alkalmazza a roaming szabályokat, ha a SIM és a mobilhálózat országa megegyezik</string>
+    <string name="summary_eu_roaming">Ne alkalmazza a roaming szabályokat EU-n belüli hálózatok esetén (roaming mint otthon)</string>
+    <string name="summary_call">A NetGuard letiltása telefonhívás közben az IP/Wi-Fi hívási problémák elkerülése érdekében.</string>
+
+    <string name="summary_system">Szabályok meghatározása rendszeralkalmazásokhoz (szakértőknek)</string>
+    <string name="summary_log_app">Alkalmazások internet-hozzáférési kísérleteinek naplózása. Növelheti az akkumulátorhasználatot.</string>
+    <string name="summary_log_retention_days">Régi naplók automatikus eltávolítása a karbantartás során. 0 esetén örökre megmaradnak.</string>
+    <string name="summary_access">Értesítés az értesítési sávon, ha egy alkalmazás új internetes címhez próbál csatlakozni (szűrés nélkül csak a blokkolt kísérletekről küld értesítést)</string>
+    <string name="summary_filter">A VPN csatornából kilépő IP csomagok szűrése. Növelheti az akkumulátorhasználatot.</string>
+    <string name="summary_track_usage">Küldött és fogadott bájtok számának követése alkalmazásonként és címenként. Növelheti az akkumulátorhasználatot.</string>
+    <string name="summary_block_domains">Válasz a beállított DNS kóddal a blokkolt domainek esetén. Letiltva, ha nincs hosts fájl.</string>
     <string name="summary_rcode">Az alapértelmezett érték 3 (NXDOMAIN), ami azt jelenti: \'nem létező domain\'.</string>
-    <string name="summary_validate">A használt domain név az internetkapcsolat ellenőrzéséhez a 443 (https) porton.</string>
-    <string name="summary_socks5_enabled">Csak a TCP forgalom küldése a proxy szerverre</string>
-    <string name="summary_watchdog">Rendszeresen ellenőrzi ha a NetGuard fut (a 0 beírása letiltja azt az opciót). Ez extra akkumulátor használattal járhat.</string>
-    <string name="summary_stats">Mutassa a hálózat sebesség grafikont az értesítés sávon</string>
+    <string name="summary_validate">Domain név az internetkapcsolat érvényesítéséhez a 443-as (https) porton.</string>
+    <string name="summary_socks5_enabled">Csak a TCP forgalom kerül továbbításra a proxy szerverre</string>
+    <string name="summary_watchdog">Rendszeres ellenőrzés, hogy a NetGuard fut-e (0 a kikapcsoláshoz). Növelheti az akkumulátorhasználatot.</string>
+
+    <string name="summary_stats">Hálózati sebesség grafikon megjelenítése az értesítésben</string>
+
+    <string-array name="default_wifi_home"></string-array>
+
     <string name="msg_sure">Biztos benne?</string>
     <string name="msg_started">Szabályok érvényesítése</string>
-    <string name="msg_packages">%1$d engedélyezve, %2$d letiltva</string>
-    <string name="msg_hosts">%1$d engedélyezve, %2$d letiltva, %3$d hosts</string>
+    <string name="msg_packages">%1$d engedélyezve, %2$d blokkolva</string>
+    <string name="msg_hosts">%1$d engedélyezve, %2$d blokkolva, %3$d host</string>
     <string name="msg_waiting">Várakozás eseményre</string>
-    <string name="msg_disabled">A NetGuard letiltva. Használja a kapcsolót a NetGuard engedélyezéshez</string>
-    <string name="msg_revoked">A NetGuard letiltva. Valószínűleg egy másik VPN alapú alkalmazással</string>
+    <string name="msg_disabled">A NetGuard le van tiltva, használja a fenti kapcsolót az engedélyezéshez</string>
+    <string name="msg_notifications">Koppintson az értesítési engedélyek megadásához (hozzáférési kísérletekhez, hibaüzenetekhez stb.)</string>
+    <string name="msg_revoked">A NetGuard le lett tiltva, valószínűleg egy másik VPN alkalmazás miatt</string>
     <string name="msg_installed">\'%1$s\' telepítve</string>
-    <string name="msg_installed_n">Telepítve van</string>
-    <string name="msg_access">%1$s internet hozzáférési kísérlet</string>
-    <string name="msg_access_n">Internet hozzáférési kísérlet</string>
+    <string name="msg_installed_n">Telepítve lett</string>
+    <string name="msg_malware">Lehetséges rosszindulatú szoftver: \'%1$s\'</string>
+    <string name="msg_access">%1$s internet-hozzáférést kísérelt meg</string>
+    <string name="msg_access_n">Internet-hozzáférés megkísérelve</string>
     <string name="msg_completed">Művelet befejezve</string>
-    <string name="msg_vpn">A NetGuard helyi VPN-t használ az internetes forgalom szűréséhez.
-Ezért kérjük, hogy engedélyezze a VPN kapcsolatot a következő párbeszéd ablakban.
-Az internetes forgalom nem érkezik meg a távoli VPN kiszolgálóhoz.</string>
-    <string name="msg_autostart">A NetGuard nem indul el automatikusan a rendszer indításakor, mert egy hiba van ebben az Android verzióban</string>
+    <string name="msg_invalid">Kérjük, ellenőrizze az értékeket, és próbálja újra.</string>
+    <string name="msg_export_failed">Exportálás sikertelen: %1$s</string>
+    <string name="msg_vpn">A NetGuard helyi VPN-t használ a forgalom szűréséhez.
+Ezért kérjük, engedélyezze a VPN kapcsolatot a következő ablakban.
+A forgalom nem kerül továbbításra távoli VPN szerverre.</string>
+    <string name="msg_autostart">A NetGuard nem tudott automatikusan elindulni. Ez valószínűleg egy Android hiba miatt van.</string>
     <string name="msg_error">Váratlan hiba történt: \'%s\'</string>
-    <string name="msg_start_failed">Jelenleg az Android nem kezeli a VPN szolgáltatást. Ennek az oka valószínűleg egy Android bug.</string>
+    <string name="msg_start_failed">Az Android megtagadta a VPN szolgáltatás indítását. Ez valószínűleg egy Android hiba miatt van.</string>
     <string name="msg_try">NetGuard kipróbálása</string>
-    <string name="msg_terms">A támogató elfogadja a <a href="http://www.netguard.me/#terms">felhasználási feltételeket</a></string>
-    <string name="msg_dimming">Ha nem nyomja meg az OK gombot a következő párbeszédablakban, a másik (a képernyő fényerő) alkalmazás valószínűleg módosul a képernyőn.</string>
-    <string name="msg_mbday">± %1$.3f▲ %2$.3f▼ MB/nap</string>
-    <string name="msg_kb">%1$7.3f▲ %2$7.3f▼ KB</string>
-    <string name="msg_mb">%1$7.3f▲ %2$7.3f▼ MB</string>
-    <string name="msg_gb">%1$7.3f▲ %2$7.3f▼ GB</string>
+    <string name="msg_terms">A támogatással elfogadja a <a href="http://www.netguard.me/#terms">felhasználási feltételeket</a></string>
+    <string name="msg_dimming">Ha nem tudja megnyomni az OK gombot, valószínűleg egy képernyőszűrő alkalmazás akadályozza.</string>
+    <string name="msg_mbday">&#177; %1$.3f&#9650; %2$.3f&#9660; MB/nap</string>
+    <string name="msg_kbsec">%7.3f KB/s</string>
+    <string name="msg_mbsec">%7.3f MB/s</string>
+    <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
+    <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
+    <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
     <string name="msg_count">%dx</string>
-    <string name="msg_doze">A következetes eredményekhez az Androidos akkumulátor optimalizálásban a NetGuard-ot kivétellé kell tenni.\n\nA következő párbeszédablakban válassza felül az \"Összes alkalmazás\", érintse meg a NetGuard feliratot és válassza a \"Ne optimalizálja\" részt.</string>
-    <string name="msg_datasaving">A következetes eredmény érdekében az Android adat mentés opciót le kell tiltani a NetGuard-ban\n\nA következő párbeszédablakban engedélyezni kell a \"Háttér adat\" és \"Korlátlan adat használat\" opciót.</string>
-    <string name="msg_filter">A szűrés használatával az adat és az energia használat attributumait a NetGuard-hoz sorolja. Az Android azt feltételezi, hogy ezeket a NetGuard használta fel és nem az eredeti alkalmazás</string>
-    <string name="msg_filter4">A szűrés engedélyezéséhez legalább Android 4 szükséges</string>
-    <string name="msg_log_disabled">Forgalom naplózása le van tiltva, a fenti kapcsoló segítségével engedélyezheti a naplózást. A forgalom naplózása extra akkumulátor használattal jár.</string>
-    <string name="msg_clear_rules">Ez alaphelyzetbe állítja a szabályok és feltételek értékeit</string>
-    <string name="msg_reset_access">Ez törli az elérési kísérletek sorait a naplóból az engedélyezés/tiltás szabályok nélkül</string>
+    <string name="msg_doze">A megfelelő működéshez az Android akkumulátor-optimalizálást ki kell kapcsolni a NetGuard számára.
+\n\nA következő ablakban válassza felül az \"Összes alkalmazás\" lehetőséget, koppintson a NetGuardra, és válassza a \"Ne optimalizálja\" opciót.</string>
+    <string name="msg_datasaving">A megfelelő működéshez az Android adatforgalom-csökkentő opcióit ki kell kapcsolni a NetGuard számára.
+\n\nA következő ablakban engedélyezze a \"Háttéradatok\" és a \"Korlátlan adathasználat\" opciókat.</string>
+    <string name="msg_filter">A szűrés miatt az Android a NetGuardnak tulajdonítja az adat- és energiafogyasztást az eredeti alkalmazások helyett.</string>
+    <string name="msg_filter4">Az Android 4-hez szükséges a szűrés engedélyezése</string>
+    <string name="msg_log_disabled">A forgalom naplózása le van tiltva. Használja a fenti kapcsolót az engedélyezéshez. Növelheti az akkumulátorhasználatot.</string>
+    <string name="msg_clear_rules">Ez visszaállítja a szabályokat és feltételeket az alapértelmezett értékekre</string>
+    <string name="msg_reset_access">Ez törli a szabály nélküli hozzáférési kísérletek naplósorait</string>
     <string name="msg_import_last">Utolsó importálás: %s</string>
     <string name="msg_downloading">Letöltés\n%1s</string>
     <string name="msg_downloaded">Hosts fájl letöltve</string>
-    <string name="msg_download_last">Utolsó Letöltés: %s</string>
-    <string name="msg_start_forward">Port forward indítás %1$s port %2$d to %3$s:%4$d \'%5$s\'?</string>
-    <string name="msg_stop_forward">Port forward leállítás %1$s port %2$d?</string>
-    <string name="msg_metered">Ez mért hálózat</string>
+    <string name="msg_download_last">Utolsó letöltés: %s</string>
+    <string name="msg_start_forward">Továbbítás indítása erről: %1$s port %2$d ide: %3$s:%4$d (\'%5$s\')?</string>
+    <string name="msg_stop_forward">Továbbítás leállítása erről: %1$s port %2$d?</string>
+    <string name="msg_metered">A hálózat mért (korlátos)</string>
     <string name="msg_inactive">Nincs aktív internetkapcsolat</string>
     <string name="msg_queue">A NetGuard elfoglalt</string>
-    <string name="msg_update">Frissítés érhető el, érintse meg a letöltéshez</string>
-    <string name="msg_usage">Engedélyezni (zöldes) vagy tiltani (vöröses) tudja a Wi-Fi vagy mobil internet hozzáférést, ha megérinti az alkalmazás melleti ikont</string>
-    <string name="msg_fairemail">Ha a NetGuard-ot az adatvédelmed érdekében telepítetted, akkor érdekelhet a <a href="https://email.faircode.eu/">FairEmail</a>, egy nyilt forráskódú, adatvédelem-barát alkalmazás is téged</string>
-    <string name="msg_whitelist">Az internet hozzáférés alapértelmezésként engedélyezve van, ezt meg lehet változtatni a beállításokban</string>
-    <string name="msg_push">A Push üzeneteket többnyire a rendszer Play szolgáltatások komponense kezeli, aminek alapértelmezésben engedélyezve van az internet hozzáférés</string>
-    <string name="msg_system">A speciális beállítások engedélyezve a rendszer alkalmazások kezeléséhez</string>
-    <string name="msg_issue">Kérjük, írja le a problémát, és a probléma időpontját:</string>
-    <string name="msg_vpn_cancelled">VPN kapcsolat megszüntetve\nBeállít másik VPN kapcsolatot, hogy állandó legyen a VPN?</string>
-    <string name="msg_on">A készülék kikapcsolásakor a NetGuard engedélyezve van, akkor automatikusan elindul a NetGuard a készülék bekapcsolásakor</string>
+    <string name="msg_update">Frissítés érhető el, koppintson a letöltéshez</string>
+    <string name="msg_usage">Az alkalmazás melletti ikonokra koppintva engedélyezheti (zöld) vagy tilthatja le (piros) a Wi-Fi vagy mobil internet-hozzáférést</string>
+    <string name="msg_fairemail">Ha az adatvédelem miatt telepítette a NetGuardot, érdekelheti a <a href="https://email.faircode.eu/">FairEmail</a> is, egy nyílt forráskódú, adatvédelem-barát e-mail alkalmazás.</string>
+    <string name="msg_whitelist">Az internet-hozzáférés alapértelmezés szerint engedélyezve van (fekete lista mód), ez a beállításokban módosítható</string>
+    <string name="msg_push">A push üzeneteket többnyire a Play-szolgáltatások kezelik, amelynek alapértelmezés szerint van internet-hozzáférése</string>
+    <string name="msg_system">A rendszeralkalmazások kezelése a beállításokban engedélyezhető</string>
+    <string name="msg_issue">Kérjük, írja le a problémát és annak időpontját:</string>
+    <string name="msg_vpn_cancelled">VPN kapcsolat megszakítva. Van másik VPN beállítva állandó VPN-ként?</string>
+    <string name="msg_on">Ha a NetGuard aktív állapotban kapcsolja ki a készüléket, a NetGuard automatikusan elindul a bekapcsoláskor</string>
     <string name="msg_unavailable">Ez a funkció nem érhető el ezen az Android verzión</string>
-    <string name="msg_always_on">Másik VPN beállítása állandóra</string>
-    <string name="msg_always_on_lockdown">Kapcsold ki a \"A VPN nélküli kapcsolatok blokkolása\"-t az Android VPN beállításaiban hogy a NetGuard-ot használhasd szűrés módban</string>
-    <string name="msg_private_dns">Kapcsold ki a \"Privát DNS\"-t az Android Hálózati beállításaiban hogy a NetGuard-ot használhasd szűrés módban</string>
+    <string name="msg_always_on">Egy másik VPN van beállítva állandó VPN-nek</string>
+    <string name="msg_always_on_lockdown">Kapcsolja ki a \"VPN nélküli kapcsolatok blokkolása\" opciót az Android VPN beállításokban a NetGuard szűrés használatához</string>
+    <string name="msg_private_dns">Kapcsolja ki a \"Privát DNS\"-t az Android hálózati beállításokban a NetGuard szűrés használatához</string>
+
     <string name="title_lockdown_enabled">A forgalom lezárva</string>
     <string name="title_unmetered_allowed">Méretlen forgalom engedélyezve</string>
-    <string name="title_unmetered_blocked">Méretlen forgalom letiltva</string>
-    <string name="title_unmetered_disabled">Méretlen hálózat szabályok nincsenek alkalmazva</string>
+    <string name="title_unmetered_blocked">Méretlen forgalom blokkolva</string>
+    <string name="title_unmetered_disabled">Méretlen szabályok nincsenek alkalmazva</string>
     <string name="title_metered_allowed">Mért forgalom engedélyezve</string>
-    <string name="title_metered_blocked">Mért forgalom letiltva</string>
-    <string name="title_metered_disabled">Mért hálózat szabályok nincsenek alkalmazva</string>
-    <string name="title_host_allowed">A cím engedélyezve</string>
-    <string name="title_host_blocked">Cím letiltva</string>
-    <string name="title_interactive_allowed">Engedélyezi amikor a képernyő be van kapcsolva</string>
-    <string name="title_roaming_blocked">Letiltás roaming közben</string>
-    <string name="title_metered">Alapértelmezésben a Wi-Fi kapcsolat méretlennek a mobil kapcsolat pedig mértnek minősül</string>
-    <string name="title_internet">nincs internet elérés engedélye</string>
-    <string name="title_disabled">letiltva</string>
-    <string name="title_messaging">Az üzeneteket a Google Play szolgáltatások fogadják, nem pedig ezzel az alkalmazással, ezáltal az üzeneteket nem lehet blokkolni e alkalmazás blokkolásával</string>
-    <string name="title_download">A letöltések a Letöltéskezelővel történnek meg, nem pedig ezzel az alkalmazással, ezáltal a letöltéseket nem lehet blokkolni e alkalmazás blokkolásával</string>
+    <string name="title_metered_blocked">Mért forgalom blokkolva</string>
+    <string name="title_metered_disabled">Mért szabályok nincsenek alkalmazva</string>
+    <string name="title_host_allowed">A cím engedélyezve van</string>
+    <string name="title_host_blocked">A cím blokkolva van</string>
+    <string name="title_interactive_allowed">Engedélyezés ha a képernyő be van kapcsolva</string>
+    <string name="title_roaming_blocked">Blokkolás roaming közben</string>
+    <string name="title_metered">Alapértelmezés szerint a Wi-Fi méretlen, a mobil kapcsolat pedig mért</string>
+
+    <string name="title_internet">nincs internet engedélye</string>
+    <string name="title_disabled">le van tiltva</string>
+    <string name="title_messaging">A bejövő üzeneteket a Google Play-szolgáltatások fogadják, nem ez az alkalmazás, így nem blokkolhatók az alkalmazás letiltásával</string>
+    <string name="title_download">A letöltéseket a letöltéskezelő vézi, nem ez az alkalmazás, így nem blokkolhatók az alkalmazás letiltásával</string>
     <string name="title_apply">Szabályok és feltételek alkalmazása</string>
     <string name="title_conditions">Feltételek</string>
-    <string name="title_screen_wifi">Wi-Fi engedélyezése amikor a képernyő be van kapcsolva</string>
-    <string name="title_screen_other">Mobil engedélyezése amikor a képernyő be van kapcsolva</string>
+    <string name="title_screen_wifi">Wi-Fi engedélyezése ha a képernyő be van kapcsolva</string>
+    <string name="title_screen_other">Mobil engedélyezése ha a képernyő be van kapcsolva</string>
     <string name="title_roaming_symbol">R</string>
-    <string name="title_roaming">Letiltás roaming közben</string>
-    <string name="title_lockdown">Engedélyezés lezárt módban</string>
-    <string name="title_related">Kapcsolódás szűrő</string>
+    <string name="title_roaming">Blokkolás roaming közben</string>
+    <string name="label_ttl">TTL: %s s</string>
+    <string name="label_uid">UID: %s</string>
+    <string name="title_lockdown">Engedélyezés lezárás módban</string>
+    <string name="title_related">Kapcsolódó szűrése</string>
     <string name="title_access">Hozzáférési kísérletek</string>
-    <string name="title_precedence">Hozzáférési szabályok elsőbbséget élveznek más szabályokkal szemben</string>
-    <string name="title_options">Beállítások</string>
-    <string name="title_notify">Értesítés az internet hozzáférési kísérletekről</string>
-    <string name="title_logging_disabled">A naplózás vagy a szűrés nincs engedélyezve</string>
-    <string name="title_logging_enabled">A naplózás és a szűrés engedélyezve</string>
-    <string name="title_logging_configure">Testreszabás</string>
-    <string name="title_enable_logging">Csak a blokkolt címek naplózásának engedélyezése</string>
-    <string name="title_enable_filtering">A szűrés engedélyezése naplózza az engedélyezett címeket is</string>
-    <string name="title_enable_notify">Engedélyezi a hozzáférést az értesítésekhez az újonnan naplózott címeknek</string>
-    <string name="title_enable_help0">Ezek a beállítások az összes alkalmazásra érvényes globális beállítások</string>
-    <string name="title_enable_help1">A szűrés engedélyezése szükséges az egyedi címek engedélyezéséhez vagy blokkolásához</string>
-    <string name="title_enable_help2">A naplózás engedélyezése (kevésbé) vagy szűrés (jobban) növelheti az akkumulátor használatot és érintheti a hálózat sebességét</string>
-    <string name="title_rate">Értékelje</string>
+    <string name="title_precedence">A hozzáférési szabályok elsőbbséget élveznek</string>
+    <string name="title_options">Opciók</string>
+    <string name="title_notify">Értesítés internet-hozzáférési kísérletekről</string>
+
+    <string name="title_logging_disabled">Naplózás vagy szűrés nincs engedélyezve</string>
+    <string name="title_logging_enabled">Naplózás és szűrés engedélyezve</string>
+    <string name="title_logging_configure">Konfigurálás</string>
+
+    <string name="title_enable_logging">Csak a blokkolt címek naplózása</string>
+    <string name="title_enable_filtering">Szűrés engedélyezése az engedélyezett címek naplózásához is</string>
+    <string name="title_enable_notify">Értesítések engedélyezése az újonnan naplózott címekhez</string>
+    <string name="title_enable_help0">Ezek globális beállítások, minden alkalmazásra érvényesek</string>
+    <string name="title_enable_help1">A szűrés szükséges az egyedi címek engedélyezéséhez vagy blokkolásához</string>
+    <string name="title_enable_help2">A naplózás vagy szűrés növelheti az akkumulátorhasználatot és befolyásolhatja a sebességet</string>
+
+    <string name="title_rate">Értékelés</string>
     <string name="title_allow">Engedélyezés</string>
-    <string name="title_block">Letiltás</string>
+    <string name="title_block">Tiltás</string>
+    <string name="title_wifi">Wi-Fi</string>
+    <string name="title_mobile">Mobil</string>
     <string name="title_allow_wifi">Wi-Fi engedélyezése</string>
     <string name="title_block_wifi">Wi-Fi letiltása</string>
     <string name="title_allow_other">Mobil engedélyezése</string>
     <string name="title_block_other">Mobil letiltása</string>
     <string name="title_root">root</string>
     <string name="title_mediaserver">mediaserver</string>
+    <string name="title_gpsdaemon">GPS szerviz</string>
+    <string name="title_dnsdaemon">DNS szerviz</string>
     <string name="title_nobody">senki</string>
     <string name="title_dontask">Ne kérdezze újra</string>
+
     <string name="title_log_whois">Whois %1$s</string>
-    <string name="title_log_port">Port %1$d</string>
+    <string name="title_log_port">%1$d port</string>
     <string name="title_log_copy">Másolás</string>
+
     <string name="title_pro">Pro funkciók</string>
-    <string name="title_pro_description">A következő pro funkciók állnak rendelkezésre:</string>
-    <string name="title_pro_log">Letiltott forgalom naplójának megnézése</string>
-    <string name="title_pro_filter">Hálózati forgalom szűrés</string>
+    <string name="title_pro_description">A következő pro funkciók érhetők el:</string>
+    <string name="title_pro_log">Blokkolt forgalom naplójának megtekintése</string>
+    <string name="title_pro_filter">Hálózati forgalom szűrése</string>
     <string name="title_pro_notify">Új alkalmazás értesítések</string>
-    <string name="title_pro_speed">Hálózat sebesség grafikon értesítés</string>
-    <string name="title_pro_theme">Megjelenés (téma, színek)</string>
-    <string name="title_pro_all">Az összes fenti pro funkció</string>
-    <string name="title_pro_dev">A fejlesztés támogatása</string>
+    <string name="title_pro_speed">Sebesség grafikon értesítés</string>
+    <string name="title_pro_theme">Megjelenés (témák, színek)</string>
+    <string name="title_pro_all">Minden fenti pro funkció</string>
+    <string name="title_pro_dev">Fejlesztés támogatása</string>
     <string name="title_pro_buy">Vásárlás</string>
     <string name="title_pro_bought">Engedélyezve</string>
     <string name="title_pro_unavailable">Nem érhető el</string>
-    <string name="title_pro_details">Érintse meg a címet további információért</string>
-    <string name="title_pro_challenge">Hívás</string>
+    <string name="title_pro_details">Koppintson a címre további információkért</string>
+    <string name="title_pro_challenge">Kihívás</string>
     <string name="title_pro_reponse">Válasz</string>
-    <string name="title_pro_feature">Ez egy pro szolgáltatás</string>
-    <string name="title_pro_subscription">        Egy havi 1 vagy 2 eurós előfizetéssel (hely adók levonásával) lehet aktiválni a pro funkciókat.
-        Az előfizetést a Play Áruház előfizetések oldalán tudja megszüntetni vagy kezelni.
+    <string name="title_pro_feature">Ez egy pro funkció</string>
+    <string name="title_pro_subscription">
+        Havi 1 vagy 2 eurós előfizetés (helyi adók nélkül) aktiválja az összes pro funkciót.
+        Előfizetését a Play Áruházban kezelheti.
     </string>
-    <string-array name="themeNames">
-        <item>zöldeskék/narancssárga</item>
-        <item>kék/narancssárga</item>
-        <item>lila/piros</item>
-        <item>borostyán/kék</item>
-        <item>narancssárga/szürke</item>
-        <item>zöld</item>
-    </string-array>
-    <string-array name="protocolNames">
+    <string name="title_pro_already">A pro funkciók már aktiválva vannak</string>    <string-array name="protocolNames">
         <item>UDP</item>
         <item>TCP</item>
     </string-array>
+
+    <string-array name="protocolValues" translatable="false">
+        <item>17</item>
+        <item>6</item>
+    </string-array>
+
+    <string name="label_dns_summary">%1$d bejegyzés • %2$d lejárt</string>
+
 </resources>

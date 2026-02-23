@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name" translatable="false">NetGuard Next</string>
     <string name="app_description">NetGuard ger enkla och avancerade sätt att blockera åtkomst till internet - ingen root krävs. Appar och adresser kan individuellt tillåtas eller nekas åtkomst till din Wi-Fi- och/eller mobildata-anslutning.</string>
+    <string name="app_copyright" translatable="false">Copyright \u00A9 2015–2025 by M. Bokhorst (M66B)</string>
     <string name="app_android">NetGuard kräver Android 5.1 eller senare</string>
-    <string name="app_xposed">Xposed orsakar alltför många krascher, vilket kan resultera i NetGuard tas bort från Google Play Store, därför stöds inte NetGuard medan Xposed är installerat</string>
+    <string name="app_eula" translatable="false">THIS SOFTWARE IS PROVIDED BY THE AUTHOR \'\'AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
     <string name="app_privacy"><a href="https://www.netguard.me/privacy/">Sekretesspolicy</a></string>
     <string name="app_first">Stor omsorg har tagits för att utveckla och testa NetGuard, men det är omöjligt att garantera att NetGuard fungerar korrekt på alla enheter.</string>
     <string name="app_agree">Jag godkänner</string>
     <string name="app_disagree">Jag godkänner inte</string>
     <string name="app_support">NetGuard behöver din hjälp. Tryck för att köpa pro-funktioner för att hålla projektet igång.</string>
+    <string name="app_qap">
+        Google tänkte ta bort appen från Play Store eftersom den begärde tillstånd att fråga alla appar.
+        Fem överklaganden och en god motivering till varför detta tillstånd behövs avslogs.
+        Denna version av appen begär inte längre detta tillstånd,
+        och trots det kommer nästan alla appar fortfarande att listas,
+        förutom vissa (system)appar som inte kan startas manuellt från Android-applistan.
+        Internettrafiken för dessa appar kommer alltid att tillåtas för att se till att din enhet fortsätter att fungera korrekt.
+        Om du tycker att detta är ett problem kan du uppdatera till GitHub-versionen av appen och hantera alla (system)appar igen.
+    </string>
+
     <string name="channel_foreground">Aktiva tjänster</string>
     <string name="channel_notify">Allmänna aviseringar</string>
     <string name="channel_access">Tillgång meddelanden</string>
+
     <string name="menu_search">Sök efter app</string>
     <string name="menu_filter">Filtrera appar</string>
     <string name="menu_app_user">Visa användarappar</string>
@@ -19,20 +32,102 @@
     <string name="menu_app_disabled">Visa inaktiverade appar</string>
     <string name="menu_sort">Sortera appar</string>
     <string name="menu_sort_name">Sortera efter namn</string>
-    <string name="menu_sort_uid">Sortera på uid</string>
-    <string name="menu_sort_data">Sortera på dataanvändning</string>
+    <string name="menu_sort_uid">Sortera efter uid</string>
+    <string name="menu_sort_data">Sortera efter dataanvändning</string>
+    <string name="menu_launch">Starta app</string>
     <string name="menu_log">Visa logg</string>
     <string name="menu_settings">Inställningar</string>
+    <string name="menu_home">Hem</string>
     <string name="menu_invite">Bjud in</string>
     <string name="menu_legend">Förklaring</string>
     <string name="menu_support">Support</string>
     <string name="menu_about">Om</string>
     <string name="menu_apps">Andra appar</string>
+    <string name="menu_firewall">Brandvägg</string>
+    <string name="status_enabled">Brandvägg aktiverad</string>
+    <string name="status_disabled">Brandvägg inaktiverad</string>
+    <string name="widget_firewall_enabled">Brandvägg PÅ</string>
+    <string name="widget_firewall_disabled">Brandvägg AV</string>
+    <string name="widget_lockdown_enabled">Låsning PÅ</string>
+    <string name="widget_lockdown_disabled">Låsning AV</string>
+    <string name="notify_traffic_title">Trafikmonitor</string>
+    <string name="notify_traffic_summary">Upp %1$s • Ner %2$s • Topp %3$s</string>
+    <string name="notify_traffic_debug">Sessioner %1$d/%2$d/%3$d • Filer %4$d/%5$d</string>
+    <string name="ui_loading">Laddar…</string>
+    <string name="ui_empty_logs_title">Ingen trafik än</string>
+    <string name="ui_empty_logs_body">När anslutningar visas kommer de att synas här.</string>
+    <string name="ui_empty_apps_title">Inga appar hittades</string>
+    <string name="ui_empty_apps_body">Försök att uppdatera listan.</string>
+    <string name="ui_empty_dns_title">Inga lösta DNS än</string>
+    <string name="ui_empty_dns_body">DNS-svar kommer att visas här efter surfning.</string>
+    <string name="ui_dns_filter_empty">Inga DNS-poster matchar detta filter.</string>
+    <string name="ui_empty_forwarding_title">Inga vidarebefordringsregler</string>
+    <string name="ui_empty_forwarding_body">Lägg till en regel för att börja vidarebefordra trafik.</string>
+    <string name="ui_forwarding_filter_empty">Inga vidarebefordringsregler matchar detta filter.</string>
+    <string name="ui_empty_pro_body">Support låser upp extra funktioner och håller projektet vid liv.</string>
+    <string name="ui_empty_pro_details">Pro låser upp: filtrering, loggning, aviseringar, teman och hastighetsbegränsningar.</string>
+    <string name="ui_home_hint">Kontrollera internetåtkomst för varje app.</string>
+    <string name="ui_home_quick_actions">Snabbåtgärder</string>
+    <string name="ui_apps_title">Brandvägg</string>
+    <string name="ui_logs_title">Trafiklogg</string>
+    <string name="ui_logs_filters">Filter</string>
+    <string name="ui_logs_filter_status">Status</string>
+    <string name="ui_logs_filter_protocol">Protokoll</string>
+    <string name="ui_logs_filter_view">Vy</string>
+    <string name="ui_logs_group_timeline">Tidslinje</string>
+    <string name="ui_logs_group_by_app">Efter app</string>
+    <string name="ui_logs_unknown_source">Okänd källa</string>
+    <string name="ui_settings_title">Inställningar</string>
+    <string name="ui_dns_title">Lösta DNS</string>
+    <string name="ui_forwarding_title">Portvidarebefordran</string>
+    <string name="ui_dns_hint">Nyligen lösta domäner och svar.</string>
+    <string name="ui_forwarding_hint">Hantera vidarebefordringsregler och målappar.</string>
+    <string name="ui_dns_active">Aktiv</string>
+    <string name="ui_rule_custom">Anpassad</string>
+    <string name="ui_dns_expired">Utgången</string>
+    <string name="ui_filter_all">Alla</string>
+    <string name="ui_filter_empty">Inga appar matchar detta filter.</string>
+    <string name="ui_apps_search_empty">Inga appar matchar denna sökning.</string>
+    <string name="ui_learn_more">Läs mer</string>
+    <string name="status_running">Trafik filtreras</string>
+    <string name="status_not_running">Trafik filtreras inte</string>
+    <string name="action_enable">Aktivera</string>
+    <string name="action_disable">Inaktivera</string>
+    <string name="home_apps_hint">Granska appregler och dataanvändning</string>
+    <string name="home_logs_hint">Inspektera nyligen nätverksaktivitet</string>
+
+    <!-- Accessibility -->
+    <string name="action_expand">Expandera detaljer</string>
+    <string name="action_collapse">Minimera detaljer</string>
+    <string name="action_navigate">Öppna</string>
+    <string name="action_toggle_firewall">Växla brandvägg</string>
+    <string name="action_clear_search">Rensa sökning</string>
+    <string name="search_settings">Sökinställningar</string>
+    <string name="content_desc_security_status">Brandväggens säkerhetsstatus</string>
+    <string name="content_desc_app_icon">Appikon för %s</string>
+    <string name="content_desc_show_info">Visa information om %1$s</string>
+
+    <!-- Dashboard stats -->
+    <string name="stat_blocked_today">Blockerade</string>
+    <string name="stat_allowed_today">Tillåtna</string>
+    <string name="stat_active_rules">Aktiva regler</string>
+
+    <!-- Tooltips -->
+    <string name="tooltip_rcode">DNS-svarskod som skickas för blockerade domäner. Standard 3 (NXDOMAIN) betyder att domänen inte existerar.</string>
+    <string name="tooltip_ttl">Minsta time-to-live för DNS-cacheposter i sekunder.</string>
+    <string name="tooltip_pcap">Spela in alla nätverkspaket för felsökning. Skapar stora filer.</string>
+    <string name="tooltip_filter">Fånga upp och analysera trafik. Krävs för blockering per adress. Drar mer batteri.</string>
+    <string name="tooltip_lockdown">Blockera all trafik utom explicit tillåtna appar. Använd med försiktighet.</string>
+
+    <string name="menu_protocol_udp" translatable="false">UDP</string>
+    <string name="menu_protocol_tcp" translatable="false">TCP</string>
     <string name="menu_protocol_other">Övrigt</string>
     <string name="menu_traffic_allowed">Tillåtna</string>
     <string name="menu_traffic_blocked">Blockerade</string>
     <string name="menu_live">Live uppdateringar</string>
     <string name="menu_refresh">Uppdatera</string>
+    <string name="menu_ok">OK</string>
+    <string name="menu_cancel">Avbryt</string>
     <string name="menu_resolve">Visa namn</string>
     <string name="menu_organization">Visa organisation</string>
     <string name="menu_pcap_enabled">PCAP aktiverad</string>
@@ -40,32 +135,50 @@
     <string name="menu_clear">Rensa</string>
     <string name="menu_export">Exportera</string>
     <string name="menu_reset">Återställ</string>
+
     <string name="menu_add">Lägg till</string>
     <string name="menu_delete">Ta bort</string>
+
     <string name="menu_cleanup">Städa</string>
+
     <string name="title_protocol">Protokoll</string>
     <string name="title_dport">Käll port</string>
     <string name="title_raddr">Destinationsadress</string>
     <string name="title_rport">Destinationsport</string>
     <string name="title_ruid">Destinationsapp</string>
     <string name="title_external">För en extern server, välj \'nobody\'</string>
+
     <string name="setting_defaults">Standardvärden (vit-/svartlista)</string>
     <string name="setting_whitelist_wifi">Blockera Wi-Fi</string>
     <string name="setting_whitelist_other">Blockera mobildata</string>
     <string name="setting_screen_wifi">Tillåt Wi-Fi när skärmen är påslagen</string>
     <string name="setting_screen_other">Tillåt mobildata när skärmen är påslagen</string>
     <string name="setting_whitelist_roaming">Blockera roaming</string>
+
     <string name="setting_options">Alternativ</string>
     <string name="setting_theme">Tema: %1$s</string>
     <string name="setting_dark">Använd mörkt tema</string>
+    <string name="setting_theme_palette">Välj en färgstil</string>
+    <string name="setting_dynamic_unavailable">Dynamiska färger kräver Android 12 eller senare.</string>
+    <string name="setting_appearance_mode">Utseendeläge</string>
+    <string name="setting_appearance_mode_title">Mörkt läge</string>
+    <string name="setting_appearance_mode_summary">Välj Av, På eller Följ systemet.</string>
+    <string name="setting_appearance_preview">Aktuell: %1$s · %2$s</string>
+    <string name="setting_appearance_auto">Auto</string>
+    <string name="setting_appearance_light">Ljus</string>
+    <string name="setting_appearance_dark">Mörk</string>
+    <string name="theme_dynamic">Dynamisk</string>
     <string name="setting_install">Meddela vid ny installation</string>
     <string name="setting_screen_on">Tillämpa regler \'när skärmen är påslagen\'</string>
     <string name="setting_auto">Aktivera automatiskt efter %1$s minuter</string>
     <string name="setting_delay">Dröj skärmavstängning i %1$s minuter</string>
     <string name="setting_update">Sök efter uppdateringar</string>
+    <string name="setting_update_now">Kontrollera nu</string>
+    <string name="setting_update_checking">Kontrollerar...</string>
+
     <string name="setting_network_options">Nätverksinställningar</string>
     <string name="setting_subnet">Subnet routing</string>
-    <string name="setting_tethering">Tillåt sammanlänkning</string>
+    <string name="setting_tethering">Tillåt sammanlänkning (tethering)</string>
     <string name="setting_lan">Tillåt LAN-åtkomst</string>
     <string name="setting_ip6">Aktivera IPv6-trafik</string>
     <string name="setting_wifi_home">Wi-Fi hemmanätverk: %1$s</string>
@@ -79,24 +192,28 @@
     <string name="setting_lockdown_wifi">Lås Wi-Fi</string>
     <string name="setting_lockdown_other">Lås mobildata</string>
     <string name="setting_reload_onconnectivity">Uppdatera vid förändrad uppkoppling</string>
+
     <string name="setting_advanced_options">Avancerade inställningar</string>
     <string name="setting_system">Hantera systemappar</string>
     <string name="setting_log_app">Logga internetåtkomst</string>
+    <string name="setting_log_retention_days">Dagar att behålla trafiklogg</string>
     <string name="setting_access">Meddela vid internetåtkomst</string>
     <string name="setting_filter">Filtrera trafik</string>
     <string name="setting_filter_udp">Filtrera UDP-trafik</string>
     <string name="setting_handover">Sömlös VPN-överlämning vid omladdning</string>
     <string name="setting_clear_onreload">Stäng anslutningar vid omladdning</string>
     <string name="setting_lockdown">Lås trafik</string>
+    <string name="setting_malware">Skydd mot skadlig programvara</string>
     <string name="setting_track_usage">Spåra nätverksanvändning</string>
     <string name="setting_reset_usage">Återställ nätverksanvändning</string>
     <string name="setting_show_resolved">Visa lösta domännamn</string>
     <string name="setting_block_domains">Blockera domännamn</string>
     <string name="setting_rcode">DNS-svarskod: %s</string>
-    <string name="setting_forwarding">Vidarebefordring av port</string>
+    <string name="setting_forwarding">Vidarebefordran av port</string>
     <string name="setting_vpn4">VPN-IPv4: %s</string>
     <string name="setting_vpn6">VPN-IPv6: %s</string>
     <string name="setting_dns">VPN-DNS: %s</string>
+    <string name="setting_dns2">Sekundär DNS: %s</string>
     <string name="setting_validate">Validera på: %s</string>
     <string name="setting_ttl">Minsta DNS-TTL: %s s</string>
     <string name="setting_socks5_enabled">Använd SOCKS5-proxy</string>
@@ -106,12 +223,15 @@
     <string name="setting_socks5_password">SOCKS5-lösenord: %s</string>
     <string name="setting_pcap_record_size">PCAP-poststorlek: %s B</string>
     <string name="setting_pcap_file_size">PCAP max. filstorlek: %s MB</string>
+    <string name="setting_pcap">Spela in nätverkstrafik (PCAP)</string>
     <string name="setting_watchdog">Watchdog: varje %s minuter</string>
+
     <string name="setting_stats_category">Hastighetsavisering</string>
     <string name="setting_stats">Visa hastighetsaviseringar</string>
     <string name="setting_stats_top">Visa topp appar</string>
     <string name="setting_stats_frequency">Samplingsintervallet: %s ms</string>
-    <string name="setting_stats_samples">Antal prover: %s s</string>
+    <string name="setting_stats_samples">Antal prover: %s</string>
+
     <string name="setting_backup">Säkerhetskopiering</string>
     <string name="setting_export">Exportera inställningar</string>
     <string name="setting_import">Importera inställningar</string>
@@ -119,14 +239,29 @@
     <string name="setting_hosts_append">Importera värdfil (lägg till)</string>
     <string name="setting_hosts_url">Hosts-filens hämtningswebbadress</string>
     <string name="setting_hosts_download">Hämta hosts-filen</string>
+    <string name="setting_use_hosts">Använd hosts-fil</string>
+
     <string name="setting_technical">Teknisk information</string>
     <string name="setting_technical_general">Allmänt</string>
     <string name="setting_technical_networks">Nätverk</string>
     <string name="setting_technical_subscription">Prenumerationer</string>
+    <string name="setting_section_appearance">Utseende</string>
+    <string name="setting_section_firewall">Brandväggsregler</string>
+    <string name="setting_section_advanced">Avancerat beteende</string>
+    <string name="setting_section_hosts">Värdar och DNS</string>
+    <string name="setting_section_network">Nätverkskonfiguration</string>
+    <string name="setting_section_dns">DNS-detaljer</string>
+    <string name="setting_section_proxy">Proxy</string>
+    <string name="setting_section_vpn">VPN-konfiguration</string>
+    <string name="setting_section_background">Bakgrundsuppgifter</string>
+    <string name="setting_section_diagnostics">Diagnostik</string>
+    <string name="setting_section_support">Support</string>
+
     <string name="summary_install">Visa statusfält aviseringar för att direkt konfigurera nyinstallerade appar (pro-funktion)</string>
     <string name="summary_auto">När du har inaktiverat gränssnittskomponenten aktiverar du automatiskt NetGuard igen efter det valda antalet minuter (ange noll för att inaktivera det här alternativet)</string>
     <string name="summary_delay">När du har stängt av skärmen, behåll regler för skärmen på aktiva för det valda antalet minuter (ange noll för att inaktivera det här alternativet)</string>
     <string name="summary_update">Sök efter nya utgåvor på GitHub två gånger dagligen</string>
+
     <string name="summary_tethering">Beroende på Android-versionen, kan sammanlänkning fungera eller inte fungera. Sammanlänkad trafik kan inte filtreras.</string>
     <string name="summary_subnet">Aktivera subnätsrouting; kan aktivera Wi-Fi-samtal, men kan också utlösa buggar i Android och öka batterianvändningen</string>
     <string name="summary_lan">Tillåt apparna att ansluta till LAN-adresser, som 10.0.0.0/8, 172.16.0.0/12 och 192.168.0.0/16</string>
@@ -139,8 +274,10 @@
     <string name="summary_national_roaming">Använd inte roamingregler när SIM-kortet och mobilnätets land är desamma</string>
     <string name="summary_eu_roaming">Tillämpa inte roamingregler när SIM-kortet och mobilnätet är inom EU (använd roaming som hemma)</string>
     <string name="summary_call">Inaktivera NetGuard för inkommande eller utgående telefonsamtal. Detta kan användas för att arbeta runt IP/Wi-Fi-samtalsproblem.</string>
+
     <string name="summary_system">Definiera regler för systemappar (för experter)</string>
     <string name="summary_log_app">Logga försök att ansluta till internet för appar. Detta kan resultera i extra batterianvändning.</string>
+    <string name="summary_log_retention_days">Ta automatiskt bort gamla trafikloggar under underhåll. Ställ in 0 för att behålla loggar för alltid.</string>
     <string name="summary_access">Visa ett meddelande i statusfältet när en app försöker komma åt en ny Internetadress (när filtrering är inaktiverad kommer endast blockerade försök till Internetanslutning att meddelas)</string>
     <string name="summary_filter">Filtrera IP-paket som går ut från VPN-tunneln. Detta kan resultera i extra batterianvändning.</string>
     <string name="summary_track_usage">Spåra antalet byte som skickas och tas emot för varje app och adress. Detta kan leda till extra batterianvändning.</string>
@@ -149,19 +286,27 @@
     <string name="summary_validate">Domännamn som används för att validera internetanslutningen vid port 443 (https).</string>
     <string name="summary_socks5_enabled">Endast TCP-trafik kommer att sändas till proxyservern</string>
     <string name="summary_watchdog">Kontrollera regelbundet om NetGuard fortfarande körs (ange noll för att inaktivera det här alternativet). Detta kan leda till extra batterianvändning.</string>
+
     <string name="summary_stats">Visa nätverkshastighetsdiagram i statusfältet</string>
+
+    <string-array name="default_wifi_home"></string-array>
+
     <string name="msg_sure">Är du säker?</string>
     <string name="msg_started">Tvingande regler</string>
     <string name="msg_packages">%1$d tillåtna, %2$d blockerade</string>
     <string name="msg_hosts">%1$d tillåtna, %2$d blockerade, %3$d värdar</string>
     <string name="msg_waiting">Väntar på händelse</string>
     <string name="msg_disabled">NetGuard är inaktiverad, använd skjutreglage ovan för att aktivera NetGuard</string>
+    <string name="msg_notifications">Tryck för att bevilja aviseringsbehörigheter (för åtkomstförsöksaviseringar, felmeddelanden etc.)</string>
     <string name="msg_revoked">NetGuard har inaktiverats, sannolikt för att en annan VPN-baserade app används</string>
     <string name="msg_installed">\'%1$s\' installerad</string>
     <string name="msg_installed_n">Har installerats</string>
+    <string name="msg_malware">Möjlig skadlig programvara: \'%1$s\'</string>
     <string name="msg_access">%1$s försökte få tillgång till internet</string>
     <string name="msg_access_n">Försökte få tillgång till internet</string>
     <string name="msg_completed">Åtgärdad</string>
+    <string name="msg_invalid">Kontrollera värdena och försök igen.</string>
+    <string name="msg_export_failed">Exporten misslyckades: %1$s</string>
     <string name="msg_vpn">NetGuard använder en lokal VPN för att filtrera internettrafik.
 Av denna anledning, vänligen tillåt en VPN-anslutning i nästa dialogruta.
 Din internettrafik skickas inte till en avlägsen VPN-server.</string>
@@ -171,10 +316,12 @@ Din internettrafik skickas inte till en avlägsen VPN-server.</string>
     <string name="msg_try">Prova NetGuard</string>
     <string name="msg_terms">Genom att donera samtycker du till <a href="http://www.netguard.me/#terms">villkor</a></string>
     <string name="msg_dimming">Om du inte kan klicka på OK i nästa dialogruta kommer en annan (skärmdimnings)app sannolikt att manipulera skärmen.</string>
-    <string name="msg_mbday">± %1$.3f▲ %2$.3f▼ MB/dag</string>
-    <string name="msg_kb">%1$7.3f▲ %2$7.3f▼ KB</string>
-    <string name="msg_mb">%1$7.3f▲ %2$7.3f▼ MB</string>
-    <string name="msg_gb">%1$7.3f▲ %2$7.3f▼ GB</string>
+    <string name="msg_mbday">&#177; %1$.3f&#9650; %2$.3f&#9660; MB/dag</string>
+    <string name="msg_kbsec">%7.3f KB/s</string>
+    <string name="msg_mbsec">%7.3f MB/s</string>
+    <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
+    <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
+    <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
     <string name="msg_count">%dx</string>
     <string name="msg_doze">För konsekventa resultat bör Android-batterioptimeringarna inaktiveras för NetGuard.
 \n\nI nästa dialogruta väljer du \"Alla appar\" högst upp, tryck på NetGuard i listan och välj och bekräfta \"Optimera inte\".</string>
@@ -207,6 +354,7 @@ Din internettrafik skickas inte till en avlägsen VPN-server.</string>
     <string name="msg_always_on">En annan VPN är inställd som alltid-på VPN</string>
     <string name="msg_always_on_lockdown">Stäng av \"blockera anslutningar utan VPN\" i Android VPN-inställningar för att använda NetGuard i filtreringsläge</string>
     <string name="msg_private_dns">Stäng av \"Private DNS\" i Android-nätverksinställningar för att använda NetGuard i filtreringsläge</string>
+
     <string name="title_lockdown_enabled">Trafiken är låst</string>
     <string name="title_unmetered_allowed">Ouppmätt trafik är tillåten</string>
     <string name="title_unmetered_blocked">Ouppmätt trafik är blockerad</string>
@@ -214,11 +362,12 @@ Din internettrafik skickas inte till en avlägsen VPN-server.</string>
     <string name="title_metered_allowed">Uppmätt trafik tillåts</string>
     <string name="title_metered_blocked">Uppmätt trafik blockeras</string>
     <string name="title_metered_disabled">Mätningsregler tillämpas inte</string>
-    <string name="title_host_allowed">Adressen är blockerad</string>
+    <string name="title_host_allowed">Adressen är tillåten</string>
     <string name="title_host_blocked">Adressen är blockerad</string>
     <string name="title_interactive_allowed">Tillåt när skärmen är påslagen</string>
     <string name="title_roaming_blocked">Blockera vid roaming</string>
     <string name="title_metered">Som standard anses en Wi-Fi-anslutning vara obestämd och en mobilanslutning som uppmätt</string>
+
     <string name="title_internet">saknar internetbehörighet</string>
     <string name="title_disabled">är inaktiverad</string>
     <string name="title_messaging">Inkommande meddelanden tas emot av Google Play-tjänster och inte av den här appen och kan därför inte blockeras genom att blockera den här appen</string>
@@ -229,41 +378,52 @@ Din internettrafik skickas inte till en avlägsen VPN-server.</string>
     <string name="title_screen_other">Tillåt mobildata när skärmen är påslagen</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">Blockera vid roaming</string>
+    <string name="label_ttl">TTL: %s s</string>
+    <string name="label_uid">UID: %s</string>
     <string name="title_lockdown">Tillåt i låst läge</string>
     <string name="title_related">Filter relaterat</string>
     <string name="title_access">Åtkomstförsök</string>
     <string name="title_precedence">Åtkomstregler har företräde framför andra regler</string>
     <string name="title_options">Inställningar</string>
     <string name="title_notify">Meddela försök till internetåtkomst</string>
+
     <string name="title_logging_disabled">Loggning eller filtrering är inte aktiverad</string>
     <string name="title_logging_enabled">Loggning och filtrering är aktiverade</string>
     <string name="title_logging_configure">Konfigurera</string>
+
     <string name="title_enable_logging">Aktivera loggning av endast blockerade adresser</string>
     <string name="title_enable_filtering">Aktivera filtrering för att logga tillåtna adresser</string>
     <string name="title_enable_notify">Aktivera åtkomstmeddelanden för nyloggade adresser</string>
-    <string name="title_enable_help0">Dessa inställningar är globala inställningar som gäller för alla appar</string>
+    <string name="title_enable_help0">Dessa inställningar är globalna inställningar som gäller för alla appar</string>
     <string name="title_enable_help1">Filtrering krävs också för att tillåta eller blockera enskilda adresser</string>
     <string name="title_enable_help2">Att aktivera loggning (mindre) eller filtrering (mer) kan öka batterianvändningen och kan påverka nätverkshastigheten</string>
+
     <string name="title_rate">Betygsätt</string>
     <string name="title_allow">Tillåt</string>
     <string name="title_block">Blockera</string>
+    <string name="title_wifi">Wi-Fi</string>
+    <string name="title_mobile">Mobil</string>
     <string name="title_allow_wifi">Tillåt Wi-Fi</string>
     <string name="title_block_wifi">Blockera Wi-Fi</string>
-    <string name="title_allow_other">Tillåt mobildata</string>
-    <string name="title_block_other">Blockera mobildata</string>
+    <string name="title_allow_other">Tillåt mobil</string>
+    <string name="title_block_other">Blockera mobil</string>
     <string name="title_root">root</string>
     <string name="title_mediaserver">mediaserver</string>
+    <string name="title_gpsdaemon">GPS-demon</string>
+    <string name="title_dnsdaemon">DNS-demon</string>
     <string name="title_nobody">ingen</string>
     <string name="title_dontask">Fråga inte igen</string>
+
     <string name="title_log_whois">Whois %1$s</string>
     <string name="title_log_port">Port %1$d</string>
     <string name="title_log_copy">Kopiera</string>
+
     <string name="title_pro">Pro-funktioner</string>
     <string name="title_pro_description">Följande pro-funktioner är tillgängliga:</string>
     <string name="title_pro_log">Visa blockerad trafiklogg</string>
     <string name="title_pro_filter">Filtrera nätverkstrafik</string>
     <string name="title_pro_notify">Nya app-aviseringar</string>
-    <string name="title_pro_speed">Avisering om nätverkshastighet</string>
+    <string name="title_pro_speed">Avisering om nätverkshastighet med graf</string>
     <string name="title_pro_theme">Utseende (tema, färger)</string>
     <string name="title_pro_all">Alla ovanstående pro-funktioner</string>
     <string name="title_pro_dev">Stöd utvecklingen</string>
@@ -274,19 +434,21 @@ Din internettrafik skickas inte till en avlägsen VPN-server.</string>
     <string name="title_pro_challenge">Utmaning</string>
     <string name="title_pro_reponse">Svar</string>
     <string name="title_pro_feature">Detta är en pro-funktion</string>
-    <string name="title_pro_subscription">        Ett månatlig abonnemang på 1 eller 2 euro (exklusive lokala skatter) aktiverar alla profunktioner.
+    <string name="title_pro_subscription">
+        Ett månatlig abonnemang på 1 eller 2 euro (exklusive lokala skatter) aktiverar alla profunktioner.
         Du kan avbryta eller hantera ett abonnemang via abonnemangsfliken i appen Play store.
     </string>
-    <string-array name="themeNames">
-        <item>teal/orange</item>
-        <item>blå/orange</item>
-        <item>lila/röd</item>
-        <item>amber/blå</item>
-        <item>orange/grå</item>
-        <item>grön</item>
-    </string-array>
+    <string name="title_pro_already">Pro-funktionerna är redan aktiverade</string>
     <string-array name="protocolNames">
         <item>UDP</item>
         <item>TCP</item>
     </string-array>
+
+    <string-array name="protocolValues" translatable="false">
+        <item>17</item>
+        <item>6</item>
+    </string-array>
+
+    <string name="label_dns_summary">%1$d poster • %2$d utgångna</string>
+
 </resources>

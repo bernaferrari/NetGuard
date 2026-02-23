@@ -1,292 +1,453 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name" translatable="false">NetGuard Next</string>
     <string name="app_description">NetGuard nodrošina vienkāršu un uzlabotu veidu, kā bloķēt piekļuvi internetam. Lietotnēm un adresēm var individuāli atļaut vai aizliegt piekļuvi internetam caur Wi-Fi un/vai mobilo datu savienojumu.</string>
+    <string name="app_copyright" translatable="false">Copyright \u00A9 2015–2025 by M. Bokhorst (M66B)</string>
     <string name="app_android">NetGuard nepieciešams Android 5.1 vai jaunāks</string>
-    <string name="app_xposed">Xposed rada pārāk daudz avāriju, kas var radīt situāciju, ka NetGuard var tikt izņemts no Google Play veikala, tāpēc NetGuard netiek atbalstīs ar vienlaicīgi instalētu Xposed</string>
+    <string name="app_eula" translatable="false">THIS SOFTWARE IS PROVIDED BY THE AUTHOR \'\'AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
     <string name="app_privacy"><a href="https://www.netguard.me/privacy/">Privātuma politika</a></string>
     <string name="app_first">Liels darbs ir ieguldīts NetGuard izstrādē un testēšanā. Tai pat laikā nav iespējams garantēt, ka NetGuard darbosies korekti pilnīgi visās ierīcēs.</string>
     <string name="app_agree">Es piekrītu</string>
     <string name="app_disagree">Nepiekrītu</string>
     <string name="app_support">NetGuard ir vajadzīga Tava palīdzība. Spied Pirkt PRO funkcijas, lai nodrošinātu projekta turpmāku attīstību.</string>
+    <string name="app_qap">
+        Google gatavojās izņemt lietotni no Play veikala, jo tā pieprasīja atļauju visu lietotņu aptaujāšanai.
+        Piecas apelācijas un laba pamatojuma sniegšana par to, kāpēc šī atļauja ir nepieciešama, tika noraidīta.
+        Šī lietotnes versija vairs nepieprasa šo atļauju,
+        un, neskatoties uz to, gandrīz visas lietotnes joprojām tiks uzskaitītas,
+        izņemot dažas (sistēmas) lietotnes, kuras nevar palaist manuāli no Android lietotņu saraksta.
+        Šo lietotņu interneta trafiks vienmēr tiks atļauts, lai nodrošinātu ierīces pareizu darbību.
+        Ja uzskatāt, ka tā ir problēma, varat atjaunināt lietotni uz GitHub versiju un atkal pārvaldīt visas (sistēmas) lietotnes.
+    </string>
+
     <string name="channel_foreground">Servisi, kas darbojās</string>
     <string name="channel_notify">Vispārīgie paziņojumi</string>
     <string name="channel_access">Piekļuves paziņojumi</string>
-    <string name="menu_search">Meklēt citas lietotnes</string>
-    <string name="menu_filter">Filtrēt lietotnes</string>
+
+    <string name="menu_search">Meklēt lietotni</string>
+    <string name="menu_filter">Lietotņu filtrs</string>
     <string name="menu_app_user">Rādīt lietotāja lietotnes</string>
     <string name="menu_app_system">Rādīt sistēmas lietotnes</string>
     <string name="menu_app_nointernet">Rādīt lietotnes bez interneta</string>
     <string name="menu_app_disabled">Rādīt atspējotās lietotnes</string>
     <string name="menu_sort">Kārtot lietotnes</string>
     <string name="menu_sort_name">Kārtot pēc nosaukuma</string>
-    <string name="menu_sort_uid">Kārtot pēc uid</string>
+    <string name="menu_sort_uid">Kārtot pēc UID</string>
     <string name="menu_sort_data">Kārtot pēc datu lietojuma</string>
-    <string name="menu_log">Rādīt žurnālfailu</string>
+    <string name="menu_launch">Palaist lietotni</string>
+    <string name="menu_log">Rādīt žurnālu</string>
     <string name="menu_settings">Iestatījumi</string>
+    <string name="menu_home">Sākums</string>
     <string name="menu_invite">Uzaicināt</string>
     <string name="menu_legend">Apzīmējumi</string>
     <string name="menu_support">Atbalsts</string>
     <string name="menu_about">Par</string>
     <string name="menu_apps">Citas lietotnes</string>
+    <string name="menu_firewall">Ugunsmūris</string>
+    <string name="status_enabled">Ugunsmūris iespējots</string>
+    <string name="status_disabled">Ugunsmūris atspējots</string>
+    <string name="widget_firewall_enabled">Ugunsmūris IESLĒGTS</string>
+    <string name="widget_firewall_disabled">Ugunsmūris IZSLĒGTS</string>
+    <string name="widget_lockdown_enabled">Bloķēšana IESLĒGTA</string>
+    <string name="widget_lockdown_disabled">Bloķēšana IZSLĒGTA</string>
+    <string name="notify_traffic_title">Trafika monitors</string>
+    <string name="notify_traffic_summary">Augšup %1$s • Lejup %2$s • Maks %3$s</string>
+    <string name="notify_traffic_debug">Sesijas %1$d/%2$d/%3$d • Faili %4$d/%5$d</string>
+    <string name="ui_loading">Ielādē…</string>
+    <string name="ui_empty_logs_title">Vēl nav trafika</string>
+    <string name="ui_empty_logs_body">Tiklīdz parādīsies savienojumi, tie tiks rādīti šeit.</string>
+    <string name="ui_empty_apps_title">Lietotnes nav atrastas</string>
+    <string name="ui_empty_apps_body">Mēģiniet atsvaidzināt sarakstu.</string>
+    <string name="ui_empty_dns_title">Vēl nav atrisinātu DNS</string>
+    <string name="ui_empty_dns_body">DNS atbildes parādīsies šeit pēc pārlūkošanas.</string>
+    <string name="ui_dns_filter_empty">Neviens DNS ieraksts neatbilst šim filtram.</string>
+    <string name="ui_empty_forwarding_title">Nav pāradresācijas noteikumu</string>
+    <string name="ui_empty_forwarding_body">Pievienojiet noteikumu, lai sāktu trafika pāradresāciju.</string>
+    <string name="ui_forwarding_filter_empty">Neviens pāradresācijas noteikums neatbilst šim filtram.</string>
+    <string name="ui_empty_pro_body">Atbalsts atbloķē papildu funkcijas un uztur projektu dzīvu.</string>
+    <string name="ui_empty_pro_details">PRO atbloķē: filtrēšanu, žurnālus, paziņojumus, tēmas un ātruma ierobežojumus.</string>
+    <string name="ui_home_hint">Kontrolējiet interneta piekļuvi katrai lietotnei.</string>
+    <string name="ui_home_quick_actions">Ātrās darbības</string>
+    <string name="ui_apps_title">Ugunsmūris</string>
+    <string name="ui_logs_title">Trafika žurnāls</string>
+    <string name="ui_logs_filters">Filtri</string>
+    <string name="ui_logs_filter_status">Statuss</string>
+    <string name="ui_logs_filter_protocol">Protokols</string>
+    <string name="ui_logs_filter_view">Skats</string>
+    <string name="ui_logs_group_timeline">Hronoloģija</string>
+    <string name="ui_logs_group_by_app">Pēc lietotnes</string>
+    <string name="ui_logs_unknown_source">Nezināms avots</string>
+    <string name="ui_settings_title">Iestatījumi</string>
+    <string name="ui_dns_title">Atrisinātie DNS</string>
+    <string name="ui_forwarding_title">Portu pāradresācija</string>
+    <string name="ui_dns_hint">Nesen atrisinātie domēni un atbildes.</string>
+    <string name="ui_forwarding_hint">Pārvaldiet pāradresācijas noteikumus un mērķa lietotnes.</string>
+    <string name="ui_dns_active">Aktīvs</string>
+    <string name="ui_rule_custom">Pielāgots</string>
+    <string name="ui_dns_expired">Beidzies termiņš</string>
+    <string name="ui_filter_all">Visi</string>
+    <string name="ui_filter_empty">Neviena lietotne neatbilst šim filtram.</string>
+    <string name="ui_apps_search_empty">Neviena lietotne neatbilst šai meklēšanai.</string>
+    <string name="ui_learn_more">Uzzināt vairāk</string>
+    <string name="status_running">Trafiks tiek filtrēts</string>
+    <string name="status_not_running">Trafiks netiek filtrēts</string>
+    <string name="action_enable">Iespējot</string>
+    <string name="action_disable">Atspējot</string>
+    <string name="home_apps_hint">Pārskatiet lietotņu noteikumus un datu lietojumu</string>
+    <string name="home_logs_hint">Pārbaudiet nesenās tīkla aktivitātes</string>
+
+    <!-- Accessibility -->
+    <string name="action_expand">Izvērst informāciju</string>
+    <string name="action_collapse">Samazināt informāciju</string>
+    <string name="action_navigate">Atvērt</string>
+    <string name="action_toggle_firewall">Pārslēgt ugunsmūri</string>
+    <string name="action_clear_search">Notīrīt meklēšanu</string>
+    <string name="search_settings">Meklēt iestatījumos</string>
+    <string name="content_desc_security_status">Ugunsmūra drošības statuss</string>
+    <string name="content_desc_app_icon">Lietotnes ikona %s</string>
+    <string name="content_desc_show_info">Rādīt informāciju par %1$s</string>
+
+    <!-- Dashboard stats -->
+    <string name="stat_blocked_today">Bloķēti</string>
+    <string name="stat_allowed_today">Atļauti</string>
+    <string name="stat_active_rules">Aktīvie noteikumi</string>
+
+    <!-- Tooltips -->
+    <string name="tooltip_rcode">DNS atbildes kods, kas nosūtīts bloķētiem domēniem. Noklusējums 3 (NXDOMAIN) nozīmē, ka domēns neeksistē.</string>
+    <string name="tooltip_ttl">Minimālais DNS kešatmiņas ierakstu dzīves ilgums sekundēs.</string>
+    <string name="tooltip_pcap">Ierakstīt visas tīkla paketes atkļūdošanai. Izveido lielus failus.</string>
+    <string name="tooltip_filter">Pārtvert un analizēt trafiku. Nepieciešams bloķēšanai pēc adreses. Patērē vairāk akumulatora.</string>
+    <string name="tooltip_lockdown">Bloķēt visu trafiku, izņemot skaidri atļautās lietotnes. Izmantojiet piesardzīgi.</string>
+
+    <string name="menu_protocol_udp" translatable="false">UDP</string>
+    <string name="menu_protocol_tcp" translatable="false">TCP</string>
     <string name="menu_protocol_other">Citi</string>
-    <string name="menu_traffic_allowed">Atļautais</string>
-    <string name="menu_traffic_blocked">Bloķētais</string>
-    <string name="menu_live">Nepārtraukti atsvaidzināt</string>
+    <string name="menu_traffic_allowed">Atļauts</string>
+    <string name="menu_traffic_blocked">Bloķēts</string>
+    <string name="menu_live">Tiešsaistes atjauninājumi</string>
     <string name="menu_refresh">Atsvaidzināt</string>
-    <string name="menu_resolve">Rādīt nosaukumu</string>
-    <string name="menu_organization">Parādīt organizāciju</string>
+    <string name="menu_ok">Labi</string>
+    <string name="menu_cancel">Atcelt</string>
+    <string name="menu_resolve">Rādīt vārdus</string>
+    <string name="menu_organization">Rādīt organizāciju</string>
     <string name="menu_pcap_enabled">PCAP iespējots</string>
     <string name="menu_pcap_export">PCAP eksports</string>
     <string name="menu_clear">Notīrīt</string>
     <string name="menu_export">Eksportēt</string>
     <string name="menu_reset">Atiestatīt</string>
+
     <string name="menu_add">Pievienot</string>
     <string name="menu_delete">Dzēst</string>
+
     <string name="menu_cleanup">Tīrīšana</string>
+
     <string name="title_protocol">Protokols</string>
     <string name="title_dport">Avota ports</string>
     <string name="title_raddr">Mērķa adrese</string>
     <string name="title_rport">Mērķa ports</string>
     <string name="title_ruid">Mērķa lietotne</string>
-    <string name="title_external">Ārējam serverim izvēlies \'neviens\'</string>
+    <string name="title_external">Ārējam serverim izvēlieties \'neviens\'</string>
+
     <string name="setting_defaults">Noklusējumi (baltais/melnais saraksts)</string>
     <string name="setting_whitelist_wifi">Bloķēt Wi-Fi</string>
     <string name="setting_whitelist_other">Bloķēt mobilos datus</string>
-    <string name="setting_screen_wifi">Atļaut Wi-Fi, kad ekrāns ir ieslēgts</string>
-    <string name="setting_screen_other">Atļaut mobilos datus, kad ekrāns ir ieslēgts</string>
+    <string name="setting_screen_wifi">Atļaut Wi-Fi, kad ekrāns ieslēgts</string>
+    <string name="setting_screen_other">Atļaut mobilos datus, kad ekrāns ieslēgts</string>
     <string name="setting_whitelist_roaming">Bloķēt viesabonēšanā</string>
+
     <string name="setting_options">Iespējas</string>
     <string name="setting_theme">Tēma: %1$s</string>
     <string name="setting_dark">Izmantot tumšo tēmu</string>
+    <string name="setting_theme_palette">Izvēlieties krāsu stilu</string>
+    <string name="setting_dynamic_unavailable">Dinamiskajām krāsām nepieciešams Android 12 vai jaunāks.</string>
+    <string name="setting_appearance_mode">Izskata režīms</string>
+    <string name="setting_appearance_mode_title">Tumšais režīms</string>
+    <string name="setting_appearance_mode_summary">Izvēlieties Izslēgts, Ieslēgts vai Sekot sistēmai.</string>
+    <string name="setting_appearance_preview">Pašreizējais: %1$s · %2$s</string>
+    <string name="setting_appearance_auto">Auto</string>
+    <string name="setting_appearance_light">Gaišs</string>
+    <string name="setting_appearance_dark">Tumšs</string>
+    <string name="theme_dynamic" translatable="false">Dynamic</string>
     <string name="setting_install">Paziņot par jaunu instalāciju</string>
-    <string name="setting_screen_on">Pielietot \'kad ekrāns ieslēgts\' noteikumus</string>
+    <string name="setting_screen_on">Piemērot \'kad ekrāns ieslēgts\' noteikumus</string>
     <string name="setting_auto">Automātiski iespējot pēc %1$s minūtēm</string>
     <string name="setting_delay">Aizturēt ekrāna izslēgšanu %1$s minūtes</string>
     <string name="setting_update">Pārbaudīt atjauninājumus</string>
+    <string name="setting_update_now">Pārbaudīt tūlīt</string>
+    <string name="setting_update_checking">Notiek pārbaude...</string>
+
     <string name="setting_network_options">Tīkla iespējas</string>
     <string name="setting_subnet">Apakštīkla maršrutēšana</string>
-    <string name="setting_tethering">Atļaut Tīklāju</string>
+    <string name="setting_tethering">Atļaut tīklāju</string>
     <string name="setting_lan">Atļaut LAN piekļuvi</string>
-    <string name="setting_ip6">Iespējot IPv6 datu plūsmu</string>
+    <string name="setting_ip6">Iespējot IPv6 trafiku</string>
     <string name="setting_wifi_home">Wi-Fi mājas tīkli: %1$s</string>
-    <string name="setting_metered">Organizēt mērītos Wi-Fi tīklus</string>
-    <string name="setting_metered_2g">Pieņemt 2G kā nemērāmu</string>
-    <string name="setting_metered_3g">Pieņemt 3G kā nemērāmu</string>
-    <string name="setting_metered_4g">Pieņemt LTE kā nemērāmu</string>
+    <string name="setting_metered">Pārvaldīt mērītos Wi-Fi tīklus</string>
+    <string name="setting_metered_2g">Uzskatīt 2G par nemērītu</string>
+    <string name="setting_metered_3g">Uzskatīt 3G par nemērītu</string>
+    <string name="setting_metered_4g">Uzskatīt LTE par nemērītu</string>
     <string name="setting_national_roaming">Ignorēt vietējo viesabonēšanu</string>
     <string name="setting_eu_roaming">Ignorēt ES viesabonēšanu</string>
     <string name="setting_call">Atspējot zvana laikā</string>
     <string name="setting_lockdown_wifi">Bloķēt Wi-Fi</string>
     <string name="setting_lockdown_other">Bloķēt mobilos datus</string>
     <string name="setting_reload_onconnectivity">Pārlādēt pēc katras savienojuma maiņas</string>
+
     <string name="setting_advanced_options">Paplašinātās iespējas</string>
     <string name="setting_system">Pārvaldīt sistēmas lietotnes</string>
-    <string name="setting_log_app">Žurnālot interneta piekļuvi</string>
+    <string name="setting_log_app">Žurnalēt interneta piekļuvi</string>
+    <string name="setting_log_retention_days">Trafika žurnāla saglabāšanas dienas</string>
     <string name="setting_access">Paziņot par piekļuvi internetam</string>
-    <string name="setting_filter">Filtrēt datu plūsmu</string>
-    <string name="setting_filter_udp">Filtrēt UDP datu plūsmu</string>
-    <string name="setting_handover">Bez pārtraukuma VPN pārslēgšana pārlādes laikā</string>
-    <string name="setting_clear_onreload">Pārlādes gadījumā aizvērt visus savienojumus</string>
-    <string name="setting_lockdown">Bloķēt datu plūsmu</string>
+    <string name="setting_filter">Filtrēt trafiku</string>
+    <string name="setting_filter_udp">Filtrēt UDP trafiku</string>
+    <string name="setting_handover">Vienmērīga VPN nodošana pārlādējot</string>
+    <string name="setting_clear_onreload">Aizvērt savienojumus pārlādējot</string>
+    <string name="setting_lockdown">Bloķēt trafiku</string>
+    <string name="setting_malware" translatable="false">Malware protection</string>
     <string name="setting_track_usage">Izsekot tīkla lietojumu</string>
-    <string name="setting_reset_usage">Atiestatīt tīkla lietojuma statistiku</string>
-    <string name="setting_show_resolved">Rādīt atļautos domēna vārdus</string>
+    <string name="setting_reset_usage">Atiestatīt tīkla lietojumu</string>
+    <string name="setting_show_resolved">Rādīt atrisinātos domēna vārdus</string>
     <string name="setting_block_domains">Bloķēt domēna vārdus</string>
     <string name="setting_rcode">DNS atbildes kods: %s</string>
-    <string name="setting_forwarding">Porta pāradresācija</string>
+    <string name="setting_forwarding">Portu pāradresācija</string>
     <string name="setting_vpn4">VPN IPv4: %s</string>
     <string name="setting_vpn6">VPN IPv6: %s</string>
     <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_validate">Apstiprināt uz: %s</string>
-    <string name="setting_ttl">Minimums DNS TTL: %s s</string>
-    <string name="setting_socks5_enabled">Lietot SOCKS5 proxy</string>
+    <string name="setting_dns2">Sekundārais DNS: %s</string>
+    <string name="setting_validate">Validēt pie: %s</string>
+    <string name="setting_ttl">Minimālais DNS TTL: %s s</string>
+    <string name="setting_socks5_enabled">Lietot SOCKS5 starpniekserveri</string>
     <string name="setting_socks5_addr">SOCKS5 adrese: %s</string>
     <string name="setting_socks5_port">SOCKS5 ports: %s</string>
     <string name="setting_socks5_username">SOCKS5 lietotājvārds: %s</string>
     <string name="setting_socks5_password">SOCKS5 parole: %s</string>
     <string name="setting_pcap_record_size">PCAP ieraksta izmērs: %s B</string>
     <string name="setting_pcap_file_size">PCAP maks. faila izmērs: %s MB</string>
-    <string name="setting_watchdog">Sargsuns: katras %s minūtes</string>
-    <string name="setting_stats_category">Informācija par ātrumu</string>
-    <string name="setting_stats">Rādīt informāciju par ātrumu</string>
+    <string name="setting_pcap">Ierakstīt tīkla trafiku (PCAP)</string>
+    <string name="setting_watchdog">Sargsuns: ik pēc %s minūtēm</string>
+
+    <string name="setting_stats_category">Ātruma paziņojums</string>
+    <string name="setting_stats">Rādīt ātruma paziņojumu</string>
     <string name="setting_stats_top">Rādīt top lietotnes</string>
-    <string name="setting_stats_frequency">Mērījumu intervāls: %s ms</string>
-    <string name="setting_stats_samples">Mērījuma ilgums: %s s</string>
+    <string name="setting_stats_frequency">Parauga intervāls: %s ms</string>
+    <string name="setting_stats_samples">Paraugu skaits: %s</string>
+
     <string name="setting_backup">Rezerves kopija</string>
     <string name="setting_export">Eksportēt iestatījumus</string>
     <string name="setting_import">Importēt iestatījumus</string>
     <string name="setting_hosts">Importēt hosts failu</string>
     <string name="setting_hosts_append">Importēt hosts failu (pievienot)</string>
-    <string name="setting_hosts_url">Hosts faila lejupielādes adrese</string>
+    <string name="setting_hosts_url">Hosts faila lejupielādes URL</string>
     <string name="setting_hosts_download">Lejupielādēt hosts failu</string>
+    <string name="setting_use_hosts">Lietot hosts failu</string>
+
     <string name="setting_technical">Tehniskā informācija</string>
     <string name="setting_technical_general">Vispārīgi</string>
     <string name="setting_technical_networks">Tīkli</string>
-    <string name="setting_technical_subscription">Abonējumi</string>
-    <string name="summary_install">Parādīt statusa joslā paziņojumu par jauno instalēto lietotni, lai pa tiešo veiktu konfigurāciju (PRO versija)</string>
-    <string name="summary_auto">Pēc atspējošanas ar logrīku, atkal iespējot NetGuard pēc noteikta minūšu skaita (nulle atspējo šo funkciju)</string>
-    <string name="summary_delay">Izslēdzot ekrānu, saglabāt ieslēgta ekrāna noteikumus norādītās minūtes (nulle atspējo šo funkciju)</string>
-    <string name="summary_update">Divreiz dienā meklēt jaunāko versiju uz GitHub</string>
-    <string name="summary_tethering">Atkarībā no Android versijas, Tīklājs var darboties vai nedarboties. Tīklāja datu plūsmu nav iespējams filtrēt.</string>
-    <string name="summary_subnet">Apakštīkla maršrutēšanas iespējošana; var ļaut veikt Wi-Fi zvanus, bet var arī radīt Android sistēmā kļūdas un palielināt baterijas noslodzi</string>
-    <string name="summary_lan">Ļauj lietotnēm pieslēgties iekšējā tīkla adresēm. Tādām kā 10.0.0.0/8, 172.16.0.0/12 un 192.168.0.0/16</string>
-    <string name="summary_ip6">Maršrutēt IPv6 datu plūsmu uz NetGuard, lai to izlases kārtā varētu atļaut vai bloķēt</string>
-    <string name="summary_wifi_home">Piemēro Wi-Fi tīkla noteikumus tikai izvēlētajam tīklam (piemēro mobilā tīkla noteikumus visiem pārējiem Wi-Fi tīkliem)</string>
-    <string name="summary_metered">Piemērot mobilo tīklu noteikumus mērītajiem (maksas, Tīklāja) Wi-Fi tīkliem</string>
-    <string name="summary_metered_2g">Pielietot Wi-Fi tīkla noteikumus arī 2G datu savienojumiem</string>
-    <string name="summary_metered_3g">Pielietot Wi-Fi tīkla noteikumus arī 3G datu savienojumiem</string>
-    <string name="summary_metered_4g">Pielietot Wi-Fi tīkla noteikumus arī LTE datu savienojumiem</string>
-    <string name="summary_national_roaming">Nepiemērot viesabonēšanas noteikumus, kad SIM kartes un mobilā tīkla valstis ir vienādas</string>
-    <string name="summary_eu_roaming">Nepiemērot viesabonēšanas noteikumus, kad SIM kartes un mobilā tīkla valstis ir Eiropas Savienībā (viesabonēšana kā mājās)</string>
-    <string name="summary_call">Atspējot NetGuard ienākošo un izejošo telefona zvanu laikā. Tā var novērst IP/Wi-Fi zvanu problēmas.</string>
+    <string name="setting_technical_subscription">Abonementi</string>
+    <string name="setting_section_appearance">Izskats</string>
+    <string name="setting_section_firewall">Ugunsmūra noteikumi</string>
+    <string name="setting_section_advanced">Paplašinātā darbība</string>
+    <string name="setting_section_hosts">Hosti un DNS</string>
+    <string name="setting_section_network">Tīkla konfigurācija</string>
+    <string name="setting_section_dns">DNS detaļas</string>
+    <string name="setting_section_proxy">Starpniekserveris</string>
+    <string name="setting_section_vpn">VPN konfigurācija</string>
+    <string name="setting_section_background">Fona uzdevumi</string>
+    <string name="setting_section_diagnostics">Diagnostika</string>
+    <string name="setting_section_support">Atbalsts</string>
+
+    <string name="summary_install">Rādīt statusa joslas paziņojumu, lai tieši konfigurētu jauninstalētās lietotnes (pro funkcija)</string>
+    <string name="summary_auto">Pēc atspējošanas ar logrīku, automātiski atkal iespējot NetGuard pēc izvēlētā minūšu skaita (ievadiet nulli, lai atspējotu)</string>
+    <string name="summary_delay">Pēc ekrāna izslēgšanas paturēt \'kad ekrāns ieslēgts\' noteikumus aktīvus izvēlēto minūšu skaitu (ievadiet nulli, lai atspējotu)</string>
+    <string name="summary_update">Divreiz dienā pārbaudīt jaunas versijas GitHub</string>
+
+    <string name="summary_tethering">Atkarībā no Android versijas, tīklājs var darboties vai nedarboties. Tīklāja trafiku nevar filtrēt.</string>
+    <string name="summary_subnet">Iespējot apakštīkla maršrutēšanu; var iespējot Wi-Fi zvanus, bet var arī radīt kļūdas Android sistēmā un palielināt akumulatora lietojumu</string>
+    <string name="summary_lan">Atļaut lietotnēm izveidot savienojumu ar lokālā tīkla adresēm (piem., 10.0.0.0/8, 172.16.0.0/12 un 192.168.0.0/16)</string>
+    <string name="summary_ip6">Maršrutēt IPv6 trafiku uz NetGuard, lai to varētu selektīvi atļaut vai bloķēt</string>
+    <string name="summary_wifi_home">Piemērot Wi-Fi tīkla noteikumus tikai izvēlētajam tīklam (citos Wi-Fi tīklos piemērot mobilā tīkla noteikumus)</string>
+    <string name="summary_metered">Piemērot mobilā tīkla noteikumus mērītajiem (maksas, koplietotajiem) Wi-Fi tīkliem</string>
+    <string name="summary_metered_2g">Piemērot Wi-Fi tīkla noteikumus 2G datu savienojumiem</string>
+    <string name="summary_metered_3g">Piemērot Wi-Fi tīkla noteikumus 3G datu savienojumiem</string>
+    <string name="summary_metered_4g">Piemērot Wi-Fi tīkla noteikumus LTE datu savienojumiem</string>
+    <string name="summary_national_roaming">Nepiemērot viesabonēšanas noteikumus, ja SIM un mobilā tīkla valsts ir viena un tā pati</string>
+    <string name="summary_eu_roaming">Nepiemērot viesabonēšanas noteikumus, ja SIM un mobilā tīkla valsts ir ES (viesabonēšana kā mājās)</string>
+    <string name="summary_call">Atspējot NetGuard ienākošo vai izejošo tālruņa zvanu laikā. To var izmantot, lai novērstu IP/Wi-Fi zvanu problēmas.</string>
+
     <string name="summary_system">Definēt noteikumus sistēmas lietotnēm (ekspertiem)</string>
-    <string name="summary_log_app">Žurnālot lietotņu mēģinājumus piekļūt internetam. Tas var palielināt baterijas noslodzi.</string>
-    <string name="summary_access">Parāda statusa laukā paziņojumu, kad lietotne mēģina piekļūt jaunai interneta adresei (kad filtrēšana ir atspējota, tikai bloķētie interneta piekļuves mēģinājumi tiks parādīti)</string>
-    <string name="summary_filter">Filtrēt IP paketes, kas iet caur VPN. Tas var izraisīt lielāku baterijas patēriņu.</string>
-    <string name="summary_track_usage">Sekot līdzi baitu skaitam, ko nosūta un saņem katra lietotne un adrese. Tas var izraisīt lielāku baterijas patēriņu.</string>
-    <string name="summary_block_domains">Uz bloķēto domēnu vārdiem atbildēt ar konfigurētu DNS atbildes kodu. Slēdzis ir izslēgts, kad hosts fails nav pieejams.</string>
+    <string name="summary_log_app">Žurnalēt lietotņu mēģinājumus piekļūt internetam. Tas var palielināt akumulatora lietojumu.</string>
+    <string name="summary_log_retention_days">Automātiski noņemt vecos trafika žurnālus uzturēšanas laikā. Iestatiet 0, lai saglabātu tos mūžīgi.</string>
+    <string name="summary_access">Rādīt statusa joslas paziņojumu, kad lietotne mēģina piekļūt jaunai interneta adresei (kad filtrēšana ir atspējota, tiks ziņots tikai par bloķētiem mēģinājumiem)</string>
+    <string name="summary_filter">Filtrēt IP paketes, kas iziet no VPN tuneļa. Tas var palielināt akumulatora lietojumu.</string>
+    <string name="summary_track_usage">Izsekot nosūtīto un saņemto baitu skaitu katrai lietotnei un adresei. Tas var palielināt akumulatora lietojumu.</string>
+    <string name="summary_block_domains">Atbildēt ar konfigurēto DNS atbildes kodu bloķētiem domēna vārdiem. Šis slēdzis ir atspējots, ja nav pieejams hosts fails.</string>
     <string name="summary_rcode">Noklusētā vērtība ir 3 (NXDOMAIN), kas nozīmē \'neeksistējošs domēns\'.</string>
-    <string name="summary_validate">Domēna vārds, ko izmanto, lai apstiprinātu interneta savienojumu 443. portā (https).</string>
-    <string name="summary_socks5_enabled">Tikai TCP datu plūsma tiks sūtīta uz proxy serveri</string>
-    <string name="summary_watchdog">Periodiski pārbauda, vai NetGuard vēl joprojām darbojas (nulle atspējo šo funkciju). Var palielināt baterijas noslodzi.</string>
-    <string name="summary_stats">Parāda tīkla ātruma grafiku statusa joslā</string>
+    <string name="summary_validate">Domēna vārds, ko izmanto, lai validētu interneta savienojumu 443. portā (https).</string>
+    <string name="summary_socks5_enabled">Tikai TCP trafiks tiks nosūtīts uz starpniekserveri</string>
+    <string name="summary_watchdog">Periodiski pārbaudīt, vai NetGuard joprojām darbojas (ievadiet nulli, lai atspējotu). Tas var palielināt akumulatora lietojumu.</string>
+
+    <string name="summary_stats">Rādīt tīkla ātruma grafiku statusa joslas paziņojumā</string>
+
+    <string-array name="default_wifi_home"></string-array>
+
     <string name="msg_sure">Vai esi pārliecināts?</string>
     <string name="msg_started">Noteikumu izpilde</string>
-    <string name="msg_packages">%1$d atļauts, %2$d bloķēts</string>
-    <string name="msg_hosts">%1$d atļauts, %2$d bloķēts, %3$d hosti</string>
+    <string name="msg_packages">%1$d atļauti, %2$d bloķēti</string>
+    <string name="msg_hosts">%1$d atļauti, %2$d bloķēti, %3$d hosti</string>
     <string name="msg_waiting">Gaidām notikumu</string>
-    <string name="msg_disabled">NetGuard ir izslēgts. Lieto slēdzi augšpusē, lai ieslēgtu NetGuard</string>
-    <string name="msg_revoked">NetGuard tika izslēgts, iespējams, ar kādu citu VPN programmu</string>
-    <string name="msg_installed">\'%1$s\' instalēts</string>
-    <string name="msg_installed_n">Tika instalēts</string>
+    <string name="msg_disabled">NetGuard ir atspējots, izmantojiet slēdzi augšpusē, lai iespējotu NetGuard</string>
+    <string name="msg_notifications">Pieskarieties, lai piešķirtu paziņojumu atļaujas (piekļuves mēģinājumu paziņojumiem, kļūdu ziņojumiem utt.)</string>
+    <string name="msg_revoked">NetGuard ir atspējots, iespējams, izmantojot citu VPN lietotni</string>
+    <string name="msg_installed">\'%1$s\' instalēta</string>
+    <string name="msg_installed_n">Ir instalēta</string>
+    <string name="msg_malware" translatable="false">Possible malware: \'%1$s\'</string>
     <string name="msg_access">%1$s mēģināja piekļūt internetam</string>
-    <string name="msg_access_n">Mēģinājums piekļūt internetam</string>
+    <string name="msg_access_n">Mēģināta interneta piekļuve</string>
     <string name="msg_completed">Darbība pabeigta</string>
-    <string name="msg_vpn">NetGuard lieto lokālu VPN, lai filtrētu interneta datu plūsmu.
-Šī iemesla dēļ, lūdzu, atļauj VPN savienojumu nākošajā dialoga logā.
-Tava interneta datu plūsma netiks sūtīta uz kādu ārējo VPN serveri.</string>
-    <string name="msg_autostart">NetGuard nevar startētēties automātiski. Tas, iespējams, ir Andriod versijas kļūdas dēļ.</string>
-    <string name="msg_error">Ir radusies neparedzēta kļūda \'%s\'</string>
-    <string name="msg_start_failed">Android patreiz neļauj startēt VPN servisu. Iespējams, tas ir Android versijas kļūdas dēļ.</string>
+    <string name="msg_invalid">Lūdzu, pārbaudiet vērtības un mēģiniet vēlreiz.</string>
+    <string name="msg_export_failed">Eksportēšana neizdevās: %1$s</string>
+    <string name="msg_vpn">NetGuard izmanto lokālo VPN, lai filtrētu interneta trafiku.
+Šī iemesla dēļ, lūdzu, atļaujiet VPN savienojumu nākamajā dialogā.
+Jūsu interneta trafiks netiek sūtīts uz attālo VPN serveri.</string>
+    <string name="msg_autostart">NetGuard nevarēja startēties automātiski. Tas, iespējams, ir Android versijas kļūdas dēļ.</string>
+    <string name="msg_error">Radusies neparedzēta kļūda: \'%s\'</string>
+    <string name="msg_start_failed">Android šobrīd atteicās palaist VPN pakalpojumu. Tas, iespējams, ir Android versijas kļūdas dēļ.</string>
     <string name="msg_try">Izmēģini NetGuard</string>
-    <string name="msg_terms">Ziedojot Tu piekrītu <a href="http://www.netguard.me/#terms">noteikumiem un nosacījumiem</a></string>
-    <string name="msg_dimming">Ja nākamajā dialog logā nevari nospiest OK, tad visticamākais kāda cita (ekrāna aptumšošanas) lietotne patreiz lieto ekrānu.</string>
-    <string name="msg_mbday">± %1$.3f▲ %2$.3f▼ MB/dienā</string>
-    <string name="msg_kb">%1$7.3f▲ %2$7.3f▼ KB</string>
-    <string name="msg_mb">%1$7.3f▲ %2$7.3f▼ MB</string>
-    <string name="msg_gb">%1$7.3f▲ %2$7.3f▼ GB</string>
+    <string name="msg_terms">Ziedojot Jūs piekrītat <a href="http://www.netguard.me/#terms">noteikumiem un nosacījumiem</a></string>
+    <string name="msg_dimming">Ja nākamajā dialogā nevarat nospiest OK, iespējams, ekrānu manipulē cita (ekrāna aptumšošanas) lietotne.</string>
+    <string name="msg_mbday">&#177; %1$.3f&#9650; %2$.3f&#9660; MB/dienā</string>
+    <string name="msg_kbsec">%7.3f KB/s</string>
+    <string name="msg_mbsec">%7.3f MB/s</string>
+    <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
+    <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
+    <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
     <string name="msg_count">%dx</string>
-    <string name="msg_doze">Lai nodrošinātu stabilu rezultātu, Android baterijas optimizēšana lietotnei NetGuard ir jābūt atslēgtai.
-\n\nNākamajā dialoglogā augšā izvēlies \"Visas lietotnes\", no saraksta izvēlies NetGuard, izvēlies \"Neoptimizēt\", un to pastiprini.</string>
-    <string name="msg_datasaving">Lai iegūtu stabilu rezultātu, Android datu lietojuma samazinātājam uz NetGuard jābūt izslēgtam.
-\n\nNākamajā dialoglogā lietotnei NetGuard iespējo \"Fona dati\" un \"Neierobežots datu lietojums\"</string>
-    <string name="msg_filter">Filtrēšanas funkcija liks Android sistēmai datu plūsmas un baterijas patēriņu piedēvēt NetGuard lietotnei un nevis patiesajām datu plūsmas un baterijas patērējošajām lietotnēm</string>
-    <string name="msg_filter4">Android 4 nepieciešams, lai filtrēšana būtu iespējota</string>
-    <string name="msg_log_disabled">Datu plūsmas žurnālošana ir izslēgta. Lieto slēdzi loga augšā, lai ieslēgtu žurnālošanu. Datu plūsmas žurnālošana var palielināt baterijas noslodzi.</string>
-    <string name="msg_clear_rules">Tas atiestatīs visus noteikumus un parametrus uz sākotnējām vērtībām</string>
-    <string name="msg_reset_access">Tas nodzēsīs piekļuves mēģinājumu žurnāla rindiņas nemainot atļaut/bloķēt noteikumus</string>
+    <string name="msg_doze">Pastāvīgu rezultātu sasniegšanai NetGuard lietotnei ir jāatspējo Android akumulatora optimizācija.
+\n\nNākamajā dialogā augšpusē atlasiet \"Visas lietotnes\", sarakstā pieskarieties NetGuard un atlasiet un apstipriniet \"Neoptimizēt\".</string>
+    <string name="msg_datasaving">Pastāvīgu rezultātu sasniegšanai NetGuard lietotnei ir jāatspējo Android datu taupīšanas opcijas.
+\n\nNākamajā dialogā iespējojiet opcijas \"Fona dati\" un \"Neierobežota datu lietošana\".</string>
+    <string name="msg_filter">Filtrēšanas izmantošana liks Android sistēmai datu un enerģijas patēriņu piedēvēt NetGuard, nevis oriģinālajām lietotnēm.</string>
+    <string name="msg_filter4">Android 4 nepieciešams iespējot filtrēšanu</string>
+    <string name="msg_log_disabled">Trafika žurnalēšana ir atspējota, izmantojiet slēdzi augšpusē, lai to iespējotu. Žurnalēšana var palielināt akumulatora lietojumu.</string>
+    <string name="msg_clear_rules">Tas atiestatīs noteikumus un nosacījumus uz to noklusējuma vērtībām</string>
+    <string name="msg_reset_access">Tas izdzēsīs piekļuves mēģinājumu žurnāla rindiņas bez atļaušanas/bloķēšanas noteikumiem</string>
     <string name="msg_import_last">Pēdējais imports: %s</string>
     <string name="msg_downloading">Lejupielādē\n%1s</string>
     <string name="msg_downloaded">Hosts fails lejupielādēts</string>
     <string name="msg_download_last">Pēdējā lejupielāde: %s</string>
-    <string name="msg_start_forward">Sākt pāradresāciju no %1$s port %2$d to %3$s:%4$d of \'%5$s\'?</string>
-    <string name="msg_stop_forward">Beigt pāradresāciju%1$s port %2$d?</string>
-    <string name="msg_metered">Tīkls tiek mērīts</string>
-    <string name="msg_inactive">Nav savienojuma ar internetu</string>
+    <string name="msg_start_forward">Sākt pāradresāciju no %1$s porta %2$d uz %3$s:%4$d no \'%5$s\'?</string>
+    <string name="msg_stop_forward">Apturēt %1$s porta %2$d pāradresāciju?</string>
+    <string name="msg_metered">Tīkls ir mērīts</string>
+    <string name="msg_inactive">Nav aktīva interneta savienojuma</string>
     <string name="msg_queue">NetGuard ir aizņemts</string>
-    <string name="msg_update">Atjauninājums ir pieejams, spied, lai lejuplādētu</string>
-    <string name="msg_usage">Tu vari atļaut (zaļš simbols) vai aizliegt (sārts simbols) Wi-Fi vai mabilo datu plūsmu pārslēdzot tīkla simbolus pretī katrai lietotnei</string>
-    <string name="msg_fairemail">Ja esi instalējis NetGuard, lai aizsargātu savu privātumu, Tu varētu būt ieinteresēts arī <a href="https://email.faircode.eu/">FairEmail</a>, draudzīgā, atvērtā koda e-pasta lietotnē</string>
-    <string name="msg_whitelist">Interneta piekļuve ir iespējota pēc noklusējuma (melnā saraksta režīms), to var mainīt iestatījumos</string>
-    <string name="msg_push">Ienākošos (push) paziņojumus pārsvarā gadījumu apstrādā sistēmas komponente \"Play services\", kurai interneta piekļuve pēc noklusējuma ir atļauta</string>
-    <string name="msg_system">Iestatījumos ir iespējama visu (sistēmas) lietotņu pārvaldība</string>
-    <string name="msg_issue">Lūdzu apraksti problēmu un kad tā radās:</string>
-    <string name="msg_vpn_cancelled">VPN savienojums atcelts\nVai vēlies iestatīt vēl vienu VPN, kas vienmēr būs ieslēgts?</string>
-    <string name="msg_on">Izslēdzot savu ierīci ar iespējotu NetGuard, nākamajā ierīces startēšanas reizē NetGuard tiks palaists automātiski</string>
-    <string name="msg_unavailable">Šī funkcija nav pieejama šai Android versijai</string>
-    <string name="msg_always_on">Vēl viens VPN ir iestatīts kā \"Vienmēr ieslēgts VPN\"</string>
-    <string name="msg_always_on_lockdown">Lai lietotu NetGuard filtrēšanas režīmā, Android VPN iestatījumos izslēdz iestatījumu \"Bloķēt savienojumus bez VPN\"</string>
-    <string name="msg_private_dns">Lai lietotu NetGuard filtrēšanas režīmā, Android VPN iestatījumos izslēdz iestatījumu \"Privātais DNS\"</string>
-    <string name="title_lockdown_enabled">Dataplūsma ir slēgta</string>
-    <string name="title_unmetered_allowed">Nemērītā datu plūsma ir atļauta</string>
-    <string name="title_unmetered_blocked">Nemērītā datu plūsma ir bloķēta</string>
-    <string name="title_unmetered_disabled">Nemērītie noteikumi netiek lietoti</string>
-    <string name="title_metered_allowed">Mērītā datu plūsma ir atļauta</string>
-    <string name="title_metered_blocked">Mērītā datu plūsma ir bloķēta</string>
-    <string name="title_metered_disabled">Mērītie noteikumi netiek lietoti</string>
+    <string name="msg_update">Pieejams atjauninājums, pieskarieties, lai lejupielādētu</string>
+    <string name="msg_usage">Jūs varat atļaut (zaļgans) vai liegt (sārts) Wi-Fi vai mobilo interneta piekļuvi, pieskaroties ikonām blakus lietotnei</string>
+    <string name="msg_fairemail">Ja instalējāt NetGuard, lai aizsargātu savu privātumu, Jūs varētu interesēt arī <a href="https://email.faircode.eu/">FairEmail</a> — atvērtā koda, privātumam draudzīga e-pasta lietotne.</string>
+    <string name="msg_whitelist">Interneta piekļuve ir atļauta pēc noklusējuma (melnā saraksta režīms), to var mainīt iestatījumos</string>
+    <string name="msg_push">Ienākošos (push) paziņojumus pārsvarā apstrādā sistēmas komponents Play pakalpojumi, kam pēc noklusējuma ir atļauta interneta piekļuve</string>
+    <string name="msg_system">Visu (sistēmas) lietotņu pārvaldību var iespējot iestatījumos</string>
+    <string name="msg_issue">Lūdzu, aprakstiet problēmu un norādiet tās laiku:</string>
+    <string name="msg_vpn_cancelled">VPN savienojums atcelts\nVai konfigurējāt citu VPN kā vienmēr ieslēgtu?</string>
+    <string name="msg_on">Ierīces izslēgšana, kad NetGuard ir iespējots, automātiski palaidīs NetGuard ierīces ieslēgšanas brīdī</string>
+    <string name="msg_unavailable">Šī funkcija nav pieejama šajā Android versijā</string>
+    <string name="msg_always_on">Cits VPN ir iestatīts kā Always-on VPN</string>
+    <string name="msg_always_on_lockdown">Android VPN iestatījumos izslēdziet \"Bloķēt savienojumus bez VPN\", lai izmantotu NetGuard filtrēšanas režīmā</string>
+    <string name="msg_private_dns">Android tīkla iestatījumos izslēdziet \"Privātais DNS\", lai izmantotu NetGuard filtrēšanas režīmā</string>
+
+    <string name="title_lockdown_enabled">Trafiks ir bloķēts</string>
+    <string name="title_unmetered_allowed">Nemērītais trafiks ir atļauts</string>
+    <string name="title_unmetered_blocked">Nemērītais trafiks ir bloķēts</string>
+    <string name="title_unmetered_disabled">Nemērītie noteikumi netiek piemēroti</string>
+    <string name="title_metered_allowed">Mērītais trafiks ir atļauts</string>
+    <string name="title_metered_blocked">Mērītais trafiks ir bloķēts</string>
+    <string name="title_metered_disabled">Mērītie noteikumi netiek piemēroti</string>
     <string name="title_host_allowed">Adrese ir atļauta</string>
     <string name="title_host_blocked">Adrese ir bloķēta</string>
-    <string name="title_interactive_allowed">Atļaut, kad ekrāns ir ieslēgts</string>
+    <string name="title_interactive_allowed">Atļaut, kad ekrāns ieslēgts</string>
     <string name="title_roaming_blocked">Bloķēt viesabonēšanā</string>
-    <string name="title_metered">Pēc noklusējuma Wi-Fi savienojums tiek uzskatīts kā neierobežots (Nemērīts) un mobilais datu kā ierobežots (Mērīts) savienojums</string>
-    <string name="title_internet">nav atļauts internets</string>
+    <string name="title_metered">Pēc noklusējuma Wi-Fi savienojums tiek uzskatīts par nemērītu un mobilais savienojums par mērītu</string>
+
+    <string name="title_internet">nav interneta atļaujas</string>
     <string name="title_disabled">ir atspējots</string>
-    <string name="title_messaging">Ienākošie ziņojumi tiek saņemti caur Google Play servisiem un nevis no šīs aplikācijas, tāpēc tos nevar nobloķēt bloķējot šo aplikāciju</string>
-    <string name="title_download">Lejupielādes veic lejupielāžu pārvaldnieks (Download manager) un nevis šī aplikācija, tāpēc tās nevar nobloķēt bloķējot šo aplikāciju</string>
-    <string name="title_apply">Apstiprināt noteikumus un nosacījumus</string>
+    <string name="title_messaging">Ienākošos ziņojumus saņem Google Play pakalpojumi, nevis šī lietotne, tāpēc tos nevar bloķēt, bloķējot šo lietotni</string>
+    <string name="title_download">Lejupielādes veic lejupielādes pārvaldnieks, nevis šī lietotne, tāpēc tās nevar bloķēt, bloķējot šo lietotni</string>
+    <string name="title_apply">Piemērot noteikumus un nosacījumus</string>
     <string name="title_conditions">Nosacījumi</string>
-    <string name="title_screen_wifi">Atļaut Wi-Fi, kad ekrāns ir ieslēgts</string>
-    <string name="title_screen_other">Atļaut mobilos datus, kad ekrāns ir ieslēgts</string>
+    <string name="title_screen_wifi">Atļaut Wi-Fi, kad ekrāns ieslēgts</string>
+    <string name="title_screen_other">Atļaut mobilos datus, kad ekrāns ieslēgts</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">Bloķēt viesabonēšanā</string>
-    <string name="title_lockdown">Atļaut bloķētas datu plūsmas režīmā</string>
+    <string name="label_ttl">TTL: %s s</string>
+    <string name="label_uid">UID: %s</string>
+    <string name="title_lockdown">Atļaut bloķēšanas režīmā</string>
     <string name="title_related">Filtrēt saistītos</string>
     <string name="title_access">Piekļuves mēģinājumi</string>
-    <string name="title_precedence">Piekļuves noteikumiem ir virsroka pār citiem noteikumiem</string>
+    <string name="title_precedence">Piekļuves noteikumiem ir prioritāte</string>
     <string name="title_options">Iespējas</string>
     <string name="title_notify">Paziņot par interneta piekļuves mēģinājumiem</string>
-    <string name="title_logging_disabled">Žurnālošana vai filtrēšana nav iespējota</string>
-    <string name="title_logging_enabled">Žurnālošana un filtrēšana ir iespējota</string>
+
+    <string name="title_logging_disabled">Žurnalēšana vai filtrēšana nav iespējota</string>
+    <string name="title_logging_enabled">Žurnalēšana un filtrēšana ir iespējota</string>
     <string name="title_logging_configure">Konfigurēt</string>
-    <string name="title_enable_logging">Iespējot tikai bloķēto adrešu žurnālošanu</string>
-    <string name="title_enable_filtering">Iespējot arī atļauto adrešu žurnālošanu</string>
-    <string name="title_enable_notify">Iespējot jauno žurnāloto adrešu piekļuves paziņojumus</string>
-    <string name="title_enable_help0">Šie iestatījumi ir globāli un attiecās uz visām lietotnēm</string>
-    <string name="title_enable_help1">Filtrēšana arī ir nepieciešama lai atļautu vai bloķētu individuālas adreses</string>
-    <string name="title_enable_help2">Žurnālošana (mazāk) un filtrēšana (vairāk) var palielināt baterijas noslodzi un atstāt iespaidu uz tīkla ātrumu</string>
-    <string name="title_rate">Vērtēt</string>
+
+    <string name="title_enable_logging">Žurnalēt tikai bloķētās adreses</string>
+    <string name="title_enable_filtering">Iespējot filtrēšanu, lai žurnalētu arī atļautās adreses</string>
+    <string name="title_enable_notify">Iespējot piekļuves paziņojumus jaunžurnalētajām adresēm</string>
+    <string name="title_enable_help0">Šie iestatījumi ir globāli un attiecas uz visām lietotnēm</string>
+    <string name="title_enable_help1">Filtrēšana ir nepieciešama arī, lai atļautu vai bloķētu atsevišķas adreses</string>
+    <string name="title_enable_help2">Žurnalēšanas (mazāk) vai filtrēšanas (vairāk) iespējošana var palielināt akumulatora lietojumu un ietekmēt tīkla ātrumu</string>
+
+    <string name="title_rate">Novērtēt</string>
     <string name="title_allow">Atļaut</string>
     <string name="title_block">Bloķēt</string>
+    <string name="title_wifi">Wi-Fi</string>
+    <string name="title_mobile">Mobilais</string>
     <string name="title_allow_wifi">Atļaut Wi-Fi</string>
     <string name="title_block_wifi">Bloķēt Wi-Fi</string>
-    <string name="title_allow_other">Atļaut mobilos datus</string>
-    <string name="title_block_other">Bloķēt mobilos datus</string>
-    <string name="title_root">saknes katalogs</string>
-    <string name="title_mediaserver">media serveris</string>
-    <string name="title_nobody">neviens</string>
+    <string name="title_allow_other">Atļaut mobilos</string>
+    <string name="title_block_other">Bloķēt mobilos</string>
+    <string name="title_root">root</string>
+    <string name="title_mediaserver">mediaserver</string>
+    <string name="title_gpsdaemon" translatable="false">GPS daemon</string>
+    <string name="title_dnsdaemon" translatable="false">DNS daemon</string>
+    <string name="title_nobody">nobody</string>
     <string name="title_dontask">Vairs nejautāt</string>
+
     <string name="title_log_whois">Whois %1$s</string>
     <string name="title_log_port">Ports %1$d</string>
     <string name="title_log_copy">Kopēt</string>
-    <string name="title_pro">PRO iespējas</string>
-    <string name="title_pro_description">Sekojošas PRO funkcijas ir pieejamas:</string>
-    <string name="title_pro_log">Skatīt bloķētās datu plūsmas žurnālu</string>
-    <string name="title_pro_filter">Filtrēt tīkla datu plūsmu</string>
-    <string name="title_pro_notify">Jaunas lietotnes paziņojums</string>
-    <string name="title_pro_speed">Tīkla ātruma grafiks</string>
-    <string name="title_pro_theme">Izskatas (tēma, krāsas)</string>
-    <string name="title_pro_all">Visas augstāk minētās PRO funkcijas</string>
-    <string name="title_pro_dev">Atbalsts attīstībai</string>
+
+    <string name="title_pro">Pro funkcijas</string>
+    <string name="title_pro_description">Ir pieejamas šādas Pro funkcijas:</string>
+    <string name="title_pro_log">Skatīt bloķētā trafika žurnālu</string>
+    <string name="title_pro_filter">Filtrēt tīkla trafiku</string>
+    <string name="title_pro_notify">Jaunu lietotņu paziņojumi</string>
+    <string name="title_pro_speed">Tīkla ātruma grafika paziņojums</string>
+    <string name="title_pro_theme">Izskats (tēmas, krāsas)</string>
+    <string name="title_pro_all">Visas iepriekš minētās Pro funkcijas</string>
+    <string name="title_pro_dev">Atbalstīt izstrādi</string>
     <string name="title_pro_buy">Pirkt</string>
     <string name="title_pro_bought">Iespējots</string>
     <string name="title_pro_unavailable">Nav pieejams</string>
-    <string name="title_pro_details">Spied uz virsrakstu, lai iegūtu vairāk informācijas</string>
+    <string name="title_pro_details">Pieskarieties virsrakstam, lai iegūtu vairāk informācijas</string>
     <string name="title_pro_challenge">Izaicinājums</string>
-    <string name="title_pro_reponse">Atsauce</string>
-    <string name="title_pro_feature">Šī ir PRO funkcija</string>
-    <string name="title_pro_subscription">        Mēneša abonements 1 vai 2 eiro apmērā (neieskaitot vietējos nodokļus) aktivizēs visas Pro funkcijas.
-        Abonementu var atcelt vai mainīt jebkurā brīdī Play veikala Abonementi sadaļā.
+    <string name="title_pro_reponse">Atbilde</string>
+    <string name="title_pro_feature">Šī ir Pro funkcija</string>
+    <string name="title_pro_subscription">
+        Mēneša abonements 1 vai 2 eiro apmērā (neieskaitot vietējos nodokļus) aktivizēs visas Pro funkcijas.
+        Jūs varat atcelt vai pārvaldīt abonementu Play veikala abonementu cilnē.
     </string>
-    <string-array name="themeNames">
-        <item>zilgans/oranžs</item>
-        <item>zils/oranžs</item>
-        <item>violets/sarkans</item>
-        <item>dzintars/zils</item>
-        <item>oranžs/pelēks</item>
-        <item>zaļš</item>
-    </string-array>
-    <string-array name="protocolNames">
+    <string name="title_pro_already">Pro funkcijas jau ir aktivizētas</string>    <string-array name="protocolNames">
         <item>UDP</item>
         <item>TCP</item>
     </string-array>
+
+    <string-array name="protocolValues" translatable="false">
+        <item>17</item>
+        <item>6</item>
+    </string-array>
+
+    <string name="label_dns_summary">%1$d ieraksti • %2$d beidzies termiņš</string>
+
 </resources>

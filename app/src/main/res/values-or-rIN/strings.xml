@@ -1,55 +1,453 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name" translatable="false">NetGuard Next</string>
+    <string name="app_description">ନେଟଗାର୍ଡ (NetGuard) ଇଣ୍ଟରନେଟ୍ ଆକ୍ସେସକୁ ବନ୍ଦ କରିବା ପାଇଁ ସରଳ ଏବଂ ଉନ୍ନତ ଉପାୟ ପ୍ରଦାନ କରେ - କୌଣସି ରୁଟ୍ (root) ଆବଶ୍ୟକ ନାହିଁ | ଆପଣଙ୍କର ୱାଇ-ଫାଇ (Wi-Fi) କିମ୍ବା ମୋବାଇଲ୍ ସଂଯୋଗକୁ ଆପ୍ ଏବଂ ଠିକଣାଗୁଡ଼ିକୁ ବ୍ୟକ୍ତିଗତ ଭାବରେ ଅନୁମତି ଦିଆଯାଇପାରିବ କିମ୍ବା ପ୍ରତ୍ୟାଖ୍ୟାନ କରାଯାଇପାରିବ |</string>
+    <string name="app_copyright" translatable="false">Copyright \u00A9 2015–2025 by M. Bokhorst (M66B)</string>
+    <string name="app_android">ନେଟଗାର୍ଡ ପାଇଁ ଆଣ୍ଡ୍ରଏଡ୍ ୫.୧ କିମ୍ବା ତା’ଠାରୁ ଅଧିକ ଆବଶ୍ୟକ</string>
+    <string name="app_eula" translatable="false">THIS SOFTWARE IS PROVIDED BY THE AUTHOR \'\'AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
+    <string name="app_privacy"><a href="https://www.netguard.me/privacy/">ଗୋପନୀୟତା ନୀତି</a></string>
+    <string name="app_first">ନେଟଗାର୍ଡକୁ ବିକଶିତ କରିବା ଏବଂ ପରୀକ୍ଷା କରିବା ପାଇଁ ବହୁତ ଯତ୍ନ ନିଆଯାଇଛି, ତଥାପି ନେଟଗାର୍ଡ ପ୍ରତ୍ୟେକ ଡିଭାଇସରେ ସଠିକ୍ ଭାବରେ କାମ କରିବ ବୋଲି ଗ୍ୟାରେଣ୍ଟି ଦେବା ଅସମ୍ଭବ |</string>
     <string name="app_agree">ମୁଁ ସହମତ</string>
-    <string name="app_disagree">ମୁଁ ସହମତ ନୁହେଁ</string>
+    <string name="app_disagree">ମୁଁ ଅସହମତ</string>
+    <string name="app_support">ନେଟଗାର୍ଡକୁ ଆପଣଙ୍କ ସାହାଯ୍ୟ ଦରକାର | ପ୍ରୋଜେକ୍ଟକୁ ଜାରି ରଖିବା ପାଇଁ ପ୍ରୋ ଫିଚର କିଣିବାକୁ ଟ୍ୟାପ୍ କରନ୍ତୁ |</string>
+    <string name="app_qap">
+        ଗୁଗୁଲ୍ ପ୍ଲେ ଷ୍ଟୋରରୁ ଆପ୍ ହଟାଇବାକୁ ଯାଉଥିଲା କାରଣ ଏହା ସମସ୍ତ ଆପ୍ ଗୁଡ଼ିକୁ କ୍ୱେରୀ କରିବାକୁ ଅନୁମତି ମାଗିଥିଲା |
+        ପାଞ୍ଚଟି ଅପିଲ୍ ଏବଂ ଏହି ଅନୁମତି କାହିଁକି ଆବଶ୍ୟକ ସେ ବିଷୟରେ ଏକ ଭଲ ଯଥାର୍ଥତା ପ୍ରଦାନକୁ ପ୍ରତ୍ୟାଖ୍ୟାନ କରାଯାଇଥିଲା |
+        ଆପ୍ ର ଏହି ସଂସ୍କରଣ ଆଉ ଏହି ଅନୁମତି ମାଗୁନାହିଁ,
+        ଏବଂ ତାହା ସତ୍ତ୍ୱେ, ପ୍ରାୟ ସମସ୍ତ ଆପ୍ ତାଲିକାଭୁକ୍ତ ହେବ,
+        କେତେକ (ସିଷ୍ଟମ୍) ଆପ୍ ବ୍ୟତୀତ ଯାହା ଆଣ୍ଡ୍ରଏଡ୍ ଆପ୍ ତାଲିକାରୁ ମାନୁଆଲ୍ ଭାବରେ ଆରମ୍ଭ ହୋଇପାରିବ ନାହିଁ |
+        ଆପଣଙ୍କର ଡିଭାଇସ୍ ସଠିକ୍ ଭାବରେ କାମ କରୁଛି କି ନାହିଁ ନିଶ୍ଚିତ କରିବାକୁ ଏହି ଆପ୍ ଗୁଡ଼ିକର ଇଣ୍ଟରନେଟ୍ ଟ୍ରାଫିକ୍ ସର୍ବଦା ଅନୁମତି ଦିଆଯିବ |
+        ଯଦି ଆପଣ ଭାବୁଛନ୍ତି ଯେ ଏହା ଏକ ସମସ୍ୟା, ଆପଣ ଆପ୍ ର GitHub ସଂସ୍କਰଣକୁ ଅପଡେଟ୍ କରିପାରିବେ ଏବଂ ପୁନର୍ବାର ସମସ୍ତ (ସିଷ୍ଟମ୍) ଆପ୍ ପରିଚାଳନା କରିପାରିବେ |
+    </string>
+
+    <string name="channel_foreground">ଚାଲୁଥିବା ସେବାଗୁଡିକ</string>
+    <string name="channel_notify">ସାଧାରଣ ବିଜ୍ଞପ୍ତିଗୁଡିକ</string>
+    <string name="channel_access">ଆକ୍ସେସ୍ ବିଜ୍ଞପ୍ତିଗୁଡିକ</string>
+
+    <string name="menu_search">ଆପ୍ ଖୋଜନ୍ତୁ</string>
+    <string name="menu_filter">ଆପ୍ ଫିଲ୍ଟର୍ କରନ୍ତୁ</string>
+    <string name="menu_app_user">ବ୍ୟବହାରକାରୀ ଆପ୍ ଦେଖାନ୍ତୁ</string>
+    <string name="menu_app_system">ସିଷ୍ଟମ୍ ଆପ୍ ଦେଖାନ୍ତୁ</string>
+    <string name="menu_app_nointernet">ବିନା ଇଣ୍ଟରନେଟ୍ ଥିବା ଆପ୍ ଦେଖାନ୍ତୁ</string>
+    <string name="menu_app_disabled">ଅକ୍ଷମ ଆପ୍ ଦେଖାନ୍ତୁ</string>
+    <string name="menu_sort">ଆପ୍ ସଜାନ୍ତୁ</string>
+    <string name="menu_sort_name">ନାମ ଅନୁସାରେ ସଜାନ୍ତୁ</string>
+    <string name="menu_sort_uid">UID ଅନୁସାରେ ସଜାନ୍ତୁ</string>
+    <string name="menu_sort_data">ଡାଟା ବ୍ୟବହାର ଅନୁସାରେ ସଜାନ୍ତୁ</string>
+    <string name="menu_launch">ଆପ୍ ଖୋଲନ୍ତୁ</string>
+    <string name="menu_log">ଲଗ୍ ଦେଖାନ୍ତୁ</string>
     <string name="menu_settings">ସେଟିଂସମୂହ</string>
-    <string name="menu_support">ସମର୍ଥନ</string>
-    <string name="menu_about">ସମ୍ବନ୍ଧରେ</string>
-    <string name="menu_protocol_other">ଅନ୍ୟ</string>
+    <string name="menu_home">ହୋମ୍</string>
+    <string name="menu_invite">ନିମନ୍ତ୍ରଣ କରନ୍ତୁ</string>
+    <string name="menu_legend">ଲିଜେଣ୍ଡ</string>
+    <string name="menu_support">ସହାୟତା</string>
+    <string name="menu_about">ବିଷୟରେ</string>
+    <string name="menu_apps">ଅନ୍ୟାନ୍ୟ ଆପ୍</string>
+    <string name="menu_firewall">ଫାୟାରୱାଲ୍</string>
+    <string name="status_enabled">ଫାୟାରୱାଲ୍ ସକ୍ଷମ</string>
+    <string name="status_disabled">ଫାୟାରୱାଲ୍ ଅକ୍ଷମ</string>
+    <string name="widget_firewall_enabled">ଫାୟାରୱାଲ୍ ON</string>
+    <string name="widget_firewall_disabled">ଫାୟାରୱାଲ୍ OFF</string>
+    <string name="widget_lockdown_enabled">ଲକଡାଉନ୍ ON</string>
+    <string name="widget_lockdown_disabled">ଲକଡାଉନ୍ OFF</string>
+    <string name="notify_traffic_title">ଟ୍ରାଫିକ୍ ମନିଟର୍</string>
+    <string name="notify_traffic_summary">ଅପ୍ %1$s • ଡାଉନ୍ %2$s • ପିକ୍ %3$s</string>
+    <string name="notify_traffic_debug">ସେସନ୍ %1$d/%2$d/%3$d • ଫାଇଲ୍ %4$d/%5$d</string>
+    <string name="ui_loading">ଲୋଡ୍ ହେଉଛି…</string>
+    <string name="ui_empty_logs_title">ଏପର୍ଯ୍ୟନ୍ତ କୌଣସି ଟ୍ରାଫିକ୍ ନାହିଁ</string>
+    <string name="ui_empty_logs_body">ଥରେ ସଂଯୋଗ ଦେଖାଗଲେ, ସେଗୁଡିକ ଏଠାରେ ଦେଖାଯିବ |</string>
+    <string name="ui_empty_apps_title">କୌଣସି ଆପ୍ ମିଳିଲା ନାହିଁ</string>
+    <string name="ui_empty_apps_body">ତାଲିକାକୁ ସତେଜ କରିବାକୁ ଚେଷ୍ଟା କରନ୍ତୁ |</string>
+    <string name="ui_empty_dns_title">ଏପର୍ଯ୍ୟନ୍ତ କୌଣସି ସମାଧାନ ହୋଇଥିବା DNS ନାହିଁ</string>
+    <string name="ui_empty_dns_body">ବ୍ରାଉଜ୍ କରିବା ପରେ DNS ପ୍ରତିକ୍ରିୟାଗୁଡ଼ିକ ଏଠାରେ ଦେଖାଯିବ |</string>
+    <string name="ui_dns_filter_empty">ଏହି ଫିଲ୍ଟର୍ ସହିତ କୌଣସି DNS ଏଣ୍ଟ୍ରି ମେଳ ଖାଉନାହିଁ |</string>
+    <string name="ui_empty_forwarding_title">କୌଣସି ଫରୱାର୍ଡିଂ ନିୟମ ନାହିଁ</string>
+    <string name="ui_empty_forwarding_body">ଟ୍ରାଫିକ୍ ଫରୱାର୍ଡ କରିବା ଆରମ୍ଭ କରିବାକୁ ଏକ ନିୟମ ଯୋଡନ୍ତୁ |</string>
+    <string name="ui_forwarding_filter_empty">ଏହି ଫିଲ୍ଟର୍ ସହିତ କୌଣସି ଫରୱାର୍ଡିଂ ନିୟମ ମେଳ ଖାଉନାହିଁ |</string>
+    <string name="ui_empty_pro_body">ସହାୟତା ଅତିରିକ୍ତ ବୈଶିଷ୍ଟ୍ୟଗୁଡିକୁ ଅନଲକ୍ କରେ ଏବଂ ପ୍ରୋଜେକ୍ଟକୁ ଜୀବନ୍ତ ରଖେ |</string>
+    <string name="ui_empty_pro_details">ପ୍ରୋ ଅନଲକ୍ କରେ: ଫିଲ୍ଟରିଂ, ଲଗିଂ, ବିଜ୍ଞପ୍ତି, ଥିମ୍ ଏବଂ ସ୍ପିଡ୍ ସୀମା |</string>
+    <string name="ui_home_hint">ପ୍ରତ୍ୟေକ ଆପ୍ ପାଇଁ ଇଣ୍ଟରନେଟ୍ ଆକ୍ସେସ୍ ନିୟନ୍ତ୍ରଣ କରନ୍ତୁ |</string>
+    <string name="ui_home_quick_actions">ଶୀଘ୍ର କାର୍ଯ୍ୟ</string>
+    <string name="ui_apps_title">ଫାୟାରୱାଲ୍</string>
+    <string name="ui_logs_title">ଟ୍ରାଫିକ୍ ଲଗ୍</string>
+    <string name="ui_logs_filters">ଫିଲ୍ଟର୍</string>
+    <string name="ui_logs_filter_status">ସ୍ଥିତି</string>
+    <string name="ui_logs_filter_protocol">ପ୍ରୋଟୋକଲ୍</string>
+    <string name="ui_logs_filter_view">ଦେଖନ୍ତୁ</string>
+    <string name="ui_logs_group_timeline">ଟାଇମଲାଇନ</string>
+    <string name="ui_logs_group_by_app">ଆପ୍ ଅନୁସାରେ</string>
+    <string name="ui_logs_unknown_source">ଅଜଣା ଉତ୍ସ</string>
+    <string name="ui_settings_title">ସେଟିଂସମୂହ</string>
+    <string name="ui_dns_title">ସମାଧାନ ହୋଇଥିବା DNS</string>
+    <string name="ui_forwarding_title">ପୋର୍ଟ ଫରୱାର୍ଡିଂ</string>
+    <string name="ui_dns_hint">ନିକଟରେ ସମାଧାନ ହୋଇଥିବା ଡୋମେନ୍ ଏବଂ ପ୍ରତିକ୍ରିୟାଗୁଡ଼ିକ |</string>
+    <string name="ui_forwarding_hint">ଫରୱାର୍ଡିଂ ନିୟମ ଏବଂ ଲକ୍ଷ୍ୟ ଆପ୍ ପରିଚାଳନା କରନ୍ତୁ |</string>
+    <string name="ui_dns_active">ସକ୍ରିୟ</string>
+    <string name="ui_rule_custom">କଷ୍ଟମ୍</string>
+    <string name="ui_dns_expired">ଅବଧି ସମାପ୍ତ</string>
+    <string name="ui_filter_all">ସବୁ</string>
+    <string name="ui_filter_empty">ଏହି ଫିଲ୍ଟର୍ ସହିତ କୌଣସି ଆପ୍ ମେଳ ଖାଉନାହିଁ |</string>
+    <string name="ui_apps_search_empty">ଏହି ସନ୍ଧାନ ସହିତ କୌଣସି ଆପ୍ ମେଳ ଖାଉନାହିଁ |</string>
+    <string name="ui_learn_more">ଅଧିକ ଜାଣନ୍ତୁ</string>
+    <string name="status_running">ଟ୍ରାଫିକ୍ ଫିଲ୍ଟର୍ ହେଉଛି</string>
+    <string name="status_not_running">ଟ୍ରାଫିକ୍ ଫିଲ୍ଟର୍ ହେଉନାହିଁ</string>
+    <string name="action_enable">ସକ୍ଷମ କରନ୍ତୁ</string>
+    <string name="action_disable">ଅକ୍ଷମ କରନ୍ତୁ</string>
+    <string name="home_apps_hint">ଆପ୍ ନିୟମ ଏବଂ ଡାଟା ବ୍ୟବହାର ସମୀକ୍ଷା କରନ୍ତୁ</string>
+    <string name="home_logs_hint">ନିକଟତମ ନେଟୱାର୍କ କାର୍ଯ୍ୟକଳାପ ଯାଞ୍ଚ କରନ୍ତୁ</string>
+
+    <!-- Accessibility -->
+    <string name="action_expand">ବିବରଣୀ ବିସ୍ତାର କରନ୍ତୁ</string>
+    <string name="action_collapse">ବିବରଣୀ ହ୍ରାସ କରନ୍ତୁ</string>
+    <string name="action_navigate">ଖୋଲନ୍ତୁ</string>
+    <string name="action_toggle_firewall">ଫାୟାରୱାଲ୍ ଟୋଗଲ୍ କରନ୍ତୁ</string>
+    <string name="action_clear_search">ସନ୍ଧାନ ସଫା କରନ୍ତୁ</string>
+    <string name="search_settings">ସେଟିଂସରେ ଖୋଜନ୍ତୁ</string>
+    <string name="content_desc_security_status">ଫାୟାରୱାଲ୍ ସୁରକ୍ଷା ସ୍ଥିତି</string>
+    <string name="content_desc_app_icon">%s ପାଇଁ ଆପ୍ ଆଇକନ୍</string>
+    <string name="content_desc_show_info">%1$s ବିଷୟରେ ସୂଚନା ଦେଖାନ୍ତୁ</string>
+
+    <!-- Dashboard stats -->
+    <string name="stat_blocked_today">ଅବରୋଧିତ</string>
+    <string name="stat_allowed_today">ଅନୁମତିପ୍ରାପ୍ତ</string>
+    <string name="stat_active_rules">ସକ୍ରିୟ ନିୟମ</string>
+
+    <!-- Tooltips -->
+    <string name="tooltip_rcode">ଅବରୋଧିତ ଡୋମେନ୍ ପାଇଁ ପଠାଯାଇଥିବା DNS ପ୍ରତିକ୍ରିୟା କୋଡ୍ | ଡିଫଲ୍ଟ ୩ (NXDOMAIN) ର ଅର୍ଥ ହେଉଛି ଡୋମେନ୍ ବିଦ୍ୟମାନ ନାହିଁ |</string>
+    <string name="tooltip_ttl">ସେକେଣ୍ଡରେ DNS କ୍ୟାସ ଏଣ୍ଟ୍ରିଗୁଡିକ ପାଇଁ ସର୍ବନିମ୍ନ ସମୟ-ଜୀବନ |</string>
+    <string name="tooltip_pcap">ଡିବଗିଂ ପାଇଁ ସମସ୍ତ ନେଟୱାର୍କ ପ୍ୟାକେଟ୍ ରେକର୍ଡ କରନ୍ତୁ | ବଡ଼ ଫାଇଲ୍ ସୃଷ୍ଟି କରେ |</string>
+    <string name="tooltip_filter">ଟ୍ରାଫିକ୍ ଅବରୋଧ ଏବଂ ବିଶ୍ଳେଷଣ କରନ୍ତୁ | ପ୍ରତି-ଠିକଣା ଅବରୋଧ ପାଇଁ ଆବଶ୍ୟକ | ଅଧିକ ବ୍ୟାଟେରୀ ବ୍ୟବହାର କରେ |</string>
+    <string name="tooltip_lockdown"> kedai ଅନୁମତିପ୍ରାପ୍ତ ଆପ୍ ଗୁଡ଼ିକୁ ଛାଡି ସମସ୍ତ ଟ୍ରାଫିକ୍ ବନ୍ଦ କରନ୍ତୁ | ସତର୍କତାର ସହିତ ବ୍ୟବହାର କରନ୍ତୁ |</string>
+
+    <string name="menu_protocol_udp" translatable="false">UDP</string>
+    <string name="menu_protocol_tcp" translatable="false">TCP</string>
+    <string name="menu_protocol_other">ଅନ୍ୟାନ୍ୟ</string>
+    <string name="menu_traffic_allowed">ଅନୁମତିପ୍ରାପ୍ତ</string>
+    <string name="menu_traffic_blocked">ଅବରୋଧିତ</string>
+    <string name="menu_live">ଲାଇଭ୍ ଅପଡେଟ୍</string>
+    <string name="menu_refresh">ସତେଜ କରନ୍ତୁ</string>
+    <string name="menu_ok">OK</string>
+    <string name="menu_cancel">ବାତିଲ୍</string>
+    <string name="menu_resolve">ନାମ ଦେଖାନ୍ତୁ</string>
+    <string name="menu_organization">ସଂଗଠନ ଦେଖାନ୍ତୁ</string>
+    <string name="menu_pcap_enabled">PCAP ସକ୍ଷମ</string>
+    <string name="menu_pcap_export">PCAP ରପ୍ତାନି</string>
+    <string name="menu_clear">ସଫା କରନ୍ତୁ</string>
+    <string name="menu_export">ରପ୍ତାନି କରନ୍ତୁ</string>
+    <string name="menu_reset">ପୁନଃସ୍ଥାପନ କରନ୍ତୁ</string>
+
+    <string name="menu_add">ଯୋଡନ୍ତୁ</string>
+    <string name="menu_delete">ଅପସାରଣ କରନ୍ତୁ</string>
+
+    <string name="menu_cleanup">ସଫା କରିବା</string>
+
     <string name="title_protocol">ପ୍ରୋଟୋକଲ୍</string>
-    <string name="setting_theme">ଥିମ୍‌: %1$s</string>
-    <string name="setting_dark">ଗାଢ଼ ଥିମ୍ ବ୍ୟବହାର କରିବା</string>
-    <string name="setting_socks5_enabled">SOCKS5 ପ୍ରକ୍ସି ବ୍ୟବହାର କରିବା</string>
+    <string name="title_dport">ଉତ୍ସ ପୋର୍ଟ</string>
+    <string name="title_raddr">ଲକ୍ଷ୍ୟ ଠିକଣա</string>
+    <string name="title_rport">ଲକ୍ଷ୍ୟ ପୋର୍ଟ</string>
+    <string name="title_ruid">ଲକ୍ଷ୍ୟ ଆପ୍</string>
+    <string name="title_external">ଏକ ବାହ୍ୟ ସର୍ଭର ପାଇଁ \'କେହି ନୁହେଁ\' ଚୟନ କରନ୍ତୁ</string>
+
+    <string name="setting_defaults">ଡିଫଲ୍ଟ (ଧଳା/କଳା ତାଲିକା)</string>
+    <string name="setting_whitelist_wifi">ୱାଇ-ଫାଇ ବନ୍ଦ କରନ୍ତୁ</string>
+    <string name="setting_whitelist_other">ମୋବାଇଲ୍ ବନ୍ଦ କରନ୍ତୁ</string>
+    <string name="setting_screen_wifi">ସ୍କ୍ରିନ୍ ଅନ୍ ଥିବାବେଳେ ୱାଇ-ଫାଇ ଅନୁମତି ଦିଅନ୍ତୁ</string>
+    <string name="setting_screen_other">ସ୍କ୍ରିନ୍ ଅନ୍ ଥିବାବେଳେ ମୋବାଇଲ୍ ଅନୁମତି ଦିଅନ୍ତୁ</string>
+    <string name="setting_whitelist_roaming">ରୋମିଂ ବନ୍ଦ କରନ୍ତୁ</string>
+
+    <string name="setting_options">ବିକଳ୍ପଗୁଡିକ</string>
+    <string name="setting_theme">ଥିମ୍: %1$s</string>
+    <string name="setting_dark">ଅନ୍ଧାର ଥିମ୍ ବ୍ୟବହାର କରନ୍ତୁ</string>
+    <string name="setting_theme_palette">ଏକ ରଙ୍ଗ ଶୈଳୀ ବାଛନ୍ତୁ</string>
+    <string name="setting_dynamic_unavailable">ଗତିଶୀଳ ରଙ୍ଗ ପାଇଁ ଆଣ୍ଡ୍ରଏଡ୍ ୧୨ କିମ୍ବା ତା’ଠାରୁ ଅଧିକ ଆବଶ୍ୟକ |</string>
+    <string name="setting_appearance_mode">ଦୃଶ୍ୟ ମୋଡ୍</string>
+    <string name="setting_appearance_mode_title">ଡାର୍କ ମୋଡ୍</string>
+    <string name="setting_appearance_mode_summary">Off, On କିମ୍ବା ସିଷ୍ଟମ୍ ଅନୁସରଣ କରନ୍ତୁ ବାଛନ୍ତୁ |</string>
+    <string name="setting_appearance_preview">ବର୍ତ୍ତମାନ: %1$s · %2$s</string>
+    <string name="setting_appearance_auto">ଅଟୋ</string>
+    <string name="setting_appearance_light">ହାଲୁକା</string>
+    <string name="setting_appearance_dark">ଅନ୍ଧାର</string>
+    <string name="theme_dynamic" translatable="false">Dynamic</string>
+    <string name="setting_install">ନୂତନ ଇନଷ୍ଟଲ୍ ରେ ସୂଚନା ଦିଅନ୍ତୁ</string>
+    <string name="setting_screen_on">\'ସ୍କ୍ରିନ୍ ଅନ୍ ଥିବାବେଳେ\' ନିୟମ ପ୍ରୟୋଗ କରନ୍ତୁ</string>
+    <string name="setting_auto">%1$s ମିନିଟ୍ ପରେ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ସକ୍ଷମ ହୁଏ</string>
+    <string name="setting_delay">ସ୍କ୍ରିନ୍ ଅଫ୍ %1$s ମିନିଟ୍ ବିଳମ୍ବ କରନ୍ତୁ</string>
+    <string name="setting_update">ଅପଡେଟ୍ ଯାଞ୍ଚ କରନ୍ତୁ</string>
+    <string name="setting_update_now">ଏବେ ଯାଞ୍ଚ କରନ୍ତୁ</string>
+    <string name="setting_update_checking">ଯାଞ୍ଚ ହେଉଛି...</string>
+
+    <string name="setting_network_options">ନେଟୱାର୍କ ବିକଳ୍ପଗୁଡିକ</string>
+    <string name="setting_subnet">ସବନେଟ୍ ରୁଟିଂ</string>
+    <string name="setting_tethering">ଟେଥରିଂ ଅନୁମତି ଦିଅନ୍ତୁ</string>
+    <string name="setting_lan">LAN ଆକ୍ସେସ୍ ଅନୁମତି ଦିଅନ୍ତୁ</string>
+    <string name="setting_ip6">IPv6 ଟ୍ରାଫିକ୍ ସକ୍ଷମ କରନ୍ତୁ</string>
+    <string name="setting_wifi_home">ୱାଇ-ଫାଇ ହୋମ୍ ନେଟୱାର୍କ: %1$s</string>
+    <string name="setting_metered">ମିଟର ହୋଇଥିବା ୱାଇ-ଫାଇ ନେଟୱାର୍କ ପରିଚାଳନା କରନ୍ତୁ</string>
+    <string name="setting_metered_2g">2G କୁ ଅନମିଟର ଭାବରେ ବିଚାର କରନ୍ତୁ</string>
+    <string name="setting_metered_3g">3G କୁ ଅନମିଟର ଭାବରେ ବିଚାର କରନ୍ତୁ</string>
+    <string name="setting_metered_4g">LTE କୁ ଅନମିଟର ଭାବରେ ବିଚାର କରନ୍ତୁ</string>
+    <string name="setting_national_roaming">ଜାତୀୟ ରୋମିଂକୁ ଅଣଦେଖା କରନ୍ତୁ</string>
+    <string name="setting_eu_roaming">EU ରୋମିଂକୁ ଅଣଦେଖା କରନ୍ତୁ</string>
+    <string name="setting_call">କଲ୍ ରେ ଅକ୍ଷମ କରନ୍ତୁ</string>
+    <string name="setting_lockdown_wifi">ୱାଇ-ଫାଇ ଲକଡାଉନ୍</string>
+    <string name="setting_lockdown_other">ମୋବାଇଲ୍ ଲକଡାଉନ୍</string>
+    <string name="setting_reload_onconnectivity">ପ୍ରତ୍ୟେକ ସଂଯୋଗ ପରିବର୍ତ୍ତନରେ ପୁନର୍ବାର ଲୋଡ୍ କରନ୍ତୁ</string>
+
+    <string name="setting_advanced_options">ଉନ୍ନତ ବିକଳ୍ପଗୁଡିକ</string>
+    <string name="setting_system">ସିଷ୍ଟମ୍ ଆପ୍ ପରିଚାଳନା କରନ୍ତୁ</string>
+    <string name="setting_log_app">ଇଣ୍ଟରନେଟ୍ ଆକ୍ସେସ୍ ଲଗ୍ କରନ୍ତୁ</string>
+    <string name="setting_log_retention_days">ଟ୍ରାଫିକ୍ ଲଗ୍ ରଖିବା ଦିନ</string>
+    <string name="setting_access">ଇଣ୍ଟରନେଟ୍ ଆକ୍ସେସ୍ ଉପରେ ସୂଚନା ଦିଅନ୍ତୁ</string>
+    <string name="setting_filter">ଟ୍ରାଫିକ୍ ଫିଲ୍ଟର୍ କରନ୍ତୁ</string>
+    <string name="setting_filter_udp">UDP ଟ୍ରାଫିକ୍ ଫିଲ୍ଟର୍ କରନ୍ତୁ</string>
+    <string name="setting_handover">ରିଲୋଡ୍ ରେ ନିରବଚ୍ଛିନ୍ନ VPN ହ୍ୟାଣ୍ଡଓଭර</string>
+    <string name="setting_clear_onreload">ରିଲୋଡ୍ ରେ ସଂଯୋଗ ବନ୍ଦ କରନ୍ତୁ</string>
+    <string name="setting_lockdown">ଲକଡାଉନ୍ ଟ୍ରାଫିକ୍</string>
+    <string name="setting_malware" translatable="false">Malware protection</string>
+    <string name="setting_track_usage">ନେଟୱାର୍କ ବ୍ୟବହାର ଟ୍ରାକ୍ କରନ୍ତୁ</string>
+    <string name="setting_reset_usage">ନେଟୱାର୍କ ବ୍ୟବହାର ପୁନଃସ୍ଥାପନ କରନ୍ତୁ</string>
+    <string name="setting_show_resolved">ସମାଧାନ ହୋଇଥିବା ଡୋମେନ୍ ନାମ ଦେଖାନ୍ତୁ</string>
+    <string name="setting_block_domains">ଡୋମେନ୍ ନାମଗୁଡିକ ଅବରୋଧ କରନ୍ତୁ</string>
+    <string name="setting_rcode">DNS ପ୍ରତିକ୍ରିୟା କୋଡ୍: %s</string>
+    <string name="setting_forwarding">ପୋର୍ଟ ଫରୱାର୍ଡିଂ</string>
+    <string name="setting_vpn4">VPN IPv4: %s</string>
+    <string name="setting_vpn6">VPN IPv6: %s</string>
+    <string name="setting_dns">VPN DNS: %s</string>
+    <string name="setting_dns2">ଦ୍ୱିତୀୟକ DNS: %s</string>
+    <string name="setting_validate">ଏଠାରେ ବୈଧ କରନ୍ତୁ: %s</string>
+    <string name="setting_ttl">ସର୍ବନିମ୍ନ DNS TTL: %s s</string>
+    <string name="setting_socks5_enabled">SOCKS5 ପ୍ରକ୍ସି ବ୍ୟବହାର କରନ୍ତୁ</string>
+    <string name="setting_socks5_addr">SOCKS5 ଠିକଣา: %s</string>
+    <string name="setting_socks5_port">SOCKS5 ପୋର୍ଟ: %s</string>
+    <string name="setting_socks5_username">SOCKS5 ୟୁଜର୍ ନେମ୍: %s</string>
+    <string name="setting_socks5_password">SOCKS5 ପାସୱାର୍ଡ: %s</string>
+    <string name="setting_pcap_record_size">PCAP ରେକର୍ଡ ଆକାର: %s B</string>
+    <string name="setting_pcap_file_size">PCAP ସର୍ବାଧିକ ଫାଇଲ୍ ଆକାର: %s MB</string>
+    <string name="setting_pcap">ନେଟୱାର୍କ ଟ୍ରାଫିକ୍ ରେକର୍ଡ କରନ୍ତୁ (PCAP)</string>
+    <string name="setting_watchdog">ୱାଚଡଗ୍: ପ୍ରତି %s ମିନିଟରେ</string>
+
+    <string name="setting_stats_category">ଗତି ବିଜ୍ଞପ୍ତି</string>
+    <string name="setting_stats">ଗତି ବିଜ୍ଞପ୍ତି ଦେଖାନ୍ତୁ</string>
+    <string name="setting_stats_top">ଶୀର୍ଷ ଆପ୍ ଦେଖାନ୍ତୁ</string>
+    <string name="setting_stats_frequency">ନମୁନା ବ୍ୟବଧାନ: %s ms</string>
+    <string name="setting_stats_samples">ନମୁନା ସଂଖ୍ୟା: %s</string>
+
     <string name="setting_backup">ବ୍ୟାକଅପ୍</string>
-    <string name="setting_export">ସେଟିଂସ୍ ରପ୍ତାନି କରନ୍ତୁ</string>
-    <string name="setting_import">ସେଟିଂସ୍ ଆମଦାନୀ କରନ୍ତୁ</string>
+    <string name="setting_export">ସେଟିଂସ ରପ୍ତାନି କରନ୍ତୁ</string>
+    <string name="setting_import">ସେଟିଂସ ଆମଦାନି କରନ୍ତୁ</string>
+    <string name="setting_hosts">ହୋଷ୍ଟ ଫାଇଲ୍ ଆମଦାନି କରନ୍ତୁ</string>
+    <string name="setting_hosts_append">ହୋଷ୍ଟ ଫାଇଲ୍ ଆମଦାନି କରନ୍ତୁ (ସଂଲଗ୍ନ)</string>
+    <string name="setting_hosts_url">ହୋଷ୍ଟ ଫାଇଲ୍ ଡାଉନଲୋଡ୍ URL</string>
+    <string name="setting_hosts_download">ହୋଷ୍ଟ ଫାଇଲ୍ ଡାଉନଲୋଡ୍ କରନ୍ତୁ</string>
+    <string name="setting_use_hosts">ହୋଷ୍ଟ ଫାଇଲ୍ ବ୍ୟବହାର କରନ୍ତୁ</string>
+
+    <string name="setting_technical">ତୈଷୟିକ ସୂଚନା</string>
     <string name="setting_technical_general">ସାଧାରଣ</string>
-    <string name="msg_mbday">± %1$.3f▲ %2$.3f▼ MB/ଦିନ</string>
-    <string name="msg_kb">%1$7.3f▲ %2$7.3f▼ KB</string>
-    <string name="msg_mb">%1$7.3f▲ %2$7.3f▼ MB</string>
-    <string name="msg_gb">%1$7.3f▲ %2$7.3f▼ GB</string>
-    <string name="msg_count">%dଗୁଣ</string>
+    <string name="setting_technical_networks">ନେଟୱାର୍କ</string>
+    <string name="setting_technical_subscription">ସବସ୍କ୍ରିପସନ୍</string>
+    <string name="setting_section_appearance">ଦୃଶ୍ୟ</string>
+    <string name="setting_section_firewall">ଫାୟାରୱାଲ୍ ନିୟମ</string>
+    <string name="setting_section_advanced">ଉନ୍ନତ ଆଚରଣ</string>
+    <string name="setting_section_hosts">ହୋଷ୍ଟ ଏବଂ DNS</string>
+    <string name="setting_section_network">ନେଟୱାର୍କ କନଫିଗରେସନ୍</string>
+    <string name="setting_section_dns">DNS ବିବରଣୀ</string>
+    <string name="setting_section_proxy">ପ୍ରକ୍ସି</string>
+    <string name="setting_section_vpn">VPN କନଫିଗରେସନ୍</string>
+    <string name="setting_section_background">ପୃଷ୍ଠଭୂମି କାର୍ଯ୍ୟ</string>
+    <string name="setting_section_diagnostics">ନିଦାନ</string>
+    <string name="setting_section_support">ସହାୟତା</string>
+
+    <string name="summary_install">ନୂତନ ଭାବରେ ସ୍ଥାପିତ ଆପ୍ ଗୁଡ଼ିକୁ ସିଧาସଳଖ ବିନ୍ୟାସ କରିବାକୁ ଷ୍ଟାଟସ୍ ବାର୍ ବିଜ୍ଞପ୍ତି ଦେଖାନ୍ତୁ (ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟ)</string>
+    <string name="summary_auto">ୱିଜେଟ୍ ବ୍ୟବହାର କରି ଅକ୍ଷମ କରିବା ପରେ, ମନୋନୀତ ମିନିଟ୍ ପରେ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ନେଟଗାର୍ଡକୁ ପୁନର୍ବାର ସକ୍ଷମ କରନ୍ତୁ (ଏହି ବିକଳ୍ପକୁ ଅକ୍ଷମ କରିବାକୁ ଶୂନ୍ୟ ପ୍ରବେଶ କରନ୍ତୁ)</string>
+    <string name="summary_delay">ସ୍କ୍ରିନ୍ ଅଫ୍ କରିବା ପରେ, ମନୋନୀତ ମିନିଟ୍ ପାଇଁ ସ୍କ୍ରିନ୍ ଅନ୍ ନିୟମଗୁଡ଼ିକୁ ସକ୍ରିୟ ରଖନ୍ତୁ (ଏହି ବିକଳ୍ପକୁ ଅକ୍ଷମ କରିବାକୁ ଶୂନ୍ୟ ପ୍ରବେଶ କରନ୍ତୁ)</string>
+    <string name="summary_update">ଦିନକୁ ଦୁଇଥර GitHub ରେ ନୂତନ ରିଲିଜ୍ ପାଇଁ ଯାଞ୍ଚ କରନ୍ତୁ</string>
+
+    <string name="summary_tethering">ଆଣ୍ଡ୍ରଏଡ୍ ସଂସ୍କରଣ ଉପରେ ନିର୍ଭର କରି, ଟେଥରିଂ କାମ କରିପାରେ କିମ୍ବା ନହୋଇପାରେ | ଟେଥର ହୋଇଥିବା ଟ୍ରାଫିକ୍ ଫିଲ୍ଟର୍ ହୋଇପାରିବ ନାହିଁ |</string>
+    <string name="summary_subnet">ସବନେଟ୍ ରୁଟିଂ ସକ୍ଷମ କରନ୍ତୁ; ୱାଇ-ଫାଇ କଲିଂ ସକ୍ଷମ ହୋଇପାରେ, କିନ୍ତୁ ଆଣ୍ଡ୍ରଏଡ୍ ରେ ବଗ୍ ସୃଷ୍ଟି କରିପାରେ ଏବଂ ବ୍ୟାଟେରୀ ବ୍ୟବହାର ବଢାଇପାରେ |</string>
+    <string name="summary_lan">ଆପ୍ ଗୁଡ଼ିକୁ ଲୋକାଲ୍ ଏରିଆ ନେଟୱାର୍କ ଠିକଣା ସହିତ ସଂଯୋଗ କରିବାକୁ ଅନୁମତି ଦିଅନ୍ତୁ, ଯେପରିକି 10.0.0.0/8, 172.16.0.0/12 ଏବଂ 192.168.0.0/16</string>
+    <string name="summary_ip6">IP ସଂସ୍କରଣ ୬ ଟ୍ରାଫିକ୍ କୁ ନେଟଗାର୍ଡ କୁ ପଠାନ୍ତୁ ଯାହା ଦ୍ୱାରା ଏହା ମନୋନୀତ ଭାବରେ ଅନୁମତି ଦିଆଯାଇପାରିବ କିମ୍ବା ବନ୍ଦ କରାଯାଇପାରିବ |</string>
+    <string name="summary_wifi_home">କେବଳ ମନୋନୀତ ନେଟୱାର୍କ ପାଇଁ ୱାଇ-ଫାଇ ନେଟୱାର୍କ ନିୟମ ପ୍ରୟୋଗ କରନ୍ତୁ (ଅନ୍ୟ ୱାଇ-ଫାଇ ନେଟୱାର୍କ ପାଇଁ ମୋବାଇଲ୍ ନେଟୱାର୍କ ନିୟମ ପ୍ରୟୋଗ କରନ୍ତୁ)</string>
+    <string name="summary_metered">ମିଟର ହୋଇଥିବା (ଦେୟଯୁକ୍ତ, ଟେଥର ହୋଇଥିବା) ୱାଇ-ଫାଇ ନେଟୱାର୍କ ଗୁଡ଼ିକରେ ମୋବାଇଲ୍ ନେଟୱାର୍କ ନିୟମ ପ୍ରୟୋଗ କରନ୍ତୁ</string>
+    <string name="summary_metered_2g">2G ଡାଟା ସଂଯୋଗ ପାଇଁ ୱାଇ-ଫାଇ ନେଟୱାର୍କ ନିୟମ ପ୍ରୟୋଗ କରନ୍ତୁ</string>
+    <string name="summary_metered_3g">3G ଡାଟା ସଂଯୋଗ ପାଇଁ ୱାଇ-ଫାଇ ନେଟୱାର୍କ ନିୟମ ପ୍ରୟୋଗ କରନ୍ତୁ</string>
+    <string name="summary_metered_4g">LTE ଡାଟା ସଂଯୋଗ ପାଇଁ ୱାଇ-ଫାଇ ନେଟୱାର୍କ ନିୟମ ପ୍ରୟୋଗ କରନ୍ତୁ</string>
+    <string name="summary_national_roaming">ଯେତେବେଳେ SIM ଏବଂ ମୋବାଇଲ୍ ନେଟୱାର୍କ ଦେଶ ସମାନ ହୁଏ ସେତେବେଳେ ରୋମିଂ ନିୟମ ପ୍ରୟୋଗ କରନ୍ତୁ ନାହିଁ</string>
+    <string name="summary_eu_roaming">ଯେତେବେଳେ SIM ଏବଂ ମୋବାଇଲ୍ ନେଟୱାର୍କ ଦେଶ EU ମଧ୍ୟରେ ଥାଏ ସେତେବେଳେ ରୋମିଂ ନିୟମ ପ୍ରୟୋଗ କରନ୍ତୁ ନାହିଁ (ଘର ଭଳି ରୋମିଂ)</string>
+    <string name="summary_call">ଇନକମିଂ କିମ୍ବା ଆଉଟଗୋଇଂ ଟେଲିଫୋନ୍ କଲ୍ ରେ ନେଟଗାର୍ଡକୁ ଅକ୍ଷମ କରନ୍ତୁ | IP/Wi-Fi କଲିଂ ସମସ୍ୟା ଦୂର କରିବା ପାଇଁ ଏହା ବ୍ୟବହାର କରାଯାଇପାରିବ |</string>
+
+    <string name="summary_system">ସିଷ୍ଟମ୍ ଆପ୍ ପାଇଁ ନିୟମ ବ୍ୟାଖ୍ୟା କରନ୍ତୁ (ବିଶେଷଜ୍ଞଙ୍କ ପାଇଁ)</string>
+    <string name="summary_log_app">ଆପ୍ ଗୁଡ଼ିକ ପାଇଁ ଇଣ୍ଟରନେଟ୍ ଆକ୍ସେସ୍ କରିବାକୁ ପ୍ରୟାସ ଲଗ୍ କରନ୍ତୁ | ଏହା ଅତିରିକ୍ତ ବ୍ୟାଟେରୀ ବ୍ୟବହାର କରିପାରେ |</string>
+    <string name="summary_log_retention_days">ହାଉସକିପିଂ ସମୟରେ ପୁରୁଣା ଟ୍ରାଫିକ୍ ଲଗ୍ ଗୁଡ଼ିକୁ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଅପସାରଣ କରନ୍ତୁ | ଲଗ୍ ଗୁଡ଼ିକୁ ସବୁଦିନ ପାଇଁ ରଖିବାକୁ 0 ସେଟ୍ କରନ୍ତୁ |</string>
+    <string name="summary_access">ଯେତେବେଳେ ଏକ ଆପ୍ ଏକ ନୂତନ ଇଣ୍ଟରନେଟ୍ ଠିକଣା ଆକ୍ସେସ୍ କରିବାକୁ ଚେଷ୍ଟା କରେ ସେତେବେଳେ ଏକ ଷ୍ଟାଟସ୍ ବାର୍ ବିଜ୍ଞପ୍ତି ଦେଖାନ୍ତୁ (ଯେତେବେଳେ ଫିଲ୍ଟରିଂ ଅକ୍ଷମ ହୋଇଥାଏ, କେବଳ ଅବରୋଧିତ ଇଣ୍ଟରନେଟ୍ ଆକ୍ସେସ୍ ପ୍ରୟାସ ବିଷୟରେ ସୂଚନା ଦିଆଯିବ)</string>
+    <string name="summary_filter">ଫିଲ୍ଟର୍ IP ପ୍ୟାକେଟ୍ ଗୁଡ଼ିକୁ VPN ଟନେଲରୁ ବାହାରକୁ ଯାଉଥିବା IP ପ୍ୟାକେଟ୍ ଗୁଡ଼ିକୁ ଫିଲ୍ଟର୍ କରନ୍ତୁ | ଏହା ଅତିରିକ୍ତ ବ୍ୟାଟେରୀ ବ୍ୟବହାର କରିପାରେ |</string>
+    <string name="summary_track_usage">ପ୍ରତ୍ୟେକ ଆପ୍ ଏବଂ ଠିକଣା ପାଇଁ ପଠାଯାଇଥିବା ଏବଂ ଗ୍ରହଣ କରାଯାଇଥିବା ବାଇଟ୍ ସଂଖ୍ୟା ଟ୍ରାକ୍ କରନ୍ତୁ | ଏହା ଅତିରିକ୍ତ ବ୍ୟାଟେରୀ ବ୍ୟବହାର କରିପାରେ |</string>
+    <string name="summary_block_domains">ଅବରୋଧିତ ଡୋମେନ୍ ନାମ ପାଇଁ ବିନ୍ୟାସିତ DNS ପ୍ରତିକ୍ରିୟା କୋଡ୍ ସହିତ ଉତ୍ତର ଦିଅନ୍ତୁ | କୌଣସି ହୋଷ୍ଟ ଫାଇଲ୍ ଉପଲବ୍ଧ ନଥିବାବେଳେ ଏହି ସୁଇଚ୍ ଅକ୍ଷମ ହୋଇଥାଏ |</string>
+    <string name="summary_rcode">ଡିଫଲ୍ଟ ମୂଲ୍ୟ ହେଉଛି ୩ (NXDOMAIN), ଯାହାର ଅର୍ଥ ହେଉଛି \'ଅଣ-ବିଦ୍ୟମାନ ଡୋମେନ୍\' |</string>
+    <string name="summary_validate">ପୋର୍ଟ ୪୪୩ (https) ରେ ଇଣ୍ଟରନେଟ୍ ସଂଯୋଗ ବୈଧ କରିବା ପାଇଁ ବ୍ୟବହୃତ ଡୋମେନ୍ ନାମ |</string>
+    <string name="summary_socks5_enabled">କେବଳ TCP ଟ୍ରାଫିକ୍ ପ୍ରକ୍ସି ସର୍ଭରକୁ ପଠାଯିବ</string>
+    <string name="summary_watchdog">ନେଟଗାର୍ଡ ଏବେ ମଧ୍ୟ ଚାଲୁଛି କି ନାହିଁ ପର୍ଯ୍ୟାୟକ୍ରମେ ଯାଞ୍ច କରନ୍ତୁ (ଏହି ବିକଳ୍ପକୁ ଅକ୍ଷମ କରିବାକୁ ଶୂନ୍ୟ ପ୍ରବେଶ କରନ୍ତୁ) | ଏହା ଅତିରିକ୍ତ ବ୍ୟାଟେରୀ ବ୍ୟବହାର କରିପାରେ |</string>
+
+    <string name="summary_stats">ଷ୍ଟାଟସ୍ ବାର୍ ବିଜ୍ଞପ୍ତିରେ ନେଟୱାର୍କ ଗତି ଗ୍ରାଫ୍ ଦେଖାନ୍ତୁ</string>
+
+    <string-array name="default_wifi_home"></string-array>
+
+    <string name="msg_sure">ଆପଣ ନିଶ୍ଚିତ କି?</string>
+    <string name="msg_started">ନିୟମ ଲାଗୁ କରାଯାଉଛି</string>
+    <string name="msg_packages">%1$d ଅନୁମତିପ୍ରାପ୍ତ, %2$d ଅବରୋଧିତ</string>
+    <string name="msg_hosts">%1$d ଅନୁମତିପ୍ରାପ୍ତ, %2$d ଅବରୋଧିତ, %3$d ହୋଷ୍ଟ</string>
+    <string name="msg_waiting">ଘଟଣା ପାଇଁ ଅପେକ୍ଷା କରିଛି</string>
+    <string name="msg_disabled">ନେଟଗାର୍ଡ ଅକ୍ଷମ ଅଛି, ନେଟଗାର୍ଡ ସକ୍ଷମ କରିବାକୁ ଉପର ସୁଇଚ୍ ବ୍ୟବହାର କରନ୍ତୁ</string>
+    <string name="msg_notifications">ବିଜ୍ଞପ୍ତି ଅନୁମତି ଦେବା ପାଇଁ ଟ୍ୟାପ୍ କରନ୍ତୁ (ଆକ୍ସେସ୍ ପ୍ରୟାସ ବିଜ୍ଞପ୍ତି, ତ୍ରୁଟି ବାର୍ତ୍ତା ଇତ୍ୟାଦି ପାଇଁ)</string>
+    <string name="msg_revoked">ନେଟଗାର୍ଡ ଅକ୍ଷମ ହୋଇଛି, ସମ୍ଭବତଃ ଅନ୍ୟ ଏକ VPN ଆଧାରିତ ଆପ୍ ବ୍ୟବହାର କରିବା ଦ୍ୱାରା</string>
+    <string name="msg_installed">\'%1$s\' ସ୍ଥାପିତ ହେଲା</string>
+    <string name="msg_installed_n">ସ୍ଥାପିତ ହୋଇଛି</string>
+    <string name="msg_malware" translatable="false">Possible malware: \'%1$s\'</string>
+    <string name="msg_access">%1$s ଇଣ୍ଟରନେଟ୍ ଆକ୍ସେସ୍ କରିବାକୁ ଚେଷ୍ଟା କଲା</string>
+    <string name="msg_access_n">ଇଣ୍ଟରନେଟ୍ ଆକ୍ସେସ୍ ପ୍ରୟାସ କରାଯାଇଛି</string>
+    <string name="msg_completed">କାର୍ଯ୍ୟ ସମ୍ପୂର୍ଣ୍ଣ</string>
+    <string name="msg_invalid">ଦୟାକରି ମୂଲ୍ୟଗୁଡିକ ଯାଞ୍ଚ କରନ୍ତୁ ଏବଂ ପୁନର୍ବାର ଚେଷ୍ଟା କରନ୍ତୁ |</string>
+    <string name="msg_export_failed">ରପ୍ତାନି ବିଫଳ ହେଲା: %1$s</string>
+    <string name="msg_vpn">ନେଟଗାର୍ଡ ଟ୍ରାଫିକ୍ ଫିଲ୍ଟର୍ କରିବା ପାଇଁ ଏକ ସ୍ଥାନୀୟ VPN ବ୍ୟବହାର କରେ |
+ଏହି କାରଣରୁ, ଦୟାକରି ପରବର୍ତ୍ତୀ ସଂଳାପରେ ଏକ VPN ସଂଯୋଗ ଅନୁମତି ଦିଅନ୍ତୁ |
+ଆପଣଙ୍କର ଇଣ୍ଟରନେଟ୍ ଟ୍ରାଫିକ୍ ଏକ ଦୂରବର୍ତ୍ତୀ VPN ସର୍ଭରକୁ ପଠାଯାଉ ନାହିଁ |</string>
+    <string name="msg_autostart">ନେଟଗାର୍ଡ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଆରମ୍ଭ ହୋଇପାରିଲା ନାହିଁ | ଏହା ସମ୍ଭବତଃ ଆପଣଙ୍କର ଆଣ୍ଡ୍ରଏଡ୍ ସଂସ୍କରଣରେ ଏକ ବଗ୍ ଯୋଗୁଁ ହୋଇଛି |</string>
+    <string name="msg_error">ଏକ ଅପ୍ରତ୍ୟାଶିତ ତ୍ରୁଟି ଘଟିଛି: \'%s\'</string>
+    <string name="msg_start_failed">ଆଣ୍ଡ୍ରଏଡ୍ ଏହି ସମୟରେ VPN ସେବା ଆରମ୍ଭ କରିବାକୁ ମନା କରିଦେଇଛି | ଏହା ସମ୍ଭବତଃ ଆପଣଙ୍କର ଆଣ୍ଡ୍ରଏଡ୍ ସଂସ୍କରଣରେ ଏକ ବଗ୍ ଯୋଗୁଁ ହୋଇଛି |</string>
+    <string name="msg_try">ନେଟଗାର୍ଡ ଚେଷ୍ଟା କରନ୍ତୁ</string>
+    <string name="msg_terms">ଦାନ କରିବା ଦ୍ୱାରା ଆପଣ <a href="http://www.netguard.me/#terms">ନିୟମ ଏବଂ ସର୍ତ୍ତାବଳୀ</a> ସହିତ ସହମତ ହୁଅନ୍ତି</string>
+    <string name="msg_dimming">ଯଦି ଆପଣ ପରବର୍ତ୍ତୀ ସଂଳାପରେ OK ଦବାଇ ପାରିବେ ନାହିଁ, ତେବେ ଅନ୍ୟ ଏକ (ସ୍କ୍ରିନ୍ ଡିମିଂ) ଆପ୍ ସମ୍ଭବତଃ ସ୍କ୍ରିନ୍ କୁ ନିୟନ୍ତ୍ରଣ କରୁଛି |</string>
+    <string name="msg_mbday">&#177; %1$.3f&#9650; %2$.3f&#9660; MB/ଦିନ</string>
+    <string name="msg_kbsec">%7.3f KB/s</string>
+    <string name="msg_mbsec">%7.3f MB/s</string>
+    <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
+    <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
+    <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
+    <string name="msg_count">%dx</string>
+    <string name="msg_doze">ସଙ୍ଗତ ଫଳାଫଳ ପାଇଁ, ନେଟଗାର୍ଡ ପାଇଁ ଆଣ୍ଡ୍ରଏଡ୍ ବ୍ୟାଟେରୀ ଅପ୍ଟିମାଇଜେସନ୍ ଅକ୍ଷମ ହେବା ଉଚିତ୍ |
+\n\nପରବର୍ତ୍ତୀ ସଂଳାପରେ, ଉପରେ \"ସମସ୍ତ ଆପ୍\" ଚୟନ କରନ୍ତୁ, ତାଲିକାରେ ନେଟଗାର୍ଡ ଉପରେ ଟ୍ୟାପ୍ କରନ୍ତୁ ଏବଂ \"ଅପ୍ଟିମାଇଜ୍ କରନ୍ତୁ ନାହିଁ\" ଚୟନ କରି ନିଶ୍ଚିତ କରନ୍ତୁ |</string>
+    <string name="msg_datasaving">ସଙ୍ଗତ ଫଳାଫଳ ପାଇଁ, ନେଟଗାର୍ଡ ପାଇଁ ଆଣ୍ଡ୍ରଏଡ୍ ଡାଟା ସେଭିଂ ବିକଳ୍ପଗୁଡ଼ିକ ଅକ୍ଷମ ହେବା ଉଚିତ୍ |
+\n\nପରବର୍ତ୍ତୀ ସଂଳାପରେ, \"ପୃଷ୍ଠଭୂମି ଡାଟା\" ଏବଂ \"ଅନିୟନ୍ତ୍ରିତ ଡାଟା ବ୍ୟବହାର\" ବିକଳ୍ପଗୁଡ଼ିକ ସକ୍ଷମ କରନ୍ତୁ |</string>
+    <string name="msg_filter">ଫିଲ୍ଟରିଂ ବ୍ୟବହାର କରିବା ଦ୍ୱାରା ଆଣ୍ଡ୍ରଏଡ୍ ଡାଟା ଏବଂ ପାୱାର ବ୍ୟବହାର ପାଇଁ ନେଟଗାର୍ଡ କୁ ଦାୟୀ କରିବ - ଆଣ୍ଡ୍ରଏଡ୍ ଅନୁମାନ କରେ ଯେ ଡାଟା ଏବଂ ପାୱାର ମୂଳ ଆପ୍ ପରିବର୍ତ୍તે ନେଟଗାର୍ଡ ଦ୍ୱାରା ବ୍ୟବହୃତ ହେଉଛି |</string>
+    <string name="msg_filter4">ଆଣ୍ଡ୍ରଏଡ୍ ୪ ପାଇଁ ଫିଲ୍ଟରିଂ ସକ୍ଷମ ହେବା ଆବଶ୍ୟକ</string>
+    <string name="msg_log_disabled">ଟ୍ରାଫିକ୍ ଲଗିଂ ଅକ୍ଷମ ଅଛି, ଲଗିଂ ସକ୍ଷମ କରିବାକୁ ଉପର ସୁଇଚ୍ ବ୍ୟବହାର କରନ୍ତୁ | ଟ୍ରାଫିକ୍ ଲଗିଂ ହେତୁ ଅତିରିକ୍ତ ବ୍ୟାଟେରୀ ବ୍ୟବହାର ହୋଇପାରେ |</string>
+    <string name="msg_clear_rules">ଏହା ନିୟମ ଏବଂ ସର୍ତ୍ତାବଳୀକୁ ସେମାନଙ୍କର ଡିଫଲ୍ଟ ମୂଲ୍ୟରେ ପୁନଃସ୍ଥାପନ କରିବ</string>
+    <string name="msg_reset_access">ଏହା ଅନୁମତି/ବନ୍ଦ ନିୟମ ବିନା ଆକ୍ସେସ୍ ପ୍ରୟାସ ଲଗ୍ ଲାଇନ୍ ଗୁଡ଼ିକୁ ବିଲୋପ କରିବ</string>
+    <string name="msg_import_last">ଅନ୍ତିମ ଆମଦାନି: %s</string>
+    <string name="msg_downloading">ଡାଉନଲୋଡ୍ ହେଉଛି\n%1s</string>
+    <string name="msg_downloaded">ହୋଷ୍ଟ ଫାଇଲ୍ ଡାଉନଲୋଡ୍ ହୋଇଛି</string>
+    <string name="msg_download_last">ଅନ୍ତିମ ଡାଉନଲୋଡ୍: %s</string>
+    <string name="msg_start_forward">%1$s ପୋର୍ଟ %2$d ରୁ \'%5$s\' ର %3$s:%4$d କୁ ଫରୱାର୍ଡିଂ ଆରମ୍ଭ କରିବେ କି?</string>
+    <string name="msg_stop_forward">%1$s ପୋର୍ଟ %2$d ର ଫରୱାର୍ଡିଂ ବନ୍ଦ କରିବେ କି?</string>
+    <string name="msg_metered">ନେଟୱାର୍କ ମିଟର ଅଟେ</string>
+    <string name="msg_inactive">କୌණସି ସକ୍ରିୟ ଇଣ୍ଟରନେଟ୍ ସଂଯୋଗ ନାହିଁ</string>
+    <string name="msg_queue">ନେଟଗାର୍ଡ ବ୍ୟସ୍ତ ଅଛି</string>
+    <string name="msg_update">ଅପଡେଟ୍ ଉପଲବ୍ଧ, ଡାଉନଲୋଡ୍ କରିବାକୁ ଟ୍ୟାପ୍ କରନ୍ତୁ</string>
+    <string name="msg_usage">ଆପଣ ଏକ ଆପ୍ ପାଖରେ ଥିବା ଆଇକନ୍ ଗୁଡ଼ିକରେ ଟ୍ୟାପ୍ କରି ୱାଇ-ଫାଇ କିମ୍ବା ମୋବାଇଲ୍ ଇଣ୍ଟରନେଟ୍ ଆକ୍ସେସ୍ କୁ ଅନୁମତି (ସବୁଜ) କିମ୍ବା ପ୍ରତ୍ୟାଖ୍ୟାନ (ନାଲି) କରିପାରିବେ</string>
+    <string name="msg_fairemail">ଯଦି ଆପଣ ଆପଣଙ୍କର ଗୋପନୀୟତା ରକ୍ଷା କରିବା ପାଇଁ ନେଟଗାର୍ଡ ସ୍ଥାପନ କରିଛନ୍ତି, ତେବେ ଆପଣ <a href="https://email.faircode.eu/">FairEmail</a> ରେ ମଧյ ଆଗ୍ରହୀ ହୋଇପାରନ୍ତି, ଯାହା ଏକ ଓପନ୍ ସୋର୍ସ, ଗୋପନୀୟତା ଅନୁକୂଳ ଇମେଲ୍ ଆପ୍ |</string>
+    <string name="msg_whitelist">ଇଣ୍ଟରନେଟ୍ ଆକ୍ସେସ୍ ଡିଫଲ୍ଟ ଭାବରେ ଅନୁମତିପ୍ରାପ୍ତ (ବ୍ଲାକଲିଷ୍ଟ ମୋଡ୍), ଏହାକୁ ସେଟିଂସରେ ପରିବର୍ତ୍ତନ କରାଯାଇପାରିବ</string>
+    <string name="msg_push">ଇନକମିଂ (ପୁସ୍) ବାର୍ତ୍ତାଗୁଡ଼ିକ ମୁଖ୍ୟତଃ ସିଷ୍ଟମ୍ ଉପାଦାନ Play ସେବା ଦ୍ୱାରା ପରିଚାଳିତ ହୁଏ, ଯାହାକୁ ଡିଫଲ୍ଟ ଭାବରେ ଇଣ୍ଟରନେଟ୍ ଆକ୍ସେସ୍ ଅନୁମତି ଦିଆଯାଏ</string>
+    <string name="msg_system">ସମସ୍ତ (ସିଷ୍ଟମ୍) ଆପ୍ ଗୁଡ଼ିକୁ ପରିଚାଳନା କରିବା ସେଟିଂସରେ ସକ୍ଷମ କରାଯାଇପାରିବ</string>
+    <string name="msg_issue">ଦୟାକରି ସମସ୍ୟା ବର୍ଣ୍ଣନା କରନ୍ତୁ ଏବଂ ସମସ୍ୟାର ସମୟ ସୂଚାନ୍ତୁ:</string>
+    <string name="msg_vpn_cancelled">VPN ସଂଯୋଗ ବାତିଲ୍ ହୋଇଛି\nଆପଣ ଅନ୍ୟ ଏକ VPN କୁ ସର୍ବଦା-ଚାଲୁଥିବା VPN ଭାବରେ ବିନ୍ୟାସ କରିଛନ୍ତି କି?</string>
+    <string name="msg_on">ନେଟଗାର୍ଡ ସକ୍ଷମ ଥିବାବେଳେ ଆପଣଙ୍କର ଡିଭାଇସ୍ ବନ୍ଦ କରିବା, ଆପଣଙ୍କର ଡିଭାଇସ୍ ଚାଲୁ ହେବା ପରେ ନେଟଗାର୍ଡକୁ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଆରମ୍ଭ କରିବ</string>
+    <string name="msg_unavailable">ଏହି ବୈଶିଷ୍ଟ୍ୟ ଏହି ଆଣ୍ଡ୍ରଏଡ୍ ସଂସ୍କରଣରେ ଉପଲବ୍ଧ ନାହିଁ</string>
+    <string name="msg_always_on">ଅନ୍ୟ ଏକ VPN କୁ ସର୍ବଦା-ଚାଲୁଥିବା VPN ଭାବରେ ସେଟ୍ କରାଯାଇଛି</string>
+    <string name="msg_always_on_lockdown">ଫିଲ୍ଟରିଂ ମୋଡ୍ ରେ ନେଟଗାର୍ଡ ବ୍ୟବହାର କରିବା ପାଇଁ ଆଣ୍ଡ୍ରଏଡ୍ VPN ସେଟିଂସରେ \"VPN ବିନା ସଂଯୋଗ ଅବରୋଧ କରନ୍ତୁ\" ବନ୍ଦ କରନ୍ତୁ</string>
+    <string name="msg_private_dns">ଫିଲ୍ଟରିଂ ମୋଡ୍ ରେ ନେଟଗାର୍ଡ ବ୍ୟବହାର କରିବା ପାଇଁ ଆଣ୍ଡ୍ରଏଡ୍ ନେଟୱାର୍କ ସେଟିଂସରେ \"ଘରୋଇ DNS\" ବନ୍ଦ କରନ୍ତୁ</string>
+
+    <string name="title_lockdown_enabled">ଟ୍ରାଫିକ୍ ବନ୍ଦ ଅଛି</string>
+    <string name="title_unmetered_allowed">ଅନମିଟର ଟ୍ରାଫିକ୍ ଅନୁମତିପ୍ରାପ୍ତ</string>
+    <string name="title_unmetered_blocked">ଅନମିଟର ଟ୍ରାଫିକ୍ ଅବରୋଧିତ</string>
+    <string name="title_unmetered_disabled">ଅନମିଟର ନିୟମ ପ୍ରୟୋଗ କରାଯାଇ ନାହିଁ</string>
+    <string name="title_metered_allowed">ମିଟର ଟ୍ରାଫିକ୍ ଅନୁମତିପ୍ରାପ୍ତ</string>
+    <string name="title_metered_blocked">ମିଟର ଟ୍ରାଫିକ୍ ଅବରୋଧିତ</string>
+    <string name="title_metered_disabled">ମିଟର ନିୟମ ପ୍ରୟୋଗ କରାଯାଇ ନାହିଁ</string>
+    <string name="title_host_allowed">ଠିକଣା ଅନୁମତିପ୍ରାପ୍ତ</string>
+    <string name="title_host_blocked">ଠିକଣା ଅବରୋଧିତ</string>
+    <string name="title_interactive_allowed">ସ୍କ୍ରିନ୍ ଅନ୍ ଥିବାବେଳେ ଅନୁମତି ଦିଅନ୍ତୁ</string>
+    <string name="title_roaming_blocked">ରୋମିଂ ରେ ବନ୍ଦ କରନ୍ତୁ</string>
+    <string name="title_metered">ଡିଫଲ୍ଟ ଭାବରେ ଏକ ୱାଇ-ଫାଇ ସଂଯୋଗକୁ ଅନମିଟର ଏବଂ ମୋବାଇଲ୍ ସଂଯୋଗକୁ ମିଟର ଭାବରେ ବିଚାର କରାଯାଏ</string>
+
+    <string name="title_internet">ର କୌଣସି ଇଣ୍ଟରନେଟ୍ ଅନୁମତି ନାହିଁ</string>
+    <string name="title_disabled">ଅକ୍ଷମ ଅଛି</string>
+    <string name="title_messaging">ଇନକମିଂ ବାର୍ତ୍ତା ଗୁଡ଼ିକ Google Play ସେବା ଦ୍ୱାରା ଗ୍ରହଣ କରାଯାଏ ଏବଂ ଏହି ଆପ୍ ଦ୍ୱାରା ନୁହେଁ ଏବଂ ସେଥିପାଇଁ ଏହି ଆପ୍ କୁ ଅବରୋଧ କରି ସେଗୁଡିକୁ ଅବରୋଧ କରାଯାଇପାରିବ ନାହିଁ</string>
+    <string name="title_download">ଡାଉନଲୋଡ୍ ଗୁଡ଼ିକ ଡାଉନଲୋଡ୍ ମ୍ୟାନେଜର୍ ଦ୍ୱାରା କରାଯାଏ ଏବଂ ଏହି ଆପ୍ ଦ୍ୱାରା ନୁହେଁ ଏବଂ ସେଥିପାଇଁ ଏହି ଆପ୍ କୁ ଅବରୋଧ କରି ସେଗୁଡିକୁ ଅବରୋଧ କରାଯାଇପାରିବ ନାହିଁ</string>
+    <string name="title_apply">ନିୟମ ଏବଂ ସର୍ତ୍ତାବଳୀ ପ୍ରୟୋଗ କରନ୍ତୁ</string>
     <string name="title_conditions">ସର୍ତ୍ତାବଳୀ</string>
+    <string name="title_screen_wifi">ସ୍କ୍ରିନ୍ ଅନ୍ ଥିବାବେଳେ ୱାଇ-ଫାଇ ଅନୁମତି ଦିଅନ୍ତୁ</string>
+    <string name="title_screen_other">ସ୍କ୍ରିନ୍ ଅନ୍ ଥିବାବେଳେ ମୋବାଇଲ୍ ଅନୁମତି ଦିଅନ୍ତୁ</string>
     <string name="title_roaming_symbol">R</string>
-    <string name="title_options">ବିକଳ୍ପଗୁଡ଼ିକ</string>
+    <string name="title_roaming">ରୋମିଂ ରେ ବନ୍ଦ କରନ୍ତୁ</string>
+    <string name="label_ttl">TTL: %s s</string>
+    <string name="label_uid">UID: %s</string>
+    <string name="title_lockdown">ଲକଡାଉନ୍ ମୋଡ୍ ରେ ଅନୁମତି ଦିଅନ୍ତୁ</string>
+    <string name="title_related">ଫିଲ୍ଟର୍ ସମ୍ପର୍କିତ</string>
+    <string name="title_access">ଆକ୍ସେସ୍ ପ୍ରୟାସ</string>
+    <string name="title_precedence">ଆକ୍ସେସ୍ ନିୟମ ଅନ୍ୟ ନିୟମ ଅପେକ୍ଷା ଅଧିକ ପ୍ରାଧାନ୍ୟ ପାଏ</string>
+    <string name="title_options">ବିକଳ୍ପଗୁଡିକ</string>
+    <string name="title_notify">ଇଣ୍ଟରନେଟ୍ ଆକ୍ସେସ୍ ପ୍ରୟାସ ଗୁଡ଼ିକ ବିଷୟରେ ସୂଚନା ଦିଅନ୍ତୁ</string>
+
+    <string name="title_logging_disabled">ଲଗିଂ କିମ୍ବା ଫିଲ୍ଟରିଂ ସକ୍ଷମ ନୁହେଁ</string>
+    <string name="title_logging_enabled">ଲଗିଂ ଏବଂ ଫିଲ୍ଟରିଂ ସକ୍ଷମ ଅଛି</string>
     <string name="title_logging_configure">ବିନ୍ୟାସ କରନ୍ତୁ</string>
-    <string name="title_rate">ମୂଲ୍ୟାୟନ</string>
+
+    <string name="title_enable_logging">କେବଳ ଅବରୋଧିତ ଠିକଣା ଗୁଡ଼ିକର ଲଗିଂ ସକ୍ଷମ କରନ୍ତୁ</string>
+    <string name="title_enable_filtering">ଅନୁମତିପ୍ରାପ୍ତ ଠିକଣା ଗୁଡ଼ିକୁ ମଧ୍ୟ ଲଗ୍ କରିବାକୁ ଫିଲ୍ଟରିଂ ସକ୍ଷମ କରନ୍ତୁ</string>
+    <string name="title_enable_notify">ନୂତନ ଭାବରେ ଲଗ୍ ହୋଇଥିବା ଠିକଣା ଗୁଡ଼ିକ ପାଇଁ ଆକ୍ସେସ୍ ବିଜ୍ଞପ୍ତି ସକ୍ଷମ କରନ୍ତୁ</string>
+    <string name="title_enable_help0">ଏହି ସେଟିଂସ ଗୁଡ଼ିକ ହେଉଛି ଆଗୁଆ ସେଟିଂସ ଯାହା ସମସ୍ତ ଆପ୍ ରେ ପ୍ରୟୋଗ ହୁଏ</string>
+    <string name="title_enable_help1">ଫିଲ୍ଟରିଂ ମଧ୍ୟ ଆବଶ୍ୟକ ଯାହା ଦ୍ୱାରା ବ୍ୟକ୍ତିଗତ ଠିକଣା ଗୁଡ଼ିକୁ ଅନୁମତି ଦିଆଯାଇପାରିବ କିମ୍ବା ଅବରୋଧ କରାଯାଇପାରିବ</string>
+    <string name="title_enable_help2">ଲଗିଂ (କମ୍) କିମ୍ବା ଫିଲ୍ଟରିଂ (ଅଧିକ) ସକ୍ଷମ କରିବା ଦ୍ୱାରା ବ୍ୟାଟେରୀ ବ୍ୟବହାର ବୃଦ୍ଧି ପାଇପାରେ ଏବଂ ନେଟୱାର୍କ ଗତିକୁ ପ୍ରଭାବିତ କରିପାରେ</string>
+
+    <string name="title_rate">ରେଟ୍ କରନ୍ତୁ</string>
     <string name="title_allow">ଅନୁମତି ଦିଅନ୍ତୁ</string>
     <string name="title_block">ଅବରୋଧ କରନ୍ତୁ</string>
+    <string name="title_wifi">ୱାଇ-ଫାଇ</string>
+    <string name="title_mobile">ମୋବାଇଲ୍</string>
+    <string name="title_allow_wifi">ୱାଇ-ଫାଇ ଅନୁମତି ଦିଅନ୍ତୁ</string>
+    <string name="title_block_wifi">ୱାଇ-ଫାଇ ବନ୍ଦ କରନ୍ତୁ</string>
+    <string name="title_allow_other">ମୋବାଇଲ୍ ଅନୁମତି ଦିଅନ୍ତୁ</string>
+    <string name="title_block_other">ମୋବାଇଲ୍ ବନ୍ଦ କରନ୍ତୁ</string>
+    <string name="title_root">root</string>
+    <string name="title_mediaserver">ମିଡିଆ ସର୍ଭର</string>
+    <string name="title_gpsdaemon" translatable="false">GPS daemon</string>
+    <string name="title_dnsdaemon" translatable="false">DNS daemon</string>
+    <string name="title_nobody">କେହି ନୁହେଁ</string>
     <string name="title_dontask">ପୁଣି ପଚାରନ୍ତୁ ନାହିଁ</string>
+
+    <string name="title_log_whois">Whois %1$s</string>
+    <string name="title_log_port">ପୋର୍ଟ %1$d</string>
     <string name="title_log_copy">କପି କରନ୍ତୁ</string>
-    <string name="title_pro">ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟଗୁଡ଼ିକ</string>
-    <string name="title_pro_description">ନିମ୍ନଲିଖିତ ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟଗୁଡ଼ିକ ଉପଲବ୍ଧ ଅଛି:</string>
-    <string name="title_pro_theme">ରୂପ (ଥିମ୍, ରଙ୍ଗ)</string>
-    <string name="title_pro_all">ସମସ୍ତ ଉପରୋକ୍ତ ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟଗୁଡ଼ିକ</string>
+
+    <string name="title_pro">ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟଗୁଡିକ</string>
+    <string name="title_pro_description">ନିମ୍ନଲିଖିତ ପ୍ରୋ ବୈଶิଷ୍ଟ୍ୟଗୁଡିକ ଉପଲବ୍ଧ:</string>
+    <string name="title_pro_log">ଅବରୋଧିତ ଟ୍ରାଫିକ୍ ଲଗ୍ ଦେଖନ୍ତୁ</string>
+    <string name="title_pro_filter">ନେଟୱାର୍କ ଟ୍ରାଫିକ୍ ଫିଲ୍ଟର୍ କରନ୍ତୁ</string>
+    <string name="title_pro_notify">ନୂତନ ଆପ୍ ବିଜ୍ଞପ୍ତି</string>
+    <string name="title_pro_speed">ନେଟୱାର୍କ ସ୍ପିଡ୍ ଗ୍ରାଫ୍ ବିଜ୍ଞପ୍ତି</string>
+    <string name="title_pro_theme">ଦୃଶ્ય (ଥିମ୍, ରଙ୍ଗ)</string>
+    <string name="title_pro_all">ଉପରୋକ୍ତ ସମସ୍ତ ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟଗୁଡିକ</string>
     <string name="title_pro_dev">ବିକାଶକୁ ସମର୍ଥନ କରନ୍ତୁ</string>
     <string name="title_pro_buy">କିଣନ୍ତୁ</string>
     <string name="title_pro_bought">ସକ୍ଷମ ହୋଇଛି</string>
     <string name="title_pro_unavailable">ଅନୁପଲବ୍ଧ</string>
-    <string name="title_pro_details">ଅଧିକ ସୂଚନା ପାଇଁ ଏକ ଆଖ୍ୟା ଉପରେ ଟ୍ୟାପ୍ କରନ୍ତୁ</string>
-    <string name="title_pro_challenge">ଆହ୍ବାନ</string>
+    <string name="title_pro_details">ଅଧିକ ସୂଚନା ପାଇଁ ଏକ ଶୀର୍ଷକ ଉପରେ ଟ୍ୟାପ୍ କରନ୍ତୁ</string>
+    <string name="title_pro_challenge">ଚ୍ୟାଲେଞ୍ଜ୍</string>
     <string name="title_pro_reponse">ପ୍ରତିକ୍ରିୟା</string>
-    <string name="title_pro_feature">ଏହା ଏକ ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟ</string>
-    <string-array name="themeNames">
-        <item>ଟିଲ୍/କମଳା</item>
-        <item>ନୀଳ/କମଳା</item>
-        <item>ବାଇଗଣୀ/ନାଲି</item>
-        <item>ଆମ୍ବର/ନୀଳ</item>
-        <item>କମଳା/ଧୂସର</item>
-        <item>ସବୁଜ</item>
-    </string-array>
-    <string-array name="protocolNames">
+    <string name="title_pro_feature">ଏହା ଏକ ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟ ଅଟେ</string>
+    <string name="title_pro_subscription">
+        ୧ କିମ୍ବା ୨ ୟୁରୋର ମାସିକ ସବସ୍କ୍ରିପସନ୍ (ସ୍ଥାନୀୟ ଟ୍ୟାକ୍ସ ବ୍ୟତୀତ) ସମସ୍ତ ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟଗୁଡିକୁ ସକ୍ରିୟ କରିବ |
+        ଆପଣ ପ୍ଲେ ଷ୍ଟୋର୍ ଆପ୍ ରେ ସବସ୍କ୍ରିପସନ୍ ଟ୍ୟାବ୍ ମାଧ୍ୟମରେ ସବସ୍କ୍ରିପସନ୍ ବାତିଲ୍ କିମ୍ବା ପରିଚାଳନା କରିପାରିବେ |
+    </string>
+    <string name="title_pro_already">ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟଗୁଡିକ ପୂର୍ବରୁ ସକ୍ରିୟ ହୋଇସାରିଛି</string>    <string-array name="protocolNames">
         <item>UDP</item>
         <item>TCP</item>
     </string-array>
+
+    <string-array name="protocolValues" translatable="false">
+        <item>17</item>
+        <item>6</item>
+    </string-array>
+
+    <string name="label_dns_summary">%1$d ଏଣ୍ଟ୍ରି • %2$d ସମାପ୍ତ</string>
+
 </resources>

@@ -67,6 +67,10 @@ android {
         buildConfig = true
     }
 
+    androidResources {
+        generateLocaleConfig = true
+    }
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = true
@@ -83,7 +87,7 @@ android {
             buildConfigField(
                 "String",
                 "GITHUB_LATEST_API",
-                "\"https://api.github.com/repos/M66B/NetGuard/releases/latest\"",
+                "\"https://api.github.com/repos/bernaferrari/NetGuard/releases/latest\"",
             )
         }
         create("play") {
@@ -108,7 +112,7 @@ android {
             buildConfigField(
                 "String",
                 "GITHUB_LATEST_API",
-                "\"https://api.github.com/repos/M66B/NetGuard/releases/latest\"",
+                "\"https://api.github.com/repos/bernaferrari/NetGuard/releases/latest\"",
             )
         }
     }

@@ -1,126 +1,452 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name" translatable="false">NetGuard Next</string>
+    <string name="app_description">NetGuard Next pakub lihtsaid ja täiustatud viise Interneti-juurdepääsu blokeerimiseks – juurjuurdepääsu pole vaja. Rakendustele ja aadressidele saab eraldi lubada või keelata juurdepääsu teie Wi-Fi- ja/või mobiiliühendusele.</string>
+    <string name="app_copyright" translatable="false">Copyright \u00A9 2015–2025 by M. Bokhorst (M66B)</string>
+    <string name="app_android">NetGuard nõuab Android 5.1 või uuemat versiooni</string>
+    <string name="app_eula" translatable="false">THIS SOFTWARE IS PROVIDED BY THE AUTHOR \'\'AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
+    <string name="app_privacy"><a href="https://www.netguard.me/privacy/">Privaatsuspoliitika</a></string>
+    <string name="app_first">NetGuardi arendamisel ja testimisel on olnud suur hoolikus, kuid on võimatu garanteerida, et NetGuard töötab igas seadmes korrektselt.</string>
     <string name="app_agree">Nõustun</string>
     <string name="app_disagree">Ei nõustu</string>
+    <string name="app_support">NetGuard vajab teie abi. Puudutage pro-funktsioonide ostmiseks, et projekt jätkuks.</string>
+    <string name="app_qap">
+        Google kavatses rakenduse Play poest eemaldada, kuna see taotles luba kõigi rakenduste päringute tegemiseks.
+        Viis apellatsiooni ja hea põhjendus selle kohta, miks seda luba vaja on, lükati tagasi.
+        See rakenduse versioon ei taotle enam seda luba ja sellest hoolimata loetletakse endiselt peaaegu kõik rakendused,
+        välja arvatud mõned (süsteemi)rakendused, mida ei saa Androidi rakenduste loendist käsitsi käivitada.
+        Nende rakenduste Interneti-liiklus on alati lubatud, et tagada teie seadme korrektne töö.
+        Kui arvate, et see on probleem, saate värskendada rakenduse GitHubi versioonile ja hallata uuesti kõiki (süsteemi)rakendusi.
+    </string>
+
+    <string name="channel_foreground">Töötavad teenused</string>
+    <string name="channel_notify">Üldised teavitused</string>
+    <string name="channel_access">Juurdepääsu teavitused</string>
+
     <string name="menu_search">Rakenduse otsimine</string>
-    <string name="menu_filter">Rakenduse filtreerimine</string>
+    <string name="menu_filter">Rakenduste filtreerimine</string>
     <string name="menu_app_user">Näita kasutajarakendusi</string>
     <string name="menu_app_system">Näita süsteemirakendusi</string>
-    <string name="menu_app_nointernet">Näita ilma internetita rakendusi</string>
+    <string name="menu_app_nointernet">Näita ilma Internetita rakendusi</string>
     <string name="menu_app_disabled">Näita keelatud rakendusi</string>
     <string name="menu_sort">Sorteeri rakendusi</string>
     <string name="menu_sort_name">Sorteeri nime järgi</string>
-    <string name="menu_sort_uid">Sorteeri uid alusel</string>
+    <string name="menu_sort_uid">Sorteeri UID järgi</string>
     <string name="menu_sort_data">Sorteeri andmekasutuse järgi</string>
+    <string name="menu_launch">Käivita rakendus</string>
     <string name="menu_log">Näita logi</string>
     <string name="menu_settings">Seaded</string>
+    <string name="menu_home">Avaleht</string>
     <string name="menu_invite">Kutsu</string>
     <string name="menu_legend">Legend</string>
     <string name="menu_support">Kasutajatugi</string>
     <string name="menu_about">Info</string>
+    <string name="menu_apps">Muud rakendused</string>
+    <string name="menu_firewall">Tulemüür</string>
+    <string name="status_enabled">Tulemüür lubatud</string>
+    <string name="status_disabled">Tulemüür keelatud</string>
+    <string name="widget_firewall_enabled">Tulemüür SEES</string>
+    <string name="widget_firewall_disabled">Tulemüür VÄLJAS</string>
+    <string name="widget_lockdown_enabled">Lukustus SEES</string>
+    <string name="widget_lockdown_disabled">Lukustus VÄLJAS</string>
+    <string name="notify_traffic_title">Liikluse jälgija</string>
+    <string name="notify_traffic_summary">Üles %1$s • Alla %2$s • Tipp %3$s</string>
+    <string name="notify_traffic_debug">Seansid %1$d/%2$d/%3$d • Failid %4$d/%5$d</string>
+    <string name="ui_loading">Laadimine…</string>
+    <string name="ui_empty_logs_title">Liiklust veel pole</string>
+    <string name="ui_empty_logs_body">Kui ühendused tekivad, ilmuvad need siia.</string>
+    <string name="ui_empty_apps_title">Rakendusi ei leitud</string>
+    <string name="ui_empty_apps_body">Proovi nimekirja värskendada.</string>
+    <string name="ui_empty_dns_title">Lahendatud DNS-e veel pole</string>
+    <string name="ui_empty_dns_body">DNS-vastused ilmuvad siia pärast sirvimist.</string>
+    <string name="ui_dns_filter_empty">Ükski DNS-kirje ei vasta sellele filtrile.</string>
+    <string name="ui_empty_forwarding_title">Edasisuunamisreegleid pole</string>
+    <string name="ui_empty_forwarding_body">Lisa reegel liikluse edasisuunamiseks.</string>
+    <string name="ui_forwarding_filter_empty">Ükski edasisuunamisreegel ei vasta sellele filtrile.</string>
+    <string name="ui_empty_pro_body">Toetus avab lisafunktsioonid ja hoiab projekti elus.</string>
+    <string name="ui_empty_pro_details">Pro avab: filtreerimine, logimine, teavitused, teemad ja kiiruspiirangud.</string>
+    <string name="ui_home_hint">Kontrolli iga rakenduse Interneti-juurdepääsu.</string>
+    <string name="ui_home_quick_actions">Kiirtoimingud</string>
+    <string name="ui_apps_title">Tulemüür</string>
+    <string name="ui_logs_title">Liikluslogi</string>
+    <string name="ui_logs_filters">Filtrid</string>
+    <string name="ui_logs_filter_status">Olek</string>
+    <string name="ui_logs_filter_protocol">Protokoll</string>
+    <string name="ui_logs_filter_view">Vaade</string>
+    <string name="ui_logs_group_timeline">Ajajoon</string>
+    <string name="ui_logs_group_by_app">Rakenduse järgi</string>
+    <string name="ui_logs_unknown_source">Tundmatu allikas</string>
+    <string name="ui_settings_title">Seaded</string>
+    <string name="ui_dns_title">Lahendatud DNS</string>
+    <string name="ui_forwarding_title">Pordi edasisuunamine</string>
+    <string name="ui_dns_hint">Viimati lahendatud domeenid ja vastused.</string>
+    <string name="ui_forwarding_hint">Halda edasisuunamisreegleid ja sihtrakendusi.</string>
+    <string name="ui_dns_active">Aktiivne</string>
+    <string name="ui_rule_custom">Kohandatud</string>
+    <string name="ui_dns_expired">Aegunud</string>
+    <string name="ui_filter_all">Kõik</string>
+    <string name="ui_filter_empty">Ükski rakendus ei vasta sellele filtrile.</string>
+    <string name="ui_apps_search_empty">Ükski rakendus ei vasta sellele otsingule.</string>
+    <string name="ui_learn_more">Loe lähemalt</string>
+    <string name="status_running">Liiklust filtreeritakse</string>
+    <string name="status_not_running">Liiklust ei filtreerita</string>
+    <string name="action_enable">Luba</string>
+    <string name="action_disable">Keela</string>
+    <string name="home_apps_hint">Vaata üle rakenduse reeglid ja andmekasutus</string>
+    <string name="home_logs_hint">Uuri hiljutist võrgutegevust</string>
+
+    <!-- Accessibility -->
+    <string name="action_expand">Laienda üksikasju</string>
+    <string name="action_collapse">Ahenda üksikasju</string>
+    <string name="action_navigate">Ava</string>
+    <string name="action_toggle_firewall">Lülita tulemüüri</string>
+    <string name="action_clear_search">Tühjenda otsing</string>
+    <string name="search_settings">Seadete otsing</string>
+    <string name="content_desc_security_status">Tulemüüri turbeolek</string>
+    <string name="content_desc_app_icon">Rakenduse ikoon: %s</string>
+    <string name="content_desc_show_info">Näita teavet %1$s kohta</string>
+
+    <!-- Dashboard stats -->
+    <string name="stat_blocked_today">Blokeeritud</string>
+    <string name="stat_allowed_today">Lubatud</string>
+    <string name="stat_active_rules">Aktiivsed reeglid</string>
+
+    <!-- Tooltips -->
+    <string name="tooltip_rcode">DNS-i vastuse kood, mis saadetakse blokeeritud domeenide puhul. Vaikimisi 3 (NXDOMAIN) tähendab, et domeeni pole olemas.</string>
+    <string name="tooltip_ttl">Minimaalne eluea (TTL) väärtus DNS-i vahemälu kirjete jaoks sekundites.</string>
+    <string name="tooltip_pcap">Salvesta kõik võrgupaketid silumiseks. Tekitab suuri faile.</string>
+    <string name="tooltip_filter">Püüa kinni ja analüüsi liiklust. Vajalik aadressipõhiseks blokeerimiseks. Kasutab rohkem akut.</string>
+    <string name="tooltip_lockdown">Blokeeri kogu liiklus, välja arvatud selgesõnaliselt lubatud rakendused. Kasuta ettevaatlikult.</string>
+
+    <string name="menu_protocol_udp" translatable="false">UDP</string>
+    <string name="menu_protocol_tcp" translatable="false">TCP</string>
     <string name="menu_protocol_other">Muu</string>
     <string name="menu_traffic_allowed">Lubatud</string>
     <string name="menu_traffic_blocked">Blokeeritud</string>
-    <string name="menu_live">Uuendused</string>
+    <string name="menu_live">Live-uuendused</string>
     <string name="menu_refresh">Värskenda</string>
+    <string name="menu_ok">OK</string>
+    <string name="menu_cancel">Tühista</string>
     <string name="menu_resolve">Näita nimesid</string>
     <string name="menu_organization">Näita organisatsiooni</string>
     <string name="menu_pcap_enabled">PCAP lubatud</string>
     <string name="menu_pcap_export">PCAP eksport</string>
     <string name="menu_clear">Tühjenda</string>
+    <string name="menu_export">Eksport</string>
     <string name="menu_reset">Lähtesta</string>
+
     <string name="menu_add">Lisa</string>
     <string name="menu_delete">Kustuta</string>
-    <string name="menu_cleanup">Puhasta</string>
+
+    <string name="menu_cleanup">Puhastus</string>
+
     <string name="title_protocol">Protokoll</string>
     <string name="title_dport">Lähteport</string>
     <string name="title_raddr">Sihtkoha aadress</string>
     <string name="title_rport">Sihtkoha port</string>
     <string name="title_ruid">Sihtrakendus</string>
-    <string name="setting_defaults">Vaikeväärtused (valge/must nimekiri)</string>
-    <string name="setting_whitelist_wifi">Blokeeri wifi</string>
-    <string name="setting_whitelist_other">Blokeeri andmeside</string>
-    <string name="setting_screen_wifi">Luba WiFi, kui ekraan on sisse lülitatud</string>
-    <string name="setting_screen_other">Luba andmeside, kui ekraan on sisse lülitatud</string>
-    <string name="setting_whitelist_roaming">Blokeeri rändluse ajal</string>
+    <string name="title_external">Välise serveri jaoks vali \'nobody\'</string>
+
+    <string name="setting_defaults">Vaikesätted (valge/must nimekiri)</string>
+    <string name="setting_whitelist_wifi">Blokeeri Wi-Fi</string>
+    <string name="setting_whitelist_other">Blokeeri mobiilside</string>
+    <string name="setting_screen_wifi">Luba Wi-Fi, kui ekraan on sees</string>
+    <string name="setting_screen_other">Luba mobiilside, kui ekraan on sees</string>
+    <string name="setting_whitelist_roaming">Blokeeri rändluses</string>
+
     <string name="setting_options">Valikud</string>
     <string name="setting_theme">Teema: %1$s</string>
     <string name="setting_dark">Kasuta tumedat teemat</string>
+    <string name="setting_theme_palette">Vali värvistiil</string>
+    <string name="setting_dynamic_unavailable">Dünaamilised värvid nõuavad Android 12 või uuemat versiooni.</string>
+    <string name="setting_appearance_mode">Välimuse režiim</string>
+    <string name="setting_appearance_mode_title">Tume režiim</string>
+    <string name="setting_appearance_mode_summary">Vali Väljas, Sees või Järgi süsteemi.</string>
+    <string name="setting_appearance_preview">Praegu: %1$s · %2$s</string>
+    <string name="setting_appearance_auto">Automaatne</string>
+    <string name="setting_appearance_light">Hele</string>
+    <string name="setting_appearance_dark">Tume</string>
+    <string name="theme_dynamic">Dünaamiline</string>
+    <string name="setting_install">Teavita uuest installist</string>
+    <string name="setting_screen_on">Rakenda \'kui ekraan on sees\' reegleid</string>
+    <string name="setting_auto">Automaatne lubamine %1$s minuti pärast</string>
+    <string name="setting_delay">Ekraani väljalülitumise viivitus %1$s minutit</string>
+    <string name="setting_update">Kontrolli uuendusi</string>
+    <string name="setting_update_now">Kontrolli kohe</string>
+    <string name="setting_update_checking">Kontrollitakse...</string>
+
     <string name="setting_network_options">Võrgu valikud</string>
-    <string name="setting_subnet">Alamvõrgu marsuutimine</string>
-    <string name="setting_tethering">Luba edasijagamine</string>
-    <string name="setting_lan">Luba LAN ligipääs</string>
-    <string name="setting_metered_2g">Ära mõõda 2G mühendust</string>
-    <string name="setting_metered_3g">Ära mõõda 3G mühendust</string>
-    <string name="setting_metered_4g">Ära mõõda LTE mühendust</string>
-    <string name="setting_track_usage">Jälgi võrgu kasutamist</string>
-    <string name="setting_reset_usage">Nulli võrgu kasutamine</string>
+    <string name="setting_subnet">Alamvõrgu marsruutimine</string>
+    <string name="setting_tethering">Luba jagamine (tethering)</string>
+    <string name="setting_lan">Luba LAN-juurdepääs</string>
+    <string name="setting_ip6">Luba IPv6 liiklus</string>
+    <string name="setting_wifi_home">Wi-Fi koduvõrgud: %1$s</string>
+    <string name="setting_metered">Käsitse mõõdetud Wi-Fi võrke</string>
+    <string name="setting_metered_2g">Pea 2G-d mõõtmata ühenduseks</string>
+    <string name="setting_metered_3g">Pea 3G-d mõõtmata ühenduseks</string>
+    <string name="setting_metered_4g">Pea LTE-d mõõtmata ühenduseks</string>
+    <string name="setting_national_roaming">Ignoreeri riigisisest rändlust</string>
+    <string name="setting_eu_roaming">Ignoreeri EL-i rändlust</string>
+    <string name="setting_call">Keela kõne ajal</string>
+    <string name="setting_lockdown_wifi">Wi-Fi lukustus</string>
+    <string name="setting_lockdown_other">Mobiilside lukustus</string>
+    <string name="setting_reload_onconnectivity">Laadi uuesti igal ühenduse muutusel</string>
+
+    <string name="setting_advanced_options">Täpsemad valikud</string>
+    <string name="setting_system">Halda süsteemirakendusi</string>
+    <string name="setting_log_app">Logi Interneti-juurdepääsu</string>
+    <string name="setting_log_retention_days">Liikluslogi säilitamise päevad</string>
+    <string name="setting_access">Teavita Interneti-juurdepääsust</string>
+    <string name="setting_filter">Filtreeri liiklust</string>
+    <string name="setting_filter_udp">Filtreeri UDP liiklust</string>
+    <string name="setting_handover">Sujuv VPN-i ülevõtmine uuesti laadimisel</string>
+    <string name="setting_clear_onreload">Sulge ühendused uuesti laadimisel</string>
+    <string name="setting_lockdown">Liikluse lukustus</string>
+    <string name="setting_malware">Pahavarakaitse</string>
+    <string name="setting_track_usage">Jälgi võrgukasutust</string>
+    <string name="setting_reset_usage">Lähtesta võrgukasutus</string>
     <string name="setting_show_resolved">Näita lahendatud domeeninimesid</string>
-    <string name="setting_block_domains">Blokeeri domeenid</string>
+    <string name="setting_block_domains">Blokeeri domeeninimed</string>
+    <string name="setting_rcode">DNS-vastuse kood: %s</string>
+    <string name="setting_forwarding">Pordi edasisuunamine</string>
     <string name="setting_vpn4">VPN IPv4: %s</string>
     <string name="setting_vpn6">VPN IPv6: %s</string>
     <string name="setting_dns">VPN DNS: %s</string>
+    <string name="setting_dns2">Sekundaarne DNS: %s</string>
+    <string name="setting_validate">Valideeri aadressil: %s</string>
     <string name="setting_ttl">Minimaalne DNS TTL: %s s</string>
     <string name="setting_socks5_enabled">Kasuta SOCKS5 puhverserverit</string>
     <string name="setting_socks5_addr">SOCKS5 aadress: %s</string>
-    <string name="setting_stats_category">Kiirus teavitus</string>
-    <string name="setting_backup">Varunda</string>
+    <string name="setting_socks5_port">SOCKS5 port: %s</string>
+    <string name="setting_socks5_username">SOCKS5 kasutajanimi: %s</string>
+    <string name="setting_socks5_password">SOCKS5 parool: %s</string>
+    <string name="setting_pcap_record_size">PCAP kirje suurus: %s B</string>
+    <string name="setting_pcap_file_size">PCAP max faili suurus: %s MB</string>
+    <string name="setting_pcap">Salvesta võrguliiklust (PCAP)</string>
+    <string name="setting_watchdog">Watchdog: iga %s minuti järel</string>
+
+    <string name="setting_stats_category">Kiiruse teavitus</string>
+    <string name="setting_stats">Näita kiiruse teavitust</string>
+    <string name="setting_stats_top">Näita enim kasutatud rakendusi</string>
+    <string name="setting_stats_frequency">Prooviintervall: %s ms</string>
+    <string name="setting_stats_samples">Proovide arv: %s</string>
+
+    <string name="setting_backup">Varundus</string>
     <string name="setting_export">Ekspordi seaded</string>
     <string name="setting_import">Impordi seaded</string>
-    <string name="setting_technical">Tehniline info</string>
+    <string name="setting_hosts">Impordi hosts fail</string>
+    <string name="setting_hosts_append">Impordi hosts fail (lisa lõppu)</string>
+    <string name="setting_hosts_url">Hosts faili allalaadimise URL</string>
+    <string name="setting_hosts_download">Laadi hosts fail alla</string>
+    <string name="setting_use_hosts">Kasuta hosts faili</string>
+
+    <string name="setting_technical">Tehniline teave</string>
     <string name="setting_technical_general">Üldine</string>
     <string name="setting_technical_networks">Võrgud</string>
     <string name="setting_technical_subscription">Tellimused</string>
+    <string name="setting_section_appearance">Välimus</string>
+    <string name="setting_section_firewall">Tulemüüri reeglid</string>
+    <string name="setting_section_advanced">Täpsem käitumine</string>
+    <string name="setting_section_hosts">Hostid ja DNS</string>
+    <string name="setting_section_network">Võrgu seadistus</string>
+    <string name="setting_section_dns">DNS üksikasjad</string>
+    <string name="setting_section_proxy">Puhverserver</string>
+    <string name="setting_section_vpn">VPN-i seadistus</string>
+    <string name="setting_section_background">Taustatööd</string>
+    <string name="setting_section_diagnostics">Diagnostika</string>
+    <string name="setting_section_support">Kasutajatugi</string>
+
+    <string name="summary_install">Näita olekuriba teavitust uute installitud rakenduste otseseks seadistamiseks (pro-funktsioon)</string>
+    <string name="summary_auto">Pärast vidina kaudu keelamist luba NetGuard automaatselt uuesti pärast valitud minutite möödumist (sisesta null selle valiku keelamiseks)</string>
+    <string name="summary_delay">Pärast ekraani väljalülitamist hoia \'ekraan on sees\' reeglid aktiivsed valitud minutite jooksul (sisesta null selle valiku keelamiseks)</string>
+    <string name="summary_update">Kontrolli uusi väljalaskeid GitHubist kaks korda päevas</string>
+
+    <string name="summary_tethering">Sõltuvalt Androidi versioonist võib jagamine töötada või mitte. Jagatud liiklust ei saa filtreerida.</string>
+    <string name="summary_subnet">Luba alamvõrgu marsruutimine; võib lubada Wi-Fi kõned, kuid võib põhjustada ka vigu Androidis ja suurendada akukasutust</string>
+    <string name="summary_lan">Luba rakendustel luua ühendust kohaliku võrgu aadressidega, nagu 10.0.0.0/8, 172.16.0.0/12 ja 192.168.0.0/16</string>
+    <string name="summary_ip6">Suuna IP versiooni 6 liiklus NetGuardi, et seda saaks valikuliselt lubada või blokeerida</string>
+    <string name="summary_wifi_home">Rakenda Wi-Fi võrgureegleid ainult valitud võrgu jaoks (teiste Wi-Fi võrkude puhul rakenda mobiilsidevõrgu reegleid)</string>
+    <string name="summary_metered">Rakenda mobiilsidevõrgu reegleid mõõdetud (tasulistele, jagatud) Wi-Fi võrkudele</string>
+    <string name="summary_metered_2g">Rakenda Wi-Fi võrgureegleid 2G andmesideühendustele</string>
+    <string name="summary_metered_3g">Rakenda Wi-Fi võrgureegleid 3G andmesideühendustele</string>
+    <string name="summary_metered_4g">Rakenda Wi-Fi võrgureegleid LTE andmesideühendustele</string>
+    <string name="summary_national_roaming">Ära rakenda rändluseeskirju, kui SIM-kaardi ja mobiilsidevõrgu riik on sama</string>
+    <string name="summary_eu_roaming">Ära rakenda rändluseeskirju, kui SIM-kaardi ja mobiilsidevõrgu riik on EL-is (rändlus nagu kodus)</string>
+    <string name="summary_call">Keela NetGuard inkoming või outgoing telefonikõne ajal. Seda saab kasutada IP/Wi-Fi kõneprobleemide lahendamiseks.</string>
+
+    <string name="summary_system">Määra reeglid süsteemirakendustele (ekspertidele)</string>
+    <string name="summary_log_app">Logi rakenduste Interneti-juurdepääsu katseid. See võib kaasa tuua täiendava akukasutuse.</string>
+    <string name="summary_log_retention_days">Eemalda hoolduse ajal automaatselt vanad liikluslogid. Sea 0, et hoida logisid igavesti.</string>
+    <string name="summary_access">Näita olekuriba teavitust, kui rakendus püüab luua ühendust uue Interneti-aadressiga (kui filtreerimine on keelatud, teavitatakse ainult blokeeritud katsetest)</string>
+    <string name="summary_filter">Filtreeri VPN-tunnelist väljuvaid IP-pakette. See võib kaasa tuua täiendava akukasutuse.</string>
+    <string name="summary_track_usage">Jälgi iga rakenduse ja aadressi saadetud ja vastuvõetud baitide arvu. See võib kaasa tuua täiendava akukasutuse.</string>
+    <string name="summary_block_domains">Vasta blokeeritud domeeninimede puhul seadistatud DNS-vastuse koodiga. See lüliti on keelatud, kui hosts fail pole saadaval.</string>
+    <string name="summary_rcode">Vaikeväärtus on 3 (NXDOMAIN), mis tähendab \'domeeni pole olemas\'.</string>
+    <string name="summary_validate">Domeeninimi, mida kasutatakse Interneti-ühenduse valideerimiseks pordis 443 (https).</string>
+    <string name="summary_socks5_enabled">Proxy serverisse saadetakse ainult TCP liiklus</string>
+    <string name="summary_watchdog">Kontrolli perioodiliselt, kas NetGuard ikka töötab (sisesta null selle valiku keelamiseks). See võib kaasa tuua täiendava akukasutuse.</string>
+
+    <string name="summary_stats">Näita võrgukiiruse graafikut olekuriba teavituses</string>
+
+    <string-array name="default_wifi_home"></string-array>
+
     <string name="msg_sure">Oled sa kindel?</string>
     <string name="msg_started">Reeglite jõustamine</string>
     <string name="msg_packages">%1$d lubatud, %2$d blokeeritud</string>
-    <string name="msg_hosts">%1$d lubatud %2$d blokeeritud, %3$d hosti</string>
+    <string name="msg_hosts">%1$d lubatud, %2$d blokeeritud, %3$d hosti</string>
     <string name="msg_waiting">Sündmuse ootel</string>
-    <string name="msg_installed">\'%1$s\' paigaldatud</string>
-    <string name="msg_installed_n">On paigaldatud</string>
+    <string name="msg_disabled">NetGuard on keelatud, kasuta ülaltoodud lülitit NetGuardi lubamiseks</string>
+    <string name="msg_notifications">Puuduta teavituste lubade andmiseks (juurdepääsu katsete, veateadete jne jaoks)</string>
+    <string name="msg_revoked">NetGuard on keelatud, tõenäoliselt mõne muu VPN-põhise rakenduse kasutamise tõttu</string>
+    <string name="msg_installed">\'%1$s\' installitud</string>
+    <string name="msg_installed_n">On installitud</string>
+    <string name="msg_malware">Võimalik pahavara: \'%1$s\'</string>
+    <string name="msg_access">%1$s püüdis pääseda Internetti</string>
+    <string name="msg_access_n">Püüdis pääseda Internetti</string>
+    <string name="msg_completed">Toiming lõpetatud</string>
+    <string name="msg_invalid">Palun kontrolli väärtusi ja proovi uuesti.</string>
+    <string name="msg_export_failed">Eksport ebaõnnestus: %1$s</string>
+    <string name="msg_vpn">NetGuard kasutab Interneti-liikluse filtreerimiseks kohalikku VPN-i.
+Seetõttu palun luba VPN-ühendus järgmises dialoogis.
+Sinu Interneti-liiklust ei saadeta kaugesse VPN-serverisse.</string>
+    <string name="msg_autostart">NetGuard ei saanud automaatselt käivituda. See on tõenäoliselt tingitud veast teie Androidi versioonis.</string>
+    <string name="msg_error">Tekkis ootamatu viga: \'%s\'</string>
+    <string name="msg_start_failed">Android keeldus praegu VPN-teenust käivitamast. See on tõenäoliselt tingitud veast teie Androidi versioonis.</string>
     <string name="msg_try">Proovi NetGuardi</string>
-    <string name="msg_mbday">± %1$.3f▲ %2$.3f▼ MB/päevas</string>
-    <string name="msg_kb">%1$7.3f▲ %2$7.3f▼ KB</string>
-    <string name="msg_mb">%1$7.3f▲ %2$7.3f▼ MB</string>
-    <string name="msg_gb">%1$7.3f▲ %2$7.3f▼ GB</string>
+    <string name="msg_terms">Annetades nõustute <a href="http://www.netguard.me/#terms">tingimustega</a></string>
+    <string name="msg_dimming">Kui te ei saa järgmises dialoogis vajutada OK, siis tõenäoliselt juhib ekraani mõni muu (ekraani hämardamise) rakendus.</string>
+    <string name="msg_mbday">&#177; %1$.3f&#9650; %2$.3f&#9660; MB/päevas</string>
+    <string name="msg_kbsec">%7.3f KB/s</string>
+    <string name="msg_mbsec">%7.3f MB/s</string>
+    <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
+    <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
+    <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
     <string name="msg_count">%dx</string>
+    <string name="msg_doze">Stabiilsete tulemuste saavutamiseks tuleks NetGuardi puhul Androidi aku optimeerimine keelata.
+\n\nJärgmises dialoogis vali ülevalt \"Kõik rakendused\", puuduta loendis NetGuardi ja vali ning kinnita \"Ära optimeeri\".</string>
+    <string name="msg_datasaving">Stabiilsete tulemuste saavutamiseks tuleks NetGuardi puhul Androidi andmesäästu valikud keelata.
+\n\nOta järgmises dialoogis kasutusele valikud \"Taustandmed\" ja \"Piiramatu andmekasutus\".</string>
+    <string name="msg_filter">Filtreerimise kasutamine põhjustab selle, et Android omistab andme- ja energiakasutuse NetGuardile – Android eeldab, et andmeid ja energiat kasutab NetGuard, mitte algsed rakendused.</string>
+    <string name="msg_filter4">Android 4 nõuab filtreerimise lubamist</string>
+    <string name="msg_log_disabled">Liikluslogimine on keelatud, kasuta ülaltoodud lülitit logimise lubamiseks. Logimine võib kaasa tuua täiendava akukasutuse.</string>
+    <string name="msg_clear_rules">See lähtestab reeglid ja tingimused nende vaikeväärtustele</string>
+    <string name="msg_reset_access">See kustutab juurdepääsukatse logiread ilma luba/blokeeri reegliteta</string>
     <string name="msg_import_last">Viimane import: %s</string>
-    <string name="title_lockdown_enabled">Liiklus on lukus</string>
+    <string name="msg_downloading">Allalaadimine\n%1s</string>
+    <string name="msg_downloaded">Hosts fail alla laaditud</string>
+    <string name="msg_download_last">Viimane allalaadimine: %s</string>
+    <string name="msg_start_forward">Kas alustada edasisuunamist pordist %1$s pordini %2$d rakendusse %3$s:%4$d (\'%5$s\')?</string>
+    <string name="msg_stop_forward">Kas peatada edasisuunamine pordist %1$s pordini %2$d?</string>
+    <string name="msg_metered">Võrk on mõõdetud</string>
+    <string name="msg_inactive">Aktiivne Interneti-ühendus puudub</string>
+    <string name="msg_queue">NetGuard on hõivatud</string>
+    <string name="msg_update">Uuendus saadaval, puuduta allalaadimiseks</string>
+    <string name="msg_usage">Saate lubada (rohekas) tai keelata (punakas) Wi-Fi või mobiilse Interneti-juurdepääsu, puudutades rakenduse kõrval olevaid ikoone</string>
+    <string name="msg_fairemail">Kui installisite NetGuardi oma privaatsuse kaitsmiseks, võite olla huvitatud ka rakendusest <a href="https://email.faircode.eu/">FairEmail</a>, mis on avatud lähtekoodiga ja privaatsussõbralik e-posti rakendus.</string>
+    <string name="msg_whitelist">Interneti-juurdepääs on vaikeväärtusena lubatud (musta nimekirja režiim), seda saab seadetes muuta</string>
+    <string name="msg_push">Sissetulevaid (push) sõnumeid käitleb enamasti süsteemikomponent Play teenused, millele on Interneti-juurdepääs vaikimisi lubatud</string>
+    <string name="msg_system">Kõigi (süsteemi)rakenduste haldamist saab lubada seadetes</string>
+    <string name="msg_issue">Palun kirjeldage probleemi ja märkige probleemi esinemise aeg:</string>
+    <string name="msg_vpn_cancelled">VPN-ühendus tühistatud\nKas seadistasite mõne muu VPN-i alati sisselülitatud VPN-iks?</string>
+    <string name="msg_on">Seadme väljalülitamine, kui NetGuard on lubatud, käivitab NetGuardi seadme sisselülitamisel automaatselt</string>
+    <string name="msg_unavailable">See funktsioon pole selles Androidi versioonis saadaval</string>
+    <string name="msg_always_on">Teine VPN on seatud alati sisselülitatud VPN-iks</string>
+    <string name="msg_always_on_lockdown">Lülita Androidi VPN-i seadetes välja valik \"Blokeeri ühendused ilma VPN-ita\", et kasutada NetGuardi filtreerimisrežiimis</string>
+    <string name="msg_private_dns">Lülita Androidi võrguseadetes välja valik \"Privaatne DNS\", et kasutada NetGuardi filtreerimisrežiimis</string>
+
+    <string name="title_lockdown_enabled">Liiklus on lukustatud</string>
+    <string name="title_unmetered_allowed">Mõõtmata liiklus on lubatud</string>
+    <string name="title_unmetered_blocked">Mõõtmata liiklus on blokeeritud</string>
+    <string name="title_unmetered_disabled">Mõõtmata reegleid ei rakendata</string>
+    <string name="title_metered_allowed">Mõõdetud liiklus on lubatud</string>
+    <string name="title_metered_blocked">Mõõdetud liiklus on blokeeritud</string>
+    <string name="title_metered_disabled">Mõõdetud reegleid ei rakendata</string>
+    <string name="title_host_allowed">Aadress on lubatud</string>
+    <string name="title_host_blocked">Aadress on blokeeritud</string>
+    <string name="title_interactive_allowed">Luba, kui ekraan on sees</string>
+    <string name="title_roaming_blocked">Blokeeri rändluses</string>
+    <string name="title_metered">Vaikimisi peetakse Wi-Fi ühendust mõõtmata ja mobiilset ühendust mõõdetuks</string>
+
+    <string name="title_internet">pole Interneti-luba</string>
+    <string name="title_disabled">on keelatud</string>
+    <string name="title_messaging">Sissetulevad sõnumid võtab vastu Google Play teenused, mitte see rakendus, ja seetõttu ei saa neid selle rakenduse blokeerimisega blokeerida</string>
+    <string name="title_download">Allalaadimisi teostab allalaadimishaldur, mitte see rakendus, ja seetõttu ei saa neid selle rakenduse blokeerimisega blokeerida</string>
+    <string name="title_apply">Rakenda reeglid ja tingimused</string>
     <string name="title_conditions">Tingimused</string>
-    <string name="title_screen_wifi">Luba WiFi, kui ekraan on sisse lülitatud</string>
-    <string name="title_screen_other">Luba andmeside, kui ekraan on sisse lülitatud</string>
+    <string name="title_screen_wifi">Luba Wi-Fi, kui ekraan on sees</string>
+    <string name="title_screen_other">Luba mobiilside, kui ekraan on sees</string>
     <string name="title_roaming_symbol">R</string>
-    <string name="title_roaming">Blokeeri rändluse ajal</string>
+    <string name="title_roaming">Blokeeri rändluses</string>
+    <string name="label_ttl">TTL: %s s</string>
+    <string name="label_uid">UID: %s</string>
+    <string name="title_lockdown">Luba lukustusrežiimis</string>
+    <string name="title_related">Filtriga seotud</string>
+    <string name="title_access">Juurdepääsu katsed</string>
+    <string name="title_precedence">Juurdepääsu reeglid on muude reeglite suhtes ülimuslikud</string>
     <string name="title_options">Valikud</string>
+    <string name="title_notify">Teavita Interneti-juurdepääsu katsetest</string>
+
+    <string name="title_logging_disabled">Logimine või filtreerimine pole lubatud</string>
+    <string name="title_logging_enabled">Logimine ja filtreerimine on lubatud</string>
     <string name="title_logging_configure">Seadista</string>
+
+    <string name="title_enable_logging">Luba ainult blokeeritud aadresside logimine</string>
+    <string name="title_enable_filtering">Luba filtreerimine, et logida ka lubatud aadresse</string>
+    <string name="title_enable_notify">Luba juurdepääsu teavitused uute logitud aadresside kohta</string>
+    <string name="title_enable_help0">Need seaded on globaalsed seaded, mis kehtivad kõigile rakendustele</string>
+    <string name="title_enable_help1">Filtreerimine on vajalik ka üksikute aadresside lubamiseks või blokeerimiseks</string>
+    <string name="title_enable_help2">Logimise (vähem) tai filtreerimise (rohkem) lubamine võib suurendada akukasutust ja mõjutada võrgukiirust</string>
+
     <string name="title_rate">Hinda</string>
     <string name="title_allow">Luba</string>
     <string name="title_block">Blokeeri</string>
-    <string name="title_allow_wifi">Luba wifi</string>
-    <string name="title_block_wifi">Blokeeri wifi</string>
-    <string name="title_allow_other">Luba mobiilandmeside</string>
-    <string name="title_block_other">Blokeeri andmeside</string>
-    <string name="title_mediaserver">meediaserver</string>
+    <string name="title_wifi">Wi-Fi</string>
+    <string name="title_mobile">Mobiilside</string>
+    <string name="title_allow_wifi">Luba Wi-Fi</string>
+    <string name="title_block_wifi">Blokeeri Wi-Fi</string>
+    <string name="title_allow_other">Luba mobiilside</string>
+    <string name="title_block_other">Blokeeri mobiilside</string>
+    <string name="title_root">root</string>
+    <string name="title_mediaserver">mediaserver</string>
+    <string name="title_gpsdaemon">GPS-teenus</string>
+    <string name="title_dnsdaemon">DNS-teenus</string>
     <string name="title_nobody">mitte keegi</string>
-    <string name="title_dontask">Ära enam küsi</string>
+    <string name="title_dontask">Ära küsi uuesti</string>
+
     <string name="title_log_whois">Whois %1$s</string>
     <string name="title_log_port">Port %1$d</string>
+    <string name="title_log_copy">Kopeeri</string>
+
     <string name="title_pro">Pro funktsioonid</string>
+    <string name="title_pro_description">Saadaval on järgmised pro-funktsioonid:</string>
+    <string name="title_pro_log">Vaata blokeeritud liikluse logi</string>
+    <string name="title_pro_filter">Filtreeri võrguliiklust</string>
+    <string name="title_pro_notify">Uue rakenduse teavitused</string>
+    <string name="title_pro_speed">Võrgukiiruse graafiku teavitus</string>
+    <string name="title_pro_theme">Välimus (teema, värvid)</string>
+    <string name="title_pro_all">Kõik ülaltoodud pro-funktsioonid</string>
+    <string name="title_pro_dev">Toeta arendust</string>
     <string name="title_pro_buy">Osta</string>
     <string name="title_pro_bought">Lubatud</string>
     <string name="title_pro_unavailable">Pole saadaval</string>
+    <string name="title_pro_details">Lisateabe saamiseks puuduta pealkirja</string>
     <string name="title_pro_challenge">Väljakutse</string>
     <string name="title_pro_reponse">Vastus</string>
-    <string-array name="themeNames">
-        <item>rohekas-sinine/oranž</item>
-        <item>sinine/oranž</item>
-        <item>lilla/punane</item>
-        <item>merevaik/sinine</item>
-        <item>oranž/hall</item>
-        <item>roheline</item>
-    </string-array>
-    <string-array name="protocolNames">
+    <string name="title_pro_feature">See on pro-funktsioon</string>
+    <string name="title_pro_subscription">
+        Igakuine tellimus 1 või 2 eurot (v.a kohalikud maksud) aktiveerib kõik pro-funktsioonid.
+        Tellimust saab tühistada või hallata Play poe rakenduse tellimuste vahekaardi kaudu.
+    </string>
+    <string name="title_pro_already">Pro funktsioonid on juba aktiveeritud</string>    <string-array name="protocolNames">
         <item>UDP</item>
         <item>TCP</item>
     </string-array>
+
+    <string-array name="protocolValues" translatable="false">
+        <item>17</item>
+        <item>6</item>
+    </string-array>
+
+    <string name="label_dns_summary">%1$d kirjet • %2$d aegunud</string>
+
 </resources>

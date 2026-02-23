@@ -1,5 +1,0 @@
-<resources>
-    <style name="Theme.NetGuard" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
-    </style>
-</resources>
