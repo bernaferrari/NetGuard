@@ -514,8 +514,7 @@ class ServiceSinkhole : VpnService() {
 
             if (
                 !Util.isPlayStoreInstall(this@ServiceSinkhole) &&
-                    Util.hasValidFingerprint(this@ServiceSinkhole) &&
-                    prefs.getBoolean("update_check", true)
+                prefs.getBoolean("update_check", true)
             ) {
                 checkUpdate()
             }

@@ -158,18 +158,11 @@ fun AppNavigation(
                 )
             }
         },
-    ) {
-        val overlayDetail = backStack.lastOrNull() as? AppRuleDetail
-        val baseBackStack =
-            if (overlayDetail != null && backStack.size > 1) {
-                backStack.dropLast(1)
-            } else {
-                backStack.toList()
-            }
+    ) {        val activeDetail = backStack.lastOrNull()
         val rulesUiState by viewModel.rulesUiState.collectAsStateWithLifecycle()
 
-        if (overlayDetail != null) {
-            LaunchedEffect(overlayDetail.uid) {
+        if (activeDetail is AppRuleDetail) {
+            LaunchedEffect(activeDetail.uid) {
                 viewModel.ensureRulesLoaded()
             }
         }
@@ -179,7 +172,7 @@ fun AppNavigation(
                 .fillMaxSize(),
         ) {
             NavDisplay(
-                backStack = baseBackStack,
+                backStack = backStack.toList(),
                 modifier = Modifier.fillMaxSize(),
                 sceneStrategy = listDetailStrategy,
                 onBack = { popBackStack() },
@@ -288,17 +281,6 @@ fun AppNavigation(
                     },
             )
 
-            if (overlayDetail != null) {
-                val targetRule = rulesUiState.rules.firstOrNull { it.uid == overlayDetail.uid }
-                if (targetRule != null) {
-                    AppRuleDetailScreen(
-                        rule = targetRule,
-                        allRules = rulesUiState.rules,
-                        onRuleChanged = { viewModel.notifyRulesChanged() },
-                        onBack = { popBackStack() },
-                    )
-                }
-            }
         }
     }
 }

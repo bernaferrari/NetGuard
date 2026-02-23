@@ -520,35 +520,6 @@ object Util {
     }
 
     @JvmStatic
-    @Suppress("DEPRECATION")
-    fun getFingerprint(context: Context): String? {
-        return try {
-            val pm = context.packageManager
-            val pkg = context.packageName
-            val info = pm.getPackageInfo(pkg, PackageManager.GET_SIGNATURES)
-            val signatures = info.signatures ?: return null
-            val cert = signatures.firstOrNull()?.toByteArray() ?: return null
-            val digest = MessageDigest.getInstance("SHA1")
-            val bytes = digest.digest(cert)
-            val sb = StringBuilder()
-            for (b in bytes) {
-                sb.append(Integer.toString(b.toInt() and 0xff, 16).lowercase(Locale.ROOT))
-            }
-            sb.toString()
-        } catch (ex: Throwable) {
-            Log.e(TAG, ex.toString() + "\n" + Log.getStackTraceString(ex))
-            null
-        }
-    }
-
-    @JvmStatic
-    fun hasValidFingerprint(context: Context): Boolean {
-        val calculated = getFingerprint(context)
-        val expected = context.getString(R.string.fingerprint)
-        return calculated != null && calculated == expected
-    }
-
-    @JvmStatic
     fun setTheme(context: Context) {
         val theme = Prefs.getString("theme", THEME_DEFAULT)
 
