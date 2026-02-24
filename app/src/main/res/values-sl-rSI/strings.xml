@@ -22,7 +22,7 @@
 
     <string name="channel_foreground">Delujoče storitve</string>
     <string name="channel_notify">Splošna obvestila</string>
-    <string name="channel_access">Dostopanje do obvestil</string>
+    <string name="channel_access">Obvestila o dostopu</string>
 
     <string name="menu_search">Iskalnik aplikacij</string>
     <string name="menu_filter">Filter aplikacij</string>
@@ -35,11 +35,11 @@
     <string name="menu_sort_uid">Razvrsti po Uid</string>
     <string name="menu_sort_data">Razvrsti po porabi podatkov</string>
     <string name="menu_launch">Zaženi aplikacijo</string>
-    <string name="menu_log">Pokaži dvenvnik</string>
+    <string name="menu_log">Pokaži dnevnik</string>
     <string name="menu_settings">Nastavitve</string>
     <string name="menu_home">Domov</string>
     <string name="menu_invite">Povabi</string>
-    <string name="menu_legend">圖例</string>
+    <string name="menu_legend">Legenda</string>
     <string name="menu_support">Pomoč</string>
     <string name="menu_about">O programu</string>
     <string name="menu_apps">Druge aplikacije</string>
@@ -52,7 +52,7 @@
     <string name="widget_lockdown_disabled">Zaklepanje IZKLOP</string>
     <string name="notify_traffic_title">Monitor prometa</string>
     <string name="notify_traffic_summary">Gor %1$s • Dol %2$s • Vrh %3$s</string>
-    <string name="notify_traffic_debug">Relacije %1$d/%2$d/%3$d • Súbory %4$d/%5$d</string>
+    <string name="notify_traffic_debug">Seje %1$d/%2$d/%3$d • Datoteke %4$d/%5$d</string>
     <string name="ui_loading">Nalaganje…</string>
     <string name="ui_empty_logs_title">Ni še prometa</string>
     <string name="ui_empty_logs_body">Ko se pojavijo povezave, se bodo prikazale tukaj.</string>
@@ -144,8 +144,8 @@
     <string name="title_protocol">Protokol</string>
     <string name="title_dport">Izvorna vrata</string>
     <string name="title_raddr">Ciljni naslov</string>
-    <string name="title_rport">Namembno pristanišče</string>
-    <string name="title_ruid">Namembna aplikacija</string>
+    <string name="title_rport">Vrata cilja</string>
+    <string name="title_ruid">Ciljna aplikacija</string>
     <string name="title_external">Za zunanji strežnik izberite \"nihče\"</string>
 
     <string name="setting_defaults">Privzete nastavitve (bela/črna lista)</string>
@@ -173,8 +173,13 @@
     <string name="setting_auto">Samodejno omogoči po %1$s minutah</string>
     <string name="setting_delay">Zakasnitev izklopa zaslona po %1$s minutah</string>
     <string name="setting_update">Preverite za posodobitev</string>
-    <string name="setting_update_now">Check now</string>
+    <string name="setting_update_now">Preveri zdaj</string>
     <string name="setting_update_checking">Preverjanje...</string>
+    <string name="setting_update_result_available">Posodobitev na voljo: %1$s</string>
+    <string name="setting_update_result_available_unknown">Posodobitev na voljo</string>
+    <string name="setting_update_result_up_to_date">NetGuard je posodobljen.</string>
+    <string name="setting_update_result_failed">Preverjanje posodobitev ni uspelo.</string>
+    <string name="setting_update_result_unavailable">Preverjanje posodobitev ni na voljo za to različico.</string>
 
     <string name="setting_network_options">Možnosti omrežja</string>
     <string name="setting_subnet">Podmrežno usmerjenje</string>
@@ -346,7 +351,7 @@
     <string name="msg_issue">Opišite težavo in navedite čas nastanka težave:</string>
     <string name="msg_vpn_cancelled">Povezava VPN je bila preklicana\nSte drug VPN konfigurirali kot vedno vklopljen VPN?</string>
     <string name="msg_on">Izklop naprave z omogočenim NetGuardom bo ob vklopu naprave samodejno zagnal NetGuard</string>
-    <string name="msg_unavailable">Ta funkcia ni na voljo v tej različici Androida</string>
+    <string name="msg_unavailable">Ta funkcija ni na voljo v tej različici Androida</string>
     <string name="msg_always_on">Drug VPN je nastavljen kot vedno vklopljen VPN</string>
     <string name="msg_always_on_lockdown">V nastavitvah Android VPN izklopite »Blokiraj povezave brez VPN«, če želite uporabljati NetGuard v načinu filtriranja</string>
     <string name="msg_private_dns">V nastavitvah omrežja Android izklopite »Zasebni DNS«, če želite uporabljati NetGuard v načinu filtriranja</string>
@@ -387,9 +392,9 @@
     <string name="title_logging_enabled">Beleženje in filtriranje sta omogočena</string>
     <string name="title_logging_configure">Konfiguracija</string>
 
-    <string name="title_enable_logging">Omogoči beleženje samo blokiranih naslovov</string>
-    <string name="title_enable_filtering">Omogoči filtriranje za beleženje tudi dovoljenih naslovov</string>
-    <string name="title_enable_notify">Omogoči obvestila o dostopu za na novo zabeležene naslove</string>
+    <string name="title_enable_logging">Povoli beleženje samo blokiranih naslovov</string>
+    <string name="title_enable_filtering">Povoli filtriranje za beleženje tudi dovoljenih naslovov</string>
+    <string name="title_enable_notify">Povoli obvestila o dostopu za na novo zabeležene naslove</string>
     <string name="title_enable_help0">Te nastavitve so globalne nastavitve, ki veljajo za vse aplikacije</string>
     <string name="title_enable_help1">Filtriranje je potrebno tudi za dovolitev ali blokiranje posameznih naslovov</string>
     <string name="title_enable_help2">Omogočanje beleženja (manj) ali filtriranja (več) lahko poveča porabo baterije in lahko vpliva na hitrost omrežja</string>

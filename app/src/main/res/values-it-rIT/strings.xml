@@ -175,6 +175,11 @@
     <string name="setting_update">Controlla aggiornamenti</string>
     <string name="setting_update_now">Controlla ora</string>
     <string name="setting_update_checking">Verifica...</string>
+    <string name="setting_update_result_available">Aggiornamento disponibile: %1$s</string>
+    <string name="setting_update_result_available_unknown">Aggiornamento disponibile</string>
+    <string name="setting_update_result_up_to_date">NetGuard è aggiornato.</string>
+    <string name="setting_update_result_failed">Impossibile controllare gli aggiornamenti.</string>
+    <string name="setting_update_result_unavailable">Controllo aggiornamenti non disponibile per questa build.</string>
 
     <string name="setting_network_options">Opzioni di rete</string>
     <string name="setting_subnet">Routing sottorete</string>

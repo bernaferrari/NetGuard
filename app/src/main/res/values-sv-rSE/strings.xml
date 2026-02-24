@@ -175,6 +175,11 @@
     <string name="setting_update">Sök efter uppdateringar</string>
     <string name="setting_update_now">Kontrollera nu</string>
     <string name="setting_update_checking">Kontrollerar...</string>
+    <string name="setting_update_result_available">Uppdatering tillgänglig: %1$s</string>
+    <string name="setting_update_result_available_unknown">Uppdatering tillgänglig</string>
+    <string name="setting_update_result_up_to_date">NetGuard är uppdaterad.</string>
+    <string name="setting_update_result_failed">Kunde inte söka efter uppdateringar.</string>
+    <string name="setting_update_result_unavailable">Uppdateringskontroll är inte tillgänglig för denna version.</string>
 
     <string name="setting_network_options">Nätverksinställningar</string>
     <string name="setting_subnet">Subnet routing</string>

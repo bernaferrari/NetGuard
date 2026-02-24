@@ -167,7 +167,7 @@
     <string name="setting_appearance_auto">Auto</string>
     <string name="setting_appearance_light">Hell</string>
     <string name="setting_appearance_dark">Dunkel</string>
-    <string name="theme_dynamic" translatable="false">Dynamic</string>
+    <string name="theme_dynamic">Dynamisch</string>
     <string name="setting_install">Benachrichtigen bei Neuinstallation</string>
     <string name="setting_screen_on">\'Bei Bildschirm an\'-Regeln anwenden</string>
     <string name="setting_auto">Autom. aktivieren nach %1$s Minuten</string>
@@ -175,6 +175,11 @@
     <string name="setting_update">Auf Updates prüfen</string>
     <string name="setting_update_now">Jetzt prüfen</string>
     <string name="setting_update_checking">Überprüfen...</string>
+    <string name="setting_update_result_available">Update verfügbar: %1$s</string>
+    <string name="setting_update_result_available_unknown">Update verfügbar</string>
+    <string name="setting_update_result_up_to_date">NetGuard ist aktuell.</string>
+    <string name="setting_update_result_failed">Update-Prüfung fehlgeschlagen.</string>
+    <string name="setting_update_result_unavailable">Update-Prüfung für diesen Build nicht verfügbar.</string>
 
     <string name="setting_network_options">Netzwerkoptionen</string>
     <string name="setting_subnet">Subnetz-Routing</string>
@@ -203,7 +208,7 @@
     <string name="setting_handover">Nahtlose VPN-Übergabe beim Neuladen</string>
     <string name="setting_clear_onreload">Verbindungen beim Neuladen schließen</string>
     <string name="setting_lockdown">Datenverkehr-Lockdown</string>
-    <string name="setting_malware" translatable="false">Schutz vor Malware</string>
+    <string name="setting_malware">Schutz vor Malware</string>
     <string name="setting_track_usage">Netzwerknutzung verfolgen</string>
     <string name="setting_reset_usage">Netzwerknutzung zurücksetzen</string>
     <string name="setting_show_resolved">Aufgelöste Domainnamen anzeigen</string>
@@ -301,7 +306,7 @@
     <string name="msg_revoked">NetGuard wurde deaktiviert, vermutlich durch eine andere VPN-App</string>
     <string name="msg_installed">\'%1$s\' installiert</string>
     <string name="msg_installed_n">Wurde installiert</string>
-    <string name="msg_malware" translatable="false">Mögliche Malware: \'%1$s\'</string>
+    <string name="msg_malware">Mögliche Malware: \'%1$s\'</string>
     <string name="msg_access">%1$s hat Internetzugriff versucht</string>
     <string name="msg_access_n">Internetzugriff versucht</string>
     <string name="msg_completed">Aktion abgeschlossen</string>
@@ -409,8 +414,8 @@ Ihr Verkehr wird NICHT an einen entfernten VPN-Server gesendet.</string>
     <string name="title_block_other">Mobilfunk blockieren</string>
     <string name="title_root">root</string>
     <string name="title_mediaserver">mediaserver</string>
-    <string name="title_gpsdaemon" translatable="false">GPS daemon</string>
-    <string name="title_dnsdaemon" translatable="false">DNS daemon</string>
+    <string name="title_gpsdaemon">GPS-Daemon</string>
+    <string name="title_dnsdaemon">DNS-Daemon</string>
     <string name="title_nobody">nobody</string>
     <string name="title_dontask">Nicht erneut fragen</string>
 

@@ -174,7 +174,7 @@
     <string name="setting_delay">Retardar l\'apagada de la pantalla %1$s minuts</string>
     <string name="setting_update">Cercar actualitzacions</string>
     <string name="setting_update_now">Comprova ara</string>
-    <string name="setting_update_checking">S'està comprovant...</string>
+    <string name="setting_update_checking">S\'està comprovant...</string>
 
     <string name="setting_network_options">Opcions de xarxa</string>
     <string name="setting_subnet">Enrutament de subxarxa</string>

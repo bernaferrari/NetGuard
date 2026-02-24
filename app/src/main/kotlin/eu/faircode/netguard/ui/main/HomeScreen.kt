@@ -55,6 +55,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.toPath
+import androidx.compose.material3.toShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -437,7 +438,7 @@ private fun StatusCard(
 
     Surface(
         onClick = { triggerToggle(!enabled) },
-        shape = MaterialTheme.shapes.extraLarge,
+        shape = MaterialShapes.Gem.toShape(),
         modifier = Modifier
             .fillMaxWidth()
             .graphicsLayer {

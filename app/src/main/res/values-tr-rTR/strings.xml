@@ -270,8 +270,8 @@
     <string name="summary_metered_2g">2G veri bağlantılarına Wi-Fi ağ kurallarını uygulayın</string>
     <string name="summary_metered_3g">3G veri bağlantılarına Wi-Fi ağ kurallarını uygulayın</string>
     <string name="summary_metered_4g">LTE veri bağlantılarına Wi-Fi ağ kurallarını uygulayın</string>
-    <string name="national_roaming_summary">SIM ve mobil ağ ülkesi aynı olduğunda dolaşım kurallarını uygulama</string>
-    <string name="eu_roaming_summary">SIM ve mobil ağ ülkesi her ikisi de AB içindeyken dolaşım kurallarını uygulama (kendi ülkendeymiş gibi kullan)</string>
+    <string name="summary_national_roaming">SIM ve mobil ağ ülkesi aynı olduğunda dolaşım kurallarını uygulama</string>
+    <string name="summary_eu_roaming">SIM ve mobil ağ ülkesi her ikisi de AB içindeyken dolaşım kurallarını uygulama (kendi ülkendeymiş gibi kullan)</string>
     <string name="summary_call">Gelen veya giden bir arama olduğunda NetGuard\'ı devre dışı bırakın. Bu, IP/Wi-Fi üzerinden arama sorunlarını önlemek için kullanılabilir.</string>
 
     <string name="summary_system">Sistem uygulamaları için kurallar tanımlayın (uzmanlar için)</string>

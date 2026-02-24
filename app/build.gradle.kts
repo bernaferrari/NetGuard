@@ -102,6 +102,7 @@ android {
         }
         getByName("debug") {
             isMinifyEnabled = false
+            
             proguardFiles(file("proguard-rules.pro"))
             buildConfigField("boolean", "PLAY_STORE_RELEASE", "false")
             buildConfigField(

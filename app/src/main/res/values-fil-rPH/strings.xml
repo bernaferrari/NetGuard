@@ -175,6 +175,11 @@
     <string name="setting_update">Mag-tsek para sa mga updeyt</string>
     <string name="setting_update_now">Suriin ngayon</string>
     <string name="setting_update_checking">Sine-check...</string>
+    <string name="setting_update_result_available">May updeyt na available: %1$s</string>
+    <string name="setting_update_result_available_unknown">May updeyt na available</string>
+    <string name="setting_update_result_up_to_date">Naka-up to date ka na.</string>
+    <string name="setting_update_result_failed">Hindi ma-tsek ang mga updeyt.</string>
+    <string name="setting_update_result_unavailable">Hindi available ang pag-tsek ng updeyt para sa build na ito.</string>
 
     <string name="setting_network_options">Mga opsyon sa network</string>
     <string name="setting_subnet">Subnet routing</string>
@@ -374,8 +379,8 @@ Ang iyong internet trapiko ay hindi ipinapadala sa isang remote VPN server.</str
     <string name="title_download">Ang mga pag-download ay isinasagawa ng download manager at hindi ng app na ito at samakatuwid ay hindi ma-i-block sa pamamagitan ng pag-block sa app na ito</string>
     <string name="title_apply">I-apply ang mga rule at kondisyon</string>
     <string name="title_conditions">Mga Kondisyon</string>
-    <string name="title_screen_wifi">Autoriser Wi-Fi si l\'écran est allumé</string>
-    <string name="title_screen_other">Autoriser mobile si l\'écran est allumé</string>
+    <string name="title_screen_wifi">Payagan ang Wi-Fi kapag nakabukas ang screen</string>
+    <string name="title_screen_other">Payagan ang mobile kapag nakabukas ang screen</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">I-block kapag naka-roaming</string>
     <string name="label_ttl">TTL: %s s</string>
