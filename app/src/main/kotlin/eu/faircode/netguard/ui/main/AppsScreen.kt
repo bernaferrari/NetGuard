@@ -1,13 +1,22 @@
 package eu.faircode.netguard.ui.main
 
 import android.app.NotificationManager
+import androidx.compose.animation.animateColor
+import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
+import androidx.compose.animation.core.updateTransition
+import androidx.compose.animation.core.keyframes
+import androidx.compose.foundation.background
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -21,19 +30,26 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Apps
 import androidx.compose.material.icons.filled.Block
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.MobileOff
+import androidx.compose.material.icons.filled.PhoneAndroid
+import androidx.compose.material.icons.filled.Public
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.filled.Tune
+import androidx.compose.material.icons.filled.Wifi
 import androidx.compose.material.icons.filled.WifiOff
+import androidx.compose.material.icons.outlined.Block
+import androidx.compose.material.icons.outlined.CheckCircle
+import androidx.compose.material.icons.outlined.Public
 import androidx.compose.material3.ButtonGroupDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
@@ -50,7 +66,6 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -62,6 +77,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -86,7 +102,9 @@ import eu.faircode.netguard.Rule
 import eu.faircode.netguard.ServiceSinkhole
 import eu.faircode.netguard.Widgets
 import eu.faircode.netguard.data.Prefs
+import eu.faircode.netguard.ui.components.DiagonalWipeIcon
 import eu.faircode.netguard.ui.components.IndexedFastScroller
+import eu.faircode.netguard.ui.theme.LocalMotion
 import eu.faircode.netguard.ui.theme.spacing
 import eu.faircode.netguard.ui.util.StatePlaceholder
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -104,11 +122,13 @@ fun AppsScreen(
     initialFilterVersion: Int = 0,
 ) {
     val spacing = MaterialTheme.spacing
+    val context = LocalContext.current
     val focusManager = LocalFocusManager.current
     val searchFocusRequester = remember { FocusRequester() }
     val listState = rememberLazyListState()
     val rulesUiState by viewModel.rulesUiState.collectAsStateWithLifecycle()
     val rules = rulesUiState.rules
+    val rulesRevision = rulesUiState.revision
     val isLoading = rulesUiState.isLoading && rulesUiState.rules.isEmpty()
     val isRefreshing = rulesUiState.isLoading
     var filter by remember(initialFilterVersion) { mutableStateOf(initialFilter) }
@@ -136,68 +156,59 @@ fun AppsScreen(
             }
     }
 
-    val filteredRules by remember(rulesUiState.rules, filter, normalizedSearchQuery) {
-        derivedStateOf {
-            val base = when (filter) {
-                AppsFilter.All -> rules
-                AppsFilter.Blocked -> rules.filter { it.wifi_blocked || it.other_blocked }
-                AppsFilter.Allowed -> rules.filter { !it.wifi_blocked && !it.other_blocked }
-            }
-            if (normalizedSearchQuery.isEmpty()) base else base.filter {
-                matchesAppQuery(
-                    it,
-                    normalizedSearchQuery
-                )
-            }
+    val filteredRules = remember(rules, rulesRevision, filter, normalizedSearchQuery) {
+        val base = when (filter) {
+            AppsFilter.All -> rules
+            AppsFilter.Blocked -> rules.filter { it.wifi_blocked || it.other_blocked }
+            AppsFilter.Allowed -> rules.filter { !it.wifi_blocked && !it.other_blocked }
+        }
+        if (normalizedSearchQuery.isEmpty()) {
+            base
+        } else {
+            base.filter { matchesAppQuery(it, normalizedSearchQuery) }
         }
     }
-    val badgeCount by remember(filteredRules) {
-        derivedStateOf { filteredRules.size }
-    }
+    val badgeCount = filteredRules.size
 
     // Group by first letter for section headers
-    val groupedRules by remember(filteredRules) {
-        derivedStateOf {
-            val items = mutableListOf<AppListItem>()
-            var lastLetter = ""
-            filteredRules.forEach { rule ->
-                val name = rule.name ?: rule.packageName.orEmpty()
-                val letter = name.firstOrNull()?.uppercaseChar()?.toString() ?: "#"
-                val section = if (letter.first().isLetter()) letter else "#"
-                if (section != lastLetter) {
-                    items.add(AppListItem.Header(section))
-                    lastLetter = section
-                }
-                items.add(AppListItem.App(rule, position = CardPosition.Middle))
+    val groupedRules = remember(filteredRules, rulesRevision, selectedRuleUid) {
+        val items = mutableListOf<AppListItem>()
+        var lastLetter = ""
+        filteredRules.forEach { rule ->
+            val name = rule.name ?: rule.packageName.orEmpty()
+            val letter = name.firstOrNull()?.uppercaseChar()?.toString() ?: "#"
+            val section = if (letter.first().isLetter()) letter else "#"
+            if (section != lastLetter) {
+                items.add(AppListItem.Header(section))
+                lastLetter = section
             }
-            // Assign positions within each section
-            var i = 0
-            while (i < items.size) {
-                if (items[i] is AppListItem.Header) {
-                    val sectionStart = i + 1
-                    var sectionEnd = sectionStart
-                    while (sectionEnd < items.size && items[sectionEnd] is AppListItem.App) sectionEnd++
-                    val count = sectionEnd - sectionStart
-                    for (j in sectionStart until sectionEnd) {
-                        val pos = when {
-                            count == 1 -> CardPosition.Single
-                            j == sectionStart -> CardPosition.First
-                            j == sectionEnd - 1 -> CardPosition.Last
-                            else -> CardPosition.Middle
-                        }
-                        items[j] = (items[j] as AppListItem.App).copy(position = pos)
-                    }
-                    i = sectionEnd
-                } else {
-                    i++
-                }
-            }
-            items
+            items.add(AppListItem.App(rule, position = CardPosition.Middle))
         }
+        // Assign positions within each section
+        var i = 0
+        while (i < items.size) {
+            if (items[i] is AppListItem.Header) {
+                val sectionStart = i + 1
+                var sectionEnd = sectionStart
+                while (sectionEnd < items.size && items[sectionEnd] is AppListItem.App) sectionEnd++
+                val count = sectionEnd - sectionStart
+                for (j in sectionStart until sectionEnd) {
+                    val pos = when {
+                        count == 1 -> CardPosition.Single
+                        j == sectionStart -> CardPosition.First
+                        j == sectionEnd - 1 -> CardPosition.Last
+                        else -> CardPosition.Middle
+                    }
+                    items[j] = (items[j] as AppListItem.App).copy(position = pos)
+                }
+                i = sectionEnd
+            } else {
+                i++
+            }
+        }
+        items
     }
-    val showFastScroller by remember(filteredRules) {
-        derivedStateOf { filteredRules.size >= 24 }
-    }
+    val showFastScroller = filteredRules.size >= 24
 
     Scaffold(
         contentWindowInsets = WindowInsets(0, 0, 0, 0),
@@ -286,20 +297,23 @@ fun AppsScreen(
         ) {
             // Filter chips
             val filterOptions = listOf(
-                Triple(
+                FilterOption(
                     AppsFilter.All,
                     stringResource(R.string.ui_filter_all),
-                    Icons.Filled.Tune
+                    selectedIcon = Icons.Filled.Public,
+                    unselectedIcon = Icons.Outlined.Public,
                 ),
-                Triple(
+                FilterOption(
                     AppsFilter.Blocked,
                     stringResource(R.string.menu_traffic_blocked),
-                    Icons.Filled.Block
+                    selectedIcon = Icons.Filled.Block,
+                    unselectedIcon = Icons.Outlined.Block,
                 ),
-                Triple(
+                FilterOption(
                     AppsFilter.Allowed,
                     stringResource(R.string.menu_traffic_allowed),
-                    Icons.Filled.CheckCircle
+                    selectedIcon = Icons.Filled.CheckCircle,
+                    unselectedIcon = Icons.Outlined.CheckCircle,
                 ),
             )
             Row(
@@ -308,12 +322,13 @@ fun AppsScreen(
                     .padding(horizontal = spacing.default),
                 horizontalArrangement = Arrangement.spacedBy(ButtonGroupDefaults.ConnectedSpaceBetween),
             ) {
-                filterOptions.forEachIndexed { index, (option, label, icons) ->
+                filterOptions.forEachIndexed { index, item ->
+                    val isSelected = filter == item.option
                     ToggleButton(
-                        checked = filter == option,
+                        checked = isSelected,
                         onCheckedChange = { checked ->
                             if (checked) {
-                                filter = option
+                                filter = item.option
                             }
                         },
                         shapes =
@@ -333,11 +348,11 @@ fun AppsScreen(
                             .semantics { role = Role.RadioButton },
                     ) {
                         Icon(
-                            imageVector = icons,
+                            imageVector = if (isSelected) item.selectedIcon else item.unselectedIcon,
                             contentDescription = null,
                         )
                         Spacer(Modifier.size(ToggleButtonDefaults.IconSpacing))
-                        Text(text = label, maxLines = 1)
+                        Text(text = item.label, maxLines = 1)
                     }
                 }
             }
@@ -441,6 +456,16 @@ fun AppsScreen(
                                                 isSelected = selectedRuleUid == item.rule.uid,
                                                 position = item.position,
                                                 searchQuery = normalizedSearchQuery,
+                                                onToggleWifi = {
+                                                    item.rule.wifi_blocked = !item.rule.wifi_blocked
+                                                    persistRule(context, item.rule, rules)
+                                                    viewModel.notifyRulesChanged()
+                                                },
+                                                onToggleMobile = {
+                                                    item.rule.other_blocked = !item.rule.other_blocked
+                                                    persistRule(context, item.rule, rules)
+                                                    viewModel.notifyRulesChanged()
+                                                },
                                                 onClick = {
                                                     onNavigateToDetail(item.rule)
                                                 },
@@ -481,6 +506,13 @@ enum class AppsFilter {
     Allowed,
 }
 
+private data class FilterOption(
+    val option: AppsFilter,
+    val label: String,
+    val selectedIcon: ImageVector,
+    val unselectedIcon: ImageVector,
+)
+
 private enum class CardPosition {
     First, Middle, Last, Single
 }
@@ -514,10 +546,11 @@ private fun RuleCard(
     isSelected: Boolean = false,
     position: CardPosition,
     searchQuery: String,
+    onToggleWifi: () -> Unit,
+    onToggleMobile: () -> Unit,
     onClick: () -> Unit,
 ) {
     val context = LocalContext.current
-    val spacing = MaterialTheme.spacing
 
     val iconBitmap = remember(rule.packageName) {
         runCatching {
@@ -528,6 +561,12 @@ private fun RuleCard(
     }
 
     val appName = rule.name ?: rule.packageName.orEmpty()
+    val wifiDescription = stringResource(R.string.title_wifi) + " " +
+            if (rule.wifi_blocked) stringResource(R.string.menu_traffic_blocked)
+            else stringResource(R.string.menu_traffic_allowed)
+    val mobileDescription = stringResource(R.string.title_mobile) + " " +
+            if (rule.other_blocked) stringResource(R.string.menu_traffic_blocked)
+            else stringResource(R.string.menu_traffic_allowed)
     val highlightColor = MaterialTheme.colorScheme.primary
     val highlightedAppName = remember(appName, searchQuery, highlightColor) {
         buildMatchHighlightedText(
@@ -620,64 +659,171 @@ private fun RuleCard(
 
             // App name + status
             Column(modifier = Modifier.weight(1f)) {
-            Text(
-                text = highlightedAppName,
-                style = MaterialTheme.typography.bodyLarge.copy(
-                    color = contentColor,
-                ),
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-            )
-                if (rule.wifi_blocked || rule.other_blocked) {
-                    Row(
-                        horizontalArrangement = Arrangement.spacedBy(4.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.padding(top = 2.dp),
-                    ) {
-                        if (rule.wifi_blocked) {
-                            BlockedBadge(
-                                icon = Icons.Default.WifiOff,
-                                label = stringResource(R.string.title_wifi),
-                            )
-                        }
-                        if (rule.other_blocked) {
-                            BlockedBadge(
-                                icon = Icons.Default.MobileOff,
-                                label = stringResource(R.string.title_mobile),
-                            )
-                        }
-                    }
-                }
+                Text(
+                    text = highlightedAppName,
+                    style = MaterialTheme.typography.bodyLarge.copy(
+                        color = contentColor,
+                    ),
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            }
+
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                NetworkToggleButton(
+                    blocked = rule.wifi_blocked,
+                    allowedIcon = Icons.Default.Wifi,
+                    blockedIcon = Icons.Default.WifiOff,
+                    contentDescription = wifiDescription,
+                    onToggle = onToggleWifi,
+                )
+                NetworkToggleButton(
+                    blocked = rule.other_blocked,
+                    allowedIcon = Icons.Default.PhoneAndroid,
+                    blockedIcon = Icons.Default.MobileOff,
+                    contentDescription = mobileDescription,
+                    onToggle = onToggleMobile,
+                )
             }
         }
     }
 }
 
 @Composable
-private fun BlockedBadge(
-    icon: ImageVector,
-    label: String,
+private fun NetworkToggleButton(
+    blocked: Boolean,
+    allowedIcon: ImageVector,
+    blockedIcon: ImageVector,
+    contentDescription: String,
+    onToggle: () -> Unit,
 ) {
+    val motion = LocalMotion.current
+    val interactionSource = remember { MutableInteractionSource() }
+    val isPressed by interactionSource.collectIsPressedAsState()
+    val pressScale by animateFloatAsState(
+        targetValue = if (isPressed) 0.92f else 1f,
+        animationSpec = spring(
+            stiffness = Spring.StiffnessHigh,
+            dampingRatio = Spring.DampingRatioNoBouncy
+        ),
+        label = "networkTogglePressScale",
+    )
+    val stateTransition = updateTransition(targetState = blocked, label = "networkToggleState")
+    val bubbleAlpha by stateTransition.animateFloat(
+        transitionSpec = {
+            if (true isTransitioningTo false) {
+                keyframes {
+                    durationMillis = motion.durationFast + 100
+                    1f at 0
+                    1f at 64
+                    0.64f at 160
+                    0f at durationMillis
+                }
+            } else {
+                spring(
+                    stiffness = Spring.StiffnessMediumLow,
+                    dampingRatio = 0.82f,
+                )
+            }
+        },
+        label = "networkToggleBubbleAlpha",
+    ) { isBlocked ->
+        if (isBlocked) 1f else 0f
+    }
+    val bubbleScale by stateTransition.animateFloat(
+        transitionSpec = {
+            if (true isTransitioningTo false) {
+                keyframes {
+                    durationMillis = motion.durationFast + 100
+                    1f at 0
+                    1.1f at 64
+                    0.68f at 160
+                    0f at durationMillis
+                }
+            } else {
+                spring(
+                    stiffness = 640f,
+                    dampingRatio = 0.76f,
+                )
+            }
+        },
+        label = "networkToggleBubbleScale",
+    ) { isBlocked ->
+        if (isBlocked) 1f else 0f
+    }
+    val allowedIconTint = if (blocked) {
+        MaterialTheme.colorScheme.onErrorContainer.copy(alpha = 0.44f)
+    } else {
+        MaterialTheme.colorScheme.onSurfaceVariant
+    }
+    val blockedIconTint = if (blocked) {
+        MaterialTheme.colorScheme.onErrorContainer
+    } else {
+        MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.9f)
+    }
+    val dividerTint = if (blocked) {
+        MaterialTheme.colorScheme.onErrorContainer.copy(alpha = 0.76f)
+    } else {
+        MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
+    }
+    val iconScale by stateTransition.animateFloat(
+        transitionSpec = {
+            spring(
+                stiffness = Spring.StiffnessMediumLow,
+                dampingRatio = Spring.DampingRatioNoBouncy,
+            )
+        },
+        label = "networkToggleIconScale",
+    ) { isBlocked ->
+        if (isBlocked) 1f else 0.9f
+    }
+    val blockedBackground = MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.88f)
+
     Surface(
-        shape = MaterialTheme.shapes.extraSmall,
-        color = MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.55f),
+        onClick = onToggle,
+        interactionSource = interactionSource,
+        shape = CircleShape,
+        color = Color.Transparent,
+        modifier = Modifier
+            .size(34.dp)
+            .graphicsLayer {
+                scaleX = pressScale
+                scaleY = pressScale
+            },
     ) {
-        Row(
-            modifier = Modifier.padding(horizontal = 5.dp, vertical = 2.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(3.dp),
-        ) {
-            Icon(
-                imageVector = icon,
-                contentDescription = null,
-                modifier = Modifier.size(10.dp),
-                tint = MaterialTheme.colorScheme.onErrorContainer,
+        Box(contentAlignment = Alignment.Center) {
+            Box(
+                modifier = Modifier
+                    .size(30.dp)
+                    .graphicsLayer {
+                        alpha = bubbleAlpha
+                        scaleX = bubbleScale
+                        scaleY = bubbleScale
+                    }
+                    .clip(CircleShape)
+                    .background(blockedBackground),
             )
-            Text(
-                text = label,
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onErrorContainer,
-            )
+            Box(
+                modifier = Modifier
+                    .size(18.dp)
+                    .graphicsLayer {
+                        scaleX = iconScale
+                        scaleY = iconScale
+                    },
+            ) {
+                DiagonalWipeIcon(
+                    blocked = blocked,
+                    allowedIcon = allowedIcon,
+                    blockedIcon = blockedIcon,
+                    allowedTint = allowedIconTint,
+                    blockedTint = blockedIconTint,
+                    contentDescription = contentDescription,
+                    modifier = Modifier.matchParentSize(),
+                )
+            }
         }
     }
 }

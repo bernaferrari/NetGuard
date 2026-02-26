@@ -74,6 +74,8 @@ import androidx.compose.material3.ToggleButton
 import androidx.compose.material3.ToggleButtonDefaults
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.dynamicDarkColorScheme
+import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
@@ -91,6 +93,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalHapticFeedback
@@ -169,7 +172,8 @@ fun SettingsScreen(
 
     var showHostImportHint by remember { mutableStateOf(false) }
     var updateCheckInProgress by remember { mutableStateOf(false) }
-    var updateCheckMessage by remember { mutableStateOf<String?>(null) }
+    var updateCheckStatus by remember { mutableStateOf<String?>(null) }
+    var updateCheckVersion by remember { mutableStateOf<String?>(null) }
 
     DisposableEffect(context) {
         val receiver =
@@ -181,22 +185,8 @@ fun SettingsScreen(
 
                     val status = intent.getStringExtra(ServiceSinkhole.EXTRA_UPDATE_CHECK_STATUS)
                     val version = intent.getStringExtra(ServiceSinkhole.EXTRA_UPDATE_CHECK_VERSION)
-                    updateCheckMessage =
-                        when (status) {
-                            "available" ->
-                                if (!version.isNullOrBlank()) {
-                                    context.getString(
-                                        R.string.setting_update_result_available,
-                                        version
-                                    )
-                                } else {
-                                    context.getString(R.string.setting_update_result_available_unknown)
-                                }
-
-                            "upToDate" -> context.getString(R.string.setting_update_result_up_to_date)
-                            "unavailable" -> context.getString(R.string.setting_update_result_unavailable)
-                            else -> context.getString(R.string.setting_update_result_failed)
-                        }
+                    updateCheckStatus = status
+                    updateCheckVersion = version
                 }
             }
 
@@ -278,6 +268,16 @@ fun SettingsScreen(
             CollapsibleSettingsSection(title = appearanceTitle) {
                 val currentTheme = str("theme", "teal")
                 val dynamicThemeEnabled = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
+                val useDarkDynamicPreview = MaterialTheme.colorScheme.surface.luminance() < 0.5f
+                val dynamicSwatchColor = remember(dynamicThemeEnabled, useDarkDynamicPreview, context) {
+                    if (!dynamicThemeEnabled) {
+                        Teal500
+                    } else if (useDarkDynamicPreview) {
+                        dynamicDarkColorScheme(context).primary
+                    } else {
+                        dynamicLightColorScheme(context).primary
+                    }
+                }
                 val modeOptions = listOf(
                     Triple(
                         "light",
@@ -372,7 +372,7 @@ fun SettingsScreen(
                             seedColor = seedColor,
                             isSelected = currentTheme == theme,
                             isEnabled = theme != "dynamic" || dynamicThemeEnabled,
-                            dynamicColor = MaterialTheme.colorScheme.primary,
+                            dynamicColor = dynamicSwatchColor,
                             onClick = {
                                 Prefs.putString("theme", theme)
                                 Widgets.updateAll(context)
@@ -536,7 +536,11 @@ fun SettingsScreen(
                     title = stringResource(R.string.setting_system),
                     checked = bool("manage_system", false),
                     isFirst = true,
-                ) { updateFlag("manage_system", it, reload = true) }
+                ) { enabled ->
+                    Prefs.putBoolean("manage_system", enabled)
+                    Prefs.putBoolean("show_system", enabled)
+                    ServiceSinkhole.reload("settings", context, false)
+                }
                 SettingToggleRow(
                     title = stringResource(R.string.setting_log_app),
                     checked = bool("log", false),
@@ -842,7 +846,8 @@ fun SettingsScreen(
                 FilledTonalButton(
                     onClick = {
                         updateCheckInProgress = true
-                        updateCheckMessage = null
+                        updateCheckStatus = null
+                        updateCheckVersion = null
                         ServiceSinkhole.checkForUpdateNow("settings", context)
                     },
                     enabled = !updateCheckInProgress,
@@ -862,7 +867,23 @@ fun SettingsScreen(
                     }
                 }
 
-                updateCheckMessage?.let { message ->
+                updateCheckStatus?.let { status ->
+                    val message =
+                        when (status) {
+                            "available" ->
+                                if (!updateCheckVersion.isNullOrBlank()) {
+                                    stringResource(
+                                        R.string.setting_update_result_available,
+                                        updateCheckVersion!!
+                                    )
+                                } else {
+                                    stringResource(R.string.setting_update_result_available_unknown)
+                                }
+
+                            "upToDate" -> stringResource(R.string.setting_update_result_up_to_date)
+                            "unavailable" -> stringResource(R.string.setting_update_result_unavailable)
+                            else -> stringResource(R.string.setting_update_result_failed)
+                        }
                     Text(
                         text = message,
                         style = MaterialTheme.typography.bodySmall,

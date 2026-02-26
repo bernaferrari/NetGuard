@@ -6,8 +6,6 @@ import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
-import androidx.compose.animation.scaleIn
-import androidx.compose.animation.scaleOut
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.animation.togetherWith
@@ -100,12 +98,21 @@ fun FirewallTile(
         animationSpec = tween(400),
         label = "ftIconBg",
     )
-    val iconColor by animateColorAsState(
-        targetValue = if (blocked) MaterialTheme.colorScheme.error
-        else MaterialTheme.colorScheme.onSurfaceVariant,
-        animationSpec = tween(400),
-        label = "ftIconTint",
-    )
+    val iconColor = if (blocked) {
+        MaterialTheme.colorScheme.error
+    } else {
+        MaterialTheme.colorScheme.onSurfaceVariant
+    }
+    val iconAllowedTint = if (blocked) {
+        MaterialTheme.colorScheme.error.copy(alpha = 0.44f)
+    } else {
+        MaterialTheme.colorScheme.onSurfaceVariant
+    }
+    val slashColor = if (blocked) {
+        MaterialTheme.colorScheme.error.copy(alpha = 0.76f)
+    } else {
+        MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
+    }
 
     Surface(
         onClick = onToggle,
@@ -128,21 +135,15 @@ fun FirewallTile(
                     .background(iconContainerColor),
                 contentAlignment = Alignment.Center,
             ) {
-                AnimatedContent(
-                    targetState = blocked,
-                    transitionSpec = {
-                        (scaleIn(tween(250)) + fadeIn(tween(250)))
-                            .togetherWith(scaleOut(tween(200)) + fadeOut(tween(200)))
-                    },
-                    label = "ftIconAnim",
-                ) { isBlocked ->
-                    Icon(
-                        imageVector = if (isBlocked) blockedIcon else allowedIcon,
-                        contentDescription = null,
-                        tint = iconColor,
-                        modifier = Modifier.size(24.dp),
-                    )
-                }
+                DiagonalWipeIcon(
+                    blocked = blocked,
+                    allowedIcon = allowedIcon,
+                    blockedIcon = blockedIcon,
+                    allowedTint = iconAllowedTint,
+                    blockedTint = iconColor,
+                    contentDescription = null,
+                    modifier = Modifier.size(24.dp),
+                )
             }
 
             // Text Data

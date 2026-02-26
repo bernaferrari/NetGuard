@@ -54,7 +54,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.toPath
-import androidx.compose.material3.toShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -343,6 +342,11 @@ private fun StatusCard(
         animationSpec = tween(motion.durationMedium, easing = FastOutSlowInEasing),
         label = "badgeMorph",
     )
+    val cardMorphProgress by animateFloatAsState(
+        targetValue = if (enabled) 1f else 0f,
+        animationSpec = tween(motion.durationMedium, easing = FastOutSlowInEasing),
+        label = "cardMorph",
+    )
     val iconBadgeScale by animateFloatAsState(
         targetValue = if (enabled) 1f else 0.98f,
         animationSpec = spring(
@@ -397,30 +401,9 @@ private fun StatusCard(
     }
     val badgeMorph =
         remember { Morph(start = MaterialShapes.Square, end = MaterialShapes.Cookie9Sided) }
-    val badgeShape = remember(badgeMorph, morphProgress) {
-        object : Shape {
-            override fun createOutline(
-                size: androidx.compose.ui.geometry.Size,
-                layoutDirection: LayoutDirection,
-                density: Density,
-            ): Outline {
-                val path = badgeMorph.toPath(progress = morphProgress, startAngle = 0)
-                val scaleMatrix = Matrix().apply { scale(x = size.width, y = size.height) }
-                path.transform(scaleMatrix)
-
-                val bounds = path.getBounds()
-                val translateX = (size.width / 2f) - bounds.center.x
-                val translateY = (size.height / 2f) - bounds.center.y
-                path.transform(
-                    Matrix().apply {
-                        translate(x = translateX, y = translateY)
-                    },
-                )
-
-                return Outline.Generic(path)
-            }
-        }
-    }
+    val badgeShape = rememberMorphShape(morph = badgeMorph, progress = morphProgress)
+    val cardMorph = remember { Morph(start = MaterialShapes.Square, end = MaterialShapes.Gem) }
+    val cardShape = rememberMorphShape(morph = cardMorph, progress = cardMorphProgress)
     val interactionSource = remember { MutableInteractionSource() }
     val isPressed by interactionSource.collectIsPressedAsState()
     val scale by animateFloatAsState(
@@ -437,7 +420,7 @@ private fun StatusCard(
 
     Surface(
         onClick = { triggerToggle(!enabled) },
-        shape = MaterialShapes.Gem.toShape(),
+        shape = cardShape,
         modifier = Modifier
             .fillMaxWidth()
             .graphicsLayer {
@@ -527,6 +510,37 @@ private fun StatusCard(
         }
     }
 }
+
+@OptIn(ExperimentalMaterial3ExpressiveApi::class)
+@Composable
+private fun rememberMorphShape(
+    morph: Morph,
+    progress: Float,
+): Shape =
+    remember(morph, progress) {
+        object : Shape {
+            override fun createOutline(
+                size: androidx.compose.ui.geometry.Size,
+                layoutDirection: LayoutDirection,
+                density: Density,
+            ): Outline {
+                val path = morph.toPath(progress = progress, startAngle = 0)
+                val scaleMatrix = Matrix().apply { scale(x = size.width, y = size.height) }
+                path.transform(scaleMatrix)
+
+                val bounds = path.getBounds()
+                val translateX = (size.width / 2f) - bounds.center.x
+                val translateY = (size.height / 2f) - bounds.center.y
+                path.transform(
+                    Matrix().apply {
+                        translate(x = translateX, y = translateY)
+                    },
+                )
+
+                return Outline.Generic(path)
+            }
+        }
+    }
 
 @Composable
 private fun StatCard(

@@ -72,8 +72,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -100,6 +102,8 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 
 private const val LOGS_UI_MAX_ROWS = 2000
+private val AllowedStatusContentLight = Color(0xFF1B5E20)
+private val AllowedStatusContentDark = Color(0xFFA5D6A7)
 
 private enum class LogsOutcomeFilter {
     All,
@@ -941,14 +945,16 @@ private fun LogEntryCard(
     modifier: Modifier = Modifier,
 ) {
     val isAllowed = entry.allowed > 0
+    val isDarkSurface = MaterialTheme.colorScheme.surface.luminance() < 0.5f
+    val allowedStatusContentColor = if (isDarkSurface) AllowedStatusContentDark else AllowedStatusContentLight
 
     val statusContainerColor = if (isAllowed) {
-        MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.7f)
+        allowedStatusContentColor.copy(alpha = if (isDarkSurface) 0.24f else 0.16f)
     } else {
         MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.7f)
     }
     val statusContentColor = if (isAllowed) {
-        MaterialTheme.colorScheme.onPrimaryContainer
+        allowedStatusContentColor
     } else {
         MaterialTheme.colorScheme.onErrorContainer
     }
