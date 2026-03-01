@@ -16,59 +16,79 @@ import java.util.Locale
 class Rule private constructor(dh: DatabaseHelper, info: PackageInfo, context: Context) {
     @JvmField
     var uid: Int = 0
+
     @JvmField
     var packageName: String? = null
+
     @JvmField
     var icon: Int = 0
+
     @JvmField
     var name: String? = null
+
     @JvmField
     var version: String? = null
+
     @JvmField
     var system: Boolean = false
+
     @JvmField
     var internet: Boolean = false
+
     @JvmField
     var enabled: Boolean = false
+
     @JvmField
     var pkg: Boolean = true
 
     @JvmField
     var wifi_default: Boolean = false
+
     @JvmField
     var other_default: Boolean = false
+
     @JvmField
     var screen_wifi_default: Boolean = false
+
     @JvmField
     var screen_other_default: Boolean = false
+
     @JvmField
     var roaming_default: Boolean = false
 
     @JvmField
     var wifi_blocked: Boolean = false
+
     @JvmField
     var other_blocked: Boolean = false
+
     @JvmField
     var screen_wifi: Boolean = false
+
     @JvmField
     var screen_other: Boolean = false
+
     @JvmField
     var roaming: Boolean = false
+
     @JvmField
     var lockdown: Boolean = false
 
     @JvmField
     var apply: Boolean = true
+
     @JvmField
     var notify: Boolean = true
 
     @JvmField
     var relateduids: Boolean = false
+
     @JvmField
     var related: Array<String>? = null
 
     @JvmField
     var hosts: Long = 0
+
     @JvmField
     var changed: Boolean = false
 

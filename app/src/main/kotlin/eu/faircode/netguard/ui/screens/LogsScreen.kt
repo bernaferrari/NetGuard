@@ -946,7 +946,8 @@ private fun LogEntryCard(
 ) {
     val isAllowed = entry.allowed > 0
     val isDarkSurface = MaterialTheme.colorScheme.surface.luminance() < 0.5f
-    val allowedStatusContentColor = if (isDarkSurface) AllowedStatusContentDark else AllowedStatusContentLight
+    val allowedStatusContentColor =
+        if (isDarkSurface) AllowedStatusContentDark else AllowedStatusContentLight
 
     val statusContainerColor = if (isAllowed) {
         allowedStatusContentColor.copy(alpha = if (isDarkSurface) 0.24f else 0.16f)

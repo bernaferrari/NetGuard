@@ -269,15 +269,16 @@ fun SettingsScreen(
                 val currentTheme = str("theme", "teal")
                 val dynamicThemeEnabled = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
                 val useDarkDynamicPreview = MaterialTheme.colorScheme.surface.luminance() < 0.5f
-                val dynamicSwatchColor = remember(dynamicThemeEnabled, useDarkDynamicPreview, context) {
-                    if (!dynamicThemeEnabled) {
-                        Teal500
-                    } else if (useDarkDynamicPreview) {
-                        dynamicDarkColorScheme(context).primary
-                    } else {
-                        dynamicLightColorScheme(context).primary
+                val dynamicSwatchColor =
+                    remember(dynamicThemeEnabled, useDarkDynamicPreview, context) {
+                        if (!dynamicThemeEnabled) {
+                            Teal500
+                        } else if (useDarkDynamicPreview) {
+                            dynamicDarkColorScheme(context).primary
+                        } else {
+                            dynamicLightColorScheme(context).primary
+                        }
                     }
-                }
                 val modeOptions = listOf(
                     Triple(
                         "light",
@@ -1024,7 +1025,8 @@ private fun ThemeSwatch(
             )
             .semantics {
                 role = Role.RadioButton
-                contentDescription = "$theme theme: ${if (isSelected) "selected" else "not selected"}"
+                contentDescription =
+                    "$theme theme: ${if (isSelected) "selected" else "not selected"}"
             },
         contentAlignment = Alignment.Center,
     ) {

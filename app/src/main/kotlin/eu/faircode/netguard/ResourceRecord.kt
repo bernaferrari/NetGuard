@@ -7,14 +7,19 @@ import java.util.Date
 class ResourceRecord {
     @JvmField
     var Time: Long = 0
+
     @JvmField
     var QName: String? = null
+
     @JvmField
     var AName: String? = null
+
     @JvmField
     var Resource: String? = null
+
     @JvmField
     var TTL: Int = 0
+
     @JvmField
     var uid: Int = 0
 

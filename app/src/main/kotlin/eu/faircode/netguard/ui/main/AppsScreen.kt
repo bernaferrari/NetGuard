@@ -1,19 +1,18 @@
 package eu.faircode.netguard.ui.main
 
 import android.app.NotificationManager
-import androidx.compose.animation.animateColor
-import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.keyframes
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.core.updateTransition
-import androidx.compose.animation.core.keyframes
-import androidx.compose.foundation.background
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
@@ -34,7 +33,6 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Apps
 import androidx.compose.material.icons.filled.Block
@@ -462,7 +460,8 @@ fun AppsScreen(
                                                     viewModel.notifyRulesChanged()
                                                 },
                                                 onToggleMobile = {
-                                                    item.rule.other_blocked = !item.rule.other_blocked
+                                                    item.rule.other_blocked =
+                                                        !item.rule.other_blocked
                                                     persistRule(context, item.rule, rules)
                                                     viewModel.notifyRulesChanged()
                                                 },

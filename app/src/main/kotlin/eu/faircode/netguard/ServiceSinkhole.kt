@@ -125,14 +125,19 @@ class ServiceSinkhole : VpnService() {
 
     @Volatile
     private lateinit var commandLooper: Looper
+
     @Volatile
     private lateinit var logLooper: Looper
+
     @Volatile
     private lateinit var statsLooper: Looper
+
     @Volatile
     private lateinit var commandHandler: CommandHandler
+
     @Volatile
     private lateinit var logHandler: LogHandler
+
     @Volatile
     private lateinit var statsHandler: StatsHandler
 
