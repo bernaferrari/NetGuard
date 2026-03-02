@@ -21,7 +21,7 @@
 -keepattributes SourceFile,LineNumberTable
 
 #NetGuard
--keepnames class eu.faircode.netguard.** { *; }
+-keepnames class com.bernaferari.renetguard.** { *; }
 
 #JNI
 -keepclasseswithmembernames class * {
@@ -29,19 +29,19 @@
 }
 
 #JNI callbacks
--keep class eu.faircode.netguard.Allowed { *; }
--keep class eu.faircode.netguard.Packet { *; }
--keep class eu.faircode.netguard.ResourceRecord { *; }
--keep class eu.faircode.netguard.Usage { *; }
--keep class eu.faircode.netguard.ServiceSinkhole {
+-keep class com.bernaferari.renetguard.Allowed { *; }
+-keep class com.bernaferari.renetguard.Packet { *; }
+-keep class com.bernaferari.renetguard.ResourceRecord { *; }
+-keep class com.bernaferari.renetguard.Usage { *; }
+-keep class com.bernaferari.renetguard.ServiceSinkhole {
     void nativeExit(java.lang.String);
     void nativeError(int, java.lang.String);
-    void logPacket(eu.faircode.netguard.Packet);
-    void dnsResolved(eu.faircode.netguard.ResourceRecord);
+    void logPacket(com.bernaferari.renetguard.Packet);
+    void dnsResolved(com.bernaferari.renetguard.ResourceRecord);
     boolean isDomainBlocked(java.lang.String);
     int getUidQ(int, int, java.lang.String, int, java.lang.String, int);
-    eu.faircode.netguard.Allowed isAddressAllowed(eu.faircode.netguard.Packet);
-    void accountUsage(eu.faircode.netguard.Usage);
+    com.bernaferari.renetguard.Allowed isAddressAllowed(com.bernaferari.renetguard.Packet);
+    void accountUsage(com.bernaferari.renetguard.Usage);
 }
 
 #AndroidX

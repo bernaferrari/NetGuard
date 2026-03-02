@@ -56,7 +56,7 @@ Pentru intrebari sau probleme puteti trimite un email la marcel+netguard@faircod
 
 Daca vrei sa ii ajuti pe cei ce nu vorbesc limba engleza, poti ajuta la traducerea NetGuard in limba ta materna: https://crowdin.com/project/netguard/
 
-Daca doriti sa testati caracteristile in dezvoltare ale aplicatiei, va puteti alatura programului de testare: https://play.google.com/apps/testing/eu.faircode.netguard
+Daca doriti sa testati caracteristile in dezvoltare ale aplicatiei, va puteti alatura programului de testare: https://play.google.com/apps/testing/com.bernaferari.renetguard
 
 Toate permisiunile necesare sunt detaliate aici: https://github.com/M66B/NetGuard/blob/master/FAQ.md#FAQ42
 

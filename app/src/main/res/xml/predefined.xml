@@ -10,10 +10,10 @@
 
     <wifi
         blocked="false"
-        package="eu.faircode.netguard" />
+        package="com.bernaferari.renetguard" />
     <other
         blocked="false"
-        package="eu.faircode.netguard"
+        package="com.bernaferari.renetguard"
         roaming="false" />
 
     <wifi

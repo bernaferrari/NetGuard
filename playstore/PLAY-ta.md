@@ -56,7 +56,7 @@ Long description
 
 நீங்கள் ஆங்கிலத்தில் மக்கள் குறைவாக சரளமாக உதவ விரும்பினால், நீங்கள் உங்கள் மொழியில் NetGuard மொழிபெயர்க்க உதவ முடியும்: https://crowdin.com/project/netguard/
 
-நீங்கள் புதிய அம்சங்களை சோதிக்க விரும்பினால், நீங்கள் சோதனை திட்டம் பங்கேற்க முடியும்: https://play.google.com/apps/testing/eu.faircode.netguard
+நீங்கள் புதிய அம்சங்களை சோதிக்க விரும்பினால், நீங்கள் சோதனை திட்டம் பங்கேற்க முடியும்: https://play.google.com/apps/testing/com.bernaferari.renetguard
 
 அனைத்து தேவையான அனுமதிகள் இங்கு விவரிக்கப்பட்டுள்ளன: https://github.com/M66B/NetGuard/blob/master/FAQ.md#FAQ42
 

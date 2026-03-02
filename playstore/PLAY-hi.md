@@ -56,7 +56,7 @@ Long description
 
 आप लोगों को अंग्रेजी में धाराप्रवाह कम में मदद करना चाहते हैं, तो आप मदद कर सकते हैं अपनी भाषा में अनुवाद कर NetGuard: https://crowdin.com/project/netguard/
 
-आप नई सुविधाओं का परीक्षण करना चाहते हैं, तो आप परीक्षण कार्यक्रम में भाग ले सकते हैं: https://play.google.com/apps/testing/eu.faircode.netguard
+आप नई सुविधाओं का परीक्षण करना चाहते हैं, तो आप परीक्षण कार्यक्रम में भाग ले सकते हैं: https://play.google.com/apps/testing/com.bernaferari.renetguard
 
 सभी आवश्यक अनुमतियों यहाँ वर्णित हैं: https://github.com/M66B/NetGuard/blob/master/FAQ.md#FAQ42
 

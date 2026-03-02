@@ -56,7 +56,7 @@ Si tienes preguntas o problemas, puedes enviar un correo electrónico a marcel+n
 
 Si te gusta ayudar a personas con menor fluidez de Inglés, puedes ayudar a traducir NetGuard en tu idioma: https://crowdin.com/project/netguard/
 
-Si te gusta probar las nuevas características, puedes participar en el programa de prueba: https://play.google.com/apps/testing/eu.faircode.netguard
+Si te gusta probar las nuevas características, puedes participar en el programa de prueba: https://play.google.com/apps/testing/com.bernaferari.renetguard
 
 Todos los permisos requeridos se detallan aquí: https://github.com/M66B/NetGuard/blob/master/FAQ.md#FAQ42
 

@@ -28,12 +28,12 @@
     </queries-->
 
     <permission
-        android:name="eu.faircode.netguard.permission.ADMIN"
+        android:name="com.bernaferari.renetguard.permission.ADMIN"
         android:description="@string/app_description"
         android:label="@string/app_name"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="eu.faircode.netguard.permission.ADMIN" />
+    <uses-permission android:name="com.bernaferari.renetguard.permission.ADMIN" />
 
     <uses-feature
         android:name="android.hardware.wifi"
@@ -162,8 +162,8 @@
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>
-                <action android:name="eu.faircode.netguard.START_PORT_FORWARD" />
-                <action android:name="eu.faircode.netguard.STOP_PORT_FORWARD" />
+                <action android:name="com.bernaferari.renetguard.START_PORT_FORWARD" />
+                <action android:name="com.bernaferari.renetguard.STOP_PORT_FORWARD" />
             </intent-filter>
         </activity>
 
@@ -190,7 +190,7 @@
                 android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
                 android:value="NetGuard is a firewall app using the Android VPN service to filter traffic on the device. A foreground service is required to process internet traffic in real-time to be able to allow and block traffic as configured by the user of the app. There is no other way to do this, and other foreground service types are either too limited or not appropriate." />
             <intent-filter>
-                <action android:name="eu.faircode.netguard.DOWNLOAD_HOSTS_FILE" />
+                <action android:name="com.bernaferari.renetguard.DOWNLOAD_HOSTS_FILE" />
             </intent-filter>
         </service>
 
@@ -285,12 +285,12 @@
             android:name=".WidgetAdmin"
             android:exported="true"
             android:label="@string/app_name"
-            android:permission="eu.faircode.netguard.permission.ADMIN">
+            android:permission="com.bernaferari.renetguard.permission.ADMIN">
             <intent-filter>
-                <action android:name="eu.faircode.netguard.ON" />
-                <action android:name="eu.faircode.netguard.OFF" />
-                <action android:name="eu.faircode.netguard.LOCKDOWN_ON" />
-                <action android:name="eu.faircode.netguard.LOCKDOWN_OFF" />
+                <action android:name="com.bernaferari.renetguard.ON" />
+                <action android:name="com.bernaferari.renetguard.OFF" />
+                <action android:name="com.bernaferari.renetguard.LOCKDOWN_ON" />
+                <action android:name="com.bernaferari.renetguard.LOCKDOWN_OFF" />
             </intent-filter>
         </receiver>
     </application>
