@@ -108,7 +108,7 @@ void JNI_OnUnload(JavaVM *vm, void *reserved) {
 // JNI ServiceSinkhole
 
 JNIEXPORT jlong JNICALL
-Java_eu_faircode_netguard_ServiceSinkhole_jni_1init(
+Java_com_bernaferari_renetguard_ServiceSinkhole_jni_1init(
         JNIEnv *env, jobject instance, jint sdk) {
     struct context *ctx = ng_calloc(1, sizeof(struct context), "init");
     ctx->sdk = sdk;
@@ -139,7 +139,7 @@ Java_eu_faircode_netguard_ServiceSinkhole_jni_1init(
 }
 
 JNIEXPORT void JNICALL
-Java_eu_faircode_netguard_ServiceSinkhole_jni_1start(
+Java_com_bernaferari_renetguard_ServiceSinkhole_jni_1start(
         JNIEnv *env, jobject instance, jlong context, jint loglevel_) {
     struct context *ctx = (struct context *) context;
 
@@ -152,7 +152,7 @@ Java_eu_faircode_netguard_ServiceSinkhole_jni_1start(
 }
 
 JNIEXPORT void JNICALL
-Java_eu_faircode_netguard_ServiceSinkhole_jni_1run(
+Java_com_bernaferari_renetguard_ServiceSinkhole_jni_1run(
         JNIEnv *env, jobject instance, jlong context, jint tun, jboolean fwd53, jint rcode) {
     struct context *ctx = (struct context *) context;
 
@@ -176,7 +176,7 @@ Java_eu_faircode_netguard_ServiceSinkhole_jni_1run(
 }
 
 JNIEXPORT void JNICALL
-Java_eu_faircode_netguard_ServiceSinkhole_jni_1stop(
+Java_com_bernaferari_renetguard_ServiceSinkhole_jni_1stop(
         JNIEnv *env, jobject instance, jlong context) {
     struct context *ctx = (struct context *) context;
     ctx->stopping = 1;
@@ -187,19 +187,19 @@ Java_eu_faircode_netguard_ServiceSinkhole_jni_1stop(
 }
 
 JNIEXPORT void JNICALL
-Java_eu_faircode_netguard_ServiceSinkhole_jni_1clear(
+Java_com_bernaferari_renetguard_ServiceSinkhole_jni_1clear(
         JNIEnv *env, jobject instance, jlong context) {
     struct context *ctx = (struct context *) context;
     clear(ctx);
 }
 
 JNIEXPORT jint JNICALL
-Java_eu_faircode_netguard_ServiceSinkhole_jni_1get_1mtu(JNIEnv *env, jobject instance) {
+Java_com_bernaferari_renetguard_ServiceSinkhole_jni_1get_1mtu(JNIEnv *env, jobject instance) {
     return get_mtu();
 }
 
 JNIEXPORT jintArray JNICALL
-Java_eu_faircode_netguard_ServiceSinkhole_jni_1get_1stats(
+Java_com_bernaferari_renetguard_ServiceSinkhole_jni_1get_1stats(
         JNIEnv *env, jobject instance, jlong context) {
     struct context *ctx = (struct context *) context;
 
@@ -247,7 +247,7 @@ Java_eu_faircode_netguard_ServiceSinkhole_jni_1get_1stats(
 }
 
 JNIEXPORT void JNICALL
-Java_eu_faircode_netguard_ServiceSinkhole_jni_1pcap(
+Java_com_bernaferari_renetguard_ServiceSinkhole_jni_1pcap(
         JNIEnv *env, jclass type,
         jstring name_, jint record_size, jint file_size) {
 
@@ -305,13 +305,13 @@ Java_eu_faircode_netguard_ServiceSinkhole_jni_1pcap(
 }
 
 JNIEXPORT void JNICALL
-Java_eu_faircode_netguard_ServiceSinkhole_00024Companion_jni_1pcap(
+Java_com_bernaferari_renetguard_ServiceSinkhole_00024Companion_jni_1pcap(
         JNIEnv *env, jobject instance, jstring name_, jint record_size, jint file_size) {
-    Java_eu_faircode_netguard_ServiceSinkhole_jni_1pcap(env, (jclass) instance, name_, record_size, file_size);
+    Java_com_bernaferari_renetguard_ServiceSinkhole_jni_1pcap(env, (jclass) instance, name_, record_size, file_size);
 }
 
 JNIEXPORT void JNICALL
-Java_eu_faircode_netguard_ServiceSinkhole_jni_1socks5(JNIEnv *env, jobject instance, jstring addr_,
+Java_com_bernaferari_renetguard_ServiceSinkhole_jni_1socks5(JNIEnv *env, jobject instance, jstring addr_,
         jint port, jstring username_,
         jstring password_) {
     const char *addr = (*env)->GetStringUTFChars(env, addr_, 0);
@@ -338,7 +338,7 @@ Java_eu_faircode_netguard_ServiceSinkhole_jni_1socks5(JNIEnv *env, jobject insta
 }
 
 JNIEXPORT void JNICALL
-Java_eu_faircode_netguard_ServiceSinkhole_jni_1done(
+Java_com_bernaferari_renetguard_ServiceSinkhole_jni_1done(
         JNIEnv *env, jobject instance, jlong context) {
     struct context *ctx = (struct context *) context;
     log_android(ANDROID_LOG_INFO, "Done");
@@ -363,7 +363,7 @@ Java_eu_faircode_netguard_ServiceSinkhole_jni_1done(
 // JNI Util
 
 JNIEXPORT jstring JNICALL
-Java_eu_faircode_netguard_Util_jni_1getprop(JNIEnv *env, jclass type, jstring name_) {
+Java_com_bernaferari_renetguard_Util_jni_1getprop(JNIEnv *env, jclass type, jstring name_) {
     const char *name = (*env)->GetStringUTFChars(env, name_, 0);
     ng_add_alloc(name, "name");
 
@@ -377,7 +377,7 @@ Java_eu_faircode_netguard_Util_jni_1getprop(JNIEnv *env, jclass type, jstring na
 }
 
 JNIEXPORT jboolean JNICALL
-Java_eu_faircode_netguard_Util_is_1numeric_1address(JNIEnv *env, jclass type, jstring ip_) {
+Java_com_bernaferari_renetguard_Util_is_1numeric_1address(JNIEnv *env, jclass type, jstring ip_) {
     jboolean numeric = 0;
     const char *ip = (*env)->GetStringUTFChars(env, ip_, 0);
     ng_add_alloc(ip, "ip");
@@ -1106,7 +1106,7 @@ void ng_dump() {
 }
 
 JNIEXPORT void JNICALL
-Java_eu_faircode_netguard_Util_dump_1memory_1profile(JNIEnv *env, jclass type) {
+Java_com_bernaferari_renetguard_Util_dump_1memory_1profile(JNIEnv *env, jclass type) {
 #ifdef PROFILE_MEMORY
     log_android(ANDROID_LOG_DEBUG, "Dump memory profile");
 
