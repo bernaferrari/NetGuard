@@ -1,18 +1,12 @@
 # Re-NetGuard (Compose + M3)
 
 <p align="center">
-  <img src="assets/more%20-%20light.png" alt="Re-NetGuard overview" width="980">
+  <img src="assets/more-light.png" alt="Re-NetGuard overview" width="980">
 </p>
 
 <p align="center">
   <strong>Local-first, no-root firewall control with a modern Material 3 experience.</strong><br>
   Built with Kotlin 2.3, Jetpack Compose, and a first-party Android-only architecture.
-</p>
-
-<p align="center">
-  <a href="https://kotlinlang.org/"><img src="https://img.shields.io/badge/Kotlin-2.3.10-blue.svg?logo=kotlin" alt="Kotlin 2.3.10"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-GPLv3-green.svg" alt="License"></a>
-  <a href="#"><img src="https://img.shields.io/badge/Platform-Android-lightgrey.svg" alt="Platforms"></a>
 </p>
 
 ---
@@ -86,8 +80,5 @@ You can also build a release variant configured for production checks and shrink
 - **License:** GNU GPLv3. See [LICENSE](LICENSE) for details.
 
 <p align="center">
-  <img src="assets/more%20-%20dark.png" alt="Re-NetGuard Dark Mode variant" width="980">
+  <img src="assets/more-dark.png" alt="Re-NetGuard Dark Mode variant" width="980">
 </p>
-
----
-<p align="center">Made with ❤️ using Jetpack Compose</p>
