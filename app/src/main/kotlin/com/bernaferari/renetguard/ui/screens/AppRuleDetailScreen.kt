@@ -10,7 +10,7 @@ import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
-import androidx.compose.foundation.Image
+
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -69,7 +69,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.graphics.asImageBitmap
+
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.input.nestedscroll.nestedScroll
@@ -81,7 +81,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.lerp
-import androidx.core.graphics.drawable.toBitmap
+import com.bernaferari.renetguard.ui.components.AppIcon
 import com.bernaferari.renetguard.DatabaseHelper
 import com.bernaferari.renetguard.R
 import com.bernaferari.renetguard.Rule
@@ -110,13 +110,6 @@ fun AppRuleDetailScreen(
     val scope = rememberCoroutineScope()
 
     val appName = rule.name ?: rule.packageName.orEmpty()
-    val iconBitmap = remember(rule.packageName) {
-        runCatching {
-            val pm = context.packageManager
-            val appInfo = pm.getApplicationInfo(rule.packageName ?: "", 0)
-            pm.getApplicationIcon(appInfo).toBitmap().asImageBitmap()
-        }.getOrNull()
-    }
     val launchIntent = remember(rule.packageName) {
         context.packageManager.getLaunchIntentForPackage(rule.packageName.orEmpty())
     }
@@ -180,32 +173,11 @@ fun AppRuleDetailScreen(
                                 lerp(14.dp, 10.dp, collapsedFraction),
                             ),
                         ) {
-                            if (iconBitmap != null) {
-                                Image(
-                                    bitmap = iconBitmap,
-                                    contentDescription = null,
-                                    modifier = Modifier
-                                        .size(iconTileSize)
-                                        .clip(RoundedCornerShape(iconCorner)),
-                                )
-                            } else {
-                                Surface(
-                                    modifier = Modifier.size(iconTileSize),
-                                    shape = RoundedCornerShape(iconCorner),
-                                    color = MaterialTheme.colorScheme.surfaceContainerHighest,
-                                ) {
-                                    Box(contentAlignment = Alignment.Center) {
-                                        Icon(
-                                            imageVector = Icons.Default.Apps,
-                                            contentDescription = null,
-                                            modifier = Modifier.size(
-                                                lerp(26.dp, 18.dp, collapsedFraction),
-                                            ),
-                                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                                        )
-                                    }
-                                }
-                            }
+                            AppIcon(
+                                packageName = rule.packageName,
+                                size = iconTileSize,
+                                cornerRadius = iconCorner,
+                            )
                             Column {
                                 Text(
                                     text = appName,

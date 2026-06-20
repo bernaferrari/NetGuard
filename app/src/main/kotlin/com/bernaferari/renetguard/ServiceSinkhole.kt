@@ -46,7 +46,8 @@ import android.text.style.StyleSpan
 import android.util.Log
 import android.util.Pair
 import androidx.core.content.ContextCompat
-import com.bernaferari.renetguard.data.Prefs
+import com.bernaferari.renetguard.data.PreferencesRepository
+import com.bernaferari.renetguard.data.preferences
 import com.bernaferari.renetguard.ui.theme.GraphGrayed
 import com.bernaferari.renetguard.ui.theme.GraphReceive
 import com.bernaferari.renetguard.ui.theme.GraphSend
@@ -106,6 +107,9 @@ class ServiceSinkhole : VpnService() {
     private var lastHosts = -1
 
     private var removePrefsListener: (() -> Unit)? = null
+
+    private val prefs: PreferencesRepository
+        get() = applicationContext.preferences()
 
     private var tunnelThread: Thread? = null
     private var lastBuilder: Builder? = null
@@ -212,8 +216,7 @@ class ServiceSinkhole : VpnService() {
         }
 
         private fun handleIntent(intent: Intent) {
-            val prefs = Prefs
-
+            
             val cmd = getCommandExtra(intent) ?: return
             val reason = intent.getStringExtra(EXTRA_REASON)
             Log.i(
@@ -349,7 +352,7 @@ class ServiceSinkhole : VpnService() {
                         showErrorNotification(ex.toString())
 
                         if (ex !is StartFailedException) {
-                            Prefs.putBoolean("enabled", false)
+                            prefs.putBoolean("enabled", false)
                             Widgets.updateFirewall(this@ServiceSinkhole)
                         }
                     }
@@ -404,8 +407,7 @@ class ServiceSinkhole : VpnService() {
                 }
             }
 
-            val prefs = Prefs
-
+            
             if (state != State.enforcing) {
                 if (state != State.none) {
                     Log.d(TAG, "Stop foreground state=$state")
@@ -505,8 +507,7 @@ class ServiceSinkhole : VpnService() {
 
                 stopForeground(STOP_FOREGROUND_REMOVE)
 
-                val prefs = Prefs
-                if (prefs.getBoolean("show_stats", false)) {
+                                if (prefs.getBoolean("show_stats", false)) {
                     startForeground(NOTIFY_WAITING, getWaitingNotification())
                     state = State.waiting
                     Log.d(TAG, "Start foreground state=$state")
@@ -518,8 +519,7 @@ class ServiceSinkhole : VpnService() {
         }
 
         private fun householding(intent: Intent) {
-            val prefs = Prefs
-            val retentionDays =
+                        val retentionDays =
                 (prefs.getString("log_retention_days", "3")?.toIntOrNull() ?: 3)
                     .coerceIn(0, 365)
             if (retentionDays > 0) {
@@ -541,8 +541,7 @@ class ServiceSinkhole : VpnService() {
 
         private fun watchdog(intent: Intent) {
             if (vpn == null) {
-                val prefs = Prefs
-                if (prefs.getBoolean("enabled", false)) {
+                                if (prefs.getBoolean("enabled", false)) {
                     Log.e(TAG, "Service was killed")
                     start()
                 }
@@ -674,8 +673,7 @@ class ServiceSinkhole : VpnService() {
         }
 
         private fun log(packet: Packet, connection: Int, interactive: Boolean) {
-            val prefs = Prefs
-            val log = prefs.getBoolean("log", false)
+                        val log = prefs.getBoolean("log", false)
 
             val dh = DatabaseHelper.getInstance(this@ServiceSinkhole)
 
@@ -706,8 +704,7 @@ class ServiceSinkhole : VpnService() {
 
         private fun usage(usage: Usage) {
             if (usage.Uid >= 0 && !(usage.Uid == 0 && usage.Protocol == 17 && usage.DPort == 53)) {
-                val prefs = Prefs
-                val filter = prefs.getBoolean("filter", false)
+                                val filter = prefs.getBoolean("filter", false)
                 val log = prefs.getBoolean("log", false)
                 val trackUsage = prefs.getBoolean("track_usage", false)
                 if (filter && log && trackUsage) {
@@ -751,8 +748,7 @@ class ServiceSinkhole : VpnService() {
         }
 
         private fun startStats() {
-            val prefs = Prefs
-            val enabled = !stats && prefs.getBoolean("show_stats", false)
+                        val enabled = !stats && prefs.getBoolean("show_stats", false)
             Log.i(TAG, "Stats start enabled=$enabled")
             if (enabled) {
                 whenMs = Date().time
@@ -784,8 +780,7 @@ class ServiceSinkhole : VpnService() {
         }
 
         private fun updateStats() {
-            val prefs = Prefs
-            val frequency = prefs.getString("stats_frequency", "1000")?.toLongOrNull() ?: 1000
+                        val frequency = prefs.getString("stats_frequency", "1000")?.toLongOrNull() ?: 1000
             val samples = prefs.getString("stats_samples", "90")?.toLongOrNull() ?: 90
             val filter = prefs.getBoolean("filter", false)
             val showTop = prefs.getBoolean("show_top", false)
@@ -969,7 +964,7 @@ class ServiceSinkhole : VpnService() {
                 PendingIntent.FLAG_UPDATE_CURRENT
             )
 
-            val notificationColor = themePrimaryColor(Prefs.getString("theme", THEME_DEFAULT))
+            val notificationColor = themePrimaryColor(prefs.getString("theme", THEME_DEFAULT))
             val notificationManager =
                 getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             val builder = Notification.Builder(this@ServiceSinkhole, Notifications.CHANNEL_NOTIFY)
@@ -1038,8 +1033,7 @@ class ServiceSinkhole : VpnService() {
     }
 
     private fun getBuilder(listAllowed: List<Rule>, listRule: List<Rule>): Builder {
-        val prefs = Prefs
-        val subnet = prefs.getBoolean("subnet", false)
+                val subnet = prefs.getBoolean("subnet", false)
         val tethering = prefs.getBoolean("tethering", false)
         val lan = prefs.getBoolean("lan", false)
         val ip6 = prefs.getBoolean("ip6", true)
@@ -1330,8 +1324,7 @@ class ServiceSinkhole : VpnService() {
         listAllowed: List<Rule>,
         listRule: List<Rule>
     ) {
-        val prefs = Prefs
-        val log = prefs.getBoolean("log", false)
+                val log = prefs.getBoolean("log", false)
         val filter = prefs.getBoolean("filter", false)
 
         Log.i(TAG, "Start native log=$log filter=$filter")
@@ -1448,8 +1441,7 @@ class ServiceSinkhole : VpnService() {
     }
 
     private fun prepareHostsBlocked() {
-        val prefs = Prefs
-        val useHosts = prefs.getBoolean("filter", false) && prefs.getBoolean("use_hosts", false)
+                val useHosts = prefs.getBoolean("filter", false) && prefs.getBoolean("use_hosts", false)
         val hosts = File(filesDir, "hosts.txt")
         if (!useHosts || !hosts.exists() || !hosts.canRead()) {
             Log.i(TAG, "Hosts file use=$useHosts exists=${hosts.exists()}")
@@ -1510,8 +1502,7 @@ class ServiceSinkhole : VpnService() {
     }
 
     private fun prepareMalwareList() {
-        val prefs = Prefs
-        val malware = prefs.getBoolean("filter", false) && prefs.getBoolean("malware", false)
+                val malware = prefs.getBoolean("filter", false) && prefs.getBoolean("malware", false)
         val file = File(filesDir, "malware.txt")
         if (!malware || !file.exists() || !file.canRead()) {
             Log.i(TAG, "Malware use=$malware exists=${file.exists()}")
@@ -1607,7 +1598,7 @@ class ServiceSinkhole : VpnService() {
                 if (isLockedDown(lastMetered)) {
                     val pkg = packageManager.getPackagesForUid(uid)
                     if (pkg != null && pkg.isNotEmpty()) {
-                        if (!Prefs.getBoolean(Prefs.namespaced("lockdown", pkg[0]), false)) {
+                        if (!prefs.getBoolean(PreferencesRepository.namespaced("lockdown", pkg[0]), false)) {
                             continue
                         }
                     }
@@ -1665,8 +1656,7 @@ class ServiceSinkhole : VpnService() {
         lock.writeLock().lock()
         mapForward.clear()
 
-        val prefs = Prefs
-        if (prefs.getBoolean("filter", false)) {
+                if (prefs.getBoolean("filter", false)) {
             DatabaseHelper.getInstance(this@ServiceSinkhole).getForwarding().use { cursor ->
                 val colProtocol = cursor.getColumnIndex("protocol")
                 val colDPort = cursor.getColumnIndex("dport")
@@ -1689,8 +1679,7 @@ class ServiceSinkhole : VpnService() {
     }
 
     private fun prepareNotify(listRule: List<Rule>) {
-        val prefs = Prefs
-        val notify = prefs.getBoolean("notify_access", false)
+                val notify = prefs.getBoolean("notify_access", false)
         val system = prefs.getBoolean("manage_system", false)
 
         lock.writeLock().lock()
@@ -1702,8 +1691,7 @@ class ServiceSinkhole : VpnService() {
     }
 
     private fun isLockedDown(metered: Boolean): Boolean {
-        val prefs = Prefs
-        var lockdown = prefs.getBoolean("lockdown", false)
+                var lockdown = prefs.getBoolean("lockdown", false)
         val lockdownWifi = prefs.getBoolean("lockdown_wifi", true)
         val lockdownOther = prefs.getBoolean("lockdown_other", true)
         if (metered) {
@@ -1716,8 +1704,7 @@ class ServiceSinkhole : VpnService() {
 
     private fun getAllowedRules(listRule: List<Rule>): List<Rule> {
         val listAllowed = ArrayList<Rule>()
-        val prefs = Prefs
-
+        
         val wifi = Util.isWifiActive(this)
         var metered = Util.isMeteredNetwork(this)
         val useMetered = prefs.getBoolean("use_metered", false)
@@ -1811,7 +1798,7 @@ class ServiceSinkhole : VpnService() {
         if (reason != null) {
             showErrorNotification(reason)
 
-            Prefs.putBoolean("enabled", false)
+            prefs.putBoolean("enabled", false)
             Widgets.updateFirewall(this)
         }
     }
@@ -1836,9 +1823,9 @@ class ServiceSinkhole : VpnService() {
             lock.readLock().unlock()
 
             if (malware) {
-                val notified = Prefs.getBoolean("malware.${rr.uid}", false)
+                val notified = prefs.getBoolean("malware.${rr.uid}", false)
                 if (!notified) {
-                    Prefs.putBoolean("malware.${rr.uid}", true)
+                    prefs.putBoolean("malware.${rr.uid}", true)
                     notifyNewApplication(rr.uid, true)
                 }
             }
@@ -1882,8 +1869,7 @@ class ServiceSinkhole : VpnService() {
     }
 
     private fun isAddressAllowed(packet: Packet): Allowed? {
-        val prefs = Prefs
-
+        
         lock.readLock().lock()
 
         packet.allowed = false
@@ -1996,8 +1982,7 @@ class ServiceSinkhole : VpnService() {
                     am.cancel(pi)
 
                     try {
-                        val prefs = Prefs
-                        val delay = prefs.getString("screen_delay", "0")?.toIntOrNull() ?: 0
+                                                val delay = prefs.getString("screen_delay", "0")?.toIntOrNull() ?: 0
                         val interactive = Intent.ACTION_SCREEN_ON == intent.action
 
                         if (interactive || delay == 0) {
@@ -2055,8 +2040,7 @@ class ServiceSinkhole : VpnService() {
                 Log.i(TAG, "User foreground=$userForeground user=" + (Process.myUid() / 100000))
 
                 if (userForeground) {
-                    val prefs = Prefs
-                    if (prefs.getBoolean("enabled", false)) {
+                                        if (prefs.getBoolean("enabled", false)) {
                         try {
                             Thread.sleep(3000)
                         } catch (_: InterruptedException) {
@@ -2152,8 +2136,7 @@ class ServiceSinkhole : VpnService() {
                         }
                     }
 
-                    val prefs = Prefs
-                    val host = prefs.getString("validate", "www.google.com") ?: "www.google.com"
+                                        val host = prefs.getString("validate", "www.google.com") ?: "www.google.com"
                     Log.i(tag, "Validating $network host=$host")
 
                     var socket: Socket? = null
@@ -2193,7 +2176,6 @@ class ServiceSinkhole : VpnService() {
                 Log.i(TAG, "New network generation=$currentGeneration")
                 lastGeneration = currentGeneration
 
-                val prefs = Prefs
                 if (
                     prefs.getBoolean("unmetered_2g", false) ||
                     prefs.getBoolean("unmetered_3g", false) ||
@@ -2207,7 +2189,7 @@ class ServiceSinkhole : VpnService() {
 
     private fun handleCallStateChanged(state: Int) {
         Log.i(TAG, "New call state=$state")
-        if (Prefs.getBoolean("enabled", false)) {
+        if (prefs.getBoolean("enabled", false)) {
             if (state == TelephonyManager.CALL_STATE_IDLE) {
                 start("call state", this)
             } else {
@@ -2285,8 +2267,7 @@ class ServiceSinkhole : VpnService() {
                         Rule.clearCache(context)
 
                         if (!intent.getBooleanExtra(Intent.EXTRA_REPLACING, false)) {
-                            val prefs = Prefs
-                            if (IAB.isPurchased(
+                                                        if (IAB.isPurchased(
                                     ActivityPro.SKU_NOTIFY,
                                     context
                                 ) && prefs.getBoolean("install", true)
@@ -2303,14 +2284,14 @@ class ServiceSinkhole : VpnService() {
                         if (intent.getBooleanExtra(Intent.EXTRA_DATA_REMOVED, false)) {
                             val packageName = intent.data?.schemeSpecificPart ?: ""
                             Log.i(TAG, "Deleting settings package=$packageName")
-                            Prefs.remove(Prefs.namespaced("wifi", packageName))
-                            Prefs.remove(Prefs.namespaced("other", packageName))
-                            Prefs.remove(Prefs.namespaced("screen_wifi", packageName))
-                            Prefs.remove(Prefs.namespaced("screen_other", packageName))
-                            Prefs.remove(Prefs.namespaced("roaming", packageName))
-                            Prefs.remove(Prefs.namespaced("lockdown", packageName))
-                            Prefs.remove(Prefs.namespaced("apply", packageName))
-                            Prefs.remove(Prefs.namespaced("notify", packageName))
+                            prefs.remove(PreferencesRepository.namespaced("wifi", packageName))
+                            prefs.remove(PreferencesRepository.namespaced("other", packageName))
+                            prefs.remove(PreferencesRepository.namespaced("screen_wifi", packageName))
+                            prefs.remove(PreferencesRepository.namespaced("screen_other", packageName))
+                            prefs.remove(PreferencesRepository.namespaced("roaming", packageName))
+                            prefs.remove(PreferencesRepository.namespaced("lockdown", packageName))
+                            prefs.remove(PreferencesRepository.namespaced("apply", packageName))
+                            prefs.remove(PreferencesRepository.namespaced("notify", packageName))
 
                             val uid = intent.getIntExtra(Intent.EXTRA_UID, 0)
                             if (uid > 0) {
@@ -2338,8 +2319,7 @@ class ServiceSinkhole : VpnService() {
             return
         }
 
-        val prefs = Prefs
-        try {
+                try {
             val names = Util.getApplicationNames(uid, this)
             if (names.isEmpty()) {
                 return
@@ -2359,7 +2339,7 @@ class ServiceSinkhole : VpnService() {
             val pi =
                 PendingIntentCompat.getActivity(this, uid, main, PendingIntent.FLAG_UPDATE_CURRENT)
 
-            val notificationColor = themePrimaryColor(Prefs.getString("theme", THEME_DEFAULT))
+            val notificationColor = themePrimaryColor(prefs.getString("theme", THEME_DEFAULT))
             val builder = Notification.Builder(
                 this,
                 if (malware) Notifications.CHANNEL_MALWARE else Notifications.CHANNEL_NOTIFY
@@ -2389,12 +2369,12 @@ class ServiceSinkhole : VpnService() {
             }
 
             val packageName = packages[0]
-            val wifi = Prefs.getBoolean(
-                Prefs.namespaced("wifi", packageName),
+            val wifi = prefs.getBoolean(
+                PreferencesRepository.namespaced("wifi", packageName),
                 prefs.getBoolean("whitelist_wifi", true),
             )
-            val other = Prefs.getBoolean(
-                Prefs.namespaced("other", packageName),
+            val other = prefs.getBoolean(
+                PreferencesRepository.namespaced("other", packageName),
                 prefs.getBoolean("whitelist_other", true),
             )
 
@@ -2469,8 +2449,7 @@ class ServiceSinkhole : VpnService() {
         )
         startForeground(NOTIFY_WAITING, getWaitingNotification())
 
-        val prefs = Prefs
-
+        
         if (jni_context != 0L) {
             Log.w(TAG, "Create with context=$jni_context")
             jni_stop(jni_context)
@@ -2485,7 +2464,7 @@ class ServiceSinkhole : VpnService() {
         val pcap = prefs.getBoolean("pcap", false)
         setPcap(pcap, this)
 
-        removePrefsListener = Prefs.addListener { key ->
+        removePrefsListener = prefs.addListener { key ->
             onPreferenceChanged(key)
         }
 
@@ -2615,7 +2594,6 @@ class ServiceSinkhole : VpnService() {
                     if (!isActiveNetwork(network)) return
 
                     val dns = linkProperties.dnsServers
-                    val prefs = Prefs
                     if (
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                             !same(lastDns, dns)
@@ -2665,8 +2643,7 @@ class ServiceSinkhole : VpnService() {
                     }
 
                     if (reason == null && lastGeneration != null && lastGeneration != generation) {
-                        val prefs = Prefs
-                        if (
+                                                if (
                             prefs.getBoolean("unmetered_2g", false) ||
                             prefs.getBoolean("unmetered_3g", false) ||
                             prefs.getBoolean("unmetered_4g", false)
@@ -2760,8 +2737,8 @@ class ServiceSinkhole : VpnService() {
             Log.d(TAG, "Start foreground state=$state")
         }
         if (name == "watchdog" || name == "enabled") {
-            val watchdog = Prefs.getString("watchdog", "0")?.toIntOrNull() ?: 0
-            val enabled = Prefs.getBoolean("enabled", false)
+            val watchdog = prefs.getString("watchdog", "0")?.toIntOrNull() ?: 0
+            val enabled = prefs.getBoolean("enabled", false)
             WorkScheduler.scheduleWatchdog(this, watchdog, enabled)
         }
     }
@@ -2787,7 +2764,7 @@ class ServiceSinkhole : VpnService() {
 
         getLock(this).acquire()
 
-        val enabled = Prefs.getBoolean("enabled", false)
+        val enabled = prefs.getBoolean("enabled", false)
 
         if (actualIntent == null) {
             Log.i(TAG, "Restart")
@@ -2826,16 +2803,15 @@ class ServiceSinkhole : VpnService() {
         val blocked = intent.getBooleanExtra(EXTRA_BLOCKED, false)
         Log.i(TAG, "Set $pkg $network=$blocked")
 
-        val settings = Prefs
-        val defaultWifi = settings.getBoolean("whitelist_wifi", true)
-        val defaultOther = settings.getBoolean("whitelist_other", true)
+        val defaultWifi = prefs.getBoolean("whitelist_wifi", true)
+        val defaultOther = prefs.getBoolean("whitelist_other", true)
 
         val networkName = network ?: "other"
-        val key = Prefs.namespaced(networkName, pkg ?: "")
+        val key = PreferencesRepository.namespaced(networkName, pkg ?: "")
         if (blocked == (if ("wifi" == networkName) defaultWifi else defaultOther)) {
-            Prefs.remove(key)
+            prefs.remove(key)
         } else {
-            Prefs.putBoolean(key, blocked)
+            prefs.putBoolean(key, blocked)
         }
 
         reload("notification", this@ServiceSinkhole, false)
@@ -2849,7 +2825,7 @@ class ServiceSinkhole : VpnService() {
     override fun onRevoke() {
         Log.i(TAG, "Revoke")
 
-        Prefs.putBoolean("enabled", false)
+        prefs.putBoolean("enabled", false)
 
         showDisabledNotification()
         Widgets.updateFirewall(this)
@@ -2936,7 +2912,7 @@ class ServiceSinkhole : VpnService() {
         val main = Intent(this, ActivityMain::class.java)
         val pi = PendingIntentCompat.getActivity(this, 0, main, PendingIntent.FLAG_UPDATE_CURRENT)
 
-        val notificationColor = themePrimaryColor(Prefs.getString("theme", THEME_DEFAULT))
+        val notificationColor = themePrimaryColor(prefs.getString("theme", THEME_DEFAULT))
         val builder = Notification.Builder(this, Notifications.CHANNEL_FOREGROUND)
         builder
             .setSmallIcon(
@@ -3044,7 +3020,7 @@ class ServiceSinkhole : VpnService() {
         val main = Intent(this, ActivityMain::class.java)
         val pi = PendingIntentCompat.getActivity(this, 0, main, PendingIntent.FLAG_UPDATE_CURRENT)
 
-        val notificationColor = themePrimaryColor(Prefs.getString("theme", THEME_DEFAULT))
+        val notificationColor = themePrimaryColor(prefs.getString("theme", THEME_DEFAULT))
         val builder = Notification.Builder(this, Notifications.CHANNEL_FOREGROUND)
         builder.setSmallIcon(this.securityIcon())
             .setContentIntent(pi)
@@ -3073,7 +3049,7 @@ class ServiceSinkhole : VpnService() {
         val pi = PendingIntentCompat.getActivity(this, 0, main, PendingIntent.FLAG_UPDATE_CURRENT)
 
         val builder = Notification.Builder(this, Notifications.CHANNEL_NOTIFY)
-        val notificationColor = themeOffColor(Prefs.getString("theme", THEME_DEFAULT))
+        val notificationColor = themeOffColor(prefs.getString("theme", THEME_DEFAULT))
         builder.setSmallIcon(this.errorIcon())
             .setContentTitle(getString(R.string.app_name))
             .setContentText(getString(R.string.msg_revoked))
@@ -3108,7 +3084,7 @@ class ServiceSinkhole : VpnService() {
         )
 
         val builder = Notification.Builder(this, Notifications.CHANNEL_NOTIFY)
-        val notificationColor = themeOffColor(Prefs.getString("theme", THEME_DEFAULT))
+        val notificationColor = themeOffColor(prefs.getString("theme", THEME_DEFAULT))
         builder.setSmallIcon(this.errorIcon())
             .setContentTitle(getString(R.string.app_name))
             .setContentText(getString(R.string.msg_always_on_lockdown))
@@ -3152,7 +3128,7 @@ class ServiceSinkhole : VpnService() {
         )
 
         val builder = Notification.Builder(this, Notifications.CHANNEL_NOTIFY)
-        val notificationColor = themeOffColor(Prefs.getString("theme", THEME_DEFAULT))
+        val notificationColor = themeOffColor(prefs.getString("theme", THEME_DEFAULT))
         builder.setSmallIcon(this.errorIcon())
             .setContentTitle(getString(R.string.app_name))
             .setContentText(getString(R.string.msg_autostart))
@@ -3182,7 +3158,7 @@ class ServiceSinkhole : VpnService() {
         val pi = PendingIntentCompat.getActivity(this, 0, main, PendingIntent.FLAG_UPDATE_CURRENT)
 
         val builder = Notification.Builder(this, Notifications.CHANNEL_NOTIFY)
-        val notificationColor = themeOffColor(Prefs.getString("theme", THEME_DEFAULT))
+        val notificationColor = themeOffColor(prefs.getString("theme", THEME_DEFAULT))
         builder.setSmallIcon(this.errorIcon())
             .setContentTitle(getString(R.string.app_name))
             .setContentText(getString(R.string.msg_error, message))
@@ -3223,7 +3199,7 @@ class ServiceSinkhole : VpnService() {
                 PendingIntent.FLAG_UPDATE_CURRENT
             )
 
-        val theme = Prefs.getString("theme", THEME_DEFAULT)
+        val theme = prefs.getString("theme", THEME_DEFAULT)
         val colorOn = themeOnColor(theme)
         val colorOff = themeOffColor(theme)
 
@@ -3325,7 +3301,7 @@ class ServiceSinkhole : VpnService() {
         val pi =
             PendingIntentCompat.getActivity(this, 0, download, PendingIntent.FLAG_UPDATE_CURRENT)
 
-        val notificationColor = themePrimaryColor(Prefs.getString("theme", THEME_DEFAULT))
+        val notificationColor = themePrimaryColor(prefs.getString("theme", THEME_DEFAULT))
         val builder = Notification.Builder(this, Notifications.CHANNEL_NOTIFY)
         builder.setSmallIcon(this.securityIcon())
             .setContentTitle(name)
@@ -3572,8 +3548,7 @@ class ServiceSinkhole : VpnService() {
 
         @JvmStatic
         fun setPcap(enabled: Boolean, context: Context) {
-            val prefs = Prefs
-
+            val prefs = context.preferences()
             var recordSize = 64
             try {
                 var r = prefs.getString("pcap_record_size", null)
@@ -3629,10 +3604,10 @@ class ServiceSinkhole : VpnService() {
 
         @JvmStatic
         fun getDns(context: Context): List<InetAddress> {
+            val prefs = context.preferences()
             val listDns = ArrayList<InetAddress>()
             val sysDns = Util.getDefaultDNS(context)
 
-            val prefs = Prefs
             val ip6 = prefs.getBoolean("ip6", true)
             val filter = prefs.getBoolean("filter", false)
             val vpnDns1 = prefs.getString("dns", null)
@@ -3772,8 +3747,7 @@ class ServiceSinkhole : VpnService() {
 
         @JvmStatic
         fun reload(reason: String, context: Context, interactive: Boolean) {
-            val prefs = Prefs
-            if (prefs.getBoolean("enabled", false)) {
+            if (context.preferences().getBoolean("enabled", false)) {
                 val intent = Intent(context, ServiceSinkhole::class.java)
                 intent.putExtra(EXTRA_COMMAND, Command.reload)
                 intent.putExtra(EXTRA_REASON, reason)

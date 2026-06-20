@@ -42,7 +42,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import androidx.lifecycle.lifecycleScope
-import com.bernaferari.renetguard.ui.theme.NetGuardThemeFromPrefs
+import com.bernaferari.renetguard.ui.theme.NetGuardAppTheme
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -70,7 +70,7 @@ class ActivityPro : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            NetGuardThemeFromPrefs {
+            NetGuardAppTheme {
                 ProContent(
                     availability = availability,
                     refreshKey = refreshKey,

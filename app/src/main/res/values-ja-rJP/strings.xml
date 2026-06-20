@@ -174,11 +174,11 @@
     <string name="setting_update">アップデートを確認</string>
     <string name="setting_update_now">今すぐ確認</string>
     <string name="setting_update_checking">確認中...</string>
-    <string name="setting_update_result_none">アップデートはありません</string>
-    <string name="setting_update_result_available">新しいバージョンがあります: %s</string>
-    <string name="setting_update_result_error">アップデート確認エラー</string>
-    <string name="setting_update_result_latest">最新バージョンを使用しています</string>
-    <string name="setting_update_result_cancelled">アップデート確認がキャンセルされました</string>
+    <string name="setting_update_result_available">新しいバージョンがあります: %1$s</string>
+    <string name="setting_update_result_available_unknown">新しいバージョンがあります</string>
+    <string name="setting_update_result_up_to_date">最新バージョンを使用しています</string>
+    <string name="setting_update_result_failed">アップデート確認エラー</string>
+    <string name="setting_update_result_unavailable">このビルドではアップデート確認を利用できません。</string>
 
     <string name="setting_network_options">ネットワークオプション</string>
     <string name="setting_subnet">サブネットルーティング</string>

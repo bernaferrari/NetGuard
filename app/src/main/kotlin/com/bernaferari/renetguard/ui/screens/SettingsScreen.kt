@@ -115,7 +115,7 @@ import com.bernaferari.renetguard.ServiceExternal
 import com.bernaferari.renetguard.ServiceSinkhole
 import com.bernaferari.renetguard.Widgets
 import com.bernaferari.renetguard.WorkScheduler
-import com.bernaferari.renetguard.data.Prefs
+import com.bernaferari.renetguard.data.preferences
 import com.bernaferari.renetguard.ui.components.ExpandableContent
 import com.bernaferari.renetguard.ui.components.FirewallTile
 import com.bernaferari.renetguard.ui.theme.AmberPrimary
@@ -146,7 +146,8 @@ fun SettingsScreen(
 ) {
     val context = LocalContext.current
     val spacing = MaterialTheme.spacing
-    val prefs by Prefs.data.collectAsState()
+    val preferencesRepository = context.preferences()
+    val prefs by preferencesRepository.data.collectAsState()
     val scrollState = rememberScrollState()
     val scope = androidx.compose.runtime.rememberCoroutineScope()
 
@@ -160,7 +161,7 @@ fun SettingsScreen(
         reloadStats: Boolean = false,
         updateWidgets: (() -> Unit)? = null,
     ) {
-        Prefs.putBoolean(key, value)
+        preferencesRepository.putBoolean(key, value)
         if (reload) {
             ServiceSinkhole.reload("settings", context, false)
         }
@@ -228,11 +229,11 @@ fun SettingsScreen(
         }
 
     fun updateAppearance(mode: String) {
-        Prefs.putString("appearance", mode)
+        preferencesRepository.putString("appearance", mode)
         when (mode) {
-            "auto" -> Prefs.remove("dark_theme")
-            "dark" -> Prefs.putBoolean("dark_theme", true)
-            "light" -> Prefs.putBoolean("dark_theme", false)
+            "auto" -> preferencesRepository.remove("dark_theme")
+            "dark" -> preferencesRepository.putBoolean("dark_theme", true)
+            "light" -> preferencesRepository.putBoolean("dark_theme", false)
         }
         Widgets.updateAll(context)
     }
@@ -375,7 +376,7 @@ fun SettingsScreen(
                             isEnabled = theme != "dynamic" || dynamicThemeEnabled,
                             dynamicColor = dynamicSwatchColor,
                             onClick = {
-                                Prefs.putString("theme", theme)
+                                preferencesRepository.putString("theme", theme)
                                 Widgets.updateAll(context)
                             },
                         )
@@ -479,13 +480,13 @@ fun SettingsScreen(
                     title = stringResource(R.string.setting_delay, "0"),
                     value = str("screen_delay", "0"),
                     keyboardType = KeyboardType.Number,
-                    onValueChange = { Prefs.putString("screen_delay", it) },
+                    onValueChange = { preferencesRepository.putString("screen_delay", it) },
                 )
                 SettingTextRow(
                     title = stringResource(R.string.setting_auto, "0"),
                     value = str("auto_enable", "0"),
                     keyboardType = KeyboardType.Number,
-                    onValueChange = { Prefs.putString("auto_enable", it) },
+                    onValueChange = { preferencesRepository.putString("auto_enable", it) },
                 )
 
                 val homes = strSet("wifi_homes", emptySet()).joinToString(",")
@@ -495,7 +496,7 @@ fun SettingsScreen(
                     onValueChange = { value ->
                         val set =
                             value.split(",").map { it.trim() }.filter { it.isNotEmpty() }.toSet()
-                        Prefs.putStringSet("wifi_homes", set)
+                        preferencesRepository.putStringSet("wifi_homes", set)
                     },
                 )
 
@@ -538,15 +539,15 @@ fun SettingsScreen(
                     checked = bool("manage_system", false),
                     isFirst = true,
                 ) { enabled ->
-                    Prefs.putBoolean("manage_system", enabled)
-                    Prefs.putBoolean("show_system", enabled)
+                    preferencesRepository.putBoolean("manage_system", enabled)
+                    preferencesRepository.putBoolean("show_system", enabled)
                     ServiceSinkhole.reload("settings", context, false)
                 }
                 SettingToggleRow(
                     title = stringResource(R.string.setting_log_app),
                     checked = bool("log", false),
                 ) { enabled ->
-                    Prefs.putBoolean("log", enabled)
+                    preferencesRepository.putBoolean("log", enabled)
                     ServiceSinkhole.reload("settings", context, false)
                 }
                 SettingTextRowWithTooltip(
@@ -557,7 +558,7 @@ fun SettingsScreen(
                 ) { input ->
                     val numeric = input.filter(Char::isDigit).take(3)
                     val normalized = numeric.toIntOrNull()?.coerceIn(0, 365)?.toString() ?: numeric
-                    Prefs.putString("log_retention_days", normalized)
+                    preferencesRepository.putString("log_retention_days", normalized)
                 }
                 SettingToggleRow(
                     title = stringResource(R.string.setting_access),
@@ -616,7 +617,7 @@ fun SettingsScreen(
                     ),
                     value = str("stats_frequency", "1000"),
                     keyboardType = KeyboardType.Number,
-                    onValueChange = { Prefs.putString("stats_frequency", it) },
+                    onValueChange = { preferencesRepository.putString("stats_frequency", it) },
                 )
                 SettingTextRow(
                     title = stringResource(
@@ -626,7 +627,7 @@ fun SettingsScreen(
                     value = str("stats_samples", "10"),
                     keyboardType = KeyboardType.Number,
                     isLast = true,
-                    onValueChange = { Prefs.putString("stats_samples", it) },
+                    onValueChange = { preferencesRepository.putString("stats_samples", it) },
                 )
             }
 
@@ -643,7 +644,7 @@ fun SettingsScreen(
                     title = stringResource(R.string.setting_hosts_url),
                     value = str("hosts_url", ""),
                     isLast = true,
-                    onValueChange = { Prefs.putString("hosts_url", it) },
+                    onValueChange = { preferencesRepository.putString("hosts_url", it) },
                 )
 
                 // Single button with dropdown for hosts file operations
@@ -723,19 +724,19 @@ fun SettingsScreen(
                     value = str("rcode", "3"),
                     keyboardType = KeyboardType.Number,
                     isFirst = true,
-                    onValueChange = { Prefs.putString("rcode", it) },
+                    onValueChange = { preferencesRepository.putString("rcode", it) },
                 )
                 SettingTextRowWithTooltip(
                     title = stringResource(R.string.setting_ttl, str("ttl", "259200")),
                     tooltip = stringResource(R.string.tooltip_ttl),
                     value = str("ttl", "259200"),
                     keyboardType = KeyboardType.Number,
-                    onValueChange = { Prefs.putString("ttl", it) },
+                    onValueChange = { preferencesRepository.putString("ttl", it) },
                 )
                 SettingTextRow(
                     title = stringResource(R.string.setting_validate, str("validate", "")),
                     value = str("validate", ""),
-                    onValueChange = { Prefs.putString("validate", it) },
+                    onValueChange = { preferencesRepository.putString("validate", it) },
                 )
                 FilledTonalButton(
                     onClick = onOpenDns,
@@ -756,17 +757,17 @@ fun SettingsScreen(
                 SettingToggleRow(
                     title = stringResource(R.string.setting_socks5_enabled),
                     checked = bool("socks5_enabled", false),
-                ) { Prefs.putBoolean("socks5_enabled", it) }
+                ) { preferencesRepository.putBoolean("socks5_enabled", it) }
                 SettingTextRow(
                     title = stringResource(R.string.setting_socks5_addr, str("socks5_addr", "")),
                     value = str("socks5_addr", ""),
-                    onValueChange = { Prefs.putString("socks5_addr", it) },
+                    onValueChange = { preferencesRepository.putString("socks5_addr", it) },
                 )
                 SettingTextRow(
                     title = stringResource(R.string.setting_socks5_port, str("socks5_port", "0")),
                     value = str("socks5_port", "0"),
                     keyboardType = KeyboardType.Number,
-                    onValueChange = { Prefs.putString("socks5_port", it) },
+                    onValueChange = { preferencesRepository.putString("socks5_port", it) },
                 )
                 SettingTextRow(
                     title = stringResource(
@@ -774,7 +775,7 @@ fun SettingsScreen(
                         str("socks5_username", "")
                     ),
                     value = str("socks5_username", ""),
-                    onValueChange = { Prefs.putString("socks5_username", it) },
+                    onValueChange = { preferencesRepository.putString("socks5_username", it) },
                 )
                 SettingTextRow(
                     title = stringResource(
@@ -782,7 +783,7 @@ fun SettingsScreen(
                         str("socks5_password", "")
                     ),
                     value = str("socks5_password", ""),
-                    onValueChange = { Prefs.putString("socks5_password", it) },
+                    onValueChange = { preferencesRepository.putString("socks5_password", it) },
                 )
 
                 HorizontalDivider(modifier = Modifier.padding(vertical = spacing.default))
@@ -795,23 +796,23 @@ fun SettingsScreen(
                 SettingTextRow(
                     title = stringResource(R.string.setting_vpn4, str("vpn4", "10.1.10.1")),
                     value = str("vpn4", "10.1.10.1"),
-                    onValueChange = { Prefs.putString("vpn4", it) },
+                    onValueChange = { preferencesRepository.putString("vpn4", it) },
                 )
                 SettingTextRow(
                     title = stringResource(R.string.setting_vpn6, str("vpn6", "")),
                     value = str("vpn6", "fd00:1:fd00:1:fd00:1:fd00:1"),
-                    onValueChange = { Prefs.putString("vpn6", it) },
+                    onValueChange = { preferencesRepository.putString("vpn6", it) },
                 )
                 SettingTextRow(
                     title = stringResource(R.string.setting_dns, str("dns", "")),
                     value = str("dns", ""),
-                    onValueChange = { Prefs.putString("dns", it) },
+                    onValueChange = { preferencesRepository.putString("dns", it) },
                 )
                 SettingTextRow(
                     title = stringResource(R.string.setting_dns2, str("dns2", "")),
                     value = str("dns2", ""),
                     isLast = true,
-                    onValueChange = { Prefs.putString("dns2", it) },
+                    onValueChange = { preferencesRepository.putString("dns2", it) },
                 )
             }
 
@@ -834,15 +835,15 @@ fun SettingsScreen(
                     keyboardType = KeyboardType.Number,
                     isFirst = true,
                     onValueChange = { value ->
-                        Prefs.putString("watchdog", value)
-                        val enabled = Prefs.getBoolean("enabled", false)
+                        preferencesRepository.putString("watchdog", value)
+                        val enabled = preferencesRepository.getBoolean("enabled", false)
                         WorkScheduler.scheduleWatchdog(context, value.toIntOrNull() ?: 0, enabled)
                     },
                 )
                 SettingToggleRow(
                     title = stringResource(R.string.setting_update),
                     checked = bool("update_check", true),
-                ) { Prefs.putBoolean("update_check", it) }
+                ) { preferencesRepository.putBoolean("update_check", it) }
 
                 FilledTonalButton(
                     onClick = {
@@ -901,7 +902,7 @@ fun SettingsScreen(
                     tooltip = stringResource(R.string.tooltip_pcap),
                     checked = bool("pcap", false),
                     isFirst = true,
-                ) { Prefs.putBoolean("pcap", it) }
+                ) { preferencesRepository.putBoolean("pcap", it) }
                 SettingTextRow(
                     title = stringResource(
                         R.string.setting_pcap_record_size,
@@ -909,7 +910,7 @@ fun SettingsScreen(
                     ),
                     value = str("pcap_record_size", "64"),
                     keyboardType = KeyboardType.Number,
-                    onValueChange = { Prefs.putString("pcap_record_size", it) },
+                    onValueChange = { preferencesRepository.putString("pcap_record_size", it) },
                 )
                 SettingTextRow(
                     title = stringResource(
@@ -922,9 +923,9 @@ fun SettingsScreen(
                     trailingIcon = {
                         IconButton(
                             onClick = {
-                                Prefs.putBoolean("pcap", false)
-                                Prefs.putString("pcap_record_size", "64")
-                                Prefs.putString("pcap_file_size", "2")
+                                preferencesRepository.putBoolean("pcap", false)
+                                preferencesRepository.putString("pcap_record_size", "64")
+                                preferencesRepository.putString("pcap_file_size", "2")
                             },
                             modifier = Modifier.size(TouchTargets.minimum),
                         ) {
@@ -935,7 +936,7 @@ fun SettingsScreen(
                             )
                         }
                     },
-                    onValueChange = { Prefs.putString("pcap_file_size", it) },
+                    onValueChange = { preferencesRepository.putString("pcap_file_size", it) },
                 )
             }
 

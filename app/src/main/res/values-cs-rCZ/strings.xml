@@ -174,11 +174,11 @@
     <string name="setting_update">Zkontrolovat aktualizace</string>
     <string name="setting_update_now">Zkontrolovat teď</string>
     <string name="setting_update_checking">Kontroluje se...</string>
-    <string name="setting_update_result_none">Žádné dostupné aktualizace</string>
-    <string name="setting_update_result_available">K dispozici je nová verze: %s</string>
-    <string name="setting_update_result_error">Chyba při kontrole aktualizací</string>
-    <string name="setting_update_result_latest">Používáte nejnovější verzi</string>
-    <string name="setting_update_result_cancelled">Kontrola aktualizací byla zrušena</string>
+    <string name="setting_update_result_available">K dispozici je nová verze: %1$s</string>
+    <string name="setting_update_result_available_unknown">K dispozici je nová verze</string>
+    <string name="setting_update_result_up_to_date">Používáte nejnovější verzi</string>
+    <string name="setting_update_result_failed">Chyba při kontrole aktualizací</string>
+    <string name="setting_update_result_unavailable">Kontrola aktualizací není pro tuto verzi k dispozici.</string>
 
     <string name="setting_network_options">Možnosti sítě</string>
     <string name="setting_subnet">Směrování podsítě</string>

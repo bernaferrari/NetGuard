@@ -18,7 +18,8 @@ import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.padding
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
-import com.bernaferari.renetguard.data.Prefs
+import com.bernaferari.renetguard.data.PreferencesRepository
+import com.bernaferari.renetguard.data.preferences
 
 class FirewallWidget : GlanceAppWidget() {
     override suspend fun provideGlance(context: Context, id: GlanceId) {
@@ -31,7 +32,7 @@ class FirewallWidget : GlanceAppWidget() {
 @Composable
 private fun FirewallWidgetContent() {
     val context = LocalContext.current
-    val enabled = Prefs.getBoolean("enabled", false)
+    val enabled = context.preferences().getBoolean("enabled", false)
     val label =
         if (enabled) {
             context.getString(R.string.widget_firewall_enabled)
@@ -61,8 +62,8 @@ class ToggleFirewallAction : ActionCallback {
         glanceId: GlanceId,
         parameters: ActionParameters
     ) {
-        val enabled = Prefs.getBoolean("enabled", false)
-        Prefs.putBoolean("enabled", !enabled)
+        val enabled = context.preferences().getBoolean("enabled", false)
+        context.preferences().putBoolean("enabled", !enabled)
         if (enabled) {
             ServiceSinkhole.stop("widget", context, false)
         } else {

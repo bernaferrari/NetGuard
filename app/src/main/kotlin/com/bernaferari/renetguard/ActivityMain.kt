@@ -8,26 +8,25 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.viewModels
 import androidx.compose.runtime.mutableStateOf
 import com.bernaferari.renetguard.ui.AppNavigation
 import com.bernaferari.renetguard.ui.Home
 import com.bernaferari.renetguard.ui.main.MainViewModel
-import com.bernaferari.renetguard.ui.theme.NetGuardThemeFromPrefs
-import dagger.hilt.android.AndroidEntryPoint
+import com.bernaferari.renetguard.ui.theme.NetGuardAppTheme
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@AndroidEntryPoint
 class ActivityMain : ComponentActivity() {
     private val pendingRoute = mutableStateOf<String?>(null)
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         pendingRoute.value = intent.getStringExtra(EXTRA_ROUTE)
+        val requestEnableFirewall = intent.getBooleanExtra(EXTRA_ENABLE_FIREWALL, false)
 
         setContent {
-            NetGuardThemeFromPrefs {
+            NetGuardAppTheme {
                 val vpnLauncher =
                     rememberLauncherForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                         if (result.resultCode == Activity.RESULT_OK) {
@@ -38,22 +37,28 @@ class ActivityMain : ComponentActivity() {
                         }
                     }
 
+                val handleToggleEnabled: (Boolean) -> Unit = { enable ->
+                    if (enable) {
+                        val vpnIntent = VpnService.prepare(this)
+                        if (vpnIntent == null) {
+                            viewModel.setEnabled(true)
+                            ServiceSinkhole.start("UI", this)
+                        } else {
+                            vpnLauncher.launch(vpnIntent)
+                        }
+                    } else {
+                        viewModel.setEnabled(false)
+                        ServiceSinkhole.stop("UI", this, false)
+                    }
+                }
+
+                if (requestEnableFirewall) {
+                    handleToggleEnabled(true)
+                }
+
                 AppNavigation(
                     viewModel = viewModel,
-                    onToggleEnabled = { enable ->
-                        if (enable) {
-                            val intent = VpnService.prepare(this)
-                            if (intent == null) {
-                                viewModel.setEnabled(true)
-                                ServiceSinkhole.start("UI", this)
-                            } else {
-                                vpnLauncher.launch(intent)
-                            }
-                        } else {
-                            viewModel.setEnabled(false)
-                            ServiceSinkhole.stop("UI", this, false)
-                        }
-                    },
+                    onToggleEnabled = handleToggleEnabled,
                     startRoute = pendingRoute.value ?: Home.route,
                     pendingRoute = pendingRoute.value,
                     onRouteNavigated = { pendingRoute.value = null },
@@ -80,9 +85,18 @@ class ActivityMain : ComponentActivity() {
         const val EXTRA_METERED = "Metered"
         const val EXTRA_SIZE = "Size"
 
+        const val EXTRA_ENABLE_FIREWALL = "EnableFirewall"
+
         fun createRouteIntent(context: android.content.Context, route: String): Intent {
             return Intent(context, ActivityMain::class.java).apply {
                 putExtra(EXTRA_ROUTE, route)
+                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            }
+        }
+
+        fun createEnableFirewallIntent(context: android.content.Context): Intent {
+            return Intent(context, ActivityMain::class.java).apply {
+                putExtra(EXTRA_ENABLE_FIREWALL, true)
                 addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
             }
         }

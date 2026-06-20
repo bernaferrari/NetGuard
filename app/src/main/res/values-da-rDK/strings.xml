@@ -175,11 +175,11 @@
     <string name="setting_update">Søg efter opdateringer</string>
     <string name="setting_update_now">Tjek nu</string>
     <string name="setting_update_checking">Kontrollerer...</string>
-    <string name="setting_update_result_none">Ingen opdateringer tilgængelige</string>
-    <string name="setting_update_result_available">Ny version tilgængelig: %s</string>
-    <string name="setting_update_result_error">Fejl ved kontrol af opdateringer</string>
-    <string name="setting_update_result_latest">Du bruger den nyeste version</string>
-    <string name="setting_update_result_cancelled">Opdateringskontrol annulleret</string>
+    <string name="setting_update_result_available">Ny version tilgængelig: %1$s</string>
+    <string name="setting_update_result_available_unknown">Ny version tilgængelig</string>
+    <string name="setting_update_result_up_to_date">Du bruger den nyeste version</string>
+    <string name="setting_update_result_failed">Fejl ved kontrol af opdateringer</string>
+    <string name="setting_update_result_unavailable">Opdateringskontrol er ikke tilgængelig for denne build.</string>
 
     <string name="setting_network_options">Netværksindstillinger</string>
     <string name="setting_subnet">Subnet-routing</string>

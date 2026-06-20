@@ -9,7 +9,8 @@ import android.os.VibrationEffect
 import android.os.Vibrator
 import android.os.VibratorManager
 import android.util.Log
-import com.bernaferari.renetguard.data.Prefs
+import com.bernaferari.renetguard.data.PreferencesRepository
+import com.bernaferari.renetguard.data.preferences
 import java.util.Date
 
 class WidgetAdmin : ReceiverAutostart() {
@@ -46,7 +47,7 @@ class WidgetAdmin : ReceiverAutostart() {
             when (intent?.action) {
                 INTENT_ON, INTENT_OFF -> {
                     val enabled = INTENT_ON == intent.action
-                    Prefs.putBoolean("enabled", enabled)
+                    context.preferences().putBoolean("enabled", enabled)
                     if (enabled) {
                         ServiceSinkhole.start("widget", context)
                     } else {
@@ -54,7 +55,7 @@ class WidgetAdmin : ReceiverAutostart() {
                     }
                     Widgets.updateFirewall(context)
 
-                    val auto = Prefs.getString("auto_enable", "0")?.toIntOrNull() ?: 0
+                    val auto = context.preferences().getString("auto_enable", "0")?.toIntOrNull() ?: 0
                     if (!enabled && auto > 0) {
                         Log.i(TAG, "Scheduling enabled after minutes=$auto")
                         val trigger = Date().time + auto * 60 * 1000L
@@ -68,7 +69,7 @@ class WidgetAdmin : ReceiverAutostart() {
 
                 INTENT_LOCKDOWN_ON, INTENT_LOCKDOWN_OFF -> {
                     val lockdown = INTENT_LOCKDOWN_ON == intent.action
-                    Prefs.putBoolean("lockdown", lockdown)
+                    context.preferences().putBoolean("lockdown", lockdown)
                     ServiceSinkhole.reload("widget", context, false)
                     Widgets.updateLockdown(context)
                 }

@@ -10,7 +10,8 @@ import android.os.Build
 import android.os.PowerManager
 import android.util.Log
 import android.widget.Toast
-import com.bernaferari.renetguard.data.Prefs
+import com.bernaferari.renetguard.data.PreferencesRepository
+import com.bernaferari.renetguard.data.preferences
 import com.bernaferari.renetguard.ui.theme.themeOffColor
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
@@ -168,7 +169,7 @@ class DownloadTask(
 
         val notificationColor =
             themeOffColor(
-                Prefs.getString(
+                context.preferences().getString(
                     "theme",
                     com.bernaferari.renetguard.ui.theme.THEME_DEFAULT
                 )

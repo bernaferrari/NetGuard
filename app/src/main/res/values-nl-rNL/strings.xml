@@ -175,11 +175,11 @@
     <string name="setting_update">Controleer op updates</string>
     <string name="setting_update_now">Nu controleren</string>
     <string name="setting_update_checking">Controleren...</string>
-    <string name="setting_update_result_none">Geen updates beschikbaar</string>
-    <string name="setting_update_result_available">Nieuwe versie beschikbaar: %s</string>
-    <string name="setting_update_result_error">Fout bij controleren op updates</string>
-    <string name="setting_update_result_latest">U gebruikt de nieuwste versie</string>
-    <string name="setting_update_result_cancelled">Controle op updates geannuleerd</string>
+    <string name="setting_update_result_available">Nieuwe versie beschikbaar: %1$s</string>
+    <string name="setting_update_result_available_unknown">Nieuwe versie beschikbaar</string>
+    <string name="setting_update_result_up_to_date">U gebruikt de nieuwste versie</string>
+    <string name="setting_update_result_failed">Fout bij controleren op updates</string>
+    <string name="setting_update_result_unavailable">Updatecontrole is niet beschikbaar voor deze build.</string>
 
     <string name="setting_network_options">Netwerkopties</string>
     <string name="setting_subnet">Subnet routing</string>

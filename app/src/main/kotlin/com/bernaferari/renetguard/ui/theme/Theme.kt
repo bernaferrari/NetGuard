@@ -21,7 +21,7 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
-import com.bernaferari.renetguard.data.Prefs
+import com.bernaferari.renetguard.data.preferences
 import com.materialkolor.PaletteStyle
 import com.materialkolor.dynamiccolor.ColorSpec
 import com.materialkolor.rememberDynamicMaterialThemeState
@@ -133,8 +133,9 @@ fun NetGuardTheme(
 }
 
 @Composable
-fun NetGuardThemeFromPrefs(content: @Composable () -> Unit) {
-    val prefsState = Prefs.data.collectAsState()
+fun NetGuardAppTheme(content: @Composable () -> Unit) {
+    val preferencesRepository = LocalContext.current.preferences()
+    val prefsState = preferencesRepository.data.collectAsState()
     val prefs = prefsState.value
     val appearance = AppearanceMode.from(prefs[stringPreferencesKey("appearance")])
     val darkTheme = when (appearance) {

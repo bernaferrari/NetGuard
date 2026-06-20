@@ -18,7 +18,8 @@ import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.padding
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
-import com.bernaferari.renetguard.data.Prefs
+import com.bernaferari.renetguard.data.PreferencesRepository
+import com.bernaferari.renetguard.data.preferences
 
 class LockdownWidget : GlanceAppWidget() {
     override suspend fun provideGlance(context: Context, id: GlanceId) {
@@ -31,7 +32,7 @@ class LockdownWidget : GlanceAppWidget() {
 @Composable
 private fun LockdownWidgetContent() {
     val context = LocalContext.current
-    val lockdown = Prefs.getBoolean("lockdown", false)
+    val lockdown = context.preferences().getBoolean("lockdown", false)
     val label =
         if (lockdown) {
             context.getString(R.string.widget_lockdown_enabled)
@@ -61,8 +62,8 @@ class ToggleLockdownAction : ActionCallback {
         glanceId: GlanceId,
         parameters: ActionParameters
     ) {
-        val lockdown = Prefs.getBoolean("lockdown", false)
-        Prefs.putBoolean("lockdown", !lockdown)
+        val lockdown = context.preferences().getBoolean("lockdown", false)
+        context.preferences().putBoolean("lockdown", !lockdown)
         ServiceSinkhole.reload("widget", context, false)
         Widgets.updateLockdown(context)
     }

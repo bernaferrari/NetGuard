@@ -10,20 +10,44 @@ import android.view.View
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
-import com.bernaferari.renetguard.data.Prefs
-import dagger.hilt.android.HiltAndroidApp
+import androidx.appfunctions.service.AppFunctionConfiguration
+import coil3.ImageLoader
+import coil3.SingletonImageLoader
+import com.bernaferari.renetguard.appfunctions.AppFunctions
+import com.bernaferari.renetguard.data.preferences
+import org.koin.android.ext.android.getKoin
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.annotation.KoinApplication
+import org.koin.plugin.module.dsl.startKoin
 
-@HiltAndroidApp
-class ApplicationEx : Application() {
+@KoinApplication
+class ApplicationEx : Application(), AppFunctionConfiguration.Provider {
+    override val appFunctionConfiguration: AppFunctionConfiguration
+        get() {
+            val appFunctions = getKoin().get<AppFunctions>()
+            return AppFunctionConfiguration.Builder()
+                .addEnclosingClassFactory(AppFunctions::class.java) { appFunctions }
+                .build()
+        }
+
     private var prevHandler: Thread.UncaughtExceptionHandler? = null
 
     override fun onCreate() {
         super.onCreate()
+
+        startKoin<ApplicationEx> {
+            androidContext(this@ApplicationEx)
+        }
+
+        SingletonImageLoader.setSafe { context ->
+            ImageLoader.Builder(context).build()
+        }
+
         Log.i(
             TAG,
-            "Create version=" + Util.getSelfVersionName(this) + "/" + Util.getSelfVersionCode(this)
+            "Create version=" + Util.getSelfVersionName(this) + "/" + Util.getSelfVersionCode(this),
         )
-        Prefs.init(this)
+        preferences()
         WorkScheduler.scheduleHousekeeping(this)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -50,11 +74,11 @@ class ApplicationEx : Application() {
                             val bars =
                                 insets.getInsets(
                                     WindowInsetsCompat.Type.systemBars() or
-                                            WindowInsetsCompat.Type.displayCutout() or
-                                            WindowInsetsCompat.Type.ime(),
+                                        WindowInsetsCompat.Type.displayCutout() or
+                                        WindowInsetsCompat.Type.ime(),
                                 )
 
-                            val dark = Prefs.getBoolean("dark_theme", false)
+                            val dark = activity.preferences().getBoolean("dark_theme", false)
                             content.setBackgroundColor(if (dark) Color.parseColor("#ff121212") else Color.WHITE)
 
                             val actionBarHeight = Util.dips2pixels(56, activity)
@@ -67,7 +91,7 @@ class ApplicationEx : Application() {
                                 bars.left,
                                 bars.top + actionBarHeight,
                                 bars.right,
-                                bars.bottom
+                                bars.bottom,
                             )
 
                             insets

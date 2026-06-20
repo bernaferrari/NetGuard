@@ -73,17 +73,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ImageBitmap
-import androidx.compose.ui.graphics.asImageBitmap
+
 import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.core.graphics.drawable.toBitmap
+import com.bernaferari.renetguard.ui.components.AppIcon
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import com.bernaferari.renetguard.ActivityPro
 import com.bernaferari.renetguard.DatabaseHelper
@@ -91,7 +91,8 @@ import com.bernaferari.renetguard.IAB
 import com.bernaferari.renetguard.R
 import com.bernaferari.renetguard.ServiceSinkhole
 import com.bernaferari.renetguard.Util
-import com.bernaferari.renetguard.data.Prefs
+import com.bernaferari.renetguard.data.PreferencesRepository
+import com.bernaferari.renetguard.data.preferences
 import com.bernaferari.renetguard.ui.theme.LocalMotion
 import com.bernaferari.renetguard.ui.theme.spacing
 import com.bernaferari.renetguard.ui.util.StatePlaceholder
@@ -140,14 +141,14 @@ private data class LogQueryFlags(
 
 private data class AppDisplayInfo(
     val label: String,
-    val icon: ImageBitmap?,
+    val packageName: String?,
 )
 
 private data class AppPickerOption(
     val uid: Int,
     val label: String,
     val count: Int,
-    val icon: ImageBitmap?,
+    val packageName: String?,
 )
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
@@ -156,14 +157,19 @@ fun LogsScreen() {
     val context = LocalContext.current
     val spacing = MaterialTheme.spacing
     val motion = LocalMotion.current
-    val prefsState by Prefs.data.collectAsState(initial = null)
+    val preferencesRepository = context.preferences()
+    val prefsState by preferencesRepository.data.collectAsState(initial = null)
     val hasLog = remember { IAB.isPurchased(ActivityPro.SKU_LOG, context) }
     val unknownSourceLabel = stringResource(R.string.ui_logs_unknown_source)
     val loggingEnabled = prefsState?.get(booleanPreferencesKey("log")) ?: false
     val filteringEnabled = prefsState?.get(booleanPreferencesKey("filter")) ?: false
 
-    var outcomeFilter by remember { mutableStateOf(defaultOutcomeFilterFromPrefs()) }
-    var protocolFilter by remember { mutableStateOf(defaultProtocolFilterFromPrefs()) }
+    var outcomeFilter by remember {
+        mutableStateOf(defaultOutcomeFilterFromPrefs(preferencesRepository))
+    }
+    var protocolFilter by remember {
+        mutableStateOf(defaultProtocolFilterFromPrefs(preferencesRepository))
+    }
     var groupMode by remember { mutableStateOf(LogsGroupMode.Timeline) }
     var filtersExpanded by remember { mutableStateOf(false) }
     var selectedAppUid by remember { mutableStateOf<Int?>(null) }
@@ -174,7 +180,7 @@ fun LogsScreen() {
 
     val appDisplayCache = remember { mutableMapOf<Int, AppDisplayInfo>() }
     fun appDisplay(uid: Int): AppDisplayInfo {
-        if (uid <= 0) return AppDisplayInfo(label = unknownSourceLabel, icon = null)
+        if (uid <= 0) return AppDisplayInfo(label = unknownSourceLabel, packageName = null)
         return appDisplayCache.getOrPut(uid) {
             loadAppDisplayInfo(uid = uid, context = context, fallbackLabel = unknownSourceLabel)
         }
@@ -211,11 +217,11 @@ fun LogsScreen() {
     }
 
     LaunchedEffect(queryFlags) {
-        Prefs.putBoolean("proto_udp", queryFlags.udp)
-        Prefs.putBoolean("proto_tcp", queryFlags.tcp)
-        Prefs.putBoolean("proto_other", queryFlags.other)
-        Prefs.putBoolean("traffic_allowed", queryFlags.allowed)
-        Prefs.putBoolean("traffic_blocked", queryFlags.blocked)
+        preferencesRepository.putBoolean("proto_udp", queryFlags.udp)
+        preferencesRepository.putBoolean("proto_tcp", queryFlags.tcp)
+        preferencesRepository.putBoolean("proto_other", queryFlags.other)
+        preferencesRepository.putBoolean("traffic_allowed", queryFlags.allowed)
+        preferencesRepository.putBoolean("traffic_blocked", queryFlags.blocked)
     }
 
     LaunchedEffect(refreshKey, queryFlags) {
@@ -253,7 +259,7 @@ fun LogsScreen() {
                     uid = uid,
                     label = display.label,
                     count = appEntries.size,
-                    icon = display.icon,
+                    packageName = display.packageName,
                 )
             }
         }
@@ -410,7 +416,7 @@ fun LogsScreen() {
             if (loggingEnabled && !filteringEnabled) {
                 EnableFilteringBanner(
                     onEnableFiltering = {
-                        Prefs.putBoolean("filter", true)
+                        preferencesRepository.putBoolean("filter", true)
                         ServiceSinkhole.reload("logs_enable_filtering", context, false)
                         refreshKey += 1
                     },
@@ -429,7 +435,7 @@ fun LogsScreen() {
                         icon = Icons.Default.Inbox,
                         actionLabel = stringResource(R.string.action_enable),
                         onAction = {
-                            Prefs.putBoolean("log", true)
+                            preferencesRepository.putBoolean("log", true)
                             ServiceSinkhole.reload("logs", context, false)
                             refreshKey += 1
                         },
@@ -504,7 +510,7 @@ fun LogsScreen() {
                                         LogEntryCard(
                                             entry = entry,
                                             appName = display.label,
-                                            appIcon = display.icon,
+                                            packageName = display.packageName,
                                             showAppName = true,
                                             position = cardPositionFor(index, entries.size),
                                             modifier = Modifier.animateItem(),
@@ -547,7 +553,7 @@ fun LogsScreen() {
                                                 item(key = "group_$uid") {
                                                     AppLogGroupHeader(
                                                         appName = display.label,
-                                                        appIcon = display.icon,
+                                                        packageName = display.packageName,
                                                         count = appEntries.size,
                                                         modifier = Modifier
                                                             .padding(top = 2.dp, bottom = 0.dp)
@@ -561,7 +567,7 @@ fun LogsScreen() {
                                                     LogEntryCard(
                                                         entry = entry,
                                                         appName = display.label,
-                                                        appIcon = display.icon,
+                                                        packageName = display.packageName,
                                                         showAppName = false,
                                                         position = cardPositionFor(
                                                             index,
@@ -732,7 +738,7 @@ private fun AppPickerField(
                             AppPickerRow(
                                 label = allAppsLabel,
                                 count = options.size,
-                                icon = null,
+                                packageName = null,
                                 selected = selectedUid == null,
                                 onClick = {
                                     onSelectUid(null)
@@ -748,7 +754,7 @@ private fun AppPickerField(
                             AppPickerRow(
                                 label = option.label,
                                 count = option.count,
-                                icon = option.icon,
+                                packageName = option.packageName,
                                 selected = selectedUid == option.uid,
                                 onClick = {
                                     onSelectUid(option.uid)
@@ -768,7 +774,7 @@ private fun AppPickerField(
 private fun AppPickerRow(
     label: String,
     count: Int,
-    icon: ImageBitmap?,
+    packageName: String?,
     selected: Boolean,
     onClick: () -> Unit,
 ) {
@@ -794,7 +800,7 @@ private fun AppPickerRow(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            AppIconAvatar(icon = icon, size = 20.dp)
+            AppIcon(packageName = packageName, size = 20.dp, cornerRadius = 7.dp)
             Text(
                 text = label,
                 style = MaterialTheme.typography.bodyMedium,
@@ -906,7 +912,7 @@ private fun <T> SegmentedFilterRow(
 @Composable
 private fun AppLogGroupHeader(
     appName: String,
-    appIcon: ImageBitmap?,
+    packageName: String?,
     count: Int,
     modifier: Modifier = Modifier,
 ) {
@@ -917,7 +923,7 @@ private fun AppLogGroupHeader(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        AppIconAvatar(icon = appIcon, size = 20.dp)
+        AppIcon(packageName = packageName, size = 20.dp, cornerRadius = 7.dp)
         Text(
             text = appName,
             style = MaterialTheme.typography.titleSmall,
@@ -939,7 +945,7 @@ private fun AppLogGroupHeader(
 private fun LogEntryCard(
     entry: LogEntry,
     appName: String,
-    appIcon: ImageBitmap?,
+    packageName: String?,
     showAppName: Boolean,
     position: LogCardPosition,
     modifier: Modifier = Modifier,
@@ -967,7 +973,8 @@ private fun LogEntryCard(
         )
     }
     val fallbackAppIcon = if (entry.uid > 0) Icons.Default.Apps else Icons.Default.Public
-    val protocolText = entry.protocolLabel.uppercase(Locale.getDefault())
+    val locale = LocalConfiguration.current.locales[0]
+    val protocolText = entry.protocolLabel.uppercase(locale)
     val statusLabel = if (isAllowed) stringResource(R.string.menu_traffic_allowed)
     else stringResource(R.string.menu_traffic_blocked)
     val metadataText = buildString {
@@ -1009,7 +1016,12 @@ private fun LogEntryCard(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            AppIconAvatar(icon = appIcon, fallbackIcon = fallbackAppIcon, size = 40.dp)
+            AppIcon(
+                packageName = packageName,
+                size = 40.dp,
+                cornerRadius = 12.dp,
+                fallbackIcon = fallbackAppIcon,
+            )
             Column(
                 modifier = Modifier.weight(1f),
                 verticalArrangement = Arrangement.spacedBy(2.dp),
@@ -1045,41 +1057,6 @@ private fun LogEntryCard(
                 }
             }
         }
-    }
-}
-
-@Composable
-private fun AppIconAvatar(
-    icon: ImageBitmap?,
-    fallbackIcon: ImageVector = Icons.Default.Apps,
-    size: Dp = 40.dp,
-    modifier: Modifier = Modifier,
-) {
-    val corner = size / 3f
-    val shape = RoundedCornerShape(corner)
-    if (icon == null) {
-        Surface(
-            modifier = modifier.size(size),
-            shape = shape,
-            color = MaterialTheme.colorScheme.surfaceContainerHigh,
-        ) {
-            Box(contentAlignment = Alignment.Center) {
-                Icon(
-                    imageVector = fallbackIcon,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.size(size / 2f),
-                )
-            }
-        }
-    } else {
-        Image(
-            bitmap = icon,
-            contentDescription = null,
-            modifier = modifier
-                .size(size)
-                .clip(shape),
-        )
     }
 }
 
@@ -1193,9 +1170,9 @@ private fun cardPositionFor(index: Int, totalCount: Int): LogCardPosition {
     }
 }
 
-private fun defaultOutcomeFilterFromPrefs(): LogsOutcomeFilter {
-    val allowed = Prefs.getBoolean("traffic_allowed", true)
-    val blocked = Prefs.getBoolean("traffic_blocked", true)
+private fun defaultOutcomeFilterFromPrefs(prefs: PreferencesRepository): LogsOutcomeFilter {
+    val allowed = prefs.getBoolean("traffic_allowed", true)
+    val blocked = prefs.getBoolean("traffic_blocked", true)
     return when {
         allowed && !blocked -> LogsOutcomeFilter.Allowed
         !allowed && blocked -> LogsOutcomeFilter.Blocked
@@ -1203,10 +1180,10 @@ private fun defaultOutcomeFilterFromPrefs(): LogsOutcomeFilter {
     }
 }
 
-private fun defaultProtocolFilterFromPrefs(): LogsProtocolFilter {
-    val udp = Prefs.getBoolean("proto_udp", true)
-    val tcp = Prefs.getBoolean("proto_tcp", true)
-    val other = Prefs.getBoolean("proto_other", true)
+private fun defaultProtocolFilterFromPrefs(prefs: PreferencesRepository): LogsProtocolFilter {
+    val udp = prefs.getBoolean("proto_udp", true)
+    val tcp = prefs.getBoolean("proto_tcp", true)
+    val other = prefs.getBoolean("proto_other", true)
     return when {
         udp && !tcp && !other -> LogsProtocolFilter.Udp
         !udp && tcp && !other -> LogsProtocolFilter.Tcp
@@ -1258,18 +1235,11 @@ private fun loadAppDisplayInfo(
     fallbackLabel: String,
 ): AppDisplayInfo {
     val label = Util.getApplicationNames(uid, context).joinToString(", ").ifBlank { "UID $uid" }
-    val icon = runCatching {
-        val pm = context.packageManager
-        pm.getPackagesForUid(uid)
-            ?.asSequence()
-            ?.mapNotNull { packageName ->
-                runCatching {
-                    pm.getApplicationIcon(packageName).toBitmap().asImageBitmap()
-                }.getOrNull()
-            }
-            ?.firstOrNull()
-    }.getOrNull()
-    return AppDisplayInfo(label = label.ifBlank { fallbackLabel }, icon = icon)
+    val packageName =
+        runCatching {
+            context.packageManager.getPackagesForUid(uid)?.firstOrNull()
+        }.getOrNull()
+    return AppDisplayInfo(label = label.ifBlank { fallbackLabel }, packageName = packageName)
 }
 
 private suspend fun loadLogs(

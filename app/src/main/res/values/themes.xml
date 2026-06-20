@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="Theme.NetGuard" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.NetGuard" parent="android:Theme.DeviceDefault.NoActionBar">
         <item name="android:windowNoTitle">true</item>
     </style>
 </resources>

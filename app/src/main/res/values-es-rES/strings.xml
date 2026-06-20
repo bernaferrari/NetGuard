@@ -175,11 +175,11 @@
     <string name="setting_update">Buscar actualizaciones</string>
     <string name="setting_update_now">Comprobar ahora</string>
     <string name="setting_update_checking">Comprobando...</string>
-    <string name="setting_update_result_none">No hay actualizaciones disponibles</string>
-    <string name="setting_update_result_available">Nueva versión disponible: %s</string>
-    <string name="setting_update_result_error">Error al buscar actualizaciones</string>
-    <string name="setting_update_result_latest">Estás usando la última versión</string>
-    <string name="setting_update_result_cancelled">Búsqueda de actualizaciones cancelada</string>
+    <string name="setting_update_result_available">Nueva versión disponible: %1$s</string>
+    <string name="setting_update_result_available_unknown">Nueva versión disponible</string>
+    <string name="setting_update_result_up_to_date">Estás usando la última versión</string>
+    <string name="setting_update_result_failed">Error al buscar actualizaciones</string>
+    <string name="setting_update_result_unavailable">La comprobación de actualizaciones no está disponible para esta versión.</string>
 
     <string name="setting_network_options">Opciones de red</string>
     <string name="setting_subnet">Enrutamiento de subred</string>

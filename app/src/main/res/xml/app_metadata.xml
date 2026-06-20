@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AppFunctionAppMetadata xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions"
+    appfn:description="Provides tools for controlling the NetGuard on-device firewall, lockdown mode, per-app internet access, and recent blocked connections.
+Operational Patterns:
+  - Use 'searchApps' to resolve an app package name before calling 'getAppFirewallStatus' or 'setAppInternetBlocked'.
+  - Use 'getFirewallStatus' before changing global firewall or lockdown state.
+  - When 'setFirewallEnabled' returns a confirmationIntent, the user must approve VPN access in the app UI.
+Constraints:
+  - Enabling the firewall requires VPN permission granted by the user.
+  - Per-app changes apply to Wi-Fi, mobile data, or both.
+  - Blocked connection history is limited to 20 entries per request."
+    appfn:displayDescription="@string/app_function_app_display_description" />

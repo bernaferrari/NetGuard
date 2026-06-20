@@ -6,7 +6,8 @@ import android.content.Context
 import android.content.Intent
 import android.os.IBinder
 import android.util.Log
-import com.bernaferari.renetguard.data.Prefs
+import com.bernaferari.renetguard.data.PreferencesRepository
+import com.bernaferari.renetguard.data.preferences
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -54,7 +55,7 @@ class ServiceExternal : Service() {
         Util.logExtras(intent)
 
         if (ACTION_DOWNLOAD_HOSTS_FILE == intent?.action) {
-            var hostsUrl = Prefs.getString("hosts_url", null)
+            var hostsUrl = applicationContext.preferences().getString("hosts_url", null)
             if ("https://www.netguard.me/hosts" == hostsUrl) {
                 hostsUrl = BuildConfig.HOSTS_FILE_URI
             }
@@ -96,7 +97,7 @@ class ServiceExternal : Service() {
                 tmp.renameTo(hosts)
 
                 val last = SimpleDateFormat.getDateTimeInstance().format(Date().time)
-                Prefs.putString("hosts_last_download", last)
+                applicationContext.preferences().putString("hosts_last_download", last)
 
                 ServiceSinkhole.reload("hosts file download", this, false)
             } catch (ex: Throwable) {

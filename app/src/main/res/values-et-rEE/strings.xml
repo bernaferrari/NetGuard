@@ -174,11 +174,11 @@
     <string name="setting_update">Kontrolli uuendusi</string>
     <string name="setting_update_now">Kontrolli kohe</string>
     <string name="setting_update_checking">Kontrollitakse...</string>
-    <string name="setting_update_result_none">Uuendusi pole saadaval</string>
-    <string name="setting_update_result_available">Uus versioon saadaval: %s</string>
-    <string name="setting_update_result_error">Viga uuenduste kontrollimisel</string>
-    <string name="setting_update_result_latest">Kasutate uusimat versiooni</string>
-    <string name="setting_update_result_cancelled">Uuenduste kontrollimine tühistatud</string>
+    <string name="setting_update_result_available">Uus versioon saadaval: %1$s</string>
+    <string name="setting_update_result_available_unknown">Uus versioon saadaval</string>
+    <string name="setting_update_result_up_to_date">Kasutate uusimat versiooni</string>
+    <string name="setting_update_result_failed">Viga uuenduste kontrollimisel</string>
+    <string name="setting_update_result_unavailable">Uuenduste kontroll pole selle versiooni jaoks saadaval.</string>
 
     <string name="setting_network_options">Võrgu valikud</string>
     <string name="setting_subnet">Alamvõrgu marsruutimine</string>

@@ -174,11 +174,11 @@
     <string name="setting_update">업데이트 확인</string>
     <string name="setting_update_now">지금 확인</string>
     <string name="setting_update_checking">확인 중...</string>
-    <string name="setting_update_result_none">업데이트가 없습니다</string>
-    <string name="setting_update_result_available">새 버전 사용 가능: %s</string>
-    <string name="setting_update_result_error">업데이트 확인 중 오류 발생</string>
-    <string name="setting_update_result_latest">최신 버전을 사용 중입니다</string>
-    <string name="setting_update_result_cancelled">업데이트 확인이 취소되었습니다</string>
+    <string name="setting_update_result_available">새 버전 사용 가능: %1$s</string>
+    <string name="setting_update_result_available_unknown">새 버전 사용 가능</string>
+    <string name="setting_update_result_up_to_date">최신 버전을 사용 중입니다</string>
+    <string name="setting_update_result_failed">업데이트 확인 중 오류 발생</string>
+    <string name="setting_update_result_unavailable">이 빌드에서는 업데이트 확인을 사용할 수 없습니다.</string>
 
     <string name="setting_network_options">네트워크 옵션</string>
     <string name="setting_subnet">서브넷 라우팅</string>

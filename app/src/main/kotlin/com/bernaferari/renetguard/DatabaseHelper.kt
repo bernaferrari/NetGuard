@@ -10,13 +10,16 @@ import android.os.Handler
 import android.os.HandlerThread
 import android.os.Message
 import android.util.Log
-import com.bernaferari.renetguard.data.Prefs
+import com.bernaferari.renetguard.data.PreferencesRepository
+import com.bernaferari.renetguard.data.preferences
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.concurrent.locks.ReentrantReadWriteLock
 
-class DatabaseHelper private constructor(context: Context) :
-    SQLiteOpenHelper(context, DB_NAME, null, DB_VERSION) {
+class DatabaseHelper private constructor(
+    context: Context,
+) : SQLiteOpenHelper(context, DB_NAME, null, DB_VERSION) {
+    private val appContext = context.applicationContext
     private val lock = ReentrantReadWriteLock(true)
 
     override fun close() {
@@ -809,7 +812,7 @@ class DatabaseHelper private constructor(context: Context) :
             try {
                 var ttl = rr.TTL
 
-                val min = Prefs.getString("ttl", "259200")?.toIntOrNull() ?: 259200
+                val min = appContext.preferences().getString("ttl", "259200")?.toIntOrNull() ?: 259200
                 if (ttl < min) {
                     ttl = min
                 }

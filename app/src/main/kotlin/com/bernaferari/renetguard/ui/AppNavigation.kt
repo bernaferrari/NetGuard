@@ -4,6 +4,7 @@ import androidx.annotation.StringRes
 import androidx.compose.animation.ContentTransform
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
+import androidx.navigationevent.NavigationEvent
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -239,7 +240,7 @@ fun AppNavigation(
             NavDisplay(
                 backStack = backStack.toList(),
                 modifier = Modifier.fillMaxSize(),
-                sceneStrategy = listDetailStrategy,
+                sceneStrategies = listOf(listDetailStrategy),
                 onBack = { popBackStack() },
                 transitionSpec = {
                     val isAppDetailTransition =
@@ -247,7 +248,7 @@ fun AppNavigation(
                     if (isAppDetailTransition) {
                         ContentTransform(EnterTransition.None, ExitTransition.None)
                     } else {
-                        defaultTransitionSpec<NavKey>()(this)
+                        defaultTransitionSpec<NavKey>().invoke(this)
                     }
                 },
                 popTransitionSpec = {
@@ -256,16 +257,16 @@ fun AppNavigation(
                     if (isAppDetailTransition) {
                         ContentTransform(EnterTransition.None, ExitTransition.None)
                     } else {
-                        defaultPopTransitionSpec<NavKey>()(this)
+                        defaultPopTransitionSpec<NavKey>().invoke(this)
                     }
                 },
-                predictivePopTransitionSpec = { swipeEdge ->
+                predictivePopTransitionSpec = { swipeEdge: @NavigationEvent.SwipeEdge Int ->
                     val isAppDetailTransition =
                         initialState.hasAppDetailEntry() || targetState.hasAppDetailEntry()
                     if (isAppDetailTransition) {
                         ContentTransform(EnterTransition.None, ExitTransition.None)
                     } else {
-                        defaultPredictivePopTransitionSpec<NavKey>()(this, swipeEdge)
+                        defaultPredictivePopTransitionSpec<NavKey>().invoke(this, swipeEdge)
                     }
                 },
                 entryDecorators = listOf(

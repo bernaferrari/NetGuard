@@ -5,12 +5,14 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.ServiceConnection
+import android.os.Build
 import android.os.Bundle
 import android.os.IBinder
 import android.os.RemoteException
 import android.util.Log
 import com.android.vending.billing.IInAppBillingService
-import com.bernaferari.renetguard.data.Prefs
+import com.bernaferari.renetguard.data.PreferencesRepository
+import com.bernaferari.renetguard.data.preferences
 import org.json.JSONException
 import org.json.JSONObject
 
@@ -112,7 +114,13 @@ class IAB(
         Log.i(TAG, "Response=" + getResult(response))
         if (response != 0) throw IllegalArgumentException(getResult(response))
 
-        val intent = bundle?.getParcelable("BUY_INTENT") as PendingIntent?
+        val intent =
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                bundle?.getParcelable("BUY_INTENT", PendingIntent::class.java)
+            } else {
+                @Suppress("DEPRECATION")
+                bundle?.getParcelable("BUY_INTENT")
+            }
         if (isDonation) setBought(ActivityPro.SKU_DONATION, context)
         return intent
     }
@@ -123,30 +131,30 @@ class IAB(
 
         fun setBought(sku: String, context: Context) {
             Log.i(TAG, "Bought $sku")
-            Prefs.putBoolean(Prefs.namespaced("IAB", sku), true)
+            context.preferences().putBoolean(PreferencesRepository.namespaced("IAB", sku), true)
         }
 
         fun isPurchased(sku: String, context: Context): Boolean {
             return try {
                 if (Util.isDebuggable(context)) {
-                    return !Prefs.getBoolean("debug_iab", false)
+                    return !context.preferences().getBoolean("debug_iab", false)
                 }
 
                 if (ActivityPro.SKU_SUPPORT1 == sku || ActivityPro.SKU_SUPPORT2 == sku) {
-                    return Prefs.getBoolean(Prefs.namespaced("IAB", sku), false)
+                    return context.preferences().getBoolean(PreferencesRepository.namespaced("IAB", sku), false)
                 }
 
-                Prefs.getBoolean(Prefs.namespaced("IAB", sku), false) ||
-                        Prefs.getBoolean(Prefs.namespaced("IAB", ActivityPro.SKU_PRO1), false) ||
-                        Prefs.getBoolean(
-                            Prefs.namespaced("IAB", ActivityPro.SKU_SUPPORT1),
+                context.preferences().getBoolean(PreferencesRepository.namespaced("IAB", sku), false) ||
+                        context.preferences().getBoolean(PreferencesRepository.namespaced("IAB", ActivityPro.SKU_PRO1), false) ||
+                        context.preferences().getBoolean(
+                            PreferencesRepository.namespaced("IAB", ActivityPro.SKU_SUPPORT1),
                             false
                         ) ||
-                        Prefs.getBoolean(
-                            Prefs.namespaced("IAB", ActivityPro.SKU_SUPPORT2),
+                        context.preferences().getBoolean(
+                            PreferencesRepository.namespaced("IAB", ActivityPro.SKU_SUPPORT2),
                             false
                         ) ||
-                        Prefs.getBoolean(Prefs.namespaced("IAB", ActivityPro.SKU_DONATION), false)
+                        context.preferences().getBoolean(PreferencesRepository.namespaced("IAB", ActivityPro.SKU_DONATION), false)
             } catch (ignored: SecurityException) {
                 false
             }
@@ -155,12 +163,12 @@ class IAB(
         fun isPurchasedAny(context: Context): Boolean {
             return try {
                 if (Util.isDebuggable(context)) {
-                    return !Prefs.getBoolean("debug_iab", false)
+                    return !context.preferences().getBoolean("debug_iab", false)
                 }
 
                 val prefix = "IAB"
-                for (key in Prefs.keysWithPrefix(prefix)) {
-                    if (Prefs.getBoolean(key, false)) return true
+                for (key in context.preferences().keysWithPrefix(prefix)) {
+                    if (context.preferences().getBoolean(key, false)) return true
                 }
                 false
             } catch (ignored: SecurityException) {

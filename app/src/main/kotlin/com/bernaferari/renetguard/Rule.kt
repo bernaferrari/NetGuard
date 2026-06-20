@@ -8,7 +8,8 @@ import android.database.Cursor
 import android.os.Build
 import android.os.Process
 import android.util.Log
-import com.bernaferari.renetguard.data.Prefs
+import com.bernaferari.renetguard.data.PreferencesRepository
+import com.bernaferari.renetguard.data.preferences
 import org.xmlpull.v1.XmlPullParser
 import java.text.Collator
 import java.util.Locale
@@ -196,10 +197,10 @@ class Rule private constructor(dh: DatabaseHelper, info: PackageInfo, context: C
     }
 
     fun updateChanged(context: Context) {
-        val screen_on = Prefs.getBoolean("screen_on", false)
-        val default_wifi = Prefs.getBoolean("whitelist_wifi", true) && screen_on
-        val default_other = Prefs.getBoolean("whitelist_other", true) && screen_on
-        val default_roaming = Prefs.getBoolean("whitelist_roaming", true)
+        val screen_on = context.preferences().getBoolean("screen_on", false)
+        val default_wifi = context.preferences().getBoolean("whitelist_wifi", true) && screen_on
+        val default_other = context.preferences().getBoolean("whitelist_other", true) && screen_on
+        val default_roaming = context.preferences().getBoolean("whitelist_roaming", true)
         updateChanged(default_wifi, default_other, default_roaming)
     }
 
@@ -271,18 +272,18 @@ class Rule private constructor(dh: DatabaseHelper, info: PackageInfo, context: C
         @JvmStatic
         fun getRules(all: Boolean, context: Context): List<Rule> {
             synchronized(context.applicationContext) {
-                var default_wifi = Prefs.getBoolean("whitelist_wifi", true)
-                var default_other = Prefs.getBoolean("whitelist_other", true)
-                var default_screen_wifi = Prefs.getBoolean("screen_wifi", false)
-                var default_screen_other = Prefs.getBoolean("screen_other", false)
-                val default_roaming = Prefs.getBoolean("whitelist_roaming", true)
+                var default_wifi = context.preferences().getBoolean("whitelist_wifi", true)
+                var default_other = context.preferences().getBoolean("whitelist_other", true)
+                var default_screen_wifi = context.preferences().getBoolean("screen_wifi", false)
+                var default_screen_other = context.preferences().getBoolean("screen_other", false)
+                val default_roaming = context.preferences().getBoolean("whitelist_roaming", true)
 
-                val manage_system = Prefs.getBoolean("manage_system", false)
-                val screen_on = Prefs.getBoolean("screen_on", true)
-                val show_user = Prefs.getBoolean("show_user", true)
-                val show_system = Prefs.getBoolean("show_system", false)
-                val show_nointernet = Prefs.getBoolean("show_nointernet", true)
-                val show_disabled = Prefs.getBoolean("show_disabled", true)
+                val manage_system = context.preferences().getBoolean("manage_system", false)
+                val screen_on = context.preferences().getBoolean("screen_on", true)
+                val show_user = context.preferences().getBoolean("show_user", true)
+                val show_system = context.preferences().getBoolean("show_system", false)
+                val show_nointernet = context.preferences().getBoolean("show_nointernet", true)
+                val show_disabled = context.preferences().getBoolean("show_disabled", true)
 
                 default_screen_wifi = default_screen_wifi && screen_on
                 default_screen_other = default_screen_other && screen_on
@@ -431,40 +432,40 @@ class Rule private constructor(dh: DatabaseHelper, info: PackageInfo, context: C
                             val packageName = info.packageName
                             rule.wifi_blocked =
                                 (!(rule.system && !manage_system) &&
-                                        Prefs.getBoolean(
-                                            Prefs.namespaced("wifi", packageName),
+                                        context.preferences().getBoolean(
+                                            PreferencesRepository.namespaced("wifi", packageName),
                                             rule.wifi_default
                                         ))
                             rule.other_blocked =
                                 (!(rule.system && !manage_system) &&
-                                        Prefs.getBoolean(
-                                            Prefs.namespaced("other", packageName),
+                                        context.preferences().getBoolean(
+                                            PreferencesRepository.namespaced("other", packageName),
                                             rule.other_default
                                         ))
                             rule.screen_wifi =
-                                Prefs.getBoolean(
-                                    Prefs.namespaced("screen_wifi", packageName),
+                                context.preferences().getBoolean(
+                                    PreferencesRepository.namespaced("screen_wifi", packageName),
                                     rule.screen_wifi_default
                                 ) &&
                                         screen_on
                             rule.screen_other =
-                                Prefs.getBoolean(
-                                    Prefs.namespaced("screen_other", packageName),
+                                context.preferences().getBoolean(
+                                    PreferencesRepository.namespaced("screen_other", packageName),
                                     rule.screen_other_default
                                 ) &&
                                         screen_on
                             rule.roaming =
-                                Prefs.getBoolean(
-                                    Prefs.namespaced("roaming", packageName),
+                                context.preferences().getBoolean(
+                                    PreferencesRepository.namespaced("roaming", packageName),
                                     rule.roaming_default
                                 )
                             rule.lockdown =
-                                Prefs.getBoolean(Prefs.namespaced("lockdown", packageName), false)
+                                context.preferences().getBoolean(PreferencesRepository.namespaced("lockdown", packageName), false)
 
                             rule.apply =
-                                Prefs.getBoolean(Prefs.namespaced("apply", packageName), true)
+                                context.preferences().getBoolean(PreferencesRepository.namespaced("apply", packageName), true)
                             rule.notify =
-                                Prefs.getBoolean(Prefs.namespaced("notify", packageName), true)
+                                context.preferences().getBoolean(PreferencesRepository.namespaced("notify", packageName), true)
 
                             val listPkg = ArrayList<String>()
                             if (pre_related.containsKey(info.packageName)) {
@@ -495,7 +496,7 @@ class Rule private constructor(dh: DatabaseHelper, info: PackageInfo, context: C
                     strength = Collator.SECONDARY
                 }
 
-                val sort = Prefs.getString("sort", "name")
+                val sort = context.preferences().getString("sort", "name")
                 if (sort == "uid") {
                     listRules.sortWith { rule, other ->
                         when {

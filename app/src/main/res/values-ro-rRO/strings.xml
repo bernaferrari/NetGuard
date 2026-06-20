@@ -164,9 +164,9 @@
     <string name="setting_appearance_mode_title">Mod întunecat</string>
     <string name="setting_appearance_mode_summary">Alege Oprit, Pornit sau Urmează sistemul.</string>
     <string name="setting_appearance_preview">Curent: %1$s · %2$s</string>
-    <string name="appearance_auto">Auto</string>
-    <string name="appearance_light">Luminos</string>
-    <string name="appearance_dark">Întunecat</string>
+    <string name="setting_appearance_auto">Auto</string>
+    <string name="setting_appearance_light">Luminos</string>
+    <string name="setting_appearance_dark">Întunecat</string>
     <string name="theme_dynamic" translatable="false">Dynamic</string>
     <string name="setting_install">Notifică la instalare nouă</string>
     <string name="setting_screen_on">Aplică regulile \'când ecranul este pornit\'</string>

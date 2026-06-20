@@ -11,7 +11,7 @@ import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.core.updateTransition
-import androidx.compose.foundation.Image
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -76,7 +76,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.asImageBitmap
+
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
@@ -93,13 +93,14 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
-import androidx.core.graphics.drawable.toBitmap
+import com.bernaferari.renetguard.ui.components.AppIcon
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.bernaferari.renetguard.R
 import com.bernaferari.renetguard.Rule
 import com.bernaferari.renetguard.ServiceSinkhole
 import com.bernaferari.renetguard.Widgets
-import com.bernaferari.renetguard.data.Prefs
+import com.bernaferari.renetguard.data.PreferencesRepository
+import com.bernaferari.renetguard.data.preferences
 import com.bernaferari.renetguard.ui.components.DiagonalWipeIcon
 import com.bernaferari.renetguard.ui.components.IndexedFastScroller
 import com.bernaferari.renetguard.ui.theme.LocalMotion
@@ -551,14 +552,6 @@ private fun RuleCard(
 ) {
     val context = LocalContext.current
 
-    val iconBitmap = remember(rule.packageName) {
-        runCatching {
-            val pm = context.packageManager
-            val appInfo = pm.getApplicationInfo(rule.packageName ?: "", 0)
-            pm.getApplicationIcon(appInfo).toBitmap().asImageBitmap()
-        }.getOrNull()
-    }
-
     val appName = rule.name ?: rule.packageName.orEmpty()
     val wifiDescription = stringResource(R.string.title_wifi) + " " +
             if (rule.wifi_blocked) stringResource(R.string.menu_traffic_blocked)
@@ -630,31 +623,11 @@ private fun RuleCard(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            // App icon
-            if (iconBitmap == null) {
-                Surface(
-                    modifier = Modifier.size(40.dp),
-                    shape = RoundedCornerShape(12.dp),
-                    color = MaterialTheme.colorScheme.surfaceContainerHigh,
-                ) {
-                    Box(contentAlignment = Alignment.Center) {
-                        Icon(
-                            imageVector = Icons.Default.Apps,
-                            contentDescription = null,
-                            modifier = Modifier.size(20.dp),
-                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                    }
-                }
-            } else {
-                Image(
-                    bitmap = iconBitmap,
-                    contentDescription = null,
-                    modifier = Modifier
-                        .size(40.dp)
-                        .clip(RoundedCornerShape(12.dp)),
-                )
-            }
+            AppIcon(
+                packageName = rule.packageName,
+                size = 40.dp,
+                cornerRadius = 12.dp,
+            )
 
             // App name + status
             Column(modifier = Modifier.weight(1f)) {
@@ -888,38 +861,39 @@ private fun persistRuleInternal(
 ) {
     val packageName = rule.packageName ?: return
     if (!visited.add(packageName)) return
-    val wifiKey = Prefs.namespaced("wifi", packageName)
-    val otherKey = Prefs.namespaced("other", packageName)
-    val applyKey = Prefs.namespaced("apply", packageName)
-    val screenWifiKey = Prefs.namespaced("screen_wifi", packageName)
-    val screenOtherKey = Prefs.namespaced("screen_other", packageName)
-    val roamingKey = Prefs.namespaced("roaming", packageName)
-    val lockdownKey = Prefs.namespaced("lockdown", packageName)
-    val notifyKey = Prefs.namespaced("notify", packageName)
+    val prefs = context.preferences()
+    val wifiKey = PreferencesRepository.namespaced("wifi", packageName)
+    val otherKey = PreferencesRepository.namespaced("other", packageName)
+    val applyKey = PreferencesRepository.namespaced("apply", packageName)
+    val screenWifiKey = PreferencesRepository.namespaced("screen_wifi", packageName)
+    val screenOtherKey = PreferencesRepository.namespaced("screen_other", packageName)
+    val roamingKey = PreferencesRepository.namespaced("roaming", packageName)
+    val lockdownKey = PreferencesRepository.namespaced("lockdown", packageName)
+    val notifyKey = PreferencesRepository.namespaced("notify", packageName)
 
-    if (rule.wifi_blocked == rule.wifi_default) Prefs.remove(wifiKey) else Prefs.putBoolean(
+    if (rule.wifi_blocked == rule.wifi_default) prefs.remove(wifiKey) else prefs.putBoolean(
         wifiKey,
         rule.wifi_blocked
     )
-    if (rule.other_blocked == rule.other_default) Prefs.remove(otherKey) else Prefs.putBoolean(
+    if (rule.other_blocked == rule.other_default) prefs.remove(otherKey) else prefs.putBoolean(
         otherKey,
         rule.other_blocked
     )
-    if (rule.apply) Prefs.remove(applyKey) else Prefs.putBoolean(applyKey, rule.apply)
-    if (rule.screen_wifi == rule.screen_wifi_default) Prefs.remove(screenWifiKey) else Prefs.putBoolean(
+    if (rule.apply) prefs.remove(applyKey) else prefs.putBoolean(applyKey, rule.apply)
+    if (rule.screen_wifi == rule.screen_wifi_default) prefs.remove(screenWifiKey) else prefs.putBoolean(
         screenWifiKey,
         rule.screen_wifi
     )
-    if (rule.screen_other == rule.screen_other_default) Prefs.remove(screenOtherKey) else Prefs.putBoolean(
+    if (rule.screen_other == rule.screen_other_default) prefs.remove(screenOtherKey) else prefs.putBoolean(
         screenOtherKey,
         rule.screen_other
     )
-    if (rule.roaming == rule.roaming_default) Prefs.remove(roamingKey) else Prefs.putBoolean(
+    if (rule.roaming == rule.roaming_default) prefs.remove(roamingKey) else prefs.putBoolean(
         roamingKey,
         rule.roaming
     )
-    if (rule.lockdown) Prefs.putBoolean(lockdownKey, rule.lockdown) else Prefs.remove(lockdownKey)
-    if (rule.notify) Prefs.remove(notifyKey) else Prefs.putBoolean(notifyKey, rule.notify)
+    if (rule.lockdown) prefs.putBoolean(lockdownKey, rule.lockdown) else prefs.remove(lockdownKey)
+    if (rule.notify) prefs.remove(notifyKey) else prefs.putBoolean(notifyKey, rule.notify)
 
     rule.updateChanged(context)
     val notificationManager =

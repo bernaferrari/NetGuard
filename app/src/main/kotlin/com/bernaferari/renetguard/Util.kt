@@ -24,10 +24,11 @@ import android.provider.Settings
 import android.telephony.TelephonyManager
 import android.text.TextUtils
 import android.util.Log
-import androidx.appcompat.app.AlertDialog
+
 import androidx.core.app.ActivityCompat
 import androidx.core.content.pm.PackageInfoCompat
-import com.bernaferari.renetguard.data.Prefs
+import com.bernaferari.renetguard.data.PreferencesRepository
+import com.bernaferari.renetguard.data.preferences
 import com.bernaferari.renetguard.ui.theme.THEME_DEFAULT
 import com.bernaferari.renetguard.ui.theme.themePrimaryColor
 import java.io.BufferedReader
@@ -509,7 +510,7 @@ object Util {
 
     @JvmStatic
     fun setTheme(context: Context) {
-        val theme = Prefs.getString("theme", THEME_DEFAULT)
+        val theme = context.preferences().getString("theme", THEME_DEFAULT)
 
         if (context is Activity && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             setTaskColor(context, theme)
@@ -614,25 +615,6 @@ object Util {
             return "$protocol/$version"
         }
         return (if (brief) b else p) + if (version > 0) version.toString() else ""
-    }
-
-    fun interface DoubtListener {
-        fun onSure()
-    }
-
-    @JvmStatic
-    fun areYouSure(context: Context, explanation: Int, listener: DoubtListener) {
-        AlertDialog.Builder(context)
-            .setMessage(explanation)
-            .setCancelable(true)
-            .setPositiveButton(R.string.menu_ok) { _, _ ->
-                listener.onSure()
-            }
-            .setNegativeButton(R.string.menu_cancel) { _, _ ->
-                // Do nothing
-            }
-            .create()
-            .show()
     }
 
     private val mapIPOrganization = mutableMapOf<String, String?>()
@@ -850,9 +832,10 @@ object Util {
             if (lp?.interfaceName != null) {
                 sb.append(' ').append(lp.interfaceName)
             }
-            if (!lp?.linkAddresses.isNullOrEmpty()) {
+            val linkAddresses = lp?.linkAddresses
+            if (!linkAddresses.isNullOrEmpty()) {
                 sb.append(" [")
-                sb.append(lp?.linkAddresses?.joinToString { it.address.hostAddress ?: "" })
+                sb.append(linkAddresses.joinToString { it.address.hostAddress ?: "" })
                 sb.append("]")
             }
             sb.append("\r\n")
