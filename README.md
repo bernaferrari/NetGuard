@@ -9,6 +9,10 @@
   Built with Kotlin 2.3, Jetpack Compose, and a first-party Android-only architecture.
 </p>
 
+<p align="center">
+  <a href="https://netguard-demo.vercel.app/"><strong>Try the Web Demo</strong></a>
+</p>
+
 ---
 
 Re-NetGuard is a modernized fork of the original [NetGuard](https://github.com/M66B/NetGuard) project by Marcel Bokhorst. It preserves NetGuard’s core philosophy—no-root, VPN-based filtering, local-first processing, and no account lock-in—while adding a refreshed Material 3 Expressive Android UX with improved workflows for logs, rules, and settings.
@@ -67,6 +71,41 @@ Re-NetGuard dynamically scales to take advantage of larger screens, offering a d
 ```
 
 You can also build a release variant configured for production checks and shrinker behavior by running `./gradlew :app:assembleRelease`.
+
+#### Web (local dev server)
+
+```bash
+./gradlew :webApp:wasmJsBrowserDevelopmentRun
+```
+
+Production wasm bundle:
+
+```bash
+./gradlew :webApp:wasmJsBrowserDistribution
+```
+
+#### Web deploy (Vercel)
+
+Simulate the CI build locally:
+
+```bash
+./scripts/simulate-web-ci.sh
+```
+
+Deploy manually (after `vercel login` or with a token):
+
+```bash
+./scripts/verify-web-deploy.sh --ci
+VERCEL_TOKEN=... VERCEL_ORG_ID=... VERCEL_PROJECT_ID=... ./scripts/deploy-web-vercel.sh
+```
+
+Pushes to `master` run `.github/workflows/deploy-web-vercel.yml`, which builds the wasm bundle and deploys to [netguard-demo.vercel.app](https://netguard-demo.vercel.app/). Add these repository secrets:
+
+| Secret | Where to find it |
+|--------|------------------|
+| `VERCEL_TOKEN` | [vercel.com/account/tokens](https://vercel.com/account/tokens) |
+| `VERCEL_ORG_ID` | Vercel project → Settings → General |
+| `VERCEL_PROJECT_ID` | Vercel project → Settings → General |
 
 ## ⚠️ Behavior Notes
 
