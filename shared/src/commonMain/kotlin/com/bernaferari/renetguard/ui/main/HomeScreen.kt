@@ -397,6 +397,8 @@ private fun StatusCard(
             .graphicsLayer {
                 scaleX = scale
                 scaleY = scale
+                shape = cardShape
+                clip = true
             }
             .semantics { contentDescription = statusDescription },
         interactionSource = interactionSource,
@@ -405,7 +407,13 @@ private fun StatusCard(
         Box(modifier = Modifier.fillMaxWidth()) {
             FirewallStateShaderBackground(
                 enabledProgress = shaderColorProgress,
-                modifier = Modifier.matchParentSize(),
+                modifier =
+                    Modifier
+                        .matchParentSize()
+                        .graphicsLayer {
+                            shape = cardShape
+                            clip = true
+                        },
             )
 
             Box(
@@ -431,7 +439,11 @@ private fun StatusCard(
                             ),
                             modifier = Modifier
                                 .size(72.dp)
-                                .graphicsLayer { rotationZ = sharedRotation },
+                                .graphicsLayer {
+                                    rotationZ = sharedRotation
+                                    shape = badgeShape
+                                    clip = true
+                                },
                         ) {}
 
                         Surface(
@@ -443,6 +455,8 @@ private fun StatusCard(
                                     scaleX = iconBadgeScale
                                     scaleY = iconBadgeScale
                                     rotationZ = sharedRotation * 0.72f
+                                    shape = badgeShape
+                                    clip = true
                                 },
                         ) {
                             Box(contentAlignment = Alignment.Center) {
