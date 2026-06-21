@@ -4,6 +4,7 @@ import com.bernaferari.renetguard.data.PreferencesRepository
 import com.bernaferari.renetguard.platform.AppDisplayInfo
 import com.bernaferari.renetguard.platform.LogEntry
 import com.bernaferari.renetguard.platform.NetGuardPlatform
+import com.bernaferari.renetguard.platform.PlatformContext
 import com.bernaferari.renetguard.platform.loadAppDisplayInfo
 import com.bernaferari.renetguard.platform.loadLogs
 import com.bernaferari.renetguard.platform.observeLogChanges
@@ -182,8 +183,11 @@ fun LogsScreen() {
     val prefsState by preferencesRepository.data.collectAsState(initial = null)
     val hasLog = remember { NetGuardPlatform.proFeatures.isPurchased(NetGuardPlatform.proFeatures.logSku) }
     val unknownSourceLabel = stringResource(Res.string.ui_logs_unknown_source)
-    val loggingEnabled = prefsState?.get(booleanPreferencesKey("log")) ?: false
-    val filteringEnabled = prefsState?.get(booleanPreferencesKey("filter")) ?: false
+    val isDemoMode = PlatformContext.isDemoMode()
+    val loggingEnabled =
+        (prefsState?.get(booleanPreferencesKey("log")) ?: false) || isDemoMode
+    val filteringEnabled =
+        (prefsState?.get(booleanPreferencesKey("filter")) ?: false) || isDemoMode
 
     var outcomeFilter by remember {
         mutableStateOf(defaultOutcomeFilterFromPrefs(preferencesRepository))
