@@ -1,5 +1,7 @@
 package com.bernaferari.renetguard
 
+import com.bernaferari.renetguard.shared.R
+
 import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp

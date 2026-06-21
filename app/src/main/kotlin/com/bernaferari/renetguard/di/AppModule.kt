@@ -4,7 +4,7 @@ import org.koin.core.annotation.ComponentScan
 import org.koin.core.annotation.Configuration
 import org.koin.core.annotation.Module
 
-@Module(includes = [DataModule::class])
+@Module(includes = [SharedModule::class])
 @Configuration
-@ComponentScan("com.bernaferari.renetguard")
+@ComponentScan("com.bernaferari.renetguard.appfunctions")
 class AppModule

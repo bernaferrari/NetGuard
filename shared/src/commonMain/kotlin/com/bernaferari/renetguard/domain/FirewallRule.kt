@@ -1,0 +1,25 @@
+package com.bernaferari.renetguard.domain
+
+data class FirewallRule(
+    var uid: Int = 0,
+    var packageName: String? = null,
+    var name: String? = null,
+    var icon: Int = 0,
+    var wifi_blocked: Boolean = false,
+    var other_blocked: Boolean = false,
+    var wifi_default: Boolean = false,
+    var other_default: Boolean = false,
+    var screen_wifi: Boolean = false,
+    var screen_other: Boolean = false,
+    var screen_wifi_default: Boolean = false,
+    var screen_other_default: Boolean = false,
+    var roaming: Boolean = false,
+    var roaming_default: Boolean = false,
+    var lockdown: Boolean = false,
+    var notify: Boolean = true,
+    var apply: Boolean = true,
+    var system: Boolean = false,
+    var internet: Boolean = false,
+    var enabled: Boolean = true,
+    var related: List<String> = emptyList(),
+)

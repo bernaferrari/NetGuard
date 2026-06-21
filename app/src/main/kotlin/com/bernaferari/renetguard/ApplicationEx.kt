@@ -14,7 +14,9 @@ import androidx.appfunctions.service.AppFunctionConfiguration
 import coil3.ImageLoader
 import coil3.SingletonImageLoader
 import com.bernaferari.renetguard.appfunctions.AppFunctions
+import com.bernaferari.renetguard.data.initPreferencesDataStore
 import com.bernaferari.renetguard.data.preferences
+import com.bernaferari.renetguard.platform.installNetGuardPlatformBindings
 import org.koin.android.ext.android.getKoin
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.annotation.KoinApplication
@@ -38,6 +40,9 @@ class ApplicationEx : Application(), AppFunctionConfiguration.Provider {
         startKoin<ApplicationEx> {
             androidContext(this@ApplicationEx)
         }
+
+        initPreferencesDataStore(this)
+        installNetGuardPlatformBindings()
 
         SingletonImageLoader.setSafe { context ->
             ImageLoader.Builder(context).build()

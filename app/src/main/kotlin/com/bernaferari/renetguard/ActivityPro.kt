@@ -1,5 +1,7 @@
 package com.bernaferari.renetguard
 
+import com.bernaferari.renetguard.shared.R
+
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context

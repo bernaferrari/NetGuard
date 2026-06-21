@@ -1,5 +1,7 @@
 package com.bernaferari.renetguard
 
+import com.bernaferari.renetguard.shared.R
+
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log

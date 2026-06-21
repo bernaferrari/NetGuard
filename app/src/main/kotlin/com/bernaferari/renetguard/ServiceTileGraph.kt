@@ -1,5 +1,7 @@
 package com.bernaferari.renetguard
 
+import com.bernaferari.renetguard.shared.R
+
 import android.os.Build
 import android.service.quicksettings.Tile
 import android.util.Log

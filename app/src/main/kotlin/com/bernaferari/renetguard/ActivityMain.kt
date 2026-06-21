@@ -9,10 +9,8 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.mutableStateOf
-import com.bernaferari.renetguard.ui.AppNavigation
 import com.bernaferari.renetguard.ui.Home
 import com.bernaferari.renetguard.ui.main.MainViewModel
-import com.bernaferari.renetguard.ui.theme.NetGuardAppTheme
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ActivityMain : ComponentActivity() {
@@ -26,44 +24,42 @@ class ActivityMain : ComponentActivity() {
         val requestEnableFirewall = intent.getBooleanExtra(EXTRA_ENABLE_FIREWALL, false)
 
         setContent {
-            NetGuardAppTheme {
-                val vpnLauncher =
-                    rememberLauncherForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-                        if (result.resultCode == Activity.RESULT_OK) {
-                            viewModel.setEnabled(true)
-                            ServiceSinkhole.start("UI", this)
-                        } else {
-                            viewModel.setEnabled(false)
-                        }
-                    }
-
-                val handleToggleEnabled: (Boolean) -> Unit = { enable ->
-                    if (enable) {
-                        val vpnIntent = VpnService.prepare(this)
-                        if (vpnIntent == null) {
-                            viewModel.setEnabled(true)
-                            ServiceSinkhole.start("UI", this)
-                        } else {
-                            vpnLauncher.launch(vpnIntent)
-                        }
+            val vpnLauncher =
+                rememberLauncherForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+                    if (result.resultCode == Activity.RESULT_OK) {
+                        viewModel.setEnabled(true)
+                        ServiceSinkhole.start("UI", this@ActivityMain)
                     } else {
                         viewModel.setEnabled(false)
-                        ServiceSinkhole.stop("UI", this, false)
                     }
                 }
 
-                if (requestEnableFirewall) {
-                    handleToggleEnabled(true)
+            val handleToggleEnabled: (Boolean) -> Unit = { enable ->
+                if (enable) {
+                    val vpnIntent = VpnService.prepare(this@ActivityMain)
+                    if (vpnIntent == null) {
+                        viewModel.setEnabled(true)
+                        ServiceSinkhole.start("UI", this@ActivityMain)
+                    } else {
+                        vpnLauncher.launch(vpnIntent)
+                    }
+                } else {
+                    viewModel.setEnabled(false)
+                    ServiceSinkhole.stop("UI", this@ActivityMain, false)
                 }
-
-                AppNavigation(
-                    viewModel = viewModel,
-                    onToggleEnabled = handleToggleEnabled,
-                    startRoute = pendingRoute.value ?: Home.route,
-                    pendingRoute = pendingRoute.value,
-                    onRouteNavigated = { pendingRoute.value = null },
-                )
             }
+
+            if (requestEnableFirewall) {
+                handleToggleEnabled(true)
+            }
+
+            AppContent(
+                onToggleEnabled = handleToggleEnabled,
+                startRoute = pendingRoute.value ?: Home.route,
+                pendingRoute = pendingRoute.value,
+                onRouteNavigated = { pendingRoute.value = null },
+                viewModel = viewModel,
+            )
         }
     }
 

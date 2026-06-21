@@ -1,5 +1,7 @@
 package com.bernaferari.renetguard
 
+import com.bernaferari.renetguard.shared.R
+
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager

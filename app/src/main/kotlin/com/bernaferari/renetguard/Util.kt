@@ -1,5 +1,7 @@
 package com.bernaferari.renetguard
 
+import com.bernaferari.renetguard.shared.R
+
 import android.Manifest
 import android.annotation.TargetApi
 import android.app.Activity

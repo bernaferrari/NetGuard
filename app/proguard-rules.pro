@@ -26,6 +26,9 @@
 # AppFunctions platform extensions are provided by the OS on Android 16+.
 -dontwarn com.android.extensions.appfunctions.**
 
+# Compose Multiplatform resources (instrumented-test helper; not on release classpath).
+-dontwarn androidx.test.platform.app.InstrumentationRegistry
+
 #JNI
 -keepclasseswithmembernames class * {
     native <methods>;
