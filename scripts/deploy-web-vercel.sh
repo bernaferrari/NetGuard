@@ -48,6 +48,9 @@ fi
 
 : "${VERCEL_TOKEN:?Set VERCEL_TOKEN (vercel login, or https://vercel.com/account/tokens)}"
 
+export VERCEL_ORG_ID="${VERCEL_ORG_ID:?Set VERCEL_ORG_ID}"
+export VERCEL_PROJECT_ID="${VERCEL_PROJECT_ID:?Set VERCEL_PROJECT_ID}"
+
 cd "$DIST"
 
 args=(deploy --yes --token "$VERCEL_TOKEN")
