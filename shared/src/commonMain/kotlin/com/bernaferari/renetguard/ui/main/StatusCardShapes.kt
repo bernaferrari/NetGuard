@@ -35,39 +35,30 @@ private fun rememberMorphShape(
     morph: Morph,
     progress: Float,
 ): Shape =
-    remember(morph) {
-        MorphShape(morph = morph, progressProvider = { progress })
-    }
+    // progress must be a remember key — a stable shape with a captured lambda reads the
+    // first composition value forever and wasm stays on Square instead of morphing to Gem.
+    remember(morph, progress) {
+        object : Shape {
+            private var workPath: Path? = null
+            private var lastSize = Size.Unspecified
 
-/**
- * Stable [Shape] instance that reads morph progress on each outline pass.
- * Recreating the shape object every animation frame can prevent wasm/Skiko from
- * applying [Outline.Generic] clipping on clickable surfaces.
- */
-@OptIn(ExperimentalMaterial3ExpressiveApi::class)
-private class MorphShape(
-    private val morph: Morph,
-    private val progressProvider: () -> Float,
-) : Shape {
-    private var workPath: Path? = null
-    private var lastSize = Size.Unspecified
-
-    override fun createOutline(
-        size: Size,
-        layoutDirection: LayoutDirection,
-        density: Density,
-    ): Outline {
-        val morphPath = morph.toPath(progress = progressProvider().coerceIn(0f, 1f), startAngle = 0)
-        if (size != lastSize || workPath == null) {
-            lastSize = size
-            workPath = Path()
-        } else {
-            workPath!!.rewind()
+            override fun createOutline(
+                size: Size,
+                layoutDirection: LayoutDirection,
+                density: Density,
+            ): Outline {
+                val morphPath = morph.toPath(progress = progress.coerceIn(0f, 1f), startAngle = 0)
+                if (size != lastSize || workPath == null) {
+                    lastSize = size
+                    workPath = Path()
+                } else {
+                    workPath!!.rewind()
+                }
+                val path = workPath!!
+                path.addPath(morphPath)
+                path.transform(Matrix().apply { scale(x = size.width, y = size.height) })
+                path.translate(size.center - path.getBounds().center)
+                return Outline.Generic(path)
+            }
         }
-        val path = workPath!!
-        path.addPath(morphPath)
-        path.transform(Matrix().apply { scale(x = size.width, y = size.height) })
-        path.translate(size.center - path.getBounds().center)
-        return Outline.Generic(path)
     }
-}
