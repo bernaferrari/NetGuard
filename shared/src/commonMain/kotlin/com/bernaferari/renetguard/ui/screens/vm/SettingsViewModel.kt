@@ -28,7 +28,7 @@ class SettingsViewModel(
 
     fun putInt(key: String, value: Int) = preferencesRepository.putInt(key, value)
 
-    fun remove(key: String) = preferencesRepository.remove(key)
+    fun removeString(key: String) = preferencesRepository.removeString(key)
 
     fun getBoolean(key: String, default: Boolean = false): Boolean =
         preferencesRepository.getBoolean(key, default)

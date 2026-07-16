@@ -17,8 +17,10 @@ import netguard.shared.generated.resources.ui_empty_apps_title
 import netguard.shared.generated.resources.ui_filter_all
 import netguard.shared.generated.resources.ui_filter_empty
 import netguard.shared.generated.resources.ui_loading
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.infiniteRepeatable
@@ -30,6 +32,7 @@ import androidx.compose.animation.core.updateTransition
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Arrangement
@@ -78,6 +81,7 @@ import androidx.compose.material3.ToggleButton
 import androidx.compose.material3.ToggleButtonDefaults
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -106,6 +110,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.bernaferari.renetguard.ui.components.AppIcon
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -179,7 +184,7 @@ fun AppsScreen(
     val badgeCount = filteredRules.size
 
     // Group by first letter for section headers
-    val groupedRules = remember(filteredRules, rulesRevision, selectedRuleUid) {
+    val groupedRules = remember(filteredRules, rulesRevision) {
         val items = mutableListOf<AppListItem>()
         var lastLetter = ""
         filteredRules.forEach { rule ->
@@ -526,6 +531,13 @@ private enum class CardPosition {
     First, Middle, Last, Single
 }
 
+private data class CornerRadii(
+    val topStart: Dp,
+    val topEnd: Dp,
+    val bottomEnd: Dp,
+    val bottomStart: Dp,
+)
+
 private sealed interface AppListItem {
     data class Header(val letter: String) : AppListItem
     data class App(val rule: FirewallRule, val position: CardPosition) : AppListItem
@@ -559,6 +571,9 @@ private fun RuleCard(
     onToggleMobile: () -> Unit,
     onClick: () -> Unit,
 ) {
+    val motion = LocalMotion.current
+    // Keep the row's press/release interaction stable while its selected visuals animate.
+    val interactionSource = remember { MutableInteractionSource() }
     val appName = rule.name ?: rule.packageName.orEmpty()
     val wifiDescription = stringResource(Res.string.title_wifi) + " " +
             if (rule.wifi_blocked) stringResource(Res.string.menu_traffic_blocked)
@@ -575,46 +590,57 @@ private fun RuleCard(
         )
     }
 
-    val shape = when (position) {
-        CardPosition.Single -> RoundedCornerShape(16.dp)
-        CardPosition.First -> RoundedCornerShape(
-            topStart = 16.dp,
-            topEnd = 16.dp,
-            bottomStart = 4.dp,
-            bottomEnd = 4.dp
-        )
-
-        CardPosition.Last -> RoundedCornerShape(
-            topStart = 4.dp,
-            topEnd = 4.dp,
-            bottomStart = 16.dp,
-            bottomEnd = 16.dp
-        )
-
-        CardPosition.Middle -> RoundedCornerShape(4.dp)
+    val baseCornerRadii = when (position) {
+        CardPosition.Single -> CornerRadii(16.dp, 16.dp, 16.dp, 16.dp)
+        CardPosition.First -> CornerRadii(16.dp, 16.dp, 4.dp, 4.dp)
+        CardPosition.Last -> CornerRadii(4.dp, 4.dp, 16.dp, 16.dp)
+        CardPosition.Middle -> CornerRadii(4.dp, 4.dp, 4.dp, 4.dp)
     }
-    val selectedShape = RoundedCornerShape(20.dp)
-    val cardShape = if (isSelected) selectedShape else shape
-    val cardColor = if (isSelected) {
-        MaterialTheme.colorScheme.surfaceContainerHigh
-    } else {
-        MaterialTheme.colorScheme.surfaceContainerLow
-    }
-    val contentColor = MaterialTheme.colorScheme.onSurface
-    val cardModifier =
-        if (isSelected) {
-            Modifier
-                .border(
-                    width = 1.25.dp,
-                    color = MaterialTheme.colorScheme.secondary,
-                    shape = cardShape,
-                )
+    val selectedRadius = 20.dp
+    val cornerAnimation = tween<Dp>(durationMillis = motion.durationFast)
+    val topStart by animateDpAsState(
+        targetValue = if (isSelected) selectedRadius else baseCornerRadii.topStart,
+        animationSpec = cornerAnimation,
+        label = "ruleCardTopStart",
+    )
+    val topEnd by animateDpAsState(
+        targetValue = if (isSelected) selectedRadius else baseCornerRadii.topEnd,
+        animationSpec = cornerAnimation,
+        label = "ruleCardTopEnd",
+    )
+    val bottomEnd by animateDpAsState(
+        targetValue = if (isSelected) selectedRadius else baseCornerRadii.bottomEnd,
+        animationSpec = cornerAnimation,
+        label = "ruleCardBottomEnd",
+    )
+    val bottomStart by animateDpAsState(
+        targetValue = if (isSelected) selectedRadius else baseCornerRadii.bottomStart,
+        animationSpec = cornerAnimation,
+        label = "ruleCardBottomStart",
+    )
+    val cardShape = RoundedCornerShape(topStart, topEnd, bottomEnd, bottomStart)
+    val cardColor by animateColorAsState(
+        targetValue = if (isSelected) {
+            MaterialTheme.colorScheme.surfaceContainerHigh
         } else {
-            Modifier
-        }
+            MaterialTheme.colorScheme.surfaceContainerLow
+        },
+        animationSpec = tween(durationMillis = motion.durationFast),
+        label = "ruleCardContainer",
+    )
+    val contentColor = MaterialTheme.colorScheme.onSurface
+    val selectionBorderColor by animateColorAsState(
+        targetValue = if (isSelected) MaterialTheme.colorScheme.secondary else Color.Transparent,
+        animationSpec = tween(durationMillis = motion.durationFast),
+        label = "ruleCardSelectionBorder",
+    )
+    val selectionBorderWidth by animateDpAsState(
+        targetValue = if (isSelected) 1.25.dp else 0.dp,
+        animationSpec = cornerAnimation,
+        label = "ruleCardSelectionBorderWidth",
+    )
 
     Surface(
-        onClick = onClick,
         shape = cardShape,
         color = cardColor,
         modifier = Modifier
@@ -623,10 +649,21 @@ private fun RuleCard(
             .padding(
                 top = if (position == CardPosition.First || position == CardPosition.Single) 0.dp else 2.dp,
             )
-            .then(cardModifier),
+            .border(
+                width = selectionBorderWidth,
+                color = selectionBorderColor,
+                shape = cardShape,
+            ),
     ) {
         Row(
-            modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
+            modifier = Modifier
+                .clickable(
+                    interactionSource = interactionSource,
+                    indication = ripple(),
+                    role = Role.Button,
+                    onClick = onClick,
+                )
+                .padding(horizontal = 16.dp, vertical = 12.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(12.dp),
         ) {
@@ -854,5 +891,3 @@ private fun findSubsequenceMatchIndices(text: String, query: String): Set<Int>? 
 
     return if (qIndex == normalizedQuery.length) matched else null
 }
-
-

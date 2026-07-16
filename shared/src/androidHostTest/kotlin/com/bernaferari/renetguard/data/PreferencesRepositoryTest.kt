@@ -113,6 +113,36 @@ class PreferencesRepositoryTest {
         }
     }
 
+    @Test
+    fun typedRemovalHandlesStoredAndMissingPreferences() {
+        runBlocking {
+            val repository = createRepository()
+            repository.putBoolean("lockdown_app", true)
+            repository.putString("dark_theme", "dark")
+
+            withTimeout(2_000) {
+                repository.data.first { prefs ->
+                    prefs[booleanPreferencesKey("lockdown_app")] == true &&
+                        prefs[stringPreferencesKey("dark_theme")] == "dark"
+                }
+            }
+
+            repository.removeBoolean("lockdown_app")
+            repository.removeString("dark_theme")
+            repository.removeBoolean("missing_boolean")
+
+            withTimeout(2_000) {
+                repository.data.first { prefs ->
+                    booleanPreferencesKey("lockdown_app") !in prefs &&
+                        stringPreferencesKey("dark_theme") !in prefs
+                }
+            }
+
+            assertFalse(repository.getBoolean("lockdown_app"))
+            assertEquals(null, repository.getString("dark_theme"))
+        }
+    }
+
     private fun createRepository(): PreferencesRepository {
         val file = File.createTempFile("prefs", ".preferences_pb")
         val dataStore =

@@ -291,7 +291,7 @@ fun LogsScreen(viewModel: LogsViewModel = koinViewModel()) {
                 visible = filtersExpanded,
                 enter = expandVertically(
                     animationSpec = spring(
-                        dampingRatio = Spring.DampingRatioMediumBouncy,
+                        dampingRatio = Spring.DampingRatioLowBouncy,
                         stiffness = Spring.StiffnessMediumLow,
                     ),
                     expandFrom = Alignment.Top,
@@ -1081,6 +1081,5 @@ private fun cardPositionFor(index: Int, totalCount: Int): LogCardPosition {
         else -> LogCardPosition.Middle
     }
 }
-
 
 

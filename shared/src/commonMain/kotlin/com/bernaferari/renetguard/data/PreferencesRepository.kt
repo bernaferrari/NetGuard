@@ -97,7 +97,7 @@ class PreferencesRepository(
         update {
             val key = stringPreferencesKey(name)
             if (value == null) {
-                it.remove(key)
+                it -= key
             } else {
                 it[key] = value
             }
@@ -106,15 +106,9 @@ class PreferencesRepository(
     fun putStringSet(name: String, value: Set<String>) =
         update { it[stringSetPreferencesKey(name)] = value }
 
-    fun remove(name: String) =
-        update {
-            it.remove(booleanPreferencesKey(name))
-            it.remove(intPreferencesKey(name))
-            it.remove(longPreferencesKey(name))
-            it.remove(floatPreferencesKey(name))
-            it.remove(stringPreferencesKey(name))
-            it.remove(stringSetPreferencesKey(name))
-        }
+    fun removeBoolean(name: String) = update { it -= booleanPreferencesKey(name) }
+
+    fun removeString(name: String) = update { it -= stringPreferencesKey(name) }
 
     fun keysWithPrefix(prefix: String): Set<String> {
         if (prefix.isBlank()) return state.value.asMap().keys.map { it.name }.toSet()

@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -79,8 +80,13 @@ fun <T> IndexedFastScroller(
     if (labels.isEmpty()) return
 
     val trackInset = 14.dp
+    val labelSlotHeight = 22.dp
     val bubbleSize = 72.dp
     val bubbleOffsetX = (-60).dp
+    val preferredTrackHeight = maxOf(
+        bubbleSize,
+        labelSlotHeight * labels.size + trackInset * 2,
+    )
     val trackInsetPx = with(density) { trackInset.toPx() }
     val bubbleSizePx = with(density) { bubbleSize.toPx() }
 
@@ -125,6 +131,7 @@ fun <T> IndexedFastScroller(
         modifier =
             modifier
                 .width(44.dp)
+                .heightIn(max = preferredTrackHeight)
                 .fillMaxHeight(),
     ) {
         Column(

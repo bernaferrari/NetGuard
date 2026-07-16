@@ -195,6 +195,7 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.core.stringSetPreferencesKey
 import com.bernaferari.renetguard.data.PreferencesRepository
 import com.bernaferari.renetguard.platform.NetGuardPlatform
+import com.bernaferari.renetguard.platform.PlatformContext
 
 import com.bernaferari.renetguard.platform.showToast
 import com.bernaferari.renetguard.ui.screens.vm.SettingsViewModel
@@ -281,7 +282,7 @@ fun SettingsScreen(
     fun updateAppearance(mode: String) {
         preferencesRepository.putString("appearance", mode)
         when (mode) {
-            "auto" -> preferencesRepository.remove("dark_theme")
+            "auto" -> preferencesRepository.removeString("dark_theme")
             "dark" -> preferencesRepository.putBoolean("dark_theme", true)
             "light" -> preferencesRepository.putBoolean("dark_theme", false)
         }
@@ -877,57 +878,59 @@ fun SettingsScreen(
                         NetGuardPlatform.workScheduler.scheduleWatchdog(value.toIntOrNull() ?: 0, enabled)
                     },
                 )
-                SettingToggleRow(
-                    title = stringResource(Res.string.setting_update),
-                    checked = bool("update_check", true),
-                ) { preferencesRepository.putBoolean("update_check", it) }
+                if (PlatformContext.isAndroid()) {
+                    SettingToggleRow(
+                        title = stringResource(Res.string.setting_update),
+                        checked = bool("update_check", true),
+                    ) { preferencesRepository.putBoolean("update_check", it) }
 
-                FilledTonalButton(
-                    onClick = {
-                        updateCheckInProgress = true
-                        updateCheckStatus = null
-                        updateCheckVersion = null
-                        NetGuardPlatform.firewall.checkForUpdateNow("settings")
-                    },
-                    enabled = !updateCheckInProgress,
-                    modifier = Modifier.align(Alignment.Start),
-                ) {
-                    if (updateCheckInProgress) {
-                        CircularProgressIndicator(
-                            modifier = Modifier.size(18.dp),
-                            strokeWidth = 2.dp,
-                        )
-                        Spacer(modifier = Modifier.width(spacing.small))
-                        Text(text = stringResource(Res.string.setting_update_checking))
-                    } else {
-                        Icon(imageVector = Icons.Default.Refresh, contentDescription = null)
-                        Spacer(modifier = Modifier.width(spacing.small))
-                        Text(text = stringResource(Res.string.setting_update_now))
-                    }
-                }
-
-                updateCheckStatus?.let { status ->
-                    val message =
-                        when (status) {
-                            "available" ->
-                                if (!updateCheckVersion.isNullOrBlank()) {
-                                    stringResource(
-                                        Res.string.setting_update_result_available,
-                                        updateCheckVersion!!,
-                                    )
-                                } else {
-                                    stringResource(Res.string.setting_update_result_available_unknown)
-                                }
-
-                            "upToDate" -> stringResource(Res.string.setting_update_result_up_to_date)
-                            "unavailable" -> stringResource(Res.string.setting_update_result_unavailable)
-                            else -> stringResource(Res.string.setting_update_result_failed)
+                    FilledTonalButton(
+                        onClick = {
+                            updateCheckInProgress = true
+                            updateCheckStatus = null
+                            updateCheckVersion = null
+                            NetGuardPlatform.firewall.checkForUpdateNow("settings")
+                        },
+                        enabled = !updateCheckInProgress,
+                        modifier = Modifier.align(Alignment.Start),
+                    ) {
+                        if (updateCheckInProgress) {
+                            CircularProgressIndicator(
+                                modifier = Modifier.size(18.dp),
+                                strokeWidth = 2.dp,
+                            )
+                            Spacer(modifier = Modifier.width(spacing.small))
+                            Text(text = stringResource(Res.string.setting_update_checking))
+                        } else {
+                            Icon(imageVector = Icons.Default.Refresh, contentDescription = null)
+                            Spacer(modifier = Modifier.width(spacing.small))
+                            Text(text = stringResource(Res.string.setting_update_now))
                         }
-                    Text(
-                        text = message,
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
+                    }
+
+                    updateCheckStatus?.let { status ->
+                        val message =
+                            when (status) {
+                                "available" ->
+                                    if (!updateCheckVersion.isNullOrBlank()) {
+                                        stringResource(
+                                            Res.string.setting_update_result_available,
+                                            updateCheckVersion!!,
+                                        )
+                                    } else {
+                                        stringResource(Res.string.setting_update_result_available_unknown)
+                                    }
+
+                                "upToDate" -> stringResource(Res.string.setting_update_result_up_to_date)
+                                "unavailable" -> stringResource(Res.string.setting_update_result_unavailable)
+                                else -> stringResource(Res.string.setting_update_result_failed)
+                            }
+                        Text(
+                            text = message,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
                 }
             }
 
@@ -1571,4 +1574,3 @@ private fun CompactSettingToggleTile(
         }
     }
 }
-

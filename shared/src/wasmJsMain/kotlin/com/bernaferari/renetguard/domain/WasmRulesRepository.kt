@@ -41,10 +41,10 @@ class WasmRulesRepository(
         if (rule.lockdown) {
             preferencesRepository.putBoolean(PreferencesRepository.namespaced("lockdown", packageName), true)
         } else {
-            preferencesRepository.remove(PreferencesRepository.namespaced("lockdown", packageName))
+            preferencesRepository.removeBoolean(PreferencesRepository.namespaced("lockdown", packageName))
         }
         if (rule.notify) {
-            preferencesRepository.remove(PreferencesRepository.namespaced("notify", packageName))
+            preferencesRepository.removeBoolean(PreferencesRepository.namespaced("notify", packageName))
         } else {
             preferencesRepository.putBoolean(PreferencesRepository.namespaced("notify", packageName), false)
         }
@@ -61,7 +61,7 @@ class WasmRulesRepository(
     ) {
         val key = PreferencesRepository.namespaced(prefix, packageName)
         if (value == default) {
-            preferencesRepository.remove(key)
+            preferencesRepository.removeBoolean(key)
         } else {
             preferencesRepository.putBoolean(key, value)
         }

@@ -28,7 +28,7 @@ class AndroidRulesRepository(
         if (!visited.add(packageName)) return
 
         if (rule.wifi_blocked == rule.wifi_default) {
-            preferencesRepository.remove(PreferencesRepository.namespaced("wifi", packageName))
+            preferencesRepository.removeBoolean(PreferencesRepository.namespaced("wifi", packageName))
         } else {
             preferencesRepository.putBoolean(
                 PreferencesRepository.namespaced("wifi", packageName),
@@ -36,7 +36,7 @@ class AndroidRulesRepository(
             )
         }
         if (rule.other_blocked == rule.other_default) {
-            preferencesRepository.remove(PreferencesRepository.namespaced("other", packageName))
+            preferencesRepository.removeBoolean(PreferencesRepository.namespaced("other", packageName))
         } else {
             preferencesRepository.putBoolean(
                 PreferencesRepository.namespaced("other", packageName),
@@ -44,7 +44,7 @@ class AndroidRulesRepository(
             )
         }
         if (rule.apply) {
-            preferencesRepository.remove(PreferencesRepository.namespaced("apply", packageName))
+            preferencesRepository.removeBoolean(PreferencesRepository.namespaced("apply", packageName))
         } else {
             preferencesRepository.putBoolean(
                 PreferencesRepository.namespaced("apply", packageName),
@@ -52,7 +52,7 @@ class AndroidRulesRepository(
             )
         }
         if (rule.screen_wifi == rule.screen_wifi_default) {
-            preferencesRepository.remove(PreferencesRepository.namespaced("screen_wifi", packageName))
+            preferencesRepository.removeBoolean(PreferencesRepository.namespaced("screen_wifi", packageName))
         } else {
             preferencesRepository.putBoolean(
                 PreferencesRepository.namespaced("screen_wifi", packageName),
@@ -60,7 +60,7 @@ class AndroidRulesRepository(
             )
         }
         if (rule.screen_other == rule.screen_other_default) {
-            preferencesRepository.remove(PreferencesRepository.namespaced("screen_other", packageName))
+            preferencesRepository.removeBoolean(PreferencesRepository.namespaced("screen_other", packageName))
         } else {
             preferencesRepository.putBoolean(
                 PreferencesRepository.namespaced("screen_other", packageName),
@@ -68,7 +68,7 @@ class AndroidRulesRepository(
             )
         }
         if (rule.roaming == rule.roaming_default) {
-            preferencesRepository.remove(PreferencesRepository.namespaced("roaming", packageName))
+            preferencesRepository.removeBoolean(PreferencesRepository.namespaced("roaming", packageName))
         } else {
             preferencesRepository.putBoolean(
                 PreferencesRepository.namespaced("roaming", packageName),
@@ -81,10 +81,10 @@ class AndroidRulesRepository(
                 rule.lockdown,
             )
         } else {
-            preferencesRepository.remove(PreferencesRepository.namespaced("lockdown", packageName))
+            preferencesRepository.removeBoolean(PreferencesRepository.namespaced("lockdown", packageName))
         }
         if (rule.notify) {
-            preferencesRepository.remove(PreferencesRepository.namespaced("notify", packageName))
+            preferencesRepository.removeBoolean(PreferencesRepository.namespaced("notify", packageName))
         } else {
             preferencesRepository.putBoolean(
                 PreferencesRepository.namespaced("notify", packageName),
