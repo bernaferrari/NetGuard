@@ -133,6 +133,8 @@
     <string name="menu_pcap_enabled">Gumagana sa PCAP</string>
     <string name="menu_pcap_export">PCAP export</string>
     <string name="menu_clear">Nalinis</string>
+    <string name="action_clear_access_history">I-clear ang history ng access</string>
+    <string name="section_access_history">History ng access</string>
     <string name="menu_export">I-export</string>
     <string name="menu_reset">I-reset</string>
 

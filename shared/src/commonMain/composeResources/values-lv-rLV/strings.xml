@@ -133,6 +133,8 @@
     <string name="menu_pcap_enabled">PCAP iespējots</string>
     <string name="menu_pcap_export">PCAP eksports</string>
     <string name="menu_clear">Notīrīt</string>
+    <string name="action_clear_access_history">Notīrīt piekļuves vēsturi</string>
+    <string name="section_access_history">Piekļuves vēsture</string>
     <string name="menu_export">Eksportēt</string>
     <string name="menu_reset">Atiestatīt</string>
 

@@ -21,7 +21,6 @@ data class RulesUiState(
     val rules: List<FirewallRule> = emptyList(),
     val isLoading: Boolean = false,
     val hasLoaded: Boolean = false,
-    val revision: Long = 0L,
 )
 
 @KoinViewModel
@@ -83,20 +82,24 @@ class MainViewModel(
                     rules = loaded,
                     isLoading = false,
                     hasLoaded = true,
-                    revision = _rulesUiState.value.revision + 1L,
                 )
         }
     }
 
-    fun notifyRulesChanged() {
-        _rulesUiState.update { state ->
-            state.copy(revision = state.revision + 1L)
+    fun updateRule(
+        uid: Int,
+        transform: (FirewallRule) -> FirewallRule,
+    ) {
+        val rules = _rulesUiState.value.rules.toMutableList()
+        val index = rules.indexOfFirst { it.uid == uid }
+        if (index < 0) {
+            return
         }
-    }
 
-    fun persistRule(rule: FirewallRule) {
-        rulesRepository.persistRule(rule, _rulesUiState.value.rules)
-        notifyRulesChanged()
+        val updatedRule = transform(rules[index])
+        rules[index] = updatedRule
+        rulesRepository.persistRule(updatedRule, rules)
+        _rulesUiState.update { state -> state.copy(rules = rules.toList()) }
     }
 
     override fun onCleared() {

@@ -133,6 +133,8 @@
     <string name="menu_pcap_enabled">Kích hoạt PCAP</string>
     <string name="menu_pcap_export">Xuất PCAP</string>
     <string name="menu_clear">Xóa</string>
+    <string name="action_clear_access_history">Xóa lịch sử truy cập</string>
+    <string name="section_access_history">Lịch sử truy cập</string>
     <string name="menu_export">Xuất</string>
     <string name="menu_reset">Thiết lập lại</string>
 

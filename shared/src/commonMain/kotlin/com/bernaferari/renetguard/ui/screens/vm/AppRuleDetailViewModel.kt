@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bernaferari.renetguard.data.TrafficRepository
 import com.bernaferari.renetguard.domain.FirewallRule
-import com.bernaferari.renetguard.domain.RulesRepository
 import com.bernaferari.renetguard.platform.AccessEntry
 import com.bernaferari.renetguard.ui.util.UiAsyncState
 import com.bernaferari.renetguard.ui.util.asUiAsyncState
@@ -21,7 +20,6 @@ import org.koin.core.annotation.KoinViewModel
 @KoinViewModel
 class AppRuleDetailViewModel(
     private val trafficRepository: TrafficRepository,
-    private val rulesRepository: RulesRepository,
 ) : ViewModel() {
     private val uidFlow = MutableStateFlow(-1)
 
@@ -40,9 +38,5 @@ class AppRuleDetailViewModel(
 
     fun clearAccess(uid: Int) {
         viewModelScope.launch { trafficRepository.clearAccessForUid(uid) }
-    }
-
-    fun persistRule(rule: FirewallRule, allRules: List<FirewallRule>) {
-        rulesRepository.persistRule(rule, allRules)
     }
 }

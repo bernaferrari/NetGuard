@@ -133,6 +133,8 @@
     <string name="menu_pcap_enabled">PCAP diaktifkan</string>
     <string name="menu_pcap_export">Ekspor PCAP</string>
     <string name="menu_clear">Bersihkan</string>
+    <string name="action_clear_access_history">Hapus riwayat akses</string>
+    <string name="section_access_history">Riwayat akses</string>
     <string name="menu_export">Ekspor</string>
     <string name="menu_reset">Set ulang</string>
 

@@ -132,6 +132,8 @@
     <string name="menu_pcap_enabled">PCAP etkin</string>
     <string name="menu_pcap_export">PCAP dışa aktar</string>
     <string name="menu_clear">Temizle</string>
+    <string name="action_clear_access_history">Erişim geçmişini temizle</string>
+    <string name="section_access_history">Erişim geçmişi</string>
     <string name="menu_export">Dışa aktar</string>
     <string name="menu_reset">Sıfırla</string>
 

@@ -131,6 +131,8 @@
     <string name="menu_pcap_enabled">PCAP geaktiveer</string>
     <string name="menu_pcap_export">PCAP uitvoer</string>
     <string name="menu_clear">Vee uit</string>
+    <string name="action_clear_access_history">Vee toegangsgeskiedenis uit</string>
+    <string name="section_access_history">Toegangsgeskiedenis</string>
     <string name="menu_export">Voer uit</string>
     <string name="menu_reset">Stel terug</string>
 

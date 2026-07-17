@@ -133,6 +133,8 @@
     <string name="menu_pcap_enabled">PCAP מופעל</string>
     <string name="menu_pcap_export">ייצוא PCAP</string>
     <string name="menu_clear">נקה</string>
+    <string name="action_clear_access_history">ניקוי היסטוריית גישה</string>
+    <string name="section_access_history">היסטוריית גישה</string>
     <string name="menu_export">ייצא</string>
     <string name="menu_reset">איפוס</string>
 

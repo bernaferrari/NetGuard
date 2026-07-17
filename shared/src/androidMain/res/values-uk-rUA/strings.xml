@@ -133,6 +133,8 @@
     <string name="menu_pcap_enabled">PCAP увімкнено</string>
     <string name="menu_pcap_export">Експорт PCAP</string>
     <string name="menu_clear">Очистити</string>
+    <string name="action_clear_access_history">Очистити історію доступу</string>
+    <string name="section_access_history">Історія доступу</string>
     <string name="menu_export">Експорт</string>
     <string name="menu_reset">Скинути</string>
 

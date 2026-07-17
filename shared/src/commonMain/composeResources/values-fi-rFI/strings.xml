@@ -133,6 +133,8 @@
     <string name="menu_pcap_enabled">PCAP käytössä</string>
     <string name="menu_pcap_export">PCAP vienti</string>
     <string name="menu_clear">Tyhjennä</string>
+    <string name="action_clear_access_history">Tyhjennä käyttöhistoria</string>
+    <string name="section_access_history">Käyttöhistoria</string>
     <string name="menu_export">Vie</string>
     <string name="menu_reset">Nollaa</string>
 

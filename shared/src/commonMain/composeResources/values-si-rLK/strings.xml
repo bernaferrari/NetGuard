@@ -132,6 +132,8 @@
     <string name="menu_pcap_enabled">PCAP සක්‍රියයි</string>
     <string name="menu_pcap_export">PCAP අපනයනය</string>
     <string name="menu_clear">මකන්න</string>
+    <string name="action_clear_access_history">ප්‍රවේශ ඉතිහාසය මකන්න</string>
+    <string name="section_access_history">ප්‍රවේශ ඉතිහාසය</string>
     <string name="menu_export">අපනයනය කරන්න</string>
     <string name="menu_reset">නැවත සකසන්න</string>
 

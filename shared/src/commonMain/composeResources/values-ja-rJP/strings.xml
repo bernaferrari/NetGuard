@@ -132,6 +132,8 @@
     <string name="menu_pcap_enabled">PCAP 有効</string>
     <string name="menu_pcap_export">PCAP エクスポート</string>
     <string name="menu_clear">消去</string>
+    <string name="action_clear_access_history">アクセス履歴を消去</string>
+    <string name="section_access_history">アクセス履歴</string>
     <string name="menu_export">エクスポート</string>
     <string name="menu_reset">リセット</string>
 

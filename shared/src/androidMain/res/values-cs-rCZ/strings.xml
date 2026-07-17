@@ -132,6 +132,8 @@
     <string name="menu_pcap_enabled">PCAP povolen</string>
     <string name="menu_pcap_export">Export PCAP</string>
     <string name="menu_clear">Vymazat</string>
+    <string name="action_clear_access_history">Vymazat historii přístupu</string>
+    <string name="section_access_history">Historie přístupu</string>
     <string name="menu_export">Exportovat</string>
     <string name="menu_reset">Obnovit</string>
 

@@ -133,6 +133,8 @@
     <string name="menu_pcap_enabled">PCAP omogućen</string>
     <string name="menu_pcap_export">PCAP izvoz</string>
     <string name="menu_clear">Očišti</string>
+    <string name="action_clear_access_history">Očisti povijest pristupa</string>
+    <string name="section_access_history">Povijest pristupa</string>
     <string name="menu_export">Izvezi</string>
     <string name="menu_reset">Resetiraj</string>
 

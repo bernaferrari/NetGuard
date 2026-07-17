@@ -4,7 +4,12 @@ import org.jetbrains.compose.resources.stringResource
 import netguard.shared.generated.resources.Res
 import netguard.shared.generated.resources.content_desc_show_info
 import netguard.shared.generated.resources.menu_ok
-import netguard.shared.generated.resources.menu_reset
+import netguard.shared.generated.resources.setting_default_value
+import netguard.shared.generated.resources.setting_reset_accessibility
+import netguard.shared.generated.resources.setting_reset_to_default
+import netguard.shared.generated.resources.setting_value_empty
+import netguard.shared.generated.resources.setting_value_off
+import netguard.shared.generated.resources.setting_value_on
 import netguard.shared.generated.resources.setting_access
 import netguard.shared.generated.resources.setting_auto
 import netguard.shared.generated.resources.setting_delay
@@ -29,8 +34,8 @@ import netguard.shared.generated.resources.setting_wifi_home
 import netguard.shared.generated.resources.setting_appearance_auto
 import netguard.shared.generated.resources.setting_appearance_dark
 import netguard.shared.generated.resources.setting_appearance_light
+import netguard.shared.generated.resources.setting_appearance_mode
 import netguard.shared.generated.resources.setting_call
-import netguard.shared.generated.resources.setting_dynamic_unavailable
 import netguard.shared.generated.resources.setting_eu_roaming
 import netguard.shared.generated.resources.setting_filter
 import netguard.shared.generated.resources.setting_filter_udp
@@ -74,6 +79,8 @@ import netguard.shared.generated.resources.setting_stats_top
 import netguard.shared.generated.resources.setting_subnet
 import netguard.shared.generated.resources.setting_system
 import netguard.shared.generated.resources.setting_tethering
+import netguard.shared.generated.resources.setting_theme_palette
+import netguard.shared.generated.resources.setting_theme_teal
 import netguard.shared.generated.resources.setting_track_usage
 import netguard.shared.generated.resources.setting_update
 import netguard.shared.generated.resources.setting_update_checking
@@ -88,6 +95,7 @@ import netguard.shared.generated.resources.summary_block_domains
 import netguard.shared.generated.resources.summary_log_retention_days
 import netguard.shared.generated.resources.title_mobile
 import netguard.shared.generated.resources.title_pro
+import netguard.shared.generated.resources.title_block
 import netguard.shared.generated.resources.title_wifi
 import netguard.shared.generated.resources.tooltip_filter
 import netguard.shared.generated.resources.tooltip_lockdown
@@ -188,7 +196,6 @@ import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
@@ -244,6 +251,22 @@ fun SettingsScreen(
         updateWidgets: (() -> Unit)? = null,
     ) {
         preferencesRepository.putBoolean(key, value)
+        if (reload) {
+            NetGuardPlatform.firewall.reload("settings", false)
+        }
+        if (reloadStats) {
+            NetGuardPlatform.firewall.reloadStats("settings")
+        }
+        updateWidgets?.invoke()
+    }
+
+    fun resetFlag(
+        key: String,
+        reload: Boolean = false,
+        reloadStats: Boolean = false,
+        updateWidgets: (() -> Unit)? = null,
+    ) {
+        preferencesRepository.removeBoolean(key)
         if (reload) {
             NetGuardPlatform.firewall.reload("settings", false)
         }
@@ -319,7 +342,6 @@ fun SettingsScreen(
             val appearanceTitle = stringResource(Res.string.setting_section_appearance)
             CollapsibleSettingsSection(title = appearanceTitle) {
                 val currentTheme = str("theme", "teal")
-                val dynamicThemeEnabled = true
                 val dynamicSwatchColor = Teal500
                 val modeOptions = listOf(
                     Triple(
@@ -384,22 +406,35 @@ fun SettingsScreen(
                             )
                         }
                     }
+                    if (appearanceMode != "auto") {
+                        SettingResetAction(
+                            title = stringResource(Res.string.setting_appearance_mode),
+                            defaultValue = stringResource(Res.string.setting_appearance_auto),
+                            onReset = {
+                                preferencesRepository.removeString("appearance")
+                                preferencesRepository.removeBoolean("dark_theme")
+                                NetGuardPlatform.widgets.updateAll()
+                            },
+                        )
+                    }
                 }
 
                 // ── Color theme swatches ──
-                val themeChoices = listOf(
-                    Pair("dynamic", null as Color?),
-                    Pair("teal", Teal500 as Color?),
-                    Pair("blue", BluePrimary as Color?),
-                    Pair("purple", PurplePrimary as Color?),
-                    Pair("amber", AmberPrimary as Color?),
-                    Pair("orange", OrangePrimary as Color?),
-                    Pair("green", GreenPrimary as Color?),
-                    Pair("cyan", CyanPrimary as Color?),
-                    Pair("indigo", IndigoPrimary as Color?),
-                    Pair("pink", PinkPrimary as Color?),
-                    Pair("lime", LimePrimary as Color?),
-                )
+                val themeChoices = buildList {
+                    if (PlatformContext.isAndroid()) {
+                        add(Pair("dynamic", null as Color?))
+                    }
+                    add(Pair("teal", Teal500 as Color?))
+                    add(Pair("blue", BluePrimary as Color?))
+                    add(Pair("purple", PurplePrimary as Color?))
+                    add(Pair("amber", AmberPrimary as Color?))
+                    add(Pair("orange", OrangePrimary as Color?))
+                    add(Pair("green", GreenPrimary as Color?))
+                    add(Pair("cyan", CyanPrimary as Color?))
+                    add(Pair("indigo", IndigoPrimary as Color?))
+                    add(Pair("pink", PinkPrimary as Color?))
+                    add(Pair("lime", LimePrimary as Color?))
+                }
 
                 FlowRow(
                     modifier = Modifier
@@ -414,7 +449,7 @@ fun SettingsScreen(
                             theme = theme,
                             seedColor = seedColor,
                             isSelected = currentTheme == theme,
-                            isEnabled = theme != "dynamic" || dynamicThemeEnabled,
+                            isEnabled = true,
                             dynamicColor = dynamicSwatchColor,
                             onClick = {
                                 preferencesRepository.putString("theme", theme)
@@ -422,17 +457,18 @@ fun SettingsScreen(
                             },
                         )
                     }
+                    if (currentTheme != "teal") {
+                        SettingResetAction(
+                            title = stringResource(Res.string.setting_theme_palette),
+                            defaultValue = stringResource(Res.string.setting_theme_teal),
+                            onReset = {
+                                preferencesRepository.removeString("theme")
+                                NetGuardPlatform.widgets.updateAll()
+                            },
+                        )
+                    }
                 }
 
-                if (!dynamicThemeEnabled) {
-                    Text(
-                        text = stringResource(Res.string.setting_dynamic_unavailable),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        textAlign = TextAlign.Center,
-                        modifier = Modifier.fillMaxWidth(),
-                    )
-                }
             }
 
             // Firewall Section
@@ -484,49 +520,92 @@ fun SettingsScreen(
                         modifier = Modifier.weight(1f),
                     )
                 }
+                if (bool("whitelist_wifi", true) != true ||
+                    bool("whitelist_other", true) != true
+                ) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.End,
+                    ) {
+                        if (bool("whitelist_wifi", true) != true) {
+                            SettingResetAction(
+                                title = stringResource(Res.string.title_wifi),
+                                defaultValue = stringResource(Res.string.title_block),
+                                onReset = { resetFlag("whitelist_wifi", reload = true) },
+                            )
+                        }
+                        if (bool("whitelist_other", true) != true) {
+                            SettingResetAction(
+                                title = stringResource(Res.string.title_mobile),
+                                defaultValue = stringResource(Res.string.title_block),
+                                onReset = { resetFlag("whitelist_other", reload = true) },
+                            )
+                        }
+                    }
+                }
                 SettingToggleRow(
                     title = stringResource(Res.string.setting_whitelist_roaming),
                     checked = bool("whitelist_roaming", true),
+                    defaultChecked = true,
+                    onReset = { resetFlag("whitelist_roaming", reload = true) },
                 ) { updateFlag("whitelist_roaming", it, reload = true) }
                 SettingToggleRow(
                     title = stringResource(Res.string.setting_screen_on),
                     checked = bool("screen_on", true),
+                    defaultChecked = true,
+                    onReset = { resetFlag("screen_on", reload = true) },
                 ) { updateFlag("screen_on", it, reload = true) }
                 SettingTogglePairRow(
                     firstTitle = stringResource(Res.string.setting_screen_wifi),
                     firstChecked = bool("screen_wifi", false),
+                    firstDefaultChecked = false,
                     onFirstCheckedChange = { updateFlag("screen_wifi", it, reload = true) },
+                    onFirstReset = { resetFlag("screen_wifi", reload = true) },
                     secondTitle = stringResource(Res.string.setting_screen_other),
                     secondChecked = bool("screen_other", false),
+                    secondDefaultChecked = false,
                     onSecondCheckedChange = { updateFlag("screen_other", it, reload = true) },
+                    onSecondReset = { resetFlag("screen_other", reload = true) },
                 )
                 SettingToggleRow(
                     title = stringResource(Res.string.setting_subnet),
                     checked = bool("subnet", false),
+                    defaultChecked = false,
+                    onReset = { resetFlag("subnet", reload = true) },
                 ) { updateFlag("subnet", it, reload = true) }
                 SettingToggleRow(
                     title = stringResource(Res.string.setting_tethering),
                     checked = bool("tethering", false),
+                    defaultChecked = false,
+                    onReset = { resetFlag("tethering", reload = true) },
                 ) { updateFlag("tethering", it, reload = true) }
                 SettingToggleRow(
                     title = stringResource(Res.string.setting_lan),
                     checked = bool("lan", false),
+                    defaultChecked = false,
+                    onReset = { resetFlag("lan", reload = true) },
                 ) { updateFlag("lan", it, reload = true) }
                 SettingToggleRow(
                     title = stringResource(Res.string.setting_ip6),
                     checked = bool("ip6", true),
+                    defaultChecked = true,
+                    onReset = { resetFlag("ip6", reload = true) },
                 ) { updateFlag("ip6", it, reload = true) }
 
                 SettingTextRow(
                     title = stringResource(Res.string.setting_delay, "0"),
                     value = str("screen_delay", "0"),
+                    defaultValue = "0",
                     keyboardType = KeyboardType.Number,
+                    onReset = { preferencesRepository.removeString("screen_delay") },
                     onValueChange = { preferencesRepository.putString("screen_delay", it) },
                 )
                 SettingTextRow(
                     title = stringResource(Res.string.setting_auto, "0"),
                     value = str("auto_enable", "0"),
+                    defaultValue = "0",
                     keyboardType = KeyboardType.Number,
+                    onReset = { preferencesRepository.removeString("auto_enable") },
                     onValueChange = { preferencesRepository.putString("auto_enable", it) },
                 )
 
@@ -534,6 +613,8 @@ fun SettingsScreen(
                 SettingTextRow(
                     title = stringResource(Res.string.setting_wifi_home, homes.ifEmpty { "-" }),
                     value = homes,
+                    defaultValue = "",
+                    onReset = { preferencesRepository.removeStringSet("wifi_homes") },
                     onValueChange = { value ->
                         val set =
                             value.split(",").map { it.trim() }.filter { it.isNotEmpty() }.toSet()
@@ -544,31 +625,45 @@ fun SettingsScreen(
                 SettingToggleRow(
                     title = stringResource(Res.string.setting_metered),
                     checked = bool("use_metered", true),
+                    defaultChecked = true,
+                    onReset = { resetFlag("use_metered", reload = true) },
                 ) { updateFlag("use_metered", it, reload = true) }
                 SettingTogglePairRow(
                     firstTitle = stringResource(Res.string.setting_metered_2g),
                     firstChecked = bool("unmetered_2g", false),
+                    firstDefaultChecked = false,
                     onFirstCheckedChange = { updateFlag("unmetered_2g", it, reload = true) },
+                    onFirstReset = { resetFlag("unmetered_2g", reload = true) },
                     secondTitle = stringResource(Res.string.setting_metered_3g),
                     secondChecked = bool("unmetered_3g", false),
+                    secondDefaultChecked = false,
                     onSecondCheckedChange = { updateFlag("unmetered_3g", it, reload = true) },
+                    onSecondReset = { resetFlag("unmetered_3g", reload = true) },
                 )
                 SettingToggleRow(
                     title = stringResource(Res.string.setting_metered_4g),
                     checked = bool("unmetered_4g", false),
+                    defaultChecked = false,
+                    onReset = { resetFlag("unmetered_4g", reload = true) },
                 ) { updateFlag("unmetered_4g", it, reload = true) }
                 SettingToggleRow(
                     title = stringResource(Res.string.setting_national_roaming),
                     checked = bool("national_roaming", false),
+                    defaultChecked = false,
+                    onReset = { resetFlag("national_roaming", reload = true) },
                 ) { updateFlag("national_roaming", it, reload = true) }
                 SettingToggleRow(
                     title = stringResource(Res.string.setting_eu_roaming),
                     checked = bool("eu_roaming", false),
+                    defaultChecked = false,
+                    onReset = { resetFlag("eu_roaming", reload = true) },
                 ) { updateFlag("eu_roaming", it, reload = true) }
                 SettingToggleRow(
                     title = stringResource(Res.string.setting_call),
                     checked = bool("disable_on_call", false),
+                    defaultChecked = false,
                     isLast = true,
+                    onReset = { resetFlag("disable_on_call", reload = true) },
                 ) { updateFlag("disable_on_call", it, reload = true) }
             }
 
@@ -578,7 +673,13 @@ fun SettingsScreen(
                 SettingToggleRow(
                     title = stringResource(Res.string.setting_system),
                     checked = bool("manage_system", false),
+                    defaultChecked = false,
                     isFirst = true,
+                    onReset = {
+                        preferencesRepository.removeBoolean("manage_system")
+                        preferencesRepository.removeBoolean("show_system")
+                        NetGuardPlatform.firewall.reload("settings", false)
+                    },
                 ) { enabled ->
                     preferencesRepository.putBoolean("manage_system", enabled)
                     preferencesRepository.putBoolean("show_system", enabled)
@@ -587,6 +688,8 @@ fun SettingsScreen(
                 SettingToggleRow(
                     title = stringResource(Res.string.setting_log_app),
                     checked = bool("log", false),
+                    defaultChecked = false,
+                    onReset = { resetFlag("log", reload = true) },
                 ) { enabled ->
                     preferencesRepository.putBoolean("log", enabled)
                     NetGuardPlatform.firewall.reload("settings", false)
@@ -595,7 +698,9 @@ fun SettingsScreen(
                     title = stringResource(Res.string.setting_log_retention_days),
                     tooltip = stringResource(Res.string.summary_log_retention_days),
                     value = str("log_retention_days", "3"),
+                    defaultValue = "3",
                     keyboardType = KeyboardType.Number,
+                    onReset = { preferencesRepository.removeString("log_retention_days") },
                 ) { input ->
                     val numeric = input.filter(Char::isDigit).take(3)
                     val normalized = numeric.toIntOrNull()?.coerceIn(0, 365)?.toString() ?: numeric
@@ -604,20 +709,34 @@ fun SettingsScreen(
                 SettingToggleRow(
                     title = stringResource(Res.string.setting_access),
                     checked = bool("notify_access", false),
+                    defaultChecked = false,
+                    onReset = { resetFlag("notify_access") },
                 ) { updateFlag("notify_access", it) }
                 SettingToggleRowWithTooltip(
                     title = stringResource(Res.string.setting_filter),
                     tooltip = stringResource(Res.string.tooltip_filter),
                     checked = bool("filter", false),
+                    defaultChecked = false,
+                    onReset = { resetFlag("filter", reload = true) },
                 ) { updateFlag("filter", it, reload = true) }
                 SettingToggleRow(
                     title = stringResource(Res.string.setting_filter_udp),
                     checked = bool("filter_udp", false),
+                    defaultChecked = false,
+                    onReset = { resetFlag("filter_udp", reload = true) },
                 ) { updateFlag("filter_udp", it, reload = true) }
                 SettingToggleRowWithTooltip(
                     title = stringResource(Res.string.setting_lockdown),
                     tooltip = stringResource(Res.string.tooltip_lockdown),
                     checked = bool("lockdown", false),
+                    defaultChecked = false,
+                    onReset = {
+                        resetFlag(
+                            "lockdown",
+                            reload = true,
+                            updateWidgets = { NetGuardPlatform.widgets.updateLockdown() },
+                        )
+                    },
                 ) {
                     updateFlag(
                         "lockdown",
@@ -629,26 +748,38 @@ fun SettingsScreen(
                 SettingTogglePairRow(
                     firstTitle = stringResource(Res.string.setting_lockdown_wifi),
                     firstChecked = bool("lockdown_wifi", false),
+                    firstDefaultChecked = false,
                     onFirstCheckedChange = { updateFlag("lockdown_wifi", it, reload = true) },
+                    onFirstReset = { resetFlag("lockdown_wifi", reload = true) },
                     secondTitle = stringResource(Res.string.setting_lockdown_other),
                     secondChecked = bool("lockdown_other", false),
+                    secondDefaultChecked = false,
                     onSecondCheckedChange = { updateFlag("lockdown_other", it, reload = true) },
+                    onSecondReset = { resetFlag("lockdown_other", reload = true) },
                 )
                 SettingToggleRow(
                     title = stringResource(Res.string.setting_malware),
                     checked = bool("malware", false),
+                    defaultChecked = false,
+                    onReset = { resetFlag("malware", reload = true) },
                 ) { updateFlag("malware", it, reload = true) }
                 SettingToggleRow(
                     title = stringResource(Res.string.setting_track_usage),
                     checked = bool("track_usage", false),
+                    defaultChecked = false,
+                    onReset = { resetFlag("track_usage", reload = true) },
                 ) { updateFlag("track_usage", it, reload = true) }
                 SettingToggleRow(
                     title = stringResource(Res.string.setting_stats),
                     checked = bool("show_stats", false),
+                    defaultChecked = false,
+                    onReset = { resetFlag("show_stats", reloadStats = true) },
                 ) { updateFlag("show_stats", it, reloadStats = true) }
                 SettingToggleRow(
                     title = stringResource(Res.string.setting_stats_top),
                     checked = bool("show_top", false),
+                    defaultChecked = false,
+                    onReset = { resetFlag("show_top", reloadStats = true) },
                 ) { updateFlag("show_top", it, reloadStats = true) }
 
                 SettingTextRow(
@@ -657,7 +788,9 @@ fun SettingsScreen(
                         str("stats_frequency", "1000"),
                     ),
                     value = str("stats_frequency", "1000"),
+                    defaultValue = "1000",
                     keyboardType = KeyboardType.Number,
+                    onReset = { preferencesRepository.removeString("stats_frequency") },
                     onValueChange = { preferencesRepository.putString("stats_frequency", it) },
                 )
                 SettingTextRow(
@@ -666,8 +799,10 @@ fun SettingsScreen(
                         str("stats_samples", "10"),
                     ),
                     value = str("stats_samples", "10"),
+                    defaultValue = "10",
                     keyboardType = KeyboardType.Number,
                     isLast = true,
+                    onReset = { preferencesRepository.removeString("stats_samples") },
                     onValueChange = { preferencesRepository.putString("stats_samples", it) },
                 )
             }
@@ -678,13 +813,17 @@ fun SettingsScreen(
                 SettingToggleRow(
                     title = stringResource(Res.string.setting_use_hosts),
                     checked = bool("use_hosts", false),
+                    defaultChecked = false,
                     isFirst = true,
+                    onReset = { resetFlag("use_hosts", reload = true) },
                 ) { updateFlag("use_hosts", it, reload = true) }
 
                 SettingTextRow(
                     title = stringResource(Res.string.setting_hosts_url),
                     value = str("hosts_url", ""),
+                    defaultValue = "",
                     isLast = true,
+                    onReset = { preferencesRepository.removeString("hosts_url") },
                     onValueChange = { preferencesRepository.putString("hosts_url", it) },
                 )
 
@@ -760,20 +899,26 @@ fun SettingsScreen(
                     title = stringResource(Res.string.setting_rcode, str("rcode", "3")),
                     tooltip = stringResource(Res.string.tooltip_rcode),
                     value = str("rcode", "3"),
+                    defaultValue = "3",
                     keyboardType = KeyboardType.Number,
                     isFirst = true,
+                    onReset = { preferencesRepository.removeString("rcode") },
                     onValueChange = { preferencesRepository.putString("rcode", it) },
                 )
                 SettingTextRowWithTooltip(
                     title = stringResource(Res.string.setting_ttl, str("ttl", "259200")),
                     tooltip = stringResource(Res.string.tooltip_ttl),
                     value = str("ttl", "259200"),
+                    defaultValue = "259200",
                     keyboardType = KeyboardType.Number,
+                    onReset = { preferencesRepository.removeString("ttl") },
                     onValueChange = { preferencesRepository.putString("ttl", it) },
                 )
                 SettingTextRow(
                     title = stringResource(Res.string.setting_validate, str("validate", "")),
                     value = str("validate", ""),
+                    defaultValue = "",
+                    onReset = { preferencesRepository.removeString("validate") },
                     onValueChange = { preferencesRepository.putString("validate", it) },
                 )
                 FilledTonalButton(
@@ -795,16 +940,22 @@ fun SettingsScreen(
                 SettingToggleRow(
                     title = stringResource(Res.string.setting_socks5_enabled),
                     checked = bool("socks5_enabled", false),
+                    defaultChecked = false,
+                    onReset = { resetFlag("socks5_enabled") },
                 ) { preferencesRepository.putBoolean("socks5_enabled", it) }
                 SettingTextRow(
                     title = stringResource(Res.string.setting_socks5_addr, str("socks5_addr", "")),
                     value = str("socks5_addr", ""),
+                    defaultValue = "",
+                    onReset = { preferencesRepository.removeString("socks5_addr") },
                     onValueChange = { preferencesRepository.putString("socks5_addr", it) },
                 )
                 SettingTextRow(
                     title = stringResource(Res.string.setting_socks5_port, str("socks5_port", "0")),
                     value = str("socks5_port", "0"),
+                    defaultValue = "0",
                     keyboardType = KeyboardType.Number,
+                    onReset = { preferencesRepository.removeString("socks5_port") },
                     onValueChange = { preferencesRepository.putString("socks5_port", it) },
                 )
                 SettingTextRow(
@@ -813,6 +964,8 @@ fun SettingsScreen(
                         str("socks5_username", "")
                     ),
                     value = str("socks5_username", ""),
+                    defaultValue = "",
+                    onReset = { preferencesRepository.removeString("socks5_username") },
                     onValueChange = { preferencesRepository.putString("socks5_username", it) },
                 )
                 SettingTextRow(
@@ -821,6 +974,8 @@ fun SettingsScreen(
                         str("socks5_password", "")
                     ),
                     value = str("socks5_password", ""),
+                    defaultValue = "",
+                    onReset = { preferencesRepository.removeString("socks5_password") },
                     onValueChange = { preferencesRepository.putString("socks5_password", it) },
                 )
 
@@ -834,22 +989,33 @@ fun SettingsScreen(
                 SettingTextRow(
                     title = stringResource(Res.string.setting_vpn4, str("vpn4", "10.1.10.1")),
                     value = str("vpn4", "10.1.10.1"),
+                    defaultValue = "10.1.10.1",
+                    onReset = { preferencesRepository.removeString("vpn4") },
                     onValueChange = { preferencesRepository.putString("vpn4", it) },
                 )
                 SettingTextRow(
-                    title = stringResource(Res.string.setting_vpn6, str("vpn6", "")),
+                    title = stringResource(
+                        Res.string.setting_vpn6,
+                        str("vpn6", "fd00:1:fd00:1:fd00:1:fd00:1"),
+                    ),
                     value = str("vpn6", "fd00:1:fd00:1:fd00:1:fd00:1"),
+                    defaultValue = "fd00:1:fd00:1:fd00:1:fd00:1",
+                    onReset = { preferencesRepository.removeString("vpn6") },
                     onValueChange = { preferencesRepository.putString("vpn6", it) },
                 )
                 SettingTextRow(
                     title = stringResource(Res.string.setting_dns, str("dns", "")),
                     value = str("dns", ""),
+                    defaultValue = "",
+                    onReset = { preferencesRepository.removeString("dns") },
                     onValueChange = { preferencesRepository.putString("dns", it) },
                 )
                 SettingTextRow(
                     title = stringResource(Res.string.setting_dns2, str("dns2", "")),
                     value = str("dns2", ""),
+                    defaultValue = "",
                     isLast = true,
+                    onReset = { preferencesRepository.removeString("dns2") },
                     onValueChange = { preferencesRepository.putString("dns2", it) },
                 )
             }
@@ -870,8 +1036,14 @@ fun SettingsScreen(
                 SettingTextRow(
                     title = stringResource(Res.string.setting_watchdog, str("watchdog", "0")),
                     value = str("watchdog", "0"),
+                    defaultValue = "0",
                     keyboardType = KeyboardType.Number,
                     isFirst = true,
+                    onReset = {
+                        preferencesRepository.removeString("watchdog")
+                        val enabled = preferencesRepository.getBoolean("enabled", false)
+                        NetGuardPlatform.workScheduler.scheduleWatchdog(0, enabled)
+                    },
                     onValueChange = { value ->
                         preferencesRepository.putString("watchdog", value)
                         val enabled = preferencesRepository.getBoolean("enabled", false)
@@ -882,6 +1054,8 @@ fun SettingsScreen(
                     SettingToggleRow(
                         title = stringResource(Res.string.setting_update),
                         checked = bool("update_check", true),
+                        defaultChecked = true,
+                        onReset = { resetFlag("update_check") },
                     ) { preferencesRepository.putBoolean("update_check", it) }
 
                     FilledTonalButton(
@@ -941,7 +1115,9 @@ fun SettingsScreen(
                     title = stringResource(Res.string.setting_pcap),
                     tooltip = stringResource(Res.string.tooltip_pcap),
                     checked = bool("pcap", false),
+                    defaultChecked = false,
                     isFirst = true,
+                    onReset = { resetFlag("pcap") },
                 ) { preferencesRepository.putBoolean("pcap", it) }
                 SettingTextRow(
                     title = stringResource(
@@ -949,7 +1125,9 @@ fun SettingsScreen(
                         str("pcap_record_size", "64")
                     ),
                     value = str("pcap_record_size", "64"),
+                    defaultValue = "64",
                     keyboardType = KeyboardType.Number,
+                    onReset = { preferencesRepository.removeString("pcap_record_size") },
                     onValueChange = { preferencesRepository.putString("pcap_record_size", it) },
                 )
                 SettingTextRow(
@@ -958,24 +1136,10 @@ fun SettingsScreen(
                         str("pcap_file_size", "2")
                     ),
                     value = str("pcap_file_size", "2"),
+                    defaultValue = "2",
                     keyboardType = KeyboardType.Number,
                     isLast = true,
-                    trailingIcon = {
-                        IconButton(
-                            onClick = {
-                                preferencesRepository.putBoolean("pcap", false)
-                                preferencesRepository.putString("pcap_record_size", "64")
-                                preferencesRepository.putString("pcap_file_size", "2")
-                            },
-                            modifier = Modifier.size(TouchTargets.minimum),
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.Refresh,
-                                contentDescription = stringResource(Res.string.menu_reset),
-                                modifier = Modifier.size(18.dp),
-                            )
-                        }
-                    },
+                    onReset = { preferencesRepository.removeString("pcap_file_size") },
                     onValueChange = { preferencesRepository.putString("pcap_file_size", it) },
                 )
             }
@@ -1202,12 +1366,72 @@ private fun settingPairTileShape(
 }
 
 @Composable
+private fun SettingResetAction(
+    title: String,
+    defaultValue: String,
+    onReset: () -> Unit,
+    modifier: Modifier = Modifier,
+    tint: Color = MaterialTheme.colorScheme.primary,
+) {
+    var expanded by remember { mutableStateOf(false) }
+
+    Box(modifier = modifier) {
+        IconButton(
+            onClick = { expanded = true },
+            modifier = Modifier.size(TouchTargets.minimum),
+        ) {
+            Icon(
+                imageVector = Icons.Default.Refresh,
+                contentDescription = stringResource(
+                    Res.string.setting_reset_accessibility,
+                    title,
+                ),
+                modifier = Modifier.size(18.dp),
+                tint = tint,
+            )
+        }
+        DropdownMenu(
+            expanded = expanded,
+            onDismissRequest = { expanded = false },
+        ) {
+            DropdownMenuItem(
+                text = {
+                    Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                        Text(
+                            text = stringResource(Res.string.setting_reset_to_default),
+                            style = MaterialTheme.typography.labelLarge,
+                        )
+                        Text(
+                            text = stringResource(Res.string.setting_default_value, defaultValue),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
+                },
+                leadingIcon = {
+                    Icon(
+                        imageVector = Icons.Default.Refresh,
+                        contentDescription = null,
+                    )
+                },
+                onClick = {
+                    expanded = false
+                    onReset()
+                },
+            )
+        }
+    }
+}
+
+@Composable
 private fun SettingToggleRow(
     title: String,
     subtitle: String? = null,
     checked: Boolean,
+    defaultChecked: Boolean? = null,
     isFirst: Boolean = false,
     isLast: Boolean = false,
+    onReset: (() -> Unit)? = null,
     onCheckedChange: (Boolean) -> Unit,
 ) {
     val spacing = MaterialTheme.spacing
@@ -1228,6 +1452,7 @@ private fun SettingToggleRow(
     val subtitleColor =
         if (isHighlighted) MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.8f)
         else MaterialTheme.colorScheme.onSurfaceVariant
+    val resetAction = onReset?.takeIf { defaultChecked != null && checked != defaultChecked }
 
     Surface(
         modifier = Modifier.fillMaxWidth(),
@@ -1267,13 +1492,33 @@ private fun SettingToggleRow(
                     )
                 }
             }
-            Switch(
-                checked = checked,
-                onCheckedChange = null,
-                modifier = Modifier.semantics {
-                    contentDescription = "$title: ${if (checked) "enabled" else "disabled"}"
-                },
-            )
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                resetAction?.let { reset ->
+                    SettingResetAction(
+                        title = title,
+                        defaultValue = stringResource(
+                            if (defaultChecked == true) {
+                                Res.string.setting_value_on
+                            } else {
+                                Res.string.setting_value_off
+                            },
+                        ),
+                        onReset = reset,
+                        tint = if (isHighlighted) {
+                            MaterialTheme.colorScheme.onPrimaryContainer
+                        } else {
+                            MaterialTheme.colorScheme.primary
+                        },
+                    )
+                }
+                Switch(
+                    checked = checked,
+                    onCheckedChange = null,
+                    modifier = Modifier.semantics {
+                        contentDescription = "$title: ${if (checked) "enabled" else "disabled"}"
+                    },
+                )
+            }
         }
     }
 }
@@ -1283,8 +1528,10 @@ private fun SettingToggleRowWithTooltip(
     title: String,
     tooltip: String,
     checked: Boolean,
+    defaultChecked: Boolean? = null,
     isFirst: Boolean = false,
     isLast: Boolean = false,
+    onReset: (() -> Unit)? = null,
     onCheckedChange: (Boolean) -> Unit,
 ) {
     val spacing = MaterialTheme.spacing
@@ -1306,6 +1553,7 @@ private fun SettingToggleRowWithTooltip(
     val infoTint =
         if (isHighlighted) MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.8f)
         else MaterialTheme.colorScheme.onSurfaceVariant
+    val resetAction = onReset?.takeIf { defaultChecked != null && checked != defaultChecked }
 
     Surface(
         modifier = Modifier.fillMaxWidth(),
@@ -1355,13 +1603,33 @@ private fun SettingToggleRowWithTooltip(
                         )
                     }
                 }
-                Switch(
-                    checked = checked,
-                    onCheckedChange = null,
-                    modifier = Modifier.semantics {
-                        contentDescription = "$title: ${if (checked) "enabled" else "disabled"}"
-                    },
-                )
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    resetAction?.let { reset ->
+                        SettingResetAction(
+                            title = title,
+                            defaultValue = stringResource(
+                                if (defaultChecked == true) {
+                                    Res.string.setting_value_on
+                                } else {
+                                    Res.string.setting_value_off
+                                },
+                            ),
+                            onReset = reset,
+                            tint = if (isHighlighted) {
+                                MaterialTheme.colorScheme.onPrimaryContainer
+                            } else {
+                                MaterialTheme.colorScheme.primary
+                            },
+                        )
+                    }
+                    Switch(
+                        checked = checked,
+                        onCheckedChange = null,
+                        modifier = Modifier.semantics {
+                            contentDescription = "$title: ${if (checked) "enabled" else "disabled"}"
+                        },
+                    )
+                }
             }
             ExpandableContent(expanded = showTooltip) {
                 Surface(
@@ -1387,15 +1655,19 @@ private fun SettingToggleRowWithTooltip(
 private fun SettingTextRow(
     title: String,
     value: String,
+    defaultValue: String? = null,
     keyboardType: KeyboardType = KeyboardType.Text,
     isFirst: Boolean = false,
     isLast: Boolean = false,
     trailingIcon: @Composable (() -> Unit)? = null,
+    onReset: (() -> Unit)? = null,
     onValueChange: (String) -> Unit,
 ) {
     val spacing = MaterialTheme.spacing
     val rowShape =
         settingItemShape(isFirst = isFirst, isLast = isLast, baseShape = MaterialTheme.shapes.small)
+    val modifiedDefault = defaultValue?.takeIf { value != it && onReset != null }
+    val resetAction = onReset?.takeIf { modifiedDefault != null }
     Surface(
         modifier = Modifier.fillMaxWidth(),
         color = MaterialTheme.colorScheme.surfaceContainerLow,
@@ -1415,7 +1687,19 @@ private fun SettingTextRow(
                 keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true,
-                trailingIcon = trailingIcon,
+                trailingIcon = if (modifiedDefault != null && resetAction != null) {
+                    {
+                        SettingResetAction(
+                            title = title,
+                            defaultValue = modifiedDefault.ifEmpty {
+                                stringResource(Res.string.setting_value_empty)
+                            },
+                            onReset = resetAction,
+                        )
+                    }
+                } else {
+                    trailingIcon
+                },
             )
         }
     }
@@ -1426,15 +1710,19 @@ private fun SettingTextRowWithTooltip(
     title: String,
     tooltip: String,
     value: String,
+    defaultValue: String? = null,
     keyboardType: KeyboardType = KeyboardType.Text,
     isFirst: Boolean = false,
     isLast: Boolean = false,
+    onReset: (() -> Unit)? = null,
     onValueChange: (String) -> Unit,
 ) {
     val spacing = MaterialTheme.spacing
     val rowShape =
         settingItemShape(isFirst = isFirst, isLast = isLast, baseShape = MaterialTheme.shapes.small)
     var showTooltip by remember { mutableStateOf(false) }
+    val modifiedDefault = defaultValue?.takeIf { value != it && onReset != null }
+    val resetAction = onReset?.takeIf { modifiedDefault != null }
 
     Surface(
         modifier = Modifier.fillMaxWidth(),
@@ -1484,6 +1772,19 @@ private fun SettingTextRowWithTooltip(
                 keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true,
+                trailingIcon = if (modifiedDefault != null && resetAction != null) {
+                    {
+                        SettingResetAction(
+                            title = title,
+                            defaultValue = modifiedDefault.ifEmpty {
+                                stringResource(Res.string.setting_value_empty)
+                            },
+                            onReset = resetAction,
+                        )
+                    }
+                } else {
+                    null
+                },
             )
         }
     }
@@ -1493,10 +1794,14 @@ private fun SettingTextRowWithTooltip(
 private fun SettingTogglePairRow(
     firstTitle: String,
     firstChecked: Boolean,
+    firstDefaultChecked: Boolean? = null,
     onFirstCheckedChange: (Boolean) -> Unit,
+    onFirstReset: (() -> Unit)? = null,
     secondTitle: String,
     secondChecked: Boolean,
+    secondDefaultChecked: Boolean? = null,
     onSecondCheckedChange: (Boolean) -> Unit,
+    onSecondReset: (() -> Unit)? = null,
     isFirst: Boolean = false,
     isLast: Boolean = false,
 ) {
@@ -1509,7 +1814,9 @@ private fun SettingTogglePairRow(
             modifier = Modifier.weight(1f),
             title = firstTitle,
             checked = firstChecked,
+            defaultChecked = firstDefaultChecked,
             onCheckedChange = onFirstCheckedChange,
+            onReset = onFirstReset,
             shape = settingPairTileShape(
                 isLeadingTile = true,
                 isFirstRow = isFirst,
@@ -1521,7 +1828,9 @@ private fun SettingTogglePairRow(
             modifier = Modifier.weight(1f),
             title = secondTitle,
             checked = secondChecked,
+            defaultChecked = secondDefaultChecked,
             onCheckedChange = onSecondCheckedChange,
+            onReset = onSecondReset,
             shape = settingPairTileShape(
                 isLeadingTile = false,
                 isFirstRow = isFirst,
@@ -1536,13 +1845,16 @@ private fun SettingTogglePairRow(
 private fun CompactSettingToggleTile(
     title: String,
     checked: Boolean,
+    defaultChecked: Boolean? = null,
     onCheckedChange: (Boolean) -> Unit,
+    onReset: (() -> Unit)? = null,
     modifier: Modifier = Modifier,
     shape: Shape? = null,
 ) {
     val tileShape = shape ?: MaterialTheme.shapes.small
     val spacing = MaterialTheme.spacing
     val haptic = LocalHapticFeedback.current
+    val resetAction = onReset?.takeIf { defaultChecked != null && checked != defaultChecked }
     Surface(
         onClick = {
             haptic.performHapticFeedback(HapticFeedbackType.LongPress)
@@ -1566,11 +1878,33 @@ private fun CompactSettingToggleTile(
                 else MaterialTheme.colorScheme.onSurface,
             )
             Spacer(modifier = Modifier.heightIn(min = spacing.small))
-            Switch(
-                checked = checked,
-                onCheckedChange = null,
+            Row(
                 modifier = Modifier.align(Alignment.End),
-            )
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                resetAction?.let { reset ->
+                    SettingResetAction(
+                        title = title,
+                        defaultValue = stringResource(
+                            if (defaultChecked == true) {
+                                Res.string.setting_value_on
+                            } else {
+                                Res.string.setting_value_off
+                            },
+                        ),
+                        onReset = reset,
+                        tint = if (checked) {
+                            MaterialTheme.colorScheme.onPrimaryContainer
+                        } else {
+                            MaterialTheme.colorScheme.primary
+                        },
+                    )
+                }
+                Switch(
+                    checked = checked,
+                    onCheckedChange = null,
+                )
+            }
         }
     }
 }

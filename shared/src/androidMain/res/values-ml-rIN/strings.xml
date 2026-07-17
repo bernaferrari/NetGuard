@@ -132,6 +132,8 @@
     <string name="menu_pcap_enabled">PCAP പ്രവർത്തനക്ഷമമാക്കി</string>
     <string name="menu_pcap_export">PCAP കയറ്റുമതി</string>
     <string name="menu_clear">മായ്‌ക്കുക</string>
+    <string name="action_clear_access_history">ആക്‌സസ് ചരിത്രം മായ്‌ക്കുക</string>
+    <string name="section_access_history">ആക്‌സസ് ചരിത്രം</string>
     <string name="menu_export">കയറ്റുമതി ചെയ്യുക</string>
     <string name="menu_reset">പുനഃക്രമീകരിക്കുക</string>
 

@@ -133,6 +133,8 @@
     <string name="menu_pcap_enabled">PCAP ჩართულია</string>
     <string name="menu_pcap_export">PCAP ექსპორტი</string>
     <string name="menu_clear">გასუფთავება</string>
+    <string name="action_clear_access_history">წვდომის ისტორიის გასუფთავება</string>
+    <string name="section_access_history">წვდომის ისტორია</string>
     <string name="menu_export">ექსპორტი</string>
     <string name="menu_reset">ჩამოყრა</string>
 

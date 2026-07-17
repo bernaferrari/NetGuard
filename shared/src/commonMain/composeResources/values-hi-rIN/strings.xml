@@ -133,6 +133,8 @@
     <string name="menu_pcap_enabled">PCAP सक्षम</string>
     <string name="menu_pcap_export">PCAP निर्यात</string>
     <string name="menu_clear">साफ़ करें</string>
+    <string name="action_clear_access_history">ऐक्सेस इतिहास साफ़ करें</string>
+    <string name="section_access_history">ऐक्सेस इतिहास</string>
     <string name="menu_export">निर्यात करें</string>
     <string name="menu_reset">रीसेट करें</string>
 

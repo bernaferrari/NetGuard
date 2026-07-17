@@ -133,6 +133,8 @@
     <string name="menu_pcap_enabled">PCAP activado</string>
     <string name="menu_pcap_export">Exportar PCAP</string>
     <string name="menu_clear">Limpiar</string>
+    <string name="action_clear_access_history">Borrar historial de acceso</string>
+    <string name="section_access_history">Historial de acceso</string>
     <string name="menu_export">Exportar</string>
     <string name="menu_reset">Restablecer</string>
 

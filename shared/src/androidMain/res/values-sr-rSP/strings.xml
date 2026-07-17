@@ -133,6 +133,8 @@
     <string name="menu_pcap_enabled">„PCAP“ укључен</string>
     <string name="menu_pcap_export">„PCAP“ извоз</string>
     <string name="menu_clear">Очисти</string>
+    <string name="action_clear_access_history">Обриши историју приступа</string>
+    <string name="section_access_history">Историја приступа</string>
     <string name="menu_export">Извоз</string>
     <string name="menu_reset">Ресет</string>
 

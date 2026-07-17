@@ -2,13 +2,17 @@ package com.bernaferari.renetguard.ui.screens
 
 import org.jetbrains.compose.resources.stringResource
 import netguard.shared.generated.resources.Res
-import netguard.shared.generated.resources.menu_clear
+import netguard.shared.generated.resources.action_back
+import netguard.shared.generated.resources.action_clear_access_history
+import netguard.shared.generated.resources.section_access_history
 import netguard.shared.generated.resources.menu_launch
-import netguard.shared.generated.resources.menu_log
 import netguard.shared.generated.resources.menu_settings
 import netguard.shared.generated.resources.setting_options
+import netguard.shared.generated.resources.setting_reset_to_value
 import netguard.shared.generated.resources.setting_section_advanced
 import netguard.shared.generated.resources.setting_section_firewall
+import netguard.shared.generated.resources.setting_value_off
+import netguard.shared.generated.resources.setting_value_on
 import netguard.shared.generated.resources.title_apply
 import netguard.shared.generated.resources.title_lockdown
 import netguard.shared.generated.resources.title_mobile
@@ -18,12 +22,13 @@ import netguard.shared.generated.resources.title_screen_other
 import netguard.shared.generated.resources.title_screen_wifi
 import netguard.shared.generated.resources.title_wifi
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.core.FastOutLinearInEasing
-import androidx.compose.animation.core.FastOutSlowInEasing
-import androidx.compose.animation.core.tween
+import androidx.compose.animation.expandHorizontally
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkHorizontally
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
-
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -44,6 +49,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.Launch
+import androidx.compose.material.icons.automirrored.filled.Undo
 import androidx.compose.material.icons.filled.Apps
 import androidx.compose.material.icons.filled.Block
 import androidx.compose.material.icons.filled.ChevronRight
@@ -74,10 +80,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -94,336 +96,294 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.lerp
 import com.bernaferari.renetguard.domain.FirewallRule
+import com.bernaferari.renetguard.platform.PlatformContext
 import com.bernaferari.renetguard.ui.screens.vm.AppRuleDetailViewModel
 import org.koin.compose.viewmodel.koinViewModel
-import com.bernaferari.renetguard.platform.HandleBackPress
 import com.bernaferari.renetguard.platform.launchApp
 import com.bernaferari.renetguard.platform.openAppDetails
 import com.bernaferari.renetguard.ui.components.AppIcon
 import com.bernaferari.renetguard.ui.components.FirewallTile
 import com.bernaferari.renetguard.ui.theme.spacing
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import com.bernaferari.renetguard.ui.theme.LocalMotion
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AppRuleDetailScreen(
     rule: FirewallRule,
-    allRules: List<FirewallRule>,
     showBackButton: Boolean = true,
-    enableSlideTransition: Boolean = true,
-    onRuleChanged: () -> Unit = {},
-    onPersistRule: (FirewallRule) -> Unit = {},
+    onUpdateRule: ((FirewallRule) -> FirewallRule) -> Unit = {},
     onBack: () -> Unit = {},
 ) {
     val detailViewModel: AppRuleDetailViewModel = koinViewModel()
     val spacing = MaterialTheme.spacing
     val haptic = LocalHapticFeedback.current
-    val scope = rememberCoroutineScope()
 
     val appName = rule.name ?: rule.packageName.orEmpty()
-    val canLaunch = remember(rule.packageName) {
-        rule.packageName?.let { launchApp(it) } == true || rule.packageName != null
+    val canLaunch = PlatformContext.isAndroid() && rule.packageName != null
+    val updateRule: ((FirewallRule) -> FirewallRule) -> Unit = { transform ->
+        haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+        onUpdateRule(transform)
     }
 
-    var toggleKey by remember { mutableStateOf(0) }
-    var isVisible by remember(enableSlideTransition) { mutableStateOf(!enableSlideTransition) }
-    var isClosing by remember { mutableStateOf(false) }
+    val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
+    val collapsedFraction = scrollBehavior.state.collapsedFraction.coerceIn(0f, 1f)
+    val iconTileSize = lerp(48.dp, 32.dp, collapsedFraction)
+    val iconCorner = lerp(16.dp, 10.dp, collapsedFraction)
+    val titleSize = lerp(
+        MaterialTheme.typography.headlineMedium.fontSize,
+        MaterialTheme.typography.titleLarge.fontSize,
+        collapsedFraction,
+    )
 
-    fun onToggle() {
-        onPersistRule(rule)
-        onRuleChanged()
-        toggleKey++
-    }
-
-    fun closeWithAnimation() {
-        if (isClosing) return
-        isClosing = true
-        if (enableSlideTransition) {
-            isVisible = false
-            scope.launch {
-                delay(200)
-                onBack()
-            }
-        } else {
-            onBack()
-        }
-    }
-
-    LaunchedEffect(enableSlideTransition, rule.uid) {
-        if (enableSlideTransition) {
-            isVisible = true
-        }
-        isClosing = false
-    }
-
-    HandleBackPress(enabled = !isClosing) {
-        closeWithAnimation()
-    }
-
-    val detailContent: @Composable () -> Unit = {
-        val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
-        val collapsedFraction = scrollBehavior.state.collapsedFraction.coerceIn(0f, 1f)
-        val iconTileSize = lerp(48.dp, 32.dp, collapsedFraction)
-        val iconCorner = lerp(16.dp, 10.dp, collapsedFraction)
-        val titleSize = lerp(
-            MaterialTheme.typography.headlineMedium.fontSize,
-            MaterialTheme.typography.titleLarge.fontSize,
-            collapsedFraction,
-        )
-
-        Scaffold(
-            modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
-            contentWindowInsets = WindowInsets(0, 0, 0, 0),
-            containerColor = MaterialTheme.colorScheme.surface,
-            topBar = {
-                LargeTopAppBar(
-                    title = {
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.spacedBy(
-                                lerp(14.dp, 10.dp, collapsedFraction),
-                            ),
-                        ) {
-                            AppIcon(
-                                packageName = rule.packageName,
-                                size = iconTileSize,
-                                cornerRadius = iconCorner,
+    Scaffold(
+        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        contentWindowInsets = WindowInsets(0, 0, 0, 0),
+        containerColor = MaterialTheme.colorScheme.surface,
+        topBar = {
+            LargeTopAppBar(
+                title = {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(
+                            lerp(14.dp, 10.dp, collapsedFraction),
+                        ),
+                    ) {
+                        AppIcon(
+                            packageName = rule.packageName,
+                            size = iconTileSize,
+                            cornerRadius = iconCorner,
+                        )
+                        Column {
+                            Text(
+                                text = appName,
+                                style = MaterialTheme.typography.headlineMedium.copy(
+                                    fontSize = titleSize,
+                                    fontWeight = FontWeight.Bold,
+                                ),
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis,
                             )
-                            Column {
+                            AnimatedVisibility(visible = collapsedFraction < 0.5f) {
                                 Text(
-                                    text = appName,
-                                    style = MaterialTheme.typography.headlineMedium.copy(
-                                        fontSize = titleSize,
-                                        fontWeight = FontWeight.Bold,
-                                    ),
+                                    text = rule.packageName.orEmpty(),
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                                     maxLines = 1,
                                     overflow = TextOverflow.Ellipsis,
                                 )
-                                AnimatedVisibility(visible = collapsedFraction < 0.5f) {
-                                    Text(
-                                        text = rule.packageName.orEmpty(),
-                                        style = MaterialTheme.typography.bodySmall,
-                                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                        maxLines = 1,
-                                        overflow = TextOverflow.Ellipsis,
-                                    )
-                                }
                             }
                         }
-                    },
-                    navigationIcon = if (showBackButton) {
-                        {
-                            IconButton(onClick = ::closeWithAnimation) {
-                                Icon(
-                                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                                    contentDescription = null,
-                                )
-                            }
+                    }
+                },
+                navigationIcon = if (showBackButton) {
+                    {
+                        IconButton(onClick = onBack) {
+                            Icon(
+                                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                                contentDescription = stringResource(Res.string.action_back),
+                            )
                         }
-                    } else {
-                        {}
-                    },
-                    colors = TopAppBarDefaults.topAppBarColors(
-                        containerColor = MaterialTheme.colorScheme.surface,
-                        scrolledContainerColor = MaterialTheme.colorScheme.surface,
-                    ),
-                    scrollBehavior = scrollBehavior,
-                )
-            },
-        ) { padding ->
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(padding)
-                    .verticalScroll(rememberScrollState())
-                    .padding(horizontal = 20.dp)
-                    .padding(bottom = 32.dp),
-                verticalArrangement = Arrangement.spacedBy(24.dp),
-            ) {
-                @Suppress("UNUSED_EXPRESSION")
-                toggleKey
-
-                // ── Firewall ────────────────────────────
-                SectionLabel(stringResource(Res.string.setting_section_firewall))
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(spacing.extraSmall),
-                ) {
-                    FirewallTile(
-                        allowedIcon = Icons.Default.Wifi,
-                        blockedIcon = Icons.Default.WifiOff,
-                        label = stringResource(Res.string.title_wifi),
-                        allowed = !rule.wifi_blocked,
-                        onToggle = {
-                            haptic.performHapticFeedback(HapticFeedbackType.LongPress)
-                            rule.wifi_blocked = !rule.wifi_blocked
-                            onToggle()
-                        },
-                        shape = detailPairTileShape(
-                            isLeadingTile = true,
-                            isFirstRow = true,
-                            isLastRow = true,
-                            baseShape = MaterialTheme.shapes.small,
-                        ),
-                        modifier = Modifier.weight(1f),
-                    )
-                    FirewallTile(
-                        allowedIcon = Icons.Default.PhoneAndroid,
-                        blockedIcon = Icons.Default.MobileOff,
-                        label = stringResource(Res.string.title_mobile),
-                        allowed = !rule.other_blocked,
-                        onToggle = {
-                            haptic.performHapticFeedback(HapticFeedbackType.LongPress)
-                            rule.other_blocked = !rule.other_blocked
-                            onToggle()
-                        },
-                        shape = detailPairTileShape(
-                            isLeadingTile = false,
-                            isFirstRow = true,
-                            isLastRow = true,
-                            baseShape = MaterialTheme.shapes.small,
-                        ),
-                        modifier = Modifier.weight(1f),
-                    )
-                }
-
-                // ── Advanced ────────────────────────────
-                SectionLabel(stringResource(Res.string.setting_section_advanced))
-                Column(
-                    verticalArrangement = Arrangement.spacedBy(spacing.extraSmall),
-                ) {
-                    ToggleRow(
-                        icon = Icons.Default.Wifi,
-                        label = stringResource(Res.string.title_screen_wifi),
-                        checked = rule.screen_wifi,
-                        isFirst = true,
-                        onCheckedChange = {
-                            haptic.performHapticFeedback(HapticFeedbackType.LongPress)
-                            rule.screen_wifi = it
-                            onToggle()
-                        },
-                    )
-                    ToggleRow(
-                        icon = Icons.Default.Smartphone,
-                        label = stringResource(Res.string.title_screen_other),
-                        checked = rule.screen_other,
-                        onCheckedChange = {
-                            haptic.performHapticFeedback(HapticFeedbackType.LongPress)
-                            rule.screen_other = it
-                            onToggle()
-                        },
-                    )
-                    ToggleRow(
-                        icon = Icons.Default.SignalCellularAlt,
-                        label = stringResource(Res.string.title_roaming),
-                        checked = rule.roaming,
-                        onCheckedChange = {
-                            haptic.performHapticFeedback(HapticFeedbackType.LongPress)
-                            rule.roaming = it
-                            onToggle()
-                        },
-                    )
-                    ToggleRow(
-                        icon = Icons.Default.Lock,
-                        label = stringResource(Res.string.title_lockdown),
-                        checked = rule.lockdown,
-                        onCheckedChange = {
-                            haptic.performHapticFeedback(HapticFeedbackType.LongPress)
-                            rule.lockdown = it
-                            onToggle()
-                        },
-                    )
-                    ToggleRow(
-                        icon = Icons.Default.Shield,
-                        label = stringResource(Res.string.title_apply),
-                        checked = rule.apply,
-                        onCheckedChange = {
-                            haptic.performHapticFeedback(HapticFeedbackType.LongPress)
-                            rule.apply = it
-                            onToggle()
-                        },
-                    )
-                    ToggleRow(
-                        icon = Icons.Default.Notifications,
-                        label = stringResource(Res.string.title_notify),
-                        checked = rule.notify,
-                        isLast = true,
-                        onCheckedChange = {
-                            haptic.performHapticFeedback(HapticFeedbackType.LongPress)
-                            rule.notify = it
-                            onToggle()
-                        },
-                    )
-                }
-
-                // ── Access log ──────────────────────────
-                AccessLogSection(rule = rule, viewModel = detailViewModel)
-
-                // ── Actions ─────────────────────────────
-                SectionLabel(stringResource(Res.string.setting_options))
-                Column(
-                    verticalArrangement = Arrangement.spacedBy(spacing.extraSmall),
-                ) {
-                    ActionRow(
-                        icon = Icons.Default.Info,
-                        label = stringResource(Res.string.menu_settings),
-                        isFirst = true,
-                        onClick = {
-                            rule.packageName?.let { openAppDetails(it) }
-                        },
-                    )
-                    ActionRow(
-                        icon = Icons.AutoMirrored.Filled.Launch,
-                        label = stringResource(Res.string.menu_launch),
-                        enabled = canLaunch,
-                        onClick = { rule.packageName?.let { launchApp(it) } },
-                    )
-                    ActionRow(
-                        icon = Icons.Default.Delete,
-                        label = stringResource(Res.string.menu_clear),
-                        isLast = true,
-                        tint = MaterialTheme.colorScheme.error,
-                        onClick = {
-                            detailViewModel.clearAccess(rule.uid)
-                        },
-                    )
-                }
-
-                Spacer(modifier = Modifier.height(spacing.small))
-            }
-        }
-    }
-
-    if (enableSlideTransition) {
-        AnimatedVisibility(
-            visible = isVisible,
-            enter = slideInHorizontally(
-                initialOffsetX = { fullWidth -> fullWidth },
-                animationSpec = tween(durationMillis = 260, easing = FastOutSlowInEasing),
-            ),
-            exit = slideOutHorizontally(
-                targetOffsetX = { fullWidth -> fullWidth },
-                animationSpec = tween(durationMillis = 220, easing = FastOutLinearInEasing),
-            ),
+                    }
+                } else {
+                    {}
+                },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.surface,
+                    scrolledContainerColor = MaterialTheme.colorScheme.surface,
+                ),
+                scrollBehavior = scrollBehavior,
+            )
+        },
+    ) { padding ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(padding)
+                .verticalScroll(rememberScrollState())
+                .padding(horizontal = 20.dp)
+                .padding(bottom = 32.dp),
+            verticalArrangement = Arrangement.spacedBy(24.dp),
         ) {
-            detailContent()
+            // ── Firewall ────────────────────────────
+            SectionLabel(stringResource(Res.string.setting_section_firewall))
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(spacing.extraSmall),
+            ) {
+                FirewallTile(
+                    allowedIcon = Icons.Default.Wifi,
+                    blockedIcon = Icons.Default.WifiOff,
+                    label = stringResource(Res.string.title_wifi),
+                    allowed = !rule.wifi_blocked,
+                    onToggle = {
+                        updateRule { current ->
+                            current.copy(wifi_blocked = !current.wifi_blocked)
+                        }
+                    },
+                    shape = detailPairTileShape(
+                        isLeadingTile = true,
+                        isFirstRow = true,
+                        isLastRow = true,
+                        baseShape = MaterialTheme.shapes.small,
+                    ),
+                    modifier = Modifier.weight(1f),
+                )
+                FirewallTile(
+                    allowedIcon = Icons.Default.PhoneAndroid,
+                    blockedIcon = Icons.Default.MobileOff,
+                    label = stringResource(Res.string.title_mobile),
+                    allowed = !rule.other_blocked,
+                    onToggle = {
+                        updateRule { current ->
+                            current.copy(other_blocked = !current.other_blocked)
+                        }
+                    },
+                    shape = detailPairTileShape(
+                        isLeadingTile = false,
+                        isFirstRow = true,
+                        isLastRow = true,
+                        baseShape = MaterialTheme.shapes.small,
+                    ),
+                    modifier = Modifier.weight(1f),
+                )
+            }
+
+            // ── Advanced ────────────────────────────
+            SectionLabel(stringResource(Res.string.setting_section_advanced))
+            Column(
+                verticalArrangement = Arrangement.spacedBy(spacing.extraSmall),
+            ) {
+                ToggleRow(
+                    icon = Icons.Default.Wifi,
+                    label = stringResource(Res.string.title_screen_wifi),
+                    checked = rule.screen_wifi,
+                    defaultChecked = rule.screen_wifi_default,
+                    isFirst = true,
+                    onReset = {
+                        updateRule { current ->
+                            current.copy(screen_wifi = current.screen_wifi_default)
+                        }
+                    },
+                    onCheckedChange = {
+                        updateRule { current -> current.copy(screen_wifi = it) }
+                    },
+                )
+                ToggleRow(
+                    icon = Icons.Default.Smartphone,
+                    label = stringResource(Res.string.title_screen_other),
+                    checked = rule.screen_other,
+                    defaultChecked = rule.screen_other_default,
+                    onReset = {
+                        updateRule { current ->
+                            current.copy(screen_other = current.screen_other_default)
+                        }
+                    },
+                    onCheckedChange = {
+                        updateRule { current -> current.copy(screen_other = it) }
+                    },
+                )
+                ToggleRow(
+                    icon = Icons.Default.SignalCellularAlt,
+                    label = stringResource(Res.string.title_roaming),
+                    checked = rule.roaming,
+                    defaultChecked = rule.roaming_default,
+                    onReset = {
+                        updateRule { current -> current.copy(roaming = current.roaming_default) }
+                    },
+                    onCheckedChange = {
+                        updateRule { current -> current.copy(roaming = it) }
+                    },
+                )
+                ToggleRow(
+                    icon = Icons.Default.Lock,
+                    label = stringResource(Res.string.title_lockdown),
+                    checked = rule.lockdown,
+                    defaultChecked = false,
+                    onReset = {
+                        updateRule { current -> current.copy(lockdown = false) }
+                    },
+                    onCheckedChange = {
+                        updateRule { current -> current.copy(lockdown = it) }
+                    },
+                )
+                ToggleRow(
+                    icon = Icons.Default.Shield,
+                    label = stringResource(Res.string.title_apply),
+                    checked = rule.apply,
+                    defaultChecked = true,
+                    onReset = {
+                        updateRule { current -> current.copy(apply = true) }
+                    },
+                    onCheckedChange = {
+                        updateRule { current -> current.copy(apply = it) }
+                    },
+                )
+                ToggleRow(
+                    icon = Icons.Default.Notifications,
+                    label = stringResource(Res.string.title_notify),
+                    checked = rule.notify,
+                    defaultChecked = true,
+                    isLast = true,
+                    onReset = {
+                        updateRule { current -> current.copy(notify = true) }
+                    },
+                    onCheckedChange = {
+                        updateRule { current -> current.copy(notify = it) }
+                    },
+                )
+            }
+
+            // ── Access log ──────────────────────────
+            AccessLogSection(rule = rule, viewModel = detailViewModel)
+
+            // ── Actions ─────────────────────────────
+            SectionLabel(stringResource(Res.string.setting_options))
+            Column(
+                verticalArrangement = Arrangement.spacedBy(spacing.extraSmall),
+            ) {
+                ActionRow(
+                    icon = Icons.Default.Info,
+                    label = stringResource(Res.string.menu_settings),
+                    isFirst = true,
+                    onClick = {
+                        rule.packageName?.let { openAppDetails(it) }
+                    },
+                )
+                ActionRow(
+                    icon = Icons.AutoMirrored.Filled.Launch,
+                    label = stringResource(Res.string.menu_launch),
+                    enabled = canLaunch,
+                    onClick = { rule.packageName?.let { launchApp(it) } },
+                )
+                ActionRow(
+                    icon = Icons.Default.Delete,
+                    label = stringResource(Res.string.action_clear_access_history),
+                    isLast = true,
+                    tint = MaterialTheme.colorScheme.error,
+                    onClick = {
+                        detailViewModel.clearAccess(rule.uid)
+                    },
+                )
+            }
+
+            Spacer(modifier = Modifier.height(spacing.small))
         }
-    } else {
-        detailContent()
     }
 }
-
 
 @Composable
 private fun ToggleRow(
     icon: ImageVector,
     label: String,
     checked: Boolean,
+    defaultChecked: Boolean,
     isFirst: Boolean = false,
     isLast: Boolean = false,
+    onReset: () -> Unit,
     onCheckedChange: (Boolean) -> Unit,
 ) {
+    val motion = LocalMotion.current
+    val isCustomized = checked != defaultChecked
     val shape = detailSettingsItemShape(
         isFirst = isFirst,
         isLast = isLast,
@@ -438,41 +398,115 @@ private fun ToggleRow(
     val labelColor =
         if (checked) MaterialTheme.colorScheme.onPrimaryContainer
         else MaterialTheme.colorScheme.onSurface
-    Surface(
+    Row(
         modifier = Modifier.fillMaxWidth(),
-        shape = shape,
-        color = containerColor,
+        verticalAlignment = Alignment.CenterVertically,
     ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .heightIn(min = 60.dp)
-                .clip(shape)
-                .toggleable(
-                    value = checked,
-                    role = Role.Switch,
-                    onValueChange = onCheckedChange,
-                )
-                .padding(horizontal = 20.dp, vertical = 14.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(16.dp),
+        Surface(
+            modifier = Modifier.weight(1f),
+            shape = shape,
+            color = containerColor,
         ) {
-            Icon(
-                imageVector = icon,
-                contentDescription = null,
-                tint = iconTint,
-                modifier = Modifier.size(22.dp),
-            )
-            Text(
-                text = label,
-                style = MaterialTheme.typography.bodyLarge,
-                color = labelColor,
-                modifier = Modifier.weight(1f),
-            )
-            Switch(
-                checked = checked,
-                onCheckedChange = null,
-            )
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .heightIn(min = 60.dp)
+                    .clip(shape)
+                    .toggleable(
+                        value = checked,
+                        role = Role.Switch,
+                        onValueChange = onCheckedChange,
+                    )
+                    .padding(horizontal = 20.dp, vertical = 14.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
+            ) {
+                Icon(
+                    imageVector = icon,
+                    contentDescription = null,
+                    tint = iconTint,
+                    modifier = Modifier.size(22.dp),
+                )
+                Text(
+                    text = label,
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = labelColor,
+                    modifier = Modifier.weight(1f),
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+                Switch(
+                    checked = checked,
+                    onCheckedChange = null,
+                )
+            }
+        }
+        AnimatedVisibility(
+            visible = isCustomized,
+            enter = expandHorizontally(
+                animationSpec = tween(
+                    durationMillis = motion.durationMedium,
+                    easing = motion.easingDecelerate,
+                ),
+                expandFrom = Alignment.End,
+            ) + slideInHorizontally(
+                animationSpec = tween(
+                    durationMillis = motion.durationMedium,
+                    easing = motion.easingDecelerate,
+                ),
+                initialOffsetX = { width -> width / 3 },
+            ) + fadeIn(
+                animationSpec = tween(
+                    durationMillis = motion.durationFast,
+                    easing = motion.easingDecelerate,
+                ),
+            ),
+            exit = shrinkHorizontally(
+                animationSpec = tween(
+                    durationMillis = motion.durationFast,
+                    easing = motion.easingAccelerate,
+                ),
+                shrinkTowards = Alignment.End,
+            ) + slideOutHorizontally(
+                animationSpec = tween(
+                    durationMillis = motion.durationFast,
+                    easing = motion.easingAccelerate,
+                ),
+                targetOffsetX = { width -> width / 3 },
+            ) + fadeOut(
+                animationSpec = tween(
+                    durationMillis = motion.durationFast,
+                    easing = motion.easingAccelerate,
+                ),
+            ),
+        ) {
+            Row {
+                Spacer(modifier = Modifier.size(4.dp))
+                Surface(
+                    onClick = onReset,
+                    modifier = Modifier.size(60.dp),
+                    shape = MaterialTheme.shapes.small,
+                    color = MaterialTheme.colorScheme.surfaceContainerHigh,
+                    contentColor = MaterialTheme.colorScheme.primary,
+                ) {
+                    Box(contentAlignment = Alignment.Center) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.Undo,
+                            contentDescription = stringResource(
+                                Res.string.setting_reset_to_value,
+                                stringResource(
+                                    if (defaultChecked) {
+                                        Res.string.setting_value_on
+                                    } else {
+                                        Res.string.setting_value_off
+                                    },
+                                ),
+                            ),
+                            modifier = Modifier.size(20.dp),
+                        )
+                    }
+                }
+            }
         }
     }
 }
@@ -594,7 +628,7 @@ private fun AccessLogSection(
 
     if (loading || accessEntries.isEmpty()) return
 
-    SectionLabel(stringResource(Res.string.menu_log))
+    SectionLabel(stringResource(Res.string.section_access_history))
 
     Surface(
         shape = RoundedCornerShape(24.dp),
@@ -647,4 +681,3 @@ private fun AccessLogSection(
         }
     }
 }
-

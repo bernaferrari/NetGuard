@@ -132,6 +132,8 @@
     <string name="menu_pcap_enabled">PCAP 활성화됨</string>
     <string name="menu_pcap_export">PCAP 내보내기</string>
     <string name="menu_clear">지우기</string>
+    <string name="action_clear_access_history">접근 기록 지우기</string>
+    <string name="section_access_history">접근 기록</string>
     <string name="menu_export">내보내기</string>
     <string name="menu_reset">초기화</string>
 

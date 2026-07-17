@@ -22,10 +22,6 @@ import com.bernaferari.renetguard.ui.AppNavigation
 import com.bernaferari.renetguard.ui.Home
 import com.bernaferari.renetguard.ui.main.MainViewModel
 import com.bernaferari.renetguard.ui.theme.NetGuardAppTheme
-import netguard.shared.generated.resources.Res
-import netguard.shared.generated.resources.demo_firewall_started
-import netguard.shared.generated.resources.demo_firewall_stopped
-import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
@@ -36,9 +32,6 @@ fun AppContent(
     onRouteNavigated: () -> Unit = {},
     viewModel: MainViewModel = koinViewModel(),
 ) {
-    val demoFirewallStartedMessage = stringResource(Res.string.demo_firewall_started)
-    val demoFirewallStoppedMessage = stringResource(Res.string.demo_firewall_stopped)
-
     NetGuardAppTheme {
         val snackbarHostState = remember { SnackbarHostState() }
         val toastMessage by PlatformToast.message.collectAsState()
@@ -55,9 +48,6 @@ fun AppContent(
                     if (PlatformContext.isDemoMode()) {
                         viewModel.setEnabled(enabled)
                         onDemoFirewallToggled(enabled)
-                        PlatformToast.show(
-                            if (enabled) demoFirewallStartedMessage else demoFirewallStoppedMessage,
-                        )
                     } else {
                         onToggleEnabled(enabled)
                     }

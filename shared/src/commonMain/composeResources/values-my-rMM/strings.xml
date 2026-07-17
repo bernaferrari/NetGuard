@@ -132,6 +132,8 @@
     <string name="menu_pcap_enabled">PCAP ဖွင့်ထားသည်</string>
     <string name="menu_pcap_export">PCAP ထုတ်ယူရန်</string>
     <string name="menu_clear">ရှင်းလင်းပါ</string>
+    <string name="action_clear_access_history">ဝင်ရောက်မှုမှတ်တမ်းကို ရှင်းလင်းပါ</string>
+    <string name="section_access_history">ဝင်ရောက်မှုမှတ်တမ်း</string>
     <string name="menu_export">ထုတ်ယူပါ</string>
     <string name="menu_reset">မူလအတိုင်း ပြန်ထားပါ</string>
 

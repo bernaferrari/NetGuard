@@ -132,6 +132,8 @@
     <string name="menu_pcap_enabled">PCAP lubatud</string>
     <string name="menu_pcap_export">PCAP eksport</string>
     <string name="menu_clear">Tühjenda</string>
+    <string name="action_clear_access_history">Kustuta juurdepääsuajalugu</string>
+    <string name="section_access_history">Juurdepääsuajalugu</string>
     <string name="menu_export">Eksport</string>
     <string name="menu_reset">Lähtesta</string>
 

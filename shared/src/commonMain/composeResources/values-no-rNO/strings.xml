@@ -133,6 +133,8 @@
     <string name="menu_pcap_enabled">PCAP aktivert</string>
     <string name="menu_pcap_export">PCAP-eksport</string>
     <string name="menu_clear">Tøm</string>
+    <string name="action_clear_access_history">Tøm tilgangshistorikk</string>
+    <string name="section_access_history">Tilgangshistorikk</string>
     <string name="menu_export">Eksporter</string>
     <string name="menu_reset">Tilbakestill</string>
 

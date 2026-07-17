@@ -131,6 +131,8 @@
     <string name="menu_pcap_enabled">PCAP разрешено</string>
     <string name="menu_pcap_export">PCAP експортиране</string>
     <string name="menu_clear">Изчистване</string>
+    <string name="action_clear_access_history">Изчистване на хронологията на достъпа</string>
+    <string name="section_access_history">Хронология на достъпа</string>
     <string name="menu_export">Изнасяне</string>
     <string name="menu_reset">Нулиране</string>
 

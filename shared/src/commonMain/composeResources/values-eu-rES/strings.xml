@@ -133,6 +133,8 @@
     <string name="menu_pcap_enabled">PCAP gaituta</string>
     <string name="menu_pcap_export">PCAP exportazioa</string>
     <string name="menu_clear">Garbitu</string>
+    <string name="action_clear_access_history">Garbitu sarbide-historia</string>
+    <string name="section_access_history">Sarbide-historia</string>
     <string name="menu_export">Esportatu</string>
     <string name="menu_reset">Berrezarri</string>
 

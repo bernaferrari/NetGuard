@@ -132,6 +132,8 @@
     <string name="menu_pcap_enabled">PCAP مفعل</string>
     <string name="menu_pcap_export">تصدير PCAP</string>
     <string name="menu_clear">مسح</string>
+    <string name="action_clear_access_history">مسح سجل الوصول</string>
+    <string name="section_access_history">سجل الوصول</string>
     <string name="menu_export">تصدير</string>
     <string name="menu_reset">إعادة تعيين</string>
 

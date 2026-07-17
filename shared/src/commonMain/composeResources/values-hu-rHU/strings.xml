@@ -133,6 +133,8 @@
     <string name="menu_pcap_enabled">PCAP engedélyezve</string>
     <string name="menu_pcap_export">PCAP exportálás</string>
     <string name="menu_clear">Törlés</string>
+    <string name="action_clear_access_history">Hozzáférési előzmények törlése</string>
+    <string name="section_access_history">Hozzáférési előzmények</string>
     <string name="menu_export">Exportálás</string>
     <string name="menu_reset">Visszaállítás</string>
 

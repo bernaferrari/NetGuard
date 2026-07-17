@@ -133,6 +133,8 @@
     <string name="menu_pcap_enabled">PCAP فعال شد</string>
     <string name="menu_pcap_export">خروجی PCAP</string>
     <string name="menu_clear">پاک‌سازی</string>
+    <string name="action_clear_access_history">پاک کردن سابقه دسترسی</string>
+    <string name="section_access_history">سابقه دسترسی</string>
     <string name="menu_export">خروجی</string>
     <string name="menu_reset">بازنشانی</string>
 

@@ -133,6 +133,8 @@
     <string name="menu_pcap_enabled">PCAP 已啟用</string>
     <string name="menu_pcap_export">PCAP 匯出</string>
     <string name="menu_clear">清除</string>
+    <string name="action_clear_access_history">清除存取記錄</string>
+    <string name="section_access_history">存取記錄</string>
     <string name="menu_export">匯出</string>
     <string name="menu_reset">重置</string>
 

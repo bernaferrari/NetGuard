@@ -133,6 +133,8 @@
     <string name="menu_pcap_enabled">PCAP aktiverad</string>
     <string name="menu_pcap_export">PCAP export</string>
     <string name="menu_clear">Rensa</string>
+    <string name="action_clear_access_history">Rensa åtkomsthistorik</string>
+    <string name="section_access_history">Åtkomsthistorik</string>
     <string name="menu_export">Exportera</string>
     <string name="menu_reset">Återställ</string>
 

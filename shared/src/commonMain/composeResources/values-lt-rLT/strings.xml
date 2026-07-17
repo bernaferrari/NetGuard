@@ -133,6 +133,8 @@
     <string name="menu_pcap_enabled">PCAP įjungta</string>
     <string name="menu_pcap_export">PCAP eksportas</string>
     <string name="menu_clear">Valyti</string>
+    <string name="action_clear_access_history">Išvalyti prieigos istoriją</string>
+    <string name="section_access_history">Prieigos istorija</string>
     <string name="menu_export">Eksportuoti</string>
     <string name="menu_reset">Atstatyti</string>
 

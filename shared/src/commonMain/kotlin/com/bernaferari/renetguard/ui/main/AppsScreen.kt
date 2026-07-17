@@ -17,10 +17,8 @@ import netguard.shared.generated.resources.ui_empty_apps_title
 import netguard.shared.generated.resources.ui_filter_all
 import netguard.shared.generated.resources.ui_filter_empty
 import netguard.shared.generated.resources.ui_loading
-import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.Spring
-import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.infiniteRepeatable
@@ -31,7 +29,7 @@ import androidx.compose.animation.core.tween
 import androidx.compose.animation.core.updateTransition
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
@@ -102,6 +100,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.role
+import androidx.compose.ui.semantics.selected
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
@@ -132,8 +131,6 @@ fun AppsScreen(
     viewModel: MainViewModel,
     selectedRuleUid: Int? = null,
     onNavigateToDetail: (FirewallRule) -> Unit = {},
-    initialFilter: AppsFilter = AppsFilter.All,
-    initialFilterVersion: Int = 0,
 ) {
     val spacing = MaterialTheme.spacing
     val focusManager = LocalFocusManager.current
@@ -141,10 +138,9 @@ fun AppsScreen(
     val listState = rememberLazyListState()
     val rulesUiState by viewModel.rulesUiState.collectAsStateWithLifecycle()
     val rules = rulesUiState.rules
-    val rulesRevision = rulesUiState.revision
     val isLoading = rulesUiState.isLoading && rulesUiState.rules.isEmpty()
     val isRefreshing = rulesUiState.isLoading
-    var filter by remember(initialFilterVersion) { mutableStateOf(initialFilter) }
+    var filter by rememberSaveable { mutableStateOf(AppsFilter.All) }
     var isSearchOpen by rememberSaveable { mutableStateOf(false) }
     var searchQuery by rememberSaveable { mutableStateOf("") }
     val normalizedSearchQuery = searchQuery.trim()
@@ -169,7 +165,7 @@ fun AppsScreen(
             }
     }
 
-    val filteredRules = remember(rules, rulesRevision, filter, normalizedSearchQuery) {
+    val filteredRules = remember(rules, filter, normalizedSearchQuery) {
         val base = when (filter) {
             AppsFilter.All -> rules
             AppsFilter.Blocked -> rules.filter { it.wifi_blocked || it.other_blocked }
@@ -184,7 +180,7 @@ fun AppsScreen(
     val badgeCount = filteredRules.size
 
     // Group by first letter for section headers
-    val groupedRules = remember(filteredRules, rulesRevision) {
+    val groupedRules = remember(filteredRules) {
         val items = mutableListOf<AppListItem>()
         var lastLetter = ""
         filteredRules.forEach { rule ->
@@ -470,15 +466,18 @@ fun AppsScreen(
                                                 position = item.position,
                                                 searchQuery = normalizedSearchQuery,
                                                 onToggleWifi = {
-                                                    item.rule.wifi_blocked = !item.rule.wifi_blocked
-                                                    viewModel.persistRule(item.rule)
-                                                    viewModel.notifyRulesChanged()
+                                                    viewModel.updateRule(item.rule.uid) { current ->
+                                                        current.copy(
+                                                            wifi_blocked = !current.wifi_blocked,
+                                                        )
+                                                    }
                                                 },
                                                 onToggleMobile = {
-                                                    item.rule.other_blocked =
-                                                        !item.rule.other_blocked
-                                                    viewModel.persistRule(item.rule)
-                                                    viewModel.notifyRulesChanged()
+                                                    viewModel.updateRule(item.rule.uid) { current ->
+                                                        current.copy(
+                                                            other_blocked = !current.other_blocked,
+                                                        )
+                                                    }
                                                 },
                                                 onClick = {
                                                     onNavigateToDetail(item.rule)
@@ -571,8 +570,7 @@ private fun RuleCard(
     onToggleMobile: () -> Unit,
     onClick: () -> Unit,
 ) {
-    val motion = LocalMotion.current
-    // Keep the row's press/release interaction stable while its selected visuals animate.
+    // Keep the row's press/release interaction stable across selection changes.
     val interactionSource = remember { MutableInteractionSource() }
     val appName = rule.name ?: rule.packageName.orEmpty()
     val wifiDescription = stringResource(Res.string.title_wifi) + " " +
@@ -597,63 +595,39 @@ private fun RuleCard(
         CardPosition.Middle -> CornerRadii(4.dp, 4.dp, 4.dp, 4.dp)
     }
     val selectedRadius = 20.dp
-    val cornerAnimation = tween<Dp>(durationMillis = motion.durationFast)
-    val topStart by animateDpAsState(
-        targetValue = if (isSelected) selectedRadius else baseCornerRadii.topStart,
-        animationSpec = cornerAnimation,
-        label = "ruleCardTopStart",
-    )
-    val topEnd by animateDpAsState(
-        targetValue = if (isSelected) selectedRadius else baseCornerRadii.topEnd,
-        animationSpec = cornerAnimation,
-        label = "ruleCardTopEnd",
-    )
-    val bottomEnd by animateDpAsState(
-        targetValue = if (isSelected) selectedRadius else baseCornerRadii.bottomEnd,
-        animationSpec = cornerAnimation,
-        label = "ruleCardBottomEnd",
-    )
-    val bottomStart by animateDpAsState(
-        targetValue = if (isSelected) selectedRadius else baseCornerRadii.bottomStart,
-        animationSpec = cornerAnimation,
-        label = "ruleCardBottomStart",
-    )
+    val topStart = if (isSelected) selectedRadius else baseCornerRadii.topStart
+    val topEnd = if (isSelected) selectedRadius else baseCornerRadii.topEnd
+    val bottomEnd = if (isSelected) selectedRadius else baseCornerRadii.bottomEnd
+    val bottomStart = if (isSelected) selectedRadius else baseCornerRadii.bottomStart
     val cardShape = RoundedCornerShape(topStart, topEnd, bottomEnd, bottomStart)
-    val cardColor by animateColorAsState(
-        targetValue = if (isSelected) {
-            MaterialTheme.colorScheme.surfaceContainerHigh
-        } else {
-            MaterialTheme.colorScheme.surfaceContainerLow
-        },
-        animationSpec = tween(durationMillis = motion.durationFast),
-        label = "ruleCardContainer",
-    )
-    val contentColor = MaterialTheme.colorScheme.onSurface
-    val selectionBorderColor by animateColorAsState(
-        targetValue = if (isSelected) MaterialTheme.colorScheme.secondary else Color.Transparent,
-        animationSpec = tween(durationMillis = motion.durationFast),
-        label = "ruleCardSelectionBorder",
-    )
-    val selectionBorderWidth by animateDpAsState(
-        targetValue = if (isSelected) 1.25.dp else 0.dp,
-        animationSpec = cornerAnimation,
-        label = "ruleCardSelectionBorderWidth",
-    )
+    val cardColor = if (isSelected) {
+        MaterialTheme.colorScheme.secondaryContainer
+    } else {
+        MaterialTheme.colorScheme.surfaceContainerLow
+    }
+    val contentColor = if (isSelected) {
+        MaterialTheme.colorScheme.onSecondaryContainer
+    } else {
+        MaterialTheme.colorScheme.onSurface
+    }
+    val selectionBorderColor =
+        if (isSelected) MaterialTheme.colorScheme.primary else Color.Transparent
+    val selectionBorderWidth = if (isSelected) 2.dp else 0.dp
 
     Surface(
         shape = cardShape,
         color = cardColor,
+        border = BorderStroke(
+            width = selectionBorderWidth,
+            color = selectionBorderColor,
+        ),
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp)
             .padding(
                 top = if (position == CardPosition.First || position == CardPosition.Single) 0.dp else 2.dp,
             )
-            .border(
-                width = selectionBorderWidth,
-                color = selectionBorderColor,
-                shape = cardShape,
-            ),
+            .semantics { selected = isSelected },
     ) {
         Row(
             modifier = Modifier

@@ -132,6 +132,8 @@
     <string name="menu_pcap_enabled">PCAP قوزغىتىش</string>
     <string name="menu_pcap_export">PCAP چىقىرىش</string>
     <string name="menu_clear">تازىلاش</string>
+    <string name="action_clear_access_history">زىيارەت تارىخىنى تازىلاش</string>
+    <string name="section_access_history">زىيارەت تارىخى</string>
     <string name="menu_export">چىقىرىش</string>
     <string name="menu_reset">ئەسلىگە قايتۇرۇش</string>
 

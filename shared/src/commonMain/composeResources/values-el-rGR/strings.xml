@@ -133,6 +133,8 @@
     <string name="menu_pcap_enabled">PCAP ενεργοποιημένο</string>
     <string name="menu_pcap_export">Εξαγωγή PCAP</string>
     <string name="menu_clear">Εκκαθάριση</string>
+    <string name="action_clear_access_history">Εκκαθάριση ιστορικού πρόσβασης</string>
+    <string name="section_access_history">Ιστορικό πρόσβασης</string>
     <string name="menu_export">Εξαγωγή</string>
     <string name="menu_reset">Επαναφορά</string>
 

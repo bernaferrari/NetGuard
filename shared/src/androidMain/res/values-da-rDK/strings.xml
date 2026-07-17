@@ -133,6 +133,8 @@
     <string name="menu_pcap_enabled">PCAP aktiveret</string>
     <string name="menu_pcap_export">PCAP eksport</string>
     <string name="menu_clear">Ryd</string>
+    <string name="action_clear_access_history">Ryd adgangshistorik</string>
+    <string name="section_access_history">Adgangshistorik</string>
     <string name="menu_export">Eksporter</string>
     <string name="menu_reset">Nulstil</string>
 

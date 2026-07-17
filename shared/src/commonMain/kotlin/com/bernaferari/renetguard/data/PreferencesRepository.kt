@@ -110,6 +110,8 @@ class PreferencesRepository(
 
     fun removeString(name: String) = update { it -= stringPreferencesKey(name) }
 
+    fun removeStringSet(name: String) = update { it -= stringSetPreferencesKey(name) }
+
     fun keysWithPrefix(prefix: String): Set<String> {
         if (prefix.isBlank()) return state.value.asMap().keys.map { it.name }.toSet()
         return state.value.asMap().keys.map { it.name }.filter { it.startsWith("${prefix}_") }

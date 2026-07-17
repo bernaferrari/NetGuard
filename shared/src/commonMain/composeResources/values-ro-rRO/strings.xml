@@ -133,6 +133,8 @@
     <string name="menu_pcap_enabled">PCAP activat</string>
     <string name="menu_pcap_export">Export PCAP</string>
     <string name="menu_clear">Șterge</string>
+    <string name="action_clear_access_history">Șterge istoricul accesului</string>
+    <string name="section_access_history">Istoricul accesului</string>
     <string name="menu_export">Exportă</string>
     <string name="menu_reset">Resetează</string>
 

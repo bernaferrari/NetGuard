@@ -133,6 +133,8 @@
     <string name="menu_pcap_enabled">PCAP fəallaşdırıldı</string>
     <string name="menu_pcap_export">PCAP xaricə köçürmə</string>
     <string name="menu_clear">Təmizlə</string>
+    <string name="action_clear_access_history">Giriş tarixçəsini təmizlə</string>
+    <string name="section_access_history">Giriş tarixçəsi</string>
     <string name="menu_export">Xaricə köçür</string>
     <string name="menu_reset">Sıfırla</string>
 
