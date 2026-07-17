@@ -133,6 +133,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Forward
 import androidx.compose.material.icons.filled.BrightnessAuto
 import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.Code
 import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.Dns
 import androidx.compose.material.icons.filled.Download
@@ -141,7 +142,6 @@ import androidx.compose.material.icons.filled.MobileOff
 import androidx.compose.material.icons.filled.Palette
 import androidx.compose.material.icons.filled.PhoneAndroid
 import androidx.compose.material.icons.filled.Refresh
-import androidx.compose.material.icons.filled.Shield
 import androidx.compose.material.icons.filled.Wifi
 import androidx.compose.material.icons.filled.WifiOff
 import androidx.compose.material.icons.outlined.BrightnessAuto
@@ -210,6 +210,7 @@ import com.bernaferrari.quietguard.ui.screens.vm.SettingsViewModel
 import org.koin.compose.viewmodel.koinViewModel
 import com.bernaferrari.quietguard.ui.components.ExpandableContent
 import com.bernaferrari.quietguard.ui.components.FirewallTile
+import com.bernaferrari.quietguard.ui.components.QuietGuardMark
 import com.bernaferrari.quietguard.ui.theme.AmberPrimary
 import com.bernaferrari.quietguard.ui.theme.BluePrimary
 import com.bernaferrari.quietguard.ui.theme.CyanPrimary
@@ -331,19 +332,24 @@ fun SettingsScreen(
         },
     ) { innerPadding ->
         val topPadding = innerPadding.calculateTopPadding()
-        Column(
+        Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(top = topPadding)
-                .verticalScroll(scrollState)
-                .padding(spacing.large),
-            verticalArrangement = Arrangement.spacedBy(spacing.default),
+                .padding(top = topPadding),
         ) {
+            Column(
+                modifier = Modifier
+                    .align(Alignment.TopCenter)
+                    .fillMaxWidth()
+                    .verticalScroll(scrollState)
+                    .padding(horizontal = spacing.large, vertical = spacing.default),
+                verticalArrangement = Arrangement.spacedBy(spacing.extraLarge),
+            ) {
 
 
             // Appearance Section
             val appearanceTitle = stringResource(Res.string.setting_section_appearance)
-            CollapsibleSettingsSection(title = appearanceTitle) {
+            CollapsibleSettingsSection(title = appearanceTitle, framed = false) {
                 val currentTheme = str("theme", "teal")
                 val dynamicSwatchColor = Teal500
                 val modeOptions = listOf(
@@ -1137,88 +1143,51 @@ fun SettingsScreen(
             }
 
             CollapsibleSettingsSection(title = stringResource(Res.string.menu_about)) {
-                Surface(
-                    shape = MaterialTheme.shapes.large,
-                    color = MaterialTheme.colorScheme.surfaceContainerLow,
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(spacing.medium),
+                    verticalArrangement = Arrangement.spacedBy(spacing.medium),
                 ) {
-                    Column(
-                        modifier = Modifier.padding(spacing.default),
-                        verticalArrangement = Arrangement.spacedBy(spacing.medium),
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(spacing.medium),
                     ) {
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.spacedBy(spacing.medium),
+                        Surface(
+                            shape = MaterialTheme.shapes.large,
+                            color = MaterialTheme.colorScheme.primaryContainer,
+                            contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
+                            modifier = Modifier.size(56.dp),
                         ) {
-                            Surface(
-                                shape = MaterialTheme.shapes.large,
-                                color = MaterialTheme.colorScheme.primaryContainer,
-                                contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
-                                modifier = Modifier.size(56.dp),
-                            ) {
-                                Box(contentAlignment = Alignment.Center) {
-                                    Icon(
-                                        imageVector = Icons.Default.Shield,
-                                        contentDescription = null,
-                                        modifier = Modifier.size(28.dp),
-                                    )
-                                }
+                            Box(contentAlignment = Alignment.Center) {
+                                Icon(
+                                    imageVector = QuietGuardMark,
+                                    contentDescription = null,
+                                    modifier = Modifier.size(34.dp),
+                                )
                             }
-                            Text(
-                                text = stringResource(Res.string.app_name),
-                                style = MaterialTheme.typography.headlineSmall,
-                                fontWeight = FontWeight.SemiBold,
-                            )
                         }
                         Text(
-                            text = stringResource(Res.string.app_description),
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            text = stringResource(Res.string.app_name),
+                            style = MaterialTheme.typography.headlineSmall,
+                            fontWeight = FontWeight.SemiBold,
                         )
-                        HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant)
-                        Surface(
-                            shape = MaterialTheme.shapes.medium,
-                            color = MaterialTheme.colorScheme.surfaceContainerHigh,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .clip(MaterialTheme.shapes.medium)
-                                .clickable(
-                                    role = Role.Button,
-                                    onClick = { uriHandler.openUri(PROJECT_GITHUB_URL) },
-                                ),
-                        ) {
-                            Row(
-                                modifier = Modifier.padding(
-                                    horizontal = spacing.medium,
-                                    vertical = spacing.small,
-                                ),
-                                verticalAlignment = Alignment.CenterVertically,
-                            ) {
-                                Icon(
-                                    imageVector = Icons.Outlined.Info,
-                                    contentDescription = null,
-                                    tint = MaterialTheme.colorScheme.primary,
-                                )
-                                Spacer(modifier = Modifier.width(spacing.small))
-                                Column(modifier = Modifier.weight(1f)) {
-                                    Text(
-                                        text = "GitHub",
-                                        style = MaterialTheme.typography.titleSmall,
-                                    )
-                                    Text(
-                                        text = PROJECT_GITHUB_URL.removePrefix("https://"),
-                                        style = MaterialTheme.typography.bodySmall,
-                                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                    )
-                                }
-                                Icon(
-                                    imageVector = Icons.AutoMirrored.Filled.Forward,
-                                    contentDescription = null,
-                                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                                )
-                            }
-                        }
+                    }
+                    Text(
+                        text = stringResource(Res.string.app_description),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                    FilledTonalButton(
+                        onClick = { uriHandler.openUri(PROJECT_GITHUB_URL) },
+                        modifier = Modifier.align(Alignment.Start),
+                    ) {
+                        Icon(imageVector = Icons.Default.Code, contentDescription = null)
+                        Spacer(modifier = Modifier.width(spacing.small))
+                        Text(text = "GitHub")
                     }
                 }
+            }
             }
         }
     } // end Scaffold
@@ -1370,22 +1339,37 @@ private fun ThemeSwatch(
 @Composable
 private fun CollapsibleSettingsSection(
     title: String,
+    framed: Boolean = true,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     val spacing = MaterialTheme.spacing
     Column(
-        verticalArrangement = Arrangement.spacedBy(spacing.extraSmall),
+        verticalArrangement = Arrangement.spacedBy(spacing.small),
     ) {
         Text(
             text = title,
-            style = MaterialTheme.typography.titleMedium,
-            color = MaterialTheme.colorScheme.primary,
-            modifier = Modifier.padding(bottom = spacing.extraSmall),
+            style = MaterialTheme.typography.titleSmall,
+            fontWeight = FontWeight.SemiBold,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.padding(horizontal = spacing.extraSmall),
         )
-        Column(
-            verticalArrangement = Arrangement.spacedBy(spacing.extraSmall),
-            content = content,
-        )
+        if (framed) {
+            Surface(
+                color = MaterialTheme.colorScheme.surfaceContainerLow,
+                shape = MaterialTheme.shapes.extraLarge,
+            ) {
+                Column(
+                    modifier = Modifier.padding(spacing.small),
+                    verticalArrangement = Arrangement.spacedBy(2.dp),
+                    content = content,
+                )
+            }
+        } else {
+            Column(
+                verticalArrangement = Arrangement.spacedBy(spacing.extraSmall),
+                content = content,
+            )
+        }
     }
 }
 
@@ -1509,21 +1493,11 @@ private fun SettingToggleRow(
         haptic.performHapticFeedback(HapticFeedbackType.LongPress)
         onCheckedChange(newValue)
     }
-    val isHighlighted = checked
-    val containerColor =
-        if (isHighlighted) MaterialTheme.colorScheme.primaryContainer
-        else MaterialTheme.colorScheme.surfaceContainerLow
-    val titleColor =
-        if (isHighlighted) MaterialTheme.colorScheme.onPrimaryContainer
-        else MaterialTheme.colorScheme.onSurface
-    val subtitleColor =
-        if (isHighlighted) MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.8f)
-        else MaterialTheme.colorScheme.onSurfaceVariant
     val resetAction = onReset?.takeIf { defaultChecked != null && checked != defaultChecked }
 
     Surface(
         modifier = Modifier.fillMaxWidth(),
-        color = containerColor,
+        color = Color.Transparent,
         shape = rowShape,
     ) {
         Row(
@@ -1548,14 +1522,14 @@ private fun SettingToggleRow(
             ) {
                 Text(
                     text = title,
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = titleColor,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurface,
                 )
                 subtitle?.let {
                     Text(
                         text = it,
                         style = MaterialTheme.typography.bodySmall,
-                        color = subtitleColor,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
                 }
             }
@@ -1571,11 +1545,7 @@ private fun SettingToggleRow(
                             },
                         ),
                         onReset = reset,
-                        tint = if (isHighlighted) {
-                            MaterialTheme.colorScheme.onPrimaryContainer
-                        } else {
-                            MaterialTheme.colorScheme.primary
-                        },
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
                 }
                 Switch(
@@ -1610,21 +1580,11 @@ private fun SettingToggleRowWithTooltip(
         haptic.performHapticFeedback(HapticFeedbackType.LongPress)
         onCheckedChange(newValue)
     }
-    val isHighlighted = checked
-    val containerColor =
-        if (isHighlighted) MaterialTheme.colorScheme.primaryContainer
-        else MaterialTheme.colorScheme.surfaceContainerLow
-    val titleColor =
-        if (isHighlighted) MaterialTheme.colorScheme.onPrimaryContainer
-        else MaterialTheme.colorScheme.onSurface
-    val infoTint =
-        if (isHighlighted) MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.8f)
-        else MaterialTheme.colorScheme.onSurfaceVariant
     val resetAction = onReset?.takeIf { defaultChecked != null && checked != defaultChecked }
 
     Surface(
         modifier = Modifier.fillMaxWidth(),
-        color = containerColor,
+        color = Color.Transparent,
         shape = rowShape,
     ) {
         Column {
@@ -1650,8 +1610,8 @@ private fun SettingToggleRowWithTooltip(
                 ) {
                     Text(
                         text = title,
-                        style = MaterialTheme.typography.bodyLarge,
-                        color = titleColor,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurface,
                     )
                     IconButton(
                         onClick = { showTooltip = !showTooltip },
@@ -1666,7 +1626,7 @@ private fun SettingToggleRowWithTooltip(
                             modifier = Modifier
                                 .size(18.dp)
                                 .padding(bottom = 1.dp),
-                            tint = infoTint,
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
                     }
                 }
@@ -1682,11 +1642,7 @@ private fun SettingToggleRowWithTooltip(
                                 },
                             ),
                             onReset = reset,
-                            tint = if (isHighlighted) {
-                                MaterialTheme.colorScheme.onPrimaryContainer
-                            } else {
-                                MaterialTheme.colorScheme.primary
-                            },
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
                     }
                     Switch(
@@ -1730,46 +1686,42 @@ private fun SettingTextRow(
     onReset: (() -> Unit)? = null,
     onValueChange: (String) -> Unit,
 ) {
-    val spacing = MaterialTheme.spacing
-    val rowShape =
-        settingItemShape(isFirst = isFirst, isLast = isLast, baseShape = MaterialTheme.shapes.small)
     val modifiedDefault = defaultValue?.takeIf { value != it && onReset != null }
     val resetAction = onReset?.takeIf { modifiedDefault != null }
-    Surface(
-        modifier = Modifier.fillMaxWidth(),
-        color = MaterialTheme.colorScheme.surfaceContainerLow,
-        shape = rowShape,
-    ) {
-        Column(
-            modifier = Modifier.padding(spacing.default),
-            verticalArrangement = Arrangement.spacedBy(spacing.small),
-        ) {
-            Text(
-                text = title,
-                style = MaterialTheme.typography.bodyLarge,
-            )
-            OutlinedTextField(
-                value = value,
-                onValueChange = onValueChange,
-                keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
-                modifier = Modifier.fillMaxWidth(),
-                singleLine = true,
-                trailingIcon = if (modifiedDefault != null && resetAction != null) {
-                    {
-                        SettingResetAction(
-                            title = title,
-                            defaultValue = modifiedDefault.ifEmpty {
-                                stringResource(Res.string.setting_value_empty)
-                            },
-                            onReset = resetAction,
-                        )
-                    }
-                } else {
-                    trailingIcon
-                },
-            )
-        }
-    }
+    OutlinedTextField(
+        value = value,
+        onValueChange = onValueChange,
+        label = { Text(text = settingFieldLabel(title, value)) },
+        keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 2.dp, vertical = 2.dp),
+        shape = MaterialTheme.shapes.large,
+        singleLine = true,
+        trailingIcon = if (modifiedDefault != null && resetAction != null) {
+            {
+                SettingResetAction(
+                    title = settingFieldLabel(title, value),
+                    defaultValue = modifiedDefault.ifEmpty {
+                        stringResource(Res.string.setting_value_empty)
+                    },
+                    onReset = resetAction,
+                )
+            }
+        } else {
+            trailingIcon
+        },
+    )
+}
+
+private fun settingFieldLabel(title: String, value: String): String {
+    val withoutValue =
+        if (value.isNotEmpty() && title.endsWith(value)) title.dropLast(value.length) else title
+    return withoutValue
+        .replace("%s", "")
+        .trim()
+        .trimEnd(':')
+        .trim()
 }
 
 @Composable
@@ -1785,75 +1737,66 @@ private fun SettingTextRowWithTooltip(
     onValueChange: (String) -> Unit,
 ) {
     val spacing = MaterialTheme.spacing
-    val rowShape =
-        settingItemShape(isFirst = isFirst, isLast = isLast, baseShape = MaterialTheme.shapes.small)
     var showTooltip by remember { mutableStateOf(false) }
     val modifiedDefault = defaultValue?.takeIf { value != it && onReset != null }
     val resetAction = onReset?.takeIf { modifiedDefault != null }
 
-    Surface(
-        modifier = Modifier.fillMaxWidth(),
-        color = MaterialTheme.colorScheme.surfaceContainerLow,
-        shape = rowShape,
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 2.dp, vertical = 2.dp),
+        verticalArrangement = Arrangement.spacedBy(spacing.extraSmall),
     ) {
-        Column(
-            modifier = Modifier.padding(spacing.default),
-            verticalArrangement = Arrangement.spacedBy(spacing.small),
-        ) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Text(
-                    text = title,
-                    style = MaterialTheme.typography.bodyLarge,
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Text(
+                text = settingFieldLabel(title, value),
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.weight(1f),
+            )
+            IconButton(
+                onClick = { showTooltip = !showTooltip },
+                modifier = Modifier.size(TouchTargets.minimum),
+            ) {
+                Icon(
+                    imageVector = Icons.Outlined.Info,
+                    contentDescription = stringResource(Res.string.content_desc_show_info, title),
+                    modifier = Modifier.size(18.dp),
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
-                IconButton(
-                    onClick = { showTooltip = !showTooltip },
-                    modifier = Modifier.size(TouchTargets.minimum),
-                ) {
-                    Icon(
-                        imageVector = Icons.Outlined.Info,
-                        contentDescription = stringResource(Res.string.content_desc_show_info, title),
-                        modifier = Modifier
-                            .size(18.dp)
-                            .padding(bottom = 1.dp),
-                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
             }
+        }
 
-            ExpandableContent(expanded = showTooltip) {
-                Surface(
-                    color = MaterialTheme.colorScheme.secondaryContainer,
-                    shape = MaterialTheme.shapes.medium,
-                ) {
-                    Text(
-                        text = tooltip,
-                        style = MaterialTheme.typography.bodySmall,
-                        modifier = Modifier.padding(spacing.small),
-                    )
-                }
-            }
-
-            OutlinedTextField(
-                value = value,
-                onValueChange = onValueChange,
-                keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
-                modifier = Modifier.fillMaxWidth(),
-                singleLine = true,
-                trailingIcon = if (modifiedDefault != null && resetAction != null) {
-                    {
-                        SettingResetAction(
-                            title = title,
-                            defaultValue = modifiedDefault.ifEmpty {
-                                stringResource(Res.string.setting_value_empty)
-                            },
-                            onReset = resetAction,
-                        )
-                    }
-                } else {
-                    null
-                },
+        ExpandableContent(expanded = showTooltip) {
+            Text(
+                text = tooltip,
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(horizontal = spacing.small),
             )
         }
+
+        OutlinedTextField(
+            value = value,
+            onValueChange = onValueChange,
+            keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
+            modifier = Modifier.fillMaxWidth(),
+            shape = MaterialTheme.shapes.large,
+            singleLine = true,
+            trailingIcon = if (modifiedDefault != null && resetAction != null) {
+                {
+                    SettingResetAction(
+                        title = settingFieldLabel(title, value),
+                        defaultValue = modifiedDefault.ifEmpty {
+                            stringResource(Res.string.setting_value_empty)
+                        },
+                        onReset = resetAction,
+                    )
+                }
+            } else {
+                null
+            },
+        )
     }
 }
 
@@ -1929,8 +1872,7 @@ private fun CompactSettingToggleTile(
         },
         modifier = modifier.heightIn(min = 72.dp),
         shape = tileShape,
-        color = if (checked) MaterialTheme.colorScheme.primaryContainer
-        else MaterialTheme.colorScheme.surfaceContainerLow,
+        color = Color.Transparent,
     ) {
         Column(
             modifier = Modifier
@@ -1940,9 +1882,8 @@ private fun CompactSettingToggleTile(
         ) {
             Text(
                 text = title,
-                style = MaterialTheme.typography.bodyLarge,
-                color = if (checked) MaterialTheme.colorScheme.onPrimaryContainer
-                else MaterialTheme.colorScheme.onSurface,
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurface,
             )
             Spacer(modifier = Modifier.heightIn(min = spacing.small))
             Row(
@@ -1960,11 +1901,7 @@ private fun CompactSettingToggleTile(
                             },
                         ),
                         onReset = reset,
-                        tint = if (checked) {
-                            MaterialTheme.colorScheme.onPrimaryContainer
-                        } else {
-                            MaterialTheme.colorScheme.primary
-                        },
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
                 }
                 Switch(
