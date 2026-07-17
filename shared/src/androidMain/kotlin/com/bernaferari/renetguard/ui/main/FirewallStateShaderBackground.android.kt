@@ -1,5 +1,6 @@
 package com.bernaferari.renetguard.ui.main
 
+import android.os.Build
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
@@ -8,8 +9,15 @@ actual fun FirewallStateShaderBackground(
     enabledProgress: Float,
     modifier: Modifier,
 ) {
-    FirewallStateShader(
-        enabledProgress = enabledProgress,
-        modifier = modifier,
-    )
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        FirewallStateShader(
+            enabledProgress = enabledProgress,
+            modifier = modifier,
+        )
+    } else {
+        FirewallStateShaderCanvas(
+            enabledProgress = enabledProgress,
+            modifier = modifier,
+        )
+    }
 }

@@ -12,6 +12,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.StrokeCap
@@ -19,7 +21,9 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.luminance
 import com.bernaferari.renetguard.ui.theme.LocalMotion
 import kotlin.math.PI
-import kotlin.math.abs
+import kotlin.math.cos
+import kotlin.math.exp
+import kotlin.math.max
 import kotlin.math.sin
 
 @Composable
@@ -40,15 +44,16 @@ internal fun FirewallStateShaderCanvas(
     )
     val secondary = MaterialTheme.colorScheme.secondary
     val tertiary = MaterialTheme.colorScheme.tertiary
+    val error = MaterialTheme.colorScheme.error
     val outline = MaterialTheme.colorScheme.outlineVariant
     val surfaceVariant = MaterialTheme.colorScheme.surfaceVariant
     val isDark = MaterialTheme.colorScheme.surface.luminance() < 0.5f
     val blend = enabledProgress.coerceIn(0f, 1f)
     val signalDisabled =
         Color(
-            red = surfaceVariant.red * (1f - 0.36f * (1f - if (isDark) 0.5f else 0.36f)) + outline.red * 0.36f,
-            green = surfaceVariant.green * 0.64f + outline.green * 0.36f,
-            blue = surfaceVariant.blue * 0.64f + outline.blue * 0.36f,
+            red = surfaceVariant.red * 0.52f + outline.red * 0.28f + error.red * 0.20f,
+            green = surfaceVariant.green * 0.52f + outline.green * 0.28f + error.green * 0.20f,
+            blue = surfaceVariant.blue * 0.52f + outline.blue * 0.28f + error.blue * 0.20f,
         )
     val signalEnabled =
         Color(
@@ -73,30 +78,81 @@ internal fun FirewallStateShaderCanvas(
         val tau = (2f * PI).toFloat()
         val sampleCount = width.toInt().coerceIn(48, 220)
         val stepX = width / sampleCount
+        val auraRadius = max(width, height) * 0.58f
+        val auraCenter = Offset(
+            x = width * (0.24f + 0.025f * sin(theta)),
+            y = height * (0.30f + 0.020f * cos(theta)),
+        )
+        val auraAlpha = if (isDark) 0.13f else 0.08f
+        drawCircle(
+            brush = Brush.radialGradient(
+                colors = listOf(
+                    signal.copy(alpha = auraAlpha * (0.72f + 0.28f * blend)),
+                    signal.copy(alpha = auraAlpha * 0.28f),
+                    Color.Transparent,
+                ),
+                center = auraCenter,
+                radius = auraRadius,
+            ),
+            center = auraCenter,
+            radius = auraRadius,
+        )
+
+        val secondaryAuraCenter = Offset(
+            x = width * (0.82f + 0.020f * cos(theta)),
+            y = height * (0.70f + 0.020f * sin(theta)),
+        )
+        drawCircle(
+            brush = Brush.radialGradient(
+                colors = listOf(
+                    signal.copy(alpha = auraAlpha * 0.42f),
+                    Color.Transparent,
+                ),
+                center = secondaryAuraCenter,
+                radius = auraRadius * 0.58f,
+            ),
+            center = secondaryAuraCenter,
+            radius = auraRadius * 0.58f,
+        )
 
         repeat(6) { laneIndex ->
             val laneT = laneIndex / 5f
-            val centerY = (0.20f + laneT * 0.60f) * height
+            val centerY = (0.10f + laneT * 0.80f) * height
             val laneOff = laneIndex * 0.85f
             val freqDis = 1f + (laneIndex % 3).toFloat()
             val freqEn = 2f + (laneIndex % 2).toFloat()
+            val focusX1 = 0.24f + 0.018f * sin(theta)
+            val focusY1 = (0.30f + (laneT - 0.5f) * 0.045f) * height
+            val focusX2 = 0.82f + 0.016f * cos(theta)
+            val focusY2 = (0.70f + (laneT - 0.5f) * 0.05f) * height
             val path = lanePaths[laneIndex]
             path.rewind()
 
             for (sample in 0..sampleCount) {
                 val x = sample * stepX
                 val uvX = x / width
-                val yDis =
+                val organicDisabled =
                     centerY +
-                        (0.005f + laneT * 0.003f) * height *
-                        sin(uvX * tau * freqDis + theta * 0.55f + laneOff) +
-                        0.002f * height * sin(theta * 0.18f + laneOff * 1.7f)
-                val yEn =
+                        (0.030f + laneT * 0.010f) * height *
+                        sin(uvX * tau * freqDis + theta + laneOff) +
+                        0.014f * height * sin(uvX * tau * 2.3f - theta + laneOff)
+                val organicEnabled =
                     centerY +
-                        (0.008f + laneT * 0.005f) * height *
-                        sin(uvX * tau * (freqEn + 1.2f) + theta * 1.85f + laneOff) +
-                        0.003f * height * sin(uvX * tau * 3f - theta * 1.25f + laneOff * 0.6f)
-                val y = yDis + (yEn - yDis) * blend
+                        (0.045f + laneT * 0.012f) * height *
+                        sin(uvX * tau * (freqEn + 0.7f) + theta * 2f + laneOff) +
+                        0.021f * height *
+                        sin(uvX * tau * 3.2f - theta * 3f + laneOff * 0.6f)
+                val organicY = organicDisabled + (organicEnabled - organicDisabled) * blend
+                val focusDistance1 = (uvX - focusX1) / 0.105f
+                val focusPull1 =
+                    exp(-(focusDistance1 * focusDistance1)) *
+                        (0.64f + 0.12f * sin(theta + laneOff))
+                val focusDistance2 = (uvX - focusX2) / 0.115f
+                val focusPull2 =
+                    exp(-(focusDistance2 * focusDistance2)) *
+                        (0.62f + 0.13f * cos(theta * 2f + laneOff))
+                val firstFocusY = organicY + (focusY1 - organicY) * focusPull1
+                val y = firstFocusY + (focusY2 - firstFocusY) * focusPull2
                 if (sample == 0) {
                     path.moveTo(x, y)
                 } else {
@@ -104,11 +160,21 @@ internal fun FirewallStateShaderCanvas(
                 }
             }
 
-            val strokeAlpha = (0.03f + 0.062f * blend) * if (isDark) 0.92f else 0.72f
+            val themeStrength = if (isDark) 1f else 0.72f
             drawPath(
                 path = path,
-                color = signal.copy(alpha = strokeAlpha.coerceIn(0.02f, 0.2f)),
-                style = Stroke(width = 1.25f, cap = StrokeCap.Round),
+                color = signal.copy(alpha = (0.018f + 0.014f * blend) * themeStrength),
+                style = Stroke(width = 28f, cap = StrokeCap.Round),
+            )
+            drawPath(
+                path = path,
+                color = signal.copy(alpha = (0.032f + 0.020f * blend) * themeStrength),
+                style = Stroke(width = 8f, cap = StrokeCap.Round),
+            )
+            drawPath(
+                path = path,
+                color = signal.copy(alpha = (0.13f + 0.05f * blend) * themeStrength),
+                style = Stroke(width = 1.35f, cap = StrokeCap.Round),
             )
         }
 

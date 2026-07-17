@@ -54,6 +54,7 @@ internal fun FirewallStateShader(
     val paint = remember { AndroidPaint().apply { isAntiAlias = true } }
     val secondary = MaterialTheme.colorScheme.secondary
     val tertiary = MaterialTheme.colorScheme.tertiary
+    val error = MaterialTheme.colorScheme.error
     val outline = MaterialTheme.colorScheme.outlineVariant
     val surfaceVariant = MaterialTheme.colorScheme.surfaceVariant
     val isDarkTheme = MaterialTheme.colorScheme.surface.luminance() < 0.5f
@@ -77,6 +78,7 @@ internal fun FirewallStateShader(
             tertiary.blue,
             tertiary.alpha
         )
+        shader.setFloatUniform("uError", error.red, error.green, error.blue, error.alpha)
         shader.setFloatUniform("uOutline", outline.red, outline.green, outline.blue, outline.alpha)
         shader.setFloatUniform(
             "uSurfaceVariant",
@@ -99,6 +101,7 @@ uniform float uEnabled;
 uniform float uDark;
 uniform half4 uSecondary;
 uniform half4 uTertiary;
+uniform half4 uError;
 uniform half4 uOutline;
 uniform half4 uSurfaceVariant;
 
@@ -122,9 +125,31 @@ half4 main(float2 fragCoord) {
     half3 color = half3(0.0);
     float alpha = 0.0;
 
-    half3 sigDisabled = mix3(uSurfaceVariant.rgb, uOutline.rgb, mix(0.36, 0.50, uDark));
+    half3 sigDisabled = mix3(
+        mix3(uSurfaceVariant.rgb, uOutline.rgb, 0.35),
+        uError.rgb,
+        0.20
+    );
     half3 sigEnabled = mix3(uSecondary.rgb, uTertiary.rgb, 0.52);
     half3 signal = mix3(sigDisabled, sigEnabled, en);
+
+    // Broad, slowly drifting atmosphere behind the main control.
+    float2 auraCenter = float2(
+        0.24 + 0.025 * sin(theta),
+        0.30 + 0.020 * cos(theta)
+    );
+    float2 auraP = (uv - auraCenter) / float2(0.58, 0.48);
+    float aura = exp(-dot(auraP, auraP) * 2.2);
+    float2 auraCenter2 = float2(
+        0.82 + 0.020 * cos(theta),
+        0.70 + 0.020 * sin(theta)
+    );
+    float2 auraP2 = (uv - auraCenter2) / float2(0.34, 0.28);
+    float aura2 = exp(-dot(auraP2, auraP2) * 2.6);
+    float auraStrength = mix(0.055, 0.09, uDark) * mix(0.78, 1.0, en);
+    float combinedAura = aura + aura2 * 0.42;
+    color += signal * half(combinedAura * auraStrength);
+    alpha += combinedAura * auraStrength;
 
     // Keep center content readable without radial masking.
     float cx = abs(uv.x - 0.5);
@@ -137,25 +162,42 @@ half4 main(float2 fragCoord) {
     const int lanes = 6;
     for (int i = 0; i < lanes; ++i) {
         float laneT = float(i) / float(lanes - 1);
-        float centerY = 0.20 + laneT * 0.60;
+        float centerY = 0.10 + laneT * 0.80;
         float fi = float(i);
         float laneOff = fi * 0.85;
         float freqDis = 1.0 + (fi - 3.0 * floor(fi / 3.0));
         float freqEn = 2.0 + (fi - 2.0 * floor(fi / 2.0));
+        float focusX1 = 0.24 + 0.018 * sin(theta);
+        float focusY1 = 0.30 + (laneT - 0.5) * 0.045;
+        float focusDistance1 = (uv.x - focusX1) / 0.105;
+        float focusPull1 = exp(-focusDistance1 * focusDistance1)
+            * (0.64 + 0.12 * sin(theta + laneOff));
+        float focusX2 = 0.82 + 0.016 * cos(theta);
+        float focusY2 = 0.70 + (laneT - 0.5) * 0.05;
+        float focusDistance2 = (uv.x - focusX2) / 0.115;
+        float focusPull2 = exp(-focusDistance2 * focusDistance2)
+            * (0.62 + 0.13 * cos(theta * 2.0 + laneOff));
 
-        // Disabled: slower, flatter, heavier cadence (sadder).
-        float yDis = centerY
-            + (0.005 + laneT * 0.003) * sin(uv.x * tau * freqDis + theta * 0.55 + laneOff)
-            + 0.002 * sin(theta * 0.18 + laneOff * 1.7);
-        float disLine = 1.0 - smoothstep(0.0, 0.0027, abs(uv.y - yDis));
+        float organicDis = centerY
+            + (0.030 + laneT * 0.010) * sin(uv.x * tau * freqDis + theta + laneOff)
+            + 0.014 * sin(uv.x * tau * 2.3 - theta + laneOff);
+        float yDis = mix(mix(organicDis, focusY1, focusPull1), focusY2, focusPull2);
+        float disDistance = abs(uv.y - yDis);
+        float disGlow = 1.0 - smoothstep(0.003, 0.042, disDistance);
+        float disCore = 1.0 - smoothstep(0.0, 0.0023, disDistance);
 
-        // Enabled: faster and livelier phase interference (happier).
-        float yEn = centerY
-            + (0.008 + laneT * 0.005) * sin(uv.x * tau * (freqEn + 1.2) + theta * 1.85 + laneOff)
-            + 0.003 * sin(uv.x * tau * 3.0 - theta * 1.25 + laneOff * 0.6);
-        float enLine = 1.0 - smoothstep(0.0, 0.0034, abs(uv.y - yEn));
+        float organicEn = centerY
+            + (0.045 + laneT * 0.012) * sin(uv.x * tau * (freqEn + 0.7) + theta * 2.0 + laneOff)
+            + 0.021 * sin(uv.x * tau * 3.2 - theta * 3.0 + laneOff * 0.6);
+        float yEn = mix(mix(organicEn, focusY1, focusPull1), focusY2, focusPull2);
+        float enDistance = abs(uv.y - yEn);
+        float enGlow = 1.0 - smoothstep(0.003, 0.046, enDistance);
+        float enCore = 1.0 - smoothstep(0.0, 0.0025, enDistance);
 
-        float lineStrength = mix(disLine * 0.030, enLine * 0.062, en) * centerCut;
+        float disLine = disGlow * 0.020 + disCore * 0.13;
+        float enLine = enGlow * 0.034 + enCore * 0.18;
+        float readability = mix(0.38, 1.0, centerCut);
+        float lineStrength = mix(disLine, enLine, en) * readability;
         color += signal * half(lineStrength);
         alpha += lineStrength * 1.05;
     }
