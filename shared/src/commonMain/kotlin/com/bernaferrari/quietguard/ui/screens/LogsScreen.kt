@@ -98,6 +98,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
@@ -119,6 +120,7 @@ import com.bernaferrari.quietguard.ui.components.AppIcon
 import com.bernaferrari.quietguard.ui.theme.LocalMotion
 import com.bernaferrari.quietguard.ui.theme.spacing
 import com.bernaferrari.quietguard.ui.util.StatePlaceholder
+import kotlinx.coroutines.delay
 
 private val AllowedStatusContentLight = Color(0xFF1B5E20)
 private val AllowedStatusContentDark = Color(0xFFA5D6A7)
@@ -156,6 +158,15 @@ fun LogsScreen(viewModel: LogsViewModel = koinViewModel()) {
     val selectedAppUid = logsUi.selectedAppUid
     val entries = logsUi.logs.data
     val isLoading = logsUi.logs.isLoading && loggingEnabled
+    var showEmptyState by remember { mutableStateOf(false) }
+
+    LaunchedEffect(loggingEnabled, isLoading, entries.isEmpty()) {
+        showEmptyState = false
+        if (loggingEnabled && !isLoading && entries.isEmpty()) {
+            delay(200)
+            showEmptyState = true
+        }
+    }
 
     val appDisplayCache = remember { mutableMapOf<Int, AppDisplayInfo>() }
     fun appDisplay(uid: Int): AppDisplayInfo {
@@ -355,7 +366,7 @@ fun LogsScreen(viewModel: LogsViewModel = koinViewModel()) {
                     )
                 }
 
-                isLoading -> {
+                isLoading || (entries.isEmpty() && !showEmptyState) -> {
                     StatePlaceholder(
                         title = stringResource(Res.string.ui_loading),
                         message = stringResource(Res.string.home_logs_hint),
@@ -364,7 +375,7 @@ fun LogsScreen(viewModel: LogsViewModel = koinViewModel()) {
                     )
                 }
 
-                entries.isEmpty() -> {
+                entries.isEmpty() && showEmptyState -> {
                     StatePlaceholder(
                         title = stringResource(Res.string.ui_empty_logs_title),
                         message = stringResource(Res.string.ui_empty_logs_body),
@@ -1081,5 +1092,3 @@ private fun cardPositionFor(index: Int, totalCount: Int): LogCardPosition {
         else -> LogCardPosition.Middle
     }
 }
-
-

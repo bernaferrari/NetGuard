@@ -37,7 +37,6 @@ import com.bernaferrari.quietguard.generated.resources.setting_wifi_home
 import com.bernaferrari.quietguard.generated.resources.setting_appearance_auto
 import com.bernaferrari.quietguard.generated.resources.setting_appearance_dark
 import com.bernaferrari.quietguard.generated.resources.setting_appearance_light
-import com.bernaferrari.quietguard.generated.resources.setting_appearance_mode
 import com.bernaferrari.quietguard.generated.resources.setting_call
 import com.bernaferrari.quietguard.generated.resources.setting_eu_roaming
 import com.bernaferrari.quietguard.generated.resources.setting_filter
@@ -409,17 +408,6 @@ fun SettingsScreen(
                                 style = MaterialTheme.typography.labelLarge,
                             )
                         }
-                    }
-                    if (appearanceMode != "auto") {
-                        SettingResetAction(
-                            title = stringResource(Res.string.setting_appearance_mode),
-                            defaultValue = stringResource(Res.string.setting_appearance_auto),
-                            onReset = {
-                                preferencesRepository.removeString("appearance")
-                                preferencesRepository.removeBoolean("dark_theme")
-                                NetGuardPlatform.widgets.updateAll()
-                            },
-                        )
                     }
                 }
 
