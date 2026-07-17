@@ -228,7 +228,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-private const val PROJECT_GITHUB_URL = "https://github.com/bernaferrari/NetGuard"
+private const val PROJECT_GITHUB_URL = "https://github.com/bernaferrari/QuietGuard"
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 @Composable

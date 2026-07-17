@@ -87,7 +87,7 @@ android {
             buildConfigField(
                 "String",
                 "GITHUB_LATEST_API",
-                "\"https://api.github.com/repos/bernaferrari/NetGuard/releases/latest\"",
+                "\"https://api.github.com/repos/bernaferrari/QuietGuard/releases/latest\"",
             )
         }
         create("play") {
@@ -113,7 +113,7 @@ android {
             buildConfigField(
                 "String",
                 "GITHUB_LATEST_API",
-                "\"https://api.github.com/repos/bernaferrari/NetGuard/releases/latest\"",
+                "\"https://api.github.com/repos/bernaferrari/QuietGuard/releases/latest\"",
             )
         }
     }

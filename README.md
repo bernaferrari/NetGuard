@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://netguard-demo.vercel.app/"><strong>Try the Web Demo</strong></a>
+  <a href="https://quietguard.vercel.app/"><strong>Try the Web Demo</strong></a>
 </p>
 
 ---
@@ -99,7 +99,7 @@ Deploy manually (after `vercel login` or with a token):
 VERCEL_TOKEN=... VERCEL_ORG_ID=... VERCEL_PROJECT_ID=... ./scripts/deploy-web-vercel.sh
 ```
 
-Pushes to `main` run `.github/workflows/deploy-web-vercel.yml`, which builds the wasm bundle and deploys to [netguard-demo.vercel.app](https://netguard-demo.vercel.app/). Add these repository secrets:
+Pushes to `main` run `.github/workflows/deploy-web-vercel.yml`, which builds the wasm bundle and deploys to [quietguard.vercel.app](https://quietguard.vercel.app/). Add these repository secrets:
 
 | Secret | Where to find it |
 |--------|------------------|
