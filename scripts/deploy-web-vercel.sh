@@ -61,4 +61,14 @@ if [[ "$PREVIEW" == false ]]; then
 fi
 
 echo "==> Deploying $(basename "$DIST") to Vercel"
-vercel "${args[@]}"
+deployment_url="$(vercel "${args[@]}")"
+echo "    deployment: $deployment_url"
+
+if [[ "$PREVIEW" == false ]]; then
+  # quietguard.vercel.app predates the current project configuration and is a
+  # manually assigned alias. Vercel's --prod flag updates generated production
+  # aliases but does not move manual aliases, so promote it explicitly only
+  # after the verified production deployment succeeds.
+  echo "==> Promoting $deployment_url to quietguard.vercel.app"
+  vercel alias set "$deployment_url" quietguard.vercel.app --token "$VERCEL_TOKEN"
+fi

@@ -1,41 +1,65 @@
-name: CI
+name: Build and deploy
 
 on:
   push:
     branches: [master, main]
   pull_request:
     branches: [master, main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quietguard-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  build:
+  build-and-deploy:
+    name: Build, verify, and deploy
     runs-on: ubuntu-latest
     timeout-minutes: 45
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
+      - name: Set up JDK 21
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
-          java-version: 17
-          cache: gradle
+          java-version: 21
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
+      - name: Set up Node.js 24
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
 
-      - name: Run unit tests
-        run: ./gradlew testDebugUnitTest --no-daemon
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v6
 
-      - name: Assemble debug APK
-        run: ./gradlew assembleDebug --no-daemon
+      - name: Test, lint, and build Android
+        run: ./gradlew testDebugUnitTest lintDebug assembleDebug assembleRelease --no-daemon
 
-      - name: Assemble release APK
-        run: ./gradlew assembleRelease --no-daemon
-
-      - name: Run lint
-        run: ./gradlew lintDebug --no-daemon
-
-      - name: Build and verify web dist
+      - name: Build and verify web distribution
         run: ./scripts/verify-web-deploy.sh --ci
+
+      - name: Install Vercel CLI
+        if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)
+        run: npm install --global vercel@54.20.1
+
+      - name: Deploy and promote production
+        if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+        run: ./scripts/deploy-web-vercel.sh
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      - name: Deploy preview
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        run: ./scripts/deploy-web-vercel.sh --preview
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
