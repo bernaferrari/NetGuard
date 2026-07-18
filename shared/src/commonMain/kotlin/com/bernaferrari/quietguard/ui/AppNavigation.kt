@@ -16,6 +16,7 @@ import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Shield
 import androidx.compose.material.icons.filled.Tune
+import androidx.compose.material.icons.outlined.Shield
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -63,9 +64,10 @@ import org.jetbrains.compose.resources.stringResource
 private enum class NavDestination(
     val key: AppNavKey,
     val labelRes: StringResource,
-    val icon: androidx.compose.ui.graphics.vector.ImageVector,
+    val selectedIcon: androidx.compose.ui.graphics.vector.ImageVector,
+    val unselectedIcon: androidx.compose.ui.graphics.vector.ImageVector = selectedIcon,
 ) {
-    HomeTab(Home, Res.string.menu_home, Icons.Default.Shield),
+    HomeTab(Home, Res.string.menu_home, Icons.Filled.Shield, Icons.Outlined.Shield),
     AppsTab(Apps, Res.string.menu_firewall, Icons.Default.Tune),
     LogsTab(Logs, Res.string.menu_log, Icons.AutoMirrored.Filled.List),
     SettingsTab(Settings, Res.string.menu_settings, Icons.Default.Settings),
@@ -211,12 +213,14 @@ fun AppNavigation(
             val currentKey = backStack.lastOrNull()
             val selectedTab = selectedTabFor(currentKey)
             NavDestination.entries.forEach { destination ->
+                val selected = selectedTab == destination.key
                 item(
-                    selected = selectedTab == destination.key,
+                    selected = selected,
                     onClick = { navigateTo(destination.key) },
                     icon = {
                         Icon(
-                            imageVector = destination.icon,
+                            imageVector =
+                                if (selected) destination.selectedIcon else destination.unselectedIcon,
                             contentDescription = stringResource(destination.labelRes),
                         )
                     },
