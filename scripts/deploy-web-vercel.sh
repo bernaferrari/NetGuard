@@ -61,7 +61,26 @@ if [[ "$PREVIEW" == false ]]; then
 fi
 
 echo "==> Deploying $(basename "$DIST") to Vercel"
-deployment_url="$(vercel "${args[@]}")"
+deployment_output="$(vercel "${args[@]}")"
+printf '%s\n' "$deployment_output"
+
+# Vercel prints a bare URL in CI and structured JSON in agent-aware terminals.
+# Normalize both forms before assigning the stable production alias.
+if deployment_url="$(printf '%s\n' "$deployment_output" | jq -er '.deployment.url // .url' 2>/dev/null)"; then
+  :
+else
+  deployment_url="$(
+    printf '%s\n' "$deployment_output" |
+      grep -Eo 'https://[A-Za-z0-9.-]+\.vercel\.app' |
+      head -n 1
+  )"
+fi
+
+if [[ -z "$deployment_url" ]]; then
+  echo "Could not determine the Vercel deployment URL." >&2
+  exit 1
+fi
+
 echo "    deployment: $deployment_url"
 
 if [[ "$PREVIEW" == false ]]; then
