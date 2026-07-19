@@ -1,6 +1,6 @@
 package com.bernaferrari.quietguard.ui.util
 
-import com.bernaferrari.quietguard.ui.components.icons.MaterialSymbols
+import com.bernaferrari.quietguard.ui.icons.MaterialSymbols
 
 
 

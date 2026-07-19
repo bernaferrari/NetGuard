@@ -1,6 +1,6 @@
 package com.bernaferrari.quietguard.demo
 
-import com.bernaferrari.quietguard.ui.components.icons.MaterialSymbols
+import com.bernaferrari.quietguard.ui.icons.MaterialSymbols
 
 
 
@@ -8,7 +8,7 @@ import com.bernaferrari.quietguard.ui.components.icons.MaterialSymbols
 
 import androidx.compose.ui.graphics.Color
 
-import com.bernaferrari.quietguard.ui.components.icons.MaterialIcon
+import com.bernaferrari.quietguard.ui.icons.MaterialIcon
 internal data class WasmDemoAppVisual(
     val backgroundColor: Color,
     val icon: MaterialIcon? = null,

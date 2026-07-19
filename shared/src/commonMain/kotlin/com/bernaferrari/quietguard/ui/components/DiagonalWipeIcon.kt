@@ -1,7 +1,7 @@
 package com.bernaferrari.quietguard.ui.components
 
-import com.bernaferrari.quietguard.ui.components.icons.Icon
-import com.bernaferrari.quietguard.ui.components.icons.MaterialIcon
+import com.bernaferrari.quietguard.ui.icons.Icon
+import com.bernaferrari.quietguard.ui.icons.MaterialIcon
 
 import androidx.compose.animation.core.CubicBezierEasing
 import androidx.compose.animation.core.Easing

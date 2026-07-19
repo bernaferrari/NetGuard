@@ -1,6 +1,6 @@
 package com.bernaferrari.quietguard.ui.screens
 
-import com.bernaferrari.quietguard.ui.components.icons.MaterialSymbols
+import com.bernaferrari.quietguard.ui.icons.MaterialSymbols
 
 
 
@@ -84,7 +84,7 @@ import org.jetbrains.compose.resources.stringArrayResource
 import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 
-import com.bernaferrari.quietguard.ui.components.icons.Icon
+import com.bernaferrari.quietguard.ui.icons.Icon
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ForwardingScreen(viewModel: ForwardingViewModel = koinViewModel()) {

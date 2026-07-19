@@ -1,6 +1,6 @@
 package com.bernaferrari.quietguard.ui
 
-import com.bernaferrari.quietguard.ui.components.icons.MaterialSymbols
+import com.bernaferrari.quietguard.ui.icons.MaterialSymbols
 
 
 
@@ -59,8 +59,8 @@ import com.bernaferrari.quietguard.generated.resources.ui_apps_title
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
 
-import com.bernaferrari.quietguard.ui.components.icons.Icon
-import com.bernaferrari.quietguard.ui.components.icons.MaterialIcon
+import com.bernaferrari.quietguard.ui.icons.Icon
+import com.bernaferrari.quietguard.ui.icons.MaterialIcon
 private enum class NavDestination(
     val key: AppNavKey,
     val labelRes: StringResource,

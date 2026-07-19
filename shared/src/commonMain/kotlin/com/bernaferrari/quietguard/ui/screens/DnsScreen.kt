@@ -1,6 +1,6 @@
 package com.bernaferrari.quietguard.ui.screens
 
-import com.bernaferrari.quietguard.ui.components.icons.MaterialSymbols
+import com.bernaferrari.quietguard.ui.icons.MaterialSymbols
 
 
 
@@ -68,7 +68,7 @@ import com.bernaferrari.quietguard.generated.resources.ui_logs_filter_status
 import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 
-import com.bernaferrari.quietguard.ui.components.icons.Icon
+import com.bernaferrari.quietguard.ui.icons.Icon
 @ExperimentalMaterial3Api
 @OptIn(ExperimentalLayoutApi::class)
 @Composable

@@ -1,6 +1,6 @@
 package com.bernaferrari.quietguard.ui.screens
 
-import com.bernaferrari.quietguard.ui.components.icons.MaterialSymbols
+import com.bernaferrari.quietguard.ui.icons.MaterialSymbols
 
 
 
@@ -90,8 +90,8 @@ import com.bernaferrari.quietguard.ui.components.FirewallTile
 import com.bernaferrari.quietguard.ui.theme.spacing
 import com.bernaferrari.quietguard.ui.theme.LocalMotion
 
-import com.bernaferrari.quietguard.ui.components.icons.Icon
-import com.bernaferrari.quietguard.ui.components.icons.MaterialIcon
+import com.bernaferrari.quietguard.ui.icons.Icon
+import com.bernaferrari.quietguard.ui.icons.MaterialIcon
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AppRuleDetailScreen(

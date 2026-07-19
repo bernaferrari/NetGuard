@@ -1,6 +1,6 @@
 package com.bernaferrari.quietguard.ui.screens
 
-import com.bernaferrari.quietguard.ui.components.icons.MaterialSymbols
+import com.bernaferrari.quietguard.ui.icons.MaterialSymbols
 
 
 
@@ -228,8 +228,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-import com.bernaferrari.quietguard.ui.components.icons.Icon
-import com.bernaferrari.quietguard.ui.components.icons.MaterialIcon
+import com.bernaferrari.quietguard.ui.icons.Icon
+import com.bernaferrari.quietguard.ui.icons.MaterialIcon
 private const val PROJECT_GITHUB_URL = "https://github.com/bernaferrari/QuietGuard"
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)

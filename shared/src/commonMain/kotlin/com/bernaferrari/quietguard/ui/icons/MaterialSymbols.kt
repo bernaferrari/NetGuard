@@ -1,0 +1,106 @@
+package com.bernaferrari.quietguard.ui.icons
+
+/**
+ * Material Symbols Rounded icons generated from Google's Kotlin vector endpoint.
+ *
+ * [Filled] maps to FILL=1 (active/selected); [Outlined] maps to FILL=0
+ * (inactive/unselected). These are the Material Symbols FILL axis presets.
+ */
+object MaterialSymbols {
+    object Filled {
+        val Search: MaterialIcon get() = MaterialIcon(filledSearch)
+        val Tune: MaterialIcon get() = MaterialIcon(filledTune)
+        val Add: MaterialIcon get() = MaterialIcon(filledAdd)
+        val Work: MaterialIcon get() = MaterialIcon(filledWork)
+        val Language: MaterialIcon get() = MaterialIcon(filledLanguage)
+        val Send: MaterialIcon get() = MaterialIcon(filledSend)
+        val OpenInNew: MaterialIcon get() = MaterialIcon(filledOpenInNew)
+        val Refresh: MaterialIcon get() = MaterialIcon(filledRefresh)
+        val HourglassEmpty: MaterialIcon get() = MaterialIcon(filledHourglassEmpty)
+        val BusinessCenter: MaterialIcon get() = MaterialIcon(filledBusinessCenter)
+        val FilterList: MaterialIcon get() = MaterialIcon(filledFilterList)
+        val ArrowDropDown: MaterialIcon get() = MaterialIcon(filledArrowDropDown)
+        val PhotoLibrary: MaterialIcon get() = MaterialIcon(filledPhotoLibrary)
+        val LightMode: MaterialIcon get() = MaterialIcon(filledLightMode)
+        val Lock: MaterialIcon get() = MaterialIcon(filledLock)
+        val Error: MaterialIcon get() = MaterialIcon(filledError)
+        val Movie: MaterialIcon get() = MaterialIcon(filledMovie)
+        val Code: MaterialIcon get() = MaterialIcon(filledCode)
+        val Dns: MaterialIcon get() = MaterialIcon(filledDns)
+        val SignalCellularOff: MaterialIcon get() = MaterialIcon(filledSignalCellularOff)
+        val WifiOff: MaterialIcon get() = MaterialIcon(filledWifiOff)
+        val MusicNote: MaterialIcon get() = MaterialIcon(filledMusicNote)
+        val Forward: MaterialIcon get() = MaterialIcon(filledForward)
+        val Forum: MaterialIcon get() = MaterialIcon(filledForum)
+        val LocalTaxi: MaterialIcon get() = MaterialIcon(filledLocalTaxi)
+        val Shop: MaterialIcon get() = MaterialIcon(filledShop)
+        val FileDownload: MaterialIcon get() = MaterialIcon(filledFileDownload)
+        val MusicVideo: MaterialIcon get() = MaterialIcon(filledMusicVideo)
+        val Chat: MaterialIcon get() = MaterialIcon(filledChat)
+        val MobileOff: MaterialIcon get() = MaterialIcon(filledMobileOff)
+        val List: MaterialIcon get() = MaterialIcon(filledList)
+        val CloudUpload: MaterialIcon get() = MaterialIcon(filledCloudUpload)
+        val Notifications: MaterialIcon get() = MaterialIcon(filledNotifications)
+        val SignalCellular4Bar: MaterialIcon get() = MaterialIcon(filledSignalCellular4Bar)
+        val PhoneAndroid: MaterialIcon get() = MaterialIcon(filledPhoneAndroid)
+        val ShoppingCart: MaterialIcon get() = MaterialIcon(filledShoppingCart)
+        val Launch: MaterialIcon get() = MaterialIcon(filledLaunch)
+        val CheckCircle: MaterialIcon get() = MaterialIcon(filledCheckCircle)
+        val Wifi: MaterialIcon get() = MaterialIcon(filledWifi)
+        val Group: MaterialIcon get() = MaterialIcon(filledGroup)
+        val Info: MaterialIcon get() = MaterialIcon(filledInfo)
+        val Palette: MaterialIcon get() = MaterialIcon(filledPalette)
+        val Download: MaterialIcon get() = MaterialIcon(filledDownload)
+        val AccountBalance: MaterialIcon get() = MaterialIcon(filledAccountBalance)
+        val Map: MaterialIcon get() = MaterialIcon(filledMap)
+        val Security: MaterialIcon get() = MaterialIcon(filledSecurity)
+        val Inbox: MaterialIcon get() = MaterialIcon(filledInbox)
+        val Check: MaterialIcon get() = MaterialIcon(filledCheck)
+        val Extension: MaterialIcon get() = MaterialIcon(filledExtension)
+        val Apps: MaterialIcon get() = MaterialIcon(filledApps)
+        val ArrowBack: MaterialIcon get() = MaterialIcon(filledArrowBack)
+        val Smartphone: MaterialIcon get() = MaterialIcon(filledSmartphone)
+        val Block: MaterialIcon get() = MaterialIcon(filledBlock)
+        val ChevronRight: MaterialIcon get() = MaterialIcon(filledChevronRight)
+        val Undo: MaterialIcon get() = MaterialIcon(filledUndo)
+        val Shield: MaterialIcon get() = MaterialIcon(filledShield)
+        val Cloud: MaterialIcon get() = MaterialIcon(filledCloud)
+        val Settings: MaterialIcon get() = MaterialIcon(filledSettings)
+        val Equalizer: MaterialIcon get() = MaterialIcon(filledEqualizer)
+        val Delete: MaterialIcon get() = MaterialIcon(filledDelete)
+        val PlayArrow: MaterialIcon get() = MaterialIcon(filledPlayArrow)
+        val BrightnessAuto: MaterialIcon get() = MaterialIcon(filledBrightnessAuto)
+        val CameraAlt: MaterialIcon get() = MaterialIcon(filledCameraAlt)
+        val Email: MaterialIcon get() = MaterialIcon(filledEmail)
+        val DarkMode: MaterialIcon get() = MaterialIcon(filledDarkMode)
+        val SignalCellularAlt: MaterialIcon get() = MaterialIcon(filledSignalCellularAlt)
+        val Headset: MaterialIcon get() = MaterialIcon(filledHeadset)
+        val Close: MaterialIcon get() = MaterialIcon(filledClose)
+        val Public: MaterialIcon get() = MaterialIcon(filledPublic)
+    }
+
+    object Outlined {
+        val LightMode: MaterialIcon get() = MaterialIcon(outlinedLightMode)
+        val CheckCircle: MaterialIcon get() = MaterialIcon(outlinedCheckCircle)
+        val Info: MaterialIcon get() = MaterialIcon(outlinedInfo)
+        val Block: MaterialIcon get() = MaterialIcon(outlinedBlock)
+        val Shield: MaterialIcon get() = MaterialIcon(outlinedShield)
+        val Settings: MaterialIcon get() = MaterialIcon(outlinedSettings)
+        val BrightnessAuto: MaterialIcon get() = MaterialIcon(outlinedBrightnessAuto)
+        val DarkMode: MaterialIcon get() = MaterialIcon(outlinedDarkMode)
+        val Public: MaterialIcon get() = MaterialIcon(outlinedPublic)
+    }
+
+    object AutoMirrored {
+        object Filled {
+            val ArrowBack: MaterialIcon get() = MaterialIcon(filledArrowBack, autoMirror = true)
+            val Chat: MaterialIcon get() = MaterialIcon(filledChat, autoMirror = true)
+            val Forward: MaterialIcon get() = MaterialIcon(filledForward, autoMirror = true)
+            val Launch: MaterialIcon get() = MaterialIcon(filledLaunch, autoMirror = true)
+            val List: MaterialIcon get() = MaterialIcon(filledList, autoMirror = true)
+            val OpenInNew: MaterialIcon get() = MaterialIcon(filledOpenInNew, autoMirror = true)
+            val Send: MaterialIcon get() = MaterialIcon(filledSend, autoMirror = true)
+            val Undo: MaterialIcon get() = MaterialIcon(filledUndo, autoMirror = true)
+        }
+    }
+}

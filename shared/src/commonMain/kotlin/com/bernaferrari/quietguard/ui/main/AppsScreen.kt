@@ -1,6 +1,6 @@
 package com.bernaferrari.quietguard.ui.main
 
-import com.bernaferrari.quietguard.ui.components.icons.MaterialSymbols
+import com.bernaferrari.quietguard.ui.icons.MaterialSymbols
 
 
 
@@ -110,8 +110,8 @@ import com.bernaferrari.quietguard.ui.theme.spacing
 import com.bernaferrari.quietguard.ui.util.StatePlaceholder
 import kotlinx.coroutines.flow.distinctUntilChanged
 
-import com.bernaferrari.quietguard.ui.components.icons.Icon
-import com.bernaferrari.quietguard.ui.components.icons.MaterialIcon
+import com.bernaferrari.quietguard.ui.icons.Icon
+import com.bernaferrari.quietguard.ui.icons.MaterialIcon
 @OptIn(
     ExperimentalMaterial3Api::class,
     ExperimentalMaterial3ExpressiveApi::class,

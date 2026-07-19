@@ -1,6 +1,6 @@
 package com.bernaferrari.quietguard.ui.main
 
-import com.bernaferrari.quietguard.ui.components.icons.MaterialSymbols
+import com.bernaferrari.quietguard.ui.icons.MaterialSymbols
 
 
 
@@ -59,7 +59,7 @@ import com.bernaferrari.quietguard.generated.resources.status_enabled
 import com.bernaferrari.quietguard.generated.resources.ui_home_hint
 import org.jetbrains.compose.resources.stringResource
 
-import com.bernaferrari.quietguard.ui.components.icons.Icon
+import com.bernaferrari.quietguard.ui.icons.Icon
 @Composable
 fun HomeScreen(
     viewModel: MainViewModel,

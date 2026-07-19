@@ -1,6 +1,6 @@
 package com.bernaferrari.quietguard.ui.components
 
-import com.bernaferrari.quietguard.ui.components.icons.MaterialIcon
+import com.bernaferrari.quietguard.ui.icons.MaterialIcon
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.animateColorAsState

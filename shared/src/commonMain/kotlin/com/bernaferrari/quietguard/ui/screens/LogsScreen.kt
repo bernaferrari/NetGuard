@@ -1,6 +1,6 @@
 package com.bernaferrari.quietguard.ui.screens
 
-import com.bernaferrari.quietguard.ui.components.icons.MaterialSymbols
+import com.bernaferrari.quietguard.ui.icons.MaterialSymbols
 
 
 
@@ -113,8 +113,8 @@ import com.bernaferrari.quietguard.ui.theme.spacing
 import com.bernaferrari.quietguard.ui.util.StatePlaceholder
 import kotlinx.coroutines.delay
 
-import com.bernaferrari.quietguard.ui.components.icons.Icon
-import com.bernaferrari.quietguard.ui.components.icons.MaterialIcon
+import com.bernaferrari.quietguard.ui.icons.Icon
+import com.bernaferrari.quietguard.ui.icons.MaterialIcon
 private val AllowedStatusContentLight = Color(0xFF1B5E20)
 private val AllowedStatusContentDark = Color(0xFFA5D6A7)
 

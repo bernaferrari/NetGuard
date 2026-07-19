@@ -33,8 +33,8 @@ import androidx.compose.ui.unit.dp
 import com.bernaferrari.quietguard.ui.theme.LocalMotion
 import com.bernaferrari.quietguard.ui.theme.spacing
 
-import com.bernaferrari.quietguard.ui.components.icons.Icon
-import com.bernaferrari.quietguard.ui.components.icons.MaterialIcon
+import com.bernaferrari.quietguard.ui.icons.Icon
+import com.bernaferrari.quietguard.ui.icons.MaterialIcon
 /**
  * A reusable placeholder component for empty, loading, and error states.
  * Features subtle pulse animation during loading for a professional feel.
