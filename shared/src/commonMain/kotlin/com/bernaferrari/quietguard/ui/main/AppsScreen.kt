@@ -16,7 +16,9 @@ import com.bernaferrari.quietguard.generated.resources.menu_traffic_blocked
 import com.bernaferrari.quietguard.generated.resources.title_mobile
 import com.bernaferrari.quietguard.generated.resources.title_wifi
 import com.bernaferrari.quietguard.generated.resources.ui_apps_search_empty
+import com.bernaferrari.quietguard.generated.resources.ui_apps_search_empty_title
 import com.bernaferrari.quietguard.generated.resources.ui_apps_title
+import com.bernaferrari.quietguard.generated.resources.ui_apps_filter_empty_title
 import com.bernaferrari.quietguard.generated.resources.ui_empty_apps_body
 import com.bernaferrari.quietguard.generated.resources.ui_empty_apps_title
 import com.bernaferrari.quietguard.generated.resources.ui_filter_all
@@ -421,6 +423,7 @@ fun AppsScreen(
                         message = stringResource(Res.string.ui_empty_apps_body),
                         icon = MaterialSymbols.Filled.Apps,
                         actionLabel = stringResource(Res.string.menu_refresh),
+                        actionIcon = MaterialSymbols.Filled.Refresh,
                         onAction = { viewModel.refreshRules() },
                     )
                 }
@@ -428,7 +431,7 @@ fun AppsScreen(
                 filteredRules.isEmpty() -> {
                     if (normalizedSearchQuery.isNotEmpty()) {
                         StatePlaceholder(
-                            title = stringResource(Res.string.ui_empty_apps_title),
+                            title = stringResource(Res.string.ui_apps_search_empty_title),
                             message = stringResource(Res.string.ui_apps_search_empty),
                             icon = MaterialSymbols.Filled.Search,
                             actionLabel = stringResource(Res.string.action_clear_search),
@@ -436,7 +439,7 @@ fun AppsScreen(
                         )
                     } else {
                         StatePlaceholder(
-                            title = stringResource(Res.string.ui_empty_apps_title),
+                            title = stringResource(Res.string.ui_apps_filter_empty_title),
                             message = stringResource(Res.string.ui_filter_empty),
                             icon = MaterialSymbols.Filled.Apps,
                             actionLabel = stringResource(Res.string.ui_filter_all),

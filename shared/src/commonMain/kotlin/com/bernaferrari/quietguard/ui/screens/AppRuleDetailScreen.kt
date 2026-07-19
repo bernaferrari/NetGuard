@@ -101,7 +101,6 @@ fun AppRuleDetailScreen(
     onBack: () -> Unit = {},
 ) {
     val detailViewModel: AppRuleDetailViewModel = koinViewModel()
-    val spacing = MaterialTheme.spacing
     val haptic = LocalHapticFeedback.current
 
     val appName = rule.name ?: rule.packageName.orEmpty()
@@ -191,175 +190,186 @@ fun AppRuleDetailScreen(
             verticalArrangement = Arrangement.spacedBy(24.dp),
         ) {
             // ── Firewall ────────────────────────────
-            SectionLabel(stringResource(Res.string.setting_section_firewall))
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(spacing.extraSmall),
+            DetailSection(
+                title = stringResource(Res.string.setting_section_firewall),
             ) {
-                FirewallTile(
-                    allowedIcon = MaterialSymbols.Filled.Wifi,
-                    blockedIcon = MaterialSymbols.Filled.WifiOff,
-                    label = stringResource(Res.string.title_wifi),
-                    allowed = !rule.wifi_blocked,
-                    onToggle = {
-                        updateRule { current ->
-                            current.copy(wifi_blocked = !current.wifi_blocked)
-                        }
-                    },
-                    shape = detailPairTileShape(
-                        isLeadingTile = true,
-                        isFirstRow = true,
-                        isLastRow = true,
-                        baseShape = MaterialTheme.shapes.small,
-                    ),
-                    modifier = Modifier.weight(1f),
-                )
-                FirewallTile(
-                    allowedIcon = MaterialSymbols.Outlined.MobiledataArrows,
-                    blockedIcon = MaterialSymbols.Outlined.MobiledataOff,
-                    label = stringResource(Res.string.title_mobile),
-                    allowed = !rule.other_blocked,
-                    onToggle = {
-                        updateRule { current ->
-                            current.copy(other_blocked = !current.other_blocked)
-                        }
-                    },
-                    shape = detailPairTileShape(
-                        isLeadingTile = false,
-                        isFirstRow = true,
-                        isLastRow = true,
-                        baseShape = MaterialTheme.shapes.small,
-                    ),
-                    modifier = Modifier.weight(1f),
-                )
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(2.dp),
+                ) {
+                    FirewallTile(
+                        allowedIcon = MaterialSymbols.Filled.Wifi,
+                        blockedIcon = MaterialSymbols.Filled.WifiOff,
+                        label = stringResource(Res.string.title_wifi),
+                        allowed = !rule.wifi_blocked,
+                        onToggle = {
+                            updateRule { current ->
+                                current.copy(wifi_blocked = !current.wifi_blocked)
+                            }
+                        },
+                        shape = detailPairTileShape(
+                            isLeadingTile = true,
+                            isFirstRow = true,
+                            isLastRow = true,
+                            baseShape = MaterialTheme.shapes.small,
+                        ),
+                        modifier = Modifier.weight(1f),
+                    )
+                    FirewallTile(
+                        allowedIcon = MaterialSymbols.Outlined.MobiledataArrows,
+                        blockedIcon = MaterialSymbols.Outlined.MobiledataOff,
+                        label = stringResource(Res.string.title_mobile),
+                        allowed = !rule.other_blocked,
+                        onToggle = {
+                            updateRule { current ->
+                                current.copy(other_blocked = !current.other_blocked)
+                            }
+                        },
+                        shape = detailPairTileShape(
+                            isLeadingTile = false,
+                            isFirstRow = true,
+                            isLastRow = true,
+                            baseShape = MaterialTheme.shapes.small,
+                        ),
+                        modifier = Modifier.weight(1f),
+                    )
+                }
             }
 
             // ── Advanced ────────────────────────────
-            SectionLabel(stringResource(Res.string.setting_section_advanced))
-            Column(
-                verticalArrangement = Arrangement.spacedBy(spacing.extraSmall),
+            DetailSection(
+                title = stringResource(Res.string.setting_section_advanced),
             ) {
-                ToggleRow(
-                    icon = MaterialSymbols.Filled.Wifi,
-                    label = stringResource(Res.string.title_screen_wifi),
-                    checked = rule.screen_wifi,
-                    defaultChecked = rule.screen_wifi_default,
-                    isFirst = true,
-                    onReset = {
-                        updateRule { current ->
-                            current.copy(screen_wifi = current.screen_wifi_default)
-                        }
-                    },
-                    onCheckedChange = {
-                        updateRule { current -> current.copy(screen_wifi = it) }
-                    },
-                )
-                ToggleRow(
-                    icon = MaterialSymbols.Filled.Smartphone,
-                    label = stringResource(Res.string.title_screen_other),
-                    checked = rule.screen_other,
-                    defaultChecked = rule.screen_other_default,
-                    onReset = {
-                        updateRule { current ->
-                            current.copy(screen_other = current.screen_other_default)
-                        }
-                    },
-                    onCheckedChange = {
-                        updateRule { current -> current.copy(screen_other = it) }
-                    },
-                )
-                ToggleRow(
-                    icon = MaterialSymbols.Filled.SignalCellularAlt,
-                    label = stringResource(Res.string.title_roaming),
-                    checked = rule.roaming,
-                    defaultChecked = rule.roaming_default,
-                    onReset = {
-                        updateRule { current -> current.copy(roaming = current.roaming_default) }
-                    },
-                    onCheckedChange = {
-                        updateRule { current -> current.copy(roaming = it) }
-                    },
-                )
-                ToggleRow(
-                    icon = MaterialSymbols.Filled.Lock,
-                    label = stringResource(Res.string.title_lockdown),
-                    checked = rule.lockdown,
-                    defaultChecked = false,
-                    onReset = {
-                        updateRule { current -> current.copy(lockdown = false) }
-                    },
-                    onCheckedChange = {
-                        updateRule { current -> current.copy(lockdown = it) }
-                    },
-                )
-                ToggleRow(
-                    icon = MaterialSymbols.Filled.Shield,
-                    label = stringResource(Res.string.title_apply),
-                    checked = rule.apply,
-                    defaultChecked = true,
-                    onReset = {
-                        updateRule { current -> current.copy(apply = true) }
-                    },
-                    onCheckedChange = {
-                        updateRule { current -> current.copy(apply = it) }
-                    },
-                )
-                ToggleRow(
-                    icon = MaterialSymbols.Filled.Notifications,
-                    label = stringResource(Res.string.title_notify),
-                    checked = rule.notify,
-                    defaultChecked = true,
-                    isLast = true,
-                    onReset = {
-                        updateRule { current -> current.copy(notify = true) }
-                    },
-                    onCheckedChange = {
-                        updateRule { current -> current.copy(notify = it) }
-                    },
-                )
+                Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                    ToggleRow(
+                        checkedIcon = MaterialSymbols.Filled.Wifi,
+                        uncheckedIcon = MaterialSymbols.Outlined.Wifi,
+                        label = stringResource(Res.string.title_screen_wifi),
+                        checked = rule.screen_wifi,
+                        defaultChecked = rule.screen_wifi_default,
+                        isFirst = true,
+                        onReset = {
+                            updateRule { current ->
+                                current.copy(screen_wifi = current.screen_wifi_default)
+                            }
+                        },
+                        onCheckedChange = {
+                            updateRule { current -> current.copy(screen_wifi = it) }
+                        },
+                    )
+                    ToggleRow(
+                        checkedIcon = MaterialSymbols.Filled.Smartphone,
+                        uncheckedIcon = MaterialSymbols.Outlined.Smartphone,
+                        label = stringResource(Res.string.title_screen_other),
+                        checked = rule.screen_other,
+                        defaultChecked = rule.screen_other_default,
+                        onReset = {
+                            updateRule { current ->
+                                current.copy(screen_other = current.screen_other_default)
+                            }
+                        },
+                        onCheckedChange = {
+                            updateRule { current -> current.copy(screen_other = it) }
+                        },
+                    )
+                    ToggleRow(
+                        checkedIcon = MaterialSymbols.Filled.SignalCellularAlt,
+                        uncheckedIcon = MaterialSymbols.Outlined.SignalCellularAlt,
+                        label = stringResource(Res.string.title_roaming),
+                        checked = rule.roaming,
+                        defaultChecked = rule.roaming_default,
+                        onReset = {
+                            updateRule { current -> current.copy(roaming = current.roaming_default) }
+                        },
+                        onCheckedChange = {
+                            updateRule { current -> current.copy(roaming = it) }
+                        },
+                    )
+                    ToggleRow(
+                        checkedIcon = MaterialSymbols.Filled.Lock,
+                        uncheckedIcon = MaterialSymbols.Outlined.Lock,
+                        label = stringResource(Res.string.title_lockdown),
+                        checked = rule.lockdown,
+                        defaultChecked = false,
+                        onReset = {
+                            updateRule { current -> current.copy(lockdown = false) }
+                        },
+                        onCheckedChange = {
+                            updateRule { current -> current.copy(lockdown = it) }
+                        },
+                    )
+                    ToggleRow(
+                        checkedIcon = MaterialSymbols.Filled.Shield,
+                        uncheckedIcon = MaterialSymbols.Outlined.Shield,
+                        label = stringResource(Res.string.title_apply),
+                        checked = rule.apply,
+                        defaultChecked = true,
+                        onReset = {
+                            updateRule { current -> current.copy(apply = true) }
+                        },
+                        onCheckedChange = {
+                            updateRule { current -> current.copy(apply = it) }
+                        },
+                    )
+                    ToggleRow(
+                        checkedIcon = MaterialSymbols.Filled.Notifications,
+                        uncheckedIcon = MaterialSymbols.Outlined.Notifications,
+                        label = stringResource(Res.string.title_notify),
+                        checked = rule.notify,
+                        defaultChecked = true,
+                        isLast = true,
+                        onReset = {
+                            updateRule { current -> current.copy(notify = true) }
+                        },
+                        onCheckedChange = {
+                            updateRule { current -> current.copy(notify = it) }
+                        },
+                    )
+                }
             }
 
             // ── Access log ──────────────────────────
             AccessLogSection(rule = rule, viewModel = detailViewModel)
 
             // ── Actions ─────────────────────────────
-            SectionLabel(stringResource(Res.string.setting_options))
-            Column(
-                verticalArrangement = Arrangement.spacedBy(spacing.extraSmall),
+            DetailSection(
+                title = stringResource(Res.string.setting_options),
             ) {
-                ActionRow(
-                    icon = MaterialSymbols.Filled.Info,
-                    label = stringResource(Res.string.menu_settings),
-                    isFirst = true,
-                    onClick = {
-                        rule.packageName?.let { openAppDetails(it) }
-                    },
-                )
-                ActionRow(
-                    icon = MaterialSymbols.AutoMirrored.Filled.Launch,
-                    label = stringResource(Res.string.menu_launch),
-                    enabled = canLaunch,
-                    onClick = { rule.packageName?.let { launchApp(it) } },
-                )
-                ActionRow(
-                    icon = MaterialSymbols.Filled.Delete,
-                    label = stringResource(Res.string.action_clear_access_history),
-                    isLast = true,
-                    tint = MaterialTheme.colorScheme.error,
-                    onClick = {
-                        detailViewModel.clearAccess(rule.uid)
-                    },
-                )
+                Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                    ActionRow(
+                        icon = MaterialSymbols.Filled.Info,
+                        label = stringResource(Res.string.menu_settings),
+                        isFirst = true,
+                        onClick = {
+                            rule.packageName?.let { openAppDetails(it) }
+                        },
+                    )
+                    ActionRow(
+                        icon = MaterialSymbols.AutoMirrored.Filled.Launch,
+                        label = stringResource(Res.string.menu_launch),
+                        enabled = canLaunch,
+                        onClick = { rule.packageName?.let { launchApp(it) } },
+                    )
+                    ActionRow(
+                        icon = MaterialSymbols.Filled.Delete,
+                        label = stringResource(Res.string.action_clear_access_history),
+                        isLast = true,
+                        tint = MaterialTheme.colorScheme.error,
+                        onClick = {
+                            detailViewModel.clearAccess(rule.uid)
+                        },
+                    )
+                }
             }
 
-            Spacer(modifier = Modifier.height(spacing.small))
         }
     }
 }
 
 @Composable
 private fun ToggleRow(
-    icon: MaterialIcon,
+    checkedIcon: MaterialIcon,
+    uncheckedIcon: MaterialIcon,
     label: String,
     checked: Boolean,
     defaultChecked: Boolean,
@@ -408,7 +418,7 @@ private fun ToggleRow(
                 horizontalArrangement = Arrangement.spacedBy(16.dp),
             ) {
                 Icon(
-                    icon = icon,
+                    icon = if (checked) checkedIcon else uncheckedIcon,
                     contentDescription = null,
                     tint = iconTint,
                     modifier = Modifier.size(22.dp),
@@ -593,6 +603,18 @@ private fun detailPairTileShape(
 }
 
 @Composable
+private fun DetailSection(
+    title: String,
+    content: @Composable () -> Unit,
+) {
+    val spacing = MaterialTheme.spacing
+    Column(verticalArrangement = Arrangement.spacedBy(spacing.small)) {
+        SectionLabel(title)
+        content()
+    }
+}
+
+@Composable
 private fun SectionLabel(text: String) {
     Text(
         text = text,
@@ -614,54 +636,56 @@ private fun AccessLogSection(
 
     if (loading || accessEntries.isEmpty()) return
 
-    SectionLabel(stringResource(Res.string.section_access_history))
-
-    Surface(
-        shape = RoundedCornerShape(24.dp),
-        color = MaterialTheme.colorScheme.surfaceContainer,
+    DetailSection(
+        title = stringResource(Res.string.section_access_history),
     ) {
-        Column(modifier = Modifier.padding(vertical = 8.dp)) {
-            accessEntries.forEachIndexed { index, entry ->
-                val isAllowed = entry.allowed > 0
-                val statusColor = if (isAllowed) MaterialTheme.colorScheme.primary
-                else MaterialTheme.colorScheme.error
+        Surface(
+            shape = RoundedCornerShape(24.dp),
+            color = MaterialTheme.colorScheme.surfaceContainer,
+        ) {
+            Column(modifier = Modifier.padding(vertical = 8.dp)) {
+                accessEntries.forEachIndexed { index, entry ->
+                    val isAllowed = entry.allowed > 0
+                    val statusColor = if (isAllowed) MaterialTheme.colorScheme.primary
+                    else MaterialTheme.colorScheme.error
 
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 20.dp, vertical = 10.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(12.dp),
-                ) {
-                    Icon(
-                        icon = if (isAllowed) MaterialSymbols.Outlined.CheckCircle
-                        else MaterialSymbols.Filled.Block,
-                        contentDescription = null,
-                        modifier = Modifier.size(16.dp),
-                        tint = if (entry.allowed >= 0) statusColor
-                        else MaterialTheme.colorScheme.outlineVariant,
-                    )
-                    Text(
-                        text = entry.timeText,
-                        style = MaterialTheme.typography.labelMedium,
-                        fontWeight = FontWeight.SemiBold,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                    Text(
-                        text = "${entry.daddr}:${entry.dport}",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                        modifier = Modifier.weight(1f),
-                    )
-                }
-                if (index < accessEntries.lastIndex) {
-                    HorizontalDivider(
-                        modifier = Modifier.padding(start = 48.dp, end = 20.dp),
-                        thickness = 0.5.dp,
-                        color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.3f),
-                    )
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 20.dp, vertical = 10.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(12.dp),
+                    ) {
+                        Icon(
+                            icon = if (isAllowed) MaterialSymbols.Outlined.CheckCircle
+                            else MaterialSymbols.Filled.Block,
+                            contentDescription = null,
+                            modifier = Modifier.size(16.dp),
+                            tint = if (entry.allowed >= 0) statusColor
+                            else MaterialTheme.colorScheme.outlineVariant,
+                        )
+                        Text(
+                            text = entry.timeText,
+                            style = MaterialTheme.typography.labelMedium,
+                            fontWeight = FontWeight.SemiBold,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                        Text(
+                            text = "${entry.daddr}:${entry.dport}",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                            modifier = Modifier.weight(1f),
+                        )
+                    }
+                    if (index < accessEntries.lastIndex) {
+                        HorizontalDivider(
+                            modifier = Modifier.padding(start = 48.dp, end = 20.dp),
+                            thickness = 0.5.dp,
+                            color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.3f),
+                        )
+                    }
                 }
             }
         }

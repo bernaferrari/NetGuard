@@ -92,6 +92,11 @@ object MaterialSymbols {
         val Public: MaterialIcon get() = MaterialIcon(outlinedPublic)
         val MobiledataArrows: MaterialIcon get() = MaterialIcon(outlinedMobiledataArrows)
         val MobiledataOff: MaterialIcon get() = MaterialIcon(outlinedMobiledataOff)
+        val Wifi: MaterialIcon get() = MaterialIcon(outlinedWifi)
+        val Smartphone: MaterialIcon get() = MaterialIcon(outlinedSmartphone)
+        val SignalCellularAlt: MaterialIcon get() = MaterialIcon(outlinedSignalCellularAlt)
+        val Lock: MaterialIcon get() = MaterialIcon(outlinedLock)
+        val Notifications: MaterialIcon get() = MaterialIcon(outlinedNotifications)
     }
 
     object AutoMirrored {

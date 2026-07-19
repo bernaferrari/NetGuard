@@ -12,6 +12,7 @@ import org.koin.compose.viewmodel.koinViewModel
 import org.jetbrains.compose.resources.stringResource
 import com.bernaferrari.quietguard.generated.resources.Res
 import com.bernaferrari.quietguard.generated.resources.action_clear_search
+import com.bernaferrari.quietguard.generated.resources.action_close
 import com.bernaferrari.quietguard.generated.resources.action_enable
 import com.bernaferrari.quietguard.generated.resources.home_logs_hint
 import com.bernaferrari.quietguard.generated.resources.menu_protocol_other
@@ -40,6 +41,13 @@ import com.bernaferrari.quietguard.generated.resources.ui_logs_group_by_app
 import com.bernaferrari.quietguard.generated.resources.ui_logs_group_timeline
 import com.bernaferrari.quietguard.generated.resources.ui_logs_title
 import com.bernaferrari.quietguard.generated.resources.ui_logs_unknown_source
+import com.bernaferrari.quietguard.generated.resources.ui_log_details_address
+import com.bernaferrari.quietguard.generated.resources.ui_log_details_app_id
+import com.bernaferrari.quietguard.generated.resources.ui_log_details_destination
+import com.bernaferrari.quietguard.generated.resources.ui_log_details_port
+import com.bernaferrari.quietguard.generated.resources.ui_log_details_protocol
+import com.bernaferrari.quietguard.generated.resources.ui_log_details_time
+import com.bernaferrari.quietguard.generated.resources.ui_log_details_title
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateColorAsState
@@ -57,6 +65,7 @@ import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -72,9 +81,11 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SegmentedButton
@@ -145,6 +156,7 @@ fun LogsScreen(viewModel: LogsViewModel = koinViewModel()) {
     val entries = logsUi.logs.data
     val isLoading = !logsUi.preferencesLoaded ||
         (loggingEnabled && !logsUi.logs.isReady && entries.isEmpty())
+    var selectedLogEntry by remember { mutableStateOf<LogEntry?>(null) }
 
     val appDisplayCache = remember { mutableMapOf<Int, AppDisplayInfo>() }
     fun appDisplay(uid: Int): AppDisplayInfo {
@@ -421,6 +433,7 @@ fun LogsScreen(viewModel: LogsViewModel = koinViewModel()) {
                                             packageName = display.packageName,
                                             showAppName = true,
                                             position = cardPositionFor(index, entries.size),
+                                            onClick = { selectedLogEntry = entry },
                                             modifier = Modifier,
                                         )
                                     }
@@ -481,6 +494,7 @@ fun LogsScreen(viewModel: LogsViewModel = koinViewModel()) {
                                                             index,
                                                             appEntries.size
                                                         ),
+                                                        onClick = { selectedLogEntry = entry },
                                                         modifier = Modifier,
                                                     )
                                                 }
@@ -494,6 +508,16 @@ fun LogsScreen(viewModel: LogsViewModel = koinViewModel()) {
                 }
             }
         }
+    }
+
+    selectedLogEntry?.let { entry ->
+        val display = appDisplay(entry.uid)
+        LogEntryDetailsSheet(
+            entry = entry,
+            appName = display.label,
+            packageName = display.packageName,
+            onDismiss = { selectedLogEntry = null },
+        )
     }
 }
 
@@ -856,6 +880,7 @@ private fun LogEntryCard(
     packageName: String?,
     showAppName: Boolean,
     position: LogCardPosition,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val isAllowed = entry.allowed > 0
@@ -913,6 +938,7 @@ private fun LogEntryCard(
     }
 
     Surface(
+        onClick = onClick,
         modifier = modifier.fillMaxWidth(),
         shape = shape,
         color = MaterialTheme.colorScheme.surfaceContainerLow,
@@ -963,7 +989,177 @@ private fun LogEntryCard(
                     MetaTextBadge(text = metadataText)
                 }
             }
+            Icon(
+                icon = MaterialSymbols.Filled.ChevronRight,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.56f),
+                modifier = Modifier.size(20.dp),
+            )
         }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun LogEntryDetailsSheet(
+    entry: LogEntry,
+    appName: String,
+    packageName: String?,
+    onDismiss: () -> Unit,
+) {
+    val spacing = MaterialTheme.spacing
+    val isAllowed = entry.allowed > 0
+    val isDarkSurface = MaterialTheme.colorScheme.surface.luminance() < 0.5f
+    val allowedStatusContentColor =
+        if (isDarkSurface) AllowedStatusContentDark else AllowedStatusContentLight
+    val statusContainerColor = if (isAllowed) {
+        allowedStatusContentColor.copy(alpha = if (isDarkSurface) 0.24f else 0.16f)
+    } else {
+        MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.7f)
+    }
+    val statusContentColor = if (isAllowed) {
+        allowedStatusContentColor
+    } else {
+        MaterialTheme.colorScheme.onErrorContainer
+    }
+    val statusLabel = if (isAllowed) {
+        stringResource(Res.string.menu_traffic_allowed)
+    } else {
+        stringResource(Res.string.menu_traffic_blocked)
+    }
+    val destination = entry.dname?.trim().takeUnless { it.isNullOrEmpty() }
+        ?: buildDestinationPresentation(entry.daddr, entry.dport, entry.dname).headline
+    val fallbackAppIcon = if (entry.uid > 0) {
+        MaterialSymbols.Filled.Apps
+    } else {
+        MaterialSymbols.Filled.Public
+    }
+
+    ModalBottomSheet(onDismissRequest = onDismiss) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .verticalScroll(rememberScrollState())
+                .padding(horizontal = spacing.extraLarge)
+                .padding(bottom = spacing.extraLarge),
+            verticalArrangement = Arrangement.spacedBy(spacing.large),
+        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(
+                    text = stringResource(Res.string.ui_log_details_title),
+                    style = MaterialTheme.typography.titleLarge,
+                    modifier = Modifier.weight(1f),
+                )
+                IconButton(onClick = onDismiss) {
+                    Icon(
+                        icon = MaterialSymbols.Filled.Close,
+                        contentDescription = stringResource(Res.string.action_close),
+                    )
+                }
+            }
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(spacing.medium),
+            ) {
+                AppIcon(
+                    packageName = packageName,
+                    size = 48.dp,
+                    cornerRadius = 14.dp,
+                    fallbackIcon = fallbackAppIcon,
+                )
+                Column(
+                    modifier = Modifier.weight(1f),
+                    verticalArrangement = Arrangement.spacedBy(2.dp),
+                ) {
+                    Text(
+                        text = appName,
+                        style = MaterialTheme.typography.titleMedium,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                    packageName?.let {
+                        Text(
+                            text = it,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                        )
+                    }
+                }
+                StatusTextBadge(
+                    text = statusLabel,
+                    containerColor = statusContainerColor,
+                    contentColor = statusContentColor,
+                    icon = if (isAllowed) MaterialSymbols.Filled.CheckCircle else MaterialSymbols.Filled.Block,
+                )
+            }
+
+            Surface(
+                modifier = Modifier.fillMaxWidth(),
+                color = MaterialTheme.colorScheme.surfaceContainerLow,
+                shape = RoundedCornerShape(20.dp),
+            ) {
+                Column(
+                    modifier = Modifier.padding(spacing.default),
+                    verticalArrangement = Arrangement.spacedBy(spacing.default),
+                ) {
+                    LogDetailField(
+                        label = stringResource(Res.string.ui_log_details_destination),
+                        value = destination,
+                    )
+                    LogDetailField(
+                        label = stringResource(Res.string.ui_log_details_address),
+                        value = entry.daddr,
+                    )
+                    if (entry.dport > 0) {
+                        LogDetailField(
+                            label = stringResource(Res.string.ui_log_details_port),
+                            value = entry.dport.toString(),
+                        )
+                    }
+                    LogDetailField(
+                        label = stringResource(Res.string.ui_log_details_protocol),
+                        value = entry.protocolLabel.uppercase(),
+                    )
+                    LogDetailField(
+                        label = stringResource(Res.string.ui_log_details_time),
+                        value = entry.timeText,
+                    )
+                    if (entry.uid > 0) {
+                        LogDetailField(
+                            label = stringResource(Res.string.ui_log_details_app_id),
+                            value = entry.uid.toString(),
+                        )
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+@Composable
+private fun LogDetailField(
+    label: String,
+    value: String,
+) {
+    Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+        Text(
+            text = label,
+            style = MaterialTheme.typography.labelMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        Text(
+            text = value,
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.onSurface,
+        )
     }
 }
 

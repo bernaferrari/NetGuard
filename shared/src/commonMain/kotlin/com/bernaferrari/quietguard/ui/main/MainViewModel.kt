@@ -50,7 +50,7 @@ class MainViewModel(
                     pendingRefreshJob =
                         launch {
                             delay(300L)
-                            refreshRules()
+                            loadRules(refreshFromSystem = false)
                         }
                 }
             }
@@ -68,10 +68,14 @@ class MainViewModel(
         if (state.hasReceived || state.isLoading) {
             return
         }
-        refreshRules()
+        loadRules(refreshFromSystem = false)
     }
 
     fun refreshRules() {
+        loadRules(refreshFromSystem = true)
+    }
+
+    private fun loadRules(refreshFromSystem: Boolean) {
         if (_rulesUiState.value.isLoading) {
             return
         }
@@ -79,7 +83,7 @@ class MainViewModel(
             _rulesUiState.update { it.copy(isLoading = true, error = null) }
             try {
                 val loaded =
-                    rulesRepository.loadRules(refresh = false)
+                    rulesRepository.loadRules(refresh = refreshFromSystem)
                         .sortedBy { (it.name ?: it.packageName.orEmpty()).lowercase() }
                 _rulesUiState.value = UiAsyncState(
                     data = loaded,
