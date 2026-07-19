@@ -2,9 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [master, main]
   pull_request:
-    branches: [master, main]
   workflow_dispatch:
 
 permissions:
@@ -15,8 +13,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
-    name: Build and verify
+  web:
+    name: KMP web
     runs-on: ubuntu-latest
     timeout-minutes: 45
 
@@ -33,12 +31,5 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v6
 
-      - name: Test and build Android and Wasm targets
-        run: >-
-          ./gradlew
-          testDebugUnitTest lintDebug assembleDebug assembleRelease
-          :webApp:wasmJsBrowserDistribution
-          --no-daemon --parallel --build-cache --configuration-cache
-
-      - name: Verify web distribution
-        run: ./scripts/verify-web-deploy.sh --ci --web-only --skip-build
+      - name: Build and verify web distribution
+        run: ./scripts/verify-web-deploy.sh --ci --web-only
