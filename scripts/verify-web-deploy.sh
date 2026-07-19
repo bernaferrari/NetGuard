@@ -11,15 +11,17 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 DIST="$ROOT/webApp/build/dist/wasmJs/productionExecutable"
 CI_MODE=false
 SERVE_MODE=false
+SKIP_BUILD=false
 WEB_ONLY=false
 
 for arg in "$@"; do
   case "$arg" in
     --ci) CI_MODE=true ;;
     --web-only) WEB_ONLY=true ;;
+    --skip-build) SKIP_BUILD=true ;;
     --serve) SERVE_MODE=true ;;
     -h|--help)
-      echo "Usage: $0 [--ci] [--web-only] [--serve]"
+      echo "Usage: $0 [--ci] [--web-only] [--skip-build] [--serve]"
       exit 0
       ;;
     *)
@@ -32,11 +34,16 @@ done
 cd "$ROOT"
 
 echo "==> Building wasm web distribution (includes Room + sqlite-web worker)"
-gradle_args=(:webApp:wasmJsBrowserDistribution --no-daemon)
-if [[ "$WEB_ONLY" == true ]]; then
-  gradle_args+=(--configure-on-demand)
+if [[ "$SKIP_BUILD" == false ]]; then
+  gradle_args=(
+    :webApp:wasmJsBrowserDistribution
+    --no-daemon
+    --parallel
+    --build-cache
+    --configuration-cache
+  )
+  ./gradlew "${gradle_args[@]}"
 fi
-./gradlew "${gradle_args[@]}"
 
 echo "==> Staging Vercel config in dist"
 cp "$ROOT/webApp/vercel.json" "$DIST/vercel.json"

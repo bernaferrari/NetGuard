@@ -33,8 +33,12 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v6
 
-      - name: Test, lint, and build Android
-        run: ./gradlew testDebugUnitTest lintDebug assembleDebug assembleRelease --no-daemon
+      - name: Test and build Android and Wasm targets
+        run: >-
+          ./gradlew
+          testDebugUnitTest lintDebug assembleDebug assembleRelease
+          :webApp:wasmJsBrowserDistribution
+          --no-daemon --parallel --build-cache --configuration-cache
 
-      - name: Build and verify web distribution
-        run: ./scripts/verify-web-deploy.sh --ci
+      - name: Verify web distribution
+        run: ./scripts/verify-web-deploy.sh --ci --web-only --skip-build
