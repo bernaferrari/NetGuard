@@ -74,6 +74,8 @@ expect object PlatformContext {
     fun isAndroid(): Boolean
 
     fun isDemoMode(): Boolean
+
+    fun prefersReducedMotion(): Boolean
 }
 
 expect fun onDemoFirewallToggled(enabled: Boolean)

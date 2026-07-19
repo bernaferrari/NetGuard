@@ -58,6 +58,9 @@
     <string name="notify_traffic_summary">Up %1$s • Down %2$s • Peak %3$s</string>
     <string name="notify_traffic_debug">Sessions %1$d/%2$d/%3$d • Files %4$d/%5$d</string>
     <string name="ui_loading">Loading…</string>
+    <string name="ui_load_failed">Couldn’t load this content</string>
+    <string name="ui_load_failed_body">Something went wrong while reading the latest data.</string>
+    <string name="action_retry">Try again</string>
     <string name="ui_empty_logs_title">No traffic yet</string>
     <string name="ui_empty_logs_body">Once connections appear, they’ll show up here.</string>
     <string name="ui_empty_apps_title">No apps found</string>

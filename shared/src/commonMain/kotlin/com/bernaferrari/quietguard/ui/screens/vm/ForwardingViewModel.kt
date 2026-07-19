@@ -6,6 +6,7 @@ import com.bernaferrari.quietguard.data.TrafficRepository
 import com.bernaferrari.quietguard.platform.ForwardingEntry
 import com.bernaferrari.quietguard.ui.util.UiAsyncState
 import com.bernaferrari.quietguard.ui.util.asUiAsyncState
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -42,7 +43,13 @@ class ForwardingViewModel(
 ) : ViewModel() {
     private val protocolFilter = MutableStateFlow(ForwardingListFilter.All)
     private val showAddDialog = MutableStateFlow(false)
-    private val entriesState = trafficRepository.observeForwarding().asUiAsyncState(viewModelScope, emptyList())
+    private val retryRequests = MutableSharedFlow<Unit>(extraBufferCapacity = 1)
+    private val entriesState =
+        trafficRepository.observeForwarding().asUiAsyncState(
+            scope = viewModelScope,
+            initialData = emptyList(),
+            retryRequests = retryRequests,
+        )
 
     val uiState: StateFlow<ForwardingScreenState> =
         combine(entriesState, protocolFilter, showAddDialog) { entries, filter, showDialog ->
@@ -55,6 +62,10 @@ class ForwardingViewModel(
 
     fun setShowAddDialog(show: Boolean) {
         showAddDialog.value = show
+    }
+
+    fun retry() {
+        retryRequests.tryEmit(Unit)
     }
 
     fun addForward(protocol: Int, dport: Int, raddr: String, rport: Int, ruid: Int) {

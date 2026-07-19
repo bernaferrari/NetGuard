@@ -37,7 +37,8 @@ object MaterialSymbols {
         val FileDownload: MaterialIcon get() = MaterialIcon(filledFileDownload)
         val MusicVideo: MaterialIcon get() = MaterialIcon(filledMusicVideo)
         val Chat: MaterialIcon get() = MaterialIcon(filledChat)
-        val MobileOff: MaterialIcon get() = MaterialIcon(filledMobileOff)
+        val MobiledataArrows: MaterialIcon get() = MaterialIcon(filledMobiledataArrows)
+        val MobiledataOff: MaterialIcon get() = MaterialIcon(filledMobiledataOff)
         val List: MaterialIcon get() = MaterialIcon(filledList)
         val CloudUpload: MaterialIcon get() = MaterialIcon(filledCloudUpload)
         val Notifications: MaterialIcon get() = MaterialIcon(filledNotifications)
@@ -89,6 +90,8 @@ object MaterialSymbols {
         val BrightnessAuto: MaterialIcon get() = MaterialIcon(outlinedBrightnessAuto)
         val DarkMode: MaterialIcon get() = MaterialIcon(outlinedDarkMode)
         val Public: MaterialIcon get() = MaterialIcon(outlinedPublic)
+        val MobiledataArrows: MaterialIcon get() = MaterialIcon(outlinedMobiledataArrows)
+        val MobiledataOff: MaterialIcon get() = MaterialIcon(outlinedMobiledataOff)
     }
 
     object AutoMirrored {

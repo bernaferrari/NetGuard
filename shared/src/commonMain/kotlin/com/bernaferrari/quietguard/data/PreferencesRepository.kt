@@ -32,12 +32,14 @@ class PreferencesRepository(
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.Default,
 ) {
     private val state = MutableStateFlow<Preferences>(emptyPreferences())
+    private val loadedState = MutableStateFlow(false)
     private val listeners = mutableListOf<(String) -> Unit>()
     private val listenersLock = SynchronizedObject()
     private val changeEvents = MutableSharedFlow<Set<String>>(extraBufferCapacity = 64)
     private val scope = CoroutineScope(SupervisorJob() + ioDispatcher)
 
     val data: StateFlow<Preferences> = state.asStateFlow()
+    val isLoaded: StateFlow<Boolean> = loadedState.asStateFlow()
     val changes: SharedFlow<Set<String>> = changeEvents.asSharedFlow()
 
     val enabledFlow: Flow<Boolean> =
@@ -50,6 +52,7 @@ class PreferencesRepository(
             dataStore.data.collect { prefs ->
                 val previous = state.value
                 state.value = prefs
+                loadedState.value = true
                 notifyChanges(previous, prefs)
             }
         }

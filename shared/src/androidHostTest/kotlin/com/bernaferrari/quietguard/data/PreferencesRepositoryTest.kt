@@ -57,6 +57,19 @@ class PreferencesRepositoryTest {
     }
 
     @Test
+    fun loadedStateChangesAfterFirstDataStoreEmission() {
+        runBlocking {
+            val repository = createRepository()
+
+            withTimeout(2_000) {
+                repository.isLoaded.first { it }
+            }
+
+            assertTrue(repository.isLoaded.value)
+        }
+    }
+
+    @Test
     fun changesEmitsUpdatedKeyNames() {
         runBlocking {
             val repository = createRepository()

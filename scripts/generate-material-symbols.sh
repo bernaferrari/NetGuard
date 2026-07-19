@@ -15,7 +15,7 @@ readonly FILLED_ICONS=(
   search tune add work language send open_in_new refresh hourglass_empty
   business_center filter_list arrow_drop_down photo_library light_mode lock error
   movie code dns signal_cellular_off wifi_off music_note forward forum local_taxi
-  shop file_download music_video chat mobile_off list cloud_upload notifications
+  shop file_download music_video chat mobiledata_arrows mobiledata_off list cloud_upload notifications
   signal_cellular_4_bar phone_android shopping_cart launch check_circle wifi group
   info palette download account_balance map security inbox check extension apps
   arrow_back smartphone block chevron_right undo shield cloud settings equalizer
@@ -24,7 +24,7 @@ readonly FILLED_ICONS=(
 )
 
 readonly OUTLINED_ICONS=(
-  light_mode check_circle info block shield settings brightness_auto dark_mode public
+  light_mode check_circle info block shield settings brightness_auto dark_mode public mobiledata_arrows mobiledata_off
 )
 
 readonly AUTO_MIRRORED_FILLED_ICONS=(

@@ -48,6 +48,8 @@ import com.bernaferrari.quietguard.ui.screens.ForwardingScreen
 import com.bernaferrari.quietguard.ui.screens.LogsScreen
 import com.bernaferrari.quietguard.ui.screens.ProScreen
 import com.bernaferrari.quietguard.ui.screens.SettingsScreen
+import com.bernaferrari.quietguard.ui.screens.vm.LogsViewModel
+import com.bernaferrari.quietguard.ui.util.LoadErrorPlaceholder
 import com.bernaferrari.quietguard.ui.util.StatePlaceholder
 import com.bernaferrari.quietguard.generated.resources.Res
 import com.bernaferrari.quietguard.generated.resources.home_apps_hint
@@ -56,8 +58,10 @@ import com.bernaferrari.quietguard.generated.resources.menu_home
 import com.bernaferrari.quietguard.generated.resources.menu_log
 import com.bernaferrari.quietguard.generated.resources.menu_settings
 import com.bernaferrari.quietguard.generated.resources.ui_apps_title
+import com.bernaferrari.quietguard.generated.resources.ui_loading
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
+import org.koin.compose.viewmodel.koinViewModel
 
 import com.bernaferrari.quietguard.ui.icons.Icon
 import com.bernaferrari.quietguard.ui.icons.MaterialIcon
@@ -91,6 +95,9 @@ fun AppNavigation(
     pendingRoute: String? = null,
     onRouteNavigated: () -> Unit = {},
 ) {
+    // Root tabs are removed from the Navigation 3 back stack when switching tabs.
+    // Keep logs at the app-navigation scope so a revisit can reuse its last real state.
+    val logsViewModel: LogsViewModel = koinViewModel()
     val startKey = remember(startRoute) { NavRoutes.fromRoute(startRoute) }
     val backStack = rememberNavBackStack(appNavSavedStateConfiguration, startKey)
     val paneScaffoldDirective = calculatePaneScaffoldDirective(currentWindowAdaptiveInfoV2())
@@ -238,10 +245,11 @@ fun AppNavigation(
             LaunchedEffect(activeDetail.uid) {
                 viewModel.ensureRulesLoaded()
             }
-            LaunchedEffect(activeDetail.uid, rulesUiState.hasLoaded, rulesUiState.rules) {
+            LaunchedEffect(activeDetail.uid, rulesUiState.hasReceived, rulesUiState.data) {
                 if (
-                    rulesUiState.hasLoaded &&
-                    rulesUiState.rules.none { it.uid == activeDetail.uid }
+                    rulesUiState.hasReceived &&
+                    !rulesUiState.hasFailed &&
+                    rulesUiState.data.none { it.uid == activeDetail.uid }
                 ) {
                     popBackStack()
                 }
@@ -291,21 +299,39 @@ fun AppNavigation(
                         entry<AppRuleDetail>(
                             metadata = appDetailMetadata,
                         ) { key ->
-                            val targetRule = rulesUiState.rules.firstOrNull { it.uid == key.uid }
-                            if (targetRule != null) {
-                                AppRuleDetailScreen(
-                                    rule = targetRule,
-                                    showBackButton = singlePaneLayout,
-                                    onUpdateRule = { transform ->
-                                        viewModel.updateRule(key.uid, transform)
-                                    },
-                                    onBack = { popBackStack() },
-                                )
+                            val targetRule = rulesUiState.data.firstOrNull { it.uid == key.uid }
+                            when {
+                                targetRule != null -> {
+                                    AppRuleDetailScreen(
+                                        rule = targetRule,
+                                        showBackButton = singlePaneLayout,
+                                        onUpdateRule = { transform ->
+                                            viewModel.updateRule(key.uid, transform)
+                                        },
+                                        onBack = { popBackStack() },
+                                    )
+                                }
+
+                                rulesUiState.hasFailed -> {
+                                    LoadErrorPlaceholder(
+                                        icon = MaterialSymbols.Filled.Apps,
+                                        onRetry = viewModel::refreshRules,
+                                    )
+                                }
+
+                                else -> {
+                                    StatePlaceholder(
+                                        title = stringResource(Res.string.ui_loading),
+                                        message = stringResource(Res.string.home_apps_hint),
+                                        icon = MaterialSymbols.Filled.Apps,
+                                        isLoading = true,
+                                    )
+                                }
                             }
                         }
                         entry<Logs> {
                             CenteredScreen {
-                                LogsScreen()
+                                LogsScreen(viewModel = logsViewModel)
                             }
                         }
                         entry<Settings> {

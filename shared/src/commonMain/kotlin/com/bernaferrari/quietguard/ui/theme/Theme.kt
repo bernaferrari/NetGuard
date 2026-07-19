@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import com.bernaferrari.quietguard.data.PreferencesRepository
+import com.bernaferrari.quietguard.platform.PlatformContext
 import com.materialkolor.PaletteStyle
 import com.materialkolor.dynamicColorScheme
 import com.materialkolor.dynamiccolor.ColorSpec
@@ -117,7 +118,7 @@ fun NetGuardTheme(
 
     CompositionLocalProvider(
         LocalSpacing provides Spacing(),
-        LocalMotion provides Motion(),
+        LocalMotion provides Motion(reducedMotion = PlatformContext.prefersReducedMotion()),
     ) {
         MaterialExpressiveTheme(
             colorScheme = colorScheme,

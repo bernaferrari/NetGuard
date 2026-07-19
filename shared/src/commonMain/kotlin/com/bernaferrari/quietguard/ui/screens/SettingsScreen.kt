@@ -110,6 +110,7 @@ import com.bernaferrari.quietguard.generated.resources.settings_about_summary
 import com.bernaferrari.quietguard.generated.resources.about_tagline
 import com.bernaferrari.quietguard.generated.resources.about_source_title
 import com.bernaferrari.quietguard.generated.resources.about_source_summary
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateFloatAsState
@@ -160,10 +161,10 @@ import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.ToggleButton
 import androidx.compose.material3.ToggleButtonDefaults
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.VerticalDivider
 import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -177,6 +178,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.graphics.lerp
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalHapticFeedback
@@ -190,6 +192,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.core.stringSetPreferencesKey
@@ -233,8 +236,7 @@ fun SettingsScreen(
 ) {
     val spacing = MaterialTheme.spacing
     val viewModel: SettingsViewModel = koinViewModel()
-    val preferencesRepository = viewModel.preferencesRepository
-    val prefs by viewModel.preferences.collectAsState()
+    val prefs by viewModel.preferences.collectAsStateWithLifecycle()
     val scrollState = rememberScrollState()
     val uriHandler = LocalUriHandler.current
     val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
@@ -249,7 +251,7 @@ fun SettingsScreen(
         reloadStats: Boolean = false,
         updateWidgets: (() -> Unit)? = null,
     ) {
-        preferencesRepository.putBoolean(key, value)
+        viewModel.putBoolean(key, value)
         if (reload) {
             NetGuardPlatform.firewall.reload("settings", false)
         }
@@ -286,11 +288,11 @@ fun SettingsScreen(
         }
 
     fun updateAppearance(mode: String) {
-        preferencesRepository.putString("appearance", mode)
+        viewModel.putString("appearance", mode)
         when (mode) {
-            "auto" -> preferencesRepository.removeString("dark_theme")
-            "dark" -> preferencesRepository.putBoolean("dark_theme", true)
-            "light" -> preferencesRepository.putBoolean("dark_theme", false)
+            "auto" -> viewModel.removeString("dark_theme")
+            "dark" -> viewModel.putBoolean("dark_theme", true)
+            "light" -> viewModel.putBoolean("dark_theme", false)
         }
         NetGuardPlatform.widgets.updateAll()
     }
@@ -424,21 +426,21 @@ fun SettingsScreen(
                         }
                     }
 
-                    // ── Color theme swatches ──
+                    // ── Color theme swatches, ordered along the hue wheel ──
                     val themeChoices = buildList {
                         if (PlatformContext.isAndroid()) {
                             add(Pair("dynamic", null as Color?))
                         }
                         add(Pair("teal", Teal500 as Color?))
-                        add(Pair("blue", BluePrimary as Color?))
-                        add(Pair("purple", PurplePrimary as Color?))
-                        add(Pair("amber", AmberPrimary as Color?))
-                        add(Pair("orange", OrangePrimary as Color?))
-                        add(Pair("green", GreenPrimary as Color?))
                         add(Pair("cyan", CyanPrimary as Color?))
+                        add(Pair("blue", BluePrimary as Color?))
                         add(Pair("indigo", IndigoPrimary as Color?))
+                        add(Pair("purple", PurplePrimary as Color?))
                         add(Pair("pink", PinkPrimary as Color?))
+                        add(Pair("orange", OrangePrimary as Color?))
+                        add(Pair("amber", AmberPrimary as Color?))
                         add(Pair("lime", LimePrimary as Color?))
+                        add(Pair("green", GreenPrimary as Color?))
                     }
 
                     FlowRow(
@@ -457,7 +459,7 @@ fun SettingsScreen(
                                 isEnabled = true,
                                 dynamicColor = dynamicSwatchColor,
                                 onClick = {
-                                    preferencesRepository.putString("theme", theme)
+                                    viewModel.putString("theme", theme)
                                     NetGuardPlatform.widgets.updateAll()
                                 },
                             )
@@ -515,8 +517,8 @@ fun SettingsScreen(
                                 modifier = Modifier.weight(1f),
                             )
                             FirewallTile(
-                                allowedIcon = MaterialSymbols.Filled.PhoneAndroid,
-                                blockedIcon = MaterialSymbols.Filled.MobileOff,
+                                allowedIcon = MaterialSymbols.Outlined.MobiledataArrows,
+                                blockedIcon = MaterialSymbols.Outlined.MobiledataOff,
                                 label = stringResource(Res.string.title_mobile),
                                 allowed = !bool("whitelist_other", true),
                                 onToggle = {
@@ -568,12 +570,12 @@ fun SettingsScreen(
                     }
                     item { first, last ->
                         SettingTextRow(
-                            title = stringResource(Res.string.setting_delay, "0"),
+                            title = stringResource(Res.string.setting_delay, "…"),
                             value = str("screen_delay", "0"),
                             keyboardType = KeyboardType.Number,
                             isFirst = first,
                             isLast = last,
-                            onValueChange = { preferencesRepository.putString("screen_delay", it) },
+                            onValueChange = { viewModel.putString("screen_delay", it) },
                         )
                     }
                 }
@@ -616,12 +618,12 @@ fun SettingsScreen(
                 SettingsGroup {
                     item { first, last ->
                         SettingTextRow(
-                            title = stringResource(Res.string.setting_auto, "0"),
+                            title = stringResource(Res.string.setting_auto, "…"),
                             value = str("auto_enable", "0"),
                             keyboardType = KeyboardType.Number,
                             isFirst = first,
                             isLast = last,
-                            onValueChange = { preferencesRepository.putString("auto_enable", it) },
+                            onValueChange = { viewModel.putString("auto_enable", it) },
                         )
                     }
                     item { first, last ->
@@ -635,7 +637,7 @@ fun SettingsScreen(
                                 val set =
                                     value.split(",").map { it.trim() }
                                         .filter { it.isNotEmpty() }.toSet()
-                                preferencesRepository.putStringSet("wifi_homes", set)
+                                viewModel.putStringSet("wifi_homes", set)
                             },
                         )
                     }
@@ -707,8 +709,8 @@ fun SettingsScreen(
                             isFirst = first,
                             isLast = last,
                         ) { enabled ->
-                            preferencesRepository.putBoolean("manage_system", enabled)
-                            preferencesRepository.putBoolean("show_system", enabled)
+                            viewModel.putBoolean("manage_system", enabled)
+                            viewModel.putBoolean("show_system", enabled)
                             NetGuardPlatform.firewall.reload("settings", false)
                         }
                     }
@@ -719,7 +721,7 @@ fun SettingsScreen(
                             isFirst = first,
                             isLast = last,
                         ) { enabled ->
-                            preferencesRepository.putBoolean("log", enabled)
+                            viewModel.putBoolean("log", enabled)
                             NetGuardPlatform.firewall.reload("settings", false)
                         }
                     }
@@ -735,7 +737,7 @@ fun SettingsScreen(
                             val numeric = input.filter(Char::isDigit).take(3)
                             val normalized =
                                 numeric.toIntOrNull()?.coerceIn(0, 365)?.toString() ?: numeric
-                            preferencesRepository.putString("log_retention_days", normalized)
+                            viewModel.putString("log_retention_days", normalized)
                         }
                     }
                     item { first, last ->
@@ -836,16 +838,13 @@ fun SettingsScreen(
                     }
                     item { first, last ->
                         SettingTextRow(
-                            title = stringResource(
-                                Res.string.setting_stats_frequency,
-                                str("stats_frequency", "1000"),
-                            ),
+                            title = stringResource(Res.string.setting_stats_frequency, "…"),
                             value = str("stats_frequency", "1000"),
                             keyboardType = KeyboardType.Number,
                             isFirst = first,
                             isLast = last,
                             onValueChange = {
-                                preferencesRepository.putString("stats_frequency", it)
+                                viewModel.putString("stats_frequency", it)
                             },
                         )
                     }
@@ -859,7 +858,7 @@ fun SettingsScreen(
                             keyboardType = KeyboardType.Number,
                             isFirst = first,
                             isLast = last,
-                            onValueChange = { preferencesRepository.putString("stats_samples", it) },
+                            onValueChange = { viewModel.putString("stats_samples", it) },
                         )
                     }
                 }
@@ -882,7 +881,7 @@ fun SettingsScreen(
                             value = str("hosts_url", ""),
                             isFirst = first,
                             isLast = last,
-                            onValueChange = { preferencesRepository.putString("hosts_url", it) },
+                            onValueChange = { viewModel.putString("hosts_url", it) },
                         )
                     }
                 }
@@ -956,17 +955,17 @@ fun SettingsScreen(
                                 keyboardType = KeyboardType.Number,
                                 isFirst = first,
                                 isLast = last,
-                            ) { preferencesRepository.putString("rcode", it) }
+                            ) { viewModel.putString("rcode", it) }
                         }
                         item { first, last ->
                             SettingTextRowWithTooltip(
-                                title = stringResource(Res.string.setting_ttl, str("ttl", "259200")),
+                                title = stringResource(Res.string.setting_ttl, "…"),
                                 tooltip = stringResource(Res.string.tooltip_ttl),
                                 value = str("ttl", "259200"),
                                 keyboardType = KeyboardType.Number,
                                 isFirst = first,
                                 isLast = last,
-                            ) { preferencesRepository.putString("ttl", it) }
+                            ) { viewModel.putString("ttl", it) }
                         }
                         item { first, last ->
                             SettingTextRow(
@@ -974,7 +973,7 @@ fun SettingsScreen(
                                 value = str("validate", ""),
                                 isFirst = first,
                                 isLast = last,
-                                onValueChange = { preferencesRepository.putString("validate", it) },
+                                onValueChange = { viewModel.putString("validate", it) },
                             )
                         }
                     }
@@ -992,7 +991,7 @@ fun SettingsScreen(
                             checked = bool("socks5_enabled", false),
                             isFirst = first,
                             isLast = last,
-                        ) { preferencesRepository.putBoolean("socks5_enabled", it) }
+                        ) { viewModel.putBoolean("socks5_enabled", it) }
                     }
                     item { first, last ->
                         SettingTextRow(
@@ -1003,7 +1002,7 @@ fun SettingsScreen(
                             value = str("socks5_addr", ""),
                             isFirst = first,
                             isLast = last,
-                            onValueChange = { preferencesRepository.putString("socks5_addr", it) },
+                            onValueChange = { viewModel.putString("socks5_addr", it) },
                         )
                     }
                     item { first, last ->
@@ -1016,7 +1015,7 @@ fun SettingsScreen(
                             keyboardType = KeyboardType.Number,
                             isFirst = first,
                             isLast = last,
-                            onValueChange = { preferencesRepository.putString("socks5_port", it) },
+                            onValueChange = { viewModel.putString("socks5_port", it) },
                         )
                     }
                     item { first, last ->
@@ -1029,7 +1028,7 @@ fun SettingsScreen(
                             isFirst = first,
                             isLast = last,
                             onValueChange = {
-                                preferencesRepository.putString("socks5_username", it)
+                                viewModel.putString("socks5_username", it)
                             },
                         )
                     }
@@ -1043,7 +1042,7 @@ fun SettingsScreen(
                             isFirst = first,
                             isLast = last,
                             onValueChange = {
-                                preferencesRepository.putString("socks5_password", it)
+                                viewModel.putString("socks5_password", it)
                             },
                         )
                     }
@@ -1056,7 +1055,7 @@ fun SettingsScreen(
                             value = str("vpn4", "10.1.10.1"),
                             isFirst = first,
                             isLast = last,
-                            onValueChange = { preferencesRepository.putString("vpn4", it) },
+                            onValueChange = { viewModel.putString("vpn4", it) },
                         )
                     }
                     item { first, last ->
@@ -1068,7 +1067,7 @@ fun SettingsScreen(
                             value = str("vpn6", "fd00:1:fd00:1:fd00:1:fd00:1"),
                             isFirst = first,
                             isLast = last,
-                            onValueChange = { preferencesRepository.putString("vpn6", it) },
+                            onValueChange = { viewModel.putString("vpn6", it) },
                         )
                     }
                     item { first, last ->
@@ -1077,7 +1076,7 @@ fun SettingsScreen(
                             value = str("dns", ""),
                             isFirst = first,
                             isLast = last,
-                            onValueChange = { preferencesRepository.putString("dns", it) },
+                            onValueChange = { viewModel.putString("dns", it) },
                         )
                     }
                     item { first, last ->
@@ -1086,7 +1085,7 @@ fun SettingsScreen(
                             value = str("dns2", ""),
                             isFirst = first,
                             isLast = last,
-                            onValueChange = { preferencesRepository.putString("dns2", it) },
+                            onValueChange = { viewModel.putString("dns2", it) },
                         )
                     }
                 }
@@ -1110,14 +1109,14 @@ fun SettingsScreen(
                 SettingsGroup {
                     item { first, last ->
                         SettingTextRow(
-                            title = stringResource(Res.string.setting_watchdog, str("watchdog", "0")),
+                            title = stringResource(Res.string.setting_watchdog, "…"),
                             value = str("watchdog", "0"),
                             keyboardType = KeyboardType.Number,
                             isFirst = first,
                             isLast = last,
                             onValueChange = { value ->
-                                preferencesRepository.putString("watchdog", value)
-                                val enabled = preferencesRepository.getBoolean("enabled", false)
+                                viewModel.putString("watchdog", value)
+                                val enabled = viewModel.getBoolean("enabled", false)
                                 NetGuardPlatform.workScheduler.scheduleWatchdog(
                                     value.toIntOrNull() ?: 0,
                                     enabled,
@@ -1132,7 +1131,7 @@ fun SettingsScreen(
                                 checked = bool("update_check", true),
                                 isFirst = first,
                                 isLast = last,
-                            ) { preferencesRepository.putBoolean("update_check", it) }
+                            ) { viewModel.putBoolean("update_check", it) }
                         }
                     }
                 }
@@ -1203,34 +1202,28 @@ fun SettingsScreen(
                             checked = bool("pcap", false),
                             isFirst = first,
                             isLast = last,
-                        ) { preferencesRepository.putBoolean("pcap", it) }
+                        ) { viewModel.putBoolean("pcap", it) }
                     }
                     item { first, last ->
                         SettingTextRow(
-                            title = stringResource(
-                                Res.string.setting_pcap_record_size,
-                                str("pcap_record_size", "64"),
-                            ),
+                            title = stringResource(Res.string.setting_pcap_record_size, "…"),
                             value = str("pcap_record_size", "64"),
                             keyboardType = KeyboardType.Number,
                             isFirst = first,
                             isLast = last,
                             onValueChange = {
-                                preferencesRepository.putString("pcap_record_size", it)
+                                viewModel.putString("pcap_record_size", it)
                             },
                         )
                     }
                     item { first, last ->
                         SettingTextRow(
-                            title = stringResource(
-                                Res.string.setting_pcap_file_size,
-                                str("pcap_file_size", "2"),
-                            ),
+                            title = stringResource(Res.string.setting_pcap_file_size, "…"),
                             value = str("pcap_file_size", "2"),
                             keyboardType = KeyboardType.Number,
                             isFirst = first,
                             isLast = last,
-                            onValueChange = { preferencesRepository.putString("pcap_file_size", it) },
+                            onValueChange = { viewModel.putString("pcap_file_size", it) },
                         )
                     }
                 }
@@ -1325,8 +1318,8 @@ private fun QuickFirewallControls(
                 modifier = Modifier.weight(1f),
             )
             FirewallTile(
-                allowedIcon = MaterialSymbols.Filled.PhoneAndroid,
-                blockedIcon = MaterialSymbols.Filled.MobileOff,
+                allowedIcon = MaterialSymbols.Outlined.MobiledataArrows,
+                blockedIcon = MaterialSymbols.Outlined.MobiledataOff,
                 label = stringResource(Res.string.title_mobile),
                 allowed = mobileAllowed,
                 onToggle = onToggleMobile,
@@ -1694,6 +1687,26 @@ private fun ThemeSwatch(
     }
 }
 
+/**
+ * Container color for toggle rows: rows that are ON get a subtle primary-tinted
+ * fill so active settings read at a glance; animated so flips feel alive.
+ */
+@Composable
+private fun settingRowContainerColor(checked: Boolean): Color {
+    val base = MaterialTheme.colorScheme.surfaceContainerLow
+    val target = if (checked) {
+        lerp(base, MaterialTheme.colorScheme.primaryContainer, 0.35f)
+    } else {
+        base
+    }
+    val color by animateColorAsState(
+        targetValue = target,
+        animationSpec = tween(durationMillis = 300, easing = FastOutSlowInEasing),
+        label = "settingRowBg",
+    )
+    return color
+}
+
 @Composable
 private fun SettingToggleRow(
     title: String,
@@ -1715,7 +1728,7 @@ private fun SettingToggleRow(
 
     Surface(
         modifier = Modifier.fillMaxWidth(),
-        color = MaterialTheme.colorScheme.surfaceContainerLow,
+        color = settingRowContainerColor(checked),
         shape = groupItemShape(isFirst, isLast),
     ) {
         Row(
@@ -1781,60 +1794,69 @@ private fun SettingToggleRowWithTooltip(
         onCheckedChange(newValue)
     }
 
+    val infoLabel = stringResource(Res.string.content_desc_show_info, title)
+
     Surface(
         modifier = Modifier.fillMaxWidth(),
-        color = MaterialTheme.colorScheme.surfaceContainerLow,
+        color = settingRowContainerColor(checked),
         shape = groupItemShape(isFirst, isLast),
     ) {
         Column {
+            // Split row: the text area expands the explanation, the switch toggles.
             Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .heightIn(min = 64.dp)
-                    .toggleable(
-                        value = checked,
-                        role = Role.Switch,
-                        onValueChange = onToggle,
-                    )
-                    .padding(horizontal = spacing.large, vertical = spacing.small),
-                horizontalArrangement = Arrangement.SpaceBetween,
+                modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Row(
-                    verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier
                         .weight(1f)
-                        .padding(end = spacing.small),
+                        .heightIn(min = 64.dp)
+                        .clickable(onClickLabel = infoLabel) { showTooltip = !showTooltip }
+                        .padding(
+                            start = spacing.large,
+                            end = spacing.medium,
+                            top = spacing.small,
+                            bottom = spacing.small,
+                        ),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(spacing.small),
                 ) {
                     Text(
                         text = title,
                         style = MaterialTheme.typography.bodyLarge,
                         color = MaterialTheme.colorScheme.onSurface,
+                        modifier = Modifier.weight(1f),
                     )
-                    IconButton(
-                        onClick = { showTooltip = !showTooltip },
-                        modifier = Modifier.size(TouchTargets.minimum),
-                    ) {
-                        Icon(
-                            icon = MaterialSymbols.Outlined.Info,
-                            contentDescription = stringResource(
-                                Res.string.content_desc_show_info,
-                                title,
-                            ),
-                            modifier = Modifier
-                                .size(18.dp)
-                                .padding(bottom = 1.dp),
-                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                    }
+                    Icon(
+                        icon = MaterialSymbols.Outlined.Info,
+                        contentDescription = null,
+                        modifier = Modifier.size(18.dp),
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
                 }
-                Switch(
-                    checked = checked,
-                    onCheckedChange = null,
-                    modifier = Modifier.semantics {
-                        contentDescription = "$title: $localizedState"
-                    },
+                VerticalDivider(
+                    modifier = Modifier.height(32.dp),
+                    color = MaterialTheme.colorScheme.outlineVariant,
                 )
+                Box(
+                    modifier = Modifier
+                        .heightIn(min = 64.dp)
+                        .toggleable(
+                            value = checked,
+                            role = Role.Switch,
+                            onValueChange = onToggle,
+                        )
+                        .padding(horizontal = spacing.default),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    Switch(
+                        checked = checked,
+                        onCheckedChange = null,
+                        modifier = Modifier.semantics {
+                            contentDescription = "$title: $localizedState"
+                        },
+                    )
+                }
             }
             ExpandableContent(expanded = showTooltip) {
                 Text(
@@ -2031,7 +2053,7 @@ private fun CompactSettingToggleTile(
         },
         modifier = modifier.heightIn(min = 72.dp),
         shape = shape,
-        color = MaterialTheme.colorScheme.surfaceContainerLow,
+        color = settingRowContainerColor(checked),
     ) {
         Column(
             modifier = Modifier

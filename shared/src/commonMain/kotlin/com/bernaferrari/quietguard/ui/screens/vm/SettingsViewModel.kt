@@ -13,7 +13,7 @@ import org.koin.core.annotation.KoinViewModel
 
 @KoinViewModel
 class SettingsViewModel(
-    val preferencesRepository: PreferencesRepository,
+    private val preferencesRepository: PreferencesRepository,
 ) : ViewModel() {
     val preferences: StateFlow<Preferences> =
         preferencesRepository.data.stateIn(
@@ -25,6 +25,8 @@ class SettingsViewModel(
     fun putBoolean(key: String, value: Boolean) = preferencesRepository.putBoolean(key, value)
 
     fun putString(key: String, value: String?) = preferencesRepository.putString(key, value)
+
+    fun putStringSet(key: String, value: Set<String>) = preferencesRepository.putStringSet(key, value)
 
     fun putInt(key: String, value: Int) = preferencesRepository.putInt(key, value)
 

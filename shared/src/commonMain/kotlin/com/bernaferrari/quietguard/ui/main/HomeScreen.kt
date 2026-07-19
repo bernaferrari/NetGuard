@@ -51,12 +51,14 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.bernaferrari.quietguard.ui.theme.LocalMotion
 import com.bernaferrari.quietguard.ui.theme.spacing
+import com.bernaferrari.quietguard.ui.util.StatePlaceholder
 import com.bernaferrari.quietguard.generated.resources.Res
 import com.bernaferrari.quietguard.generated.resources.app_name
 import com.bernaferrari.quietguard.generated.resources.menu_firewall
 import com.bernaferrari.quietguard.generated.resources.status_disabled
 import com.bernaferrari.quietguard.generated.resources.status_enabled
 import com.bernaferrari.quietguard.generated.resources.ui_home_hint
+import com.bernaferrari.quietguard.generated.resources.ui_loading
 import org.jetbrains.compose.resources.stringResource
 
 import com.bernaferrari.quietguard.ui.icons.Icon
@@ -65,7 +67,17 @@ fun HomeScreen(
     viewModel: MainViewModel,
     onToggleEnabled: (Boolean) -> Unit,
 ) {
-    val enabled by viewModel.enabled.collectAsStateWithLifecycle()
+    val firewallState by viewModel.firewallState.collectAsStateWithLifecycle()
+    if (!firewallState.isReady) {
+        StatePlaceholder(
+            title = stringResource(Res.string.ui_loading),
+            message = stringResource(Res.string.ui_home_hint),
+            icon = MaterialSymbols.Filled.Shield,
+            isLoading = true,
+        )
+        return
+    }
+    val enabled = firewallState.data
     val motion = LocalMotion.current
     val backgroundProgress by animateFloatAsState(
         targetValue = if (enabled) 1f else 0f,
@@ -193,7 +205,7 @@ private fun StatusCard(
     )
     val carrierRotation = remember { Animatable(0f) }
     LaunchedEffect(enabled, motion.durationSlow, motion.durationMedium) {
-        if (enabled) {
+        if (enabled && !motion.reducedMotion) {
             while (true) {
                 carrierRotation.animateTo(
                     targetValue = carrierRotation.value + 360f,

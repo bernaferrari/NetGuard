@@ -6,22 +6,19 @@ import com.bernaferrari.quietguard.data.PreferenceKeys
 import com.bernaferrari.quietguard.data.PreferencesRepository
 import com.bernaferrari.quietguard.domain.FirewallRule
 import com.bernaferrari.quietguard.domain.RulesRepository
+import com.bernaferrari.quietguard.ui.util.UiAsyncState
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.koin.core.annotation.KoinViewModel
-
-data class RulesUiState(
-    val rules: List<FirewallRule> = emptyList(),
-    val isLoading: Boolean = false,
-    val hasLoaded: Boolean = false,
-)
 
 @KoinViewModel
 class MainViewModel(
@@ -30,14 +27,20 @@ class MainViewModel(
 ) : ViewModel() {
     private var pendingRefreshJob: Job? = null
 
-    val enabled: StateFlow<Boolean> =
-        preferencesRepository.enabledFlow.stateIn(
+    val firewallState: StateFlow<UiAsyncState<Boolean>> =
+        combine(preferencesRepository.enabledFlow, preferencesRepository.isLoaded) { enabled, loaded ->
+            UiAsyncState(
+                data = enabled,
+                isLoading = !loaded,
+                hasReceived = loaded,
+            )
+        }.stateIn(
             viewModelScope,
             SharingStarted.WhileSubscribed(5_000),
-            false,
+            UiAsyncState(data = false, isLoading = true),
         )
-    private val _rulesUiState = MutableStateFlow(RulesUiState())
-    val rulesUiState: StateFlow<RulesUiState> = _rulesUiState.asStateFlow()
+    private val _rulesUiState = MutableStateFlow(UiAsyncState<List<FirewallRule>>(emptyList()))
+    val rulesUiState: StateFlow<UiAsyncState<List<FirewallRule>>> = _rulesUiState.asStateFlow()
 
     init {
         viewModelScope.launch {
@@ -62,7 +65,7 @@ class MainViewModel(
 
     fun ensureRulesLoaded() {
         val state = _rulesUiState.value
-        if (state.hasLoaded || state.isLoading) {
+        if (state.hasReceived || state.isLoading) {
             return
         }
         refreshRules()
@@ -73,16 +76,23 @@ class MainViewModel(
             return
         }
         viewModelScope.launch {
-            _rulesUiState.update { it.copy(isLoading = true) }
-            val loaded =
-                rulesRepository.loadRules(refresh = false)
-                    .sortedBy { (it.name ?: it.packageName.orEmpty()).lowercase() }
-            _rulesUiState.value =
-                RulesUiState(
-                    rules = loaded,
+            _rulesUiState.update { it.copy(isLoading = true, error = null) }
+            try {
+                val loaded =
+                    rulesRepository.loadRules(refresh = false)
+                        .sortedBy { (it.name ?: it.packageName.orEmpty()).lowercase() }
+                _rulesUiState.value = UiAsyncState(
+                    data = loaded,
                     isLoading = false,
-                    hasLoaded = true,
+                    hasReceived = true,
                 )
+            } catch (cancelled: CancellationException) {
+                throw cancelled
+            } catch (error: Throwable) {
+                _rulesUiState.update {
+                    it.copy(isLoading = false, error = error)
+                }
+            }
         }
     }
 
@@ -90,7 +100,7 @@ class MainViewModel(
         uid: Int,
         transform: (FirewallRule) -> FirewallRule,
     ) {
-        val rules = _rulesUiState.value.rules.toMutableList()
+        val rules = _rulesUiState.value.data.toMutableList()
         val index = rules.indexOfFirst { it.uid == uid }
         if (index < 0) {
             return
@@ -99,7 +109,7 @@ class MainViewModel(
         val updatedRule = transform(rules[index])
         rules[index] = updatedRule
         rulesRepository.persistRule(updatedRule, rules)
-        _rulesUiState.update { state -> state.copy(rules = rules.toList()) }
+        _rulesUiState.update { state -> state.copy(data = rules.toList()) }
     }
 
     override fun onCleared() {

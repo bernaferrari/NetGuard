@@ -14,6 +14,13 @@ actual object PlatformContext {
     actual fun isAndroid(): Boolean = true
 
     actual fun isDemoMode(): Boolean = false
+
+    actual fun prefersReducedMotion(): Boolean =
+        Settings.Global.getFloat(
+            appContext().contentResolver,
+            Settings.Global.ANIMATOR_DURATION_SCALE,
+            1f,
+        ) == 0f
 }
 
 actual fun onDemoFirewallToggled(enabled: Boolean) {}

@@ -62,7 +62,6 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -78,6 +77,7 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.ui.unit.lerp
 import com.bernaferrari.quietguard.domain.FirewallRule
 import com.bernaferrari.quietguard.platform.PlatformContext
@@ -215,8 +215,8 @@ fun AppRuleDetailScreen(
                     modifier = Modifier.weight(1f),
                 )
                 FirewallTile(
-                    allowedIcon = MaterialSymbols.Filled.PhoneAndroid,
-                    blockedIcon = MaterialSymbols.Filled.MobileOff,
+                    allowedIcon = MaterialSymbols.Outlined.MobiledataArrows,
+                    blockedIcon = MaterialSymbols.Outlined.MobiledataOff,
                     label = stringResource(Res.string.title_mobile),
                     allowed = !rule.other_blocked,
                     onToggle = {
@@ -608,9 +608,9 @@ private fun AccessLogSection(
     viewModel: AppRuleDetailViewModel,
 ) {
     LaunchedEffect(rule.uid) { viewModel.bindRule(rule) }
-    val accessUi by viewModel.accessState.collectAsState()
+    val accessUi by viewModel.accessState.collectAsStateWithLifecycle()
     val accessEntries = accessUi.data
-    val loading = accessUi.isLoading
+    val loading = accessUi.isInitialLoading
 
     if (loading || accessEntries.isEmpty()) return
 

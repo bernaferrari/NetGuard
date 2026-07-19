@@ -20,11 +20,11 @@ import com.bernaferrari.quietguard.ui.util.UiAsyncState
 import com.bernaferrari.quietguard.ui.util.asUiAsyncState
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flatMapLatest
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import org.koin.core.annotation.KoinViewModel
@@ -36,6 +36,7 @@ data class LogsScreenState(
     val filtersExpanded: Boolean = false,
     val selectedAppUid: Int? = null,
     val logs: UiAsyncState<List<LogEntry>> = UiAsyncState(emptyList(), isLoading = true),
+    val preferencesLoaded: Boolean = false,
     val loggingEnabled: Boolean = false,
     val filteringEnabled: Boolean = false,
 )
@@ -51,16 +52,28 @@ class LogsViewModel(
     private val groupMode = MutableStateFlow(LogsGroupMode.Timeline)
     private val filtersExpanded = MutableStateFlow(false)
     private val selectedAppUid = MutableStateFlow<Int?>(null)
+    private val retryRequests = MutableSharedFlow<Unit>(extraBufferCapacity = 1)
     private val isDemoMode = PlatformContext.isDemoMode()
 
-    private val prefsFlags: StateFlow<Pair<Boolean, Boolean>> =
-        preferencesRepository.data
-            .map { prefs ->
-                val logOn = (prefs[booleanPreferencesKey("log")] ?: false) || isDemoMode
-                val filterOn = (prefs[booleanPreferencesKey("filter")] ?: false) || isDemoMode
-                logOn to filterOn
-            }
-            .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false to isDemoMode)
+    private val prefsFlags: StateFlow<PreferencesFlags> =
+        combine(preferencesRepository.data, preferencesRepository.isLoaded) { prefs, loaded ->
+            val logOn = (prefs[booleanPreferencesKey("log")] ?: false) || isDemoMode
+            val filterOn = (prefs[booleanPreferencesKey("filter")] ?: false) || isDemoMode
+            PreferencesFlags(
+                loggingEnabled = logOn,
+                filteringEnabled = filterOn,
+                loaded = loaded || isDemoMode,
+            )
+        }
+            .stateIn(
+                viewModelScope,
+                SharingStarted.WhileSubscribed(5_000),
+                PreferencesFlags(
+                    loggingEnabled = preferencesRepository.getBoolean("log") || isDemoMode,
+                    filteringEnabled = preferencesRepository.getBoolean("filter") || isDemoMode,
+                    loaded = preferencesRepository.isLoaded.value || isDemoMode,
+                ),
+            )
 
     private val logsState: StateFlow<UiAsyncState<List<LogEntry>>> =
         combine(outcomeFilter, protocolFilter) { outcome, protocol ->
@@ -76,7 +89,11 @@ class LogsViewModel(
                     limit = LOGS_UI_MAX_ROWS,
                 )
             }
-            .asUiAsyncState(viewModelScope, emptyList())
+            .asUiAsyncState(
+                scope = viewModelScope,
+                initialData = emptyList(),
+                retryRequests = retryRequests,
+            )
 
     private val filtersState =
         combine(outcomeFilter, protocolFilter, groupMode, filtersExpanded, selectedAppUid) {
@@ -98,8 +115,9 @@ class LogsViewModel(
                 filtersExpanded = filters.expanded,
                 selectedAppUid = filters.selected,
                 logs = logs,
-                loggingEnabled = flags.first,
-                filteringEnabled = flags.second,
+                preferencesLoaded = flags.loaded,
+                loggingEnabled = flags.loggingEnabled,
+                filteringEnabled = flags.filteringEnabled,
             )
         }.stateIn(
             viewModelScope,
@@ -108,8 +126,9 @@ class LogsViewModel(
                 outcomeFilter = outcomeFilter.value,
                 protocolFilter = protocolFilter.value,
                 logs = logsState.value,
-                loggingEnabled = prefsFlags.value.first,
-                filteringEnabled = prefsFlags.value.second,
+                preferencesLoaded = prefsFlags.value.loaded,
+                loggingEnabled = prefsFlags.value.loggingEnabled,
+                filteringEnabled = prefsFlags.value.filteringEnabled,
             ),
         )
 
@@ -134,12 +153,26 @@ class LogsViewModel(
         selectedAppUid.value = uid
     }
 
-    fun enableFiltering() = preferencesRepository.putBoolean("filter", true)
+    fun enableFiltering() {
+        preferencesRepository.putBoolean("filter", true)
+        NetGuardPlatform.firewall.reload("logs_enable_filtering", false)
+    }
 
-    fun enableLogging() = preferencesRepository.putBoolean("log", true)
+    fun enableLogging() {
+        preferencesRepository.putBoolean("log", true)
+        NetGuardPlatform.firewall.reload("logs", false)
+    }
+
+    fun openPro() {
+        NetGuardPlatform.proFeatures.openProScreen()
+    }
 
     fun clearLogs() {
         viewModelScope.launch { trafficRepository.clearAllLogs() }
+    }
+
+    fun retryLogs() {
+        retryRequests.tryEmit(Unit)
     }
 
     fun appDisplay(uid: Int, fallbackLabel: String): AppDisplayInfo =
@@ -154,5 +187,11 @@ class LogsViewModel(
         val group: LogsGroupMode,
         val expanded: Boolean,
         val selected: Int?,
+    )
+
+    private data class PreferencesFlags(
+        val loggingEnabled: Boolean,
+        val filteringEnabled: Boolean,
+        val loaded: Boolean,
     )
 }

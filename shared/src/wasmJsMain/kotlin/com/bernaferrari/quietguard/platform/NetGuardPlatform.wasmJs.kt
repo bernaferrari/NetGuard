@@ -4,6 +4,9 @@ actual object PlatformContext {
     actual fun isAndroid(): Boolean = false
 
     actual fun isDemoMode(): Boolean = true
+
+    actual fun prefersReducedMotion(): Boolean =
+        kotlinx.browser.window.matchMedia("(prefers-reduced-motion: reduce)").matches
 }
 
 actual fun onDemoFirewallToggled(enabled: Boolean) {

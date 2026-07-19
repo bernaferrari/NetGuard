@@ -32,9 +32,29 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.bernaferrari.quietguard.ui.theme.LocalMotion
 import com.bernaferrari.quietguard.ui.theme.spacing
+import com.bernaferrari.quietguard.generated.resources.Res
+import com.bernaferrari.quietguard.generated.resources.action_retry
+import com.bernaferrari.quietguard.generated.resources.ui_load_failed
+import com.bernaferrari.quietguard.generated.resources.ui_load_failed_body
+import org.jetbrains.compose.resources.stringResource
 
 import com.bernaferrari.quietguard.ui.icons.Icon
 import com.bernaferrari.quietguard.ui.icons.MaterialIcon
+
+@Composable
+fun LoadErrorPlaceholder(
+    icon: MaterialIcon,
+    onRetry: () -> Unit,
+) {
+    StatePlaceholder(
+        title = stringResource(Res.string.ui_load_failed),
+        message = stringResource(Res.string.ui_load_failed_body),
+        icon = icon,
+        actionLabel = stringResource(Res.string.action_retry),
+        onAction = onRetry,
+    )
+}
+
 /**
  * A reusable placeholder component for empty, loading, and error states.
  * Features subtle pulse animation during loading for a professional feel.
@@ -56,7 +76,7 @@ fun StatePlaceholder(
 
     // Subtle pulse animation for loading state only.
     val pulseAlpha =
-        if (isLoading) {
+        if (isLoading && !motion.reducedMotion) {
             val infiniteTransition = rememberInfiniteTransition(label = "loadingPulse")
             val animatedAlpha by infiniteTransition.animateFloat(
                 initialValue = 0.6f,
@@ -103,7 +123,7 @@ fun StatePlaceholder(
                     ) {
                         Icon(
                             icon = icon,
-                            contentDescription = title,
+                            contentDescription = null,
                             tint = MaterialTheme.colorScheme.onPrimaryContainer,
                             modifier = Modifier.padding(spacing.small),
                         )

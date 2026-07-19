@@ -32,19 +32,20 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.bernaferrari.quietguard.platform.DnsEntry
 import com.bernaferrari.quietguard.platform.showToast
 import com.bernaferrari.quietguard.ui.screens.vm.DnsListFilter
 import com.bernaferrari.quietguard.ui.screens.vm.DnsViewModel
 import com.bernaferrari.quietguard.ui.theme.spacing
 import com.bernaferrari.quietguard.ui.util.StatePlaceholder
+import com.bernaferrari.quietguard.ui.util.LoadErrorPlaceholder
 import com.bernaferrari.quietguard.generated.resources.Res
 import com.bernaferrari.quietguard.generated.resources.label_dns_summary
 import com.bernaferrari.quietguard.generated.resources.label_ttl
@@ -78,9 +79,9 @@ fun DnsScreen(
     viewModel: DnsViewModel = koinViewModel(),
 ) {
     val spacing = MaterialTheme.spacing
-    val dnsUi by viewModel.uiState.collectAsState()
+    val dnsUi by viewModel.uiState.collectAsStateWithLifecycle()
     val entries = dnsUi.entries.data
-    val isLoading = dnsUi.entries.isLoading
+    val isLoading = !dnsUi.entries.isReady && entries.isEmpty() && !dnsUi.entries.hasFailed
     val dnsFilter = dnsUi.filter
     val now = dnsUi.nowMs
     val filteredEntries = dnsUi.filtered
@@ -127,7 +128,7 @@ fun DnsScreen(
                     }
                 },
                 actions = {
-                    IconButton(onClick = { /* Room/DB flow auto-refreshes */ }) {
+                    IconButton(onClick = viewModel::refresh) {
                         Icon(
                             icon = MaterialSymbols.Filled.Refresh,
                             contentDescription = stringResource(Res.string.menu_refresh),
@@ -235,6 +236,13 @@ fun DnsScreen(
             }
 
             when {
+                dnsUi.entries.hasFailed && entries.isEmpty() -> {
+                    LoadErrorPlaceholder(
+                        icon = MaterialSymbols.Filled.Dns,
+                        onRetry = viewModel::refresh,
+                    )
+                }
+
                 isLoading -> {
                     StatePlaceholder(
                         title = stringResource(Res.string.ui_loading),
@@ -250,7 +258,7 @@ fun DnsScreen(
                         message = stringResource(Res.string.ui_empty_dns_body),
                         icon = MaterialSymbols.Filled.Dns,
                         actionLabel = stringResource(Res.string.menu_refresh),
-                        onAction = { /* Room/DB flow auto-refreshes */ },
+                        onAction = viewModel::refresh,
                     )
                 }
 

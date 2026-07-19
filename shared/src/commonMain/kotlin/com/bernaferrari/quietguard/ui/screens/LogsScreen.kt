@@ -7,9 +7,6 @@ import com.bernaferrari.quietguard.ui.icons.MaterialSymbols
 import com.bernaferrari.quietguard.ui.screens.vm.LogsViewModel
 import com.bernaferrari.quietguard.platform.AppDisplayInfo
 import com.bernaferrari.quietguard.platform.LogEntry
-import com.bernaferrari.quietguard.platform.NetGuardPlatform
-import com.bernaferrari.quietguard.platform.PlatformContext
-import com.bernaferrari.quietguard.platform.showToast
 import org.koin.compose.viewmodel.koinViewModel
 
 import org.jetbrains.compose.resources.stringResource
@@ -20,7 +17,6 @@ import com.bernaferrari.quietguard.generated.resources.home_logs_hint
 import com.bernaferrari.quietguard.generated.resources.menu_protocol_other
 import com.bernaferrari.quietguard.generated.resources.menu_protocol_tcp
 import com.bernaferrari.quietguard.generated.resources.menu_protocol_udp
-import com.bernaferrari.quietguard.generated.resources.menu_refresh
 import com.bernaferrari.quietguard.generated.resources.menu_search
 import com.bernaferrari.quietguard.generated.resources.menu_traffic_allowed
 import com.bernaferrari.quietguard.generated.resources.menu_traffic_blocked
@@ -90,8 +86,6 @@ import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -107,12 +101,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.bernaferrari.quietguard.ui.components.AppIcon
 import com.bernaferrari.quietguard.ui.theme.LocalMotion
 import com.bernaferrari.quietguard.ui.theme.spacing
 import com.bernaferrari.quietguard.ui.util.StatePlaceholder
-import kotlinx.coroutines.delay
-
+import com.bernaferrari.quietguard.ui.util.LoadErrorPlaceholder
 import com.bernaferrari.quietguard.ui.icons.Icon
 import com.bernaferrari.quietguard.ui.icons.MaterialIcon
 private val AllowedStatusContentLight = Color(0xFF1B5E20)
@@ -138,10 +132,9 @@ private data class AppPickerOption(
 fun LogsScreen(viewModel: LogsViewModel = koinViewModel()) {
     val spacing = MaterialTheme.spacing
     val motion = LocalMotion.current
-    val logsUi by viewModel.uiState.collectAsState()
+    val logsUi by viewModel.uiState.collectAsStateWithLifecycle()
     val hasLog = remember { viewModel.hasLogPro() }
     val unknownSourceLabel = stringResource(Res.string.ui_logs_unknown_source)
-    val isDemoMode = PlatformContext.isDemoMode()
     val loggingEnabled = logsUi.loggingEnabled
     val filteringEnabled = logsUi.filteringEnabled
     val outcomeFilter = logsUi.outcomeFilter
@@ -150,16 +143,8 @@ fun LogsScreen(viewModel: LogsViewModel = koinViewModel()) {
     val filtersExpanded = logsUi.filtersExpanded
     val selectedAppUid = logsUi.selectedAppUid
     val entries = logsUi.logs.data
-    val isLoading = logsUi.logs.isLoading && loggingEnabled
-    var showEmptyState by remember { mutableStateOf(false) }
-
-    LaunchedEffect(loggingEnabled, isLoading, entries.isEmpty()) {
-        showEmptyState = false
-        if (loggingEnabled && !isLoading && entries.isEmpty()) {
-            delay(200)
-            showEmptyState = true
-        }
-    }
+    val isLoading = !logsUi.preferencesLoaded ||
+        (loggingEnabled && !logsUi.logs.isReady && entries.isEmpty())
 
     val appDisplayCache = remember { mutableMapOf<Int, AppDisplayInfo>() }
     fun appDisplay(uid: Int): AppDisplayInfo {
@@ -272,12 +257,6 @@ fun LogsScreen(viewModel: LogsViewModel = koinViewModel()) {
                             )
                         }
                     }
-                    IconButton(onClick = { /* Room/DB flow auto-refreshes */ }) {
-                        Icon(
-                            icon = MaterialSymbols.Filled.Refresh,
-                            contentDescription = stringResource(Res.string.menu_refresh),
-                        )
-                    }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.surface,
@@ -325,7 +304,7 @@ fun LogsScreen(viewModel: LogsViewModel = koinViewModel()) {
                     message = stringResource(Res.string.msg_log_disabled),
                     icon = MaterialSymbols.Filled.Inbox,
                     actionLabel = stringResource(Res.string.title_pro),
-                    onAction = { NetGuardPlatform.proFeatures.openProScreen() },
+                    onAction = viewModel::openPro,
                 )
                 return@Column
             }
@@ -334,8 +313,6 @@ fun LogsScreen(viewModel: LogsViewModel = koinViewModel()) {
                 EnableFilteringBanner(
                     onEnableFiltering = {
                         viewModel.enableFiltering()
-                        NetGuardPlatform.firewall.reload("logs_enable_filtering", false)
-                        /* flow refreshes */
                     },
                     modifier = Modifier
                         .fillMaxWidth()
@@ -345,21 +322,7 @@ fun LogsScreen(viewModel: LogsViewModel = koinViewModel()) {
             }
 
             when {
-                !loggingEnabled -> {
-                    StatePlaceholder(
-                        title = stringResource(Res.string.setting_log_app),
-                        message = stringResource(Res.string.summary_log_app),
-                        icon = MaterialSymbols.Filled.Inbox,
-                        actionLabel = stringResource(Res.string.action_enable),
-                        onAction = {
-                            viewModel.enableLogging()
-                            NetGuardPlatform.firewall.reload("logs", false)
-                            /* flow refreshes */
-                        },
-                    )
-                }
-
-                isLoading || (entries.isEmpty() && !showEmptyState) -> {
+                !logsUi.preferencesLoaded -> {
                     StatePlaceholder(
                         title = stringResource(Res.string.ui_loading),
                         message = stringResource(Res.string.home_logs_hint),
@@ -368,7 +331,35 @@ fun LogsScreen(viewModel: LogsViewModel = koinViewModel()) {
                     )
                 }
 
-                entries.isEmpty() && showEmptyState -> {
+                !loggingEnabled -> {
+                    StatePlaceholder(
+                        title = stringResource(Res.string.setting_log_app),
+                        message = stringResource(Res.string.summary_log_app),
+                        icon = MaterialSymbols.Filled.Inbox,
+                        actionLabel = stringResource(Res.string.action_enable),
+                        onAction = {
+                            viewModel.enableLogging()
+                        },
+                    )
+                }
+
+                logsUi.logs.hasFailed && entries.isEmpty() -> {
+                    LoadErrorPlaceholder(
+                        icon = MaterialSymbols.Filled.Inbox,
+                        onRetry = viewModel::retryLogs,
+                    )
+                }
+
+                !logsUi.logs.isReady && entries.isEmpty() -> {
+                    StatePlaceholder(
+                        title = stringResource(Res.string.ui_loading),
+                        message = stringResource(Res.string.home_logs_hint),
+                        icon = MaterialSymbols.Filled.Inbox,
+                        isLoading = true,
+                    )
+                }
+
+                entries.isEmpty() -> {
                     StatePlaceholder(
                         title = stringResource(Res.string.ui_empty_logs_title),
                         message = stringResource(Res.string.ui_empty_logs_body),

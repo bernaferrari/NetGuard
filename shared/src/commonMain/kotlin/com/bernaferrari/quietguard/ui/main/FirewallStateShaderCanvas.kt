@@ -38,16 +38,25 @@ internal fun FirewallStateShaderCanvas(
     modifier: Modifier = Modifier,
 ) {
     val motion = LocalMotion.current
-    val phase by rememberInfiniteTransition(label = "firewallDitherCanvas").animateFloat(
-        initialValue = 0f,
-        targetValue = 1f,
-        animationSpec =
-            infiniteRepeatable(
-                animation = tween(durationMillis = motion.durationSlow * 40, easing = LinearEasing),
-                repeatMode = RepeatMode.Restart,
-            ),
-        label = "firewallDitherCanvasPhase",
-    )
+    val phase =
+        if (motion.reducedMotion) {
+            0f
+        } else {
+            val animatedPhase by rememberInfiniteTransition(label = "firewallDitherCanvas").animateFloat(
+                initialValue = 0f,
+                targetValue = 1f,
+                animationSpec =
+                    infiniteRepeatable(
+                        animation = tween(
+                            durationMillis = motion.durationSlow * 40,
+                            easing = LinearEasing,
+                        ),
+                        repeatMode = RepeatMode.Restart,
+                    ),
+                label = "firewallDitherCanvasPhase",
+            )
+            animatedPhase
+        }
     val colors = MaterialTheme.colorScheme
     val blend = enabledProgress.coerceIn(0f, 1f)
     val ink = lerp(colors.error, colors.secondary, blend)

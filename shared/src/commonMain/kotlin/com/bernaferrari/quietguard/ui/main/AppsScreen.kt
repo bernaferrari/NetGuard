@@ -108,6 +108,7 @@ import com.bernaferrari.quietguard.ui.components.IndexedFastScroller
 import com.bernaferrari.quietguard.ui.theme.LocalMotion
 import com.bernaferrari.quietguard.ui.theme.spacing
 import com.bernaferrari.quietguard.ui.util.StatePlaceholder
+import com.bernaferrari.quietguard.ui.util.LoadErrorPlaceholder
 import kotlinx.coroutines.flow.distinctUntilChanged
 
 import com.bernaferrari.quietguard.ui.icons.Icon
@@ -123,13 +124,14 @@ fun AppsScreen(
     onNavigateToDetail: (FirewallRule) -> Unit = {},
 ) {
     val spacing = MaterialTheme.spacing
+    val motion = LocalMotion.current
     val focusManager = LocalFocusManager.current
     val searchFocusRequester = remember { FocusRequester() }
     val listState = rememberLazyListState()
     val rulesUiState by viewModel.rulesUiState.collectAsStateWithLifecycle()
-    val rules = rulesUiState.rules
-    val isLoading = rulesUiState.isLoading && rulesUiState.rules.isEmpty()
-    val isRefreshing = rulesUiState.isLoading
+    val rules = rulesUiState.data
+    val isInitialLoading = !rulesUiState.isReady && rules.isEmpty() && !rulesUiState.hasFailed
+    val isRefreshing = rulesUiState.isRefreshing && rules.isNotEmpty()
     var filter by rememberSaveable { mutableStateOf(AppsFilter.All) }
     var isSearchOpen by rememberSaveable { mutableStateOf(false) }
     var searchQuery by rememberSaveable { mutableStateOf("") }
@@ -241,15 +243,21 @@ fun AppsScreen(
                     }
                 },
                 actions = {
-                    val infiniteTransition = rememberInfiniteTransition(label = "refresh")
-                    val rotation by infiniteTransition.animateFloat(
-                        initialValue = 0f,
-                        targetValue = if (isRefreshing) 360f else 0f,
-                        animationSpec = infiniteRepeatable(
-                            animation = tween(durationMillis = 800, easing = LinearEasing),
-                        ),
-                        label = "refreshRotation",
-                    )
+                    val rotation =
+                        if (isRefreshing && !motion.reducedMotion) {
+                            val infiniteTransition = rememberInfiniteTransition(label = "refresh")
+                            val animatedRotation by infiniteTransition.animateFloat(
+                                initialValue = 0f,
+                                targetValue = 360f,
+                                animationSpec = infiniteRepeatable(
+                                    animation = tween(durationMillis = 800, easing = LinearEasing),
+                                ),
+                                label = "refreshRotation",
+                            )
+                            animatedRotation
+                        } else {
+                            0f
+                        }
                     IconButton(
                         onClick = {
                             if (isSearchOpen) {
@@ -391,7 +399,14 @@ fun AppsScreen(
             }
 
             when {
-                isLoading -> {
+                rulesUiState.hasFailed && rules.isEmpty() -> {
+                    LoadErrorPlaceholder(
+                        icon = MaterialSymbols.Filled.Apps,
+                        onRetry = viewModel::refreshRules,
+                    )
+                }
+
+                isInitialLoading -> {
                     StatePlaceholder(
                         title = stringResource(Res.string.ui_loading),
                         message = stringResource(Res.string.home_apps_hint),
@@ -662,8 +677,8 @@ private fun RuleCard(
                 )
                 NetworkToggleButton(
                     blocked = rule.other_blocked,
-                    allowedIcon = MaterialSymbols.Filled.PhoneAndroid,
-                    blockedIcon = MaterialSymbols.Filled.MobileOff,
+                    allowedIcon = MaterialSymbols.Outlined.MobiledataArrows,
+                    blockedIcon = MaterialSymbols.Outlined.MobiledataOff,
                     contentDescription = mobileDescription,
                     onToggle = onToggleMobile,
                 )

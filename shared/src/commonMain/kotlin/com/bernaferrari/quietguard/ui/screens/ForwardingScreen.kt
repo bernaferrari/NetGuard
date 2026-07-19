@@ -6,18 +6,23 @@ import com.bernaferrari.quietguard.ui.icons.MaterialSymbols
 
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
@@ -33,22 +38,26 @@ import androidx.compose.material3.SegmentedButtonDefaults
 import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.bernaferrari.quietguard.ui.components.groupItemShape
 import com.bernaferrari.quietguard.domain.FirewallRule
 import com.bernaferrari.quietguard.platform.ForwardingEntry
@@ -59,6 +68,7 @@ import com.bernaferrari.quietguard.ui.screens.vm.ForwardingListFilter
 import com.bernaferrari.quietguard.ui.screens.vm.ForwardingViewModel
 import com.bernaferrari.quietguard.ui.theme.spacing
 import com.bernaferrari.quietguard.ui.util.StatePlaceholder
+import com.bernaferrari.quietguard.ui.util.LoadErrorPlaceholder
 import com.bernaferrari.quietguard.generated.resources.Res
 import com.bernaferrari.quietguard.generated.resources.action_back
 import com.bernaferrari.quietguard.generated.resources.menu_add
@@ -95,9 +105,9 @@ fun ForwardingScreen(
     viewModel: ForwardingViewModel = koinViewModel(),
 ) {
     val spacing = MaterialTheme.spacing
-    val fwdUi by viewModel.uiState.collectAsState()
+    val fwdUi by viewModel.uiState.collectAsStateWithLifecycle()
     val entries = fwdUi.entries.data
-    val loading = fwdUi.entries.isLoading
+    val loading = !fwdUi.entries.isReady && entries.isEmpty() && !fwdUi.entries.hasFailed
     val protocolFilter = fwdUi.protocolFilter
     val showDialog = fwdUi.showAddDialog
     val filteredEntries = fwdUi.filtered
@@ -192,6 +202,13 @@ fun ForwardingScreen(
             }
 
             when {
+                fwdUi.entries.hasFailed && entries.isEmpty() -> {
+                    LoadErrorPlaceholder(
+                        icon = MaterialSymbols.AutoMirrored.Filled.Forward,
+                        onRetry = viewModel::retry,
+                    )
+                }
+
                 loading -> {
                     StatePlaceholder(
                         title = stringResource(Res.string.ui_loading),
@@ -366,146 +383,178 @@ private fun ForwardingEntryCard(
         }
     }
 }
-
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun ForwardingAddDialog(
     onDismiss: () -> Unit,
     onAdd: (protocol: Int, dport: Int, raddr: String, rport: Int, ruid: Int) -> Unit,
 ) {
+    val spacing = MaterialTheme.spacing
     val protocolNames = stringArrayResource(Res.array.protocolNames)
     val protocolValues = stringArrayResource(Res.array.protocolValues)
-    var protocolExpanded by remember { mutableStateOf(false) }
     var protocolIndex by remember { mutableStateOf(0) }
     var dport by remember { mutableStateOf("") }
     var raddr by remember { mutableStateOf("") }
     var rport by remember { mutableStateOf("") }
     var rules by remember { mutableStateOf<List<FirewallRule>>(emptyList()) }
     var rulesLoading by remember { mutableStateOf(true) }
-    var ruleExpanded by remember { mutableStateOf(false) }
-    var ruleIndex by remember { mutableStateOf(0) }
+    var selectedRuleUid by remember { mutableStateOf<Int?>(null) }
+    var ruleMenuExpanded by remember { mutableStateOf(false) }
 
     LaunchedEffect(Unit) {
         rules = loadAllRulesForPicker()
         rulesLoading = false
     }
 
-    val invalidMessage = stringResource(Res.string.msg_invalid)
+    val dportValue = dport.toIntOrNull()?.takeIf { it in 1..65535 }
+    val rportValue = rport.toIntOrNull()?.takeIf { it in 1..65535 }
+    val selectedRule = rules.firstOrNull { it.uid == selectedRuleUid }
+    val canAdd =
+        dportValue != null && rportValue != null && raddr.isNotBlank() && selectedRule != null
+
+    val fieldShape = RoundedCornerShape(12.dp)
+    val fieldColors = TextFieldDefaults.colors(
+        focusedContainerColor = MaterialTheme.colorScheme.surfaceContainerHighest,
+        unfocusedContainerColor = MaterialTheme.colorScheme.surfaceContainerHighest,
+        focusedIndicatorColor = Color.Transparent,
+        unfocusedIndicatorColor = Color.Transparent,
+        disabledIndicatorColor = Color.Transparent,
+    )
 
     AlertDialog(
         onDismissRequest = onDismiss,
-        confirmButton = {
-            TextButton(
-                onClick = {
-                    val selectedProtocol =
-                        protocolValues.getOrNull(protocolIndex)?.toIntOrNull() ?: 0
-                    val dPortValue = dport.toIntOrNull()
-                    val rPortValue = rport.toIntOrNull()
-                    val raddrValue = raddr.trim()
-                    val selectedFirewallRule = rules.getOrNull(ruleIndex)
-                    if (dPortValue == null || rPortValue == null || raddrValue.isBlank() || selectedFirewallRule == null) {
-                        showToast(invalidMessage)
-                        return@TextButton
-                    }
-                    onAdd(selectedProtocol, dPortValue, raddrValue, rPortValue, selectedFirewallRule.uid)
-                },
-            ) {
-                Text(text = stringResource(Res.string.menu_ok))
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text(text = stringResource(Res.string.menu_cancel))
-            }
-        },
-        title = {
-            Text(text = stringResource(Res.string.menu_add))
-        },
+        title = { Text(text = stringResource(Res.string.ui_forwarding_title)) },
         text = {
-            Column(verticalArrangement = Arrangement.spacedBy(MaterialTheme.spacing.medium)) {
-                ExposedDropdownMenuBox(
-                    expanded = protocolExpanded,
-                    onExpandedChange = { protocolExpanded = !protocolExpanded },
-                ) {
-                    OutlinedTextField(
-                        value = protocolNames.getOrNull(protocolIndex) ?: "",
-                        onValueChange = {},
-                        readOnly = true,
-                        label = { Text(text = stringResource(Res.string.title_protocol)) },
-                        trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = protocolExpanded) },
+            Column(verticalArrangement = Arrangement.spacedBy(spacing.medium)) {
+                SingleChoiceSegmentedButtonRow(modifier = Modifier.fillMaxWidth()) {
+                    protocolNames.forEachIndexed { index, name ->
+                        SegmentedButton(
+                            selected = protocolIndex == index,
+                            onClick = { protocolIndex = index },
+                            shape = SegmentedButtonDefaults.itemShape(
+                                index = index,
+                                count = protocolNames.size,
+                            ),
+                            modifier = Modifier.weight(1f),
+                        ) {
+                            Text(text = name, maxLines = 1)
+                        }
+                    }
+                }
+
+                TextField(
+                    value = dport,
+                    onValueChange = { dport = it.filter(Char::isDigit).take(5) },
+                    label = { Text(text = stringResource(Res.string.title_dport)) },
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = fieldShape,
+                    colors = fieldColors,
+                    singleLine = true,
+                )
+                TextField(
+                    value = raddr,
+                    onValueChange = { raddr = it },
+                    label = { Text(text = stringResource(Res.string.title_raddr)) },
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = fieldShape,
+                    colors = fieldColors,
+                    singleLine = true,
+                )
+                TextField(
+                    value = rport,
+                    onValueChange = { rport = it.filter(Char::isDigit).take(5) },
+                    label = { Text(text = stringResource(Res.string.title_rport)) },
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = fieldShape,
+                    colors = fieldColors,
+                    singleLine = true,
+                )
+
+                // Destination app picker backed by a plain DropdownMenu, which anchors
+                // reliably inside dialogs (ExposedDropdownMenuBox does not).
+                Box {
+                    Surface(
+                        onClick = {
+                            if (!rulesLoading && rules.isNotEmpty()) ruleMenuExpanded = true
+                        },
                         modifier = Modifier.fillMaxWidth(),
-                    )
-                    ExposedDropdownMenu(
-                        expanded = protocolExpanded,
-                        onDismissRequest = { protocolExpanded = false },
+                        shape = fieldShape,
+                        color = MaterialTheme.colorScheme.surfaceContainerHighest,
                     ) {
-                        protocolNames.forEachIndexed { index, item ->
+                        Row(
+                            modifier = Modifier
+                                .heightIn(min = 56.dp)
+                                .padding(horizontal = spacing.default),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(spacing.small),
+                        ) {
+                            if (rulesLoading) {
+                                CircularProgressIndicator(
+                                    modifier = Modifier.size(18.dp),
+                                    strokeWidth = 2.dp,
+                                )
+                            }
+                            Text(
+                                text = selectedRule?.name
+                                    ?: selectedRule?.packageName
+                                    ?: stringResource(Res.string.title_ruid),
+                                style = MaterialTheme.typography.bodyLarge,
+                                color = if (selectedRule != null) {
+                                    MaterialTheme.colorScheme.onSurface
+                                } else {
+                                    MaterialTheme.colorScheme.onSurfaceVariant
+                                },
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis,
+                                modifier = Modifier.weight(1f),
+                            )
+                            Icon(
+                                icon = MaterialSymbols.Filled.ArrowDropDown,
+                                contentDescription = null,
+                                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                        }
+                    }
+                    DropdownMenu(
+                        expanded = ruleMenuExpanded,
+                        onDismissRequest = { ruleMenuExpanded = false },
+                    ) {
+                        rules.forEach { rule ->
                             DropdownMenuItem(
-                                text = { Text(item) },
+                                text = {
+                                    Text(
+                                        text = rule.name
+                                            ?: rule.packageName
+                                            ?: rule.uid.toString(),
+                                    )
+                                },
                                 onClick = {
-                                    protocolIndex = index
-                                    protocolExpanded = false
+                                    selectedRuleUid = rule.uid
+                                    ruleMenuExpanded = false
                                 },
                             )
                         }
                     }
                 }
-
-                OutlinedTextField(
-                    value = dport,
-                    onValueChange = { dport = it },
-                    label = { Text(text = stringResource(Res.string.title_dport)) },
-                    modifier = Modifier.fillMaxWidth(),
-                )
-                OutlinedTextField(
-                    value = raddr,
-                    onValueChange = { raddr = it },
-                    label = { Text(text = stringResource(Res.string.title_raddr)) },
-                    modifier = Modifier.fillMaxWidth(),
-                )
-                OutlinedTextField(
-                    value = rport,
-                    onValueChange = { rport = it },
-                    label = { Text(text = stringResource(Res.string.title_rport)) },
-                    modifier = Modifier.fillMaxWidth(),
-                )
-
-                if (rulesLoading) {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.Center,
-                    ) {
-                        CircularProgressIndicator()
-                    }
-                } else {
-                    ExposedDropdownMenuBox(
-                        expanded = ruleExpanded,
-                        onExpandedChange = { ruleExpanded = !ruleExpanded },
-                    ) {
-                        OutlinedTextField(
-                            value = rules.getOrNull(ruleIndex)?.name ?: "",
-                            onValueChange = {},
-                            readOnly = true,
-                            label = { Text(text = stringResource(Res.string.title_ruid)) },
-                            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = ruleExpanded) },
-                            modifier = Modifier.fillMaxWidth(),
-                        )
-                        ExposedDropdownMenu(
-                            expanded = ruleExpanded,
-                            onDismissRequest = { ruleExpanded = false },
-                        ) {
-                            rules.forEachIndexed { index, rule ->
-                                DropdownMenuItem(
-                                    text = { Text(rule.name ?: rule.packageName ?: "") },
-                                    onClick = {
-                                        ruleIndex = index
-                                        ruleExpanded = false
-                                    },
-                                )
-                            }
-                        }
-                    }
-                }
+            }
+        },
+        confirmButton = {
+            TextButton(
+                enabled = canAdd,
+                onClick = {
+                    val protocol =
+                        protocolValues.getOrNull(protocolIndex)?.toIntOrNull()
+                            ?: return@TextButton
+                    onAdd(protocol, dportValue!!, raddr.trim(), rportValue!!, selectedRule!!.uid)
+                },
+            ) {
+                Text(text = stringResource(Res.string.menu_add))
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) {
+                Text(text = stringResource(Res.string.menu_cancel))
             }
         },
     )

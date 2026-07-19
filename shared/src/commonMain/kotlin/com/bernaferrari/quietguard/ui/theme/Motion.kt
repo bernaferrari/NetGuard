@@ -11,13 +11,14 @@ import androidx.compose.runtime.staticCompositionLocalOf
  */
 @Immutable
 data class Motion(
+    val reducedMotion: Boolean = false,
     // Duration constants - subtle and professional
     /** 150ms - Quick interactions like button presses */
-    val durationFast: Int = 150,
+    val durationFast: Int = if (reducedMotion) 0 else 150,
     /** 250ms - Standard transitions like expand/collapse */
-    val durationMedium: Int = 250,
+    val durationMedium: Int = if (reducedMotion) 0 else 250,
     /** 350ms - Deliberate animations like screen transitions */
-    val durationSlow: Int = 350,
+    val durationSlow: Int = if (reducedMotion) 0 else 350,
 
     // Easing curves - Material Design 3 standard
     /** Standard easing for most transitions */

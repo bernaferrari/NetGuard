@@ -8,11 +8,15 @@ import com.bernaferrari.quietguard.platform.currentTimeMillis
 import com.bernaferrari.quietguard.platform.exportDnsToFile
 import com.bernaferrari.quietguard.ui.util.UiAsyncState
 import com.bernaferrari.quietguard.ui.util.asUiAsyncState
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.koin.core.annotation.KoinViewModel
 
@@ -44,12 +48,22 @@ data class DnsScreenState(
         get() = entries.data.count { it.time + it.ttl < nowMs }
 }
 
+@OptIn(ExperimentalCoroutinesApi::class)
 @KoinViewModel
 class DnsViewModel(
     private val trafficRepository: TrafficRepository,
 ) : ViewModel() {
     private val filter = MutableStateFlow(DnsListFilter.All)
-    private val entriesState = trafficRepository.observeDns().asUiAsyncState(viewModelScope, emptyList())
+    private val refreshVersion = MutableStateFlow(0L)
+    private val retryRequests = MutableSharedFlow<Unit>(extraBufferCapacity = 1)
+    private val entriesState =
+        refreshVersion
+            .flatMapLatest { trafficRepository.observeDns() }
+            .asUiAsyncState(
+                scope = viewModelScope,
+                initialData = emptyList(),
+                retryRequests = retryRequests,
+            )
 
     val uiState: StateFlow<DnsScreenState> =
         combine(entriesState, filter) { entries, f ->
@@ -62,6 +76,14 @@ class DnsViewModel(
 
     fun setFilter(value: DnsListFilter) {
         filter.value = value
+    }
+
+    fun refresh() {
+        if (entriesState.value.hasFailed) {
+            retryRequests.tryEmit(Unit)
+        } else {
+            refreshVersion.update { it + 1 }
+        }
     }
 
     fun cleanup() {
