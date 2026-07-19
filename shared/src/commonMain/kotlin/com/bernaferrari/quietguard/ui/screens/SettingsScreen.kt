@@ -2,9 +2,6 @@ package com.bernaferrari.quietguard.ui.screens
 
 import com.bernaferrari.quietguard.ui.icons.MaterialSymbols
 
-
-
-
 import org.jetbrains.compose.resources.stringResource
 import com.bernaferrari.quietguard.generated.resources.Res
 import com.bernaferrari.quietguard.generated.resources.app_description
@@ -13,10 +10,6 @@ import com.bernaferrari.quietguard.generated.resources.action_back
 import com.bernaferrari.quietguard.generated.resources.content_desc_show_info
 import com.bernaferrari.quietguard.generated.resources.menu_about
 import com.bernaferrari.quietguard.generated.resources.menu_ok
-import com.bernaferrari.quietguard.generated.resources.setting_default_value
-import com.bernaferrari.quietguard.generated.resources.setting_reset_accessibility
-import com.bernaferrari.quietguard.generated.resources.setting_reset_to_default
-import com.bernaferrari.quietguard.generated.resources.setting_value_empty
 import com.bernaferrari.quietguard.generated.resources.setting_value_off
 import com.bernaferrari.quietguard.generated.resources.setting_value_on
 import com.bernaferrari.quietguard.generated.resources.setting_access
@@ -86,8 +79,6 @@ import com.bernaferrari.quietguard.generated.resources.setting_stats_top
 import com.bernaferrari.quietguard.generated.resources.setting_subnet
 import com.bernaferrari.quietguard.generated.resources.setting_system
 import com.bernaferrari.quietguard.generated.resources.setting_tethering
-import com.bernaferrari.quietguard.generated.resources.setting_theme_palette
-import com.bernaferrari.quietguard.generated.resources.setting_theme_teal
 import com.bernaferrari.quietguard.generated.resources.setting_track_usage
 import com.bernaferrari.quietguard.generated.resources.setting_update
 import com.bernaferrari.quietguard.generated.resources.setting_update_checking
@@ -101,7 +92,6 @@ import com.bernaferrari.quietguard.generated.resources.setting_whitelist_roaming
 import com.bernaferrari.quietguard.generated.resources.summary_block_domains
 import com.bernaferrari.quietguard.generated.resources.summary_log_retention_days
 import com.bernaferrari.quietguard.generated.resources.title_mobile
-import com.bernaferrari.quietguard.generated.resources.title_block
 import com.bernaferrari.quietguard.generated.resources.title_wifi
 import com.bernaferrari.quietguard.generated.resources.tooltip_filter
 import com.bernaferrari.quietguard.generated.resources.tooltip_lockdown
@@ -132,7 +122,6 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -155,19 +144,19 @@ import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.FilledTonalButton
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.LargeTopAppBar
+import androidx.compose.material3.LargeFlexibleTopAppBar
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.MediumFlexibleTopAppBar
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.ToggleButton
 import androidx.compose.material3.ToggleButtonDefaults
-import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
@@ -186,8 +175,8 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.semantics.Role
@@ -201,11 +190,8 @@ import androidx.compose.ui.unit.dp
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.core.stringSetPreferencesKey
-import com.bernaferrari.quietguard.data.PreferencesRepository
 import com.bernaferrari.quietguard.platform.NetGuardPlatform
 import com.bernaferrari.quietguard.platform.PlatformContext
-
-import com.bernaferrari.quietguard.platform.showToast
 import com.bernaferrari.quietguard.ui.screens.vm.SettingsViewModel
 import com.bernaferrari.quietguard.ui.SettingsSection
 import org.koin.compose.viewmodel.koinViewModel
@@ -223,14 +209,15 @@ import com.bernaferrari.quietguard.ui.theme.PurplePrimary
 import com.bernaferrari.quietguard.ui.theme.Teal500
 import com.bernaferrari.quietguard.ui.theme.TouchTargets
 import com.bernaferrari.quietguard.ui.theme.spacing
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 import com.bernaferrari.quietguard.ui.icons.Icon
 import com.bernaferrari.quietguard.ui.icons.MaterialIcon
+
 private const val PROJECT_GITHUB_URL = "https://github.com/bernaferrari/QuietGuard"
+
+// M3 Expressive grouped-list corners: large radius on group edges, small between items.
+private val GroupOuterCorner = 24.dp
+private val GroupInnerCorner = 6.dp
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 @Composable
@@ -246,8 +233,8 @@ fun SettingsScreen(
     val preferencesRepository = viewModel.preferencesRepository
     val prefs by viewModel.preferences.collectAsState()
     val scrollState = rememberScrollState()
-    val scope = androidx.compose.runtime.rememberCoroutineScope()
     val uriHandler = LocalUriHandler.current
+    val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
 
     fun bool(key: String, default: Boolean) = prefs[booleanPreferencesKey(key)] ?: default
     fun str(key: String, default: String) = prefs[stringPreferencesKey(key)] ?: default
@@ -260,22 +247,6 @@ fun SettingsScreen(
         updateWidgets: (() -> Unit)? = null,
     ) {
         preferencesRepository.putBoolean(key, value)
-        if (reload) {
-            NetGuardPlatform.firewall.reload("settings", false)
-        }
-        if (reloadStats) {
-            NetGuardPlatform.firewall.reloadStats("settings")
-        }
-        updateWidgets?.invoke()
-    }
-
-    fun resetFlag(
-        key: String,
-        reload: Boolean = false,
-        reloadStats: Boolean = false,
-        updateWidgets: (() -> Unit)? = null,
-    ) {
-        preferencesRepository.removeBoolean(key)
         if (reload) {
             NetGuardPlatform.firewall.reload("settings", false)
         }
@@ -334,21 +305,20 @@ fun SettingsScreen(
         }
 
     Scaffold(
+        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             if (section == null) {
-                LargeTopAppBar(
+                LargeFlexibleTopAppBar(
                     title = {
                         Text(
                             text = screenTitle,
                             fontWeight = FontWeight.Bold,
                         )
                     },
-                    colors = TopAppBarDefaults.topAppBarColors(
-                        containerColor = MaterialTheme.colorScheme.surface,
-                    ),
+                    scrollBehavior = scrollBehavior,
                 )
             } else {
-                TopAppBar(
+                MediumFlexibleTopAppBar(
                     navigationIcon = {
                         IconButton(onClick = onBack) {
                             Icon(
@@ -363,151 +333,134 @@ fun SettingsScreen(
                             fontWeight = FontWeight.Bold,
                         )
                     },
-                    colors = TopAppBarDefaults.topAppBarColors(
-                        containerColor = MaterialTheme.colorScheme.surface,
-                    ),
+                    scrollBehavior = scrollBehavior,
                 )
             }
         },
         containerColor = MaterialTheme.colorScheme.surface,
     ) { innerPadding ->
-        val topPadding = innerPadding.calculateTopPadding()
-        Box(
+        Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(top = topPadding),
+                .padding(innerPadding)
+                .verticalScroll(scrollState)
+                .padding(horizontal = spacing.large, vertical = spacing.default),
+            verticalArrangement = Arrangement.spacedBy(spacing.extraLarge),
         ) {
-            Column(
-                modifier = Modifier
-                    .align(Alignment.TopCenter)
-                    .fillMaxWidth()
-                    .verticalScroll(scrollState)
-                    .padding(horizontal = spacing.large, vertical = spacing.default),
-                verticalArrangement = Arrangement.spacedBy(spacing.extraLarge),
-            ) {
-
 
             if (section == null) {
-                // Appearance Section
-                val appearanceTitle = stringResource(Res.string.setting_section_appearance)
-                CollapsibleSettingsSection(title = appearanceTitle, framed = false) {
-                val currentTheme = str("theme", "teal")
-                val dynamicSwatchColor = Teal500
-                val modeOptions = listOf(
-                    Triple(
-                        "light",
-                        stringResource(Res.string.setting_appearance_light),
-                        Pair(MaterialSymbols.Filled.LightMode, MaterialSymbols.Outlined.LightMode),
-                    ),
-                    Triple(
-                        "dark",
-                        stringResource(Res.string.setting_appearance_dark),
-                        Pair(MaterialSymbols.Filled.DarkMode, MaterialSymbols.Outlined.DarkMode),
-                    ),
-                    Triple(
-                        "auto",
-                        stringResource(Res.string.setting_appearance_auto),
-                        Pair(MaterialSymbols.Filled.BrightnessAuto, MaterialSymbols.Outlined.BrightnessAuto),
-                    ),
-                )
-
-                // ── Appearance mode toggle — connected buttons ──
-                val selectedIndex = modeOptions.indexOfFirst { it.first == appearanceMode }
-                FlowRow(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = spacing.extraSmall, bottom = 0.dp),
-                    horizontalArrangement =
-                        Arrangement.spacedBy(ButtonGroupDefaults.ConnectedSpaceBetween),
-                    verticalArrangement = Arrangement.spacedBy(spacing.extraSmall),
-                ) {
-                    modeOptions.forEachIndexed { index, (mode, label, icons) ->
-                        val selected = index == selectedIndex
-                        ToggleButton(
-                            checked = selected,
-                            onCheckedChange = { isChecked ->
-                                if (isChecked) updateAppearance(mode)
-                            },
-                            shapes =
-                                when (index) {
-                                    0 -> ButtonGroupDefaults.connectedLeadingButtonShapes()
-                                    modeOptions.lastIndex ->
-                                        ButtonGroupDefaults.connectedTrailingButtonShapes()
-
-                                    else -> ButtonGroupDefaults.connectedMiddleButtonShapes()
-                                },
-                            colors = ToggleButtonDefaults.toggleButtonColors(
-                                checkedContainerColor = MaterialTheme.colorScheme.primaryContainer,
-                                checkedContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
-                                containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
-                                contentColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                // Appearance
+                Column(verticalArrangement = Arrangement.spacedBy(spacing.small)) {
+                    SettingsSubheader(stringResource(Res.string.setting_section_appearance))
+                    val currentTheme = str("theme", "teal")
+                    val dynamicSwatchColor = Teal500
+                    val modeOptions = listOf(
+                        Triple(
+                            "light",
+                            stringResource(Res.string.setting_appearance_light),
+                            Pair(MaterialSymbols.Filled.LightMode, MaterialSymbols.Outlined.LightMode),
+                        ),
+                        Triple(
+                            "dark",
+                            stringResource(Res.string.setting_appearance_dark),
+                            Pair(MaterialSymbols.Filled.DarkMode, MaterialSymbols.Outlined.DarkMode),
+                        ),
+                        Triple(
+                            "auto",
+                            stringResource(Res.string.setting_appearance_auto),
+                            Pair(
+                                MaterialSymbols.Filled.BrightnessAuto,
+                                MaterialSymbols.Outlined.BrightnessAuto,
                             ),
-                            modifier = Modifier.semantics { role = Role.RadioButton },
-                        ) {
-                            Icon(
-                                icon = if (selected) MaterialSymbols.Filled.Check else icons.second,
-                                contentDescription = null,
-                                modifier = Modifier.size(ToggleButtonDefaults.IconSize),
-                            )
-                            Spacer(modifier = Modifier.size(ToggleButtonDefaults.IconSpacing))
-                            Text(
-                                text = label,
-                                style = MaterialTheme.typography.labelLarge,
+                        ),
+                    )
+
+                    // ── Appearance mode toggle — connected buttons ──
+                    val selectedIndex = modeOptions.indexOfFirst { it.first == appearanceMode }
+                    FlowRow(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = spacing.extraSmall, bottom = 0.dp),
+                        horizontalArrangement =
+                            Arrangement.spacedBy(ButtonGroupDefaults.ConnectedSpaceBetween),
+                        verticalArrangement = Arrangement.spacedBy(spacing.extraSmall),
+                    ) {
+                        modeOptions.forEachIndexed { index, (mode, label, icons) ->
+                            val selected = index == selectedIndex
+                            ToggleButton(
+                                checked = selected,
+                                onCheckedChange = { isChecked ->
+                                    if (isChecked) updateAppearance(mode)
+                                },
+                                shapes =
+                                    when (index) {
+                                        0 -> ButtonGroupDefaults.connectedLeadingButtonShapes()
+                                        modeOptions.lastIndex ->
+                                            ButtonGroupDefaults.connectedTrailingButtonShapes()
+
+                                        else -> ButtonGroupDefaults.connectedMiddleButtonShapes()
+                                    },
+                                colors = ToggleButtonDefaults.toggleButtonColors(
+                                    checkedContainerColor = MaterialTheme.colorScheme.primaryContainer,
+                                    checkedContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
+                                    containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+                                    contentColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                                ),
+                                modifier = Modifier.semantics { role = Role.RadioButton },
+                            ) {
+                                Icon(
+                                    icon = if (selected) MaterialSymbols.Filled.Check else icons.second,
+                                    contentDescription = null,
+                                    modifier = Modifier.size(ToggleButtonDefaults.IconSize),
+                                )
+                                Spacer(modifier = Modifier.size(ToggleButtonDefaults.IconSpacing))
+                                Text(
+                                    text = label,
+                                    style = MaterialTheme.typography.labelLarge,
+                                )
+                            }
+                        }
+                    }
+
+                    // ── Color theme swatches ──
+                    val themeChoices = buildList {
+                        if (PlatformContext.isAndroid()) {
+                            add(Pair("dynamic", null as Color?))
+                        }
+                        add(Pair("teal", Teal500 as Color?))
+                        add(Pair("blue", BluePrimary as Color?))
+                        add(Pair("purple", PurplePrimary as Color?))
+                        add(Pair("amber", AmberPrimary as Color?))
+                        add(Pair("orange", OrangePrimary as Color?))
+                        add(Pair("green", GreenPrimary as Color?))
+                        add(Pair("cyan", CyanPrimary as Color?))
+                        add(Pair("indigo", IndigoPrimary as Color?))
+                        add(Pair("pink", PinkPrimary as Color?))
+                        add(Pair("lime", LimePrimary as Color?))
+                    }
+
+                    FlowRow(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = spacing.extraSmall, bottom = spacing.extraSmall),
+                        horizontalArrangement =
+                            Arrangement.spacedBy(0.dp, Alignment.CenterHorizontally),
+                        verticalArrangement = Arrangement.spacedBy(0.dp),
+                    ) {
+                        themeChoices.forEach { (theme, seedColor) ->
+                            ThemeSwatch(
+                                theme = theme,
+                                seedColor = seedColor,
+                                isSelected = currentTheme == theme,
+                                isEnabled = true,
+                                dynamicColor = dynamicSwatchColor,
+                                onClick = {
+                                    preferencesRepository.putString("theme", theme)
+                                    NetGuardPlatform.widgets.updateAll()
+                                },
                             )
                         }
                     }
-                }
-
-                // ── Color theme swatches ──
-                val themeChoices = buildList {
-                    if (PlatformContext.isAndroid()) {
-                        add(Pair("dynamic", null as Color?))
-                    }
-                    add(Pair("teal", Teal500 as Color?))
-                    add(Pair("blue", BluePrimary as Color?))
-                    add(Pair("purple", PurplePrimary as Color?))
-                    add(Pair("amber", AmberPrimary as Color?))
-                    add(Pair("orange", OrangePrimary as Color?))
-                    add(Pair("green", GreenPrimary as Color?))
-                    add(Pair("cyan", CyanPrimary as Color?))
-                    add(Pair("indigo", IndigoPrimary as Color?))
-                    add(Pair("pink", PinkPrimary as Color?))
-                    add(Pair("lime", LimePrimary as Color?))
-                }
-
-                FlowRow(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = spacing.extraSmall, bottom = spacing.extraSmall),
-                    horizontalArrangement =
-                        Arrangement.spacedBy(0.dp, Alignment.CenterHorizontally),
-                    verticalArrangement = Arrangement.spacedBy(0.dp),
-                ) {
-                    themeChoices.forEach { (theme, seedColor) ->
-                        ThemeSwatch(
-                            theme = theme,
-                            seedColor = seedColor,
-                            isSelected = currentTheme == theme,
-                            isEnabled = true,
-                            dynamicColor = dynamicSwatchColor,
-                            onClick = {
-                                preferencesRepository.putString("theme", theme)
-                                NetGuardPlatform.widgets.updateAll()
-                            },
-                        )
-                    }
-                    if (currentTheme != "teal") {
-                        SettingResetAction(
-                            title = stringResource(Res.string.setting_theme_palette),
-                            defaultValue = stringResource(Res.string.setting_theme_teal),
-                            onReset = {
-                                preferencesRepository.removeString("theme")
-                                NetGuardPlatform.widgets.updateAll()
-                            },
-                        )
-                    }
-                }
-
                 }
 
                 QuickFirewallControls(
@@ -534,364 +487,403 @@ fun SettingsScreen(
 
             // Firewall Section
             if (section == SettingsSection.Firewall) {
-                val firewallTitle = stringResource(Res.string.setting_section_firewall)
-                CollapsibleSettingsSection(title = firewallTitle) {
-                // Main allow/block toggles — uses the same FirewallTile as per-app detail
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(spacing.extraSmall),
-                ) {
-                    FirewallTile(
-                        allowedIcon = MaterialSymbols.Filled.Wifi,
-                        blockedIcon = MaterialSymbols.Filled.WifiOff,
-                        label = stringResource(Res.string.title_wifi),
-                        allowed = !bool("whitelist_wifi", true),
-                        onToggle = {
-                            updateFlag(
-                                "whitelist_wifi",
-                                !bool("whitelist_wifi", true),
-                                reload = true
+                SettingsGroup {
+                    item { first, last ->
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.spacedBy(2.dp),
+                        ) {
+                            FirewallTile(
+                                allowedIcon = MaterialSymbols.Filled.Wifi,
+                                blockedIcon = MaterialSymbols.Filled.WifiOff,
+                                label = stringResource(Res.string.title_wifi),
+                                allowed = !bool("whitelist_wifi", true),
+                                onToggle = {
+                                    updateFlag(
+                                        "whitelist_wifi",
+                                        !bool("whitelist_wifi", true),
+                                        reload = true,
+                                    )
+                                },
+                                shape = settingPairTileShape(
+                                    isLeadingTile = true,
+                                    isFirst = first,
+                                    isLast = last,
+                                ),
+                                modifier = Modifier.weight(1f),
                             )
-                        },
-                        shape = settingPairTileShape(
-                            isLeadingTile = true,
-                            isFirstRow = true,
-                            isLastRow = false,
-                            baseShape = MaterialTheme.shapes.small,
-                        ),
-                        modifier = Modifier.weight(1f),
-                    )
-                    FirewallTile(
-                        allowedIcon = MaterialSymbols.Filled.PhoneAndroid,
-                        blockedIcon = MaterialSymbols.Filled.MobileOff,
-                        label = stringResource(Res.string.title_mobile),
-                        allowed = !bool("whitelist_other", true),
-                        onToggle = {
-                            updateFlag(
-                                "whitelist_other",
-                                !bool("whitelist_other", true),
-                                reload = true
-                            )
-                        },
-                        shape = settingPairTileShape(
-                            isLeadingTile = false,
-                            isFirstRow = true,
-                            isLastRow = false,
-                            baseShape = MaterialTheme.shapes.small,
-                        ),
-                        modifier = Modifier.weight(1f),
-                    )
-                }
-                if (bool("whitelist_wifi", true) != true ||
-                    bool("whitelist_other", true) != true
-                ) {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.End,
-                    ) {
-                        if (bool("whitelist_wifi", true) != true) {
-                            SettingResetAction(
-                                title = stringResource(Res.string.title_wifi),
-                                defaultValue = stringResource(Res.string.title_block),
-                                onReset = { resetFlag("whitelist_wifi", reload = true) },
-                            )
-                        }
-                        if (bool("whitelist_other", true) != true) {
-                            SettingResetAction(
-                                title = stringResource(Res.string.title_mobile),
-                                defaultValue = stringResource(Res.string.title_block),
-                                onReset = { resetFlag("whitelist_other", reload = true) },
+                            FirewallTile(
+                                allowedIcon = MaterialSymbols.Filled.PhoneAndroid,
+                                blockedIcon = MaterialSymbols.Filled.MobileOff,
+                                label = stringResource(Res.string.title_mobile),
+                                allowed = !bool("whitelist_other", true),
+                                onToggle = {
+                                    updateFlag(
+                                        "whitelist_other",
+                                        !bool("whitelist_other", true),
+                                        reload = true,
+                                    )
+                                },
+                                shape = settingPairTileShape(
+                                    isLeadingTile = false,
+                                    isFirst = first,
+                                    isLast = last,
+                                ),
+                                modifier = Modifier.weight(1f),
                             )
                         }
                     }
+                    item { first, last ->
+                        SettingToggleRow(
+                            title = stringResource(Res.string.setting_whitelist_roaming),
+                            checked = bool("whitelist_roaming", true),
+                            isFirst = first,
+                            isLast = last,
+                        ) { updateFlag("whitelist_roaming", it, reload = true) }
+                    }
                 }
-                SettingToggleRow(
-                    title = stringResource(Res.string.setting_whitelist_roaming),
-                    checked = bool("whitelist_roaming", true),
-                    defaultChecked = true,
-                    onReset = { resetFlag("whitelist_roaming", reload = true) },
-                ) { updateFlag("whitelist_roaming", it, reload = true) }
-                SettingToggleRow(
-                    title = stringResource(Res.string.setting_screen_on),
-                    checked = bool("screen_on", true),
-                    defaultChecked = true,
-                    onReset = { resetFlag("screen_on", reload = true) },
-                ) { updateFlag("screen_on", it, reload = true) }
-                SettingTogglePairRow(
-                    firstTitle = stringResource(Res.string.setting_screen_wifi),
-                    firstChecked = bool("screen_wifi", false),
-                    firstDefaultChecked = false,
-                    onFirstCheckedChange = { updateFlag("screen_wifi", it, reload = true) },
-                    onFirstReset = { resetFlag("screen_wifi", reload = true) },
-                    secondTitle = stringResource(Res.string.setting_screen_other),
-                    secondChecked = bool("screen_other", false),
-                    secondDefaultChecked = false,
-                    onSecondCheckedChange = { updateFlag("screen_other", it, reload = true) },
-                    onSecondReset = { resetFlag("screen_other", reload = true) },
-                )
-                SettingToggleRow(
-                    title = stringResource(Res.string.setting_subnet),
-                    checked = bool("subnet", false),
-                    defaultChecked = false,
-                    onReset = { resetFlag("subnet", reload = true) },
-                ) { updateFlag("subnet", it, reload = true) }
-                SettingToggleRow(
-                    title = stringResource(Res.string.setting_tethering),
-                    checked = bool("tethering", false),
-                    defaultChecked = false,
-                    onReset = { resetFlag("tethering", reload = true) },
-                ) { updateFlag("tethering", it, reload = true) }
-                SettingToggleRow(
-                    title = stringResource(Res.string.setting_lan),
-                    checked = bool("lan", false),
-                    defaultChecked = false,
-                    onReset = { resetFlag("lan", reload = true) },
-                ) { updateFlag("lan", it, reload = true) }
-                SettingToggleRow(
-                    title = stringResource(Res.string.setting_ip6),
-                    checked = bool("ip6", true),
-                    defaultChecked = true,
-                    onReset = { resetFlag("ip6", reload = true) },
-                ) { updateFlag("ip6", it, reload = true) }
 
-                SettingTextRow(
-                    title = stringResource(Res.string.setting_delay, "0"),
-                    value = str("screen_delay", "0"),
-                    defaultValue = "0",
-                    keyboardType = KeyboardType.Number,
-                    onReset = { preferencesRepository.removeString("screen_delay") },
-                    onValueChange = { preferencesRepository.putString("screen_delay", it) },
-                )
-                SettingTextRow(
-                    title = stringResource(Res.string.setting_auto, "0"),
-                    value = str("auto_enable", "0"),
-                    defaultValue = "0",
-                    keyboardType = KeyboardType.Number,
-                    onReset = { preferencesRepository.removeString("auto_enable") },
-                    onValueChange = { preferencesRepository.putString("auto_enable", it) },
-                )
+                SettingsGroup {
+                    item { first, last ->
+                        SettingToggleRow(
+                            title = stringResource(Res.string.setting_screen_on),
+                            checked = bool("screen_on", true),
+                            isFirst = first,
+                            isLast = last,
+                        ) { updateFlag("screen_on", it, reload = true) }
+                    }
+                    item { first, last ->
+                        SettingTogglePairRow(
+                            firstTitle = stringResource(Res.string.setting_screen_wifi),
+                            firstChecked = bool("screen_wifi", false),
+                            onFirstCheckedChange = { updateFlag("screen_wifi", it, reload = true) },
+                            secondTitle = stringResource(Res.string.setting_screen_other),
+                            secondChecked = bool("screen_other", false),
+                            onSecondCheckedChange = { updateFlag("screen_other", it, reload = true) },
+                            isFirst = first,
+                            isLast = last,
+                        )
+                    }
+                    item { first, last ->
+                        SettingTextRow(
+                            title = stringResource(Res.string.setting_delay, "0"),
+                            value = str("screen_delay", "0"),
+                            keyboardType = KeyboardType.Number,
+                            isFirst = first,
+                            isLast = last,
+                            onValueChange = { preferencesRepository.putString("screen_delay", it) },
+                        )
+                    }
+                }
 
-                val homes = strSet("wifi_homes", emptySet()).joinToString(",")
-                SettingTextRow(
-                    title = stringResource(Res.string.setting_wifi_home, homes.ifEmpty { "-" }),
-                    value = homes,
-                    defaultValue = "",
-                    onReset = { preferencesRepository.removeStringSet("wifi_homes") },
-                    onValueChange = { value ->
-                        val set =
-                            value.split(",").map { it.trim() }.filter { it.isNotEmpty() }.toSet()
-                        preferencesRepository.putStringSet("wifi_homes", set)
-                    },
-                )
+                SettingsGroup {
+                    item { first, last ->
+                        SettingToggleRow(
+                            title = stringResource(Res.string.setting_subnet),
+                            checked = bool("subnet", false),
+                            isFirst = first,
+                            isLast = last,
+                        ) { updateFlag("subnet", it, reload = true) }
+                    }
+                    item { first, last ->
+                        SettingToggleRow(
+                            title = stringResource(Res.string.setting_tethering),
+                            checked = bool("tethering", false),
+                            isFirst = first,
+                            isLast = last,
+                        ) { updateFlag("tethering", it, reload = true) }
+                    }
+                    item { first, last ->
+                        SettingToggleRow(
+                            title = stringResource(Res.string.setting_lan),
+                            checked = bool("lan", false),
+                            isFirst = first,
+                            isLast = last,
+                        ) { updateFlag("lan", it, reload = true) }
+                    }
+                    item { first, last ->
+                        SettingToggleRow(
+                            title = stringResource(Res.string.setting_ip6),
+                            checked = bool("ip6", true),
+                            isFirst = first,
+                            isLast = last,
+                        ) { updateFlag("ip6", it, reload = true) }
+                    }
+                }
 
-                SettingToggleRow(
-                    title = stringResource(Res.string.setting_metered),
-                    checked = bool("use_metered", true),
-                    defaultChecked = true,
-                    onReset = { resetFlag("use_metered", reload = true) },
-                ) { updateFlag("use_metered", it, reload = true) }
-                SettingTogglePairRow(
-                    firstTitle = stringResource(Res.string.setting_metered_2g),
-                    firstChecked = bool("unmetered_2g", false),
-                    firstDefaultChecked = false,
-                    onFirstCheckedChange = { updateFlag("unmetered_2g", it, reload = true) },
-                    onFirstReset = { resetFlag("unmetered_2g", reload = true) },
-                    secondTitle = stringResource(Res.string.setting_metered_3g),
-                    secondChecked = bool("unmetered_3g", false),
-                    secondDefaultChecked = false,
-                    onSecondCheckedChange = { updateFlag("unmetered_3g", it, reload = true) },
-                    onSecondReset = { resetFlag("unmetered_3g", reload = true) },
-                )
-                SettingToggleRow(
-                    title = stringResource(Res.string.setting_metered_4g),
-                    checked = bool("unmetered_4g", false),
-                    defaultChecked = false,
-                    onReset = { resetFlag("unmetered_4g", reload = true) },
-                ) { updateFlag("unmetered_4g", it, reload = true) }
-                SettingToggleRow(
-                    title = stringResource(Res.string.setting_national_roaming),
-                    checked = bool("national_roaming", false),
-                    defaultChecked = false,
-                    onReset = { resetFlag("national_roaming", reload = true) },
-                ) { updateFlag("national_roaming", it, reload = true) }
-                SettingToggleRow(
-                    title = stringResource(Res.string.setting_eu_roaming),
-                    checked = bool("eu_roaming", false),
-                    defaultChecked = false,
-                    onReset = { resetFlag("eu_roaming", reload = true) },
-                ) { updateFlag("eu_roaming", it, reload = true) }
-                SettingToggleRow(
-                    title = stringResource(Res.string.setting_call),
-                    checked = bool("disable_on_call", false),
-                    defaultChecked = false,
-                    isLast = true,
-                    onReset = { resetFlag("disable_on_call", reload = true) },
-                ) { updateFlag("disable_on_call", it, reload = true) }
+                SettingsGroup {
+                    item { first, last ->
+                        SettingTextRow(
+                            title = stringResource(Res.string.setting_auto, "0"),
+                            value = str("auto_enable", "0"),
+                            keyboardType = KeyboardType.Number,
+                            isFirst = first,
+                            isLast = last,
+                            onValueChange = { preferencesRepository.putString("auto_enable", it) },
+                        )
+                    }
+                    item { first, last ->
+                        val homes = strSet("wifi_homes", emptySet()).joinToString(",")
+                        SettingTextRow(
+                            title = stringResource(Res.string.setting_wifi_home, homes.ifEmpty { "-" }),
+                            value = homes,
+                            isFirst = first,
+                            isLast = last,
+                            onValueChange = { value ->
+                                val set =
+                                    value.split(",").map { it.trim() }
+                                        .filter { it.isNotEmpty() }.toSet()
+                                preferencesRepository.putStringSet("wifi_homes", set)
+                            },
+                        )
+                    }
+                }
+
+                SettingsGroup {
+                    item { first, last ->
+                        SettingToggleRow(
+                            title = stringResource(Res.string.setting_metered),
+                            checked = bool("use_metered", true),
+                            isFirst = first,
+                            isLast = last,
+                        ) { updateFlag("use_metered", it, reload = true) }
+                    }
+                    item { first, last ->
+                        SettingTogglePairRow(
+                            firstTitle = stringResource(Res.string.setting_metered_2g),
+                            firstChecked = bool("unmetered_2g", false),
+                            onFirstCheckedChange = { updateFlag("unmetered_2g", it, reload = true) },
+                            secondTitle = stringResource(Res.string.setting_metered_3g),
+                            secondChecked = bool("unmetered_3g", false),
+                            onSecondCheckedChange = { updateFlag("unmetered_3g", it, reload = true) },
+                            isFirst = first,
+                            isLast = last,
+                        )
+                    }
+                    item { first, last ->
+                        SettingToggleRow(
+                            title = stringResource(Res.string.setting_metered_4g),
+                            checked = bool("unmetered_4g", false),
+                            isFirst = first,
+                            isLast = last,
+                        ) { updateFlag("unmetered_4g", it, reload = true) }
+                    }
+                    item { first, last ->
+                        SettingToggleRow(
+                            title = stringResource(Res.string.setting_national_roaming),
+                            checked = bool("national_roaming", false),
+                            isFirst = first,
+                            isLast = last,
+                        ) { updateFlag("national_roaming", it, reload = true) }
+                    }
+                    item { first, last ->
+                        SettingToggleRow(
+                            title = stringResource(Res.string.setting_eu_roaming),
+                            checked = bool("eu_roaming", false),
+                            isFirst = first,
+                            isLast = last,
+                        ) { updateFlag("eu_roaming", it, reload = true) }
+                    }
+                    item { first, last ->
+                        SettingToggleRow(
+                            title = stringResource(Res.string.setting_call),
+                            checked = bool("disable_on_call", false),
+                            isFirst = first,
+                            isLast = last,
+                        ) { updateFlag("disable_on_call", it, reload = true) }
+                    }
                 }
             }
 
             // Advanced Section
             if (section == SettingsSection.Advanced) {
-                val advancedTitle = stringResource(Res.string.setting_section_advanced)
-                CollapsibleSettingsSection(title = advancedTitle) {
-                SettingToggleRow(
-                    title = stringResource(Res.string.setting_system),
-                    checked = bool("manage_system", false),
-                    defaultChecked = false,
-                    isFirst = true,
-                    onReset = {
-                        preferencesRepository.removeBoolean("manage_system")
-                        preferencesRepository.removeBoolean("show_system")
-                        NetGuardPlatform.firewall.reload("settings", false)
-                    },
-                ) { enabled ->
-                    preferencesRepository.putBoolean("manage_system", enabled)
-                    preferencesRepository.putBoolean("show_system", enabled)
-                    NetGuardPlatform.firewall.reload("settings", false)
+                SettingsGroup {
+                    item { first, last ->
+                        SettingToggleRow(
+                            title = stringResource(Res.string.setting_system),
+                            checked = bool("manage_system", false),
+                            isFirst = first,
+                            isLast = last,
+                        ) { enabled ->
+                            preferencesRepository.putBoolean("manage_system", enabled)
+                            preferencesRepository.putBoolean("show_system", enabled)
+                            NetGuardPlatform.firewall.reload("settings", false)
+                        }
+                    }
+                    item { first, last ->
+                        SettingToggleRow(
+                            title = stringResource(Res.string.setting_log_app),
+                            checked = bool("log", false),
+                            isFirst = first,
+                            isLast = last,
+                        ) { enabled ->
+                            preferencesRepository.putBoolean("log", enabled)
+                            NetGuardPlatform.firewall.reload("settings", false)
+                        }
+                    }
+                    item { first, last ->
+                        SettingTextRowWithTooltip(
+                            title = stringResource(Res.string.setting_log_retention_days),
+                            tooltip = stringResource(Res.string.summary_log_retention_days),
+                            value = str("log_retention_days", "3"),
+                            keyboardType = KeyboardType.Number,
+                            isFirst = first,
+                            isLast = last,
+                        ) { input ->
+                            val numeric = input.filter(Char::isDigit).take(3)
+                            val normalized =
+                                numeric.toIntOrNull()?.coerceIn(0, 365)?.toString() ?: numeric
+                            preferencesRepository.putString("log_retention_days", normalized)
+                        }
+                    }
+                    item { first, last ->
+                        SettingToggleRow(
+                            title = stringResource(Res.string.setting_access),
+                            checked = bool("notify_access", false),
+                            isFirst = first,
+                            isLast = last,
+                        ) { updateFlag("notify_access", it) }
+                    }
                 }
-                SettingToggleRow(
-                    title = stringResource(Res.string.setting_log_app),
-                    checked = bool("log", false),
-                    defaultChecked = false,
-                    onReset = { resetFlag("log", reload = true) },
-                ) { enabled ->
-                    preferencesRepository.putBoolean("log", enabled)
-                    NetGuardPlatform.firewall.reload("settings", false)
-                }
-                SettingTextRowWithTooltip(
-                    title = stringResource(Res.string.setting_log_retention_days),
-                    tooltip = stringResource(Res.string.summary_log_retention_days),
-                    value = str("log_retention_days", "3"),
-                    defaultValue = "3",
-                    keyboardType = KeyboardType.Number,
-                    onReset = { preferencesRepository.removeString("log_retention_days") },
-                ) { input ->
-                    val numeric = input.filter(Char::isDigit).take(3)
-                    val normalized = numeric.toIntOrNull()?.coerceIn(0, 365)?.toString() ?: numeric
-                    preferencesRepository.putString("log_retention_days", normalized)
-                }
-                SettingToggleRow(
-                    title = stringResource(Res.string.setting_access),
-                    checked = bool("notify_access", false),
-                    defaultChecked = false,
-                    onReset = { resetFlag("notify_access") },
-                ) { updateFlag("notify_access", it) }
-                SettingToggleRowWithTooltip(
-                    title = stringResource(Res.string.setting_filter),
-                    tooltip = stringResource(Res.string.tooltip_filter),
-                    checked = bool("filter", false),
-                    defaultChecked = false,
-                    onReset = { resetFlag("filter", reload = true) },
-                ) { updateFlag("filter", it, reload = true) }
-                SettingToggleRow(
-                    title = stringResource(Res.string.setting_filter_udp),
-                    checked = bool("filter_udp", false),
-                    defaultChecked = false,
-                    onReset = { resetFlag("filter_udp", reload = true) },
-                ) { updateFlag("filter_udp", it, reload = true) }
-                SettingToggleRowWithTooltip(
-                    title = stringResource(Res.string.setting_lockdown),
-                    tooltip = stringResource(Res.string.tooltip_lockdown),
-                    checked = bool("lockdown", false),
-                    defaultChecked = false,
-                    onReset = {
-                        resetFlag(
-                            "lockdown",
-                            reload = true,
-                            updateWidgets = { NetGuardPlatform.widgets.updateLockdown() },
-                        )
-                    },
-                ) {
-                    updateFlag(
-                        "lockdown",
-                        it,
-                        reload = true,
-                        updateWidgets = { NetGuardPlatform.widgets.updateLockdown() },
-                    )
-                }
-                SettingTogglePairRow(
-                    firstTitle = stringResource(Res.string.setting_lockdown_wifi),
-                    firstChecked = bool("lockdown_wifi", false),
-                    firstDefaultChecked = false,
-                    onFirstCheckedChange = { updateFlag("lockdown_wifi", it, reload = true) },
-                    onFirstReset = { resetFlag("lockdown_wifi", reload = true) },
-                    secondTitle = stringResource(Res.string.setting_lockdown_other),
-                    secondChecked = bool("lockdown_other", false),
-                    secondDefaultChecked = false,
-                    onSecondCheckedChange = { updateFlag("lockdown_other", it, reload = true) },
-                    onSecondReset = { resetFlag("lockdown_other", reload = true) },
-                )
-                SettingToggleRow(
-                    title = stringResource(Res.string.setting_malware),
-                    checked = bool("malware", false),
-                    defaultChecked = false,
-                    onReset = { resetFlag("malware", reload = true) },
-                ) { updateFlag("malware", it, reload = true) }
-                SettingToggleRow(
-                    title = stringResource(Res.string.setting_track_usage),
-                    checked = bool("track_usage", false),
-                    defaultChecked = false,
-                    onReset = { resetFlag("track_usage", reload = true) },
-                ) { updateFlag("track_usage", it, reload = true) }
-                SettingToggleRow(
-                    title = stringResource(Res.string.setting_stats),
-                    checked = bool("show_stats", false),
-                    defaultChecked = false,
-                    onReset = { resetFlag("show_stats", reloadStats = true) },
-                ) { updateFlag("show_stats", it, reloadStats = true) }
-                SettingToggleRow(
-                    title = stringResource(Res.string.setting_stats_top),
-                    checked = bool("show_top", false),
-                    defaultChecked = false,
-                    onReset = { resetFlag("show_top", reloadStats = true) },
-                ) { updateFlag("show_top", it, reloadStats = true) }
 
-                SettingTextRow(
-                    title = stringResource(
-                        Res.string.setting_stats_frequency,
-                        str("stats_frequency", "1000"),
-                    ),
-                    value = str("stats_frequency", "1000"),
-                    defaultValue = "1000",
-                    keyboardType = KeyboardType.Number,
-                    onReset = { preferencesRepository.removeString("stats_frequency") },
-                    onValueChange = { preferencesRepository.putString("stats_frequency", it) },
-                )
-                SettingTextRow(
-                    title = stringResource(
-                        Res.string.setting_stats_samples,
-                        str("stats_samples", "10"),
-                    ),
-                    value = str("stats_samples", "10"),
-                    defaultValue = "10",
-                    keyboardType = KeyboardType.Number,
-                    isLast = true,
-                    onReset = { preferencesRepository.removeString("stats_samples") },
-                    onValueChange = { preferencesRepository.putString("stats_samples", it) },
-                )
+                SettingsGroup {
+                    item { first, last ->
+                        SettingToggleRowWithTooltip(
+                            title = stringResource(Res.string.setting_filter),
+                            tooltip = stringResource(Res.string.tooltip_filter),
+                            checked = bool("filter", false),
+                            isFirst = first,
+                            isLast = last,
+                        ) { updateFlag("filter", it, reload = true) }
+                    }
+                    item { first, last ->
+                        SettingToggleRow(
+                            title = stringResource(Res.string.setting_filter_udp),
+                            checked = bool("filter_udp", false),
+                            isFirst = first,
+                            isLast = last,
+                        ) { updateFlag("filter_udp", it, reload = true) }
+                    }
+                    item { first, last ->
+                        SettingToggleRowWithTooltip(
+                            title = stringResource(Res.string.setting_lockdown),
+                            tooltip = stringResource(Res.string.tooltip_lockdown),
+                            checked = bool("lockdown", false),
+                            isFirst = first,
+                            isLast = last,
+                        ) {
+                            updateFlag(
+                                "lockdown",
+                                it,
+                                reload = true,
+                                updateWidgets = { NetGuardPlatform.widgets.updateLockdown() },
+                            )
+                        }
+                    }
+                    item { first, last ->
+                        SettingTogglePairRow(
+                            firstTitle = stringResource(Res.string.setting_lockdown_wifi),
+                            firstChecked = bool("lockdown_wifi", false),
+                            onFirstCheckedChange = { updateFlag("lockdown_wifi", it, reload = true) },
+                            secondTitle = stringResource(Res.string.setting_lockdown_other),
+                            secondChecked = bool("lockdown_other", false),
+                            onSecondCheckedChange = {
+                                updateFlag("lockdown_other", it, reload = true)
+                            },
+                            isFirst = first,
+                            isLast = last,
+                        )
+                    }
+                }
+
+                SettingsGroup {
+                    item { first, last ->
+                        SettingToggleRow(
+                            title = stringResource(Res.string.setting_malware),
+                            checked = bool("malware", false),
+                            isFirst = first,
+                            isLast = last,
+                        ) { updateFlag("malware", it, reload = true) }
+                    }
+                    item { first, last ->
+                        SettingToggleRow(
+                            title = stringResource(Res.string.setting_track_usage),
+                            checked = bool("track_usage", false),
+                            isFirst = first,
+                            isLast = last,
+                        ) { updateFlag("track_usage", it, reload = true) }
+                    }
+                }
+
+                SettingsGroup {
+                    item { first, last ->
+                        SettingToggleRow(
+                            title = stringResource(Res.string.setting_stats),
+                            checked = bool("show_stats", false),
+                            isFirst = first,
+                            isLast = last,
+                        ) { updateFlag("show_stats", it, reloadStats = true) }
+                    }
+                    item { first, last ->
+                        SettingToggleRow(
+                            title = stringResource(Res.string.setting_stats_top),
+                            checked = bool("show_top", false),
+                            isFirst = first,
+                            isLast = last,
+                        ) { updateFlag("show_top", it, reloadStats = true) }
+                    }
+                    item { first, last ->
+                        SettingTextRow(
+                            title = stringResource(
+                                Res.string.setting_stats_frequency,
+                                str("stats_frequency", "1000"),
+                            ),
+                            value = str("stats_frequency", "1000"),
+                            keyboardType = KeyboardType.Number,
+                            isFirst = first,
+                            isLast = last,
+                            onValueChange = {
+                                preferencesRepository.putString("stats_frequency", it)
+                            },
+                        )
+                    }
+                    item { first, last ->
+                        SettingTextRow(
+                            title = stringResource(
+                                Res.string.setting_stats_samples,
+                                str("stats_samples", "10"),
+                            ),
+                            value = str("stats_samples", "10"),
+                            keyboardType = KeyboardType.Number,
+                            isFirst = first,
+                            isLast = last,
+                            onValueChange = { preferencesRepository.putString("stats_samples", it) },
+                        )
+                    }
                 }
             }
 
             // Hosts Section
             if (section == SettingsSection.Hosts) {
-                val hostsTitle = stringResource(Res.string.setting_section_hosts)
-                CollapsibleSettingsSection(title = hostsTitle) {
-                SettingToggleRow(
-                    title = stringResource(Res.string.setting_use_hosts),
-                    checked = bool("use_hosts", false),
-                    defaultChecked = false,
-                    isFirst = true,
-                    onReset = { resetFlag("use_hosts", reload = true) },
-                ) { updateFlag("use_hosts", it, reload = true) }
-
-                SettingTextRow(
-                    title = stringResource(Res.string.setting_hosts_url),
-                    value = str("hosts_url", ""),
-                    defaultValue = "",
-                    isLast = true,
-                    onReset = { preferencesRepository.removeString("hosts_url") },
-                    onValueChange = { preferencesRepository.putString("hosts_url", it) },
-                )
+                SettingsGroup {
+                    item { first, last ->
+                        SettingToggleRow(
+                            title = stringResource(Res.string.setting_use_hosts),
+                            checked = bool("use_hosts", false),
+                            isFirst = first,
+                            isLast = last,
+                        ) { updateFlag("use_hosts", it, reload = true) }
+                    }
+                    item { first, last ->
+                        SettingTextRow(
+                            title = stringResource(Res.string.setting_hosts_url),
+                            value = str("hosts_url", ""),
+                            isFirst = first,
+                            isLast = last,
+                            onValueChange = { preferencesRepository.putString("hosts_url", it) },
+                        )
+                    }
+                }
 
                 // Single button with dropdown for hosts file operations
                 Box {
@@ -912,7 +904,7 @@ fun SettingsScreen(
                             leadingIcon = {
                                 Icon(
                                     MaterialSymbols.Filled.Download,
-                                    contentDescription = null
+                                    contentDescription = null,
                                 )
                             },
                             onClick = {
@@ -925,7 +917,7 @@ fun SettingsScreen(
                             leadingIcon = {
                                 Icon(
                                     MaterialSymbols.Filled.Download,
-                                    contentDescription = null
+                                    contentDescription = null,
                                 )
                             },
                             onClick = {
@@ -938,7 +930,7 @@ fun SettingsScreen(
                             leadingIcon = {
                                 Icon(
                                     MaterialSymbols.Filled.Download,
-                                    contentDescription = null
+                                    contentDescription = null,
                                 )
                             },
                             onClick = {
@@ -948,151 +940,163 @@ fun SettingsScreen(
                         )
                     }
                 }
-                }
             }
 
             // Network Section (DNS + Proxy + VPN)
             if (section == SettingsSection.Network) {
-                val networkSectionTitle = stringResource(Res.string.setting_section_network)
-                val dnsTitle = stringResource(Res.string.setting_section_dns)
-                val proxyTitle = stringResource(Res.string.setting_section_proxy)
-                val vpnTitle = stringResource(Res.string.setting_section_vpn)
-                CollapsibleSettingsSection(title = networkSectionTitle) {
-                Text(
-                    text = dnsTitle,
-                    style = MaterialTheme.typography.titleSmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-                SettingTextRowWithTooltip(
-                    title = stringResource(Res.string.setting_rcode, str("rcode", "3")),
-                    tooltip = stringResource(Res.string.tooltip_rcode),
-                    value = str("rcode", "3"),
-                    defaultValue = "3",
-                    keyboardType = KeyboardType.Number,
-                    isFirst = true,
-                    onReset = { preferencesRepository.removeString("rcode") },
-                    onValueChange = { preferencesRepository.putString("rcode", it) },
-                )
-                SettingTextRowWithTooltip(
-                    title = stringResource(Res.string.setting_ttl, str("ttl", "259200")),
-                    tooltip = stringResource(Res.string.tooltip_ttl),
-                    value = str("ttl", "259200"),
-                    defaultValue = "259200",
-                    keyboardType = KeyboardType.Number,
-                    onReset = { preferencesRepository.removeString("ttl") },
-                    onValueChange = { preferencesRepository.putString("ttl", it) },
-                )
-                SettingTextRow(
-                    title = stringResource(Res.string.setting_validate, str("validate", "")),
-                    value = str("validate", ""),
-                    defaultValue = "",
-                    onReset = { preferencesRepository.removeString("validate") },
-                    onValueChange = { preferencesRepository.putString("validate", it) },
-                )
-                FilledTonalButton(
-                    onClick = onOpenDns,
-                    modifier = Modifier.align(Alignment.Start),
-                ) {
-                    Icon(icon = MaterialSymbols.Filled.Dns, contentDescription = null)
-                    Spacer(modifier = Modifier.width(spacing.small))
-                    Text(text = stringResource(Res.string.setting_show_resolved))
+                Column(verticalArrangement = Arrangement.spacedBy(spacing.medium)) {
+                    SettingsGroup(title = stringResource(Res.string.setting_section_dns)) {
+                        item { first, last ->
+                            SettingTextRowWithTooltip(
+                                title = stringResource(Res.string.setting_rcode, str("rcode", "3")),
+                                tooltip = stringResource(Res.string.tooltip_rcode),
+                                value = str("rcode", "3"),
+                                keyboardType = KeyboardType.Number,
+                                isFirst = first,
+                                isLast = last,
+                            ) { preferencesRepository.putString("rcode", it) }
+                        }
+                        item { first, last ->
+                            SettingTextRowWithTooltip(
+                                title = stringResource(Res.string.setting_ttl, str("ttl", "259200")),
+                                tooltip = stringResource(Res.string.tooltip_ttl),
+                                value = str("ttl", "259200"),
+                                keyboardType = KeyboardType.Number,
+                                isFirst = first,
+                                isLast = last,
+                            ) { preferencesRepository.putString("ttl", it) }
+                        }
+                        item { first, last ->
+                            SettingTextRow(
+                                title = stringResource(Res.string.setting_validate, str("validate", "")),
+                                value = str("validate", ""),
+                                isFirst = first,
+                                isLast = last,
+                                onValueChange = { preferencesRepository.putString("validate", it) },
+                            )
+                        }
+                    }
+                    FilledTonalButton(onClick = onOpenDns) {
+                        Icon(icon = MaterialSymbols.Filled.Dns, contentDescription = null)
+                        Spacer(modifier = Modifier.width(spacing.small))
+                        Text(text = stringResource(Res.string.setting_show_resolved))
+                    }
                 }
 
-                HorizontalDivider(modifier = Modifier.padding(vertical = spacing.default))
-
-                Text(
-                    text = proxyTitle,
-                    style = MaterialTheme.typography.titleSmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-                SettingToggleRow(
-                    title = stringResource(Res.string.setting_socks5_enabled),
-                    checked = bool("socks5_enabled", false),
-                    defaultChecked = false,
-                    onReset = { resetFlag("socks5_enabled") },
-                ) { preferencesRepository.putBoolean("socks5_enabled", it) }
-                SettingTextRow(
-                    title = stringResource(Res.string.setting_socks5_addr, str("socks5_addr", "")),
-                    value = str("socks5_addr", ""),
-                    defaultValue = "",
-                    onReset = { preferencesRepository.removeString("socks5_addr") },
-                    onValueChange = { preferencesRepository.putString("socks5_addr", it) },
-                )
-                SettingTextRow(
-                    title = stringResource(Res.string.setting_socks5_port, str("socks5_port", "0")),
-                    value = str("socks5_port", "0"),
-                    defaultValue = "0",
-                    keyboardType = KeyboardType.Number,
-                    onReset = { preferencesRepository.removeString("socks5_port") },
-                    onValueChange = { preferencesRepository.putString("socks5_port", it) },
-                )
-                SettingTextRow(
-                    title = stringResource(
-                        Res.string.setting_socks5_username,
-                        str("socks5_username", "")
-                    ),
-                    value = str("socks5_username", ""),
-                    defaultValue = "",
-                    onReset = { preferencesRepository.removeString("socks5_username") },
-                    onValueChange = { preferencesRepository.putString("socks5_username", it) },
-                )
-                SettingTextRow(
-                    title = stringResource(
-                        Res.string.setting_socks5_password,
-                        str("socks5_password", "")
-                    ),
-                    value = str("socks5_password", ""),
-                    defaultValue = "",
-                    onReset = { preferencesRepository.removeString("socks5_password") },
-                    onValueChange = { preferencesRepository.putString("socks5_password", it) },
-                )
-
-                HorizontalDivider(modifier = Modifier.padding(vertical = spacing.default))
-
-                Text(
-                    text = vpnTitle,
-                    style = MaterialTheme.typography.titleSmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-                SettingTextRow(
-                    title = stringResource(Res.string.setting_vpn4, str("vpn4", "10.1.10.1")),
-                    value = str("vpn4", "10.1.10.1"),
-                    defaultValue = "10.1.10.1",
-                    onReset = { preferencesRepository.removeString("vpn4") },
-                    onValueChange = { preferencesRepository.putString("vpn4", it) },
-                )
-                SettingTextRow(
-                    title = stringResource(
-                        Res.string.setting_vpn6,
-                        str("vpn6", "fd00:1:fd00:1:fd00:1:fd00:1"),
-                    ),
-                    value = str("vpn6", "fd00:1:fd00:1:fd00:1:fd00:1"),
-                    defaultValue = "fd00:1:fd00:1:fd00:1:fd00:1",
-                    onReset = { preferencesRepository.removeString("vpn6") },
-                    onValueChange = { preferencesRepository.putString("vpn6", it) },
-                )
-                SettingTextRow(
-                    title = stringResource(Res.string.setting_dns, str("dns", "")),
-                    value = str("dns", ""),
-                    defaultValue = "",
-                    onReset = { preferencesRepository.removeString("dns") },
-                    onValueChange = { preferencesRepository.putString("dns", it) },
-                )
-                SettingTextRow(
-                    title = stringResource(Res.string.setting_dns2, str("dns2", "")),
-                    value = str("dns2", ""),
-                    defaultValue = "",
-                    isLast = true,
-                    onReset = { preferencesRepository.removeString("dns2") },
-                    onValueChange = { preferencesRepository.putString("dns2", it) },
-                )
+                SettingsGroup(title = stringResource(Res.string.setting_section_proxy)) {
+                    item { first, last ->
+                        SettingToggleRow(
+                            title = stringResource(Res.string.setting_socks5_enabled),
+                            checked = bool("socks5_enabled", false),
+                            isFirst = first,
+                            isLast = last,
+                        ) { preferencesRepository.putBoolean("socks5_enabled", it) }
+                    }
+                    item { first, last ->
+                        SettingTextRow(
+                            title = stringResource(
+                                Res.string.setting_socks5_addr,
+                                str("socks5_addr", ""),
+                            ),
+                            value = str("socks5_addr", ""),
+                            isFirst = first,
+                            isLast = last,
+                            onValueChange = { preferencesRepository.putString("socks5_addr", it) },
+                        )
+                    }
+                    item { first, last ->
+                        SettingTextRow(
+                            title = stringResource(
+                                Res.string.setting_socks5_port,
+                                str("socks5_port", "0"),
+                            ),
+                            value = str("socks5_port", "0"),
+                            keyboardType = KeyboardType.Number,
+                            isFirst = first,
+                            isLast = last,
+                            onValueChange = { preferencesRepository.putString("socks5_port", it) },
+                        )
+                    }
+                    item { first, last ->
+                        SettingTextRow(
+                            title = stringResource(
+                                Res.string.setting_socks5_username,
+                                str("socks5_username", ""),
+                            ),
+                            value = str("socks5_username", ""),
+                            isFirst = first,
+                            isLast = last,
+                            onValueChange = {
+                                preferencesRepository.putString("socks5_username", it)
+                            },
+                        )
+                    }
+                    item { first, last ->
+                        SettingTextRow(
+                            title = stringResource(
+                                Res.string.setting_socks5_password,
+                                str("socks5_password", ""),
+                            ),
+                            value = str("socks5_password", ""),
+                            isFirst = first,
+                            isLast = last,
+                            onValueChange = {
+                                preferencesRepository.putString("socks5_password", it)
+                            },
+                        )
+                    }
                 }
 
-                // Forwarding Section
-                val forwardingTitle = stringResource(Res.string.setting_forwarding)
-                CollapsibleSettingsSection(title = forwardingTitle) {
+                SettingsGroup(title = stringResource(Res.string.setting_section_vpn)) {
+                    item { first, last ->
+                        SettingTextRow(
+                            title = stringResource(Res.string.setting_vpn4, str("vpn4", "10.1.10.1")),
+                            value = str("vpn4", "10.1.10.1"),
+                            isFirst = first,
+                            isLast = last,
+                            onValueChange = { preferencesRepository.putString("vpn4", it) },
+                        )
+                    }
+                    item { first, last ->
+                        SettingTextRow(
+                            title = stringResource(
+                                Res.string.setting_vpn6,
+                                str("vpn6", "fd00:1:fd00:1:fd00:1:fd00:1"),
+                            ),
+                            value = str("vpn6", "fd00:1:fd00:1:fd00:1:fd00:1"),
+                            isFirst = first,
+                            isLast = last,
+                            onValueChange = { preferencesRepository.putString("vpn6", it) },
+                        )
+                    }
+                    item { first, last ->
+                        SettingTextRow(
+                            title = stringResource(Res.string.setting_dns, str("dns", "")),
+                            value = str("dns", ""),
+                            isFirst = first,
+                            isLast = last,
+                            onValueChange = { preferencesRepository.putString("dns", it) },
+                        )
+                    }
+                    item { first, last ->
+                        SettingTextRow(
+                            title = stringResource(Res.string.setting_dns2, str("dns2", "")),
+                            value = str("dns2", ""),
+                            isFirst = first,
+                            isLast = last,
+                            onValueChange = { preferencesRepository.putString("dns2", it) },
+                        )
+                    }
+                }
+
+                // Forwarding
+                Column(verticalArrangement = Arrangement.spacedBy(spacing.small)) {
+                    SettingsSubheader(stringResource(Res.string.setting_forwarding))
                     FilledTonalButton(onClick = onOpenForwarding) {
-                        Icon(icon = MaterialSymbols.AutoMirrored.Filled.Forward, contentDescription = null)
+                        Icon(
+                            icon = MaterialSymbols.AutoMirrored.Filled.Forward,
+                            contentDescription = null,
+                        )
                         Spacer(modifier = Modifier.width(spacing.small))
                         Text(text = stringResource(Res.string.setting_forwarding))
                     }
@@ -1101,125 +1105,139 @@ fun SettingsScreen(
 
             // Background Section
             if (section == SettingsSection.Background) {
-                val backgroundTitle = stringResource(Res.string.setting_section_background)
-                CollapsibleSettingsSection(title = backgroundTitle) {
-                SettingTextRow(
-                    title = stringResource(Res.string.setting_watchdog, str("watchdog", "0")),
-                    value = str("watchdog", "0"),
-                    defaultValue = "0",
-                    keyboardType = KeyboardType.Number,
-                    isFirst = true,
-                    onReset = {
-                        preferencesRepository.removeString("watchdog")
-                        val enabled = preferencesRepository.getBoolean("enabled", false)
-                        NetGuardPlatform.workScheduler.scheduleWatchdog(0, enabled)
-                    },
-                    onValueChange = { value ->
-                        preferencesRepository.putString("watchdog", value)
-                        val enabled = preferencesRepository.getBoolean("enabled", false)
-                        NetGuardPlatform.workScheduler.scheduleWatchdog(value.toIntOrNull() ?: 0, enabled)
-                    },
-                )
-                if (PlatformContext.isAndroid()) {
-                    SettingToggleRow(
-                        title = stringResource(Res.string.setting_update),
-                        checked = bool("update_check", true),
-                        defaultChecked = true,
-                        onReset = { resetFlag("update_check") },
-                    ) { preferencesRepository.putBoolean("update_check", it) }
-
-                    FilledTonalButton(
-                        onClick = {
-                            updateCheckInProgress = true
-                            updateCheckStatus = null
-                            updateCheckVersion = null
-                            NetGuardPlatform.firewall.checkForUpdateNow("settings")
-                        },
-                        enabled = !updateCheckInProgress,
-                        modifier = Modifier.align(Alignment.Start),
-                    ) {
-                        if (updateCheckInProgress) {
-                            CircularProgressIndicator(
-                                modifier = Modifier.size(18.dp),
-                                strokeWidth = 2.dp,
-                            )
-                            Spacer(modifier = Modifier.width(spacing.small))
-                            Text(text = stringResource(Res.string.setting_update_checking))
-                        } else {
-                            Icon(icon = MaterialSymbols.Filled.Refresh, contentDescription = null)
-                            Spacer(modifier = Modifier.width(spacing.small))
-                            Text(text = stringResource(Res.string.setting_update_now))
-                        }
-                    }
-
-                    updateCheckStatus?.let { status ->
-                        val message =
-                            when (status) {
-                                "available" ->
-                                    if (!updateCheckVersion.isNullOrBlank()) {
-                                        stringResource(
-                                            Res.string.setting_update_result_available,
-                                            updateCheckVersion!!,
-                                        )
-                                    } else {
-                                        stringResource(Res.string.setting_update_result_available_unknown)
-                                    }
-
-                                "upToDate" -> stringResource(Res.string.setting_update_result_up_to_date)
-                                "unavailable" -> stringResource(Res.string.setting_update_result_unavailable)
-                                else -> stringResource(Res.string.setting_update_result_failed)
-                            }
-                        Text(
-                            text = message,
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                SettingsGroup {
+                    item { first, last ->
+                        SettingTextRow(
+                            title = stringResource(Res.string.setting_watchdog, str("watchdog", "0")),
+                            value = str("watchdog", "0"),
+                            keyboardType = KeyboardType.Number,
+                            isFirst = first,
+                            isLast = last,
+                            onValueChange = { value ->
+                                preferencesRepository.putString("watchdog", value)
+                                val enabled = preferencesRepository.getBoolean("enabled", false)
+                                NetGuardPlatform.workScheduler.scheduleWatchdog(
+                                    value.toIntOrNull() ?: 0,
+                                    enabled,
+                                )
+                            },
                         )
                     }
+                    if (PlatformContext.isAndroid()) {
+                        item { first, last ->
+                            SettingToggleRow(
+                                title = stringResource(Res.string.setting_update),
+                                checked = bool("update_check", true),
+                                isFirst = first,
+                                isLast = last,
+                            ) { preferencesRepository.putBoolean("update_check", it) }
+                        }
+                    }
                 }
+
+                if (PlatformContext.isAndroid()) {
+                    Column(verticalArrangement = Arrangement.spacedBy(spacing.small)) {
+                        FilledTonalButton(
+                            onClick = {
+                                updateCheckInProgress = true
+                                updateCheckStatus = null
+                                updateCheckVersion = null
+                                NetGuardPlatform.firewall.checkForUpdateNow("settings")
+                            },
+                            enabled = !updateCheckInProgress,
+                        ) {
+                            if (updateCheckInProgress) {
+                                CircularProgressIndicator(
+                                    modifier = Modifier.size(18.dp),
+                                    strokeWidth = 2.dp,
+                                )
+                                Spacer(modifier = Modifier.width(spacing.small))
+                                Text(text = stringResource(Res.string.setting_update_checking))
+                            } else {
+                                Icon(icon = MaterialSymbols.Filled.Refresh, contentDescription = null)
+                                Spacer(modifier = Modifier.width(spacing.small))
+                                Text(text = stringResource(Res.string.setting_update_now))
+                            }
+                        }
+
+                        updateCheckStatus?.let { status ->
+                            val message =
+                                when (status) {
+                                    "available" ->
+                                        if (!updateCheckVersion.isNullOrBlank()) {
+                                            stringResource(
+                                                Res.string.setting_update_result_available,
+                                                updateCheckVersion!!,
+                                            )
+                                        } else {
+                                            stringResource(
+                                                Res.string.setting_update_result_available_unknown,
+                                            )
+                                        }
+
+                                    "upToDate" ->
+                                        stringResource(Res.string.setting_update_result_up_to_date)
+
+                                    "unavailable" ->
+                                        stringResource(Res.string.setting_update_result_unavailable)
+
+                                    else -> stringResource(Res.string.setting_update_result_failed)
+                                }
+                            Text(
+                                text = message,
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                        }
+                    }
                 }
             }
 
             // Diagnostics Section
             if (section == SettingsSection.Diagnostics) {
-                val diagnosticsTitle = stringResource(Res.string.setting_section_diagnostics)
-                CollapsibleSettingsSection(title = diagnosticsTitle) {
-                SettingToggleRowWithTooltip(
-                    title = stringResource(Res.string.setting_pcap),
-                    tooltip = stringResource(Res.string.tooltip_pcap),
-                    checked = bool("pcap", false),
-                    defaultChecked = false,
-                    isFirst = true,
-                    onReset = { resetFlag("pcap") },
-                ) { preferencesRepository.putBoolean("pcap", it) }
-                SettingTextRow(
-                    title = stringResource(
-                        Res.string.setting_pcap_record_size,
-                        str("pcap_record_size", "64")
-                    ),
-                    value = str("pcap_record_size", "64"),
-                    defaultValue = "64",
-                    keyboardType = KeyboardType.Number,
-                    onReset = { preferencesRepository.removeString("pcap_record_size") },
-                    onValueChange = { preferencesRepository.putString("pcap_record_size", it) },
-                )
-                SettingTextRow(
-                    title = stringResource(
-                        Res.string.setting_pcap_file_size,
-                        str("pcap_file_size", "2")
-                    ),
-                    value = str("pcap_file_size", "2"),
-                    defaultValue = "2",
-                    keyboardType = KeyboardType.Number,
-                    isLast = true,
-                    onReset = { preferencesRepository.removeString("pcap_file_size") },
-                    onValueChange = { preferencesRepository.putString("pcap_file_size", it) },
-                )
+                SettingsGroup {
+                    item { first, last ->
+                        SettingToggleRowWithTooltip(
+                            title = stringResource(Res.string.setting_pcap),
+                            tooltip = stringResource(Res.string.tooltip_pcap),
+                            checked = bool("pcap", false),
+                            isFirst = first,
+                            isLast = last,
+                        ) { preferencesRepository.putBoolean("pcap", it) }
+                    }
+                    item { first, last ->
+                        SettingTextRow(
+                            title = stringResource(
+                                Res.string.setting_pcap_record_size,
+                                str("pcap_record_size", "64"),
+                            ),
+                            value = str("pcap_record_size", "64"),
+                            keyboardType = KeyboardType.Number,
+                            isFirst = first,
+                            isLast = last,
+                            onValueChange = {
+                                preferencesRepository.putString("pcap_record_size", it)
+                            },
+                        )
+                    }
+                    item { first, last ->
+                        SettingTextRow(
+                            title = stringResource(
+                                Res.string.setting_pcap_file_size,
+                                str("pcap_file_size", "2"),
+                            ),
+                            value = str("pcap_file_size", "2"),
+                            keyboardType = KeyboardType.Number,
+                            isFirst = first,
+                            isLast = last,
+                            onValueChange = { preferencesRepository.putString("pcap_file_size", it) },
+                        )
+                    }
                 }
             }
 
             if (section == SettingsSection.About) {
                 AboutContent(onOpenGitHub = { uriHandler.openUri(PROJECT_GITHUB_URL) })
-            }
             }
         }
     } // end Scaffold
@@ -1238,6 +1256,67 @@ fun SettingsScreen(
     }
 }
 
+/**
+ * M3 Expressive grouped list: items are collected and rendered as individual filled
+ * surfaces separated by 2dp gaps; the first and last items get large outer corners.
+ */
+private class SettingsGroupScope {
+    val items = mutableListOf<@Composable (isFirst: Boolean, isLast: Boolean) -> Unit>()
+
+    fun item(content: @Composable (isFirst: Boolean, isLast: Boolean) -> Unit) {
+        items += content
+    }
+}
+
+@Composable
+private fun SettingsGroup(
+    title: String? = null,
+    builder: SettingsGroupScope.() -> Unit,
+) {
+    val spacing = MaterialTheme.spacing
+    val scope = SettingsGroupScope().apply(builder)
+    Column(verticalArrangement = Arrangement.spacedBy(spacing.small)) {
+        title?.let { SettingsSubheader(it) }
+        Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+            scope.items.forEachIndexed { index, item ->
+                item(index == 0, index == scope.items.lastIndex)
+            }
+        }
+    }
+}
+
+@Composable
+private fun SettingsSubheader(title: String) {
+    val spacing = MaterialTheme.spacing
+    Text(
+        text = title,
+        style = MaterialTheme.typography.titleSmall,
+        fontWeight = FontWeight.SemiBold,
+        color = MaterialTheme.colorScheme.primary,
+        modifier = Modifier.padding(horizontal = spacing.default),
+    )
+}
+
+private fun settingItemShape(isFirst: Boolean, isLast: Boolean): RoundedCornerShape =
+    RoundedCornerShape(
+        topStart = if (isFirst) GroupOuterCorner else GroupInnerCorner,
+        topEnd = if (isFirst) GroupOuterCorner else GroupInnerCorner,
+        bottomEnd = if (isLast) GroupOuterCorner else GroupInnerCorner,
+        bottomStart = if (isLast) GroupOuterCorner else GroupInnerCorner,
+    )
+
+private fun settingPairTileShape(
+    isLeadingTile: Boolean,
+    isFirst: Boolean,
+    isLast: Boolean,
+): RoundedCornerShape =
+    RoundedCornerShape(
+        topStart = if (isLeadingTile && isFirst) GroupOuterCorner else GroupInnerCorner,
+        topEnd = if (!isLeadingTile && isFirst) GroupOuterCorner else GroupInnerCorner,
+        bottomEnd = if (!isLeadingTile && isLast) GroupOuterCorner else GroupInnerCorner,
+        bottomStart = if (isLeadingTile && isLast) GroupOuterCorner else GroupInnerCorner,
+    )
+
 @Composable
 private fun QuickFirewallControls(
     wifiAllowed: Boolean,
@@ -1247,16 +1326,10 @@ private fun QuickFirewallControls(
 ) {
     val spacing = MaterialTheme.spacing
     Column(verticalArrangement = Arrangement.spacedBy(spacing.small)) {
-        Text(
-            text = stringResource(Res.string.settings_quick_controls),
-            style = MaterialTheme.typography.titleSmall,
-            fontWeight = FontWeight.SemiBold,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.padding(horizontal = spacing.extraSmall),
-        )
+        SettingsSubheader(stringResource(Res.string.settings_quick_controls))
         Row(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(spacing.small),
+            horizontalArrangement = Arrangement.spacedBy(2.dp),
         ) {
             FirewallTile(
                 allowedIcon = MaterialSymbols.Filled.Wifi,
@@ -1264,7 +1337,11 @@ private fun QuickFirewallControls(
                 label = stringResource(Res.string.title_wifi),
                 allowed = wifiAllowed,
                 onToggle = onToggleWifi,
-                shape = MaterialTheme.shapes.extraLarge,
+                shape = settingPairTileShape(
+                    isLeadingTile = true,
+                    isFirst = true,
+                    isLast = true,
+                ),
                 modifier = Modifier.weight(1f),
             )
             FirewallTile(
@@ -1273,7 +1350,11 @@ private fun QuickFirewallControls(
                 label = stringResource(Res.string.title_mobile),
                 allowed = mobileAllowed,
                 onToggle = onToggleMobile,
-                shape = MaterialTheme.shapes.extraLarge,
+                shape = settingPairTileShape(
+                    isLeadingTile = false,
+                    isFirst = true,
+                    isLast = true,
+                ),
                 modifier = Modifier.weight(1f),
             )
         }
@@ -1282,57 +1363,70 @@ private fun QuickFirewallControls(
 
 @Composable
 private fun SettingsDirectory(onOpenSection: (SettingsSection) -> Unit) {
-    val spacing = MaterialTheme.spacing
-    Column(verticalArrangement = Arrangement.spacedBy(spacing.small)) {
-        Text(
-            text = stringResource(Res.string.settings_more),
-            style = MaterialTheme.typography.titleSmall,
-            fontWeight = FontWeight.SemiBold,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.padding(horizontal = spacing.extraSmall),
-        )
-        SettingsDestinationRow(
-            title = stringResource(Res.string.setting_section_firewall),
-            subtitle = stringResource(Res.string.settings_firewall_summary),
-            icon = MaterialSymbols.Outlined.Shield,
-            onClick = { onOpenSection(SettingsSection.Firewall) },
-        )
-        SettingsDestinationRow(
-            title = stringResource(Res.string.setting_section_advanced),
-            subtitle = stringResource(Res.string.settings_advanced_summary),
-            icon = MaterialSymbols.Filled.Tune,
-            onClick = { onOpenSection(SettingsSection.Advanced) },
-        )
-        SettingsDestinationRow(
-            title = stringResource(Res.string.setting_section_hosts),
-            subtitle = stringResource(Res.string.settings_hosts_summary),
-            icon = MaterialSymbols.Filled.Download,
-            onClick = { onOpenSection(SettingsSection.Hosts) },
-        )
-        SettingsDestinationRow(
-            title = stringResource(Res.string.setting_section_network),
-            subtitle = stringResource(Res.string.settings_network_summary),
-            icon = MaterialSymbols.Filled.Public,
-            onClick = { onOpenSection(SettingsSection.Network) },
-        )
-        SettingsDestinationRow(
-            title = stringResource(Res.string.setting_section_background),
-            subtitle = stringResource(Res.string.settings_background_summary),
-            icon = MaterialSymbols.Filled.Refresh,
-            onClick = { onOpenSection(SettingsSection.Background) },
-        )
-        SettingsDestinationRow(
-            title = stringResource(Res.string.setting_section_diagnostics),
-            subtitle = stringResource(Res.string.settings_diagnostics_summary),
-            icon = MaterialSymbols.Outlined.Info,
-            onClick = { onOpenSection(SettingsSection.Diagnostics) },
-        )
-        SettingsDestinationRow(
-            title = stringResource(Res.string.menu_about),
-            subtitle = stringResource(Res.string.settings_about_summary),
-            icon = MaterialSymbols.Filled.Code,
-            onClick = { onOpenSection(SettingsSection.About) },
-        )
+    SettingsGroup(title = stringResource(Res.string.settings_more)) {
+        item { first, last ->
+            SettingsDestinationRow(
+                title = stringResource(Res.string.setting_section_firewall),
+                subtitle = stringResource(Res.string.settings_firewall_summary),
+                icon = MaterialSymbols.Outlined.Shield,
+                shape = settingItemShape(first, last),
+                onClick = { onOpenSection(SettingsSection.Firewall) },
+            )
+        }
+        item { first, last ->
+            SettingsDestinationRow(
+                title = stringResource(Res.string.setting_section_advanced),
+                subtitle = stringResource(Res.string.settings_advanced_summary),
+                icon = MaterialSymbols.Filled.Tune,
+                shape = settingItemShape(first, last),
+                onClick = { onOpenSection(SettingsSection.Advanced) },
+            )
+        }
+        item { first, last ->
+            SettingsDestinationRow(
+                title = stringResource(Res.string.setting_section_hosts),
+                subtitle = stringResource(Res.string.settings_hosts_summary),
+                icon = MaterialSymbols.Filled.Download,
+                shape = settingItemShape(first, last),
+                onClick = { onOpenSection(SettingsSection.Hosts) },
+            )
+        }
+        item { first, last ->
+            SettingsDestinationRow(
+                title = stringResource(Res.string.setting_section_network),
+                subtitle = stringResource(Res.string.settings_network_summary),
+                icon = MaterialSymbols.Filled.Public,
+                shape = settingItemShape(first, last),
+                onClick = { onOpenSection(SettingsSection.Network) },
+            )
+        }
+        item { first, last ->
+            SettingsDestinationRow(
+                title = stringResource(Res.string.setting_section_background),
+                subtitle = stringResource(Res.string.settings_background_summary),
+                icon = MaterialSymbols.Filled.Refresh,
+                shape = settingItemShape(first, last),
+                onClick = { onOpenSection(SettingsSection.Background) },
+            )
+        }
+        item { first, last ->
+            SettingsDestinationRow(
+                title = stringResource(Res.string.setting_section_diagnostics),
+                subtitle = stringResource(Res.string.settings_diagnostics_summary),
+                icon = MaterialSymbols.Outlined.Info,
+                shape = settingItemShape(first, last),
+                onClick = { onOpenSection(SettingsSection.Diagnostics) },
+            )
+        }
+        item { first, last ->
+            SettingsDestinationRow(
+                title = stringResource(Res.string.menu_about),
+                subtitle = stringResource(Res.string.settings_about_summary),
+                icon = MaterialSymbols.Filled.Code,
+                shape = settingItemShape(first, last),
+                onClick = { onOpenSection(SettingsSection.About) },
+            )
+        }
     }
 }
 
@@ -1342,6 +1436,7 @@ private fun SettingsDestinationRow(
     subtitle: String,
     icon: MaterialIcon,
     trailingIcon: MaterialIcon = MaterialSymbols.Filled.ChevronRight,
+    shape: Shape = RoundedCornerShape(GroupOuterCorner),
     onClick: () -> Unit,
 ) {
     val spacing = MaterialTheme.spacing
@@ -1350,12 +1445,12 @@ private fun SettingsDestinationRow(
         modifier = Modifier
             .fillMaxWidth()
             .heightIn(min = 80.dp),
-        shape = MaterialTheme.shapes.extraLarge,
+        shape = shape,
         color = MaterialTheme.colorScheme.surfaceContainerLow,
     ) {
         Row(
             modifier = Modifier.padding(
-                start = spacing.medium,
+                start = spacing.default,
                 top = spacing.medium,
                 end = spacing.small,
                 bottom = spacing.medium,
@@ -1594,195 +1689,51 @@ private fun ThemeSwatch(
 }
 
 @Composable
-private fun CollapsibleSettingsSection(
-    title: String,
-    framed: Boolean = true,
-    content: @Composable ColumnScope.() -> Unit,
-) {
-    val spacing = MaterialTheme.spacing
-    Column(
-        verticalArrangement = Arrangement.spacedBy(spacing.small),
-    ) {
-        Text(
-            text = title,
-            style = MaterialTheme.typography.titleSmall,
-            fontWeight = FontWeight.SemiBold,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.padding(horizontal = spacing.extraSmall),
-        )
-        if (framed) {
-            Surface(
-                color = MaterialTheme.colorScheme.surfaceContainerLow,
-                shape = MaterialTheme.shapes.extraLarge,
-            ) {
-                Column(
-                    modifier = Modifier.padding(spacing.small),
-                    verticalArrangement = Arrangement.spacedBy(2.dp),
-                    content = content,
-                )
-            }
-        } else {
-            Column(
-                verticalArrangement = Arrangement.spacedBy(spacing.extraSmall),
-                content = content,
-            )
-        }
-    }
-}
-
-@Composable
-private fun settingItemShape(
-    isFirst: Boolean,
-    isLast: Boolean,
-    baseShape: Shape,
-): Shape {
-    if (!isFirst && !isLast) {
-        return baseShape
-    }
-
-    val base = baseShape as? RoundedCornerShape ?: return baseShape
-    val emphasis = MaterialTheme.shapes.large as? RoundedCornerShape ?: return baseShape
-
-    return RoundedCornerShape(
-        topStart = if (isFirst) emphasis.topStart else base.topStart,
-        topEnd = if (isFirst) emphasis.topEnd else base.topEnd,
-        bottomEnd = if (isLast) emphasis.bottomEnd else base.bottomEnd,
-        bottomStart = if (isLast) emphasis.bottomStart else base.bottomStart,
-    )
-}
-
-@Composable
-private fun settingPairTileShape(
-    isLeadingTile: Boolean,
-    isFirstRow: Boolean,
-    isLastRow: Boolean,
-    baseShape: Shape,
-): Shape {
-    if (!isFirstRow && !isLastRow) {
-        return baseShape
-    }
-
-    val base = baseShape as? RoundedCornerShape ?: return baseShape
-    val emphasis = MaterialTheme.shapes.large as? RoundedCornerShape ?: return baseShape
-
-    return RoundedCornerShape(
-        topStart = if (isLeadingTile && isFirstRow) emphasis.topStart else base.topStart,
-        topEnd = if (!isLeadingTile && isFirstRow) emphasis.topEnd else base.topEnd,
-        bottomEnd = if (!isLeadingTile && isLastRow) emphasis.bottomEnd else base.bottomEnd,
-        bottomStart = if (isLeadingTile && isLastRow) emphasis.bottomStart else base.bottomStart,
-    )
-}
-
-@Composable
-private fun SettingResetAction(
-    title: String,
-    defaultValue: String,
-    onReset: () -> Unit,
-    modifier: Modifier = Modifier,
-    tint: Color = MaterialTheme.colorScheme.primary,
-) {
-    var expanded by remember { mutableStateOf(false) }
-
-    Box(modifier = modifier) {
-        IconButton(
-            onClick = { expanded = true },
-            modifier = Modifier.size(TouchTargets.minimum),
-        ) {
-            Icon(
-                icon = MaterialSymbols.Filled.Refresh,
-                contentDescription = stringResource(
-                    Res.string.setting_reset_accessibility,
-                    title,
-                ),
-                modifier = Modifier.size(18.dp),
-                tint = tint,
-            )
-        }
-        DropdownMenu(
-            expanded = expanded,
-            onDismissRequest = { expanded = false },
-        ) {
-            DropdownMenuItem(
-                text = {
-                    Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                        Text(
-                            text = stringResource(Res.string.setting_reset_to_default),
-                            style = MaterialTheme.typography.labelLarge,
-                        )
-                        Text(
-                            text = stringResource(Res.string.setting_default_value, defaultValue),
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                    }
-                },
-                leadingIcon = {
-                    Icon(
-                        icon = MaterialSymbols.Filled.Refresh,
-                        contentDescription = null,
-                    )
-                },
-                onClick = {
-                    expanded = false
-                    onReset()
-                },
-            )
-        }
-    }
-}
-
-@Composable
 private fun SettingToggleRow(
     title: String,
-    subtitle: String? = null,
     checked: Boolean,
-    defaultChecked: Boolean? = null,
-    isFirst: Boolean = false,
-    isLast: Boolean = false,
-    onReset: (() -> Unit)? = null,
+    subtitle: String? = null,
+    isFirst: Boolean = true,
+    isLast: Boolean = true,
     onCheckedChange: (Boolean) -> Unit,
 ) {
     val localizedState = stringResource(
         if (checked) Res.string.setting_value_on else Res.string.setting_value_off,
     )
     val spacing = MaterialTheme.spacing
-    val rowShape =
-        settingItemShape(isFirst = isFirst, isLast = isLast, baseShape = MaterialTheme.shapes.small)
     val haptic = LocalHapticFeedback.current
     val onToggle = { newValue: Boolean ->
         haptic.performHapticFeedback(HapticFeedbackType.LongPress)
         onCheckedChange(newValue)
     }
-    val resetAction = onReset?.takeIf { defaultChecked != null && checked != defaultChecked }
 
     Surface(
         modifier = Modifier.fillMaxWidth(),
-        color = Color.Transparent,
-        shape = rowShape,
+        color = MaterialTheme.colorScheme.surfaceContainerLow,
+        shape = settingItemShape(isFirst, isLast),
     ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .heightIn(min = 56.dp)
-                .clip(rowShape)
+                .heightIn(min = 64.dp)
                 .toggleable(
                     value = checked,
                     role = Role.Switch,
                     onValueChange = onToggle,
                 )
-                .padding(horizontal = spacing.default, vertical = spacing.small),
+                .padding(horizontal = spacing.large, vertical = spacing.small),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Column(
                 modifier = Modifier
                     .weight(1f)
-                    .padding(end = spacing.small),
+                    .padding(end = spacing.default),
                 verticalArrangement = Arrangement.spacedBy(2.dp),
             ) {
                 Text(
                     text = title,
-                    style = MaterialTheme.typography.bodyMedium,
+                    style = MaterialTheme.typography.bodyLarge,
                     color = MaterialTheme.colorScheme.onSurface,
                 )
                 subtitle?.let {
@@ -1793,29 +1744,13 @@ private fun SettingToggleRow(
                     )
                 }
             }
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                resetAction?.let { reset ->
-                    SettingResetAction(
-                        title = title,
-                        defaultValue = stringResource(
-                            if (defaultChecked == true) {
-                                Res.string.setting_value_on
-                            } else {
-                                Res.string.setting_value_off
-                            },
-                        ),
-                        onReset = reset,
-                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
-                Switch(
-                    checked = checked,
-                    onCheckedChange = null,
-                    modifier = Modifier.semantics {
-                        contentDescription = "$title: $localizedState"
-                    },
-                )
-            }
+            Switch(
+                checked = checked,
+                onCheckedChange = null,
+                modifier = Modifier.semantics {
+                    contentDescription = "$title: $localizedState"
+                },
+            )
         }
     }
 }
@@ -1825,43 +1760,37 @@ private fun SettingToggleRowWithTooltip(
     title: String,
     tooltip: String,
     checked: Boolean,
-    defaultChecked: Boolean? = null,
-    isFirst: Boolean = false,
-    isLast: Boolean = false,
-    onReset: (() -> Unit)? = null,
+    isFirst: Boolean = true,
+    isLast: Boolean = true,
     onCheckedChange: (Boolean) -> Unit,
 ) {
     val localizedState = stringResource(
         if (checked) Res.string.setting_value_on else Res.string.setting_value_off,
     )
     val spacing = MaterialTheme.spacing
-    val rowShape =
-        settingItemShape(isFirst = isFirst, isLast = isLast, baseShape = MaterialTheme.shapes.small)
     val haptic = LocalHapticFeedback.current
     var showTooltip by remember { mutableStateOf(false) }
     val onToggle = { newValue: Boolean ->
         haptic.performHapticFeedback(HapticFeedbackType.LongPress)
         onCheckedChange(newValue)
     }
-    val resetAction = onReset?.takeIf { defaultChecked != null && checked != defaultChecked }
 
     Surface(
         modifier = Modifier.fillMaxWidth(),
-        color = Color.Transparent,
-        shape = rowShape,
+        color = MaterialTheme.colorScheme.surfaceContainerLow,
+        shape = settingItemShape(isFirst, isLast),
     ) {
         Column {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .heightIn(min = 56.dp)
-                    .clip(rowShape)
+                    .heightIn(min = 64.dp)
                     .toggleable(
                         value = checked,
                         role = Role.Switch,
                         onValueChange = onToggle,
                     )
-                    .padding(horizontal = spacing.default, vertical = spacing.small),
+                    .padding(horizontal = spacing.large, vertical = spacing.small),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically,
             ) {
@@ -1873,7 +1802,7 @@ private fun SettingToggleRowWithTooltip(
                 ) {
                     Text(
                         text = title,
-                        style = MaterialTheme.typography.bodyMedium,
+                        style = MaterialTheme.typography.bodyLarge,
                         color = MaterialTheme.colorScheme.onSurface,
                     )
                     IconButton(
@@ -1893,45 +1822,25 @@ private fun SettingToggleRowWithTooltip(
                         )
                     }
                 }
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    resetAction?.let { reset ->
-                        SettingResetAction(
-                            title = title,
-                            defaultValue = stringResource(
-                                if (defaultChecked == true) {
-                                    Res.string.setting_value_on
-                                } else {
-                                    Res.string.setting_value_off
-                                },
-                            ),
-                            onReset = reset,
-                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                    }
-                    Switch(
-                        checked = checked,
-                        onCheckedChange = null,
-                        modifier = Modifier.semantics {
-                            contentDescription = "$title: $localizedState"
-                        },
-                    )
-                }
+                Switch(
+                    checked = checked,
+                    onCheckedChange = null,
+                    modifier = Modifier.semantics {
+                        contentDescription = "$title: $localizedState"
+                    },
+                )
             }
             ExpandableContent(expanded = showTooltip) {
-                Surface(
-                    color = MaterialTheme.colorScheme.secondaryContainer,
-                    shape = MaterialTheme.shapes.medium,
+                Text(
+                    text = tooltip,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.padding(
-                        horizontal = spacing.small,
-                        vertical = spacing.extraSmall
+                        start = spacing.large,
+                        end = spacing.large,
+                        bottom = spacing.default,
                     ),
-                ) {
-                    Text(
-                        text = tooltip,
-                        style = MaterialTheme.typography.bodySmall,
-                        modifier = Modifier.padding(spacing.small),
-                    )
-                }
+                )
             }
         }
     }
@@ -1941,41 +1850,31 @@ private fun SettingToggleRowWithTooltip(
 private fun SettingTextRow(
     title: String,
     value: String,
-    defaultValue: String? = null,
     keyboardType: KeyboardType = KeyboardType.Text,
-    isFirst: Boolean = false,
-    isLast: Boolean = false,
-    trailingIcon: @Composable (() -> Unit)? = null,
-    onReset: (() -> Unit)? = null,
+    isFirst: Boolean = true,
+    isLast: Boolean = true,
     onValueChange: (String) -> Unit,
 ) {
-    val modifiedDefault = defaultValue?.takeIf { value != it && onReset != null }
-    val resetAction = onReset?.takeIf { modifiedDefault != null }
-    OutlinedTextField(
+    TextField(
         value = value,
         onValueChange = onValueChange,
         label = { Text(text = settingFieldLabel(title, value)) },
         keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 2.dp, vertical = 2.dp),
-        shape = MaterialTheme.shapes.large,
+        modifier = Modifier.fillMaxWidth(),
+        shape = settingItemShape(isFirst, isLast),
         singleLine = true,
-        trailingIcon = if (modifiedDefault != null && resetAction != null) {
-            {
-                SettingResetAction(
-                    title = settingFieldLabel(title, value),
-                    defaultValue = modifiedDefault.ifEmpty {
-                        stringResource(Res.string.setting_value_empty)
-                    },
-                    onReset = resetAction,
-                )
-            }
-        } else {
-            trailingIcon
-        },
+        colors = settingTextFieldColors(),
     )
 }
+
+@Composable
+private fun settingTextFieldColors() = TextFieldDefaults.colors(
+    focusedContainerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+    unfocusedContainerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+    focusedIndicatorColor = Color.Transparent,
+    unfocusedIndicatorColor = Color.Transparent,
+    disabledIndicatorColor = Color.Transparent,
+)
 
 private fun settingFieldLabel(title: String, value: String): String {
     val withoutValue =
@@ -1992,74 +1891,59 @@ private fun SettingTextRowWithTooltip(
     title: String,
     tooltip: String,
     value: String,
-    defaultValue: String? = null,
     keyboardType: KeyboardType = KeyboardType.Text,
-    isFirst: Boolean = false,
-    isLast: Boolean = false,
-    onReset: (() -> Unit)? = null,
+    isFirst: Boolean = true,
+    isLast: Boolean = true,
     onValueChange: (String) -> Unit,
 ) {
     val spacing = MaterialTheme.spacing
     var showTooltip by remember { mutableStateOf(false) }
-    val modifiedDefault = defaultValue?.takeIf { value != it && onReset != null }
-    val resetAction = onReset?.takeIf { modifiedDefault != null }
 
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 2.dp, vertical = 2.dp),
-        verticalArrangement = Arrangement.spacedBy(spacing.extraSmall),
+    Surface(
+        modifier = Modifier.fillMaxWidth(),
+        color = MaterialTheme.colorScheme.surfaceContainerLow,
+        shape = settingItemShape(isFirst, isLast),
     ) {
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Text(
-                text = settingFieldLabel(title, value),
-                style = MaterialTheme.typography.labelLarge,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.weight(1f),
+        Column {
+            TextField(
+                value = value,
+                onValueChange = onValueChange,
+                label = { Text(text = settingFieldLabel(title, value)) },
+                keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
+                modifier = Modifier.fillMaxWidth(),
+                singleLine = true,
+                colors = settingTextFieldColors(),
+                trailingIcon = {
+                    IconButton(
+                        onClick = { showTooltip = !showTooltip },
+                        modifier = Modifier.size(TouchTargets.minimum),
+                    ) {
+                        Icon(
+                            icon = MaterialSymbols.Outlined.Info,
+                            contentDescription = stringResource(
+                                Res.string.content_desc_show_info,
+                                title,
+                            ),
+                            modifier = Modifier.size(18.dp),
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
+                },
             )
-            IconButton(
-                onClick = { showTooltip = !showTooltip },
-                modifier = Modifier.size(TouchTargets.minimum),
-            ) {
-                Icon(
-                    icon = MaterialSymbols.Outlined.Info,
-                    contentDescription = stringResource(Res.string.content_desc_show_info, title),
-                    modifier = Modifier.size(18.dp),
-                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+            ExpandableContent(expanded = showTooltip) {
+                Text(
+                    text = tooltip,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(
+                        start = spacing.default,
+                        end = spacing.default,
+                        top = spacing.extraSmall,
+                        bottom = spacing.medium,
+                    ),
                 )
             }
         }
-
-        ExpandableContent(expanded = showTooltip) {
-            Text(
-                text = tooltip,
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.padding(horizontal = spacing.small),
-            )
-        }
-
-        OutlinedTextField(
-            value = value,
-            onValueChange = onValueChange,
-            keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
-            modifier = Modifier.fillMaxWidth(),
-            shape = MaterialTheme.shapes.large,
-            singleLine = true,
-            trailingIcon = if (modifiedDefault != null && resetAction != null) {
-                {
-                    SettingResetAction(
-                        title = settingFieldLabel(title, value),
-                        defaultValue = modifiedDefault.ifEmpty {
-                            stringResource(Res.string.setting_value_empty)
-                        },
-                        onReset = resetAction,
-                    )
-                }
-            } else {
-                null
-            },
-        )
     }
 }
 
@@ -2067,48 +1951,37 @@ private fun SettingTextRowWithTooltip(
 private fun SettingTogglePairRow(
     firstTitle: String,
     firstChecked: Boolean,
-    firstDefaultChecked: Boolean? = null,
     onFirstCheckedChange: (Boolean) -> Unit,
-    onFirstReset: (() -> Unit)? = null,
     secondTitle: String,
     secondChecked: Boolean,
-    secondDefaultChecked: Boolean? = null,
     onSecondCheckedChange: (Boolean) -> Unit,
-    onSecondReset: (() -> Unit)? = null,
-    isFirst: Boolean = false,
-    isLast: Boolean = false,
+    isFirst: Boolean = true,
+    isLast: Boolean = true,
 ) {
-    val spacing = MaterialTheme.spacing
     Row(
         modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.spacedBy(spacing.extraSmall),
+        horizontalArrangement = Arrangement.spacedBy(2.dp),
     ) {
         CompactSettingToggleTile(
             modifier = Modifier.weight(1f),
             title = firstTitle,
             checked = firstChecked,
-            defaultChecked = firstDefaultChecked,
             onCheckedChange = onFirstCheckedChange,
-            onReset = onFirstReset,
             shape = settingPairTileShape(
                 isLeadingTile = true,
-                isFirstRow = isFirst,
-                isLastRow = isLast,
-                baseShape = MaterialTheme.shapes.small,
+                isFirst = isFirst,
+                isLast = isLast,
             ),
         )
         CompactSettingToggleTile(
             modifier = Modifier.weight(1f),
             title = secondTitle,
             checked = secondChecked,
-            defaultChecked = secondDefaultChecked,
             onCheckedChange = onSecondCheckedChange,
-            onReset = onSecondReset,
             shape = settingPairTileShape(
                 isLeadingTile = false,
-                isFirstRow = isFirst,
-                isLastRow = isLast,
-                baseShape = MaterialTheme.shapes.small,
+                isFirst = isFirst,
+                isLast = isLast,
             ),
         )
     }
@@ -2118,24 +1991,20 @@ private fun SettingTogglePairRow(
 private fun CompactSettingToggleTile(
     title: String,
     checked: Boolean,
-    defaultChecked: Boolean? = null,
     onCheckedChange: (Boolean) -> Unit,
-    onReset: (() -> Unit)? = null,
+    shape: Shape,
     modifier: Modifier = Modifier,
-    shape: Shape? = null,
 ) {
-    val tileShape = shape ?: MaterialTheme.shapes.small
     val spacing = MaterialTheme.spacing
     val haptic = LocalHapticFeedback.current
-    val resetAction = onReset?.takeIf { defaultChecked != null && checked != defaultChecked }
     Surface(
         onClick = {
             haptic.performHapticFeedback(HapticFeedbackType.LongPress)
             onCheckedChange(!checked)
         },
         modifier = modifier.heightIn(min = 72.dp),
-        shape = tileShape,
-        color = Color.Transparent,
+        shape = shape,
+        color = MaterialTheme.colorScheme.surfaceContainerLow,
     ) {
         Column(
             modifier = Modifier
@@ -2145,33 +2014,15 @@ private fun CompactSettingToggleTile(
         ) {
             Text(
                 text = title,
-                style = MaterialTheme.typography.bodyMedium,
+                style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.onSurface,
             )
             Spacer(modifier = Modifier.heightIn(min = spacing.small))
-            Row(
+            Switch(
+                checked = checked,
+                onCheckedChange = null,
                 modifier = Modifier.align(Alignment.End),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                resetAction?.let { reset ->
-                    SettingResetAction(
-                        title = title,
-                        defaultValue = stringResource(
-                            if (defaultChecked == true) {
-                                Res.string.setting_value_on
-                            } else {
-                                Res.string.setting_value_off
-                            },
-                        ),
-                        onReset = reset,
-                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
-                Switch(
-                    checked = checked,
-                    onCheckedChange = null,
-                )
-            }
+            )
         }
     }
 }
