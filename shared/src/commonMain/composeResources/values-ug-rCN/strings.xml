@@ -103,7 +103,7 @@
     <string name="action_clear_search">ئىزدەشنى تازىلاش</string>
     <string name="search_settings">تەڭشەكلەردىن ئىزدەش</string>
     <string name="content_desc_security_status">تور توسۇغۇچ بىخەتەرلىك ھالىتى</string>
-    <string name="content_desc_app_icon">%s ئەپ سىنبەلگىسى</string>
+    <string name="content_desc_app_icon">%1$s ئەپ سىنبەلگىسى</string>
     <string name="content_desc_show_info">%1$s ھەققىدە ئۇچۇر كۆرسىتىش</string>
 
     <!-- Dashboard stats -->
@@ -209,29 +209,29 @@
     <string name="setting_reset_usage">تور ئىشلىتىشقا قايتا تەڭشىەش</string>
     <string name="setting_show_resolved">يەشكەن ئادرېس كۆرۈنۈش</string>
     <string name="setting_block_domains">توسۇلغان ئادىرس نام</string>
-    <string name="setting_rcode">DNS كود: %s</string>
+    <string name="setting_rcode">DNS كود: %1$s</string>
     <string name="setting_forwarding">ئېغىز يۆتكەش</string>
-    <string name="setting_vpn4">VPN IPv4: %s</string>
-    <string name="setting_vpn6">VPN IPv6: %s</string>
-    <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_dns2">قوشۇمچە DNS: %s</string>
-    <string name="setting_validate">دەلىللەش ئورنى: %s</string>
-    <string name="setting_ttl">ئەڭ كىچىك DNS TTL: %s s</string>
+    <string name="setting_vpn4">VPN IPv4: %1$s</string>
+    <string name="setting_vpn6">VPN IPv6: %1$s</string>
+    <string name="setting_dns">VPN DNS: %1$s</string>
+    <string name="setting_dns2">قوشۇمچە DNS: %1$s</string>
+    <string name="setting_validate">دەلىللەش ئورنى: %1$s</string>
+    <string name="setting_ttl">ئەڭ كىچىك DNS TTL: %1$s s</string>
     <string name="setting_socks5_enabled">ئىشلىتىش ۋاكالەتلىك SOCKS5</string>
-    <string name="setting_socks5_addr">SOCKS5 ئادرېس: %s</string>
-    <string name="setting_socks5_port">SOCKS5 ئېغىزى: %s</string>
-    <string name="setting_socks5_username">SOCKS5 ئابونىت نام: %s</string>
-    <string name="setting_socks5_password">SOCKS5 پارول: %s</string>
-    <string name="setting_pcap_record_size">PCAP نۇمۇر چوڭلۇقى: %s B</string>
-    <string name="setting_pcap_file_size">PCAP ئەڭ چوڭ. ھۆججەت: %s MB</string>
+    <string name="setting_socks5_addr">SOCKS5 ئادرېس: %1$s</string>
+    <string name="setting_socks5_port">SOCKS5 ئېغىزى: %1$s</string>
+    <string name="setting_socks5_username">SOCKS5 ئابونىت نام: %1$s</string>
+    <string name="setting_socks5_password">SOCKS5 پارول: %1$s</string>
+    <string name="setting_pcap_record_size">PCAP نۇمۇر چوڭلۇقى: %1$s B</string>
+    <string name="setting_pcap_file_size">PCAP ئەڭ چوڭ. ھۆججەت: %1$s MB</string>
     <string name="setting_pcap">تور ئېقىمىنى خاتىرىلەش (PCAP)</string>
-    <string name="setting_watchdog">كۈزۈتۈش: ھەر %s مىنۇت</string>
+    <string name="setting_watchdog">كۈزۈتۈش: ھەر %1$s مىنۇت</string>
 
     <string name="setting_stats_category">سۈرئەت ئۇقتۇرۇش</string>
     <string name="setting_stats">سۈرئەت ئۇقتۇرۇش كۆرۈنۈش</string>
     <string name="setting_stats_top">كۆپ ئىشلىتىدىغىنى كۆرۈنۈش</string>
-    <string name="setting_stats_frequency">ۋاقىت ئارلىقى: %s ms</string>
-    <string name="setting_stats_samples">سانى: %s</string>
+    <string name="setting_stats_frequency">ۋاقىت ئارلىقى: %1$s ms</string>
+    <string name="setting_stats_samples">سانى: %1$s</string>
 
     <string name="setting_backup">زاپاسلاش</string>
     <string name="setting_export">چىقىرىش تەڭشەك</string>
@@ -312,7 +312,7 @@
 شۇڭلاشقا كېيىنكى سۆھبەت كۆزنىكىدە VPN ئۇلىنىشىغا يول قويۇڭ.
 تور ئېقىمىڭىز يىراقتىكى VPN مۇلازىمېتىرىغا ئەۋەتىلمەيدۇ.</string>
     <string name="msg_autostart">QuietGuard ئاپتۇماتىك قوزغىلالمىدى، سىزنىڭ تېلېىفونىڭىزنىڭ نەشردىكى مەسلىسى بولشى مومكىن.</string>
-    <string name="msg_error">ئويلىمغان خاتالىق: '%s'</string>
+    <string name="msg_error">ئويلىمغان خاتالىق: '%1$s'</string>
     <string name="msg_start_failed">VPN مۇلازىمتىنى رەت قىلدى، سىزنىڭ تېلېىفونىڭىزنىڭ نەشردىكى مەسلىسى بولشى مومكىن.</string>
     <string name="msg_try">سىناش QuietGuard</string>
     <string name="msg_terms">قوشۇلسىڭىز <a href="http://www.netguard.me/#terms">شەرتلەر ۋە بەلگىلىمىلەر</a></string>
@@ -323,7 +323,7 @@
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
-    <string name="msg_count">%dx</string>
+    <string name="msg_count">%1$dx</string>
     <string name="msg_doze">تۇراقلىق نەتىجە ئۈچۈن QuietGuard نىڭ باتارېيەنى ئەلالاشتۇرۇش چەكلىمىسىنى بىكار قىلىش كېرەك.
 \n\nكېيىنكى كۆزنەكتە، ئۈستىدىن \"بارلىق ئەپلەر\"نى تاللاپ، تىزىملىكتىن QuietGuard نى تېپىپ \"ئەلالاشتۇرما\"نى تاللاڭ.</string>
     <string name="msg_datasaving">تۇراقلىق نەتىجە ئۈچۈن QuietGuard نىڭ ئاندىرويىد تور تېجەش تاللانمىسىنى چەكلەش كېرەك.
@@ -333,10 +333,10 @@
     <string name="msg_log_disabled">تور خاتىرىسى تاقالغان، يۇقىرىدىكى ئالماشتۇرغۇچ بىلەن قوزغىتىڭ. خاتىرىلەش توكنى كۆپ سەرپ قىلىشى مۇمكىن.</string>
     <string name="msg_clear_rules">بۇ قائىدە ۋە شەرتلەرنى سۈكۈتتىكى قىممىتىگە قايتۇرىدۇ</string>
     <string name="msg_reset_access">بۇ يول قويۇش/توسۇش قائىدىسى يوق زىيارەت خاتىرىلىرىنى ئۆچۈرىدۇ</string>
-    <string name="msg_import_last">ئاخىرقى قوشۇش: %s</string>
+    <string name="msg_import_last">ئاخىرقى قوشۇش: %1$s</string>
     <string name="msg_downloading">چۈشۈرۋاتىدۇ\n%1s</string>
     <string name="msg_downloaded">Hosts ھۆججىتى چۈشۈرۈلدى</string>
-    <string name="msg_download_last">يېقىندا چۈشۈرگىنى: %s</string>
+    <string name="msg_download_last">يېقىندا چۈشۈرگىنى: %1$s</string>
     <string name="msg_start_forward">%1$s نىڭ %2$d ئېغىزىدىن %3$s:%4$d گە '%5$s' ئۈچۈن يۆتكەشنى باشلامسىز؟</string>
     <string name="msg_stop_forward">%1$s نىڭ %2$d ئېغىزىدىكى يۆتكەشنى توختىتامسىز؟</string>
     <string name="msg_metered">تور ئۆلچەشلىك</string>
@@ -379,8 +379,8 @@
     <string name="title_screen_other">ئېكران ئوچۇق بولسا كۆچمە تورغا يول قويۇش</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">كەزمە توردا توسۇش</string>
-    <string name="label_ttl">TTL: %s s</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s s</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">قۇلۇپلاش ھالىتىدە يول قويۇش</string>
     <string name="title_related">مۇناسىۋەتلىك سۈزۈش</string>
     <string name="title_access">زىيارەت سىناشلىرى</string>

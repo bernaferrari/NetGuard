@@ -103,7 +103,7 @@
     <string name="action_clear_search">Aramayı temizle</string>
     <string name="search_settings">Ayarlarda ara</string>
     <string name="content_desc_security_status">Güvenlik duvarı güvenlik durumu</string>
-    <string name="content_desc_app_icon">%s uygulama simgesi</string>
+    <string name="content_desc_app_icon">%1$s uygulama simgesi</string>
     <string name="content_desc_show_info">%1$s hakkında bilgi göster</string>
 
     <!-- Dashboard stats -->
@@ -209,29 +209,29 @@
     <string name="setting_reset_usage">Ağ kullanımını sıfırla</string>
     <string name="setting_show_resolved">Çözümlenmiş alan adlarını göster</string>
     <string name="setting_block_domains">Alan adlarını engelle</string>
-    <string name="setting_rcode">DNS yanıt kodu: %s</string>
+    <string name="setting_rcode">DNS yanıt kodu: %1$s</string>
     <string name="setting_forwarding">Port yönlendirme</string>
-    <string name="setting_vpn4">VPN IPv4: %s</string>
-    <string name="setting_vpn6">VPN IPv6: %s</string>
-    <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_dns2">İkincil DNS: %s</string>
-    <string name="setting_validate">Doğrulama adresi: %s</string>
-    <string name="setting_ttl">Minimum DNS TTL: %s sn</string>
+    <string name="setting_vpn4">VPN IPv4: %1$s</string>
+    <string name="setting_vpn6">VPN IPv6: %1$s</string>
+    <string name="setting_dns">VPN DNS: %1$s</string>
+    <string name="setting_dns2">İkincil DNS: %1$s</string>
+    <string name="setting_validate">Doğrulama adresi: %1$s</string>
+    <string name="setting_ttl">Minimum DNS TTL: %1$s sn</string>
     <string name="setting_socks5_enabled">SOCKS5 vekili kullan</string>
-    <string name="setting_socks5_addr">SOCKS5 adresi: %s</string>
-    <string name="setting_socks5_port">SOCKS5 portu: %s</string>
-    <string name="setting_socks5_username">SOCKS5 kullanıcı adı: %s</string>
-    <string name="setting_socks5_password">SOCKS5 şifresi: %s</string>
-    <string name="setting_pcap_record_size">PCAP kayıt boyutu: %s B</string>
-    <string name="setting_pcap_file_size">Maksimum PCAP dosya boyutu: %s MB</string>
+    <string name="setting_socks5_addr">SOCKS5 adresi: %1$s</string>
+    <string name="setting_socks5_port">SOCKS5 portu: %1$s</string>
+    <string name="setting_socks5_username">SOCKS5 kullanıcı adı: %1$s</string>
+    <string name="setting_socks5_password">SOCKS5 şifresi: %1$s</string>
+    <string name="setting_pcap_record_size">PCAP kayıt boyutu: %1$s B</string>
+    <string name="setting_pcap_file_size">Maksimum PCAP dosya boyutu: %1$s MB</string>
     <string name="setting_pcap">Ağ trafiğini kaydet (PCAP)</string>
-    <string name="setting_watchdog">Gözlemci: her %s dakikada bir</string>
+    <string name="setting_watchdog">Gözlemci: her %1$s dakikada bir</string>
 
     <string name="setting_stats_category">Hız bildirimleri</string>
     <string name="setting_stats">Hız bildirimlerini göster</string>
     <string name="setting_stats_top">En çok kullanan uygulamaları göster</string>
-    <string name="setting_stats_frequency">Örnekleme aralığı: %s ms</string>
-    <string name="setting_stats_samples">Örnek sayısı: %s</string>
+    <string name="setting_stats_frequency">Örnekleme aralığı: %1$s ms</string>
+    <string name="setting_stats_samples">Örnek sayısı: %1$s</string>
 
     <string name="setting_backup">Yedekleme</string>
     <string name="setting_export">Ayarları dışa aktar</string>
@@ -312,7 +312,7 @@
 Bu nedenle lütfen sonraki iletişim kutusunda VPN bağlantısına izin verin.
 İnternet trafiğiniz herhangi bir uzak VPN sunucusuna gönderilmeyecektir.</string>
     <string name="msg_autostart">QuietGuard otomatik olarak başlatılamadı. Bu büyük olasılıkla Android sürümünüzdeki bir hatadan kaynaklanmaktadır.</string>
-    <string name="msg_error">Beklenmeyen bir hata oluştu: '%s'</string>
+    <string name="msg_error">Beklenmeyen bir hata oluştu: '%1$s'</string>
     <string name="msg_start_failed">Android şu anda VPN hizmetini başlatmayı reddetti. Bu büyük olasılıkla Android sürümünüzdeki bir hatadan kaynaklanmaktadır.</string>
     <string name="msg_try">QuietGuard'ı dene</string>
     <string name="msg_terms">Bağış yaparak <a href="http://www.netguard.me/#terms">şartlar ve koşulları</a> kabul etmiş olursunuz</string>
@@ -323,7 +323,7 @@ Bu nedenle lütfen sonraki iletişim kutusunda VPN bağlantısına izin verin.
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
-    <string name="msg_count">%dx</string>
+    <string name="msg_count">%1$dx</string>
     <string name="msg_doze">Tutarlı sonuçlar için QuietGuard için Android pil optimizasyonu devre dışı bırakılmalıdır.
 \n\nSonraki iletişim kutusunda, üstten \"Tüm uygulamalar\"ı seçin, listede QuietGuard'a dokunun ve \"Optimize etme\"yi seçip onaylayın.</string>
     <string name="msg_datasaving">Tutarlı sonuçlar için QuietGuard için Android veri tasarrufu seçeneği devre dışı bırakılmalıdır.
@@ -333,10 +333,10 @@ Bu nedenle lütfen sonraki iletişim kutusunda VPN bağlantısına izin verin.
     <string name="msg_log_disabled">Trafik günlüğü devre dış, lütfen yukarıdaki anahtarla etkinleştirin. Günlük tutma ek pil tüketimine neden olabilir.</string>
     <string name="msg_clear_rules">Bu, kuralları ve koşulları varsayılan değerlere sıfırlayacaktır</string>
     <string name="msg_reset_access">Bu, izin ver/engelle kuralı olmayan erişim denemesi günlüğü satırlarını silecektir</string>
-    <string name="msg_import_last">Son içe aktarma: %s</string>
+    <string name="msg_import_last">Son içe aktarma: %1$s</string>
     <string name="msg_downloading">İndiriliyor\n%1s</string>
     <string name="msg_downloaded">hosts dosyası indirildi</string>
-    <string name="msg_download_last">Son indirme: %s</string>
+    <string name="msg_download_last">Son indirme: %1$s</string>
     <string name="msg_start_forward">%1$s port %2$d'den %3$s:%4$d adresine '%5$s' için yönlendirme başlatılsın mı?</string>
     <string name="msg_stop_forward">%1$s port %2$d yönlendirmesi durdurulsun mu?</string>
     <string name="msg_metered">Ağ ücretli (kotalı)</string>
@@ -379,8 +379,8 @@ Bu nedenle lütfen sonraki iletişim kutusunda VPN bağlantısına izin verin.
     <string name="title_screen_other">Ekran açıkken mobil veriye izin ver</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">Dolaşımda engelle</string>
-    <string name="label_ttl">TTL: %s sn</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s sn</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">Kilitleme modunda izin ver</string>
     <string name="title_related">Filtreleme ile ilgili</string>
     <string name="title_access">Erişim denemeleri</string>

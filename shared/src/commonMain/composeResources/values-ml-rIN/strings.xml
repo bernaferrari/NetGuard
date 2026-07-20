@@ -103,7 +103,7 @@
     <string name="action_clear_search">തിരയൽ മായ്ക്കുക</string>
     <string name="search_settings">ക്രമീകരണങ്ങൾ തിരയുക</string>
     <string name="content_desc_security_status">ഫയർവാൾ സുരക്ഷാ നില</string>
-    <string name="content_desc_app_icon">%s-നുള്ള ആപ്പ് ഐക്കൺ</string>
+    <string name="content_desc_app_icon">%1$s-നുള്ള ആപ്പ് ഐക്കൺ</string>
     <string name="content_desc_show_info">%1$s-നെ കുറിച്ചുള്ള വിവരങ്ങൾ കാണിക്കുക</string>
 
     <!-- Dashboard stats -->
@@ -209,29 +209,29 @@
     <string name="setting_reset_usage">നെറ്റ്‌വർക്ക് ഉപയോഗം പുനഃക്രമീകരിക്കുക</string>
     <string name="setting_show_resolved">റിസോൾവ് ചെയ്ത ഡൊമെയ്ൻ നാമങ്ങൾ കാണിക്കുക</string>
     <string name="setting_block_domains">ഡൊമെയ്ൻ നാമങ്ങൾ തടയുക</string>
-    <string name="setting_rcode">DNS പ്രതികരണ കോഡ്: %s</string>
+    <string name="setting_rcode">DNS പ്രതികരണ കോഡ്: %1$s</string>
     <string name="setting_forwarding">പോർട്ട് ഫോർവേഡിംഗ്</string>
-    <string name="setting_vpn4">VPN IPv4: %s</string>
-    <string name="setting_vpn6">VPN IPv6: %s</string>
-    <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_dns2">സെക്കൻഡറി DNS: %s</string>
-    <string name="setting_validate">ഇവിടെ സാധൂകരിക്കുക: %s</string>
-    <string name="setting_ttl">ഏറ്റവും കുറഞ്ഞ DNS TTL: %s s</string>
+    <string name="setting_vpn4">VPN IPv4: %1$s</string>
+    <string name="setting_vpn6">VPN IPv6: %1$s</string>
+    <string name="setting_dns">VPN DNS: %1$s</string>
+    <string name="setting_dns2">സെക്കൻഡറി DNS: %1$s</string>
+    <string name="setting_validate">ഇവിടെ സാധൂകരിക്കുക: %1$s</string>
+    <string name="setting_ttl">ഏറ്റവും കുറഞ്ഞ DNS TTL: %1$s s</string>
     <string name="setting_socks5_enabled">SOCKS5 പ്രോക്സി ഉപയോഗിക്കുക</string>
-    <string name="setting_socks5_addr">SOCKS5 വിലാസം: %s</string>
-    <string name="setting_socks5_port">SOCKS5 പോർട്ട്: %s</string>
-    <string name="setting_socks5_username">SOCKS5 ഉപയോക്തൃനാമം: %s</string>
-    <string name="setting_socks5_password">SOCKS5 പാസ്‌വേഡ്: %s</string>
-    <string name="setting_pcap_record_size">PCAP റെക്കോർഡ് വലുപ്പം: %s B</string>
-    <string name="setting_pcap_file_size">PCAP പരമാവധി ഫയൽ വലുപ്പം: %s MB</string>
+    <string name="setting_socks5_addr">SOCKS5 വിലാസം: %1$s</string>
+    <string name="setting_socks5_port">SOCKS5 പോർട്ട്: %1$s</string>
+    <string name="setting_socks5_username">SOCKS5 ഉപയോക്തൃനാമം: %1$s</string>
+    <string name="setting_socks5_password">SOCKS5 പാസ്‌വേഡ്: %1$s</string>
+    <string name="setting_pcap_record_size">PCAP റെക്കോർഡ് വലുപ്പം: %1$s B</string>
+    <string name="setting_pcap_file_size">PCAP പരമാവധി ഫയൽ വലുപ്പം: %1$s MB</string>
     <string name="setting_pcap">നെറ്റ്‌വർക്ക് ട്രാഫിക് റെക്കോർഡുചെയ്യുക (PCAP)</string>
-    <string name="setting_watchdog">വാച്ച്‌ഡോഗ്: ഓരോ %s മിനിറ്റിലും</string>
+    <string name="setting_watchdog">വാച്ച്‌ഡോഗ്: ഓരോ %1$s മിനിറ്റിലും</string>
 
     <string name="setting_stats_category">വേഗത അറിയിപ്പ്</string>
     <string name="setting_stats">വേഗത അറിയിപ്പ് കാണിക്കുക</string>
     <string name="setting_stats_top">മികച്ച ആപ്പുകൾ കാണിക്കുക</string>
-    <string name="setting_stats_frequency">സാമ്പിൾ ഇടവേള: %s ms</string>
-    <string name="setting_stats_samples">സാമ്പിളുകളുടെ എണ്ണം: %s</string>
+    <string name="setting_stats_frequency">സാമ്പിൾ ഇടവേള: %1$s ms</string>
+    <string name="setting_stats_samples">സാമ്പിളുകളുടെ എണ്ണം: %1$s</string>
 
     <string name="setting_backup">ബാക്കപ്പ്</string>
     <string name="setting_export">ക്രമീകരണങ്ങൾ കയറ്റുമതി ചെയ്യുക</string>
@@ -312,7 +312,7 @@
 ഈ കാരണത്താൽ, അടുത്ത ഡയലോഗിൽ ഒരു VPN കണക്ഷൻ അനുവദിക്കുക.
 നിങ്ങളുടെ ഇന്റർനെറ്റ് ട്രാഫിക് ഒരു വിദൂര VPN സെർവറിലേക്ക് അയയ്ക്കുന്നില്ല.</string>
     <string name="msg_autostart">നെറ്റ്ഗാർഡിന് സ്വയമേവ ആരംഭിക്കാൻ കഴിഞ്ഞില്ല. ഇത് നിങ്ങളുടെ ആൻഡ്രോയിഡ് പതിപ്പിലെ ബഗ് കാരണമാകാം.</string>
-    <string name="msg_error">പ്രതീക്ഷിക്കാത്ത പിശക് സംഭവിച്ചു: '%s'</string>
+    <string name="msg_error">പ്രതീക്ഷിക്കാത്ത പിശക് സംഭവിച്ചു: '%1$s'</string>
     <string name="msg_start_failed">ആൻഡ്രോയിഡ് ഈ നിമിഷം VPN സേവനം ആരംഭിക്കാൻ വിസമ്മതിച്ചു. ഇത് നിങ്ങളുടെ ആൻഡ്രോയിഡ് പതിപ്പിലെ ബഗ് കാരണമാകാം.</string>
     <string name="msg_try">നെറ്റ്ഗാർഡ് പരീക്ഷിക്കുക</string>
     <string name="msg_terms">സംഭാവന നൽകുന്നതിലൂടെ നിങ്ങൾ <a href="http://www.netguard.me/#terms">നിബന്ധനകളും വ്യവസ്ഥകളും</a> അംഗീകരിക്കുന്നു</string>
@@ -323,7 +323,7 @@
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
-    <string name="msg_count">%dx</string>
+    <string name="msg_count">%1$dx</string>
     <string name="msg_doze">സ്ഥിരതയുള്ള ഫലങ്ങൾക്കായി, നെറ്റ്ഗാർഡിനായി ആൻഡ്രോയിഡ് ബാറ്ററി ഒപ്റ്റിമൈസേഷൻ പ്രവർത്തനരഹിതമാക്കണം.
 \n\nഅടുത്ത ഡയലോഗിൽ, മുകളിൽ \"എല്ലാ ആപ്പുകളും\" തിരഞ്ഞെടുക്കുക, പട്ടികയിൽ നെറ്റ്ഗാർഡിൽ ടാപ്പുചെയ്‌ത് \"ഒപ്റ്റിമൈസ് ചെയ്യരുത്\" എന്ന് തിരഞ്ഞെടുത്ത് സ്ഥിരീകരിക്കുക.</string>
     <string name="msg_datasaving">സ്ഥിരതയുള്ള ഫലങ്ങൾക്കായി, നെറ്റ്ഗാർഡിനായി ആൻഡ്രോയിഡ് ഡാറ്റ സേവിംഗ് ഓപ്ഷനുകൾ പ്രവർത്തനരഹിതമാക്കണം.
@@ -333,10 +333,10 @@
     <string name="msg_log_disabled">ട്രാഫിക് ലോഗിംഗ് പ്രവർത്തനരഹിതമാണ്, ലോഗിംഗ് പ്രവർത്തനക്ഷമമാക്കാൻ മുകളിലെ സ്വിച്ച് ഉപയോഗിക്കുക. ട്രാഫിക് ലോഗിംഗ് അധിക ബാറ്ററി ഉപയോഗത്തിന് കാരണമായേക്കാം.</string>
     <string name="msg_clear_rules">ഇത് നിയമങ്ങളും വ്യവസ്ഥകളും അവയുടെ ഡിഫോൾട്ട് മൂല്യങ്ങളിലേക്ക് പുനഃക്രമീകരിക്കും</string>
     <string name="msg_reset_access">ഇത് അനുവദിക്കുക/തടയുക നിയമങ്ങളില്ലാത്ത ആക്സസ് ശ്രമ ലോഗ് ലൈനുകൾ ഇല്ലാതാക്കും</string>
-    <string name="msg_import_last">അവസാന ഇംപോർട്ട്: %s</string>
+    <string name="msg_import_last">അവസാന ഇംപോർട്ട്: %1$s</string>
     <string name="msg_downloading">ഡൗൺലോഡ് ചെയ്യുന്നു\n%1s</string>
     <string name="msg_downloaded">ഹോസ്റ്റ് ഫയൽ ഡൗൺലോഡ് ചെയ്തു</string>
-    <string name="msg_download_last">അവസാന ഡൗൺലോഡ്: %s</string>
+    <string name="msg_download_last">അവസാന ഡൗൺലോഡ്: %1$s</string>
     <string name="msg_start_forward">%1$s പോർട്ട് %2$d-ൽ നിന്ന് '%5$s'-ന്റെ %3$s:%4$d-ലേക്ക് ഫോർവേഡിംഗ് ആരംഭിക്കണോ?</string>
     <string name="msg_stop_forward">%1$s പോർട്ട് %2$d-ന്റെ ഫോർവേഡിംഗ് നിർത്തണോ?</string>
     <string name="msg_metered">നെറ്റ്‌വർക്ക് മീറ്റേർഡ് ആണ്</string>
@@ -379,8 +379,8 @@
     <string name="title_screen_other">സ്‌ക്രീൻ ഓണായിരിക്കുമ്പോൾ മൊബൈൽ അനുവദിക്കുക</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">റോമിംഗിലായിരിക്കുമ്പോൾ തടയുക</string>
-    <string name="label_ttl">TTL: %s s</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s s</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">ലോക്ക്ഡൗൺ മോഡിൽ അനുവദിക്കുക</string>
     <string name="title_related">ഫിൽട്ടറുമായി ബന്ധപ്പെട്ടവ</string>
     <string name="title_access">ആക്സസ് ശ്രമങ്ങൾ</string>

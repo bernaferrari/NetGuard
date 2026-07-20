@@ -102,7 +102,7 @@
     <string name="action_clear_search">изчистване на търсенето</string>
     <string name="search_settings">Настройки на търсенето</string>
     <string name="content_desc_security_status">Статус на сигурността на защитната стена</string>
-    <string name="content_desc_app_icon">Икона на приложение за %s</string>
+    <string name="content_desc_app_icon">Икона на приложение за %1$s</string>
     <string name="content_desc_show_info">Показване на информация за %1$s</string>
 
     <!-- Dashboard stats -->
@@ -208,29 +208,29 @@
     <string name="setting_reset_usage">Нулиране на данните за достъп до мрежа</string>
     <string name="setting_show_resolved">Показване на заявените домейни</string>
     <string name="setting_block_domains">Блокиране на домейни</string>
-    <string name="setting_rcode">Код на отговора на DNS: %s</string>
+    <string name="setting_rcode">Код на отговора на DNS: %1$s</string>
     <string name="setting_forwarding">Пренасочване на порт</string>
-    <string name="setting_vpn4">VPN IPv4: %s</string>
-    <string name="setting_vpn6">VPN IPv6: %s</string>
-    <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_dns2">Вторичен DNS: %s</string>
-    <string name="setting_validate">Проверка: %s</string>
-    <string name="setting_ttl">Минимален TTL за DNS: %s с</string>
+    <string name="setting_vpn4">VPN IPv4: %1$s</string>
+    <string name="setting_vpn6">VPN IPv6: %1$s</string>
+    <string name="setting_dns">VPN DNS: %1$s</string>
+    <string name="setting_dns2">Вторичен DNS: %1$s</string>
+    <string name="setting_validate">Проверка: %1$s</string>
+    <string name="setting_ttl">Минимален TTL за DNS: %1$s с</string>
     <string name="setting_socks5_enabled">Използване на SOCKS5 прокси</string>
-    <string name="setting_socks5_addr">SOCKS5 адрес: %s</string>
-    <string name="setting_socks5_port">SOCKS5 порт: %s</string>
-    <string name="setting_socks5_username">SOCKS5 потребителско име: %s</string>
-    <string name="setting_socks5_password">SOCKS5 парола: %s</string>
-    <string name="setting_pcap_record_size">PCAP записване на размер: %s B</string>
-    <string name="setting_pcap_file_size">PCAP максимален размер на файла: %s MB</string>
+    <string name="setting_socks5_addr">SOCKS5 адрес: %1$s</string>
+    <string name="setting_socks5_port">SOCKS5 порт: %1$s</string>
+    <string name="setting_socks5_username">SOCKS5 потребителско име: %1$s</string>
+    <string name="setting_socks5_password">SOCKS5 парола: %1$s</string>
+    <string name="setting_pcap_record_size">PCAP записване на размер: %1$s B</string>
+    <string name="setting_pcap_file_size">PCAP максимален размер на файла: %1$s MB</string>
     <string name="setting_pcap">Записване на мрежовия трафик (PCAP)</string>
-    <string name="setting_watchdog">Пазител: всеки %s минути</string>
+    <string name="setting_watchdog">Пазител: всеки %1$s минути</string>
 
     <string name="setting_stats_category">Известие с текущите скорости</string>
     <string name="setting_stats">Показване на известия за скоростта</string>
     <string name="setting_stats_top">Показване на най-използваните приложения</string>
-    <string name="setting_stats_frequency">Интервал на измерване: %s мс</string>
-    <string name="setting_stats_samples">Брой измервания: %s</string>
+    <string name="setting_stats_frequency">Интервал на измерване: %1$s мс</string>
+    <string name="setting_stats_samples">Брой измервания: %1$s</string>
 
     <string name="setting_backup">Архивиране</string>
     <string name="setting_export">Изнасяне на настройки</string>
@@ -311,7 +311,7 @@
 Поради тази причина в следващия диалогов прозорец разрешете връзката през VPN.
 Трафик към интернет не се изпраща към отдалечен сървър на VPN.</string>
     <string name="msg_autostart">QuietGuard не може да се стартира автоматично при стартиране на системата поради грешка в Android версията</string>
-    <string name="msg_error">Възникна неочаквана грешка: \"%s\"</string>
+    <string name="msg_error">Възникна неочаквана грешка: \"%1$s\"</string>
     <string name="msg_start_failed">Андроид отказва за момента да стартира услугата за VPN. Най-вероятно се дължи на дефект в изданието на Андроид.</string>
     <string name="msg_try">Опитайте QuietGuard</string>
     <string name="msg_terms">Дарявайки, вие се съгласявате с <a href="http://www.netguard.me/#terms">общите условия</a></string>
@@ -322,7 +322,7 @@
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
-    <string name="msg_count">%dx</string>
+    <string name="msg_count">%1$dx</string>
     <string name="msg_doze">За правилната работа на приложението моля, не активирайте оптимизация на батерията за QuietGuard.
 \n\nв следващия диалогов прозорец, изберете \"Всички приложения\" в горната част, докоснете върху QuietGuard в списъка. Изберете и потвърдете \"Не оптимизирай\".</string>
     <string name="msg_datasaving">За постоянни резултати трябва да изключите \"Android data saving\" за QuietGuard.
@@ -332,10 +332,10 @@
     <string name="msg_log_disabled">Rегистрирането на трафика е изключено, използвайте опцията по-горе за да разрешите регистрирането. Регистрирането на трафика може да доведе до допълнителна употреба на батерията.</string>
     <string name="msg_clear_rules">Това ще се нулира правилата и условията към стойностите им по подразбиране</string>
     <string name="msg_reset_access">Така ще бъдат премахнати редовете от дневника с опитите за достъп, без правила за разрешаване/забраняване</string>
-    <string name="msg_import_last">Последно вмъкване: %s</string>
+    <string name="msg_import_last">Последно вмъкване: %1$s</string>
     <string name="msg_downloading">Сваляне\n%1s</string>
     <string name="msg_downloaded">Файлът „hosts“ е изтеглен</string>
-    <string name="msg_download_last">Последно сваляне: %s</string>
+    <string name="msg_download_last">Последно сваляне: %1$s</string>
     <string name="msg_start_forward">Започнете пренасочване от %1$s порт %2$d към %3$s:%4$d на \"%5$s\"?</string>
     <string name="msg_stop_forward">Спиране пренасочването на %1$s порт %2$d?</string>
     <string name="msg_metered">Мрежа с ограничен трафик</string>
@@ -378,8 +378,8 @@
     <string name="title_screen_other">Позволяване на мобилни данни, когато екранът е включен</string>
     <string name="title_roaming_symbol">Р</string>
     <string name="title_roaming">Блокиране при роуминг</string>
-    <string name="label_ttl">TTL: %s с</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s с</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">Разрешаване по време на заключен трафик</string>
     <string name="title_related">Поради текущ филтър</string>
     <string name="title_access">Опити за достъп</string>

@@ -104,7 +104,7 @@
     <string name="action_clear_search">Bersihkan pencarian</string>
     <string name="search_settings">Cari di pengaturan</string>
     <string name="content_desc_security_status">Status keamanan firewall</string>
-    <string name="content_desc_app_icon">Ikon aplikasi untuk %s</string>
+    <string name="content_desc_app_icon">Ikon aplikasi untuk %1$s</string>
     <string name="content_desc_show_info">Tampilkan informasi tentang %1$s</string>
 
     <!-- Dashboard stats -->
@@ -210,29 +210,29 @@
     <string name="setting_reset_usage">Set ulang penggunaan jaringan</string>
     <string name="setting_show_resolved">Tampilkan nama domain terurai</string>
     <string name="setting_block_domains">Blokir nama domain</string>
-    <string name="setting_rcode">Kode respons DNS: %s</string>
+    <string name="setting_rcode">Kode respons DNS: %1$s</string>
     <string name="setting_forwarding">Penerusan port</string>
-    <string name="setting_vpn4">IPv4 VPN: %s</string>
-    <string name="setting_vpn6">IPv6 VPN: %s</string>
-    <string name="setting_dns">DNS VPN: %s</string>
-    <string name="setting_dns2">DNS sekunder: %s</string>
-    <string name="setting_validate">Validasi pada: %s</string>
-    <string name="setting_ttl">Minimum DNS TTL: %s dtk</string>
+    <string name="setting_vpn4">IPv4 VPN: %1$s</string>
+    <string name="setting_vpn6">IPv6 VPN: %1$s</string>
+    <string name="setting_dns">DNS VPN: %1$s</string>
+    <string name="setting_dns2">DNS sekunder: %1$s</string>
+    <string name="setting_validate">Validasi pada: %1$s</string>
+    <string name="setting_ttl">Minimum DNS TTL: %1$s dtk</string>
     <string name="setting_socks5_enabled">Gunakan proksi SOCKS5</string>
-    <string name="setting_socks5_addr">Alamat SOCKS5: %s</string>
-    <string name="setting_socks5_port">Port SOCKS5: %s</string>
-    <string name="setting_socks5_username">Nama pengguna SOCKS5: %s</string>
-    <string name="setting_socks5_password">Sandi SOCKS5: %s</string>
-    <string name="setting_pcap_record_size">Ukuran rekam PCAP: %s B</string>
-    <string name="setting_pcap_file_size">Ukuran maks. berkas PCAP: %s MB</string>
+    <string name="setting_socks5_addr">Alamat SOCKS5: %1$s</string>
+    <string name="setting_socks5_port">Port SOCKS5: %1$s</string>
+    <string name="setting_socks5_username">Nama pengguna SOCKS5: %1$s</string>
+    <string name="setting_socks5_password">Sandi SOCKS5: %1$s</string>
+    <string name="setting_pcap_record_size">Ukuran rekam PCAP: %1$s B</string>
+    <string name="setting_pcap_file_size">Ukuran maks. berkas PCAP: %1$s MB</string>
     <string name="setting_pcap">Rekam lalu lintas jaringan (PCAP)</string>
-    <string name="setting_watchdog">Watchdog: setiap %s menit</string>
+    <string name="setting_watchdog">Watchdog: setiap %1$s menit</string>
 
     <string name="setting_stats_category">Notifikasi kecepatan</string>
     <string name="setting_stats">Tampilkan notifikasi kecepatan</string>
     <string name="setting_stats_top">Tampilkan apl teratas</string>
-    <string name="setting_stats_frequency">Interval sampel: %s ms</string>
-    <string name="setting_stats_samples">Jumlah sampel: %s</string>
+    <string name="setting_stats_frequency">Interval sampel: %1$s ms</string>
+    <string name="setting_stats_samples">Jumlah sampel: %1$s</string>
 
     <string name="setting_backup">Cadangan</string>
     <string name="setting_export">Pengaturan ekspor</string>
@@ -313,7 +313,7 @@
 Oleh karena itu, harap izinkan koneksi VPN di dialog berikutnya.
 Lalu lintas internet Anda tidak dikirim ke server VPN jarak jauh.</string>
     <string name="msg_autostart">QuietGuard tidak dapat memulai secara otomatis. Hal ini mungkin karena bug di versi Android Anda.</string>
-    <string name="msg_error">Terjadi kesalahan tak terduga: '%s'</string>
+    <string name="msg_error">Terjadi kesalahan tak terduga: '%1$s'</string>
     <string name="msg_start_failed">Android menolak untuk memulai layanan VPN saat ini. Hal ini mungkin karena bug di versi Android Anda.</string>
     <string name="msg_try">Coba QuietGuard</string>
     <string name="msg_terms">Dengan menyumbang Anda setuju dengan <a href="http://www.netguard.me/#terms">syarat &amp; ketentuan</a></string>
@@ -324,7 +324,7 @@ Lalu lintas internet Anda tidak dikirim ke server VPN jarak jauh.</string>
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
-    <string name="msg_count">%dx</string>
+    <string name="msg_count">%1$dx</string>
     <string name="msg_doze">Agar hasil konsisten, pengoptimalan baterai Android harus dinonaktifkan untuk QuietGuard.
 \n\nPada dialog berikutnya, pilih \"Semua aplikasi\" di bagian atas, ketuk QuietGuard dalam daftar dan pilih serta konfirmasi \"Jangan optimalkan\".</string>
     <string name="msg_datasaving">Agar hasil konsisten, opsi penghemat data Android harus dinonaktifkan untuk QuietGuard.
@@ -334,10 +334,10 @@ Lalu lintas internet Anda tidak dikirim ke server VPN jarak jauh.</string>
     <string name="msg_log_disabled">Pencatatan lalu lintas dinonaktifkan, gunakan sakelar di atas untuk mengaktifkan pencatatan. Hal ini dapat meningkatkan penggunaan baterai.</string>
     <string name="msg_clear_rules">Ini akan mengatur ulang aturan dan kondisi ke nilai bawaannya</string>
     <string name="msg_reset_access">Ini akan menghapus baris log upaya akses tanpa aturan izinkan/blokir</string>
-    <string name="msg_import_last">Impor terakhir: %s</string>
+    <string name="msg_import_last">Impor terakhir: %1$s</string>
     <string name="msg_downloading">Mengunduh\n%1s</string>
     <string name="msg_downloaded">Berkas host diunduh</string>
-    <string name="msg_download_last">Unduhan terakhir: %s</string>
+    <string name="msg_download_last">Unduhan terakhir: %1$s</string>
     <string name="msg_start_forward">Mulai teruskan dari %1$s port %2$d ke %3$s:%4$d dari '%5$s'?</string>
     <string name="msg_stop_forward">Hentikan penerusan %1$s port %2$d?</string>
     <string name="msg_metered">Jaringan dibatasi</string>
@@ -380,8 +380,8 @@ Lalu lintas internet Anda tidak dikirim ke server VPN jarak jauh.</string>
     <string name="title_screen_other">Izinkan seluler saat layar menyala</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">Blokir saat roaming</string>
-    <string name="label_ttl">TTL: %s dtk</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s dtk</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">Izinkan dalam mode penguncian</string>
     <string name="title_related">Filter terkait</string>
     <string name="title_access">Upaya akses</string>

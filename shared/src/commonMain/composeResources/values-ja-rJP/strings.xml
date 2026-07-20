@@ -103,7 +103,7 @@
     <string name="action_clear_search">検索をクリア</string>
     <string name="search_settings">設定を検索</string>
     <string name="content_desc_security_status">ファイアウォールのセキュリティステータス</string>
-    <string name="content_desc_app_icon">%s のアプリアイコン</string>
+    <string name="content_desc_app_icon">%1$s のアプリアイコン</string>
     <string name="content_desc_show_info">%1$s に関する情報を表示</string>
 
     <!-- Dashboard stats -->
@@ -214,29 +214,29 @@
     <string name="setting_reset_usage">ネットワーク使用量をリセット</string>
     <string name="setting_show_resolved">解決されたドメイン名を表示</string>
     <string name="setting_block_domains">ドメイン名をブロック</string>
-    <string name="setting_rcode">DNS 応答コード: %s</string>
+    <string name="setting_rcode">DNS 応答コード: %1$s</string>
     <string name="setting_forwarding">ポート転送</string>
-    <string name="setting_vpn4">VPN IPv4: %s</string>
-    <string name="setting_vpn6">VPN IPv6: %s</string>
-    <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_dns2">セカンダリ DNS: %s</string>
-    <string name="setting_validate">検証先: %s</string>
-    <string name="setting_ttl">最小 DNS TTL: %s 秒</string>
+    <string name="setting_vpn4">VPN IPv4: %1$s</string>
+    <string name="setting_vpn6">VPN IPv6: %1$s</string>
+    <string name="setting_dns">VPN DNS: %1$s</string>
+    <string name="setting_dns2">セカンダリ DNS: %1$s</string>
+    <string name="setting_validate">検証先: %1$s</string>
+    <string name="setting_ttl">最小 DNS TTL: %1$s 秒</string>
     <string name="setting_socks5_enabled">SOCKS5 プロキシを使用</string>
-    <string name="setting_socks5_addr">SOCKS5 アドレス: %s</string>
-    <string name="setting_socks5_port">SOCKS5 ポート: %s</string>
-    <string name="setting_socks5_username">SOCKS5 ユーザー名: %s</string>
-    <string name="setting_socks5_password">SOCKS5 パスワード: %s</string>
-    <string name="setting_pcap_record_size">PCAP レコードサイズ: %s B</string>
-    <string name="setting_pcap_file_size">PCAP 最大ファイルサイズ: %s MB</string>
+    <string name="setting_socks5_addr">SOCKS5 アドレス: %1$s</string>
+    <string name="setting_socks5_port">SOCKS5 ポート: %1$s</string>
+    <string name="setting_socks5_username">SOCKS5 ユーザー名: %1$s</string>
+    <string name="setting_socks5_password">SOCKS5 パスワード: %1$s</string>
+    <string name="setting_pcap_record_size">PCAP レコードサイズ: %1$s B</string>
+    <string name="setting_pcap_file_size">PCAP 最大ファイルサイズ: %1$s MB</string>
     <string name="setting_pcap">ネットワークトラフィックを記録 (PCAP)</string>
-    <string name="setting_watchdog">ウォッチドッグ: %s 分ごと</string>
+    <string name="setting_watchdog">ウォッチドッグ: %1$s 分ごと</string>
 
     <string name="setting_stats_category">速度通知</string>
     <string name="setting_stats">速度通知を表示</string>
     <string name="setting_stats_top">上位アプリを表示</string>
-    <string name="setting_stats_frequency">サンプリング間隔: %s ms</string>
-    <string name="setting_stats_samples">サンプル数: %s</string>
+    <string name="setting_stats_frequency">サンプリング間隔: %1$s ms</string>
+    <string name="setting_stats_samples">サンプル数: %1$s</string>
 
     <string name="setting_backup">バックアップ</string>
     <string name="setting_export">設定をエクスポート</string>
@@ -317,7 +317,7 @@
 そのため、次のダイアログで VPN 接続を許可してください。
 インターネットトラフィックはリモート VPN サーバーに送信されません。</string>
     <string name="msg_autostart">QuietGuard を自動的に起動できませんでした。これはおそらく Android のバージョンのバグによるものです。</string>
-    <string name="msg_error">予期しないエラーが発生しました: '%s'</string>
+    <string name="msg_error">予期しないエラーが発生しました: '%1$s'</string>
     <string name="msg_start_failed">Android が現時点で VPN サービスの開始を拒否しました。これはおそらく Android のバージョンのバグによるものです。</string>
     <string name="msg_try">QuietGuard を試す</string>
     <string name="msg_terms">寄付することにより、<a href="http://www.netguard.me/#terms">利用規約</a>に同意したことになります。</string>
@@ -328,7 +328,7 @@
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
-    <string name="msg_count">%d回</string>
+    <string name="msg_count">%1$d回</string>
     <string name="msg_doze">安定した結果を得るには、QuietGuard の Android バッテリー最適化を無効にする必要があります。
 \n\n次のダイアログで、上部の「すべてのアプリ」を選択し、リストで QuietGuard をタップして「最適化しない」を選択して確認してください。</string>
     <string name="msg_datasaving">安定した結果を得るには、Android のデータ節約設定を QuietGuard に対して無効にする必要があります。\n\n次のダイアログで「バックグラウンドデータ」と「データ通信制限なし」を有効にしてくだい。</string>
@@ -337,10 +337,10 @@
     <string name="msg_log_disabled">トラフィックログは無効です。上のスイッチを使用してログを有効にしてください。トラフィックログにより、バッテリーの使用量が増える可能性があります。</string>
     <string name="msg_clear_rules">これにより、ルールと条件がデフォルト値にリセットされます</string>
     <string name="msg_reset_access">これにより、許可/ブロックルールのないアクセス試行ログ行が削除されます</string>
-    <string name="msg_import_last">最終インポート: %s</string>
+    <string name="msg_import_last">最終インポート: %1$s</string>
     <string name="msg_downloading">ダウンロード中\n%1s</string>
     <string name="msg_downloaded">hosts ファイルをダウンロードしました</string>
-    <string name="msg_download_last">最終ダウンロード: %s</string>
+    <string name="msg_download_last">最終ダウンロード: %1$s</string>
     <string name="msg_start_forward">%1$s ポート %2$d から '%5$s' の %3$s:%4$d への転送を開始しますか？</string>
     <string name="msg_stop_forward">%1$s ポート %2$d の転送を停止しますか？</string>
     <string name="msg_metered">ネットワークは従量制です</string>
@@ -383,8 +383,8 @@
     <string name="title_screen_other">画面がオンのときにモバイル通信を許可</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">ローミング時にブロック</string>
-    <string name="label_ttl">TTL: %s 秒</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s 秒</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">ロックダウンモードで許可</string>
     <string name="title_related">フィルタリング関連</string>
     <string name="title_access">アクセス試行</string>

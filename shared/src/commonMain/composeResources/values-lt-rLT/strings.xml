@@ -104,7 +104,7 @@
     <string name="action_clear_search">Išvalyti paiešką</string>
     <string name="search_settings">Ieškoti nustatymuose</string>
     <string name="content_desc_security_status">Ugniasienės saugumo būsena</string>
-    <string name="content_desc_app_icon">Programos piktograma %s</string>
+    <string name="content_desc_app_icon">Programos piktograma %1$s</string>
     <string name="content_desc_show_info">Rodyti informaciją apie %1$s</string>
 
     <!-- Dashboard stats -->
@@ -210,29 +210,29 @@
     <string name="setting_reset_usage">Atstatyti tinklo naudojimą</string>
     <string name="setting_show_resolved">Rodyti išspręstus domenų vardus</string>
     <string name="setting_block_domains">Blokuoti domenų vardus</string>
-    <string name="setting_rcode">DNS atsakymo kodas: %s</string>
+    <string name="setting_rcode">DNS atsakymo kodas: %1$s</string>
     <string name="setting_forwarding">Prievadų nukreipimas</string>
-    <string name="setting_vpn4">VPN IPv4: %s</string>
-    <string name="setting_vpn6">VPN IPv6: %s</string>
-    <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_dns2">Antrinis DNS: %s</string>
-    <string name="setting_validate">Tikrinti adresu: %s</string>
-    <string name="setting_ttl">Minimalus DNS TTL: %s s</string>
+    <string name="setting_vpn4">VPN IPv4: %1$s</string>
+    <string name="setting_vpn6">VPN IPv6: %1$s</string>
+    <string name="setting_dns">VPN DNS: %1$s</string>
+    <string name="setting_dns2">Antrinis DNS: %1$s</string>
+    <string name="setting_validate">Tikrinti adresu: %1$s</string>
+    <string name="setting_ttl">Minimalus DNS TTL: %1$s s</string>
     <string name="setting_socks5_enabled">Naudoti SOCKS5 tarpinį serverį</string>
-    <string name="setting_socks5_addr">SOCKS5 adresas: %s</string>
-    <string name="setting_socks5_port">SOCKS5 prievadas: %s</string>
-    <string name="setting_socks5_username">SOCKS5 vartotojo vardas: %s</string>
-    <string name="setting_socks5_password">SOCKS5 slaptažodis: %s</string>
-    <string name="setting_pcap_record_size">PCAP įrašo dydis: %s B</string>
-    <string name="setting_pcap_file_size">PCAP maks. failo dydis: %s MB</string>
+    <string name="setting_socks5_addr">SOCKS5 adresas: %1$s</string>
+    <string name="setting_socks5_port">SOCKS5 prievadas: %1$s</string>
+    <string name="setting_socks5_username">SOCKS5 vartotojo vardas: %1$s</string>
+    <string name="setting_socks5_password">SOCKS5 slaptažodis: %1$s</string>
+    <string name="setting_pcap_record_size">PCAP įrašo dydis: %1$s B</string>
+    <string name="setting_pcap_file_size">PCAP maks. failo dydis: %1$s MB</string>
     <string name="setting_pcap">Įrašyti tinklo srautą (PCAP)</string>
-    <string name="setting_watchdog">Budėtojas: kas %s min.</string>
+    <string name="setting_watchdog">Budėtojas: kas %1$s min.</string>
 
     <string name="setting_stats_category">Greičio pranešimas</string>
     <string name="setting_stats">Rodyti greičio pranešimą</string>
     <string name="setting_stats_top">Rodyti populiariausias programėles</string>
-    <string name="setting_stats_frequency">Mėginio intervalas: %s ms</string>
-    <string name="setting_stats_samples">Mėginių skaičius: %s</string>
+    <string name="setting_stats_frequency">Mėginio intervalas: %1$s ms</string>
+    <string name="setting_stats_samples">Mėginių skaičius: %1$s</string>
 
     <string name="setting_backup">Atsarginė kopija</string>
     <string name="setting_export">Eksportuoti nustatymus</string>
@@ -313,7 +313,7 @@
 Todėl leiskite VPN ryšį kitame lange.
 Jūsų srautas nėra siunčiamas į nuotolinį VPN serverį.</string>
     <string name="msg_autostart">QuietGuard nepavyko paleisti automatiškai. Tai tikriausiai dėl Android versijos klaidos.</string>
-    <string name="msg_error">Įvyko netikėta klaida: „%s“</string>
+    <string name="msg_error">Įvyko netikėta klaida: „%1$s“</string>
     <string name="msg_start_failed">Android šiuo metu atsisakė paleisti VPN paslaugą. Tai tikriausiai dėl Android versijos klaidos.</string>
     <string name="msg_try">Išbandykite QuietGuard</string>
     <string name="msg_terms">Paaukodami sutinkate su <a href="http://www.netguard.me/#terms">sąlygomis ir nuostatomis</a></string>
@@ -324,7 +324,7 @@ Jūsų srautas nėra siunčiamas į nuotolinį VPN serverį.</string>
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
-    <string name="msg_count">%dx</string>
+    <string name="msg_count">%1$dx</string>
     <string name="msg_doze">Kad veiktų stabiliai, Android baterijos optimizavimas QuietGuard turėtų būti išjungtas.
 \n\nKitame lange viršuje pasirinkite „Visos programėlės“, sąraše bakstelėkite QuietGuard ir pasirinkite „Neoptimizuoti“.</string>
     <string name="msg_datasaving">Kad veiktų stabiliai, Android duomenų taupymo parinktys QuietGuard turėtų būti išjungtos.
@@ -334,10 +334,10 @@ Jūsų srautas nėra siunčiamas į nuotolinį VPN serverį.</string>
     <string name="msg_log_disabled">Srauto žurnalavimas išjungtas. Naudokite viršuje esantį jungiklį, kad įjungtumėte. Tai gali padidinti baterijos naudojimą.</string>
     <string name="msg_clear_rules">Tai atstatys taisykles ir sąlygas į numatytąsias reikšmes</string>
     <string name="msg_reset_access">Tai ištrins prieigos bandymų žurnalo eilutes be specifinių taisyklių</string>
-    <string name="msg_import_last">Paskutinis importas: %s</string>
+    <string name="msg_import_last">Paskutinis importas: %1$s</string>
     <string name="msg_downloading">Atsisiunčiama\n%1s</string>
     <string name="msg_downloaded">Hosts failas atsisiųstas</string>
-    <string name="msg_download_last">Paskutinis atsisiuntimas: %s</string>
+    <string name="msg_download_last">Paskutinis atsisiuntimas: %1$s</string>
     <string name="msg_start_forward">Pradėti nukreipimą iš %1$s prievado %2$d į %3$s:%4$d programėlei „%5$s“?</string>
     <string name="msg_stop_forward">Sustabdyti %1$s prievado %2$d nukreipimą?</string>
     <string name="msg_metered">Tinklas yra matuojamas</string>
@@ -380,8 +380,8 @@ Jūsų srautas nėra siunčiamas į nuotolinį VPN serverį.</string>
     <string name="title_screen_other">Leisti mobiliuosius, kai ekranas įjungtas</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">Blokuoti tarptinklinio ryšio metu</string>
-    <string name="label_ttl">TTL: %s s</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s s</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">Leisti blokavimo režime</string>
     <string name="title_related">Filtruoti susijusius</string>
     <string name="title_access">Prieigos bandymai</string>

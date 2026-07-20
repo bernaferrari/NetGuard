@@ -104,7 +104,7 @@
     <string name="action_clear_search">Ryd søgning</string>
     <string name="search_settings">Søg i indstillinger</string>
     <string name="content_desc_security_status">Firewall-sikkerhedsstatus</string>
-    <string name="content_desc_app_icon">App-ikon for %s</string>
+    <string name="content_desc_app_icon">App-ikon for %1$s</string>
     <string name="content_desc_show_info">Vis information om %1$s</string>
 
     <!-- Dashboard stats -->
@@ -215,29 +215,29 @@
     <string name="setting_reset_usage">Nulstil netværksforbrug</string>
     <string name="setting_show_resolved">Vis opløste domænenavne</string>
     <string name="setting_block_domains">Bloker domænenavne</string>
-    <string name="setting_rcode">DNS-svarkode: %s</string>
+    <string name="setting_rcode">DNS-svarkode: %1$s</string>
     <string name="setting_forwarding">Port-viderestilling</string>
-    <string name="setting_vpn4">VPN IPv4: %s</string>
-    <string name="setting_vpn6">VPN IPv6: %s</string>
-    <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_dns2">Sekundær DNS: %s</string>
-    <string name="setting_validate">Valider ved: %s</string>
-    <string name="setting_ttl">Minimum DNS TTL: %s s</string>
+    <string name="setting_vpn4">VPN IPv4: %1$s</string>
+    <string name="setting_vpn6">VPN IPv6: %1$s</string>
+    <string name="setting_dns">VPN DNS: %1$s</string>
+    <string name="setting_dns2">Sekundær DNS: %1$s</string>
+    <string name="setting_validate">Valider ved: %1$s</string>
+    <string name="setting_ttl">Minimum DNS TTL: %1$s s</string>
     <string name="setting_socks5_enabled">Brug SOCKS5-proxy</string>
-    <string name="setting_socks5_addr">SOCKS5-adresse: %s</string>
-    <string name="setting_socks5_port">SOCKS5-port: %s</string>
-    <string name="setting_socks5_username">SOCKS5-brugernavn: %s</string>
-    <string name="setting_socks5_password">SOCKS5-adgangskode: %s</string>
-    <string name="setting_pcap_record_size">PCAP-optagelsesstørrelse: %s B</string>
-    <string name="setting_pcap_file_size">PCAP maks. filstørrelse: %s MB</string>
+    <string name="setting_socks5_addr">SOCKS5-adresse: %1$s</string>
+    <string name="setting_socks5_port">SOCKS5-port: %1$s</string>
+    <string name="setting_socks5_username">SOCKS5-brugernavn: %1$s</string>
+    <string name="setting_socks5_password">SOCKS5-adgangskode: %1$s</string>
+    <string name="setting_pcap_record_size">PCAP-optagelsesstørrelse: %1$s B</string>
+    <string name="setting_pcap_file_size">PCAP maks. filstørrelse: %1$s MB</string>
     <string name="setting_pcap">Optag netværkstrafik (PCAP)</string>
-    <string name="setting_watchdog">Vagthund: hvert %s. minut</string>
+    <string name="setting_watchdog">Vagthund: hvert %1$s. minut</string>
 
     <string name="setting_stats_category">Hastighedsbesked</string>
     <string name="setting_stats">Vis hastighedsbesked</string>
     <string name="setting_stats_top">Vis mest aktive apps</string>
-    <string name="setting_stats_frequency">Prøveinterval: %s ms</string>
-    <string name="setting_stats_samples">Antal prøver: %s</string>
+    <string name="setting_stats_frequency">Prøveinterval: %1$s ms</string>
+    <string name="setting_stats_samples">Antal prøver: %1$s</string>
 
     <string name="setting_backup">Sikkerhedskopi</string>
     <string name="setting_export">Eksporter indstillinger</string>
@@ -318,7 +318,7 @@
 Tillad derfor venligst en VPN-forbindelse i næste dialogboks.
 Din internettrafik bliver ikke sendt til en ekstern VPN-server.</string>
     <string name="msg_autostart">QuietGuard kunne ikke starte automatisk. Dette skyldes sandsynligvis en fejl i din Android-version.</string>
-    <string name="msg_error">Der er opstået en uventet fejl: '%s'</string>
+    <string name="msg_error">Der er opstået en uventet fejl: '%1$s'</string>
     <string name="msg_start_failed">Android nægtede at starte VPN-tjenesten i øjeblikket. Dette skyldes sandsynligvis en fejl i din Android-version.</string>
     <string name="msg_try">Prøv QuietGuard</string>
     <string name="msg_terms">Ved at donere accepterer du <a href="http://www.netguard.me/#terms">vilkår og betingelser</a></string>
@@ -329,7 +329,7 @@ Din internettrafik bliver ikke sendt til en ekstern VPN-server.</string>
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
-    <string name="msg_count">%dx</string>
+    <string name="msg_count">%1$dx</string>
     <string name="msg_doze">For at få ensartede resultater bør Android-batterioptimering deaktiveres for QuietGuard.
 \n\nI næste dialogboks skal du vælge \"Alle apps\" øverst, trykke på QuietGuard i listen og vælge og bekræfte \"Optimer ikke\".</string>
     <string name="msg_datasaving">For at få ensartede resultater bør Android-dataspareindstillinger deaktiveres for QuietGuard.
@@ -339,10 +339,10 @@ Din internettrafik bliver ikke sendt til en ekstern VPN-server.</string>
     <string name="msg_log_disabled">Trafiklogning er deaktiveret, brug kontakten ovenfor for at aktivere logning. Trafiklogning kan medføre ekstra batteriforbrug.</string>
     <string name="msg_clear_rules">Dette vil nulstille regler og betingelser til deres standardværdier</string>
     <string name="msg_reset_access">Dette vil slette trafiklog-linjer for adgangsforsøg uden tillad/bloker-regler</string>
-    <string name="msg_import_last">Sidste import: %s</string>
+    <string name="msg_import_last">Sidste import: %1$s</string>
     <string name="msg_downloading">Downloader\n%1s</string>
     <string name="msg_downloaded">Hosts-fil downloadet</string>
-    <string name="msg_download_last">Sidste download: %s</string>
+    <string name="msg_download_last">Sidste download: %1$s</string>
     <string name="msg_start_forward">Start viderestilling fra %1$s port %2$d til %3$s:%4$d for '%5$s'?</string>
     <string name="msg_stop_forward">Stop viderestilling af %1$s port %2$d?</string>
     <string name="msg_metered">Netværk er forbrugsafregnet</string>
@@ -385,8 +385,8 @@ Din internettrafik bliver ikke sendt til en ekstern VPN-server.</string>
     <string name="title_screen_other">Tillad mobil når skærm er tændt</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">Bloker ved roaming</string>
-    <string name="label_ttl">TTL: %s s</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s s</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">Tillad i lockdown-tilstand</string>
     <string name="title_related">Filter-relateret</string>
     <string name="title_access">Adgangsforsøg</string>

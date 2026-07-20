@@ -2,8 +2,6 @@ package com.bernaferrari.quietguard.ui.screens
 
 import com.bernaferrari.quietguard.ui.icons.MaterialSymbols
 
-
-
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
@@ -13,34 +11,37 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
+import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.MediumFlexibleTopAppBar
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SegmentedButton
 import androidx.compose.material3.SegmentedButtonDefaults
 import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.bernaferrari.quietguard.platform.DnsEntry
 import com.bernaferrari.quietguard.platform.showToast
+import com.bernaferrari.quietguard.ui.components.groupItemShape
 import com.bernaferrari.quietguard.ui.screens.vm.DnsListFilter
 import com.bernaferrari.quietguard.ui.screens.vm.DnsViewModel
 import com.bernaferrari.quietguard.ui.theme.spacing
@@ -71,8 +72,8 @@ import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 
 import com.bernaferrari.quietguard.ui.icons.Icon
-@ExperimentalMaterial3Api
-@OptIn(ExperimentalLayoutApi::class)
+
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class, ExperimentalLayoutApi::class)
 @Composable
 fun DnsScreen(
     onBack: () -> Unit = {},
@@ -88,10 +89,12 @@ fun DnsScreen(
     val expiredCount = dnsUi.expiredCount
     val completedMessage = stringResource(Res.string.msg_completed)
     val invalidMessage = stringResource(Res.string.msg_invalid)
+    val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
 
     Scaffold(
+        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
-            TopAppBar(
+            MediumFlexibleTopAppBar(
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(
@@ -135,9 +138,7 @@ fun DnsScreen(
                         )
                     }
                 },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.surface,
-                ),
+                scrollBehavior = scrollBehavior,
             )
         },
     ) { padding ->
@@ -148,88 +149,71 @@ fun DnsScreen(
                 .padding(spacing.default),
             verticalArrangement = Arrangement.spacedBy(spacing.medium),
         ) {
-            Card(
-                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerLow),
+            FlowRow(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(spacing.small),
+                verticalArrangement = Arrangement.spacedBy(spacing.small),
             ) {
-                FlowRow(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(spacing.medium),
-                    horizontalArrangement = Arrangement.spacedBy(spacing.small),
-                    verticalArrangement = Arrangement.spacedBy(spacing.small),
-                    maxItemsInEachRow = 2,
+                FilledTonalButton(onClick = { viewModel.cleanup() }) {
+                    Icon(icon = MaterialSymbols.Filled.Tune, contentDescription = null)
+                    Spacer(modifier = Modifier.width(spacing.small))
+                    Text(text = stringResource(Res.string.menu_cleanup))
+                }
+                FilledTonalButton(
+                    onClick = { viewModel.clearAll() },
+                    colors = ButtonDefaults.filledTonalButtonColors(
+                        containerColor = MaterialTheme.colorScheme.errorContainer,
+                        contentColor = MaterialTheme.colorScheme.onErrorContainer,
+                    ),
                 ) {
-                    FilledTonalButton(onClick = { viewModel.cleanup() }) {
-                        Icon(
-                            icon = MaterialSymbols.Filled.Tune,
-                            contentDescription = null,
-                        )
-                        Spacer(modifier = Modifier.width(spacing.small))
-                        Text(text = stringResource(Res.string.menu_cleanup))
-                    }
-                    OutlinedButton(onClick = { viewModel.clearAll() }) {
-                        Icon(
-                            icon = MaterialSymbols.Filled.Delete,
-                            contentDescription = null,
-                        )
-                        Spacer(modifier = Modifier.width(spacing.small))
-                        Text(text = stringResource(Res.string.menu_clear))
-                    }
-                    OutlinedButton(
-                        onClick = {
-                            viewModel.export { success, error ->
-                                if (success) {
-                                    showToast(completedMessage)
-                                } else {
-                                    showToast(error ?: invalidMessage)
-                                }
+                    Icon(icon = MaterialSymbols.Filled.Delete, contentDescription = null)
+                    Spacer(modifier = Modifier.width(spacing.small))
+                    Text(text = stringResource(Res.string.menu_clear))
+                }
+                FilledTonalButton(
+                    onClick = {
+                        viewModel.export { success, error ->
+                            if (success) {
+                                showToast(completedMessage)
+                            } else {
+                                showToast(error ?: invalidMessage)
                             }
-                        },
-                    ) {
-                        Icon(
-                            icon = MaterialSymbols.Filled.Download,
-                            contentDescription = null,
-                        )
-                        Spacer(modifier = Modifier.width(spacing.small))
-                        Text(text = stringResource(Res.string.menu_export))
-                    }
+                        }
+                    },
+                ) {
+                    Icon(icon = MaterialSymbols.Filled.Download, contentDescription = null)
+                    Spacer(modifier = Modifier.width(spacing.small))
+                    Text(text = stringResource(Res.string.menu_export))
                 }
             }
 
-            Card(
-                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerLow),
-            ) {
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(spacing.medium),
-                    verticalArrangement = Arrangement.spacedBy(spacing.small),
+            Column(verticalArrangement = Arrangement.spacedBy(spacing.small)) {
+                Text(
+                    text = stringResource(Res.string.ui_logs_filter_status),
+                    style = MaterialTheme.typography.titleSmall,
+                    fontWeight = FontWeight.SemiBold,
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.padding(horizontal = spacing.default),
+                )
+                SingleChoiceSegmentedButtonRow(
+                    modifier = Modifier.fillMaxWidth(),
                 ) {
-                    Text(
-                        text = stringResource(Res.string.ui_logs_filter_status),
-                        style = MaterialTheme.typography.labelMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    val options = listOf(
+                        DnsListFilter.All to stringResource(Res.string.ui_filter_all),
+                        DnsListFilter.Active to stringResource(Res.string.ui_dns_active),
+                        DnsListFilter.Expired to stringResource(Res.string.ui_dns_expired),
                     )
-                    SingleChoiceSegmentedButtonRow(
-                        modifier = Modifier.fillMaxWidth(),
-                    ) {
-                        val options = listOf(
-                            DnsListFilter.All to stringResource(Res.string.ui_filter_all),
-                            DnsListFilter.Active to stringResource(Res.string.ui_dns_active),
-                            DnsListFilter.Expired to stringResource(Res.string.ui_dns_expired),
-                        )
-                        options.forEachIndexed { index, (value, label) ->
-                            SegmentedButton(
-                                selected = dnsFilter == value,
-                                onClick = { viewModel.setFilter(value) },
-                                shape = SegmentedButtonDefaults.itemShape(
-                                    index = index,
-                                    count = options.size
-                                ),
-                                modifier = Modifier.weight(1f),
-                            ) {
-                                Text(text = label, maxLines = 1)
-                            }
+                    options.forEachIndexed { index, (value, label) ->
+                        SegmentedButton(
+                            selected = dnsFilter == value,
+                            onClick = { viewModel.setFilter(value) },
+                            shape = SegmentedButtonDefaults.itemShape(
+                                index = index,
+                                count = options.size
+                            ),
+                            modifier = Modifier.weight(1f),
+                        ) {
+                            Text(text = label, maxLines = 1)
                         }
                     }
                 }
@@ -275,27 +259,41 @@ fun DnsScreen(
                 else -> {
                     LazyColumn(
                         modifier = Modifier.fillMaxSize(),
-                        verticalArrangement = Arrangement.spacedBy(spacing.small),
+                        verticalArrangement = Arrangement.spacedBy(2.dp),
                     ) {
-                        items(
+                        itemsIndexed(
                             filteredEntries,
-                            key = { "${it.qname}_${it.aname}_${it.resource}_${it.time}" }) { entry ->
+                            key = { _, it -> "${it.qname}_${it.aname}_${it.resource}_${it.time}" },
+                        ) { index, entry ->
                             val expired = entry.time + entry.ttl < now
                             DnsEntryCard(
                                 entry = entry,
                                 expired = expired,
+                                shape = groupItemShape(
+                                    isFirst = index == 0,
+                                    isLast = index == filteredEntries.lastIndex,
+                                ),
                             )
+                        }
+                        if (entries.isNotEmpty()) {
+                            item {
+                                Text(
+                                    text = stringResource(
+                                        Res.string.label_dns_summary,
+                                        entries.size,
+                                        expiredCount,
+                                    ),
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    modifier = Modifier.padding(
+                                        horizontal = spacing.default,
+                                        vertical = spacing.small,
+                                    ),
+                                )
+                            }
                         }
                     }
                 }
-            }
-
-            if (!isLoading && entries.isNotEmpty()) {
-                Text(
-                    text = stringResource(Res.string.label_dns_summary, entries.size, expiredCount),
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
             }
         }
     }
@@ -305,6 +303,7 @@ fun DnsScreen(
 private fun DnsEntryCard(
     entry: DnsEntry,
     expired: Boolean,
+    shape: Shape,
 ) {
     val spacing = MaterialTheme.spacing
     val statusContainer =
@@ -312,30 +311,50 @@ private fun DnsEntryCard(
     val statusContent =
         if (expired) MaterialTheme.colorScheme.onErrorContainer else MaterialTheme.colorScheme.onSecondaryContainer
 
-    Card(
-        colors = CardDefaults.cardColors(
-            containerColor =
-                if (expired) MaterialTheme.colorScheme.surfaceContainer
-                else MaterialTheme.colorScheme.surfaceContainerLow,
-        ),
-        shape = MaterialTheme.shapes.medium,
+    Surface(
+        modifier = Modifier.fillMaxWidth(),
+        shape = shape,
+        color = MaterialTheme.colorScheme.surfaceContainerLow,
     ) {
         Column(
-            modifier = Modifier.padding(spacing.medium),
+            modifier = Modifier.padding(spacing.default),
             verticalArrangement = Arrangement.spacedBy(spacing.extraSmall),
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
+                horizontalArrangement = Arrangement.spacedBy(spacing.small),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                Text(
-                    text = "${entry.qname} → ${entry.aname}",
-                    style = MaterialTheme.typography.titleSmall,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
+                // Only show the resolved name separately when it differs (CNAME chains).
+                Row(
                     modifier = Modifier.weight(1f),
-                )
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(spacing.extraSmall),
+                ) {
+                    Text(
+                        text = entry.qname,
+                        style = MaterialTheme.typography.titleSmall,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                        modifier = Modifier.weight(1f, fill = false),
+                    )
+                    if (entry.aname.isNotBlank() && entry.aname != entry.qname) {
+                        Icon(
+                            icon = MaterialSymbols.Filled.ChevronRight,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                            modifier = Modifier.size(16.dp),
+                        )
+                        Text(
+                            text = entry.aname,
+                            style = MaterialTheme.typography.titleSmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                            modifier = Modifier.weight(1f, fill = false),
+                        )
+                    }
+                }
                 Surface(
                     color = statusContainer,
                     contentColor = statusContent,

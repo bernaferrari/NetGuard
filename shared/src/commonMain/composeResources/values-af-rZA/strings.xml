@@ -102,7 +102,7 @@
     <string name="action_clear_search">Vee soektog uit</string>
     <string name="search_settings">Soek instellings</string>
     <string name="content_desc_security_status">Brandmuur sekuriteitstatus</string>
-    <string name="content_desc_app_icon">Toepassing-ikoon vir %s</string>
+    <string name="content_desc_app_icon">Toepassing-ikoon vir %1$s</string>
     <string name="content_desc_show_info">Wys inligting oor %1$s</string>
 
     <!-- Dashboard stats -->
@@ -208,29 +208,29 @@
     <string name="setting_reset_usage">Stel netwerkgebruik terug</string>
     <string name="setting_show_resolved">Wys opgeloste domeinname</string>
     <string name="setting_block_domains">Blokkeer domeinname</string>
-    <string name="setting_rcode">DNS-antwoordkode: %s</string>
+    <string name="setting_rcode">DNS-antwoordkode: %1$s</string>
     <string name="setting_forwarding">Poort aanstuur</string>
-    <string name="setting_vpn4">VPN IPv4: %s</string>
-    <string name="setting_vpn6">VPN IPv6: %s</string>
-    <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_dns2">Sekondêre DNS: %s</string>
-    <string name="setting_validate">Valideer by: %s</string>
-    <string name="setting_ttl">Minimum DNS TTL: %s s</string>
+    <string name="setting_vpn4">VPN IPv4: %1$s</string>
+    <string name="setting_vpn6">VPN IPv6: %1$s</string>
+    <string name="setting_dns">VPN DNS: %1$s</string>
+    <string name="setting_dns2">Sekondêre DNS: %1$s</string>
+    <string name="setting_validate">Valideer by: %1$s</string>
+    <string name="setting_ttl">Minimum DNS TTL: %1$s s</string>
     <string name="setting_socks5_enabled">Gebruik SOCKS5 instaanbediener</string>
-    <string name="setting_socks5_addr">SOCKS5 adres: %s</string>
-    <string name="setting_socks5_port">SOCKS5 poort: %s</string>
-    <string name="setting_socks5_username">SOCKS5 gebruikersnaam: %s</string>
-    <string name="setting_socks5_password">SOCKS5 wagwoord: %s</string>
-    <string name="setting_pcap_record_size">PCAP rekordgrootte: %s B</string>
-    <string name="setting_pcap_file_size">PCAP maks. lêergrootte: %s MB</string>
+    <string name="setting_socks5_addr">SOCKS5 adres: %1$s</string>
+    <string name="setting_socks5_port">SOCKS5 poort: %1$s</string>
+    <string name="setting_socks5_username">SOCKS5 gebruikersnaam: %1$s</string>
+    <string name="setting_socks5_password">SOCKS5 wagwoord: %1$s</string>
+    <string name="setting_pcap_record_size">PCAP rekordgrootte: %1$s B</string>
+    <string name="setting_pcap_file_size">PCAP maks. lêergrootte: %1$s MB</string>
     <string name="setting_pcap">Neem netwerkverkeer op (PCAP)</string>
-    <string name="setting_watchdog">Waghond: elke %s minute</string>
+    <string name="setting_watchdog">Waghond: elke %1$s minute</string>
 
     <string name="setting_stats_category">Spoedkennisgewing</string>
     <string name="setting_stats">Wys spoedkennisgewing</string>
     <string name="setting_stats_top">Wys top toepassings</string>
-    <string name="setting_stats_frequency">Steekproefinterval: %s ms</string>
-    <string name="setting_stats_samples">Aantal steekproewe: %s</string>
+    <string name="setting_stats_frequency">Steekproefinterval: %1$s ms</string>
+    <string name="setting_stats_samples">Aantal steekproewe: %1$s</string>
 
     <string name="setting_backup">Rugsteun</string>
     <string name="setting_export">Voer instellings uit</string>
@@ -311,7 +311,7 @@
 Om hierdie rede, laat asseblief 'n VPN-verbinding in die volgende dialoog toe.
 Jou internetverkeer word nie na 'n afgeleë VPN-bediener gestuur nie.</string>
     <string name="msg_autostart">QuietGuard kon nie outomaties begin nie. Dit is waarskynlik as gevolg van 'n fout in jou Android-weergawe.</string>
-    <string name="msg_error">'n Onverwagte fout het voorgekom: '%s'</string>
+    <string name="msg_error">'n Onverwagte fout het voorgekom: '%1$s'</string>
     <string name="msg_start_failed">Android het geweier om die VPN-diens op hierdie oomblik te begin. Dit is waarskynlik as gevolg van 'n fout in jou Android-weergawe.</string>
     <string name="msg_try">Probeer QuietGuard</string>
     <string name="msg_terms">Deur te skenk stem jy in tot die <a href="http://www.netguard.me/#terms">bepalings &amp; voorwaardes</a></string>
@@ -322,7 +322,7 @@ Jou internetverkeer word nie na 'n afgeleë VPN-bediener gestuur nie.</string>
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
-    <string name="msg_count">%dx</string>
+    <string name="msg_count">%1$dx</string>
     <string name="msg_doze">Vir konsekwente resultate moet die Android-batteryoptimalisasies vir QuietGuard gedeaktiveer word.
 \n\nIn die volgende dialoog, kies \"Alle toepassings\" bo-aan, tik op QuietGuard in die lys en kies en bevestig \"Moenie optimaliseer\".</string>
     <string name="msg_datasaving">Vir konsekwente resultate moet die Android-databesparingsopsies vir QuietGuard gedeaktiveer word.
@@ -332,10 +332,10 @@ Jou internetverkeer word nie na 'n afgeleë VPN-bediener gestuur nie.</string>
     <string name="msg_log_disabled">Verkeersaanmelding is gedeaktiveer, gebruik die skakel hierbo om aanmelding te aktiveer. Verkeersaanmelding kan tot ekstra batterygebruik lei.</string>
     <string name="msg_clear_rules">Dit sal die reëls en voorwaardes na hul verstekwaardes terugstel</string>
     <string name="msg_reset_access">Dit sal toegangspoging-logreëls sonder toelaat/blokkeer-reëls uitvee</string>
-    <string name="msg_import_last">Laaste invoer: %s</string>
+    <string name="msg_import_last">Laaste invoer: %1$s</string>
     <string name="msg_downloading">Laai af\n%1s</string>
     <string name="msg_downloaded">Hosts-lêer afgelaai</string>
-    <string name="msg_download_last">Laaste aflaai: %s</string>
+    <string name="msg_download_last">Laaste aflaai: %1$s</string>
     <string name="msg_start_forward">Begin aanstuur van %1$s poort %2$d na %3$s:%4$d van '%5$s'?</string>
     <string name="msg_stop_forward">Stop aanstuur van %1$s poort %2$d?</string>
     <string name="msg_metered">Netwerk is gemete</string>
@@ -378,8 +378,8 @@ Jou internetverkeer word nie na 'n afgeleë VPN-bediener gestuur nie.</string>
     <string name="title_screen_other">Laat mobiel toe wanneer skerm aan is</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">Blokkeer tydens roaming</string>
-    <string name="label_ttl">TTL: %s s</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s s</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">Laat in sluitmodus toe</string>
     <string name="title_related">Filtreer verwante</string>
     <string name="title_access">Toegangspogings</string>

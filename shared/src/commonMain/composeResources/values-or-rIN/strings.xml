@@ -104,7 +104,7 @@
     <string name="action_clear_search">ସନ୍ଧାନ ସଫା କରନ୍ତୁ</string>
     <string name="search_settings">ସେଟିଂସରେ ଖୋଜନ୍ତୁ</string>
     <string name="content_desc_security_status">ଫାୟାରୱାଲ୍ ସୁରକ୍ଷା ସ୍ଥିତି</string>
-    <string name="content_desc_app_icon">%s ପାଇଁ ଆପ୍ ଆଇକନ୍</string>
+    <string name="content_desc_app_icon">%1$s ପାଇଁ ଆପ୍ ଆଇକନ୍</string>
     <string name="content_desc_show_info">%1$s ବିଷୟରେ ସୂଚନା ଦେଖାନ୍ତୁ</string>
 
     <!-- Dashboard stats -->
@@ -210,29 +210,29 @@
     <string name="setting_reset_usage">ନେଟୱାର୍କ ବ୍ୟବହାର ପୁନଃସ୍ଥାପନ କରନ୍ତୁ</string>
     <string name="setting_show_resolved">ସମାଧାନ ହୋଇଥିବା ଡୋମେନ୍ ନାମ ଦେଖାନ୍ତୁ</string>
     <string name="setting_block_domains">ଡୋମେନ୍ ନାମଗୁଡିକ ଅବରୋଧ କରନ୍ତୁ</string>
-    <string name="setting_rcode">DNS ପ୍ରତିକ୍ରିୟା କୋଡ୍: %s</string>
+    <string name="setting_rcode">DNS ପ୍ରତିକ୍ରିୟା କୋଡ୍: %1$s</string>
     <string name="setting_forwarding">ପୋର୍ଟ ଫରୱାର୍ଡିଂ</string>
-    <string name="setting_vpn4">VPN IPv4: %s</string>
-    <string name="setting_vpn6">VPN IPv6: %s</string>
-    <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_dns2">ଦ୍ୱିତୀୟକ DNS: %s</string>
-    <string name="setting_validate">ଏଠାରେ ବୈଧ କରନ୍ତୁ: %s</string>
-    <string name="setting_ttl">ସର୍ବନିମ୍ନ DNS TTL: %s s</string>
+    <string name="setting_vpn4">VPN IPv4: %1$s</string>
+    <string name="setting_vpn6">VPN IPv6: %1$s</string>
+    <string name="setting_dns">VPN DNS: %1$s</string>
+    <string name="setting_dns2">ଦ୍ୱିତୀୟକ DNS: %1$s</string>
+    <string name="setting_validate">ଏଠାରେ ବୈଧ କରନ୍ତୁ: %1$s</string>
+    <string name="setting_ttl">ସର୍ବନିମ୍ନ DNS TTL: %1$s s</string>
     <string name="setting_socks5_enabled">SOCKS5 ପ୍ରକ୍ସି ବ୍ୟବହାର କରନ୍ତୁ</string>
-    <string name="setting_socks5_addr">SOCKS5 ଠିକଣา: %s</string>
-    <string name="setting_socks5_port">SOCKS5 ପୋର୍ଟ: %s</string>
-    <string name="setting_socks5_username">SOCKS5 ୟୁଜର୍ ନେମ୍: %s</string>
-    <string name="setting_socks5_password">SOCKS5 ପାସୱାର୍ଡ: %s</string>
-    <string name="setting_pcap_record_size">PCAP ରେକର୍ଡ ଆକାର: %s B</string>
-    <string name="setting_pcap_file_size">PCAP ସର୍ବାଧିକ ଫାଇଲ୍ ଆକାର: %s MB</string>
+    <string name="setting_socks5_addr">SOCKS5 ଠିକଣา: %1$s</string>
+    <string name="setting_socks5_port">SOCKS5 ପୋର୍ଟ: %1$s</string>
+    <string name="setting_socks5_username">SOCKS5 ୟୁଜର୍ ନେମ୍: %1$s</string>
+    <string name="setting_socks5_password">SOCKS5 ପାସୱାର୍ଡ: %1$s</string>
+    <string name="setting_pcap_record_size">PCAP ରେକର୍ଡ ଆକାର: %1$s B</string>
+    <string name="setting_pcap_file_size">PCAP ସର୍ବାଧିକ ଫାଇଲ୍ ଆକାର: %1$s MB</string>
     <string name="setting_pcap">ନେଟୱାର୍କ ଟ୍ରାଫିକ୍ ରେକର୍ଡ କରନ୍ତୁ (PCAP)</string>
-    <string name="setting_watchdog">ୱାଚଡଗ୍: ପ୍ରତି %s ମିନିଟରେ</string>
+    <string name="setting_watchdog">ୱାଚଡଗ୍: ପ୍ରତି %1$s ମିନିଟରେ</string>
 
     <string name="setting_stats_category">ଗତି ବିଜ୍ଞପ୍ତି</string>
     <string name="setting_stats">ଗତି ବିଜ୍ଞପ୍ତି ଦେଖାନ୍ତୁ</string>
     <string name="setting_stats_top">ଶୀର୍ଷ ଆପ୍ ଦେଖାନ୍ତୁ</string>
-    <string name="setting_stats_frequency">ନମୁନା ବ୍ୟବଧାନ: %s ms</string>
-    <string name="setting_stats_samples">ନମୁନା ସଂଖ୍ୟା: %s</string>
+    <string name="setting_stats_frequency">ନମୁନା ବ୍ୟବଧାନ: %1$s ms</string>
+    <string name="setting_stats_samples">ନମୁନା ସଂଖ୍ୟା: %1$s</string>
 
     <string name="setting_backup">ବ୍ୟାକଅପ୍</string>
     <string name="setting_export">ସେଟିଂସ ରପ୍ତାନି କରନ୍ତୁ</string>
@@ -313,7 +313,7 @@
 ଏହି କାରଣରୁ, ଦୟାକରି ପରବର୍ତ୍ତୀ ସଂଳାପରେ ଏକ VPN ସଂଯୋଗ ଅନୁମତି ଦିଅନ୍ତୁ |
 ଆପଣଙ୍କର ଇଣ୍ଟରନେଟ୍ ଟ୍ରାଫିକ୍ ଏକ ଦୂରବର୍ତ୍ତୀ VPN ସର୍ଭରକୁ ପଠାଯାଉ ନାହିଁ |</string>
     <string name="msg_autostart">ନେଟଗାର୍ଡ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଆରମ୍ଭ ହୋଇପାରିଲା ନାହିଁ | ଏହା ସମ୍ଭବତଃ ଆପଣଙ୍କର ଆଣ୍ଡ୍ରଏଡ୍ ସଂସ୍କରଣରେ ଏକ ବଗ୍ ଯୋଗୁଁ ହୋଇଛି |</string>
-    <string name="msg_error">ଏକ ଅପ୍ରତ୍ୟାଶିତ ତ୍ରୁଟି ଘଟିଛି: '%s'</string>
+    <string name="msg_error">ଏକ ଅପ୍ରତ୍ୟାଶିତ ତ୍ରୁଟି ଘଟିଛି: '%1$s'</string>
     <string name="msg_start_failed">ଆଣ୍ଡ୍ରଏଡ୍ ଏହି ସମୟରେ VPN ସେବା ଆରମ୍ଭ କରିବାକୁ ମନା କରିଦେଇଛି | ଏହା ସମ୍ଭବତଃ ଆପଣଙ୍କର ଆଣ୍ଡ୍ରଏଡ୍ ସଂସ୍କରଣରେ ଏକ ବଗ୍ ଯୋଗୁଁ ହୋଇଛି |</string>
     <string name="msg_try">ନେଟଗାର୍ଡ ଚେଷ୍ଟା କରନ୍ତୁ</string>
     <string name="msg_terms">ଦାନ କରିବା ଦ୍ୱାରା ଆପଣ <a href="http://www.netguard.me/#terms">ନିୟମ ଏବଂ ସର୍ତ୍ତାବଳୀ</a> ସହିତ ସହମତ ହୁଅନ୍ତି</string>
@@ -324,7 +324,7 @@
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
-    <string name="msg_count">%dx</string>
+    <string name="msg_count">%1$dx</string>
     <string name="msg_doze">ସଙ୍ଗତ ଫଳାଫଳ ପାଇଁ, ନେଟଗାର୍ଡ ପାଇଁ ଆଣ୍ଡ୍ରଏଡ୍ ବ୍ୟାଟେରୀ ଅପ୍ଟିମାଇଜେସନ୍ ଅକ୍ଷମ ହେବା ଉଚିତ୍ |
 \n\nପରବର୍ତ୍ତୀ ସଂଳାପରେ, ଉପରେ \"ସମସ୍ତ ଆପ୍\" ଚୟନ କରନ୍ତୁ, ତାଲିକାରେ ନେଟଗାର୍ଡ ଉପରେ ଟ୍ୟାପ୍ କରନ୍ତୁ ଏବଂ \"ଅପ୍ଟିମାଇଜ୍ କରନ୍ତୁ ନାହିଁ\" ଚୟନ କରି ନିଶ୍ଚିତ କରନ୍ତୁ |</string>
     <string name="msg_datasaving">ସଙ୍ଗତ ଫଳାଫଳ ପାଇଁ, ନେଟଗାର୍ଡ ପାଇଁ ଆଣ୍ଡ୍ରଏଡ୍ ଡାଟା ସେଭିଂ ବିକଳ୍ପଗୁଡ଼ିକ ଅକ୍ଷମ ହେବା ଉଚିତ୍ |
@@ -334,10 +334,10 @@
     <string name="msg_log_disabled">ଟ୍ରାଫିକ୍ ଲଗିଂ ଅକ୍ଷମ ଅଛି, ଲଗିଂ ସକ୍ଷମ କରିବାକୁ ଉପର ସୁଇଚ୍ ବ୍ୟବହାର କରନ୍ତୁ | ଟ୍ରାଫିକ୍ ଲଗିଂ ହେତୁ ଅତିରିକ୍ତ ବ୍ୟାଟେରୀ ବ୍ୟବହାର ହୋଇପାରେ |</string>
     <string name="msg_clear_rules">ଏହା ନିୟମ ଏବଂ ସର୍ତ୍ତାବଳୀକୁ ସେମାନଙ୍କର ଡିଫଲ୍ଟ ମୂଲ୍ୟରେ ପୁନଃସ୍ଥାପନ କରିବ</string>
     <string name="msg_reset_access">ଏହା ଅନୁମତି/ବନ୍ଦ ନିୟମ ବିନା ଆକ୍ସେସ୍ ପ୍ରୟାସ ଲଗ୍ ଲାଇନ୍ ଗୁଡ଼ିକୁ ବିଲୋପ କରିବ</string>
-    <string name="msg_import_last">ଅନ୍ତିମ ଆମଦାନି: %s</string>
+    <string name="msg_import_last">ଅନ୍ତିମ ଆମଦାନି: %1$s</string>
     <string name="msg_downloading">ଡାଉନଲୋଡ୍ ହେଉଛି\n%1s</string>
     <string name="msg_downloaded">ହୋଷ୍ଟ ଫାଇଲ୍ ଡାଉନଲୋଡ୍ ହୋଇଛି</string>
-    <string name="msg_download_last">ଅନ୍ତିମ ଡାଉନଲୋଡ୍: %s</string>
+    <string name="msg_download_last">ଅନ୍ତିମ ଡାଉନଲୋଡ୍: %1$s</string>
     <string name="msg_start_forward">%1$s ପୋର୍ଟ %2$d ରୁ '%5$s' ର %3$s:%4$d କୁ ଫରୱାର୍ଡିଂ ଆରମ୍ଭ କରିବେ କି?</string>
     <string name="msg_stop_forward">%1$s ପୋର୍ଟ %2$d ର ଫରୱାର୍ଡିଂ ବନ୍ଦ କରିବେ କି?</string>
     <string name="msg_metered">ନେଟୱାର୍କ ମିଟର ଅଟେ</string>
@@ -380,8 +380,8 @@
     <string name="title_screen_other">ସ୍କ୍ରିନ୍ ଅନ୍ ଥିବାବେଳେ ମୋବାଇଲ୍ ଅନୁମତି ଦିଅନ୍ତୁ</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">ରୋମିଂ ରେ ବନ୍ଦ କରନ୍ତୁ</string>
-    <string name="label_ttl">TTL: %s s</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s s</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">ଲକଡାଉନ୍ ମୋଡ୍ ରେ ଅନୁମତି ଦିଅନ୍ତୁ</string>
     <string name="title_related">ଫିଲ୍ଟର୍ ସମ୍ପର୍କିତ</string>
     <string name="title_access">ଆକ୍ସେସ୍ ପ୍ରୟାସ</string>

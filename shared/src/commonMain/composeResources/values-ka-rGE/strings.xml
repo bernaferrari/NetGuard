@@ -104,7 +104,7 @@
     <string name="action_clear_search">ძიების გასუფთავება</string>
     <string name="search_settings">პარამეტრების ძიება</string>
     <string name="content_desc_security_status">Firewall უსაფრთხოების სტატუსი</string>
-    <string name="content_desc_app_icon">აპის ხატულა %s-ისთვის</string>
+    <string name="content_desc_app_icon">აპის ხატულა %1$s-ისთვის</string>
     <string name="content_desc_show_info">ინფორმაციის ჩვენება %1$s-ის შესახებ</string>
 
     <!-- Dashboard stats -->
@@ -210,29 +210,29 @@
     <string name="setting_reset_usage">ქსელის გამოყენების ჩამოყრა</string>
     <string name="setting_show_resolved">გარკვეული დომენის სახელების ჩვენება</string>
     <string name="setting_block_domains">დომენის სახელების დაბლოკვა</string>
-    <string name="setting_rcode">DNS პასუხის კოდი: %s</string>
+    <string name="setting_rcode">DNS პასუხის კოდი: %1$s</string>
     <string name="setting_forwarding">პორტის გადამისამართება</string>
-    <string name="setting_vpn4">VPN IPv4: %s</string>
-    <string name="setting_vpn6">VPN IPv6: %s</string>
-    <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_dns2">მეორადი DNS: %s</string>
-    <string name="setting_validate">ვალიდაცია: %s</string>
-    <string name="setting_ttl">მინიმალური DNS TTL: %s წმ</string>
+    <string name="setting_vpn4">VPN IPv4: %1$s</string>
+    <string name="setting_vpn6">VPN IPv6: %1$s</string>
+    <string name="setting_dns">VPN DNS: %1$s</string>
+    <string name="setting_dns2">მეორადი DNS: %1$s</string>
+    <string name="setting_validate">ვალიდაცია: %1$s</string>
+    <string name="setting_ttl">მინიმალური DNS TTL: %1$s წმ</string>
     <string name="setting_socks5_enabled">SOCKS5 პროქსის გამოყენება</string>
-    <string name="setting_socks5_addr">SOCKS5 მისამართი: %s</string>
-    <string name="setting_socks5_port">SOCKS5 პორტი: %s</string>
-    <string name="setting_socks5_username">SOCKS5 მომხმარებლის სახელი: %s</string>
-    <string name="setting_socks5_password">SOCKS5 პაროლი: %s</string>
-    <string name="setting_pcap_record_size">PCAP ჩანაწერის ზომა: %s B</string>
-    <string name="setting_pcap_file_size">PCAP ფაილის მაქს. ზომა: %s MB</string>
+    <string name="setting_socks5_addr">SOCKS5 მისამართი: %1$s</string>
+    <string name="setting_socks5_port">SOCKS5 პორტი: %1$s</string>
+    <string name="setting_socks5_username">SOCKS5 მომხმარებლის სახელი: %1$s</string>
+    <string name="setting_socks5_password">SOCKS5 პაროლი: %1$s</string>
+    <string name="setting_pcap_record_size">PCAP ჩანაწერის ზომა: %1$s B</string>
+    <string name="setting_pcap_file_size">PCAP ფაილის მაქს. ზომა: %1$s MB</string>
     <string name="setting_pcap">ქსელური ტრაფიკის ჩაწერა (PCAP)</string>
-    <string name="setting_watchdog">სამეთვალყურეო ტაიმერი: ყოველ %s წუთში</string>
+    <string name="setting_watchdog">სამეთვალყურეო ტაიმერი: ყოველ %1$s წუთში</string>
 
     <string name="setting_stats_category">სიჩქარის შეტყობინება</string>
     <string name="setting_stats">სიჩქარის შეტყობინების ჩვენება</string>
     <string name="setting_stats_top">საუკეთესო აპების ჩვენება</string>
-    <string name="setting_stats_frequency">სინჯის ინტერვალი: %s ms</string>
-    <string name="setting_stats_samples">სინჯების რაოდენობა: %s</string>
+    <string name="setting_stats_frequency">სინჯის ინტერვალი: %1$s ms</string>
+    <string name="setting_stats_samples">სინჯების რაოდენობა: %1$s</string>
 
     <string name="setting_backup">მარქაფი</string>
     <string name="setting_export">პარამეტრების ექსპორტი</string>
@@ -313,7 +313,7 @@
 ამ მიზეზით, გთხოვთ, დაუშვათ VPN კავშირი შემდეგ დიალოგში.
 თქვენი ინტერნეტ ტრაფიკი არ იგზავნება დისტანციურ VPN სერვერზე.</string>
     <string name="msg_autostart">QuietGuard ავტომატურად ვერ ჩაირთო. ეს სავარაუდოდ თქვენი Android ვერსიის ხარვეზის გამოა.</string>
-    <string name="msg_error">მოხდა მოულოდნელი შეცდომა: '%s'</string>
+    <string name="msg_error">მოხდა მოულოდნელი შეცდომა: '%1$s'</string>
     <string name="msg_start_failed">Android-მა უარი თქვა VPN სერვისის გაშვებაზე ამ მომენტში. ეს სავარაუდოდ თქვენი Android ვერსიის ხარვეზის გამოა.</string>
     <string name="msg_try">სცადეთ QuietGuard</string>
     <string name="msg_terms">შემოწირულობით თქვენ ეთანხმებით <a href="http://www.netguard.me/#terms">წესებს და პირობებს</a></string>
@@ -324,7 +324,7 @@
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; კბ</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; მბ</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; გბ</string>
-    <string name="msg_count">%dx</string>
+    <string name="msg_count">%1$dx</string>
     <string name="msg_doze">სტაბილური შედეგებისთვის, QuietGuard-ისთვის Android ბატარეის ოპტიმიზაცია უნდა გაითიშოს.
 \n\nშემდეგ დიალოგში აირჩიეთ \"ყველა აპი\" ზევით, დააჭირეთ QuietGuard-ს სიაში და აირჩიეთ და დაადასტურეთ \"არ მოხდეს ოპტიმიზაცია\".</string>
     <string name="msg_datasaving">სტაბილური შედეგებისთვის, QuietGuard-ისთვის Android მონაცემთა დაზოგვის პარამეტრები უნდა გაითიშოს.
@@ -334,10 +334,10 @@
     <string name="msg_log_disabled">ტრაფიკის აღრიცხვა გათიშულია, გამოიყენეთ ზედა გადამრთველი ჩასართავად. აღრიცხვამ შეიძლება გაზარდოს ბატარეის მოხმარება.</string>
     <string name="msg_clear_rules">ეს ჩამოყრის წესებს და პირობებს მათ ნაგულისხმევ მნიშვნელობებზე</string>
     <string name="msg_reset_access">ეს წაშლის წვდომის მცდელობის ჟურნალის სტრიქონებს, რომლებსაც არ აქვთ დაშვების/დაბლოკვის წესები</string>
-    <string name="msg_import_last">ბოლო იმპორტი: %s</string>
+    <string name="msg_import_last">ბოლო იმპორტი: %1$s</string>
     <string name="msg_downloading">მიმდინარეობს ჩამოტვირთვა\n%1s</string>
     <string name="msg_downloaded">hosts ფაილი ჩამოტვირთულია</string>
-    <string name="msg_download_last">ბოლო ჩამოტვირთვა: %s</string>
+    <string name="msg_download_last">ბოლო ჩამოტვირთვა: %1$s</string>
     <string name="msg_start_forward">დავიწყოთ გადამისამართება %1$s პორტი %2$d-დან %3$s:%4$d-ზე '%5$s'-ისთვის?</string>
     <string name="msg_stop_forward">შევწყვიტოთ %1$s პორტი %2$d-ის გადამისამართება?</string>
     <string name="msg_metered">ქსელი ლიმიტირებულია</string>
@@ -380,8 +380,8 @@
     <string name="title_screen_other">მობილურის დაშვება როცა ეკრანი ჩართულია</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">დაბლოკვა როუმინგის დროს</string>
-    <string name="label_ttl">TTL: %s წმ</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s წმ</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">დაშვება ბლოკირების რეჟიმში</string>
     <string name="title_related">ფილტრთან დაკავშირებული</string>
     <string name="title_access">წვდომის მცდელობები</string>

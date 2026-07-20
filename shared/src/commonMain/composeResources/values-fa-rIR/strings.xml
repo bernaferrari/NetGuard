@@ -104,7 +104,7 @@
     <string name="action_clear_search">پاک کردن جستجو</string>
     <string name="search_settings">جستجو در تنظیمات</string>
     <string name="content_desc_security_status">وضعیت امنیتی دیوار آتش</string>
-    <string name="content_desc_app_icon">آیکون برنامه برای %s</string>
+    <string name="content_desc_app_icon">آیکون برنامه برای %1$s</string>
     <string name="content_desc_show_info">نمایش اطلاعات درباره %1$s</string>
 
     <!-- Dashboard stats -->
@@ -210,29 +210,29 @@
     <string name="setting_reset_usage">بازنشانی مصرف شبکه</string>
     <string name="setting_show_resolved">نمایش نام‌های دامنه تحلیل شده</string>
     <string name="setting_block_domains">مسدود کردن نام‌های دامنه</string>
-    <string name="setting_rcode">کد پاسخ DNS: %s</string>
+    <string name="setting_rcode">کد پاسخ DNS: %1$s</string>
     <string name="setting_forwarding">هدایت درگاه</string>
-    <string name="setting_vpn4">VPN IPv4: %s</string>
-    <string name="setting_vpn6">VPN IPv6: %s</string>
-    <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_dns2">DNS ثانویه: %s</string>
-    <string name="setting_validate">تایید اعتبار در: %s</string>
-    <string name="setting_ttl">حداقل TTL دی‌ان‌اس: %s ثانیه</string>
+    <string name="setting_vpn4">VPN IPv4: %1$s</string>
+    <string name="setting_vpn6">VPN IPv6: %1$s</string>
+    <string name="setting_dns">VPN DNS: %1$s</string>
+    <string name="setting_dns2">DNS ثانویه: %1$s</string>
+    <string name="setting_validate">تایید اعتبار در: %1$s</string>
+    <string name="setting_ttl">حداقل TTL دی‌ان‌اس: %1$s ثانیه</string>
     <string name="setting_socks5_enabled">استفاده از پروکسی SOCKS5</string>
-    <string name="setting_socks5_addr">نشانی SOCKS5: %s</string>
-    <string name="setting_socks5_port">درگاه SOCKS5: %s</string>
-    <string name="setting_socks5_username">نام‌کاربری SOCKS5: %s</string>
-    <string name="setting_socks5_password">گذرواژه SOCKS5: %s</string>
-    <string name="setting_pcap_record_size">اندازه ضبط PCAP: %s بایت</string>
-    <string name="setting_pcap_file_size">حداکثر اندازه فایل PCAP: %s مگابایت</string>
+    <string name="setting_socks5_addr">نشانی SOCKS5: %1$s</string>
+    <string name="setting_socks5_port">درگاه SOCKS5: %1$s</string>
+    <string name="setting_socks5_username">نام‌کاربری SOCKS5: %1$s</string>
+    <string name="setting_socks5_password">گذرواژه SOCKS5: %1$s</string>
+    <string name="setting_pcap_record_size">اندازه ضبط PCAP: %1$s بایت</string>
+    <string name="setting_pcap_file_size">حداکثر اندازه فایل PCAP: %1$s مگابایت</string>
     <string name="setting_pcap">ضبط ترافیک شبکه (PCAP)</string>
-    <string name="setting_watchdog">دیدبان: هر %s دقیقه</string>
+    <string name="setting_watchdog">دیدبان: هر %1$s دقیقه</string>
 
     <string name="setting_stats_category">اعلان سرعت</string>
     <string name="setting_stats">نمایش اعلان سرعت</string>
     <string name="setting_stats_top">نمایش برنامه‌های برتر</string>
-    <string name="setting_stats_frequency">فاصله نمونه‌برداری: %s میلی‌ثانیه</string>
-    <string name="setting_stats_samples">تعداد نمونه‌ها: %s</string>
+    <string name="setting_stats_frequency">فاصله نمونه‌برداری: %1$s میلی‌ثانیه</string>
+    <string name="setting_stats_samples">تعداد نمونه‌ها: %1$s</string>
 
     <string name="setting_backup">پشتیبان‌گیری</string>
     <string name="setting_export">خروجی تنظیمات</string>
@@ -313,7 +313,7 @@
 لطفاً در دیالوگ بعدی اجازه اتصال VPN را بدهید.
 ترافیک شما به سرور VPN راه دور فرستاده نمی‌شود.</string>
     <string name="msg_autostart">QuietGuard نتوانست خودکار اجرا شود. احتمالاً به دلیل باگی در نسخه اندروید شماست.</string>
-    <string name="msg_error">خطای غیرمنتظره: '%s'</string>
+    <string name="msg_error">خطای غیرمنتظره: '%1$s'</string>
     <string name="msg_start_failed">اندروید اجازه شروع سرویس VPN را نداد. احتمالاً به دلیل باگی در نسخه اندروید شماست.</string>
     <string name="msg_try">امتحان QuietGuard</string>
     <string name="msg_terms">با اهدا کردن شما با <a href="http://www.netguard.me/#terms">شرایط و ضوابط</a> موافقت می‌کنید</string>
@@ -324,7 +324,7 @@
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; کیلوبایت</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; مگابایت</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; گیگابایت</string>
-    <string name="msg_count">%dx</string>
+    <string name="msg_count">%1$dx</string>
     <string name="msg_doze">برای عملکرد پایدار، بهینه‌سازی باتری باید برای QuietGuard غیرفعال شود.
 \n\nدر دیالوگ بعدی، \"همه برنامه‌ها\" را انتخاب کرده، روی QuietGuard بزنید و \"بهینه نشود\" را تایید کنید.</string>
     <string name="msg_datasaving">برای عملکرد پایدار، گزینه‌های صرفه‌جویی داده اندروید باید برای QuietGuard غیرفعال شوند.
@@ -334,10 +334,10 @@
     <string name="msg_log_disabled">گزارش ترافیک غیرفعال است، برای فعال‌سازی از کلید بالا استفاده کنید. ممکن است باعث مصرف اضافی باتری شود.</string>
     <string name="msg_clear_rules">این کار قوانین و شرایط را به مقادیر پیش‌فرض باز می‌گرداند</string>
     <string name="msg_reset_access">این کار خطوط گزارش تلاش‌های دسترسی بدون قانون را پاک می‌کند</string>
-    <string name="msg_import_last">آخرین ورود: %s</string>
+    <string name="msg_import_last">آخرین ورود: %1$s</string>
     <string name="msg_downloading">در حال دانلود\n%1s</string>
     <string name="msg_downloaded">فایل hosts دانلود شد</string>
-    <string name="msg_download_last">آخرین دانلود: %s</string>
+    <string name="msg_download_last">آخرین دانلود: %1$s</string>
     <string name="msg_start_forward">شروع هدایت از %1$s پورت %2$d به %3$s:%4$d برای '%5$s'؟</string>
     <string name="msg_stop_forward">توقف هدایت %1$s پورت %2$d؟</string>
     <string name="msg_metered">شبکه دارای محدودیت مصرف است</string>
@@ -380,8 +380,8 @@
     <string name="title_screen_other">اجازه داده موبایل هنگام روشن بودن صفحه</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">مسدود کردن هنگام رومینگ</string>
-    <string name="label_ttl">TTL: %s ثانیه</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s ثانیه</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">اجازه در حالت قفل کامل</string>
     <string name="title_related">فیلتر مرتبط</string>
     <string name="title_access">تلاش‌های دسترسی</string>

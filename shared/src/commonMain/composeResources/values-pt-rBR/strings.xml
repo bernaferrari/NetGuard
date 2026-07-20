@@ -104,7 +104,7 @@
     <string name="action_clear_search">Limpar pesquisa</string>
     <string name="search_settings">Pesquisar configurações</string>
     <string name="content_desc_security_status">Status de segurança do firewall</string>
-    <string name="content_desc_app_icon">Ícone do aplicativo para %s</string>
+    <string name="content_desc_app_icon">Ícone do aplicativo para %1$s</string>
     <string name="content_desc_show_info">Mostrar informações sobre %1$s</string>
 
     <!-- Dashboard stats -->
@@ -215,29 +215,29 @@
     <string name="setting_reset_usage">Redefinir uso da rede</string>
     <string name="setting_show_resolved">Mostrar nomes de domínio resolvidos</string>
     <string name="setting_block_domains">Bloquear nomes de domínio</string>
-    <string name="setting_rcode">Código de resposta DNS: %s</string>
+    <string name="setting_rcode">Código de resposta DNS: %1$s</string>
     <string name="setting_forwarding">Encaminhamento de porta</string>
-    <string name="setting_vpn4">VPN IPv4: %s</string>
-    <string name="setting_vpn6">VPN IPv6: %s</string>
-    <string name="setting_dns">DNS da VPN: %s</string>
-    <string name="setting_dns2">DNS secundário: %s</string>
-    <string name="setting_validate">Validar em: %s</string>
-    <string name="setting_ttl">TTL mínimo do DNS: %s s</string>
+    <string name="setting_vpn4">VPN IPv4: %1$s</string>
+    <string name="setting_vpn6">VPN IPv6: %1$s</string>
+    <string name="setting_dns">DNS da VPN: %1$s</string>
+    <string name="setting_dns2">DNS secundário: %1$s</string>
+    <string name="setting_validate">Validar em: %1$s</string>
+    <string name="setting_ttl">TTL mínimo do DNS: %1$s s</string>
     <string name="setting_socks5_enabled">Usar proxy SOCKS5</string>
-    <string name="setting_socks5_addr">Endereço SOCKS5: %s</string>
-    <string name="setting_socks5_port">Porta SOCKS5: %s</string>
-    <string name="setting_socks5_username">Usuário SOCKS5: %s</string>
-    <string name="setting_socks5_password">Senha SOCKS5: %s</string>
-    <string name="setting_pcap_record_size">Tamanho do registro PCAP: %s B</string>
-    <string name="setting_pcap_file_size">Tamanho máx. do arquivo PCAP: %s MB</string>
+    <string name="setting_socks5_addr">Endereço SOCKS5: %1$s</string>
+    <string name="setting_socks5_port">Porta SOCKS5: %1$s</string>
+    <string name="setting_socks5_username">Usuário SOCKS5: %1$s</string>
+    <string name="setting_socks5_password">Senha SOCKS5: %1$s</string>
+    <string name="setting_pcap_record_size">Tamanho do registro PCAP: %1$s B</string>
+    <string name="setting_pcap_file_size">Tamanho máx. do arquivo PCAP: %1$s MB</string>
     <string name="setting_pcap">Gravar tráfego de rede (PCAP)</string>
-    <string name="setting_watchdog">Monitoramento: a cada %s minutos</string>
+    <string name="setting_watchdog">Monitoramento: a cada %1$s minutos</string>
 
     <string name="setting_stats_category">Notificação de velocidade</string>
     <string name="setting_stats">Mostrar notificação de velocidade</string>
     <string name="setting_stats_top">Mostrar aplicativos principais</string>
-    <string name="setting_stats_frequency">Intervalo de amostragem: %s ms</string>
-    <string name="setting_stats_samples">Número de amostras: %s</string>
+    <string name="setting_stats_frequency">Intervalo de amostragem: %1$s ms</string>
+    <string name="setting_stats_samples">Número de amostras: %1$s</string>
 
     <string name="setting_backup">Backup</string>
     <string name="setting_export">Exportar configurações</string>
@@ -318,7 +318,7 @@
 Por esse motivo, permita a conexão VPN no próximo diálogo.
 Seu tráfego de Internet não está sendo enviado para um servidor VPN remoto.</string>
     <string name="msg_autostart">O QuietGuard não pôde iniciar automaticamente. Isso provavelmente se deve a um bug na sua versão do Android.</string>
-    <string name="msg_error">Ocorreu um erro inesperado: '%s'</string>
+    <string name="msg_error">Ocorreu um erro inesperado: '%1$s'</string>
     <string name="msg_start_failed">O Android recusou iniciar o serviço VPN neste momento. Isso provavelmente se deve a um bug na sua versão do Android.</string>
     <string name="msg_try">Testar QuietGuard</string>
     <string name="msg_terms">Ao doar você concorda com os <a href="http://www.netguard.me/#terms">termos e condições</a></string>
@@ -329,7 +329,7 @@ Seu tráfego de Internet não está sendo enviado para um servidor VPN remoto.</
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
-    <string name="msg_count">%dx</string>
+    <string name="msg_count">%1$dx</string>
     <string name="msg_doze">Para resultados consistentes, as otimizações de bateria do Android devem ser desativadas para o QuietGuard.
 \n\nNo próximo diálogo, selecione \"Todos os apps\" no topo, toque no QuietGuard na lista e confirme \"Não otimizar\".</string>
     <string name="msg_datasaving">Para resultados consistentes, as opções de economia de dados do Android devem ser desativadas para o QuietGuard.
@@ -339,10 +339,10 @@ Seu tráfego de Internet não está sendo enviado para um servidor VPN remoto.</
     <string name="msg_log_disabled">O registro de tráfego está desativado, use o interruptor acima para ativá-lo. O registro pode resultar em uso extra da bateria.</string>
     <string name="msg_clear_rules">Isso redefinirá as regras e condições para seus valores padrão</string>
     <string name="msg_reset_access">Isso excluirá as linhas de registro de tentativas de acesso sem regras de permitir/bloquear</string>
-    <string name="msg_import_last">Última importação: %s</string>
+    <string name="msg_import_last">Última importação: %1$s</string>
     <string name="msg_downloading">Baixando\n%1s</string>
     <string name="msg_downloaded">Arquivo hosts baixado</string>
-    <string name="msg_download_last">Último download: %s</string>
+    <string name="msg_download_last">Último download: %1$s</string>
     <string name="msg_start_forward">Iniciar encaminhamento de %1$s porta %2$d para %3$s:%4$d de '%5$s'?</string>
     <string name="msg_stop_forward">Parar encaminhamento de %1$s porta %2$d?</string>
     <string name="msg_metered">A rede é limitada</string>
@@ -385,8 +385,8 @@ Seu tráfego de Internet não está sendo enviado para um servidor VPN remoto.</
     <string name="title_screen_other">Permitir móvel com a tela ligada</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">Bloquear em roaming</string>
-    <string name="label_ttl">TTL: %s s</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s s</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">Permitir no modo de bloqueio</string>
     <string name="title_related">Filtros relacionados</string>
     <string name="title_access">Tentativas de acesso</string>

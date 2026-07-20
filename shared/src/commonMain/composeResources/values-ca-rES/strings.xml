@@ -104,7 +104,7 @@
     <string name="action_clear_search">Netejar cerca</string>
     <string name="search_settings">Cercar ajustos</string>
     <string name="content_desc_security_status">Estat de seguretat del firewall</string>
-    <string name="content_desc_app_icon">Icona d'aplicació per a %s</string>
+    <string name="content_desc_app_icon">Icona d'aplicació per a %1$s</string>
     <string name="content_desc_show_info">Mostrar informació sobre %1$s</string>
 
     <!-- Dashboard stats -->
@@ -210,29 +210,29 @@
     <string name="setting_reset_usage">Reiniciar l'ús de xarxa</string>
     <string name="setting_show_resolved">Mostrar noms de domini resolts</string>
     <string name="setting_block_domains">Bloquejar noms de domini</string>
-    <string name="setting_rcode">Codi de resposta DNS: %s</string>
+    <string name="setting_rcode">Codi de resposta DNS: %1$s</string>
     <string name="setting_forwarding">Redirecció de ports</string>
-    <string name="setting_vpn4">VPN IPv4: %s</string>
-    <string name="setting_vpn6">VPN IPv6: %s</string>
-    <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_dns2">DNS secundari: %s</string>
-    <string name="setting_validate">Validar a: %s</string>
-    <string name="setting_ttl">TTL mínim de DNS: %s s</string>
+    <string name="setting_vpn4">VPN IPv4: %1$s</string>
+    <string name="setting_vpn6">VPN IPv6: %1$s</string>
+    <string name="setting_dns">VPN DNS: %1$s</string>
+    <string name="setting_dns2">DNS secundari: %1$s</string>
+    <string name="setting_validate">Validar a: %1$s</string>
+    <string name="setting_ttl">TTL mínim de DNS: %1$s s</string>
     <string name="setting_socks5_enabled">Utilitzar intermediari SOCKS5</string>
-    <string name="setting_socks5_addr">Adreça SOCKS5: %s</string>
-    <string name="setting_socks5_port">Port SOCKS5: %s</string>
-    <string name="setting_socks5_username">Usuari SOCKS5: %s</string>
-    <string name="setting_socks5_password">Contrasenya SOCKS5: %s</string>
-    <string name="setting_pcap_record_size">Mida del registre PCAP: %s B</string>
-    <string name="setting_pcap_file_size">Mida màx. del fitxer PCAP: %s MB</string>
+    <string name="setting_socks5_addr">Adreça SOCKS5: %1$s</string>
+    <string name="setting_socks5_port">Port SOCKS5: %1$s</string>
+    <string name="setting_socks5_username">Usuari SOCKS5: %1$s</string>
+    <string name="setting_socks5_password">Contrasenya SOCKS5: %1$s</string>
+    <string name="setting_pcap_record_size">Mida del registre PCAP: %1$s B</string>
+    <string name="setting_pcap_file_size">Mida màx. del fitxer PCAP: %1$s MB</string>
     <string name="setting_pcap">Gravar trànsit de xarxa (PCAP)</string>
-    <string name="setting_watchdog">Watchdog: cada %s minuts</string>
+    <string name="setting_watchdog">Watchdog: cada %1$s minuts</string>
 
     <string name="setting_stats_category">Notificació de velocitat</string>
     <string name="setting_stats">Mostrar notificació de velocitat</string>
     <string name="setting_stats_top">Mostrar aplicacions principals</string>
-    <string name="setting_stats_frequency">Interval de mostreig: %s ms</string>
-    <string name="setting_stats_samples">Nombre de mostres: %s</string>
+    <string name="setting_stats_frequency">Interval de mostreig: %1$s ms</string>
+    <string name="setting_stats_samples">Nombre de mostres: %1$s</string>
 
     <string name="setting_backup">Còpia de seguretat</string>
     <string name="setting_export">Exportar ajustos</string>
@@ -313,7 +313,7 @@
 Per aquest motiu, per favor permet una connexió VPN en el següent quadre de diàleg.
 El teu trànsit d'Internet no s'està enviant a un servidor VPN remot.</string>
     <string name="msg_autostart">QuietGuard no s'ha pogut iniciar automàticament. Probablement es deu a un error a la teva versió d'Android.</string>
-    <string name="msg_error">Ha succeït un error inesperat: '%s'</string>
+    <string name="msg_error">Ha succeït un error inesperat: '%1$s'</string>
     <string name="msg_start_failed">Android ha rebutjat iniciar el servei VPN en aquest moment. Probablement es deu a un error a la teva versió d'Android.</string>
     <string name="msg_try">Prova QuietGuard</string>
     <string name="msg_terms">En donar acceptes els <a href="http://www.netguard.me/#terms">termes i condicions</a></string>
@@ -324,7 +324,7 @@ El teu trànsit d'Internet no s'està enviant a un servidor VPN remot.</string>
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
-    <string name="msg_count">%dx</string>
+    <string name="msg_count">%1$dx</string>
     <string name="msg_doze">Per obtenir resultats consistents, s'han de desactivar les optimitzacions de bateria d'Android per a QuietGuard.
 \n\nEn el següent quadre de diàleg, selecciona \"Totes les aplicacions\" a dalt, toca a QuietGuard a la llista i selecciona i confirma \"No optimitzar\".</string>
     <string name="msg_datasaving">Per obtenir resultats consistents, s'han de desactivar les opcions d'estalvi de dades d'Android per a QuietGuard.
@@ -334,10 +334,10 @@ El teu trànsit d'Internet no s'està enviant a un servidor VPN remot.</string>
     <string name="msg_log_disabled">El registre de trànsit està desactivat, utilitza l'interruptor de dalt per activar-lo. El registre pot augmentar l'ús de la bateria.</string>
     <string name="msg_clear_rules">Això restablirà les regles i condicions als seus valors per defecte</string>
     <string name="msg_reset_access">Això eliminarà les línies del registre d'intents d'accés sense regles de permetre/bloquejar</string>
-    <string name="msg_import_last">Última importació: %s</string>
+    <string name="msg_import_last">Última importació: %1$s</string>
     <string name="msg_downloading">Descarregant\n%1s</string>
     <string name="msg_downloaded">Fitxer hosts descarregat</string>
-    <string name="msg_download_last">Última descàrrega: %s</string>
+    <string name="msg_download_last">Última descàrrega: %1$s</string>
     <string name="msg_start_forward">Vols iniciar la redirecció des de %1$s port %2$d a %3$s:%4$d de '%5$s'?</string>
     <string name="msg_stop_forward">Vols aturar la redirecció de %1$s port %2$d?</string>
     <string name="msg_metered">La xarxa és mesurada</string>
@@ -380,8 +380,8 @@ El teu trànsit d'Internet no s'està enviant a un servidor VPN remot.</string>
     <string name="title_screen_other">Permetre mòbil amb pantalla encesa</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">Bloquejar en itinerància</string>
-    <string name="label_ttl">TTL: %s s</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s s</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">Permetre en mode bloqueig</string>
     <string name="title_related">Filtre relacionat</string>
     <string name="title_access">Intents d'accés</string>

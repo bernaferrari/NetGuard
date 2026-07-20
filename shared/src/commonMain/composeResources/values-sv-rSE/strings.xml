@@ -104,7 +104,7 @@
     <string name="action_clear_search">Rensa sökning</string>
     <string name="search_settings">Sökinställningar</string>
     <string name="content_desc_security_status">Brandväggens säkerhetsstatus</string>
-    <string name="content_desc_app_icon">Appikon för %s</string>
+    <string name="content_desc_app_icon">Appikon för %1$s</string>
     <string name="content_desc_show_info">Visa information om %1$s</string>
 
     <!-- Dashboard stats -->
@@ -215,29 +215,29 @@
     <string name="setting_reset_usage">Återställ nätverksanvändning</string>
     <string name="setting_show_resolved">Visa lösta domännamn</string>
     <string name="setting_block_domains">Blockera domännamn</string>
-    <string name="setting_rcode">DNS-svarskod: %s</string>
+    <string name="setting_rcode">DNS-svarskod: %1$s</string>
     <string name="setting_forwarding">Vidarebefordran av port</string>
-    <string name="setting_vpn4">VPN-IPv4: %s</string>
-    <string name="setting_vpn6">VPN-IPv6: %s</string>
-    <string name="setting_dns">VPN-DNS: %s</string>
-    <string name="setting_dns2">Sekundär DNS: %s</string>
-    <string name="setting_validate">Validera på: %s</string>
-    <string name="setting_ttl">Minsta DNS-TTL: %s s</string>
+    <string name="setting_vpn4">VPN-IPv4: %1$s</string>
+    <string name="setting_vpn6">VPN-IPv6: %1$s</string>
+    <string name="setting_dns">VPN-DNS: %1$s</string>
+    <string name="setting_dns2">Sekundär DNS: %1$s</string>
+    <string name="setting_validate">Validera på: %1$s</string>
+    <string name="setting_ttl">Minsta DNS-TTL: %1$s s</string>
     <string name="setting_socks5_enabled">Använd SOCKS5-proxy</string>
-    <string name="setting_socks5_addr">SOCKS5-adress: %s</string>
-    <string name="setting_socks5_port">SOCKS5-port: %s</string>
-    <string name="setting_socks5_username">SOCKS5-användarnamn: %s</string>
-    <string name="setting_socks5_password">SOCKS5-lösenord: %s</string>
-    <string name="setting_pcap_record_size">PCAP-poststorlek: %s B</string>
-    <string name="setting_pcap_file_size">PCAP max. filstorlek: %s MB</string>
+    <string name="setting_socks5_addr">SOCKS5-adress: %1$s</string>
+    <string name="setting_socks5_port">SOCKS5-port: %1$s</string>
+    <string name="setting_socks5_username">SOCKS5-användarnamn: %1$s</string>
+    <string name="setting_socks5_password">SOCKS5-lösenord: %1$s</string>
+    <string name="setting_pcap_record_size">PCAP-poststorlek: %1$s B</string>
+    <string name="setting_pcap_file_size">PCAP max. filstorlek: %1$s MB</string>
     <string name="setting_pcap">Spela in nätverkstrafik (PCAP)</string>
-    <string name="setting_watchdog">Watchdog: varje %s minuter</string>
+    <string name="setting_watchdog">Watchdog: varje %1$s minuter</string>
 
     <string name="setting_stats_category">Hastighetsavisering</string>
     <string name="setting_stats">Visa hastighetsaviseringar</string>
     <string name="setting_stats_top">Visa topp appar</string>
-    <string name="setting_stats_frequency">Samplingsintervallet: %s ms</string>
-    <string name="setting_stats_samples">Antal prover: %s</string>
+    <string name="setting_stats_frequency">Samplingsintervallet: %1$s ms</string>
+    <string name="setting_stats_samples">Antal prover: %1$s</string>
 
     <string name="setting_backup">Säkerhetskopiering</string>
     <string name="setting_export">Exportera inställningar</string>
@@ -318,7 +318,7 @@
 Av denna anledning, vänligen tillåt en VPN-anslutning i nästa dialogruta.
 Din internettrafik skickas inte till en avlägsen VPN-server.</string>
     <string name="msg_autostart">QuietGuard kunde inte starta automatiskt. Detta är sannolikt på grund av ett fel i din Android-version.</string>
-    <string name="msg_error">Ett oväntat fel har inträffat: '%s'</string>
+    <string name="msg_error">Ett oväntat fel har inträffat: '%1$s'</string>
     <string name="msg_start_failed">Android vägrade att starta VPN-tjänsten just nu. Detta är sannolikt på grund av ett fel i din Android-version.</string>
     <string name="msg_try">Prova QuietGuard</string>
     <string name="msg_terms">Genom att donera samtycker du till <a href="http://www.netguard.me/#terms">villkor</a></string>
@@ -329,7 +329,7 @@ Din internettrafik skickas inte till en avlägsen VPN-server.</string>
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
-    <string name="msg_count">%dx</string>
+    <string name="msg_count">%1$dx</string>
     <string name="msg_doze">För konsekventa resultat bör Android-batterioptimeringarna inaktiveras för QuietGuard.
 \n\nI nästa dialogruta väljer du \"Alla appar\" högst upp, tryck på QuietGuard i listan och välj och bekräfta \"Optimera inte\".</string>
     <string name="msg_datasaving">För konsekventa resultat ska Android-databesparingsalternativen inaktiveras för QuietGuard
@@ -339,10 +339,10 @@ Din internettrafik skickas inte till en avlägsen VPN-server.</string>
     <string name="msg_log_disabled">Trafikloggning är inaktiverad, använd reglage ovan för att aktivera loggning. Trafikloggning kan resultera i extra batterianvändning.</string>
     <string name="msg_clear_rules">Detta kommer att återställa regler och villkor till deras standardvärden</string>
     <string name="msg_reset_access">Detta tar bort åtkomstförsökslogglinjer utan tillåt-/blockregler</string>
-    <string name="msg_import_last">Senaste import: %s</string>
+    <string name="msg_import_last">Senaste import: %1$s</string>
     <string name="msg_downloading">Hämtar\n%1s</string>
     <string name="msg_downloaded">Hosts-filen hämtad</string>
-    <string name="msg_download_last">Senaste hämtning: %s</string>
+    <string name="msg_download_last">Senaste hämtning: %1$s</string>
     <string name="msg_start_forward">Börja vidarebefodra från %1$s port %2$d till %3$s:%4$d av '%5$s'?</string>
     <string name="msg_stop_forward">Sluta vidarebefordra %1$s port %2$d?</string>
     <string name="msg_metered">Nätverket är uppmätt</string>
@@ -385,8 +385,8 @@ Din internettrafik skickas inte till en avlägsen VPN-server.</string>
     <string name="title_screen_other">Tillåt mobildata när skärmen är påslagen</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">Blockera vid roaming</string>
-    <string name="label_ttl">TTL: %s s</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s s</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">Tillåt i låst läge</string>
     <string name="title_related">Filter relaterat</string>
     <string name="title_access">Åtkomstförsök</string>

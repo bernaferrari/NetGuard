@@ -104,7 +104,7 @@
     <string name="action_clear_search">I-clear ang paghahanap</string>
     <string name="search_settings">Maghanap sa mga setting</string>
     <string name="content_desc_security_status">Estado ng seguridad ng firewall</string>
-    <string name="content_desc_app_icon">App icon para sa %s</string>
+    <string name="content_desc_app_icon">App icon para sa %1$s</string>
     <string name="content_desc_show_info">Ipakita ang impormasyon tungkol sa %1$s</string>
 
     <!-- Dashboard stats -->
@@ -215,29 +215,29 @@
     <string name="setting_reset_usage">I-reset ang gamit ng network</string>
     <string name="setting_show_resolved">Ipakita ang mga na-resolve na domain name</string>
     <string name="setting_block_domains">I-block ang mga domain name</string>
-    <string name="setting_rcode">DNS response code: %s</string>
+    <string name="setting_rcode">DNS response code: %1$s</string>
     <string name="setting_forwarding">Port forwarding</string>
-    <string name="setting_vpn4">VPN IPv4: %s</string>
-    <string name="setting_vpn6">VPN IPv6: %s</string>
-    <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_dns2">Pangalawang DNS: %s</string>
-    <string name="setting_validate">I-validate sa: %s</string>
-    <string name="setting_ttl">Minimum na DNS TTL: %s s</string>
+    <string name="setting_vpn4">VPN IPv4: %1$s</string>
+    <string name="setting_vpn6">VPN IPv6: %1$s</string>
+    <string name="setting_dns">VPN DNS: %1$s</string>
+    <string name="setting_dns2">Pangalawang DNS: %1$s</string>
+    <string name="setting_validate">I-validate sa: %1$s</string>
+    <string name="setting_ttl">Minimum na DNS TTL: %1$s s</string>
     <string name="setting_socks5_enabled">Gamitin ang SOCKS5 proxy</string>
-    <string name="setting_socks5_addr">SOCKS5 address: %s</string>
-    <string name="setting_socks5_port">SOCKS5 port: %s</string>
-    <string name="setting_socks5_username">SOCKS5 username: %s</string>
-    <string name="setting_socks5_password">SOCKS5 password: %s</string>
-    <string name="setting_pcap_record_size">Sukat ng PCAP record: %s B</string>
-    <string name="setting_pcap_file_size">Pinakamataas na sukat ng PCAP file: %s MB</string>
+    <string name="setting_socks5_addr">SOCKS5 address: %1$s</string>
+    <string name="setting_socks5_port">SOCKS5 port: %1$s</string>
+    <string name="setting_socks5_username">SOCKS5 username: %1$s</string>
+    <string name="setting_socks5_password">SOCKS5 password: %1$s</string>
+    <string name="setting_pcap_record_size">Sukat ng PCAP record: %1$s B</string>
+    <string name="setting_pcap_file_size">Pinakamataas na sukat ng PCAP file: %1$s MB</string>
     <string name="setting_pcap">I-record ang trapiko sa network (PCAP)</string>
-    <string name="setting_watchdog">Watchdog: bawat %s minuto</string>
+    <string name="setting_watchdog">Watchdog: bawat %1$s minuto</string>
 
     <string name="setting_stats_category">Notipikasyon ng bilis</string>
     <string name="setting_stats">Ipakita ang notipikasyon ng bilis</string>
     <string name="setting_stats_top">Ipakita ang mga nangungunang app</string>
-    <string name="setting_stats_frequency">Sample interval: %s ms</string>
-    <string name="setting_stats_samples">Bilang ng mga sample: %s</string>
+    <string name="setting_stats_frequency">Sample interval: %1$s ms</string>
+    <string name="setting_stats_samples">Bilang ng mga sample: %1$s</string>
 
     <string name="setting_backup">Backup</string>
     <string name="setting_export">I-export ang mga setting</string>
@@ -318,7 +318,7 @@
 Dahil dito, mangyaring payagan ang isang koneksyon sa VPN sa susunod na dialog.
 Ang iyong internet trapiko ay hindi ipinapadala sa isang remote VPN server.</string>
     <string name="msg_autostart">Hindi awtomatikong makapagsimula ang QuietGuard. Malamang na ito ay dahil sa isang bug sa iyong bersyon ng Android.</string>
-    <string name="msg_error">Nagkaroon ng hindi inaasahang error: '%s'</string>
+    <string name="msg_error">Nagkaroon ng hindi inaasahang error: '%1$s'</string>
     <string name="msg_start_failed">Tumanggi ang Android na simulan ang serbisyo ng VPN sa sandaling ito. Malamang na ito ay dahil sa isang bug sa iyong bersyon ng Android.</string>
     <string name="msg_try">Subukan ang QuietGuard</string>
     <string name="msg_terms">Sa pamamagitan ng pag-donate sumasang-ayon ka sa mga <a href="http://www.netguard.me/#terms">tuntunin at kondisyon</a></string>
@@ -329,7 +329,7 @@ Ang iyong internet trapiko ay hindi ipinapadala sa isang remote VPN server.</str
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
-    <string name="msg_count">%dx</string>
+    <string name="msg_count">%1$dx</string>
     <string name="msg_doze">Para sa mga pare-parehong resulta, ang mga Android battery optimization ay dapat i-disable para sa QuietGuard.
 \n\nSa susunod na dialog, piliin ang \"Lahat ng app\" sa itaas, i-tap ang QuietGuard sa listahan at piliin at kumpirmahin ang \"Huwag i-optimize\".</string>
     <string name="msg_datasaving">Para sa mga pare-parehong resulta, ang mga Android data saving option ay dapat i-disable para sa QuietGuard
@@ -339,10 +339,10 @@ Ang iyong internet trapiko ay hindi ipinapadala sa isang remote VPN server.</str
     <string name="msg_log_disabled">Naka-disable ang pag-log ng trapiko, gamitin ang switch sa itaas para i-enable ang pag-log. Ang pag-log ng trapiko ay maaaring magresulta sa ekstrang gamit ng baterya.</string>
     <string name="msg_clear_rules">I-re-reset nito ang mga rule at kondisyon sa kanilang mga default na halaga</string>
     <string name="msg_reset_access">Dile-delete nito ang mga linya ng log ng pagtatangka sa akses nang walang mga rule sa pagpayag/pag-block</string>
-    <string name="msg_import_last">Huling import: %s</string>
+    <string name="msg_import_last">Huling import: %1$s</string>
     <string name="msg_downloading">Nag-da-download\n%1s</string>
     <string name="msg_downloaded">Nai-download ang hosts file</string>
-    <string name="msg_download_last">Huling download: %s</string>
+    <string name="msg_download_last">Huling download: %1$s</string>
     <string name="msg_start_forward">Simulan ang pag-forward mula sa %1$s port %2$d patungo sa %3$s:%4$d ng '%5$s'?</string>
     <string name="msg_stop_forward">Itigil ang pag-forward ng %1$s port %2$d?</string>
     <string name="msg_metered">Ang network ay limitado</string>
@@ -385,8 +385,8 @@ Ang iyong internet trapiko ay hindi ipinapadala sa isang remote VPN server.</str
     <string name="title_screen_other">Payagan ang mobile kapag nakabukas ang screen</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">I-block kapag naka-roaming</string>
-    <string name="label_ttl">TTL: %s s</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s s</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">Payagan sa lockdown mode</string>
     <string name="title_related">Kaugnay na filter</string>
     <string name="title_access">Mga pagtatangka sa akses</string>

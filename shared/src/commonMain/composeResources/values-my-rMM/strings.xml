@@ -103,7 +103,7 @@
     <string name="action_clear_search">ရှာဖွေမှုများကို ဖျက်ပါ</string>
     <string name="search_settings">ဆက်တင်များကို ရှာဖွေပါ</string>
     <string name="content_desc_security_status">Firewall လုံခြုံရေး အခြေအနေ</string>
-    <string name="content_desc_app_icon">%s အတွက် အက်ပ်ပုံစံ</string>
+    <string name="content_desc_app_icon">%1$s အတွက် အက်ပ်ပုံစံ</string>
     <string name="content_desc_show_info">%1$s အကြောင်း အချက်အလက်များကို ပြပါ</string>
 
     <!-- Dashboard stats -->
@@ -209,29 +209,29 @@
     <string name="setting_reset_usage">ကွန်ယက်အသုံးပြုမှုကို မူလအတိုင်း ပြန်ထားပါ</string>
     <string name="setting_show_resolved">ဖြေရှင်းပြီးသော ဒိုမိန်းအမည်များကို ပြပါ</string>
     <string name="setting_block_domains">ဒိုမိန်းအမည်များကို ပိတ်ဆို့ပါ</string>
-    <string name="setting_rcode">DNS တုံ့ပြန်မှုကုဒ် - %s</string>
+    <string name="setting_rcode">DNS တုံ့ပြန်မှုကုဒ် - %1$s</string>
     <string name="setting_forwarding">Port လက်ဆင့်ကမ်းခြင်း</string>
-    <string name="setting_vpn4">VPN IPv4 - %s</string>
-    <string name="setting_vpn6">VPN IPv6 - %s</string>
-    <string name="setting_dns">VPN DNS - %s</string>
-    <string name="setting_dns2">Secondary DNS - %s</string>
-    <string name="setting_validate">စစ်ဆေးရန် - %s</string>
-    <string name="setting_ttl">အနည်းဆုံး DNS TTL - %s စက္ကန့်</string>
+    <string name="setting_vpn4">VPN IPv4 - %1$s</string>
+    <string name="setting_vpn6">VPN IPv6 - %1$s</string>
+    <string name="setting_dns">VPN DNS - %1$s</string>
+    <string name="setting_dns2">Secondary DNS - %1$s</string>
+    <string name="setting_validate">စစ်ဆေးရန် - %1$s</string>
+    <string name="setting_ttl">အနည်းဆုံး DNS TTL - %1$s စက္ကန့်</string>
     <string name="setting_socks5_enabled">SOCKS5 ပရောက်စီကို သုံးပါ</string>
-    <string name="setting_socks5_addr">SOCKS5 လိပ်စာ - %s</string>
-    <string name="setting_socks5_port">SOCKS5 ပေါ့တ် - %s</string>
-    <string name="setting_socks5_username">SOCKS5 အသုံးပြုသူအမည် - %s</string>
-    <string name="setting_socks5_password">SOCKS5 စကားဝှက် - %s</string>
-    <string name="setting_pcap_record_size">PCAP မှတ်တမ်း အရွယ်အစား - %s B</string>
-    <string name="setting_pcap_file_size">PCAP အများဆုံး ဖိုင်အရွယ်အစား - %s MB</string>
+    <string name="setting_socks5_addr">SOCKS5 လိပ်စာ - %1$s</string>
+    <string name="setting_socks5_port">SOCKS5 ပေါ့တ် - %1$s</string>
+    <string name="setting_socks5_username">SOCKS5 အသုံးပြုသူအမည် - %1$s</string>
+    <string name="setting_socks5_password">SOCKS5 စကားဝှက် - %1$s</string>
+    <string name="setting_pcap_record_size">PCAP မှတ်တမ်း အရွယ်အစား - %1$s B</string>
+    <string name="setting_pcap_file_size">PCAP အများဆုံး ဖိုင်အရွယ်အစား - %1$s MB</string>
     <string name="setting_pcap">ကွန်ယက်လုပ်ဆောင်ချက်များကို မှတ်တမ်းတင်ပါ (PCAP)</string>
-    <string name="setting_watchdog">စောင့်ကြည့်စနစ် - %s မိနစ်တိုင်း</string>
+    <string name="setting_watchdog">စောင့်ကြည့်စနစ် - %1$s မိနစ်တိုင်း</string>
 
     <string name="setting_stats_category">အမြန်နှုန်း အသိပေးချက်</string>
     <string name="setting_stats">အမြန်နှုန်း အသိပေးချက်ကို ပြပါ</string>
     <string name="setting_stats_top">အသုံးအများဆုံး အက်ပ်များကို ပြပါ</string>
-    <string name="setting_stats_frequency">စစ်ဆေးမည့် အချိန်အပိုင်းအခြား - %s ms</string>
-    <string name="setting_stats_samples">နမူနာအရေအတွက် - %s</string>
+    <string name="setting_stats_frequency">စစ်ဆေးမည့် အချိန်အပိုင်းအခြား - %1$s ms</string>
+    <string name="setting_stats_samples">နမူနာအရေအတွက် - %1$s</string>
 
     <string name="setting_backup">မိတ္တူကူးယူခြင်း</string>
     <string name="setting_export">ဆက်တင်များကို ထုတ်ယူပါ</string>
@@ -312,7 +312,7 @@
 ထို့ကြောင့် နောက်ဒိုင်ယာလော့ဂ်တွင် VPN ချိတ်ဆက်မှုကို ခွင့်ပြုပေးပါ။
 သင်၏ အင်တာနက်ဒေတာများကို အခြား VPN ဆာဗာများဆီသို့ ပေးပို့မည် မဟုတ်ပါ။</string>
     <string name="msg_autostart">QuietGuard အလိုအလျောက် မပွင့်နိုင်ပါ။ ၎င်းသည် သင်၏ Android ဗားရှင်းရှိ ဘဂ်တစ်ခုကြောင့် ဖြစ်နိုင်ပါသည်။</string>
-    <string name="msg_error">မမျှော်လင့်ထားသော အမှားတစ်ခု ဖြစ်ပွားခဲ့သည် - '%s'</string>
+    <string name="msg_error">မမျှော်လင့်ထားသော အမှားတစ်ခု ဖြစ်ပွားခဲ့သည် - '%1$s'</string>
     <string name="msg_start_failed">Android မှ ဤအချိန်တွင် VPN ဝန်ဆောင်မှုကို စတင်ရန် ငြင်းဆိုခဲ့သည်။ ၎င်းသည် သင်၏ Android ဗားရှင်းရှိ ဘဂ်တစ်ခုကြောင့် ဖြစ်နိုင်ပါသည်။</string>
     <string name="msg_try">QuietGuard ကို စမ်းသုံးကြည့်ပါ</string>
     <string name="msg_terms">လှူဒါန်းခြင်းဖြင့် သင်သည် <a href="http://www.netguard.me/#terms">စည်းကမ်းသတ်မှတ်ချက်များ</a> ကို သဘောတူပြီး ဖြစ်သည်</string>
@@ -323,7 +323,7 @@
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
-    <string name="msg_count">%dx</string>
+    <string name="msg_count">%1$dx</string>
     <string name="msg_doze">မှန်ကန်သော လုပ်ဆောင်ချက်များအတွက် QuietGuard အတွက် Android ဘက်ထရီ ချွေတာမှုစနစ်ကို ပိတ်ထားသင့်သည်။
 \n\nနောက်ဒိုင်ယာလော့ဂ်တွင် အပေါ်မှ \"All apps\" ကိုရွေးပါ၊ စာရင်းထဲရှိ QuietGuard ကိုနှိပ်ပြီး \"Don't optimize\" ကိုရွေး၍ အတည်ပြုပါ။</string>
     <string name="msg_datasaving">မှန်ကန်သော လုပ်ဆောင်ချက်များအတွက် QuietGuard အတွက် Android ဒေတာ ချွေတာမှုစနစ်ကို ပိတ်ထားသင့်သည်။
@@ -333,10 +333,10 @@
     <string name="msg_log_disabled">မှတ်တမ်းတင်ခြင်းကို ပိတ်ထားသည်၊ ပြန်ဖွင့်ရန် အပေါ်မှခလုတ်ကို သုံးပါ။ ၎င်းသည် ဘက်ထရီ အသုံးပြုမှု ပိုများစေနိုင်ပါသည်။</string>
     <string name="msg_clear_rules">၎င်းသည် စည်းမျဉ်းများနှင့် အခြေအနေများကို မူလတန်ဖိုးများအတိုင်း ပြန်လည်သတ်မှတ်ပါမည်</string>
     <string name="msg_reset_access">၎င်းသည် စည်းမျဉ်းမရှိသော အသုံးပြုမှုမှတ်တမ်းများကို ဖျက်ပစ်ပါမည်</string>
-    <string name="msg_import_last">နောက်ဆုံး ထည့်သွင်းမှု - %s</string>
+    <string name="msg_import_last">နောက်ဆုံး ထည့်သွင်းမှု - %1$s</string>
     <string name="msg_downloading">ဒေါင်းလုဒ်လုပ်နေသည်\n%1s</string>
     <string name="msg_downloaded">Hosts ဖိုင် ဒေါင်းလုဒ်ပြီးပါပြီ</string>
-    <string name="msg_download_last">နောက်ဆုံး ဒေါင်းလုဒ် - %s</string>
+    <string name="msg_download_last">နောက်ဆုံး ဒေါင်းလုဒ် - %1$s</string>
     <string name="msg_start_forward">%1$s ပေါ့တ် %2$d မှ '%5$s' ၏ %3$s:%4$d သို့ လက်ဆင့်ကမ်းခြင်းကို စတင်မလား။</string>
     <string name="msg_stop_forward">%1$s ပေါ့တ် %2$d ၏ လက်ဆင့်ကမ်းခြင်းကို ရပ်မလား။</string>
     <string name="msg_metered">ကွန်ယက်မှာ ကန့်သတ်ထားသော ကွန်ယက်ဖြစ်သည်</string>
@@ -379,8 +379,8 @@
     <string name="title_screen_other">မျက်နှာပြင်လင်းနေစဉ် မိုဘိုင်းဒေတာ ခွင့်ပြုပါ</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">Roaming ဖြစ်နေစဉ် ပိတ်ဆို့ပါ</string>
-    <string name="label_ttl">TTL - %s စက္ကန့်</string>
-    <string name="label_uid">UID - %s</string>
+    <string name="label_ttl">TTL - %1$s စက္ကန့်</string>
+    <string name="label_uid">UID - %1$s</string>
     <string name="title_lockdown">Lockdown စနစ်တွင် ခွင့်ပြုပါ</string>
     <string name="title_related">ဆက်စပ်မှုများကို စစ်ထုတ်ပါ</string>
     <string name="title_access">အသုံးပြုရန် ကြိုးပမ်းမှုများ</string>

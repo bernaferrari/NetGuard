@@ -104,7 +104,7 @@
     <string name="action_clear_search">נקה חיפוש</string>
     <string name="search_settings">חפש בהגדרות</string>
     <string name="content_desc_security_status">סטטוס אבטחה של חומת אש</string>
-    <string name="content_desc_app_icon">אייקון אפליקציה עבור %s</string>
+    <string name="content_desc_app_icon">אייקון אפליקציה עבור %1$s</string>
     <string name="content_desc_show_info">הצג מידע אודות %1$s</string>
 
     <!-- Dashboard stats -->
@@ -210,29 +210,29 @@
     <string name="setting_reset_usage">אפס שימוש ברשת</string>
     <string name="setting_show_resolved">הצג שמות דומיין פתורים</string>
     <string name="setting_block_domains">חסום שמות דומיין</string>
-    <string name="setting_rcode">קוד תגובת DNS: %s</string>
+    <string name="setting_rcode">קוד תגובת DNS: %1$s</string>
     <string name="setting_forwarding">הפניית פורטים</string>
-    <string name="setting_vpn4">VPN IPv4: %s</string>
-    <string name="setting_vpn6">VPN IPv6: %s</string>
-    <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_dns2">DNS משני: %s</string>
-    <string name="setting_validate">אמת ב: %s</string>
-    <string name="setting_ttl">TTL DNS מינימלי: %s שניות</string>
+    <string name="setting_vpn4">VPN IPv4: %1$s</string>
+    <string name="setting_vpn6">VPN IPv6: %1$s</string>
+    <string name="setting_dns">VPN DNS: %1$s</string>
+    <string name="setting_dns2">DNS משני: %1$s</string>
+    <string name="setting_validate">אמת ב: %1$s</string>
+    <string name="setting_ttl">TTL DNS מינימלי: %1$s שניות</string>
     <string name="setting_socks5_enabled">השתמש בפרוקסי SOCKS5</string>
-    <string name="setting_socks5_addr">כתובת SOCKS5: %s</string>
-    <string name="setting_socks5_port">פורט SOCKS5: %s</string>
-    <string name="setting_socks5_username">שם משתמש SOCKS5: %s</string>
-    <string name="setting_socks5_password">סיסמת SOCKS5: %s</string>
-    <string name="setting_pcap_record_size">גודל רשומת PCAP: %s B</string>
-    <string name="setting_pcap_file_size">גודל קובץ PCAP מקסימלי: %s MB</string>
+    <string name="setting_socks5_addr">כתובת SOCKS5: %1$s</string>
+    <string name="setting_socks5_port">פורט SOCKS5: %1$s</string>
+    <string name="setting_socks5_username">שם משתמש SOCKS5: %1$s</string>
+    <string name="setting_socks5_password">סיסמת SOCKS5: %1$s</string>
+    <string name="setting_pcap_record_size">גודל רשומת PCAP: %1$s B</string>
+    <string name="setting_pcap_file_size">גודל קובץ PCAP מקסימלי: %1$s MB</string>
     <string name="setting_pcap">הקלט תעבורת רשת (PCAP)</string>
-    <string name="setting_watchdog">Watchdog: כל %s דקות</string>
+    <string name="setting_watchdog">Watchdog: כל %1$s דקות</string>
 
     <string name="setting_stats_category">התראת מהירות</string>
     <string name="setting_stats">הצג התראת מהירות</string>
     <string name="setting_stats_top">הצג אפליקציות מובילות</string>
-    <string name="setting_stats_frequency">מרווח דגימה: %s מילי-שניות</string>
-    <string name="setting_stats_samples">מספר דגימות: %s</string>
+    <string name="setting_stats_frequency">מרווח דגימה: %1$s מילי-שניות</string>
+    <string name="setting_stats_samples">מספר דגימות: %1$s</string>
 
     <string name="setting_backup">גיבוי</string>
     <string name="setting_export">ייצא הגדרות</string>
@@ -313,7 +313,7 @@
 מסיבה זו, אנא אשר חיבור VPN בדיאלוג הבא.
 תעבורת האינטרנט שלך אינה נשלחת לשרת VPN מרוחק.</string>
     <string name="msg_autostart">QuietGuard לא הצליח להתחיל אוטומטית. זה כנראה בגלל באג בגרסת האנדרואיד שלך.</string>
-    <string name="msg_error">אירעה שגיאה בלתי צפויה: '%s'</string>
+    <string name="msg_error">אירעה שגיאה בלתי צפויה: '%1$s'</string>
     <string name="msg_start_failed">אנדרואיד סירב להפעיל את שירות ה-VPN כרגע. זה כנראה בגלל באג בגרסת האנדרואיד שלך.</string>
     <string name="msg_try">נסה את QuietGuard</string>
     <string name="msg_terms">על ידי תרומה אתה מסכים ל <a href="http://www.netguard.me/#terms">תנאים והגבלות</a></string>
@@ -324,7 +324,7 @@
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; ק\"ב</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; מ\"ב</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; ג\"ב</string>
-    <string name="msg_count">%dx</string>
+    <string name="msg_count">%1$dx</string>
     <string name="msg_doze">לקבלת תוצאות עקביות, יש להשבית את אופטימיזציית הסוללה של אנדרואיד עבור QuietGuard.
 \n\nבדיאלוג הבא, בחר \"כל האפליקציות\" למעלה, הקש על QuietGuard ברשימה ובחר ואשר \"אל תבצע אופטימיזציה\".</string>
     <string name="msg_datasaving">לקבלת תוצאות עקביות, יש להשבית את אפשרויות חיסכון בנתונים של אנדרואיד עבור QuietGuard
@@ -334,10 +334,10 @@
     <string name="msg_log_disabled">תיעוד תעבורה מושבת, השתמש במתג למעלה כדי להפעיל תיעוד. תיעוד תעבורה עשוי לגרום לשימוש נוסף בסוללה.</string>
     <string name="msg_clear_rules">זה יאפס את הכללים והתנאים לערכי ברירת המחדל שלהם</string>
     <string name="msg_reset_access">זה ימחק שורות יומן ניסיונות גישה ללא כללי אישור/חסימה</string>
-    <string name="msg_import_last">ייבוא אחרון: %s</string>
+    <string name="msg_import_last">ייבוא אחרון: %1$s</string>
     <string name="msg_downloading">מוריד\n%1s</string>
     <string name="msg_downloaded">קובץ hosts הורד</string>
-    <string name="msg_download_last">הורדה אחרונה: %s</string>
+    <string name="msg_download_last">הורדה אחרונה: %1$s</string>
     <string name="msg_start_forward">להתחיל הפניה מ-%1$s פורט %2$d ל-%3$s:%4$d של '%5$s'?</string>
     <string name="msg_stop_forward">להפסיק הפניה של %1$s פורט %2$d?</string>
     <string name="msg_metered">הרשת מדודה</string>
@@ -380,8 +380,8 @@
     <string name="title_screen_other">אפשר נתונים ניידים כשהמסך דולק</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">חסום בזמן נדידה</string>
-    <string name="label_ttl">TTL: %s שניות</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s שניות</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">אפשר במצב נעילה</string>
     <string name="title_related">מסנן קשור</string>
     <string name="title_access">ניסיונות גישה</string>

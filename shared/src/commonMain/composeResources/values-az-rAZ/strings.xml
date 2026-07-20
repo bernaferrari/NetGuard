@@ -104,7 +104,7 @@
     <string name="action_clear_search">Axtarışı təmizlə</string>
     <string name="search_settings">Tənzimləmələrdə axtar</string>
     <string name="content_desc_security_status">Firewall təhlükəsizlik statusu</string>
-    <string name="content_desc_app_icon">%s üçün tətbiq nişanı</string>
+    <string name="content_desc_app_icon">%1$s üçün tətbiq nişanı</string>
     <string name="content_desc_show_info">%1$s haqqında məlumat göstər</string>
 
     <!-- Dashboard stats -->
@@ -210,29 +210,29 @@
     <string name="setting_reset_usage">Şəbəkə istifadəsini sıfırla</string>
     <string name="setting_show_resolved">Həll edilmiş domen adlarını göstər</string>
     <string name="setting_block_domains">Domen adlarını əngəllə</string>
-    <string name="setting_rcode">DNS cavab kodu: %s</string>
+    <string name="setting_rcode">DNS cavab kodu: %1$s</string>
     <string name="setting_forwarding">Port yönləndirmə</string>
-    <string name="setting_vpn4">VPN IPv4: %s</string>
-    <string name="setting_vpn6">VPN IPv6: %s</string>
-    <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_dns2">İkinci DNS: %s</string>
-    <string name="setting_validate">Təsdiqləmə ünvanı: %s</string>
-    <string name="setting_ttl">Minimum DNS TTL: %s s</string>
+    <string name="setting_vpn4">VPN IPv4: %1$s</string>
+    <string name="setting_vpn6">VPN IPv6: %1$s</string>
+    <string name="setting_dns">VPN DNS: %1$s</string>
+    <string name="setting_dns2">İkinci DNS: %1$s</string>
+    <string name="setting_validate">Təsdiqləmə ünvanı: %1$s</string>
+    <string name="setting_ttl">Minimum DNS TTL: %1$s s</string>
     <string name="setting_socks5_enabled">SOCKS5 proksi istifadə et</string>
-    <string name="setting_socks5_addr">SOCKS5 ünvanı: %s</string>
-    <string name="setting_socks5_port">SOCKS5 portu: %s</string>
-    <string name="setting_socks5_username">SOCKS5 istifadəçi adı: %s</string>
-    <string name="setting_socks5_password">SOCKS5 parolu: %s</string>
-    <string name="setting_pcap_record_size">PCAP qeyd həcmi: %s B</string>
-    <string name="setting_pcap_file_size">PCAP maks. fayl həcmi: %s MB</string>
+    <string name="setting_socks5_addr">SOCKS5 ünvanı: %1$s</string>
+    <string name="setting_socks5_port">SOCKS5 portu: %1$s</string>
+    <string name="setting_socks5_username">SOCKS5 istifadəçi adı: %1$s</string>
+    <string name="setting_socks5_password">SOCKS5 parolu: %1$s</string>
+    <string name="setting_pcap_record_size">PCAP qeyd həcmi: %1$s B</string>
+    <string name="setting_pcap_file_size">PCAP maks. fayl həcmi: %1$s MB</string>
     <string name="setting_pcap">Şəbəkə trafikini qeyd et (PCAP)</string>
-    <string name="setting_watchdog">Gözətçi: hər %s dəqiqə</string>
+    <string name="setting_watchdog">Gözətçi: hər %1$s dəqiqə</string>
 
     <string name="setting_stats_category">Sürət bildirişi</string>
     <string name="setting_stats">Sürət bildirişini göstər</string>
     <string name="setting_stats_top">Başlıca tətbiqləri göstər</string>
-    <string name="setting_stats_frequency">Nümunə aralığı: %s ms</string>
-    <string name="setting_stats_samples">Nümunə sayı: %s</string>
+    <string name="setting_stats_frequency">Nümunə aralığı: %1$s ms</string>
+    <string name="setting_stats_samples">Nümunə sayı: %1$s</string>
 
     <string name="setting_backup">Nüsxələmə</string>
     <string name="setting_export">Tənzm.ləri xaricə köçür</string>
@@ -313,7 +313,7 @@
 Buna görə də, zəhmət olmasa növbəti dialoqda VPN bağlantısına icazə verin.
 İnternet trafikiniz heç bir VPN serverinə göndərilmir.</string>
     <string name="msg_autostart">QuietGuard avtomatik olaraq başladıla bilmədi. Yəqin ki, Android versiyanızda bir xəta buna səbəb olur.</string>
-    <string name="msg_error">Gözlənilməz bir xəta baş verdi: '%s'</string>
+    <string name="msg_error">Gözlənilməz bir xəta baş verdi: '%1$s'</string>
     <string name="msg_start_failed">Android, hal-hazırda VPN xidmətini başlatmağı rədd etdi. Yəqin ki, Android versiyanızda bir xəta buna səbəb olur.</string>
     <string name="msg_try">QuietGuard-ı sınayın</string>
     <string name="msg_terms">İanə verərək <a href="http://www.netguard.me/#terms">şərtlər və qaydalarla</a> razılaşırsınız</string>
@@ -324,7 +324,7 @@ Buna görə də, zəhmət olmasa növbəti dialoqda VPN bağlantısına icazə v
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
-    <string name="msg_count">%dx</string>
+    <string name="msg_count">%1$dx</string>
     <string name="msg_doze">Qərarlı nəticələr əldə etmək üçün, QuietGuard üçün Android batareya optimallaşdırmaları ləğv edilməlidir.
 \n\nNövbəti dialoqda, yuxarıdan \"Bütün tətbiqlər\"i seçin, QuietGuard-ı seçin və \"Optimallaşdırma\"nı təsdiqləyin.</string>
     <string name="msg_datasaving">Qərarlı nəticələr əldə etmək üçün, QuietGuard üçün Android internetə qənaət seçimi ləğv edilməlidir.
@@ -334,10 +334,10 @@ Buna görə də, zəhmət olmasa növbəti dialoqda VPN bağlantısına icazə v
     <string name="msg_log_disabled">Trafikin jurnala yazılması ləğv edildi, fəallaşdırmaq üçün yuxarıdakı açarı istifadə edin. Trafikin jurnala yazılmasını fəallaşdırmaq batereya istifadəsini artıra bilər.</string>
     <string name="msg_clear_rules">Bu, qaydaların və şərtlərin dəyərlərini ilkin vəziyyətə qaytarar</string>
     <string name="msg_reset_access">Bu, icazə verilən/əngəllənən qaydalar istisna olmaqla müraciət cəhdi qeyd sətirlərini siləcək</string>
-    <string name="msg_import_last">Son daxilə köçürmə: %s</string>
+    <string name="msg_import_last">Son daxilə köçürmə: %1$s</string>
     <string name="msg_downloading">Endirilir\n%1s</string>
     <string name="msg_downloaded">Hosts fayl endirildi</string>
-    <string name="msg_download_last">Son endirmə: %s</string>
+    <string name="msg_download_last">Son endirmə: %1$s</string>
     <string name="msg_start_forward">%1$s port %2$d-dən %3$s:%4$d ünvanına '%5$s' üçün yönləndirmə başladılsın?</string>
     <string name="msg_stop_forward">%1$s port %2$d yönləndirilməsi dayandırılsın?</string>
     <string name="msg_metered">Şəbəkə ölçüldü</string>
@@ -380,8 +380,8 @@ Buna görə də, zəhmət olmasa növbəti dialoqda VPN bağlantısına icazə v
     <string name="title_screen_other">Mobil internetə ekran açıq olanda icazə ver</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">Rouminqdə olarkən əngəllə</string>
-    <string name="label_ttl">TTL: %s s</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s s</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">Kilid rejimində icazə ver</string>
     <string name="title_related">Filtrlə əlaqəli</string>
     <string name="title_access">Müraciət cəhdləri</string>

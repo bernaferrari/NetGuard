@@ -104,7 +104,7 @@
     <string name="action_clear_search">Počisti iskanje</string>
     <string name="search_settings">Nastavitve iskanja</string>
     <string name="content_desc_security_status">Varnostno stanje požarnega zidu</string>
-    <string name="content_desc_app_icon">Ikona aplikacije za %s</string>
+    <string name="content_desc_app_icon">Ikona aplikacije za %1$s</string>
     <string name="content_desc_show_info">Prikaži informacije o %1$s</string>
 
     <!-- Dashboard stats -->
@@ -215,29 +215,29 @@
     <string name="setting_reset_usage">Ponastavitev omrežne porabe</string>
     <string name="setting_show_resolved">Pokaži rešitev domenskih imen</string>
     <string name="setting_block_domains">Blokiraj lokalne domene</string>
-    <string name="setting_rcode">DNS odzivna koda: %s</string>
+    <string name="setting_rcode">DNS odzivna koda: %1$s</string>
     <string name="setting_forwarding">Posredovanje vrat</string>
-    <string name="setting_vpn4">VPN IPv4: %s</string>
-    <string name="setting_vpn6">VPN IPv6: %s</string>
-    <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_dns2">Sekundarni DNS: %s</string>
-    <string name="setting_validate">Preveri pri: %s</string>
-    <string name="setting_ttl">Minimalen DNS TTL: %s s</string>
+    <string name="setting_vpn4">VPN IPv4: %1$s</string>
+    <string name="setting_vpn6">VPN IPv6: %1$s</string>
+    <string name="setting_dns">VPN DNS: %1$s</string>
+    <string name="setting_dns2">Sekundarni DNS: %1$s</string>
+    <string name="setting_validate">Preveri pri: %1$s</string>
+    <string name="setting_ttl">Minimalen DNS TTL: %1$s s</string>
     <string name="setting_socks5_enabled">Uporabi SOCKS5 proxy</string>
-    <string name="setting_socks5_addr">SOCKS5 naslov: %s</string>
-    <string name="setting_socks5_port">SOCKS5 vrata: %s</string>
-    <string name="setting_socks5_username">SOCKS5 uporabniško ime: %s</string>
-    <string name="setting_socks5_password">SOCKS5 geslo: %s</string>
-    <string name="setting_pcap_record_size">PCAP zapis velikosti: %s B</string>
-    <string name="setting_pcap_file_size">PCAP največja velikost datoteke: %s MB</string>
+    <string name="setting_socks5_addr">SOCKS5 naslov: %1$s</string>
+    <string name="setting_socks5_port">SOCKS5 vrata: %1$s</string>
+    <string name="setting_socks5_username">SOCKS5 uporabniško ime: %1$s</string>
+    <string name="setting_socks5_password">SOCKS5 geslo: %1$s</string>
+    <string name="setting_pcap_record_size">PCAP zapis velikosti: %1$s B</string>
+    <string name="setting_pcap_file_size">PCAP največja velikost datoteke: %1$s MB</string>
     <string name="setting_pcap">Snemaj omrežni promet (PCAP)</string>
-    <string name="setting_watchdog">Varuh: vsakih %s minut</string>
+    <string name="setting_watchdog">Varuh: vsakih %1$s minut</string>
 
     <string name="setting_stats_category">Hitrost obvestil</string>
     <string name="setting_stats">Pokaži hitrost obvestil</string>
     <string name="setting_stats_top">Pokaži najvišje aplikacije</string>
-    <string name="setting_stats_frequency">Vzorčni interval: %s ms</string>
-    <string name="setting_stats_samples">Število vzorcev: %s</string>
+    <string name="setting_stats_frequency">Vzorčni interval: %1$s ms</string>
+    <string name="setting_stats_samples">Število vzorcev: %1$s</string>
 
     <string name="setting_backup">Varnostna kopija</string>
     <string name="setting_export">Izvoz nastavitev</string>
@@ -316,7 +316,7 @@
     <string name="msg_export_failed">Izvoz ni uspel: %1$s</string>
     <string name="msg_vpn">QuietGuard uporablja lokalni VPN za filtriranje internetnega prometa. Iz tega razloga v naslednjem pogovornem oknu dovolite povezavo VPN. Vaš internetni promet se ne pošilja na oddaljeni strežnik VPN.</string>
     <string name="msg_autostart">QuietGuard se ni mogel samodejno zagnati. To je verjetno posledica hrošča v vaši različici Androida.</string>
-    <string name="msg_error">Prišlo je do nepričakovane napake: '%s'</string>
+    <string name="msg_error">Prišlo je do nepričakovane napake: '%1$s'</string>
     <string name="msg_start_failed">Android trenutno zavrača zagon storitve VPN. To je verjetno posledica hrošča v vaši različici Androida.</string>
     <string name="msg_try">Poskusi QuietGuard</string>
     <string name="msg_terms">Z doniranjem se strinjate s <a href="http://www.netguard.me/#terms">pogoji in določili</a></string>
@@ -327,7 +327,7 @@
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
-    <string name="msg_count">%dx</string>
+    <string name="msg_count">%1$dx</string>
     <string name="msg_doze">Za dosledne rezultate bi morale biti optimizacije baterije Android onemogočene za QuietGuard.\n\nV naslednjem pogovornem oknu na vrhu izberite \"Vse aplikacije\", na seznamu tapnite QuietGuard ter izberite in potrdite \"Ne optimiziraj\".</string>
     <string name="msg_datasaving">Za dosledne rezultate bi morale biti možnosti varčevanja s podatki Android onemogočene za QuietGuard\n\nV naslednjem pogovornem oknu omogočite možnosti \"Podatki v ozadju\" in \"Neomejena uporaba podatkov\"</string>
     <string name="msg_filter">Uporaba filtriranja bo povzročila, da bo Android porabo podatkov in energije pripisal QuietGuardu - Android predvideva, da podatke in energijo uporablja QuietGuard, ne pa izvirne aplikacije</string>
@@ -335,10 +335,10 @@
     <string name="msg_log_disabled">Beleženje prometa je onemogočeno, uporabite stikalo zgoraj, da ga omogočite. Beleženje prometa lahko povzroči dodatno porabo baterije.</string>
     <string name="msg_clear_rules">To bo ponastavilo pravila in pogoje na njihove privzete vrednosti</string>
     <string name="msg_reset_access">To bo izbrisalo vrstice dnevnika poskusov dostopa brez pravil dovolitve/blokiranja</string>
-    <string name="msg_import_last">Zadnji uvoz: %s</string>
+    <string name="msg_import_last">Zadnji uvoz: %1$s</string>
     <string name="msg_downloading">Prenos\n%1s</string>
     <string name="msg_downloaded">Datoteka hosts je prenesena</string>
-    <string name="msg_download_last">Zadnji prenos: %s</string>
+    <string name="msg_download_last">Zadnji prenos: %1$s</string>
     <string name="msg_start_forward">Začni posredovanje iz %1$s vrat %2$d na %3$s:%4$d od '%5$s'?</string>
     <string name="msg_stop_forward">Ustavi posredovanje %1$s vrat %2$d?</string>
     <string name="msg_metered">Omrežje je omejeno</string>
@@ -381,8 +381,8 @@
     <string name="title_screen_other">Dovoli mobilno ko je zaslon vklopljen</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">Blokiraj med gostovanjem</string>
-    <string name="label_ttl">TTL: %s s</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s s</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">Dovoli v zaklenjenem načinu</string>
     <string name="title_related">Filtriraj povezane</string>
     <string name="title_access">Poskusi dostopa</string>

@@ -104,7 +104,7 @@
     <string name="action_clear_search">Tyhjennä haku</string>
     <string name="search_settings">Hae asetuksista</string>
     <string name="content_desc_security_status">Palomuurin suojaustila</string>
-    <string name="content_desc_app_icon">Sovelluksen kuvake: %s</string>
+    <string name="content_desc_app_icon">Sovelluksen kuvake: %1$s</string>
     <string name="content_desc_show_info">Näytä tiedot kohteesta %1$s</string>
 
     <!-- Dashboard stats -->
@@ -210,29 +210,29 @@
     <string name="setting_reset_usage">Nollaa verkon käyttö</string>
     <string name="setting_show_resolved">Näytä selvitetyt verkkotunnukset</string>
     <string name="setting_block_domains">Estä verkkotunnukset</string>
-    <string name="setting_rcode">DNS-vastauskoodi: %s</string>
+    <string name="setting_rcode">DNS-vastauskoodi: %1$s</string>
     <string name="setting_forwarding">Portin uudelleenohjaus</string>
-    <string name="setting_vpn4">VPN IPv4: %s</string>
-    <string name="setting_vpn6">VPN IPv6: %s</string>
-    <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_dns2">Toissijainen DNS: %s</string>
-    <string name="setting_validate">Vahvista osoitteessa: %s</string>
-    <string name="setting_ttl">DNS TTL:n vähimmäisarvo: %s s</string>
+    <string name="setting_vpn4">VPN IPv4: %1$s</string>
+    <string name="setting_vpn6">VPN IPv6: %1$s</string>
+    <string name="setting_dns">VPN DNS: %1$s</string>
+    <string name="setting_dns2">Toissijainen DNS: %1$s</string>
+    <string name="setting_validate">Vahvista osoitteessa: %1$s</string>
+    <string name="setting_ttl">DNS TTL:n vähimmäisarvo: %1$s s</string>
     <string name="setting_socks5_enabled">Käytä SOCKS5-välityspalvelinta</string>
-    <string name="setting_socks5_addr">SOCKS5-osoite: %s</string>
-    <string name="setting_socks5_port">SOCKS5-portti: %s</string>
-    <string name="setting_socks5_username">SOCKS5-käyttäjätunnus: %s</string>
-    <string name="setting_socks5_password">SOCKS5-salasana: %s</string>
-    <string name="setting_pcap_record_size">PCAP-tallenteen koko: %s B</string>
-    <string name="setting_pcap_file_size">PCAP:n suurin tiedostokoko: %s MB</string>
+    <string name="setting_socks5_addr">SOCKS5-osoite: %1$s</string>
+    <string name="setting_socks5_port">SOCKS5-portti: %1$s</string>
+    <string name="setting_socks5_username">SOCKS5-käyttäjätunnus: %1$s</string>
+    <string name="setting_socks5_password">SOCKS5-salasana: %1$s</string>
+    <string name="setting_pcap_record_size">PCAP-tallenteen koko: %1$s B</string>
+    <string name="setting_pcap_file_size">PCAP:n suurin tiedostokoko: %1$s MB</string>
     <string name="setting_pcap">Tallenna verkkoliikenne (PCAP)</string>
-    <string name="setting_watchdog">Watchdog: %s minuutin välein</string>
+    <string name="setting_watchdog">Watchdog: %1$s minuutin välein</string>
 
     <string name="setting_stats_category">Nopeusilmoitus</string>
     <string name="setting_stats">Näytä nopeusilmoitus</string>
     <string name="setting_stats_top">Näytä suosituimmat sovellukset</string>
-    <string name="setting_stats_frequency">Näytteenottoväli: %s ms</string>
-    <string name="setting_stats_samples">Näytteiden määrä: %s</string>
+    <string name="setting_stats_frequency">Näytteenottoväli: %1$s ms</string>
+    <string name="setting_stats_samples">Näytteiden määrä: %1$s</string>
 
     <string name="setting_backup">Varmuuskopio</string>
     <string name="setting_export">Vie asetukset</string>
@@ -313,7 +313,7 @@
 Tästä syystä salli VPN-yhteys seuraavassa ikkunassa.
 Internet-liikennettäsi ei lähetetä ulkoiselle VPN-palvelimelle.</string>
     <string name="msg_autostart">QuietGuard ei voinut käynnistyä automaattisesti. Tämä johtuu todennäköisesti Android-version virheestä.</string>
-    <string name="msg_error">Tapahtui odottamaton virhe: '%s'</string>
+    <string name="msg_error">Tapahtui odottamaton virhe: '%1$s'</string>
     <string name="msg_start_failed">Android kieltäytyi käynnistämästä VPN-palvelua juuri nyt. Tämä johtuu todennäköisesti Android-version virheestä.</string>
     <string name="msg_try">Kokeile QuietGuardia</string>
     <string name="msg_terms">Lahjoittamalla hyväksyt <a href="http://www.netguard.me/#terms">käyttöehdot</a></string>
@@ -324,7 +324,7 @@ Internet-liikennettäsi ei lähetetä ulkoiselle VPN-palvelimelle.</string>
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
-    <string name="msg_count">%dx</string>
+    <string name="msg_count">%1$dx</string>
     <string name="msg_doze">Luotettavan toiminnan varmistamiseksi Androidin akun optimointi tulee poistaa käytöstä QuietGuardin osalta.
 \n\nValitse seuraavassa ikkunassa ylhäältä \"Kaikki sovellukset\", etsi QuietGuard ja valitse \"Älä optimoi\".</string>
     <string name="msg_datasaving">Luotettavan toiminnan varmistamiseksi Androidin datansäästöasetukset tulee poistaa käytöstä QuietGuardin osalta.
@@ -334,10 +334,10 @@ Internet-liikennettäsi ei lähetetä ulkoiselle VPN-palvelimelle.</string>
     <string name="msg_log_disabled">Liikenteen lokitus on pois käytöstä. Ota se käyttöön yllä olevasta kytkimestä. Lokitus saattaa kuluttaa akkua.</string>
     <string name="msg_clear_rules">Tämä nollaa säännöt ja ehdot oletusarvoihin</string>
     <string name="msg_reset_access">Tämä poistaa yhteysyritysten lokitiedot ilman salli/estä-sääntöjä</string>
-    <string name="msg_import_last">Viimeisin tuonti: %s</string>
+    <string name="msg_import_last">Viimeisin tuonti: %1$s</string>
     <string name="msg_downloading">Ladataan\n%1s</string>
     <string name="msg_downloaded">Hosts-tiedosto ladattu</string>
-    <string name="msg_download_last">Viimeisin lataus: %s</string>
+    <string name="msg_download_last">Viimeisin lataus: %1$s</string>
     <string name="msg_start_forward">Aloitetaanko portin %1$s %2$d uudelleenohjaus kohteeseen %3$s:%4$d sovellukselle '%5$s'?</string>
     <string name="msg_stop_forward">Lopetetaanko portin %1$s %2$d uudelleenohjaus?</string>
     <string name="msg_metered">Verkko on rajoitettu</string>
@@ -380,8 +380,8 @@ Internet-liikennettäsi ei lähetetä ulkoiselle VPN-palvelimelle.</string>
     <string name="title_screen_other">Salli mobiili näytön ollessa päällä</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">Estä verkkovierailun aikana</string>
-    <string name="label_ttl">TTL: %s s</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s s</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">Salli sulkutilassa</string>
     <string name="title_related">Suodata liittyvät</string>
     <string name="title_access">Pääsy-yritykset</string>

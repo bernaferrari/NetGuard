@@ -104,7 +104,7 @@
     <string name="action_clear_search">清除搜索</string>
     <string name="search_settings">搜索设置</string>
     <string name="content_desc_security_status">防火墙安全状态</string>
-    <string name="content_desc_app_icon">%s 的应用图标</string>
+    <string name="content_desc_app_icon">%1$s 的应用图标</string>
     <string name="content_desc_show_info">显示关于 %1$s 的信息</string>
 
     <!-- Dashboard stats -->
@@ -210,29 +210,29 @@
     <string name="setting_reset_usage">重置网络用量</string>
     <string name="setting_show_resolved">显示已解析的域名</string>
     <string name="setting_block_domains">拦截域名</string>
-    <string name="setting_rcode">DNS 响应代码：%s</string>
+    <string name="setting_rcode">DNS 响应代码：%1$s</string>
     <string name="setting_forwarding">端口转发</string>
-    <string name="setting_vpn4">VPN IPv4：%s</string>
-    <string name="setting_vpn6">VPN IPv6：%s</string>
-    <string name="setting_dns">VPN DNS：%s</string>
-    <string name="setting_dns2">辅助 DNS：%s</string>
-    <string name="setting_validate">验证地址：%s</string>
-    <string name="setting_ttl">最小 DNS TTL：%s 秒</string>
+    <string name="setting_vpn4">VPN IPv4：%1$s</string>
+    <string name="setting_vpn6">VPN IPv6：%1$s</string>
+    <string name="setting_dns">VPN DNS：%1$s</string>
+    <string name="setting_dns2">辅助 DNS：%1$s</string>
+    <string name="setting_validate">验证地址：%1$s</string>
+    <string name="setting_ttl">最小 DNS TTL：%1$s 秒</string>
     <string name="setting_socks5_enabled">使用 SOCKS5 代理</string>
-    <string name="setting_socks5_addr">SOCKS5 地址：%s</string>
-    <string name="setting_socks5_port">SOCKS5 端口：%s</string>
-    <string name="setting_socks5_username">SOCKS5 用户名：%s</string>
-    <string name="setting_socks5_password">SOCKS5 密码：%s</string>
-    <string name="setting_pcap_record_size">PCAP 记录大小：%s B</string>
-    <string name="setting_pcap_file_size">PCAP 最大文件大小：%s MB</string>
+    <string name="setting_socks5_addr">SOCKS5 地址：%1$s</string>
+    <string name="setting_socks5_port">SOCKS5 端口：%1$s</string>
+    <string name="setting_socks5_username">SOCKS5 用户名：%1$s</string>
+    <string name="setting_socks5_password">SOCKS5 密码：%1$s</string>
+    <string name="setting_pcap_record_size">PCAP 记录大小：%1$s B</string>
+    <string name="setting_pcap_file_size">PCAP 最大文件大小：%1$s MB</string>
     <string name="setting_pcap">记录网络流量（PCAP）</string>
-    <string name="setting_watchdog">看门狗：每 %s 分钟</string>
+    <string name="setting_watchdog">看门狗：每 %1$s 分钟</string>
 
     <string name="setting_stats_category">网速通知</string>
     <string name="setting_stats">显示网速通知</string>
     <string name="setting_stats_top">显示流量最大的应用</string>
-    <string name="setting_stats_frequency">采样间隔：%s ms</string>
-    <string name="setting_stats_samples">采样数量：%s</string>
+    <string name="setting_stats_frequency">采样间隔：%1$s ms</string>
+    <string name="setting_stats_samples">采样数量：%1$s</string>
 
     <string name="setting_backup">备份</string>
     <string name="setting_export">导出设置</string>
@@ -313,7 +313,7 @@
 因此，请在接下来的对话框中允许 VPN 连接。
 您的流量不会被发送到远程 VPN 服务器。</string>
     <string name="msg_autostart">QuietGuard 无法自动启动。这很可能是您的 Android 版本中的一个 bug。</string>
-    <string name="msg_error">发生了意外错误：“%s”</string>
+    <string name="msg_error">发生了意外错误：“%1$s”</string>
     <string name="msg_start_failed">Android 此时拒绝启动 VPN 服务。这很可能是您的 Android 版本中的一个 bug。</string>
     <string name="msg_try">试用 QuietGuard</string>
     <string name="msg_terms">通过捐赠，您同意 <a href="http://www.netguard.me/#terms">条款和条件</a></string>
@@ -324,7 +324,7 @@
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
-    <string name="msg_count">%dx</string>
+    <string name="msg_count">%1$dx</string>
     <string name="msg_doze">为了获得一致的结果，应为 QuietGuard 禁用 Android 电池优化。
 \n\n在接下来的对话框中，在顶部选择 “所有应用”，在列表中点击 QuietGuard 并选择并确认 “不优化”。</string>
     <string name="msg_datasaving">为了获得一致的结果，应为 QuietGuard 禁用 Android 流量节省选项。
@@ -334,10 +334,10 @@
     <string name="msg_log_disabled">流量日志已禁用，请使用上方开关启用。日志记录可能会导致额外的电池消耗。</string>
     <string name="msg_clear_rules">这将把规则和条件重置为默认值</string>
     <string name="msg_reset_access">这将删除无 允许/拦截 规则的访问尝试日志行</string>
-    <string name="msg_import_last">上次导入：%s</string>
+    <string name="msg_import_last">上次导入：%1$s</string>
     <string name="msg_downloading">正在下载\n%1s</string>
     <string name="msg_downloaded">Hosts 文件已下载</string>
-    <string name="msg_download_last">上次下载：%s</string>
+    <string name="msg_download_last">上次下载：%1$s</string>
     <string name="msg_start_forward">开始从 %1$s 端口 %2$d 转发到 “%5$s” 的 %3$s:%4$d 吗？</string>
     <string name="msg_stop_forward">停止从 %1$s 端口 %2$d 的转发吗？</string>
     <string name="msg_metered">网络按流量计费</string>
@@ -380,8 +380,8 @@
     <string name="title_screen_other">屏幕开启时允许使用移动网络</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">漫游时拦截</string>
-    <string name="label_ttl">TTL：%s 秒</string>
-    <string name="label_uid">UID：%s</string>
+    <string name="label_ttl">TTL：%1$s 秒</string>
+    <string name="label_uid">UID：%1$s</string>
     <string name="title_lockdown">锁定模式下允许</string>
     <string name="title_related">过滤相关</string>
     <string name="title_access">访问尝试</string>

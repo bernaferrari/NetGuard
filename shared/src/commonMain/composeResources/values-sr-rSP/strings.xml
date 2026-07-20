@@ -104,7 +104,7 @@
     <string name="action_clear_search">Обриши претрагу</string>
     <string name="search_settings">Претражи поставке</string>
     <string name="content_desc_security_status">Безбедносни статус заштитног зида</string>
-    <string name="content_desc_app_icon">Иконица апликације за %s</string>
+    <string name="content_desc_app_icon">Иконица апликације за %1$s</string>
     <string name="content_desc_show_info">Прикажи информације о %1$s</string>
 
     <!-- Dashboard stats -->
@@ -210,29 +210,29 @@
     <string name="setting_reset_usage">Ресетуј коришћење мреже</string>
     <string name="setting_show_resolved">Прикажи разрешене називе домена</string>
     <string name="setting_block_domains">Блокирај домене</string>
-    <string name="setting_rcode">ДНС код одговора: %s</string>
+    <string name="setting_rcode">ДНС код одговора: %1$s</string>
     <string name="setting_forwarding">Прослеђивање порта</string>
-    <string name="setting_vpn4">ВПН ИПв4: %s</string>
-    <string name="setting_vpn6">ВПН ИПв6: %s</string>
-    <string name="setting_dns">ВПН ДНС: %s</string>
-    <string name="setting_dns2">Секундарни ДНС: %s</string>
-    <string name="setting_validate">Провери на: %s</string>
-    <string name="setting_ttl">Време истека ДНС упита: %s сек.</string>
+    <string name="setting_vpn4">ВПН ИПв4: %1$s</string>
+    <string name="setting_vpn6">ВПН ИПв6: %1$s</string>
+    <string name="setting_dns">ВПН ДНС: %1$s</string>
+    <string name="setting_dns2">Секундарни ДНС: %1$s</string>
+    <string name="setting_validate">Провери на: %1$s</string>
+    <string name="setting_ttl">Време истека ДНС упита: %1$s сек.</string>
     <string name="setting_socks5_enabled">Користи СОКС5 прокси</string>
-    <string name="setting_socks5_addr">СОКС5 адреса: %s</string>
-    <string name="setting_socks5_port">СОКС5 порт: %s</string>
-    <string name="setting_socks5_username">СОКС5 корисничко име: %s</string>
-    <string name="setting_socks5_password">СОКС5 лозинка: %s</string>
-    <string name="setting_pcap_record_size">„PCAP“ величина записа: %s B</string>
-    <string name="setting_pcap_file_size">„PCAP“ макс. вел. фајла: %s MB</string>
+    <string name="setting_socks5_addr">СОКС5 адреса: %1$s</string>
+    <string name="setting_socks5_port">СОКС5 порт: %1$s</string>
+    <string name="setting_socks5_username">СОКС5 корисничко име: %1$s</string>
+    <string name="setting_socks5_password">СОКС5 лозинка: %1$s</string>
+    <string name="setting_pcap_record_size">„PCAP“ величина записа: %1$s B</string>
+    <string name="setting_pcap_file_size">„PCAP“ макс. вел. фајла: %1$s MB</string>
     <string name="setting_pcap">Сними мрежни саобраћај (PCAP)</string>
-    <string name="setting_watchdog">Вочдог: сваких %s мин.</string>
+    <string name="setting_watchdog">Вочдог: сваких %1$s мин.</string>
 
     <string name="setting_stats_category">Обавештење о брзини</string>
     <string name="setting_stats">Приказ обавештења о брзини</string>
     <string name="setting_stats_top">Прикажи најкоришћеније</string>
-    <string name="setting_stats_frequency">Интервал узорковања: %s ms</string>
-    <string name="setting_stats_samples">Број узорака: %s</string>
+    <string name="setting_stats_frequency">Интервал узорковања: %1$s ms</string>
+    <string name="setting_stats_samples">Број узорака: %1$s</string>
 
     <string name="setting_backup">Резервна копија</string>
     <string name="setting_export">Извези поставке</string>
@@ -313,7 +313,7 @@
 Зато дозволите ВПН везе у следећем дијалогу.
 Ваш интернет саобраћај се не шаље на удаљени ВПН сервер.</string>
     <string name="msg_autostart">Нетгард се није покренуо аутоматски. Могуће је да је то услед грешке у вашој верзији Андроида.</string>
-    <string name="msg_error">Дошло је до неочекиване грешке: %s</string>
+    <string name="msg_error">Дошло је до неочекиване грешке: %1$s</string>
     <string name="msg_start_failed">Андроид тренутно одбија да покрене ВПН сервис. Могуће је да је због грешке у вашој верзији Андроида.</string>
     <string name="msg_try">Пробајте Нетгард</string>
     <string name="msg_terms">Донирајући, сагласни сте са <a href="http://www.netguard.me/#terms">одредбама и условима</a></string>
@@ -324,7 +324,7 @@
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
-    <string name="msg_count">%dx</string>
+    <string name="msg_count">%1$dx</string>
     <string name="msg_doze">Ради добрих резултата, Нетгард треба искључити из Андроидове оптимизације батерије.
 \n\nУ следећем дијалогу изаберите „Све апликације“, тапните на Нетгард у листи и изаберите „Не оптимизуј“.</string>
     <string name="msg_datasaving">Ради добрих резултата, Нетгард треба искључити из Андроидове опције уштеде података
@@ -334,10 +334,10 @@
     <string name="msg_log_disabled">Бележење саобраћаја је искључено. Прекидачем изнад, укључите бележење. Може повећати потрошњу батерије.</string>
     <string name="msg_clear_rules">Ово ће ресетовати правила и услове на подразумеване вредности</string>
     <string name="msg_reset_access">Ово ће обрисати линије без дозволи/блокирај правила из дневника покушаја приступа</string>
-    <string name="msg_import_last">Последњи увоз: %s</string>
+    <string name="msg_import_last">Последњи увоз: %1$s</string>
     <string name="msg_downloading">Преузимам\n%1s</string>
     <string name="msg_downloaded">'hosts' фајл преузет</string>
-    <string name="msg_download_last">Последње преузимање: %s</string>
+    <string name="msg_download_last">Последње преузимање: %1$s</string>
     <string name="msg_start_forward">Да прослеђујем са %1$s порт %2$d на %3$s:%4$d за „%5$s“?</string>
     <string name="msg_stop_forward">Да зауставим прослеђивање %1$s порт %2$d?</string>
     <string name="msg_metered">Проток се мери</string>
@@ -380,8 +380,8 @@
     <string name="title_screen_other">Дозволи мобилну кад екран ради</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">Блокирај у ромингу</string>
-    <string name="label_ttl">TTL: %s сек.</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s сек.</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">Дозволи и у блокади</string>
     <string name="title_related">Везано за филтер</string>
     <string name="title_access">Покушаји приступа</string>

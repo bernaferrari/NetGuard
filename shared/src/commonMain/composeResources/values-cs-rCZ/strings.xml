@@ -103,7 +103,7 @@
     <string name="action_clear_search">Vymazat hledání</string>
     <string name="search_settings">Hledat v nastavení</string>
     <string name="content_desc_security_status">Stav zabezpečení firewallu</string>
-    <string name="content_desc_app_icon">Ikona aplikace pro %s</string>
+    <string name="content_desc_app_icon">Ikona aplikace pro %1$s</string>
     <string name="content_desc_show_info">Zobrazit informace o %1$s</string>
 
     <!-- Dashboard stats -->
@@ -214,29 +214,29 @@
     <string name="setting_reset_usage">Resetovat využití sítě</string>
     <string name="setting_show_resolved">Zobrazit vyřešené názvy domén</string>
     <string name="setting_block_domains">Blokovat názvy domén</string>
-    <string name="setting_rcode">Kód odpovědi DNS: %s</string>
+    <string name="setting_rcode">Kód odpovědi DNS: %1$s</string>
     <string name="setting_forwarding">Přesměrování portů</string>
-    <string name="setting_vpn4">VPN IPv4: %s</string>
-    <string name="setting_vpn6">VPN IPv6: %s</string>
-    <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_dns2">Sekundární DNS: %s</string>
-    <string name="setting_validate">Ověřit na: %s</string>
-    <string name="setting_ttl">Minimální DNS TTL: %s s</string>
+    <string name="setting_vpn4">VPN IPv4: %1$s</string>
+    <string name="setting_vpn6">VPN IPv6: %1$s</string>
+    <string name="setting_dns">VPN DNS: %1$s</string>
+    <string name="setting_dns2">Sekundární DNS: %1$s</string>
+    <string name="setting_validate">Ověřit na: %1$s</string>
+    <string name="setting_ttl">Minimální DNS TTL: %1$s s</string>
     <string name="setting_socks5_enabled">Použít proxy SOCKS5</string>
-    <string name="setting_socks5_addr">Adresa SOCKS5: %s</string>
-    <string name="setting_socks5_port">Port SOCKS5: %s</string>
-    <string name="setting_socks5_username">Uživatelské jméno SOCKS5: %s</string>
-    <string name="setting_socks5_password">Heslo SOCKS5: %s</string>
-    <string name="setting_pcap_record_size">Velikost záznamu PCAP: %s B</string>
-    <string name="setting_pcap_file_size">Max. velikost souboru PCAP: %s MB</string>
+    <string name="setting_socks5_addr">Adresa SOCKS5: %1$s</string>
+    <string name="setting_socks5_port">Port SOCKS5: %1$s</string>
+    <string name="setting_socks5_username">Uživatelské jméno SOCKS5: %1$s</string>
+    <string name="setting_socks5_password">Heslo SOCKS5: %1$s</string>
+    <string name="setting_pcap_record_size">Velikost záznamu PCAP: %1$s B</string>
+    <string name="setting_pcap_file_size">Max. velikost souboru PCAP: %1$s MB</string>
     <string name="setting_pcap">Zaznamenávat síťový provoz (PCAP)</string>
-    <string name="setting_watchdog">Watchdog: každých %s minut</string>
+    <string name="setting_watchdog">Watchdog: každých %1$s minut</string>
 
     <string name="setting_stats_category">Oznámení o rychlosti</string>
     <string name="setting_stats">Zobrazit oznámení o rychlosti</string>
     <string name="setting_stats_top">Zobrazit nejvytíženější aplikace</string>
-    <string name="setting_stats_frequency">Interval vzorkování: %s ms</string>
-    <string name="setting_stats_samples">Počet vzorků: %s</string>
+    <string name="setting_stats_frequency">Interval vzorkování: %1$s ms</string>
+    <string name="setting_stats_samples">Počet vzorků: %1$s</string>
 
     <string name="setting_backup">Záloha</string>
     <string name="setting_export">Exportovat nastavení</string>
@@ -317,7 +317,7 @@
 Z tohoto důvodu prosím v následujícím dialogu povolte připojení VPN.
 Váš internetový provoz není odesílán na vzdálený server VPN.</string>
     <string name="msg_autostart">QuietGuard se nemohl spustit automaticky. Pravděpodobně je to způsobeno chybou ve vaší verzi Androidu.</string>
-    <string name="msg_error">Došlo k neočekávané chybě: '%s'</string>
+    <string name="msg_error">Došlo k neočekávané chybě: '%1$s'</string>
     <string name="msg_start_failed">Android v tuto chvíli odmítl spustit službu VPN. Pravděpodobně je to způsobeno chybou ve vaší verzi Androidu.</string>
     <string name="msg_try">Vyzkoušet QuietGuard</string>
     <string name="msg_terms">Darováním souhlasíte s <a href="http://www.netguard.me/#terms">obchodními podmínkami</a></string>
@@ -328,7 +328,7 @@ Váš internetový provoz není odesílán na vzdálený server VPN.</string>
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
-    <string name="msg_count">%dx</string>
+    <string name="msg_count">%1$dx</string>
     <string name="msg_doze">Pro konzistentní výsledky by měly být pro QuietGuard vypnuty optimalizace baterie Androidu.
 \n\nV následujícím dialogu vyberte nahoře „Všechny aplikace“, klepněte v seznamu na QuietGuard a vyberte a potvrďte „Neoptimalizovat“.</string>
     <string name="msg_datasaving">Pro konzistentní výsledky by měly být pro QuietGuard vypnuty možnosti úspory dat Androidu.
@@ -338,10 +338,10 @@ Váš internetový provoz není odesílán na vzdálený server VPN.</string>
     <string name="msg_log_disabled">Protokolování provozu je vypnuto, pro zapnutí použijte přepínač výše. Protokolování provozu může zvýšit spotřebu baterie.</string>
     <string name="msg_clear_rules">Tímto se resetují pravidla a podmínky na výchozí hodnoty</string>
     <string name="msg_reset_access">Tímto se smažou řádky protokolu pokusů o přístup bez pravidel pro povolení/blokování</string>
-    <string name="msg_import_last">Poslední import: %s</string>
+    <string name="msg_import_last">Poslední import: %1$s</string>
     <string name="msg_downloading">Stahování\n%1s</string>
     <string name="msg_downloaded">Soubor hosts stažen</string>
-    <string name="msg_download_last">Poslední stažení: %s</string>
+    <string name="msg_download_last">Poslední stažení: %1$s</string>
     <string name="msg_start_forward">Spustit přesměrování z %1$s portu %2$d na %3$s:%4$d aplikace '%5$s'?</string>
     <string name="msg_stop_forward">Zastavit přesměrování %1$s portu %2$d?</string>
     <string name="msg_metered">Síť je měřená</string>
@@ -384,8 +384,8 @@ Váš internetový provoz není odesílán na vzdálený server VPN.</string>
     <string name="title_screen_other">Povolit mobilní síť při zapnuté obrazovce</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">Blokovat při roamingu</string>
-    <string name="label_ttl">TTL: %s s</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s s</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">Povolit v režimu uzamčení</string>
     <string name="title_related">Související s filtry</string>
     <string name="title_access">Pokusy o přístup</string>

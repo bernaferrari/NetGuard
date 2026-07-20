@@ -104,7 +104,7 @@
     <string name="action_clear_search">Vymazať vyhľadávanie</string>
     <string name="search_settings">Nastavenia vyhľadávania</string>
     <string name="content_desc_security_status">Bezpečnostný stav firewallu</string>
-    <string name="content_desc_app_icon">Ikona aplikácie pre %s</string>
+    <string name="content_desc_app_icon">Ikona aplikácie pre %1$s</string>
     <string name="content_desc_show_info">Zobraziť informácie o %1$s</string>
 
     <!-- Dashboard stats -->
@@ -210,29 +210,29 @@
     <string name="setting_reset_usage">Resetovať využitie siete</string>
     <string name="setting_show_resolved">Zobraziť vyriešené názvy domén</string>
     <string name="setting_block_domains">Blokovať názvy domén</string>
-    <string name="setting_rcode">Kód odpovede DNS: %s</string>
+    <string name="setting_rcode">Kód odpovede DNS: %1$s</string>
     <string name="setting_forwarding">Presmerovanie portov</string>
-    <string name="setting_vpn4">VPN IPv4: %s</string>
-    <string name="setting_vpn6">VPN IPv6: %s</string>
-    <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_dns2">Sekundárny DNS: %s</string>
-    <string name="setting_validate">Overiť na: %s</string>
-    <string name="setting_ttl">Minimálne DNS TTL: %s s</string>
+    <string name="setting_vpn4">VPN IPv4: %1$s</string>
+    <string name="setting_vpn6">VPN IPv6: %1$s</string>
+    <string name="setting_dns">VPN DNS: %1$s</string>
+    <string name="setting_dns2">Sekundárny DNS: %1$s</string>
+    <string name="setting_validate">Overiť na: %1$s</string>
+    <string name="setting_ttl">Minimálne DNS TTL: %1$s s</string>
     <string name="setting_socks5_enabled">Použiť proxy SOCKS5</string>
-    <string name="setting_socks5_addr">Adresa SOCKS5: %s</string>
-    <string name="setting_socks5_port">Port SOCKS5: %s</string>
-    <string name="setting_socks5_username">Používateľské meno SOCKS5: %s</string>
-    <string name="setting_socks5_password">Heslo SOCKS5: %s</string>
-    <string name="setting_pcap_record_size">Veľkosť záznamu PCAP: %s B</string>
-    <string name="setting_pcap_file_size">Max. veľkosť súboru PCAP: %s MB</string>
+    <string name="setting_socks5_addr">Adresa SOCKS5: %1$s</string>
+    <string name="setting_socks5_port">Port SOCKS5: %1$s</string>
+    <string name="setting_socks5_username">Používateľské meno SOCKS5: %1$s</string>
+    <string name="setting_socks5_password">Heslo SOCKS5: %1$s</string>
+    <string name="setting_pcap_record_size">Veľkosť záznamu PCAP: %1$s B</string>
+    <string name="setting_pcap_file_size">Max. veľkosť súboru PCAP: %1$s MB</string>
     <string name="setting_pcap">Zaznamenať sieťovú prevádzku (PCAP)</string>
-    <string name="setting_watchdog">Watchdog: každých %s minút</string>
+    <string name="setting_watchdog">Watchdog: každých %1$s minút</string>
 
     <string name="setting_stats_category">Oznámenie o rýchlosti</string>
     <string name="setting_stats">Zobraziť oznámenie o rýchlosti</string>
     <string name="setting_stats_top">Zobraziť top aplikácie</string>
-    <string name="setting_stats_frequency">Interval vzorkovania: %s ms</string>
-    <string name="setting_stats_samples">Počet vzoriek: %s</string>
+    <string name="setting_stats_frequency">Interval vzorkovania: %1$s ms</string>
+    <string name="setting_stats_samples">Počet vzoriek: %1$s</string>
 
     <string name="setting_backup">Záloha</string>
     <string name="setting_export">Exportovať nastavenia</string>
@@ -311,7 +311,7 @@
     <string name="msg_export_failed">Export zlyhal: %1$s</string>
     <string name="msg_vpn">QuietGuard používa lokálnu VPN na filtrovanie internetovej prevádzky. Z tohto dôvodu povoľte pripojenie VPN v nasledujúcom dialógovom okne. Vaša internetová prevádzka sa neodosiela na vzdialený VPN server.</string>
     <string name="msg_autostart">QuietGuard sa nemohol spustiť automaticky. Pravdepodobne je to spôsobené chybou vo vašej verzii Androidu.</string>
-    <string name="msg_error">Vyskytla sa neočakávaná chyba: '%s'</string>
+    <string name="msg_error">Vyskytla sa neočakávaná chyba: '%1$s'</string>
     <string name="msg_start_failed">Android v tejto chvíli odmietol spustiť službu VPN. Pravdepodobne je to spôsobené chybou vo vašej verzii Androidu.</string>
     <string name="msg_try">Vyskúšať QuietGuard</string>
     <string name="msg_terms">Darovaním súhlasíte so <a href="http://www.netguard.me/#terms">zmluvnými podmienkami</a></string>
@@ -322,7 +322,7 @@
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
-    <string name="msg_count">%dx</string>
+    <string name="msg_count">%1$dx</string>
     <string name="msg_doze">Ak chcete dosiahnuť konzistentné výsledky, optimalizácia batérie Androidu by mala byť pre QuietGuard zakázaná.\n\nV ďalšom dialógovom okne vyberte v hornej časti „Všetky aplikácie“, klepnite na QuietGuard v zozname a vyberte a potvrďte „Neoptimalizovať“.</string>
     <string name="msg_datasaving">Ak chcete dosiahnuť konzistentné výsledky, možnosti úspory dát systému Android by mali byť pre QuietGuard zakázané.\n\nV ďalšom dialógovom okne povoľte možnosti „Údaje na pozadí“ a „Neobmedzené využitie údajov“.</string>
     <string name="msg_filter">Používanie filtrovania spôsobí, že Android pripíše využitie dát a energie QuietGuardu - Android predpokladá, že dáta a energia sú využívané QuietGuardom, a nie pôvodnými aplikáciami</string>
@@ -330,10 +330,10 @@
     <string name="msg_log_disabled">Protokolovanie prevádzky je zakázané, na povolenie protokolovania použite prepínač vyššie. Protokolovanie prevádzky môže viesť k zvýšenej spotrebe batérie.</string>
     <string name="msg_clear_rules">Týmto sa obnovia pravidlá a podmienky na ich predvolené hodnoty</string>
     <string name="msg_reset_access">Týmto sa odstránia riadky záznamu pokusov o prístup bez pravidiel povolenia/blokovania</string>
-    <string name="msg_import_last">Posledný import: %s</string>
+    <string name="msg_import_last">Posledný import: %1$s</string>
     <string name="msg_downloading">Sťahovanie\n%1s</string>
     <string name="msg_downloaded">Súbor hosts bol stiahnutý</string>
-    <string name="msg_download_last">Posledné stiahnutie: %s</string>
+    <string name="msg_download_last">Posledné stiahnutie: %1$s</string>
     <string name="msg_start_forward">Spustiť presmerovanie z %1$s port %2$d na %3$s:%4$d pre '%5$s'?</string>
     <string name="msg_stop_forward">Zastaviť presmerovanie %1$s port %2$d?</string>
     <string name="msg_metered">Sieť je meraná</string>
@@ -376,8 +376,8 @@
     <string name="title_screen_other">Povoliť mobil, keď je obrazovka zapnutá</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">Blokovať pri roamingu</string>
-    <string name="label_ttl">TTL: %s s</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s s</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">Povoliť v režime uzamknutia</string>
     <string name="title_related">Súvisiace filtre</string>
     <string name="title_access">Pokusy o prístup</string>

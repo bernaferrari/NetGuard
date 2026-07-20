@@ -104,7 +104,7 @@
     <string name="action_clear_search">Șterge căutarea</string>
     <string name="search_settings">Caută în setări</string>
     <string name="content_desc_security_status">Starea de securitate a firewall-ului</string>
-    <string name="content_desc_app_icon">Pictograma aplicației pentru %s</string>
+    <string name="content_desc_app_icon">Pictograma aplicației pentru %1$s</string>
     <string name="content_desc_show_info">Afișează informații despre %1$s</string>
 
     <!-- Dashboard stats -->
@@ -210,29 +210,29 @@
     <string name="setting_reset_usage">Resetează consumul rețelei</string>
     <string name="setting_show_resolved">Afișează numele de domenii rezolvate</string>
     <string name="setting_block_domains">Blochează numele de domenii</string>
-    <string name="setting_rcode">Cod răspuns DNS: %s</string>
+    <string name="setting_rcode">Cod răspuns DNS: %1$s</string>
     <string name="setting_forwarding">Redirecționare porturi</string>
-    <string name="setting_vpn4">VPN IPv4: %s</string>
-    <string name="setting_vpn6">VPN IPv6: %s</string>
-    <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_dns2">DNS secundar: %s</string>
-    <string name="setting_validate">Validează la: %s</string>
-    <string name="setting_ttl">TTL DNS minim: %s s</string>
+    <string name="setting_vpn4">VPN IPv4: %1$s</string>
+    <string name="setting_vpn6">VPN IPv6: %1$s</string>
+    <string name="setting_dns">VPN DNS: %1$s</string>
+    <string name="setting_dns2">DNS secundar: %1$s</string>
+    <string name="setting_validate">Validează la: %1$s</string>
+    <string name="setting_ttl">TTL DNS minim: %1$s s</string>
     <string name="setting_socks5_enabled">Folosește proxy SOCKS5</string>
-    <string name="setting_socks5_addr">Adresă SOCKS5: %s</string>
-    <string name="setting_socks5_port">Port SOCKS5: %s</string>
-    <string name="setting_socks5_username">Utilizator SOCKS5: %s</string>
-    <string name="setting_socks5_password">Parolă SOCKS5: %s</string>
-    <string name="setting_pcap_record_size">Mărime înregistrare PCAP: %s B</string>
-    <string name="setting_pcap_file_size">Mărime maximă fișier PCAP: %s MB</string>
+    <string name="setting_socks5_addr">Adresă SOCKS5: %1$s</string>
+    <string name="setting_socks5_port">Port SOCKS5: %1$s</string>
+    <string name="setting_socks5_username">Utilizator SOCKS5: %1$s</string>
+    <string name="setting_socks5_password">Parolă SOCKS5: %1$s</string>
+    <string name="setting_pcap_record_size">Mărime înregistrare PCAP: %1$s B</string>
+    <string name="setting_pcap_file_size">Mărime maximă fișier PCAP: %1$s MB</string>
     <string name="setting_pcap">Înregistrează traficul de rețea (PCAP)</string>
-    <string name="setting_watchdog">Watchdog: la fiecare %s minute</string>
+    <string name="setting_watchdog">Watchdog: la fiecare %1$s minute</string>
 
     <string name="setting_stats_category">Notificare viteză</string>
     <string name="setting_stats">Afișează notificarea de viteză</string>
     <string name="setting_stats_top">Afișează aplicațiile de top</string>
-    <string name="setting_stats_frequency">Interval eșantionare: %s ms</string>
-    <string name="setting_stats_samples">Număr de eșantioane: %s</string>
+    <string name="setting_stats_frequency">Interval eșantionare: %1$s ms</string>
+    <string name="setting_stats_samples">Număr de eșantioane: %1$s</string>
 
     <string name="setting_backup">Copie de rezervă</string>
     <string name="setting_export">Exportă setările</string>
@@ -313,7 +313,7 @@
 Din acest motiv, vă rugăm să permiteți o conexiune VPN în următorul dialog.
 Traficul dvs. de internet nu este trimis către un server VPN la distanță.</string>
     <string name="msg_autostart">QuietGuard nu a putut porni automat. Acest lucru este probabil din cauza unei erori în versiunea de Android.</string>
-    <string name="msg_error">A apărut o eroare neașteptată: '%s'</string>
+    <string name="msg_error">A apărut o eroare neașteptată: '%1$s'</string>
     <string name="msg_start_failed">Android a refuzat să pornească serviciul VPN în acest moment. Acest lucru este probabil din cauza unei erori în versiunea de Android.</string>
     <string name="msg_try">Încearcă QuietGuard</string>
     <string name="msg_terms">Prin donație sunteți de acord cu <a href="http://www.netguard.me/#terms">termenii și condițiile</a></string>
@@ -324,7 +324,7 @@ Traficul dvs. de internet nu este trimis către un server VPN la distanță.</st
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
-    <string name="msg_count">%dx</string>
+    <string name="msg_count">%1$dx</string>
     <string name="msg_doze">Pentru rezultate consistente, optimizările bateriei Android ar trebui dezactivate pentru QuietGuard.
 \n\nÎn următorul dialog, selectați \"Toate aplicațiile\" în partea de sus, atingeți QuietGuard în listă și selectați și confirmați \"Nu optimizați\".</string>
     <string name="msg_datasaving">Pentru rezultate consistente, opțiunile de economisire a datelor Android ar trebui dezactivate pentru QuietGuard
@@ -334,10 +334,10 @@ Traficul dvs. de internet nu este trimis către un server VPN la distanță.</st
     <string name="msg_log_disabled">Jurnalizarea traficului este dezactivată, utilizați comutatorul de mai sus pentru a activa jurnalizarea. Jurnalizarea traficului ar putea duce la un consum suplimentar de baterie.</string>
     <string name="msg_clear_rules">Aceasta va reseta regulile și condițiile la valorile lor implicite</string>
     <string name="msg_reset_access">Aceasta va șterge liniile jurnalului de încercare de acces fără reguli de permitere/blocare</string>
-    <string name="msg_import_last">Ultimul import: %s</string>
+    <string name="msg_import_last">Ultimul import: %1$s</string>
     <string name="msg_downloading">Se descarcă\n%1s</string>
     <string name="msg_downloaded">Fișierul hosts a fost descărcat</string>
-    <string name="msg_download_last">Ultima descărcare: %s</string>
+    <string name="msg_download_last">Ultima descărcare: %1$s</string>
     <string name="msg_start_forward">Începe redirecționarea de la %1$s port %2$d la %3$s:%4$d pentru '%5$s'?</string>
     <string name="msg_stop_forward">Oprește redirecționarea pentru %1$s port %2$d?</string>
     <string name="msg_metered">Rețeaua este cu tarifare după consum</string>
@@ -380,8 +380,8 @@ Traficul dvs. de internet nu este trimis către un server VPN la distanță.</st
     <string name="title_screen_other">Permite date mobile când ecranul este pornit</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">Blochează în roaming</string>
-    <string name="label_ttl">TTL: %s s</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s s</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">Permite în modul de blocare</string>
     <string name="title_related">Filtrează corelate</string>
     <string name="title_access">Încercări de acces</string>

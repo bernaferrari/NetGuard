@@ -103,7 +103,7 @@
     <string name="action_clear_search">සෙවුම මකන්න</string>
     <string name="search_settings">සැකසුම් තුළ සොයන්න</string>
     <string name="content_desc_security_status">ගිනිපවුරේ ආරක්ෂක තත්ත්වය</string>
-    <string name="content_desc_app_icon">%s සඳහා යෙදුම් නිරූපකය</string>
+    <string name="content_desc_app_icon">%1$s සඳහා යෙදුම් නිරූපකය</string>
     <string name="content_desc_show_info">%1$s පිළිබඳ තොරතුරු පෙන්වන්න</string>
 
     <!-- Dashboard stats -->
@@ -209,29 +209,29 @@
     <string name="setting_reset_usage">ජාල භාවිතය නැවත සකසන්න</string>
     <string name="setting_show_resolved">විසඳන ලද වසම් නාම පෙන්වන්න</string>
     <string name="setting_block_domains">වසම් නාම අවහිර කරන්න</string>
-    <string name="setting_rcode">DNS ප්‍රතිචාර කේතය: %s</string>
+    <string name="setting_rcode">DNS ප්‍රතිචාර කේතය: %1$s</string>
     <string name="setting_forwarding">Port Forwarding</string>
-    <string name="setting_vpn4">VPN IPv4: %s</string>
-    <string name="setting_vpn6">VPN IPv6: %s</string>
-    <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_dns2">ද්විතියික DNS: %s</string>
-    <string name="setting_validate">මෙහිදී තහවුරු කරන්න: %s</string>
-    <string name="setting_ttl">අවම DNS TTL: %s s</string>
+    <string name="setting_vpn4">VPN IPv4: %1$s</string>
+    <string name="setting_vpn6">VPN IPv6: %1$s</string>
+    <string name="setting_dns">VPN DNS: %1$s</string>
+    <string name="setting_dns2">ද්විතියික DNS: %1$s</string>
+    <string name="setting_validate">මෙහිදී තහවුරු කරන්න: %1$s</string>
+    <string name="setting_ttl">අවම DNS TTL: %1$s s</string>
     <string name="setting_socks5_enabled">SOCKS5 ප්‍රොක්සි භාවිතා කරන්න</string>
-    <string name="setting_socks5_addr">SOCKS5 ලිපිනය: %s</string>
-    <string name="setting_socks5_port">SOCKS5 පෝට් එක: %s</string>
-    <string name="setting_socks5_username">SOCKS5 පරිශීලක නාමය: %s</string>
-    <string name="setting_socks5_password">SOCKS5 මුරපදය: %s</string>
-    <string name="setting_pcap_record_size">PCAP පටිගත කිරීමේ ප්‍රමාණය: %s B</string>
-    <string name="setting_pcap_file_size">PCAP උපරිම ගොනු ප්‍රමාණය: %s MB</string>
+    <string name="setting_socks5_addr">SOCKS5 ලිපිනය: %1$s</string>
+    <string name="setting_socks5_port">SOCKS5 පෝට් එක: %1$s</string>
+    <string name="setting_socks5_username">SOCKS5 පරිශීලක නාමය: %1$s</string>
+    <string name="setting_socks5_password">SOCKS5 මුරපදය: %1$s</string>
+    <string name="setting_pcap_record_size">PCAP පටිගත කිරීමේ ප්‍රමාණය: %1$s B</string>
+    <string name="setting_pcap_file_size">PCAP උපරිම ගොනු ප්‍රමාණය: %1$s MB</string>
     <string name="setting_pcap">ජාල ගමනාගමනය පටිගත කරන්න (PCAP)</string>
-    <string name="setting_watchdog">මුරකරුවා (Watchdog): සෑම මිනිත්තු %s කට වරක්</string>
+    <string name="setting_watchdog">මුරකරුවා (Watchdog): සෑම මිනිත්තු %1$s කට වරක්</string>
 
     <string name="setting_stats_category">වේගය පිළිබඳ දැනුම්දීම</string>
     <string name="setting_stats">වේගය පිළිබඳ දැනුම්දීම පෙන්වන්න</string>
     <string name="setting_stats_top">වැඩිපුරම භාවිත කරන යෙදුම් පෙන්වන්න</string>
-    <string name="setting_stats_frequency">නියැදි පරතරය: %s ms</string>
-    <string name="setting_stats_samples">නියැදි සංඛ්‍යාව: %s</string>
+    <string name="setting_stats_frequency">නියැදි පරතරය: %1$s ms</string>
+    <string name="setting_stats_samples">නියැදි සංඛ්‍යාව: %1$s</string>
 
     <string name="setting_backup">සංරක්ෂිතය (Backup)</string>
     <string name="setting_export">සැකසුම් අපනයනය කරන්න</string>
@@ -312,7 +312,7 @@
 එමනිසා, කරුණාකර ඊළඟ පණිවිඩයේදී VPN සම්බන්ධතාවයකට ඉඩ දෙන්න.
 ඔබේ අන්තර්ජාල දත්ත වෙනත් දුරස්ථ VPN සේවාදායකයකට යවනු නොලැබේ.</string>
     <string name="msg_autostart">QuietGuard ස්වයංක්‍රීයව ආරම්භ කළ නොහැකි විය. මෙය බොහෝ විට ඔබේ Android සංස්කරණයේ දෝෂයක් නිසා විය හැක.</string>
-    <string name="msg_error">අපේක්ෂා නොකළ දෝෂයක් සිදුවිය: '%s'</string>
+    <string name="msg_error">අපේක්ෂා නොකළ දෝෂයක් සිදුවිය: '%1$s'</string>
     <string name="msg_start_failed">ඇන්ඩ්‍රොයිඩ් පද්ධතිය මෙම අවස්ථාවේදී VPN සේවාව ආරම්භ කිරීම ප්‍රතික්ෂේප කළේය. මෙය බොහෝ විට ඔබේ Android සංස්කරණයේ දෝෂයක් නිසා විය හැක.</string>
     <string name="msg_try">QuietGuard උත්සාහ කර බලන්න</string>
     <string name="msg_terms">පරිත්‍යාග කිරීමෙන් ඔබ <a href="http://www.netguard.me/#terms">නියමයන් සහ කොන්දේසි</a> වලට එකඟ වේ</string>
@@ -323,7 +323,7 @@
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
-    <string name="msg_count">%dx</string>
+    <string name="msg_count">%1$dx</string>
     <string name="msg_doze">ස්ථාවර ප්‍රතිඵල සඳහා, QuietGuard සඳහා Android බැටරි ප්‍රශස්තකරණය (battery optimization) අක්‍රිය කළ යුතුය.
 \n\nඊළඟ පණිවිඩයේ, ඉහළින් \"All apps\" තෝරන්න, ලැයිස්තුවේ ඇති QuietGuard මත තට්ටු කර \"Don't optimize\" තෝරා තහවුරු කරන්න.</string>
     <string name="msg_datasaving">ස්ථාවර ප්‍රතිඵල සඳහා, QuietGuard සඳහා Android දත්ත සුරැකීමේ විකල්ප අක්‍රිය කළ යුතුය.
@@ -333,10 +333,10 @@
     <string name="msg_log_disabled">දත්ත ගමනාගමන සටහන් කිරීම (logging) අක්‍රියයි, එය සක්‍රිය කිරීමට ඉහළ ඇති ස්විචය භාවිතා කරන්න. මෙය අමතර බැටරි ප්‍රමාණයක් වැය වීමට හේතු විය හැක.</string>
     <string name="msg_clear_rules">මෙය නීති සහ කොන්දේසි ඒවායේ පෙරනිමි අගයන්ට නැවත සකසනු ඇත</string>
     <string name="msg_reset_access">මෙය ඉඩ දීමේ/අවහිර කිරීමේ නීති රහිතව තිබූ ප්‍රවේශ උත්සාහයන්ගේ සටහන් මකනු ඇත</string>
-    <string name="msg_import_last">අවසන් වරට ආනයනය කළේ: %s</string>
+    <string name="msg_import_last">අවසන් වරට ආනයනය කළේ: %1$s</string>
     <string name="msg_downloading">බාගත වෙමින් පවතී\n%1s</string>
     <string name="msg_downloaded">Hosts ගොනුව බාගත කරන ලදී</string>
-    <string name="msg_download_last">අවසන් වරට බාගත කළේ: %s</string>
+    <string name="msg_download_last">අවසන් වරට බාගත කළේ: %1$s</string>
     <string name="msg_start_forward">%1$s පෝට් %2$d සිට '%5$s' හි %3$s:%4$d වෙත ඉදිරියට යැවීම ආරම්භ කරන්නද?</string>
     <string name="msg_stop_forward">%1$s පෝට් %2$d හි ඉදිරියට යැවීම නවත්වන්නද?</string>
     <string name="msg_metered">ජාලය සීමා සහිතයි (metered)</string>
@@ -379,8 +379,8 @@
     <string name="title_screen_other">තිරය ක්‍රියාත්මකව පවතින විට ජංගම දත්ත වලට ඉඩ දෙන්න</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">Roaming වලදී අවහිර කරන්න</string>
-    <string name="label_ttl">TTL: %s s</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s s</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">අගුලු දැමූ (lockdown) මාදිලියේදී ඉඩ දෙන්න</string>
     <string name="title_related">සම්බන්ධිත පෙරණය</string>
     <string name="title_access">ප්‍රවේශ උත්සාහයන්</string>

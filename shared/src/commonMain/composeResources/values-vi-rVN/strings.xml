@@ -104,7 +104,7 @@
     <string name="action_clear_search">Xóa tìm kiếm</string>
     <string name="search_settings">Cài đặt tìm kiếm</string>
     <string name="content_desc_security_status">Trạng thái bảo mật tường lửa</string>
-    <string name="content_desc_app_icon">Biểu tượng ứng dụng cho %s</string>
+    <string name="content_desc_app_icon">Biểu tượng ứng dụng cho %1$s</string>
     <string name="content_desc_show_info">Hiển thị thông tin về %1$s</string>
 
     <!-- Dashboard stats -->
@@ -210,29 +210,29 @@
     <string name="setting_reset_usage">Đặt lại sử dụng mạng</string>
     <string name="setting_show_resolved">Hiển thị tên miền giải quyết</string>
     <string name="setting_block_domains">Chặn tên miền</string>
-    <string name="setting_rcode">Mã phản hồi DNS: %s</string>
+    <string name="setting_rcode">Mã phản hồi DNS: %1$s</string>
     <string name="setting_forwarding">Chuyển tiếp cổng</string>
-    <string name="setting_vpn4">VPN IPv4: %s</string>
-    <string name="setting_vpn6">VPN IPv6: %s</string>
-    <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_dns2">DNS phụ: %s</string>
-    <string name="setting_validate">Xác thực tại: %s</string>
-    <string name="setting_ttl">Tối thiểu DNS TTL: %s s</string>
+    <string name="setting_vpn4">VPN IPv4: %1$s</string>
+    <string name="setting_vpn6">VPN IPv6: %1$s</string>
+    <string name="setting_dns">VPN DNS: %1$s</string>
+    <string name="setting_dns2">DNS phụ: %1$s</string>
+    <string name="setting_validate">Xác thực tại: %1$s</string>
+    <string name="setting_ttl">Tối thiểu DNS TTL: %1$s s</string>
     <string name="setting_socks5_enabled">Dùng SOCKS5 proxy</string>
-    <string name="setting_socks5_addr">Địa chỉ SOCKS5: %s</string>
-    <string name="setting_socks5_port">Cổng SOCKS5: %s</string>
-    <string name="setting_socks5_username">Tên người dùng SOCKS5: %s</string>
-    <string name="setting_socks5_password">Mật khẩu SOCKS5: %s</string>
-    <string name="setting_pcap_record_size">Kích thước bản ghi PCAP: %s B</string>
-    <string name="setting_pcap_file_size">Kích thước tệp PCAP tối đa: %s MB</string>
+    <string name="setting_socks5_addr">Địa chỉ SOCKS5: %1$s</string>
+    <string name="setting_socks5_port">Cổng SOCKS5: %1$s</string>
+    <string name="setting_socks5_username">Tên người dùng SOCKS5: %1$s</string>
+    <string name="setting_socks5_password">Mật khẩu SOCKS5: %1$s</string>
+    <string name="setting_pcap_record_size">Kích thước bản ghi PCAP: %1$s B</string>
+    <string name="setting_pcap_file_size">Kích thước tệp PCAP tối đa: %1$s MB</string>
     <string name="setting_pcap">Ghi lại lưu lượng mạng (PCAP)</string>
-    <string name="setting_watchdog">Giám sát: mỗi %s phút</string>
+    <string name="setting_watchdog">Giám sát: mỗi %1$s phút</string>
 
     <string name="setting_stats_category">Thông báo tốc độ</string>
     <string name="setting_stats">Hiển thị thông báo tốc độ</string>
     <string name="setting_stats_top">Hiển thị các ứng dụng hàng đầu</string>
-    <string name="setting_stats_frequency">Khoảng thời gian lấy mẫu: %s ms</string>
-    <string name="setting_stats_samples">Số lượng mẫu: %s</string>
+    <string name="setting_stats_frequency">Khoảng thời gian lấy mẫu: %1$s ms</string>
+    <string name="setting_stats_samples">Số lượng mẫu: %1$s</string>
 
     <string name="setting_backup">Sao lưu</string>
     <string name="setting_export">Xuất cài đặt</string>
@@ -311,7 +311,7 @@
     <string name="msg_export_failed">Xuất không thành công: %1$s</string>
     <string name="msg_vpn">QuietGuard sử dụng một local VPN để lọc lưu lượng truy cập internet. Vì lý do này, xin vui lòng cho phép một kết nối VPN trong hộp thoại tiếp theo. Lưu lượng truy cập internet của bạn không được gửi đến một máy chủ VPN từ xa.</string>
     <string name="msg_autostart">QuietGuard không thể tự động khởi động. Điều này có khả năng là do một lỗi trong phiên bản Android của bạn.</string>
-    <string name="msg_error">Lỗi không xác định đã xảy ra: '%s'</string>
+    <string name="msg_error">Lỗi không xác định đã xảy ra: '%1$s'</string>
     <string name="msg_start_failed">Đã từ chối để kết nối dịch vụ VPN tại. Điều này có khả năng do một lỗi trong phiên bản Android của bạn.</string>
     <string name="msg_try">Thử QuietGuard</string>
     <string name="msg_terms">Bằng cách tặng, bạn đồng ý với các <a href="http://www.netguard.me/#terms"> điều khoản &amp; điều kiện</a></string>
@@ -322,7 +322,7 @@
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
-    <string name="msg_count">%dx</string>
+    <string name="msg_count">%1$dx</string>
     <string name="msg_doze">Để có kết quả phù hợp, tối ưu hóa pin Android nên bị vô hiệu hóa cho QuietGuard. \n\nTrong hộp thoại kế tiếp, chọn \"Tất cả ứng dụng\" ở phía trên cùng, bấm vào QuietGuard trong danh sách và chọn và xác nhận \"Don't optimize\".</string>
     <string name="msg_datasaving">Để có kết quả phù hợp, tùy chọn tiết kiệm dữ liệu Android nên được vô hiệu hóa cho QuietGuard \n\nTrong trong hộp thoại kế tiếp, cho phép tùy chọn \"Background data\" và \"Unrestricted data usage\"</string>
     <string name="msg_filter">Sử dụng bộ lọc sẽ làm cho Android hiểu lầm QuietGuard sử dụng dữ liệu và năng lượng - Android giả định dữ liệu và năng lượng đang được sử dụng bởi QuietGuard, chứ không phải là các ứng dụng ban đầu</string>
@@ -330,10 +330,10 @@
     <string name="msg_log_disabled">Ghi nhật ký lưu lượng bị vô hiệu hóa, sử dụng công tắc ở trên để bật ghi nhật ký. Việc ghi nhật ký lưu lượng có thể dẫn đến việc sử dụng pin thêm.</string>
     <string name="msg_clear_rules">Điều này sẽ đặt lại các quy tắc và trạng thái về giá trị mặc định</string>
     <string name="msg_reset_access">Việc này sẽ xóa các dòng thông báo cố gắng truy cập mà không có quy tắc cho phép/chặn</string>
-    <string name="msg_import_last">Lần nhập cuối: %s</string>
+    <string name="msg_import_last">Lần nhập cuối: %1$s</string>
     <string name="msg_downloading">Đang tải về\n%1s</string>
     <string name="msg_downloaded">Đã tải về file hosts</string>
-    <string name="msg_download_last">Lần tải về cuối: %s</string>
+    <string name="msg_download_last">Lần tải về cuối: %1$s</string>
     <string name="msg_start_forward">Bắt đầu chuyển tiếp từ %1$s cổng %2$d đến %3$s:%4$d của '%5$s'?</string>
     <string name="msg_stop_forward">Dừng chuyển tiếp %1$s cổng %2$d?</string>
     <string name="msg_metered">Mạng có trả phí</string>
@@ -376,8 +376,8 @@
     <string name="title_screen_other">Cho phép mạng di động khi màn hình bật</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">Chặn khi chuyển vùng</string>
-    <string name="label_ttl">TTL: %s s</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s s</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">Cho phép ở chế độ khóa</string>
     <string name="title_related">Lọc liên quan</string>
     <string name="title_access">Cố gắng truy cập</string>

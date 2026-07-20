@@ -103,7 +103,7 @@
     <string name="action_clear_search">সার্চ মুছে ফেলুন</string>
     <string name="search_settings">সেটিংসে সার্চ করুন</string>
     <string name="content_desc_security_status">ফায়ারওয়াল নিরাপত্তা স্ট্যাটাস</string>
-    <string name="content_desc_app_icon">%s এর অ্যাপ আইকন</string>
+    <string name="content_desc_app_icon">%1$s এর অ্যাপ আইকন</string>
     <string name="content_desc_show_info">%1$s সম্পর্কে তথ্য দেখান</string>
 
     <!-- Dashboard stats -->
@@ -209,29 +209,29 @@
     <string name="setting_reset_usage">নেটওয়ার্ক ব্যবহার রিসেট করুন</string>
     <string name="setting_show_resolved">রেজল্ভড ডোমেইন নাম দেখান</string>
     <string name="setting_block_domains">ডোমেইন নাম ব্লক করুন</string>
-    <string name="setting_rcode">DNS প্রতিক্রিয়া কোড: %s</string>
+    <string name="setting_rcode">DNS প্রতিক্রিয়া কোড: %1$s</string>
     <string name="setting_forwarding">পোর্ট ফরোয়ার্ডিং</string>
-    <string name="setting_vpn4">VPN IPv4: %s</string>
-    <string name="setting_vpn6">VPN IPv6: %s</string>
-    <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_dns2">সেকেন্ডারি DNS: %s</string>
-    <string name="setting_validate">এখানে ভ্যালিডেট করুন: %s</string>
-    <string name="setting_ttl">সর্বনিম্ন DNS TTL: %s সেকেন্ড</string>
+    <string name="setting_vpn4">VPN IPv4: %1$s</string>
+    <string name="setting_vpn6">VPN IPv6: %1$s</string>
+    <string name="setting_dns">VPN DNS: %1$s</string>
+    <string name="setting_dns2">সেকেন্ডারি DNS: %1$s</string>
+    <string name="setting_validate">এখানে ভ্যালিডেট করুন: %1$s</string>
+    <string name="setting_ttl">সর্বনিম্ন DNS TTL: %1$s সেকেন্ড</string>
     <string name="setting_socks5_enabled">SOCKS5 প্রক্সি ব্যবহার করুন</string>
-    <string name="setting_socks5_addr">SOCKS5 ঠিকানা: %s</string>
-    <string name="setting_socks5_port">SOCKS5 পোর্ট: %s</string>
-    <string name="setting_socks5_username">SOCKS5 ইউজারনেম: %s</string>
-    <string name="setting_socks5_password">SOCKS5 পাসওয়ার্ড: %s</string>
-    <string name="setting_pcap_record_size">PCAP রেকর্ড সাইজ: %s B</string>
-    <string name="setting_pcap_file_size">PCAP সর্বোচ্চ ফাইল সাইজ: %s MB</string>
+    <string name="setting_socks5_addr">SOCKS5 ঠিকানা: %1$s</string>
+    <string name="setting_socks5_port">SOCKS5 পোর্ট: %1$s</string>
+    <string name="setting_socks5_username">SOCKS5 ইউজারনেম: %1$s</string>
+    <string name="setting_socks5_password">SOCKS5 পাসওয়ার্ড: %1$s</string>
+    <string name="setting_pcap_record_size">PCAP রেকর্ড সাইজ: %1$s B</string>
+    <string name="setting_pcap_file_size">PCAP সর্বোচ্চ ফাইল সাইজ: %1$s MB</string>
     <string name="setting_pcap">নেটওয়ার্ক ট্রাফিক রেকর্ড করুন (PCAP)</string>
-    <string name="setting_watchdog">ওয়াচডগ: প্রতি %s মিনিটে</string>
+    <string name="setting_watchdog">ওয়াচডগ: প্রতি %1$s মিনিটে</string>
 
     <string name="setting_stats_category">গতি বিজ্ঞপ্তি</string>
     <string name="setting_stats">গতি বিজ্ঞপ্তি দেখান</string>
     <string name="setting_stats_top">টপ অ্যাপগুলি দেখান</string>
-    <string name="setting_stats_frequency">স্যাম্পল ইন্টারভাল: %s ms</string>
-    <string name="setting_stats_samples">স্যাম্পলের সংখ্যা: %s</string>
+    <string name="setting_stats_frequency">স্যাম্পল ইন্টারভাল: %1$s ms</string>
+    <string name="setting_stats_samples">স্যাম্পলের সংখ্যা: %1$s</string>
 
     <string name="setting_backup">ব্যাকআপ</string>
     <string name="setting_export">সেটিংস এক্সপোর্ট করুন</string>
@@ -312,7 +312,7 @@
 এই কারণে, দয়া করে পরবর্তী ডায়ালগে একটি VPN কানেকশন অনুমতি দিন।
 আপনার ইন্টারনেট ট্রাফিক কোনো রিমোট VPN সার্ভারে পাঠানো হচ্ছে না।</string>
     <string name="msg_autostart">নেটগার্ড স্বয়ংক্রিয়ভাবে শুরু হতে পারেনি। এটি সম্ভবত আপনার অ্যান্ড্রয়েড ভার্সনের একটি বাগের কারণে হয়েছে।</string>
-    <string name="msg_error">একটি অপ্রত্যাশিত ত্রুটি ঘটেছে: '%s'</string>
+    <string name="msg_error">একটি অপ্রত্যাশিত ত্রুটি ঘটেছে: '%1$s'</string>
     <string name="msg_start_failed">অ্যান্ড্রয়েড এই মুহূর্তে VPN পরিষেবা শুরু করতে অস্বীকার করেছে। এটি সম্ভবত আপনার অ্যান্ড্রয়েড ভার্সনের একটি বাগের কারণে হয়েছে।</string>
     <string name="msg_try">নেটগার্ড ট্রাই করুন</string>
     <string name="msg_terms">ডোনেট করার মাধ্যমে আপনি <a href="http://www.netguard.me/#terms">শর্তাবলীর</a> সাথে সম্মত হন</string>
@@ -323,7 +323,7 @@
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
-    <string name="msg_count">%d বার</string>
+    <string name="msg_count">%1$d বার</string>
     <string name="msg_doze">সামঞ্জস্যপূর্ণ ফলাফলের জন্য, নেটগার্ডের জন্য অ্যান্ড্রয়েড ব্যাটারি অপ্টিমাইজেশন অক্ষম করা উচিত।
 \n\nপরবর্তী ডায়ালগে, উপরে \"সমস্ত অ্যাপ\" নির্বাচন করুন, তালিকায় নেটগার্ড-এ ট্যাপ করুন এবং \"অপ্টিমাইজ করবেন না\" নির্বাচন করুন এবং নিশ্চিত করুন।</string>
     <string name="msg_datasaving">সামঞ্জস্যপূর্ণ ফলাফলের জন্য, নেটগার্ডের জন্য অ্যান্ড্রয়েড ডেটা সেভিং অপশন অক্ষম করা উচিত।
@@ -333,10 +333,10 @@
     <string name="msg_log_disabled">ট্রাফিক লগিং নিষ্ক্রিয়, লগিং সক্ষম করতে উপরের সুইচটি ব্যবহার করুন। ট্রাফিক লগিং এর ফলে অতিরিক্ত ব্যাটারি খরচ হতে পারে।</string>
     <string name="msg_clear_rules">এটি নিয়ম এবং শর্তগুলিকে তাদের ডিফল্ট মানে রিসেট করবে</string>
     <string name="msg_reset_access">এটি অনুমতি/অবরুদ্ধ নিয়ম ছাড়া অ্যাক্সেস চেষ্টার লগ লাইনগুলি মুছে ফেলবে</string>
-    <string name="msg_import_last">শেষ ইমপোর্ট: %s</string>
+    <string name="msg_import_last">শেষ ইমপোর্ট: %1$s</string>
     <string name="msg_downloading">ডাউনলোড হচ্ছে\n%1s</string>
     <string name="msg_downloaded">hosts ফাইল ডাউনলোড হয়েছে</string>
-    <string name="msg_download_last">শেষ ডাউনলোড: %s</string>
+    <string name="msg_download_last">শেষ ডাউনলোড: %1$s</string>
     <string name="msg_start_forward">%1$s পোর্ট %2$d থেকে '%5$s' এর %3$s:%4$d-এ ফরোয়ার্ডিং শুরু করবেন?</string>
     <string name="msg_stop_forward">%1$s পোর্ট %2$d এর ফরোয়ার্ডিং বন্ধ করবেন?</string>
     <string name="msg_metered">নেটওয়ার্ক লিমিটেড</string>
@@ -379,8 +379,8 @@
     <string name="title_screen_other">স্ক্রিন চালু থাকাকালীন মোবাইল ডেটা অনুমতি দিন</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">রোমিংয়ের সময় ব্লক করুন</string>
-    <string name="label_ttl">TTL: %s সেকেন্ড</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s সেকেন্ড</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">লকডাউন মোডে অনুমতি দিন</string>
     <string name="title_related">ফিল্টার সম্পর্কিত</string>
     <string name="title_access">অ্যাক্সেসের চেষ্টা</string>

@@ -103,7 +103,7 @@
     <string name="action_clear_search">Tühjenda otsing</string>
     <string name="search_settings">Seadete otsing</string>
     <string name="content_desc_security_status">Tulemüüri turbeolek</string>
-    <string name="content_desc_app_icon">Rakenduse ikoon: %s</string>
+    <string name="content_desc_app_icon">Rakenduse ikoon: %1$s</string>
     <string name="content_desc_show_info">Näita teavet %1$s kohta</string>
 
     <!-- Dashboard stats -->
@@ -214,29 +214,29 @@
     <string name="setting_reset_usage">Lähtesta võrgukasutus</string>
     <string name="setting_show_resolved">Näita lahendatud domeeninimesid</string>
     <string name="setting_block_domains">Blokeeri domeeninimed</string>
-    <string name="setting_rcode">DNS-vastuse kood: %s</string>
+    <string name="setting_rcode">DNS-vastuse kood: %1$s</string>
     <string name="setting_forwarding">Pordi edasisuunamine</string>
-    <string name="setting_vpn4">VPN IPv4: %s</string>
-    <string name="setting_vpn6">VPN IPv6: %s</string>
-    <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_dns2">Sekundaarne DNS: %s</string>
-    <string name="setting_validate">Valideeri aadressil: %s</string>
-    <string name="setting_ttl">Minimaalne DNS TTL: %s s</string>
+    <string name="setting_vpn4">VPN IPv4: %1$s</string>
+    <string name="setting_vpn6">VPN IPv6: %1$s</string>
+    <string name="setting_dns">VPN DNS: %1$s</string>
+    <string name="setting_dns2">Sekundaarne DNS: %1$s</string>
+    <string name="setting_validate">Valideeri aadressil: %1$s</string>
+    <string name="setting_ttl">Minimaalne DNS TTL: %1$s s</string>
     <string name="setting_socks5_enabled">Kasuta SOCKS5 puhverserverit</string>
-    <string name="setting_socks5_addr">SOCKS5 aadress: %s</string>
-    <string name="setting_socks5_port">SOCKS5 port: %s</string>
-    <string name="setting_socks5_username">SOCKS5 kasutajanimi: %s</string>
-    <string name="setting_socks5_password">SOCKS5 parool: %s</string>
-    <string name="setting_pcap_record_size">PCAP kirje suurus: %s B</string>
-    <string name="setting_pcap_file_size">PCAP max faili suurus: %s MB</string>
+    <string name="setting_socks5_addr">SOCKS5 aadress: %1$s</string>
+    <string name="setting_socks5_port">SOCKS5 port: %1$s</string>
+    <string name="setting_socks5_username">SOCKS5 kasutajanimi: %1$s</string>
+    <string name="setting_socks5_password">SOCKS5 parool: %1$s</string>
+    <string name="setting_pcap_record_size">PCAP kirje suurus: %1$s B</string>
+    <string name="setting_pcap_file_size">PCAP max faili suurus: %1$s MB</string>
     <string name="setting_pcap">Salvesta võrguliiklust (PCAP)</string>
-    <string name="setting_watchdog">Watchdog: iga %s minuti järel</string>
+    <string name="setting_watchdog">Watchdog: iga %1$s minuti järel</string>
 
     <string name="setting_stats_category">Kiiruse teavitus</string>
     <string name="setting_stats">Näita kiiruse teavitust</string>
     <string name="setting_stats_top">Näita enim kasutatud rakendusi</string>
-    <string name="setting_stats_frequency">Prooviintervall: %s ms</string>
-    <string name="setting_stats_samples">Proovide arv: %s</string>
+    <string name="setting_stats_frequency">Prooviintervall: %1$s ms</string>
+    <string name="setting_stats_samples">Proovide arv: %1$s</string>
 
     <string name="setting_backup">Varundus</string>
     <string name="setting_export">Ekspordi seaded</string>
@@ -317,7 +317,7 @@
 Seetõttu palun luba VPN-ühendus järgmises dialoogis.
 Sinu Interneti-liiklust ei saadeta kaugesse VPN-serverisse.</string>
     <string name="msg_autostart">QuietGuard ei saanud automaatselt käivituda. See on tõenäoliselt tingitud veast teie Androidi versioonis.</string>
-    <string name="msg_error">Tekkis ootamatu viga: '%s'</string>
+    <string name="msg_error">Tekkis ootamatu viga: '%1$s'</string>
     <string name="msg_start_failed">Android keeldus praegu VPN-teenust käivitamast. See on tõenäoliselt tingitud veast teie Androidi versioonis.</string>
     <string name="msg_try">Proovi QuietGuardi</string>
     <string name="msg_terms">Annetades nõustute <a href="http://www.netguard.me/#terms">tingimustega</a></string>
@@ -328,7 +328,7 @@ Sinu Interneti-liiklust ei saadeta kaugesse VPN-serverisse.</string>
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
-    <string name="msg_count">%dx</string>
+    <string name="msg_count">%1$dx</string>
     <string name="msg_doze">Stabiilsete tulemuste saavutamiseks tuleks QuietGuardi puhul Androidi aku optimeerimine keelata.
 \n\nJärgmises dialoogis vali ülevalt \"Kõik rakendused\", puuduta loendis QuietGuardi ja vali ning kinnita \"Ära optimeeri\".</string>
     <string name="msg_datasaving">Stabiilsete tulemuste saavutamiseks tuleks QuietGuardi puhul Androidi andmesäästu valikud keelata.
@@ -338,10 +338,10 @@ Sinu Interneti-liiklust ei saadeta kaugesse VPN-serverisse.</string>
     <string name="msg_log_disabled">Liikluslogimine on keelatud, kasuta ülaltoodud lülitit logimise lubamiseks. Logimine võib kaasa tuua täiendava akukasutuse.</string>
     <string name="msg_clear_rules">See lähtestab reeglid ja tingimused nende vaikeväärtustele</string>
     <string name="msg_reset_access">See kustutab juurdepääsukatse logiread ilma luba/blokeeri reegliteta</string>
-    <string name="msg_import_last">Viimane import: %s</string>
+    <string name="msg_import_last">Viimane import: %1$s</string>
     <string name="msg_downloading">Allalaadimine\n%1s</string>
     <string name="msg_downloaded">Hosts fail alla laaditud</string>
-    <string name="msg_download_last">Viimane allalaadimine: %s</string>
+    <string name="msg_download_last">Viimane allalaadimine: %1$s</string>
     <string name="msg_start_forward">Kas alustada edasisuunamist pordist %1$s pordini %2$d rakendusse %3$s:%4$d ('%5$s')?</string>
     <string name="msg_stop_forward">Kas peatada edasisuunamine pordist %1$s pordini %2$d?</string>
     <string name="msg_metered">Võrk on mõõdetud</string>
@@ -384,8 +384,8 @@ Sinu Interneti-liiklust ei saadeta kaugesse VPN-serverisse.</string>
     <string name="title_screen_other">Luba mobiilside, kui ekraan on sees</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">Blokeeri rändluses</string>
-    <string name="label_ttl">TTL: %s s</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s s</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">Luba lukustusrežiimis</string>
     <string name="title_related">Filtriga seotud</string>
     <string name="title_access">Juurdepääsu katsed</string>

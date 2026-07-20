@@ -103,7 +103,7 @@
     <string name="action_clear_search">검색 지우기</string>
     <string name="search_settings">설정 검색</string>
     <string name="content_desc_security_status">방화벽 보안 상태</string>
-    <string name="content_desc_app_icon">%s 앱 아이콘</string>
+    <string name="content_desc_app_icon">%1$s 앱 아이콘</string>
     <string name="content_desc_show_info">%1$s에 대한 정보 표시</string>
 
     <!-- Dashboard stats -->
@@ -214,29 +214,29 @@
     <string name="setting_reset_usage">네트워크 사용량 초기화</string>
     <string name="setting_show_resolved">확인된 도메인 이름 표시</string>
     <string name="setting_block_domains">도메인 이름 차단</string>
-    <string name="setting_rcode">DNS 응답 코드: %s</string>
+    <string name="setting_rcode">DNS 응답 코드: %1$s</string>
     <string name="setting_forwarding">포트 포워딩</string>
-    <string name="setting_vpn4">VPN IPv4: %s</string>
-    <string name="setting_vpn6">VPN IPv6: %s</string>
-    <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_dns2">보조 DNS: %s</string>
-    <string name="setting_validate">유효성 검사 위치: %s</string>
-    <string name="setting_ttl">최소 DNS TTL: %s s</string>
+    <string name="setting_vpn4">VPN IPv4: %1$s</string>
+    <string name="setting_vpn6">VPN IPv6: %1$s</string>
+    <string name="setting_dns">VPN DNS: %1$s</string>
+    <string name="setting_dns2">보조 DNS: %1$s</string>
+    <string name="setting_validate">유효성 검사 위치: %1$s</string>
+    <string name="setting_ttl">최소 DNS TTL: %1$s s</string>
     <string name="setting_socks5_enabled">SOCKS5 프록시 사용</string>
-    <string name="setting_socks5_addr">SOCKS5 주소: %s</string>
-    <string name="setting_socks5_port">SOCKS5 포트: %s</string>
-    <string name="setting_socks5_username">SOCKS5 사용자 이름: %s</string>
-    <string name="setting_socks5_password">SOCKS5 비밀번호: %s</string>
-    <string name="setting_pcap_record_size">PCAP 기록 크기: %s B</string>
-    <string name="setting_pcap_file_size">PCAP 최대 파일 크기: %s MB</string>
+    <string name="setting_socks5_addr">SOCKS5 주소: %1$s</string>
+    <string name="setting_socks5_port">SOCKS5 포트: %1$s</string>
+    <string name="setting_socks5_username">SOCKS5 사용자 이름: %1$s</string>
+    <string name="setting_socks5_password">SOCKS5 비밀번호: %1$s</string>
+    <string name="setting_pcap_record_size">PCAP 기록 크기: %1$s B</string>
+    <string name="setting_pcap_file_size">PCAP 최대 파일 크기: %1$s MB</string>
     <string name="setting_pcap">네트워크 트래픽 기록 (PCAP)</string>
-    <string name="setting_watchdog">워치독: %s분마다</string>
+    <string name="setting_watchdog">워치독: %1$s분마다</string>
 
     <string name="setting_stats_category">속도 알림</string>
     <string name="setting_stats">속도 알림 표시</string>
     <string name="setting_stats_top">상위 앱 표시</string>
-    <string name="setting_stats_frequency">샘플 간격: %s ms</string>
-    <string name="setting_stats_samples">샘플 수: %s</string>
+    <string name="setting_stats_frequency">샘플 간격: %1$s ms</string>
+    <string name="setting_stats_samples">샘플 수: %1$s</string>
 
     <string name="setting_backup">백업</string>
     <string name="setting_export">설정 내보내기</string>
@@ -317,7 +317,7 @@
 이러한 이유로 다음 대화 상자에서 VPN 연결을 허용해 주세요.
 트래픽은 원격 VPN 서버로 전송되지 않습니다.</string>
     <string name="msg_autostart">QuietGuard가 자동으로 시작되지 않았습니다. 사용 중인 Android 버전의 버그일 수 있습니다.</string>
-    <string name="msg_error">예기치 않은 오류 발생: '%s'</string>
+    <string name="msg_error">예기치 않은 오류 발생: '%1$s'</string>
     <string name="msg_start_failed">Android가 현재 VPN 서비스 시작을 거부했습니다. 사용 중인 Android 버전의 버그일 수 있습니다.</string>
     <string name="msg_try">QuietGuard 사용해 보기</string>
     <string name="msg_terms">기부함으로써 <a href="http://www.netguard.me/#terms">이용 약관</a>에 동의하게 됩니다</string>
@@ -328,7 +328,7 @@
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
-    <string name="msg_count">%d회</string>
+    <string name="msg_count">%1$d회</string>
     <string name="msg_doze">일관된 결과를 위해 QuietGuard에 대한 Android 배터리 최적화를 비활성화해야 합니다.
 \n\n다음 대화 상자 상단에서 \"모든 앱\"을 선택하고 목록에서 QuietGuard를 탭한 후 \"최적화하지 않음\"을 선택하고 확인하세요.</string>
     <string name="msg_datasaving">일관된 결과를 위해 QuietGuard에 대한 Android 데이터 절약 옵션을 비활성화해야 합니다.
@@ -338,10 +338,10 @@
     <string name="msg_log_disabled">트래픽 로깅이 비활성화됨. 상단 스위치로 활성화하세요. 로깅은 배터리를 추가로 소모할 수 있습니다.</string>
     <string name="msg_clear_rules">모든 규칙과 조건을 기본값으로 재설정합니다</string>
     <string name="msg_reset_access">허용/차단 규칙이 없는 접속 시도 로그를 삭제합니다</string>
-    <string name="msg_import_last">최근 가져오기: %s</string>
+    <string name="msg_import_last">최근 가져오기: %1$s</string>
     <string name="msg_downloading">다운로드 중\n%1s</string>
     <string name="msg_downloaded">hosts 파일 다운로드됨</string>
-    <string name="msg_download_last">최근 다운로드: %s</string>
+    <string name="msg_download_last">최근 다운로드: %1$s</string>
     <string name="msg_start_forward">%1$s 포트 %2$d에서 '%5$s'의 %3$s:%4$d(으)로 전달을 시작할까요？</string>
     <string name="msg_stop_forward">%1$s 포트 %2$d의 전달을 중단할까요？</string>
     <string name="msg_metered">종량제 네트워크입니다</string>
@@ -384,8 +384,8 @@
     <string name="title_screen_other">화면이 켜져 있을 때 모바일 허용</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">로밍 시 차단</string>
-    <string name="label_ttl">TTL: %s 초</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s 초</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">잠금 모드에서 허용</string>
     <string name="title_related">필터 관련</string>
     <string name="title_access">접근 시도</string>

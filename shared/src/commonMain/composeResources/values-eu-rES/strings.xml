@@ -104,7 +104,7 @@
     <string name="action_clear_search">Garbitu bilaketa</string>
     <string name="search_settings">Bilatu ezarpenetan</string>
     <string name="content_desc_security_status">Suhesiaren segurtasun egoera</string>
-    <string name="content_desc_app_icon">%s aplikazioaren ikonoa</string>
+    <string name="content_desc_app_icon">%1$s aplikazioaren ikonoa</string>
     <string name="content_desc_show_info">Erakutsi %1$s-ri buruzko informazioa</string>
 
     <!-- Dashboard stats -->
@@ -210,29 +210,29 @@
     <string name="setting_reset_usage">Berrezarri sare-erabilera</string>
     <string name="setting_show_resolved">Erakutsi ebatzitako domeinu izenak</string>
     <string name="setting_block_domains">Blokeatu domeinu izenak</string>
-    <string name="setting_rcode">DNS erantzun kodea: %s</string>
+    <string name="setting_rcode">DNS erantzun kodea: %1$s</string>
     <string name="setting_forwarding">Atakak birbidaltzea</string>
-    <string name="setting_vpn4">VPN IPv4: %s</string>
-    <string name="setting_vpn6">VPN IPv6: %s</string>
-    <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_dns2">Bigarren mailako DNS-a: %s</string>
-    <string name="setting_validate">Balioztatu hemen: %s</string>
-    <string name="setting_ttl">Gutxieneko DNS TTL: %s s</string>
+    <string name="setting_vpn4">VPN IPv4: %1$s</string>
+    <string name="setting_vpn6">VPN IPv6: %1$s</string>
+    <string name="setting_dns">VPN DNS: %1$s</string>
+    <string name="setting_dns2">Bigarren mailako DNS-a: %1$s</string>
+    <string name="setting_validate">Balioztatu hemen: %1$s</string>
+    <string name="setting_ttl">Gutxieneko DNS TTL: %1$s s</string>
     <string name="setting_socks5_enabled">Erabili SOCKS5 proxya</string>
-    <string name="setting_socks5_addr">SOCKS5 helbidea: %s</string>
-    <string name="setting_socks5_port">SOCKS5 ataka: %s</string>
-    <string name="setting_socks5_username">SOCKS5 erabiltzaile-izena: %s</string>
-    <string name="setting_socks5_password">SOCKS5 pasahitza: %s</string>
-    <string name="setting_pcap_record_size">PCAP grabazioaren tamaina: %s B</string>
-    <string name="setting_pcap_file_size">PCAP gehieneko fitxategi-tamaina: %s MB</string>
+    <string name="setting_socks5_addr">SOCKS5 helbidea: %1$s</string>
+    <string name="setting_socks5_port">SOCKS5 ataka: %1$s</string>
+    <string name="setting_socks5_username">SOCKS5 erabiltzaile-izena: %1$s</string>
+    <string name="setting_socks5_password">SOCKS5 pasahitza: %1$s</string>
+    <string name="setting_pcap_record_size">PCAP grabazioaren tamaina: %1$s B</string>
+    <string name="setting_pcap_file_size">PCAP gehieneko fitxategi-tamaina: %1$s MB</string>
     <string name="setting_pcap">Grabatu sareko trafikoa (PCAP)</string>
-    <string name="setting_watchdog">Watchdog: %s minutuero</string>
+    <string name="setting_watchdog">Watchdog: %1$s minutuero</string>
 
     <string name="setting_stats_category">Abiadura-jakinarazpena</string>
     <string name="setting_stats">Erakutsi abiadura-jakinarazpena</string>
     <string name="setting_stats_top">Erakutsi aplikazio gorenak</string>
-    <string name="setting_stats_frequency">Laginaren tartea: %s ms</string>
-    <string name="setting_stats_samples">Lagin kopurua: %s</string>
+    <string name="setting_stats_frequency">Laginaren tartea: %1$s ms</string>
+    <string name="setting_stats_samples">Lagin kopurua: %1$s</string>
 
     <string name="setting_backup">Babes-kopia</string>
     <string name="setting_export">Esportatu ezarpenak</string>
@@ -313,7 +313,7 @@
 Horregatik, baimendu VPN konexioa hurrengo elkarrizketa koadroan mesedez.
 Zure internet trafikoa ez da kanpo VPN zerbitzari batera bidaltzen.</string>
     <string name="msg_autostart">QuietGuard ezin izan da automatikoki abiatu. Litekeena zure Android bertsioaren akats baten erruz.</string>
-    <string name="msg_error">Ustekabeko errorea gertatu da: '%s'</string>
+    <string name="msg_error">Ustekabeko errorea gertatu da: '%1$s'</string>
     <string name="msg_start_failed">Androidek uko egin dio VPN zerbitzua orain abiatzeari. Litekeena zure Android bertsioak akats bat duelako.</string>
     <string name="msg_try">Probatu QuietGuard</string>
     <string name="msg_terms">Dohaintza eginez <a href="http://www.netguard.me/#terms">termino eta baldintzak</a> onartzen dituzu</string>
@@ -324,7 +324,7 @@ Zure internet trafikoa ez da kanpo VPN zerbitzari batera bidaltzen.</string>
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
-    <string name="msg_count">%dx</string>
+    <string name="msg_count">%1$dx</string>
     <string name="msg_doze">Emaitza egokiak izateko, Android sistemako bateria optimizazioak desgaitu behar dira QuietGuard aplikazioarentzat.
 \n\nHurrengo elkarrizketa-koadroan, hautatu \"Aplikazio guztiak\" goian, sakatu QuietGuard zerrendan eta berretsi \"Ez optimizatu\".</string>
     <string name="msg_datasaving">Emaitza egokiak izateko, Android sistemako datuak aurrezteko optimizazioak desgaitu behar dira QuietGuard aplikazioarentzat.
@@ -334,10 +334,10 @@ Zure internet trafikoa ez da kanpo VPN zerbitzari batera bidaltzen.</string>
     <string name="msg_log_disabled">Trafifoaren egunkaria desgaituta dago, erabili goiko etengailua egunkaria gaitzeko. Trafikoaren egunkariak bateria kontsumoa areagotu dezake.</string>
     <string name="msg_clear_rules">Honek arauak eta baldintzak lehenetsitako balioetara berrezarriko ditu</string>
     <string name="msg_reset_access">Honek baimendu/ukatu araurik gabeko sarbide saiakeren egunkaria ezabatuko du</string>
-    <string name="msg_import_last">Azken inportazioa: %s</string>
+    <string name="msg_import_last">Azken inportazioa: %1$s</string>
     <string name="msg_downloading">Deskargatzen\n%1s</string>
     <string name="msg_downloaded">Ostalarien fitxategia deskargatuta</string>
-    <string name="msg_download_last">Azken deskarga: %s</string>
+    <string name="msg_download_last">Azken deskarga: %1$s</string>
     <string name="msg_start_forward">Hasi birbidalketa, hemendik %1$s ataka %2$d hona %3$s:%4$d - '%5$s'?</string>
     <string name="msg_stop_forward">Utzi %1$s ataka %2$d birbidaltzeari?</string>
     <string name="msg_metered">Sarea neurtutakoa da</string>
@@ -380,8 +380,8 @@ Zure internet trafikoa ez da kanpo VPN zerbitzari batera bidaltzen.</string>
     <string name="title_screen_other">Baimendu mugikorra pantaila piztuta dagoenean</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">Blokeatu ibiltaritzan</string>
-    <string name="label_ttl">TTL: %s s</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s s</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">Baimendu blokeo moduan</string>
     <string name="title_related">Iragazi erlazionatutakoak</string>
     <string name="title_access">Sarbide saiakaerak</string>

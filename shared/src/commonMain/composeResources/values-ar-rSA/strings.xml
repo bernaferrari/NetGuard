@@ -103,7 +103,7 @@
     <string name="action_clear_search">مسح البحث</string>
     <string name="search_settings">البحث في الإعدادات</string>
     <string name="content_desc_security_status">حالة أمان جدار الحماية</string>
-    <string name="content_desc_app_icon">أيقونة تطبيق %s</string>
+    <string name="content_desc_app_icon">أيقونة تطبيق %1$s</string>
     <string name="content_desc_show_info">عرض معلومات حول %1$s</string>
 
     <!-- Dashboard stats -->
@@ -209,29 +209,29 @@
     <string name="setting_reset_usage">إعادة تعيين استخدام الشبكة</string>
     <string name="setting_show_resolved">إظهار أسماء النطاقات التي تم حلها</string>
     <string name="setting_block_domains">حظر أسماء النطاقات</string>
-    <string name="setting_rcode">رمز رد DNS: %s</string>
+    <string name="setting_rcode">رمز رد DNS: %1$s</string>
     <string name="setting_forwarding">توجيه المنافذ</string>
-    <string name="setting_vpn4">VPN IPv4: %s</string>
-    <string name="setting_vpn6">VPN IPv6: %s</string>
-    <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_dns2">DNS ثانوي: %s</string>
-    <string name="setting_validate">التحقق في: %s</string>
-    <string name="setting_ttl">أدنى DNS TTL: %s ثانية</string>
+    <string name="setting_vpn4">VPN IPv4: %1$s</string>
+    <string name="setting_vpn6">VPN IPv6: %1$s</string>
+    <string name="setting_dns">VPN DNS: %1$s</string>
+    <string name="setting_dns2">DNS ثانوي: %1$s</string>
+    <string name="setting_validate">التحقق في: %1$s</string>
+    <string name="setting_ttl">أدنى DNS TTL: %1$s ثانية</string>
     <string name="setting_socks5_enabled">استخدام بروكسي SOCKS5</string>
-    <string name="setting_socks5_addr">عنوان SOCKS5: %s</string>
-    <string name="setting_socks5_port">منفذ SOCKS5: %s</string>
-    <string name="setting_socks5_username">اسم مستخدم SOCKS5: %s</string>
-    <string name="setting_socks5_password">كلمة مرور SOCKS5: %s</string>
-    <string name="setting_pcap_record_size">حجم سجل PCAP: %s ب</string>
-    <string name="setting_pcap_file_size">أقصى حجم لملف PCAP: %s م.ب</string>
+    <string name="setting_socks5_addr">عنوان SOCKS5: %1$s</string>
+    <string name="setting_socks5_port">منفذ SOCKS5: %1$s</string>
+    <string name="setting_socks5_username">اسم مستخدم SOCKS5: %1$s</string>
+    <string name="setting_socks5_password">كلمة مرور SOCKS5: %1$s</string>
+    <string name="setting_pcap_record_size">حجم سجل PCAP: %1$s ب</string>
+    <string name="setting_pcap_file_size">أقصى حجم لملف PCAP: %1$s م.ب</string>
     <string name="setting_pcap">تسجيل حركة مرور الشبكة (PCAP)</string>
-    <string name="setting_watchdog">المراقب: كل %s دقيقة</string>
+    <string name="setting_watchdog">المراقب: كل %1$s دقيقة</string>
 
     <string name="setting_stats_category">إشعارات السرعة</string>
     <string name="setting_stats">إظهار إشعارات السرعة</string>
     <string name="setting_stats_top">إظهار أهم التطبيقات</string>
-    <string name="setting_stats_frequency">فاصل العينة: %s ملي ثانية</string>
-    <string name="setting_stats_samples">عدد العينات: %s</string>
+    <string name="setting_stats_frequency">فاصل العينة: %1$s ملي ثانية</string>
+    <string name="setting_stats_samples">عدد العينات: %1$s</string>
 
     <string name="setting_backup">نسخ احتياطي</string>
     <string name="setting_export">تصدير الإعدادات</string>
@@ -312,7 +312,7 @@
 لهذا السبب، يرجى السماح باتصال VPN في الحوار التالي.
 لن يتم إرسال حركة مرور الإنترنت الخاصة بك إلى أي خادم VPN بعيد.</string>
     <string name="msg_autostart">تعذر بدء QuietGuard تلقائيًا. من المحتمل جدًا أن يكون ذلك بسبب خطأ في إصدار أندرويد الخاص بك.</string>
-    <string name="msg_error">حدث خطأ غير متوقع: '%s'</string>
+    <string name="msg_error">حدث خطأ غير متوقع: '%1$s'</string>
     <string name="msg_start_failed">رفض أندرويد بدء خدمة VPN في الوقت الحالي. من المحتمل جدًا أن يكون ذلك بسبب خطأ في إصدار أندرويد الخاص بك.</string>
     <string name="msg_try">تجربة QuietGuard</string>
     <string name="msg_terms">من خلال التبرع، فإنك توافق على <a href="http://www.netguard.me/#terms">الشروط والأحكام</a></string>
@@ -323,7 +323,7 @@
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; ك.ب</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; م.ب</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; ج.ب</string>
-    <string name="msg_count">%d مرة</string>
+    <string name="msg_count">%1$d مرة</string>
     <string name="msg_doze">للحصول على نتائج متسقة، يجب تعطيل تحسين البطارية في أندرويد لـ QuietGuard.
 \n\nفي الحوار التالي، اختر \"جميع التطبيقات\" في الأعلى، واضغط على QuietGuard في القائمة واختر وأكد \"عدم التحسين\".</string>
     <string name="msg_datasaving">للحصول على نتائج متسقة، يجب تعطيل خيار توفير البيانات في أندرويد لـ QuietGuard.
@@ -333,10 +333,10 @@
     <string name="msg_log_disabled">سجل حركة المرور معطل، يرجى استخدام المفتاح في الأعلى لتفعيله. قد يؤدي التسجيل إلى استهلاك إضافي للبطارية.</string>
     <string name="msg_clear_rules">سيؤدي هذا إلى إعادة تعيين القواعد والشروط إلى القيم الافتراضية</string>
     <string name="msg_reset_access">سيؤدي هذا إلى حذف أسطر سجل محاولات الوصول التي لا تحتوي على قواعد سماح/حظر</string>
-    <string name="msg_import_last">آخر استيراد: %s</string>
+    <string name="msg_import_last">آخر استيراد: %1$s</string>
     <string name="msg_downloading">جاري التحميل\n%1s</string>
     <string name="msg_downloaded">تم تحميل ملف hosts</string>
-    <string name="msg_download_last">آخر تحميل: %s</string>
+    <string name="msg_download_last">آخر تحميل: %1$s</string>
     <string name="msg_start_forward">بدء التوجيه من %1$s منفذ %2$d إلى %3$s:%4$d لـ '%5$s'؟</string>
     <string name="msg_stop_forward">إيقاف التوجيه من %1$s منفذ %2$d؟</string>
     <string name="msg_metered">الشبكة محدودة</string>
@@ -379,8 +379,8 @@
     <string name="title_screen_other">السماح بالجوال عند تشغيل الشاشة</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">محظور عند التجوال</string>
-    <string name="label_ttl">TTL: %s ثانية</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s ثانية</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">مسموح في وضع الإغلاق</string>
     <string name="title_related">متعلق بالتصفية</string>
     <string name="title_access">محاولات الوصول</string>

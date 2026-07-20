@@ -26,12 +26,9 @@ import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
-import androidx.compose.material3.ExposedDropdownMenuBox
-import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MediumFlexibleTopAppBar
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SegmentedButton
 import androidx.compose.material3.SegmentedButtonDefaults
@@ -63,7 +60,6 @@ import com.bernaferrari.quietguard.domain.FirewallRule
 import com.bernaferrari.quietguard.platform.ForwardingEntry
 import com.bernaferrari.quietguard.platform.NetGuardPlatform
 import com.bernaferrari.quietguard.platform.loadAllRulesForPicker
-import com.bernaferrari.quietguard.platform.showToast
 import com.bernaferrari.quietguard.ui.screens.vm.ForwardingListFilter
 import com.bernaferrari.quietguard.ui.screens.vm.ForwardingViewModel
 import com.bernaferrari.quietguard.ui.theme.spacing
@@ -74,15 +70,12 @@ import com.bernaferrari.quietguard.generated.resources.action_back
 import com.bernaferrari.quietguard.generated.resources.menu_add
 import com.bernaferrari.quietguard.generated.resources.menu_cancel
 import com.bernaferrari.quietguard.generated.resources.menu_delete
-import com.bernaferrari.quietguard.generated.resources.menu_ok
 import com.bernaferrari.quietguard.generated.resources.menu_protocol_tcp
 import com.bernaferrari.quietguard.generated.resources.menu_protocol_udp
-import com.bernaferrari.quietguard.generated.resources.msg_invalid
 import com.bernaferrari.quietguard.generated.resources.protocolNames
 import com.bernaferrari.quietguard.generated.resources.protocolValues
 import com.bernaferrari.quietguard.generated.resources.setting_forwarding
 import com.bernaferrari.quietguard.generated.resources.title_dport
-import com.bernaferrari.quietguard.generated.resources.title_protocol
 import com.bernaferrari.quietguard.generated.resources.title_raddr
 import com.bernaferrari.quietguard.generated.resources.title_rport
 import com.bernaferrari.quietguard.generated.resources.title_ruid

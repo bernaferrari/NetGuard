@@ -104,7 +104,7 @@
     <string name="action_clear_search">Notīrīt meklēšanu</string>
     <string name="search_settings">Meklēt iestatījumos</string>
     <string name="content_desc_security_status">Ugunsmūra drošības statuss</string>
-    <string name="content_desc_app_icon">Lietotnes ikona %s</string>
+    <string name="content_desc_app_icon">Lietotnes ikona %1$s</string>
     <string name="content_desc_show_info">Rādīt informāciju par %1$s</string>
 
     <!-- Dashboard stats -->
@@ -210,29 +210,29 @@
     <string name="setting_reset_usage">Atiestatīt tīkla lietojumu</string>
     <string name="setting_show_resolved">Rādīt atrisinātos domēna vārdus</string>
     <string name="setting_block_domains">Bloķēt domēna vārdus</string>
-    <string name="setting_rcode">DNS atbildes kods: %s</string>
+    <string name="setting_rcode">DNS atbildes kods: %1$s</string>
     <string name="setting_forwarding">Portu pāradresācija</string>
-    <string name="setting_vpn4">VPN IPv4: %s</string>
-    <string name="setting_vpn6">VPN IPv6: %s</string>
-    <string name="setting_dns">VPN DNS: %s</string>
-    <string name="setting_dns2">Sekundārais DNS: %s</string>
-    <string name="setting_validate">Validēt pie: %s</string>
-    <string name="setting_ttl">Minimālais DNS TTL: %s s</string>
+    <string name="setting_vpn4">VPN IPv4: %1$s</string>
+    <string name="setting_vpn6">VPN IPv6: %1$s</string>
+    <string name="setting_dns">VPN DNS: %1$s</string>
+    <string name="setting_dns2">Sekundārais DNS: %1$s</string>
+    <string name="setting_validate">Validēt pie: %1$s</string>
+    <string name="setting_ttl">Minimālais DNS TTL: %1$s s</string>
     <string name="setting_socks5_enabled">Lietot SOCKS5 starpniekserveri</string>
-    <string name="setting_socks5_addr">SOCKS5 adrese: %s</string>
-    <string name="setting_socks5_port">SOCKS5 ports: %s</string>
-    <string name="setting_socks5_username">SOCKS5 lietotājvārds: %s</string>
-    <string name="setting_socks5_password">SOCKS5 parole: %s</string>
-    <string name="setting_pcap_record_size">PCAP ieraksta izmērs: %s B</string>
-    <string name="setting_pcap_file_size">PCAP maks. faila izmērs: %s MB</string>
+    <string name="setting_socks5_addr">SOCKS5 adrese: %1$s</string>
+    <string name="setting_socks5_port">SOCKS5 ports: %1$s</string>
+    <string name="setting_socks5_username">SOCKS5 lietotājvārds: %1$s</string>
+    <string name="setting_socks5_password">SOCKS5 parole: %1$s</string>
+    <string name="setting_pcap_record_size">PCAP ieraksta izmērs: %1$s B</string>
+    <string name="setting_pcap_file_size">PCAP maks. faila izmērs: %1$s MB</string>
     <string name="setting_pcap">Ierakstīt tīkla trafiku (PCAP)</string>
-    <string name="setting_watchdog">Sargsuns: ik pēc %s minūtēm</string>
+    <string name="setting_watchdog">Sargsuns: ik pēc %1$s minūtēm</string>
 
     <string name="setting_stats_category">Ātruma paziņojums</string>
     <string name="setting_stats">Rādīt ātruma paziņojumu</string>
     <string name="setting_stats_top">Rādīt top lietotnes</string>
-    <string name="setting_stats_frequency">Parauga intervāls: %s ms</string>
-    <string name="setting_stats_samples">Paraugu skaits: %s</string>
+    <string name="setting_stats_frequency">Parauga intervāls: %1$s ms</string>
+    <string name="setting_stats_samples">Paraugu skaits: %1$s</string>
 
     <string name="setting_backup">Rezerves kopija</string>
     <string name="setting_export">Eksportēt iestatījumus</string>
@@ -313,7 +313,7 @@
 Šī iemesla dēļ, lūdzu, atļaujiet VPN savienojumu nākamajā dialogā.
 Jūsu interneta trafiks netiek sūtīts uz attālo VPN serveri.</string>
     <string name="msg_autostart">QuietGuard nevarēja startēties automātiski. Tas, iespējams, ir Android versijas kļūdas dēļ.</string>
-    <string name="msg_error">Radusies neparedzēta kļūda: '%s'</string>
+    <string name="msg_error">Radusies neparedzēta kļūda: '%1$s'</string>
     <string name="msg_start_failed">Android šobrīd atteicās palaist VPN pakalpojumu. Tas, iespējams, ir Android versijas kļūdas dēļ.</string>
     <string name="msg_try">Izmēģini QuietGuard</string>
     <string name="msg_terms">Ziedojot Jūs piekrītat <a href="http://www.netguard.me/#terms">noteikumiem un nosacījumiem</a></string>
@@ -324,7 +324,7 @@ Jūsu interneta trafiks netiek sūtīts uz attālo VPN serveri.</string>
     <string name="msg_kb">%1$7.3f&#9650; %2$7.3f&#9660; KB</string>
     <string name="msg_mb">%1$7.3f&#9650; %2$7.3f&#9660; MB</string>
     <string name="msg_gb">%1$7.3f&#9650; %2$7.3f&#9660; GB</string>
-    <string name="msg_count">%dx</string>
+    <string name="msg_count">%1$dx</string>
     <string name="msg_doze">Pastāvīgu rezultātu sasniegšanai QuietGuard lietotnei ir jāatspējo Android akumulatora optimizācija.
 \n\nNākamajā dialogā augšpusē atlasiet \"Visas lietotnes\", sarakstā pieskarieties QuietGuard un atlasiet un apstipriniet \"Neoptimizēt\".</string>
     <string name="msg_datasaving">Pastāvīgu rezultātu sasniegšanai QuietGuard lietotnei ir jāatspējo Android datu taupīšanas opcijas.
@@ -334,10 +334,10 @@ Jūsu interneta trafiks netiek sūtīts uz attālo VPN serveri.</string>
     <string name="msg_log_disabled">Trafika žurnalēšana ir atspējota, izmantojiet slēdzi augšpusē, lai to iespējotu. Žurnalēšana var palielināt akumulatora lietojumu.</string>
     <string name="msg_clear_rules">Tas atiestatīs noteikumus un nosacījumus uz to noklusējuma vērtībām</string>
     <string name="msg_reset_access">Tas izdzēsīs piekļuves mēģinājumu žurnāla rindiņas bez atļaušanas/bloķēšanas noteikumiem</string>
-    <string name="msg_import_last">Pēdējais imports: %s</string>
+    <string name="msg_import_last">Pēdējais imports: %1$s</string>
     <string name="msg_downloading">Lejupielādē\n%1s</string>
     <string name="msg_downloaded">Hosts fails lejupielādēts</string>
-    <string name="msg_download_last">Pēdējā lejupielāde: %s</string>
+    <string name="msg_download_last">Pēdējā lejupielāde: %1$s</string>
     <string name="msg_start_forward">Sākt pāradresāciju no %1$s porta %2$d uz %3$s:%4$d no '%5$s'?</string>
     <string name="msg_stop_forward">Apturēt %1$s porta %2$d pāradresāciju?</string>
     <string name="msg_metered">Tīkls ir mērīts</string>
@@ -380,8 +380,8 @@ Jūsu interneta trafiks netiek sūtīts uz attālo VPN serveri.</string>
     <string name="title_screen_other">Atļaut mobilos datus, kad ekrāns ieslēgts</string>
     <string name="title_roaming_symbol">R</string>
     <string name="title_roaming">Bloķēt viesabonēšanā</string>
-    <string name="label_ttl">TTL: %s s</string>
-    <string name="label_uid">UID: %s</string>
+    <string name="label_ttl">TTL: %1$s s</string>
+    <string name="label_uid">UID: %1$s</string>
     <string name="title_lockdown">Atļaut bloķēšanas režīmā</string>
     <string name="title_related">Filtrēt saistītos</string>
     <string name="title_access">Piekļuves mēģinājumi</string>
