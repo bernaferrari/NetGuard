@@ -620,11 +620,13 @@ private fun DetailSection(
 
 @Composable
 private fun SectionLabel(text: String) {
+    val spacing = MaterialTheme.spacing
     Text(
         text = text,
         style = MaterialTheme.typography.titleSmall,
         fontWeight = FontWeight.Bold,
         color = MaterialTheme.colorScheme.primary,
+        modifier = Modifier.padding(horizontal = spacing.default),
     )
 }
 

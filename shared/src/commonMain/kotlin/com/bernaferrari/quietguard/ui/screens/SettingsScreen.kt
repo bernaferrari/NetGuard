@@ -222,13 +222,38 @@ import com.bernaferrari.quietguard.ui.theme.TouchTargets
 import com.bernaferrari.quietguard.ui.theme.spacing
 
 import com.bernaferrari.quietguard.ui.icons.Icon
-import com.bernaferrari.quietguard.ui.icons.BrandIcons
 import com.bernaferrari.quietguard.ui.icons.MaterialIcon
+import androidx.compose.material3.Icon as Material3Icon
+import org.jetbrains.compose.resources.DrawableResource
+import org.jetbrains.compose.resources.InternalResourceApi
+import org.jetbrains.compose.resources.ResourceItem
+import org.jetbrains.compose.resources.painterResource
 
 private const val PROJECT_GITHUB_URL = "https://github.com/bernaferrari/QuietGuard"
 private const val LINKEDIN_URL = "https://www.linkedin.com/in/bernaferrari"
 private const val X_URL = "https://x.com/bernaferrari"
 private const val REDDIT_URL = "https://www.reddit.com/user/bernaferrari"
+
+private const val ABOUT_RESOURCE_PREFIX =
+    "composeResources/com.bernaferrari.quietguard.generated.resources/drawable/"
+
+@OptIn(InternalResourceApi::class)
+private val linkedInLogo = DrawableResource(
+    "drawable:linkedin_logo",
+    setOf(ResourceItem(setOf(), "${ABOUT_RESOURCE_PREFIX}linkedin_logo.xml", -1, -1)),
+)
+
+@OptIn(InternalResourceApi::class)
+private val xLogo = DrawableResource(
+    "drawable:x_logo",
+    setOf(ResourceItem(setOf(), "${ABOUT_RESOURCE_PREFIX}x_logo.xml", -1, -1)),
+)
+
+@OptIn(InternalResourceApi::class)
+private val redditLogo = DrawableResource(
+    "drawable:reddit_logo",
+    setOf(ResourceItem(setOf(), "${ABOUT_RESOURCE_PREFIX}reddit_logo.xml", -1, -1)),
+)
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 @Composable
@@ -1556,11 +1581,18 @@ private fun AboutContent(onOpenUrl: (String) -> Unit) {
                         style = MaterialTheme.typography.headlineSmall,
                         fontWeight = FontWeight.Bold,
                     )
-                    Text(
-                        text = stringResource(Res.string.about_version),
-                        style = MaterialTheme.typography.bodyLarge,
-                        color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.82f),
-                    )
+                    Surface(
+                        shape = RoundedCornerShape(999.dp),
+                        color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.14f),
+                    ) {
+                        Text(
+                            text = stringResource(Res.string.about_version),
+                            style = MaterialTheme.typography.labelMedium,
+                            fontWeight = FontWeight.SemiBold,
+                            color = MaterialTheme.colorScheme.onPrimaryContainer,
+                            modifier = Modifier.padding(horizontal = 10.dp, vertical = 5.dp),
+                        )
+                    }
                 }
             }
         }
@@ -1590,16 +1622,15 @@ private fun AboutContent(onOpenUrl: (String) -> Unit) {
 private data class AboutSocialLink(
     val name: String,
     val url: String,
-    val badge: String? = null,
-    val icon: MaterialIcon? = null,
+    val drawable: DrawableResource,
 )
 
 @Composable
 private fun AboutSocialLinks(onOpenUrl: (String) -> Unit) {
     val links = listOf(
-        AboutSocialLink("LinkedIn", LINKEDIN_URL, badge = "in"),
-        AboutSocialLink("X", X_URL, icon = BrandIcons.X),
-        AboutSocialLink("Reddit", REDDIT_URL, badge = "r/"),
+        AboutSocialLink("LinkedIn", LINKEDIN_URL, drawable = linkedInLogo),
+        AboutSocialLink("X", X_URL, drawable = xLogo),
+        AboutSocialLink("Reddit", REDDIT_URL, drawable = redditLogo),
     )
 
     Surface(
@@ -1610,9 +1641,9 @@ private fun AboutSocialLinks(onOpenUrl: (String) -> Unit) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = MaterialTheme.spacing.medium, end = MaterialTheme.spacing.extraSmall),
+                .padding(start = 16.dp, end = 8.dp, top = 10.dp, bottom = 10.dp),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(MaterialTheme.spacing.extraSmall),
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
         ) {
             Text(
                 text = stringResource(Res.string.about_social_title),
@@ -1625,21 +1656,12 @@ private fun AboutSocialLinks(onOpenUrl: (String) -> Unit) {
                     onClick = { onOpenUrl(link.url) },
                     modifier = Modifier.size(TouchTargets.minimum),
                 ) {
-                    if (link.icon != null) {
-                        Icon(
-                            icon = link.icon,
-                            contentDescription = link.name,
-                            modifier = Modifier.size(22.dp),
-                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                    } else {
-                        Text(
-                            text = link.badge.orEmpty(),
-                            style = MaterialTheme.typography.titleMedium,
-                            fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                    }
+                    Material3Icon(
+                        painter = painterResource(link.drawable),
+                        contentDescription = link.name,
+                        modifier = Modifier.size(22.dp),
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
                 }
             }
         }
