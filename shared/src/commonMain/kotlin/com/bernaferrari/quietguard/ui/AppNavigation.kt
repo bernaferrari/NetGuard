@@ -8,7 +8,6 @@ import com.bernaferrari.quietguard.ui.icons.MaterialSymbols
 import androidx.compose.animation.ContentTransform
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
-import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
@@ -49,6 +48,7 @@ import com.bernaferrari.quietguard.ui.screens.LogsScreen
 import com.bernaferrari.quietguard.ui.screens.ProScreen
 import com.bernaferrari.quietguard.ui.screens.SettingsScreen
 import com.bernaferrari.quietguard.ui.screens.vm.LogsViewModel
+import com.bernaferrari.quietguard.ui.theme.LocalMotion
 import com.bernaferrari.quietguard.ui.util.LoadErrorPlaceholder
 import com.bernaferrari.quietguard.ui.util.StatePlaceholder
 import com.bernaferrari.quietguard.generated.resources.Res
@@ -110,36 +110,39 @@ fun AppNavigation(
     val listDetailStrategy = rememberListDetailSceneStrategy<NavKey>(
         directive = paneScaffoldDirective,
     )
-    val appDetailMetadata = remember(singlePaneLayout) {
+    val motion = LocalMotion.current
+    val detailTransitionMetadata = remember(motion) {
+        NavDisplay.transitionSpec {
+            ContentTransform(
+                targetContentEnter = slideInHorizontally(
+                    animationSpec = tween(
+                        durationMillis = if (motion.reducedMotion) 0 else 220,
+                        easing = motion.easingDecelerate,
+                    ),
+                    initialOffsetX = { fullWidth -> fullWidth },
+                ),
+                initialContentExit = ExitTransition.None,
+            )
+        } +
+            NavDisplay.popTransitionSpec {
+                ContentTransform(
+                    targetContentEnter = EnterTransition.None,
+                    initialContentExit = slideOutHorizontally(
+                        animationSpec = tween(
+                            durationMillis = if (motion.reducedMotion) 0 else 180,
+                            easing = motion.easingAccelerate,
+                        ),
+                        targetOffsetX = { fullWidth -> fullWidth },
+                    ),
+                )
+            }
+    }
+    val appDetailMetadata = remember(singlePaneLayout, detailTransitionMetadata) {
         val paneMetadata = ListDetailSceneStrategy.detailPane()
         if (!singlePaneLayout) {
             paneMetadata
         } else {
-            paneMetadata +
-                NavDisplay.transitionSpec {
-                    ContentTransform(
-                        targetContentEnter = slideInHorizontally(
-                            animationSpec = tween(
-                                durationMillis = 220,
-                                easing = LinearOutSlowInEasing,
-                            ),
-                            initialOffsetX = { fullWidth -> fullWidth },
-                        ),
-                        initialContentExit = ExitTransition.None,
-                    )
-                } +
-                NavDisplay.popTransitionSpec {
-                    ContentTransform(
-                        targetContentEnter = EnterTransition.None,
-                        initialContentExit = slideOutHorizontally(
-                            animationSpec = tween(
-                                durationMillis = 180,
-                                easing = LinearOutSlowInEasing,
-                            ),
-                            targetOffsetX = { fullWidth -> fullWidth },
-                        ),
-                    )
-                }
+            paneMetadata + detailTransitionMetadata
         }
     }
 
@@ -335,7 +338,7 @@ fun AppNavigation(
                                 )
                             }
                         }
-                        entry<SettingsDetail> { key ->
+                        entry<SettingsDetail>(metadata = detailTransitionMetadata) { key ->
                             CenteredScreen {
                                 SettingsScreen(
                                     section = key.section,
@@ -346,17 +349,17 @@ fun AppNavigation(
                                 )
                             }
                         }
-                        entry<Dns> {
+                        entry<Dns>(metadata = detailTransitionMetadata) {
                             CenteredScreen {
                                 DnsScreen(onBack = { popBackStack() })
                             }
                         }
-                        entry<Forwarding> {
+                        entry<Forwarding>(metadata = detailTransitionMetadata) {
                             CenteredScreen {
                                 ForwardingScreen(onBack = { popBackStack() })
                             }
                         }
-                        entry<Pro> {
+                        entry<Pro>(metadata = detailTransitionMetadata) {
                             CenteredScreen {
                                 ProScreen(onBack = { popBackStack() })
                             }

@@ -51,6 +51,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.bernaferrari.quietguard.ui.components.groupItemShape
+import com.bernaferrari.quietguard.ui.components.AppIcon
 import com.bernaferrari.quietguard.domain.FirewallRule
 import com.bernaferrari.quietguard.platform.ForwardingEntry
 import com.bernaferrari.quietguard.platform.NetGuardPlatform
@@ -477,6 +478,20 @@ private fun ForwardingAddDialog(
                                     modifier = Modifier.size(18.dp),
                                     strokeWidth = 2.dp,
                                 )
+                            } else if (selectedRule != null) {
+                                AppIcon(
+                                    packageName = selectedRule.packageName,
+                                    displayName = selectedRule.name,
+                                    size = 32.dp,
+                                    cornerRadius = 10.dp,
+                                    fallbackIcon = MaterialSymbols.Filled.Apps,
+                                )
+                            } else {
+                                Icon(
+                                    icon = MaterialSymbols.Filled.Apps,
+                                    contentDescription = null,
+                                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                                )
                             }
                             Text(
                                 text = selectedRule?.name
@@ -510,6 +525,15 @@ private fun ForwardingAddDialog(
                                         text = rule.name
                                             ?: rule.packageName
                                             ?: rule.uid.toString(),
+                                    )
+                                },
+                                leadingIcon = {
+                                    AppIcon(
+                                        packageName = rule.packageName,
+                                        displayName = rule.name,
+                                        size = 32.dp,
+                                        cornerRadius = 10.dp,
+                                        fallbackIcon = MaterialSymbols.Filled.Apps,
                                     )
                                 },
                                 onClick = {
