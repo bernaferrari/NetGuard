@@ -94,6 +94,8 @@
     <string name="ui_log_details_time">Recorded</string>
     <string name="ui_log_details_app_id">App ID</string>
     <string name="action_close">Close</string>
+    <string name="action_copy">Copy</string>
+    <string name="status_copied">Copied</string>
     <string name="ui_settings_title">Settings</string>
     <string name="ui_dns_title">Resolved DNS</string>
     <string name="ui_forwarding_title">Port forwarding</string>

@@ -13,8 +13,14 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import org.koin.core.annotation.KoinViewModel
+
+data class AppAccessHistory(
+    val uid: Int = -1,
+    val entries: List<AccessEntry> = emptyList(),
+)
 
 @OptIn(ExperimentalCoroutinesApi::class)
 @KoinViewModel
@@ -23,12 +29,18 @@ class AppRuleDetailViewModel(
 ) : ViewModel() {
     private val uidFlow = MutableStateFlow(-1)
 
-    val accessState: StateFlow<UiAsyncState<List<AccessEntry>>> =
+    val accessState: StateFlow<UiAsyncState<AppAccessHistory>> =
         uidFlow
             .flatMapLatest { uid ->
-                if (uid < 0) flowOf(emptyList()) else trafficRepository.observeAccess(uid)
+                if (uid < 0) {
+                    flowOf(AppAccessHistory())
+                } else {
+                    trafficRepository.observeAccess(uid).map { entries ->
+                        AppAccessHistory(uid = uid, entries = entries)
+                    }
+                }
             }
-            .asUiAsyncState(viewModelScope, emptyList())
+            .asUiAsyncState(viewModelScope, AppAccessHistory())
 
     fun bindRule(rule: FirewallRule) {
         if (uidFlow.value != rule.uid) {

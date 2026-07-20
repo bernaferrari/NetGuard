@@ -12,7 +12,7 @@ import org.koin.compose.viewmodel.koinViewModel
 import org.jetbrains.compose.resources.stringResource
 import com.bernaferrari.quietguard.generated.resources.Res
 import com.bernaferrari.quietguard.generated.resources.action_clear_search
-import com.bernaferrari.quietguard.generated.resources.action_close
+import com.bernaferrari.quietguard.generated.resources.action_copy
 import com.bernaferrari.quietguard.generated.resources.action_enable
 import com.bernaferrari.quietguard.generated.resources.home_logs_hint
 import com.bernaferrari.quietguard.generated.resources.menu_protocol_other
@@ -23,6 +23,7 @@ import com.bernaferrari.quietguard.generated.resources.menu_traffic_allowed
 import com.bernaferrari.quietguard.generated.resources.menu_traffic_blocked
 import com.bernaferrari.quietguard.generated.resources.msg_log_disabled
 import com.bernaferrari.quietguard.generated.resources.setting_log_app
+import com.bernaferrari.quietguard.generated.resources.status_copied
 import com.bernaferrari.quietguard.generated.resources.summary_log_app
 import com.bernaferrari.quietguard.generated.resources.title_enable_filtering
 import com.bernaferrari.quietguard.generated.resources.title_enable_help2
@@ -44,7 +45,6 @@ import com.bernaferrari.quietguard.generated.resources.ui_logs_unknown_source
 import com.bernaferrari.quietguard.generated.resources.ui_log_details_address
 import com.bernaferrari.quietguard.generated.resources.ui_log_details_app_id
 import com.bernaferrari.quietguard.generated.resources.ui_log_details_destination
-import com.bernaferrari.quietguard.generated.resources.ui_log_details_port
 import com.bernaferrari.quietguard.generated.resources.ui_log_details_protocol
 import com.bernaferrari.quietguard.generated.resources.ui_log_details_time
 import com.bernaferrari.quietguard.generated.resources.ui_log_details_title
@@ -65,6 +65,7 @@ import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -76,6 +77,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -83,6 +85,7 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
@@ -97,6 +100,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -108,6 +112,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.luminance
+import androidx.compose.ui.platform.LocalClipboardManager
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
@@ -120,6 +126,7 @@ import com.bernaferrari.quietguard.ui.util.StatePlaceholder
 import com.bernaferrari.quietguard.ui.util.LoadErrorPlaceholder
 import com.bernaferrari.quietguard.ui.icons.Icon
 import com.bernaferrari.quietguard.ui.icons.MaterialIcon
+import kotlinx.coroutines.delay
 private val AllowedStatusContentLight = Color(0xFF1B5E20)
 private val AllowedStatusContentDark = Color(0xFFA5D6A7)
 
@@ -1008,6 +1015,8 @@ private fun LogEntryDetailsSheet(
     onDismiss: () -> Unit,
 ) {
     val spacing = MaterialTheme.spacing
+    val clipboardManager = LocalClipboardManager.current
+    var copiedField by remember(entry) { mutableStateOf<String?>(null) }
     val isAllowed = entry.allowed > 0
     val isDarkSurface = MaterialTheme.colorScheme.surface.luminance() < 0.5f
     val allowedStatusContentColor =
@@ -1027,12 +1036,18 @@ private fun LogEntryDetailsSheet(
     } else {
         stringResource(Res.string.menu_traffic_blocked)
     }
-    val destination = entry.dname?.trim().takeUnless { it.isNullOrEmpty() }
-        ?: buildDestinationPresentation(entry.daddr, entry.dport, entry.dname).headline
+    val destination = buildDestinationPresentation(entry.daddr, entry.dport, entry.dname)
     val fallbackAppIcon = if (entry.uid > 0) {
         MaterialSymbols.Filled.Apps
     } else {
         MaterialSymbols.Filled.Public
+    }
+
+    LaunchedEffect(copiedField) {
+        if (copiedField != null) {
+            delay(1_500)
+            copiedField = null
+        }
     }
 
     ModalBottomSheet(onDismissRequest = onDismiss) {
@@ -1042,34 +1057,23 @@ private fun LogEntryDetailsSheet(
                 .verticalScroll(rememberScrollState())
                 .padding(horizontal = spacing.extraLarge)
                 .padding(bottom = spacing.extraLarge),
-            verticalArrangement = Arrangement.spacedBy(spacing.large),
+            verticalArrangement = Arrangement.spacedBy(spacing.default),
         ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Text(
-                    text = stringResource(Res.string.ui_log_details_title),
-                    style = MaterialTheme.typography.titleLarge,
-                    modifier = Modifier.weight(1f),
-                )
-                IconButton(onClick = onDismiss) {
-                    Icon(
-                        icon = MaterialSymbols.Filled.Close,
-                        contentDescription = stringResource(Res.string.action_close),
-                    )
-                }
-            }
+            Text(
+                text = stringResource(Res.string.ui_log_details_title),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.SemiBold,
+            )
 
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(spacing.medium),
+                horizontalArrangement = Arrangement.spacedBy(spacing.small),
             ) {
                 AppIcon(
                     packageName = packageName,
-                    size = 48.dp,
-                    cornerRadius = 14.dp,
+                    size = 40.dp,
+                    cornerRadius = 12.dp,
                     fallbackIcon = fallbackAppIcon,
                 )
                 Column(
@@ -1103,38 +1107,46 @@ private fun LogEntryDetailsSheet(
             Surface(
                 modifier = Modifier.fillMaxWidth(),
                 color = MaterialTheme.colorScheme.surfaceContainerLow,
-                shape = RoundedCornerShape(20.dp),
+                shape = RoundedCornerShape(16.dp),
             ) {
-                Column(
-                    modifier = Modifier.padding(spacing.default),
-                    verticalArrangement = Arrangement.spacedBy(spacing.default),
-                ) {
-                    LogDetailField(
+                Column {
+                    LogDetailRow(
                         label = stringResource(Res.string.ui_log_details_destination),
-                        value = destination,
+                        value = destination.headline,
+                        showDivider = true,
+                        copied = copiedField == "destination",
+                        onCopy = {
+                            clipboardManager.setText(AnnotatedString(destination.headline))
+                            copiedField = "destination"
+                        },
                     )
-                    LogDetailField(
-                        label = stringResource(Res.string.ui_log_details_address),
-                        value = entry.daddr,
-                    )
-                    if (entry.dport > 0) {
-                        LogDetailField(
-                            label = stringResource(Res.string.ui_log_details_port),
-                            value = entry.dport.toString(),
+                    destination.detail?.let { address ->
+                        LogDetailRow(
+                            label = stringResource(Res.string.ui_log_details_address),
+                            value = address,
+                            showDivider = true,
+                            copied = copiedField == "address",
+                            onCopy = {
+                                clipboardManager.setText(AnnotatedString(address))
+                                copiedField = "address"
+                            },
                         )
                     }
-                    LogDetailField(
+                    LogDetailRow(
                         label = stringResource(Res.string.ui_log_details_protocol),
                         value = entry.protocolLabel.uppercase(),
+                        showDivider = true,
                     )
-                    LogDetailField(
+                    LogDetailRow(
                         label = stringResource(Res.string.ui_log_details_time),
                         value = entry.timeText,
+                        showDivider = entry.uid > 0,
                     )
                     if (entry.uid > 0) {
-                        LogDetailField(
+                        LogDetailRow(
                             label = stringResource(Res.string.ui_log_details_app_id),
                             value = entry.uid.toString(),
+                            showDivider = false,
                         )
                     }
                 }
@@ -1145,21 +1157,70 @@ private fun LogEntryDetailsSheet(
 }
 
 @Composable
-private fun LogDetailField(
+private fun LogDetailRow(
     label: String,
     value: String,
+    showDivider: Boolean,
+    copied: Boolean = false,
+    onCopy: (() -> Unit)? = null,
 ) {
-    Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
-        Text(
-            text = label,
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
-        Text(
-            text = value,
-            style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.onSurface,
-        )
+    Column {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp),
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Text(
+                text = label,
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.width(84.dp),
+            )
+            if (onCopy == null) {
+                Text(
+                    text = value,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurface,
+                    modifier = Modifier.weight(1f),
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            } else {
+                Row(
+                    modifier = Modifier
+                        .weight(1f)
+                        .clip(MaterialTheme.shapes.small)
+                        .clickable(onClick = onCopy),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                ) {
+                    Text(
+                        text = value,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurface,
+                        modifier = Modifier.weight(1f),
+                        maxLines = 2,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                    Icon(
+                        icon = if (copied) MaterialSymbols.Filled.Check else MaterialSymbols.Filled.ContentCopy,
+                        contentDescription = stringResource(
+                            if (copied) Res.string.status_copied else Res.string.action_copy,
+                        ),
+                        modifier = Modifier.size(18.dp),
+                        tint = if (copied) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+            }
+        }
+        if (showDivider) {
+            HorizontalDivider(
+                thickness = 0.5.dp,
+                color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f),
+            )
+        }
     }
 }
 

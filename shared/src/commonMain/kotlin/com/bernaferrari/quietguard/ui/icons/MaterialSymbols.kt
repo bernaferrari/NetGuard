@@ -78,6 +78,7 @@ object MaterialSymbols {
         val Headset: MaterialIcon get() = MaterialIcon(filledHeadset)
         val Close: MaterialIcon get() = MaterialIcon(filledClose)
         val Public: MaterialIcon get() = MaterialIcon(filledPublic)
+        val ContentCopy: MaterialIcon get() = MaterialIcon(filledContentCopy)
     }
 
     object Outlined {

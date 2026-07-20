@@ -20,7 +20,7 @@ readonly FILLED_ICONS=(
   info palette download account_balance map security inbox check extension apps
   arrow_back smartphone block chevron_right undo shield cloud settings equalizer
   delete play_arrow brightness_auto camera_alt email dark_mode signal_cellular_alt
-  headset close public
+  headset close public content_copy
 )
 
 readonly OUTLINED_ICONS=(

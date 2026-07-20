@@ -224,6 +224,9 @@ import com.bernaferrari.quietguard.ui.icons.Icon
 import com.bernaferrari.quietguard.ui.icons.MaterialIcon
 
 private const val PROJECT_GITHUB_URL = "https://github.com/bernaferrari/QuietGuard"
+private const val LINKEDIN_URL = "https://www.linkedin.com/in/bernaferrari"
+private const val X_URL = "https://x.com/bernaferrari"
+private const val REDDIT_URL = "https://www.reddit.com/user/bernaferrari"
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 @Composable
@@ -1230,7 +1233,7 @@ fun SettingsScreen(
             }
 
             if (section == SettingsSection.About) {
-                AboutContent(onOpenGitHub = { uriHandler.openUri(PROJECT_GITHUB_URL) })
+                AboutContent(onOpenUrl = uriHandler::openUri)
             }
         }
     } // end Scaffold
@@ -1492,7 +1495,7 @@ private fun SettingsDestinationRow(
 }
 
 @Composable
-private fun AboutContent(onOpenGitHub: () -> Unit) {
+private fun AboutContent(onOpenUrl: (String) -> Unit) {
     val spacing = MaterialTheme.spacing
     Column(verticalArrangement = Arrangement.spacedBy(spacing.large)) {
         Surface(
@@ -1501,17 +1504,17 @@ private fun AboutContent(onOpenGitHub: () -> Unit) {
             color = MaterialTheme.colorScheme.primaryContainer,
             contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
         ) {
-            Column(
+            Row(
                 modifier = Modifier.padding(
-                    horizontal = spacing.extraLarge,
-                    vertical = spacing.xxLarge,
+                    horizontal = spacing.large,
+                    vertical = spacing.large,
                 ),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.spacedBy(spacing.medium),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(spacing.large),
             ) {
                 Surface(
-                    modifier = Modifier.size(96.dp),
-                    shape = MaterialTheme.shapes.extraLarge,
+                    modifier = Modifier.size(64.dp),
+                    shape = MaterialTheme.shapes.large,
                     color = MaterialTheme.colorScheme.primary,
                     contentColor = MaterialTheme.colorScheme.onPrimary,
                 ) {
@@ -1519,21 +1522,25 @@ private fun AboutContent(onOpenGitHub: () -> Unit) {
                         Icon(
                             icon = MaterialSymbols.Filled.Shield,
                             contentDescription = null,
-                            modifier = Modifier.size(52.dp),
+                            modifier = Modifier.size(36.dp),
                         )
                     }
                 }
-                Text(
-                    text = stringResource(Res.string.app_name),
-                    style = MaterialTheme.typography.headlineMedium,
-                    fontWeight = FontWeight.Bold,
-                    textAlign = TextAlign.Center,
-                )
-                Text(
-                    text = stringResource(Res.string.about_tagline),
-                    style = MaterialTheme.typography.titleMedium,
-                    textAlign = TextAlign.Center,
-                )
+                Column(
+                    modifier = Modifier.weight(1f),
+                    verticalArrangement = Arrangement.spacedBy(4.dp),
+                ) {
+                    Text(
+                        text = stringResource(Res.string.app_name),
+                        style = MaterialTheme.typography.headlineSmall,
+                        fontWeight = FontWeight.Bold,
+                    )
+                    Text(
+                        text = stringResource(Res.string.about_tagline),
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.82f),
+                    )
+                }
             }
         }
 
@@ -1552,8 +1559,74 @@ private fun AboutContent(onOpenGitHub: () -> Unit) {
             subtitle = stringResource(Res.string.about_source_summary),
             icon = MaterialSymbols.Filled.Code,
             trailingIcon = MaterialSymbols.AutoMirrored.Filled.OpenInNew,
-            onClick = onOpenGitHub,
+            onClick = { onOpenUrl(PROJECT_GITHUB_URL) },
         )
+
+        AboutSocialLinks(onOpenUrl = onOpenUrl)
+    }
+}
+
+private data class AboutSocialLink(
+    val name: String,
+    val badge: String,
+    val url: String,
+)
+
+@Composable
+private fun AboutSocialLinks(onOpenUrl: (String) -> Unit) {
+    val links = listOf(
+        AboutSocialLink("LinkedIn", "in", LINKEDIN_URL),
+        AboutSocialLink("X", "X", X_URL),
+        AboutSocialLink("Reddit", "r/", REDDIT_URL),
+    )
+
+    Surface(
+        modifier = Modifier.fillMaxWidth(),
+        shape = MaterialTheme.shapes.extraLarge,
+        color = MaterialTheme.colorScheme.surfaceContainerLow,
+    ) {
+        Row(
+            modifier = Modifier.fillMaxWidth().padding(MaterialTheme.spacing.medium),
+            horizontalArrangement = Arrangement.spacedBy(MaterialTheme.spacing.small),
+        ) {
+            links.forEach { link ->
+                Surface(
+                    modifier = Modifier
+                        .weight(1f)
+                        .clickable(role = Role.Button) { onOpenUrl(link.url) },
+                    shape = MaterialTheme.shapes.large,
+                    color = MaterialTheme.colorScheme.surfaceContainerHigh,
+                    contentColor = MaterialTheme.colorScheme.onSurface,
+                ) {
+                    Column(
+                        modifier = Modifier.padding(vertical = 12.dp, horizontal = 8.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.spacedBy(6.dp),
+                    ) {
+                        Surface(
+                            modifier = Modifier.size(36.dp),
+                            shape = MaterialTheme.shapes.medium,
+                            color = MaterialTheme.colorScheme.primaryContainer,
+                            contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
+                        ) {
+                            Box(contentAlignment = Alignment.Center) {
+                                Text(
+                                    text = link.badge,
+                                    style = MaterialTheme.typography.titleMedium,
+                                    fontWeight = FontWeight.Bold,
+                                )
+                            }
+                        }
+                        Text(
+                            text = link.name,
+                            style = MaterialTheme.typography.labelMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            maxLines = 1,
+                        )
+                    }
+                }
+            }
+        }
     }
 }
 

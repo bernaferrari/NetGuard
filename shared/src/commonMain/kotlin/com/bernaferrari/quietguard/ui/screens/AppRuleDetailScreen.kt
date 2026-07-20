@@ -80,6 +80,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.ui.unit.lerp
 import com.bernaferrari.quietguard.domain.FirewallRule
+import com.bernaferrari.quietguard.platform.AccessEntry
 import com.bernaferrari.quietguard.platform.PlatformContext
 import com.bernaferrari.quietguard.ui.screens.vm.AppRuleDetailViewModel
 import org.koin.compose.viewmodel.koinViewModel
@@ -102,6 +103,14 @@ fun AppRuleDetailScreen(
 ) {
     val detailViewModel: AppRuleDetailViewModel = koinViewModel()
     val haptic = LocalHapticFeedback.current
+    val accessUi by detailViewModel.accessState.collectAsStateWithLifecycle()
+    val accessHistoryBelongsToRule = accessUi.data.uid == rule.uid
+    val accessEntries = if (accessHistoryBelongsToRule) accessUi.data.entries else emptyList()
+    val hasAccessHistory = accessEntries.isNotEmpty()
+
+    LaunchedEffect(rule.uid) {
+        detailViewModel.bindRule(rule)
+    }
 
     val appName = rule.name ?: rule.packageName.orEmpty()
     val canLaunch = PlatformContext.isAndroid() && rule.packageName != null
@@ -138,26 +147,15 @@ fun AppRuleDetailScreen(
                             size = iconTileSize,
                             cornerRadius = iconCorner,
                         )
-                        Column {
-                            Text(
-                                text = appName,
-                                style = MaterialTheme.typography.headlineMedium.copy(
-                                    fontSize = titleSize,
-                                    fontWeight = FontWeight.Bold,
-                                ),
-                                maxLines = 1,
-                                overflow = TextOverflow.Ellipsis,
-                            )
-                            AnimatedVisibility(visible = collapsedFraction < 0.5f) {
-                                Text(
-                                    text = rule.packageName.orEmpty(),
-                                    style = MaterialTheme.typography.bodySmall,
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                    maxLines = 1,
-                                    overflow = TextOverflow.Ellipsis,
-                                )
-                            }
-                        }
+                        Text(
+                            text = appName,
+                            style = MaterialTheme.typography.headlineMedium.copy(
+                                fontSize = titleSize,
+                                fontWeight = FontWeight.Bold,
+                            ),
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                        )
                     }
                 },
                 navigationIcon = if (showBackButton) {
@@ -329,7 +327,10 @@ fun AppRuleDetailScreen(
             }
 
             // ── Access log ──────────────────────────
-            AccessLogSection(rule = rule, viewModel = detailViewModel)
+            AccessLogSection(
+                accessEntries = accessEntries,
+                loading = !accessHistoryBelongsToRule || accessUi.isInitialLoading,
+            )
 
             // ── Actions ─────────────────────────────
             DetailSection(
@@ -348,17 +349,20 @@ fun AppRuleDetailScreen(
                         icon = MaterialSymbols.AutoMirrored.Filled.Launch,
                         label = stringResource(Res.string.menu_launch),
                         enabled = canLaunch,
+                        isLast = !hasAccessHistory,
                         onClick = { rule.packageName?.let { launchApp(it) } },
                     )
-                    ActionRow(
-                        icon = MaterialSymbols.Filled.Delete,
-                        label = stringResource(Res.string.action_clear_access_history),
-                        isLast = true,
-                        tint = MaterialTheme.colorScheme.error,
-                        onClick = {
-                            detailViewModel.clearAccess(rule.uid)
-                        },
-                    )
+                    if (hasAccessHistory) {
+                        ActionRow(
+                            icon = MaterialSymbols.Filled.Delete,
+                            label = stringResource(Res.string.action_clear_access_history),
+                            isLast = true,
+                            tint = MaterialTheme.colorScheme.error,
+                            onClick = {
+                                detailViewModel.clearAccess(rule.uid)
+                            },
+                        )
+                    }
                 }
             }
 
@@ -626,14 +630,9 @@ private fun SectionLabel(text: String) {
 
 @Composable
 private fun AccessLogSection(
-    rule: FirewallRule,
-    viewModel: AppRuleDetailViewModel,
+    accessEntries: List<AccessEntry>,
+    loading: Boolean,
 ) {
-    LaunchedEffect(rule.uid) { viewModel.bindRule(rule) }
-    val accessUi by viewModel.accessState.collectAsStateWithLifecycle()
-    val accessEntries = accessUi.data
-    val loading = accessUi.isInitialLoading
-
     if (loading || accessEntries.isEmpty()) return
 
     DetailSection(
