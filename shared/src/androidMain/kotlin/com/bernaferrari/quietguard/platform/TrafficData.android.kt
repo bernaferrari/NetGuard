@@ -43,7 +43,7 @@ actual suspend fun loadLogs(
                 val colDName = cursor.getColumnIndex("dname")
                 val colUid = cursor.getColumnIndex("uid")
                 val colAllowed = cursor.getColumnIndex("allowed")
-                val timeFormat = SimpleDateFormat("HH:mm:ss", Locale.getDefault())
+                val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
                 while (cursor.moveToNext()) {
                     val protocol =
                         if (cursor.isNull(colProtocol)) -1 else cursor.getInt(colProtocol)

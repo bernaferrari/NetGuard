@@ -11,7 +11,7 @@ internal fun LogEntity.toLogEntry(): LogEntry {
     return LogEntry(
         id = id,
         time = time,
-        timeText = formatTimeHHmmss(time),
+        timeText = formatTimeHHmm(time),
         protocolLabel = NetGuardPlatform.uiHelpers.getProtocolName(protocolValue, 0, false),
         daddr = daddr.orEmpty(),
         dport = dport ?: -1,
@@ -48,15 +48,6 @@ internal fun AccessWithCountRow.toAccessEntry(): AccessEntry =
         dport = dport,
         allowed = allowed ?: -1,
     )
-
-private fun formatTimeHHmmss(epochMs: Long): String {
-    val totalSeconds = epochMs / 1000
-    val seconds = totalSeconds % 60
-    val totalMinutes = totalSeconds / 60
-    val minutes = totalMinutes % 60
-    val hours = (totalMinutes / 60) % 24
-    return "${hours.twoDigits()}:${minutes.twoDigits()}:${seconds.twoDigits()}"
-}
 
 private fun formatTimeHHmm(epochMs: Long): String {
     val totalSeconds = epochMs / 1000

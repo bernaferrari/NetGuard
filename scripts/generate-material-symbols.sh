@@ -26,6 +26,7 @@ readonly FILLED_ICONS=(
 readonly OUTLINED_ICONS=(
   light_mode check_circle info block shield settings brightness_auto dark_mode public
   mobiledata_arrows mobiledata_off wifi smartphone signal_cellular_alt lock notifications
+  content_copy
 )
 
 readonly AUTO_MIRRORED_FILLED_ICONS=(

@@ -58,6 +58,8 @@ import androidx.compose.animation.core.tween
 import androidx.compose.animation.expandVertically
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.animation.scaleIn
+import androidx.compose.animation.scaleOut
 import androidx.compose.animation.shrinkVertically
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
@@ -1164,11 +1166,10 @@ private fun LogDetailRow(
     copied: Boolean = false,
     onCopy: (() -> Unit)? = null,
 ) {
+    val motion = LocalMotion.current
     Column {
         Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 8.dp),
+            modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(12.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
@@ -1176,14 +1177,18 @@ private fun LogDetailRow(
                 text = label,
                 style = MaterialTheme.typography.labelMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.width(84.dp),
+                modifier = Modifier
+                    .width(84.dp)
+                    .padding(vertical = 8.dp),
             )
             if (onCopy == null) {
                 Text(
                     text = value,
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurface,
-                    modifier = Modifier.weight(1f),
+                    modifier = Modifier
+                        .weight(1f)
+                        .padding(vertical = 8.dp),
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
                 )
@@ -1192,7 +1197,8 @@ private fun LogDetailRow(
                     modifier = Modifier
                         .weight(1f)
                         .clip(MaterialTheme.shapes.small)
-                        .clickable(onClick = onCopy),
+                        .clickable(onClick = onCopy)
+                        .padding(vertical = 8.dp),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
@@ -1204,14 +1210,47 @@ private fun LogDetailRow(
                         maxLines = 2,
                         overflow = TextOverflow.Ellipsis,
                     )
-                    Icon(
-                        icon = if (copied) MaterialSymbols.Filled.Check else MaterialSymbols.Filled.ContentCopy,
-                        contentDescription = stringResource(
-                            if (copied) Res.string.status_copied else Res.string.action_copy,
-                        ),
-                        modifier = Modifier.size(18.dp),
-                        tint = if (copied) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
+                    AnimatedContent(
+                        targetState = copied,
+                        transitionSpec = {
+                            val initialScale = if (motion.reducedMotion) 1f else 0.7f
+                            (fadeIn(
+                                animationSpec = tween(
+                                    durationMillis = motion.durationFast,
+                                    easing = motion.easingDecelerate,
+                                ),
+                            ) + scaleIn(
+                                animationSpec = tween(
+                                    durationMillis = motion.durationFast,
+                                    easing = motion.easingDecelerate,
+                                ),
+                                initialScale = initialScale,
+                            )).togetherWith(
+                                fadeOut(
+                                    animationSpec = tween(
+                                        durationMillis = motion.durationFast,
+                                        easing = motion.easingAccelerate,
+                                    ),
+                                ) + scaleOut(
+                                    animationSpec = tween(
+                                        durationMillis = motion.durationFast,
+                                        easing = motion.easingAccelerate,
+                                    ),
+                                    targetScale = initialScale,
+                                ),
+                            )
+                        },
+                        label = "copyStatusIcon",
+                    ) { isCopied ->
+                        Icon(
+                            icon = if (isCopied) MaterialSymbols.Filled.Check else MaterialSymbols.Outlined.ContentCopy,
+                            contentDescription = stringResource(
+                                if (isCopied) Res.string.status_copied else Res.string.action_copy,
+                            ),
+                            modifier = Modifier.size(18.dp),
+                            tint = if (isCopied) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
                 }
             }
         }

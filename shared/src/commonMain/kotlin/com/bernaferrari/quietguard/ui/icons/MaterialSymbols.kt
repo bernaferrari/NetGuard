@@ -98,6 +98,7 @@ object MaterialSymbols {
         val SignalCellularAlt: MaterialIcon get() = MaterialIcon(outlinedSignalCellularAlt)
         val Lock: MaterialIcon get() = MaterialIcon(outlinedLock)
         val Notifications: MaterialIcon get() = MaterialIcon(outlinedNotifications)
+        val ContentCopy: MaterialIcon get() = MaterialIcon(outlinedContentCopy)
     }
 
     object AutoMirrored {
