@@ -452,4 +452,50 @@ Bu nedenle lütfen sonraki iletişim kutusunda VPN bağlantısına izin verin.
 
     <string name="label_dns_summary">%1$d giriş • %2$d süresi dolmuş</string>
 
+
+    <string name="demo_mode_banner">Web demosu — güvenlik duvarı ve VPN simüle edilmiştir</string>
+    <string name="status_enabled_demo">Güvenlik duvarı etkin (demo)</string>
+    <string name="demo_mode_hint">Gerçek bir VPN çalışmıyor. Gerçek koruma için Android uygulamasını yükleyin.</string>
+    <string name="ui_load_failed">En son veriler yüklenemedi</string>
+    <string name="ui_load_failed_body">Mevcut ayarlarınız güvende. Bu görünümü tekrar yüklemeyi deneyin.</string>
+    <string name="action_retry">Tekrar deneyin</string>
+    <string name="ui_apps_search_empty_title">Eşleşen uygulama yok</string>
+    <string name="ui_apps_filter_empty_title">Bu görünümde hiçbir şey yok</string>
+    <string name="ui_log_details_destination">Hedef</string>
+    <string name="ui_log_details_address">Adres</string>
+    <string name="ui_log_details_port">Bağlantı Noktası</string>
+    <string name="ui_log_details_protocol">Protokol</string>
+    <string name="ui_log_details_time">Kaydedildi</string>
+    <string name="ui_log_details_app_id">Uygulama Kimliği</string>
+    <string name="action_close">Kapat</string>
+    <string name="action_copy">Kopyala</string>
+    <string name="action_more_options">Diğer seçenekler</string>
+    <string name="status_copied">Kopyalandı</string>
+    <string name="action_back">Geri</string>
+    <string name="setting_reset_to_default">Varsayılana sıfırla</string>
+    <string name="setting_reset_to_value">Sıfırla · %1$s</string>
+    <string name="setting_reset_accessibility">%1$s öğesini varsayılana sıfırlayın</string>
+    <string name="setting_default_value">Varsayılan: %1$s</string>
+    <string name="setting_value_empty">Boş</string>
+    <string name="setting_value_on">Açık</string>
+    <string name="setting_value_off">Kapalı</string>
+    <string name="setting_theme_teal">Deniz mavisi</string>
+    <string name="setting_update_result_available">Güncelleme mevcut: %1$s</string>
+    <string name="setting_update_result_available_unknown">Güncelleme mevcut</string>
+    <string name="setting_update_result_up_to_date">Güncelsiniz.</string>
+    <string name="setting_update_result_failed">Güncellemeler kontrol edilemedi.</string>
+    <string name="setting_update_result_unavailable">Bu yapı için güncelleme kontrolleri mevcut değil.</string>
+    <string name="settings_quick_controls">Hızlı kontroller</string>
+    <string name="settings_more">Diğer ayarlar</string>
+    <string name="settings_firewall_summary">Dolaşım, ölçülü ağlar, ekran davranışı ve yerel erişim</string>
+    <string name="settings_advanced_summary">Filtreleme, kilitleme, günlüğe kaydetme, kötü amaçlı yazılım engelleme ve istatistikler</string>
+    <string name="settings_hosts_summary">Yerel veya indirilen ana bilgisayar dosyalarına sahip etki alanlarını engelleyin</string>
+    <string name="settings_network_summary">DNS, proxy, VPN adresleri ve bağlantı noktası yönlendirme</string>
+    <string name="settings_background_summary">Watchdog, güncelleme kontrolleri ve paket yakalama</string>
+    <string name="settings_diagnostics_summary">Paket yakalama ve sorun giderme seçenekleri</string>
+    <string name="settings_about_summary">Proje bilgileri ve kaynak kodu</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">Kaynak kodu</string>
+    <string name="about_source_summary">Projeyi keşfedin, sorunları bildirin veya GitHub'a katkıda bulunun</string>
+    <string name="about_social_title">İletişime geçin</string>
 </resources>

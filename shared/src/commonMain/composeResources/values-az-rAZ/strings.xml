@@ -453,4 +453,51 @@ Buna görə də, zəhmət olmasa növbəti dialoqda VPN bağlantısına icazə v
     </string-array>
 
     <string name="label_dns_summary">%1$d giriş • %2$d müddəti bitib</string>
+
+    <string name="demo_mode_banner">Veb demo — firewall və VPN simulyasiya edilib</string>
+    <string name="status_enabled_demo">Firewall aktivdir (demo)</string>
+    <string name="demo_mode_hint">Heç bir real VPN işləmir. Faktiki qorunma üçün Android proqramını quraşdırın.</string>
+    <string name="ui_load_failed">Ən son datanı yükləmək mümkün olmadı</string>
+    <string name="ui_load_failed_body">Mövcud parametrləriniz təhlükəsizdir. Bu görünüşü yenidən yükləməyə cəhd edin.</string>
+    <string name="action_retry">Yenidən cəhd edin</string>
+    <string name="ui_apps_search_empty_title">Uyğun proqram yoxdur</string>
+    <string name="ui_apps_filter_empty_title">Bu görünüşdə heç nə yoxdur</string>
+    <string name="ui_log_details_destination">Təyinat</string>
+    <string name="ui_log_details_address">Ünvan</string>
+    <string name="ui_log_details_port">Port</string>
+    <string name="ui_log_details_protocol">Protokol</string>
+    <string name="ui_log_details_time">Qeydə alınıb</string>
+    <string name="ui_log_details_app_id">Tətbiq ID-si</string>
+    <string name="action_close">Bağlayın</string>
+    <string name="action_copy">Kopyalayın</string>
+    <string name="action_more_options">Daha çox seçim</string>
+    <string name="status_copied">Kopyalandı</string>
+    <string name="action_back">Geri</string>
+    <string name="setting_reset_to_default">Standarta sıfırlayın</string>
+    <string name="setting_reset_to_value">Sıfırla · %1$s</string>
+    <string name="setting_reset_accessibility">%1$s defoltuna sıfırlayın</string>
+    <string name="setting_default_value">Defolt: %1$s</string>
+    <string name="setting_value_empty">Boş</string>
+    <string name="setting_value_on">Aktivdir</string>
+    <string name="setting_value_off">Söndürülüb</string>
+    <string name="setting_theme_teal">Mavi-yaşıl</string>
+    <string name="setting_update_result_available">Güncəlləmə əlçatandır: %1$s</string>
+    <string name="setting_update_result_available_unknown">Güncəlləmə mövcuddur</string>
+    <string name="setting_update_result_up_to_date">Siz yenilənirsiniz.</string>
+    <string name="setting_update_result_failed">Yeniləmələri yoxlamaq mümkün olmadı.</string>
+    <string name="setting_update_result_unavailable">Yeniləmə yoxlamaları bu quruluş üçün əlçatan deyil.</string>
+    <string name="settings_quick_controls">Sürətli idarəetmələr</string>
+    <string name="settings_more">Daha çox parametrlər</string>
+    <string name="settings_firewall_summary">Rouminq, ölçülü şəbəkələr, ekran davranışı və yerli giriş</string>
+    <string name="settings_advanced_summary">Filtrləmə, bloklama, giriş, zərərli proqramların bloklanması və statistika</string>
+    <string name="settings_hosts_summary">Yerli və ya endirilmiş host faylları ilə domenləri bloklayın</string>
+    <string name="settings_network_summary">DNS, proxy, VPN ünvanları və port yönləndirilməsi</string>
+    <string name="settings_background_summary">Watchdog, yeniləmə yoxlamaları və paket ələ keçirmə</string>
+    <string name="settings_diagnostics_summary">Paket tutma və problemlərin aradan qaldırılması seçimləri</string>
+    <string name="settings_about_summary">Layihə məlumatları və mənbə kodu</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">Mənbə kodu</string>
+    <string name="about_source_summary">Layihəni araşdırın, problemləri bildirin və ya GitHub-da töhfə verin
+__ƏSAS_haqqında_sosial_başlıq__ Əlaqə saxlayın</string>
+    <string name="about_social_title">Əlaqə saxlayın</string>
 </resources>

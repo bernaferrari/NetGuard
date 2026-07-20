@@ -453,4 +453,50 @@
 
     <string name="label_dns_summary">%1$d записей • %2$d истекло</string>
 
+
+    <string name="demo_mode_banner">Веб-демо — моделируются брандмауэр и VPN</string>
+    <string name="status_enabled_demo">Брандмауэр включен (демо)</string>
+    <string name="demo_mode_hint">Ни один настоящий VPN не работает. Установите приложение Android для реальной защиты.</string>
+    <string name="ui_load_failed">Не удалось загрузить последние данные.</string>
+    <string name="ui_load_failed_body">Ваши существующие настройки безопасны. Попробуйте загрузить это представление еще раз.</string>
+    <string name="action_retry">Попробуйте еще раз</string>
+    <string name="ui_apps_search_empty_title">Нет подходящих приложений</string>
+    <string name="ui_apps_filter_empty_title">В этом представлении ничего нет</string>
+    <string name="ui_log_details_destination">Место назначения</string>
+    <string name="ui_log_details_address">Адрес</string>
+    <string name="ui_log_details_port">Порт</string>
+    <string name="ui_log_details_protocol">Протокол</string>
+    <string name="ui_log_details_time">Записано</string>
+    <string name="ui_log_details_app_id">Идентификатор приложения</string>
+    <string name="action_close">Закрыть</string>
+    <string name="action_copy">Копировать</string>
+    <string name="action_more_options">Дополнительные параметры</string>
+    <string name="status_copied">Скопировано</string>
+    <string name="action_back">Назад</string>
+    <string name="setting_reset_to_default">Сбросить настройки по умолчанию</string>
+    <string name="setting_reset_to_value">Сбросить · %1$s</string>
+    <string name="setting_reset_accessibility">Сбросить %1$s к значениям по умолчанию</string>
+    <string name="setting_default_value">По умолчанию: %1$s</string>
+    <string name="setting_value_empty">Пусто</string>
+    <string name="setting_value_on">Вкл.</string>
+    <string name="setting_value_off">Выкл.</string>
+    <string name="setting_theme_teal">Бирюзовый</string>
+    <string name="setting_update_result_available">Доступно обновление: %1$s</string>
+    <string name="setting_update_result_available_unknown">Доступно обновление</string>
+    <string name="setting_update_result_up_to_date">Вы в курсе событий.</string>
+    <string name="setting_update_result_failed">Не удалось проверить наличие обновлений.</string>
+    <string name="setting_update_result_unavailable">Для этой сборки недоступны проверки обновлений.</string>
+    <string name="settings_quick_controls">Быстрое управление</string>
+    <string name="settings_more">Дополнительные настройки</string>
+    <string name="settings_firewall_summary">Роуминг, сети с лимитным трафиком, поведение экрана и локальный доступ</string>
+    <string name="settings_advanced_summary">Фильтрация, блокировка, ведение журнала, блокировка вредоносных программ и статистика</string>
+    <string name="settings_hosts_summary">Блокировать домены с локальными или загруженными файлами хостов</string>
+    <string name="settings_network_summary">DNS, прокси, адреса VPN и переадресация портов</string>
+    <string name="settings_background_summary">Сторожевой таймер, проверка обновлений и захват пакетов</string>
+    <string name="settings_diagnostics_summary">Параметры захвата пакетов и устранения неполадок</string>
+    <string name="settings_about_summary">Информация о проекте и исходный код</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">Исходный код</string>
+    <string name="about_source_summary">Изучите проект, сообщите о проблемах или внесите свой вклад на GitHub.</string>
+    <string name="about_social_title">Свяжитесь с нами</string>
 </resources>

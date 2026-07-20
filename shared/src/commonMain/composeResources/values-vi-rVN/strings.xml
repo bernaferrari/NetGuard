@@ -449,4 +449,50 @@
 
     <string name="label_dns_summary">%1$d mục • %2$d đã hết hạn</string>
 
+
+    <string name="demo_mode_banner">Bản demo web - tường lửa và VPN được mô phỏng</string>
+    <string name="status_enabled_demo">Đã bật tường lửa (bản demo)</string>
+    <string name="demo_mode_hint">Không có VPN thực nào đang chạy. Cài đặt ứng dụng Android để bảo vệ thực sự.</string>
+    <string name="ui_load_failed">Không thể tải dữ liệu mới nhất</string>
+    <string name="ui_load_failed_body">Cài đặt hiện tại của bạn được an toàn. Hãy thử tải lại chế độ xem này.</string>
+    <string name="action_retry">Thử lại</string>
+    <string name="ui_apps_search_empty_title">Không có ứng dụng phù hợp</string>
+    <string name="ui_apps_filter_empty_title">Không có gì trong chế độ xem này</string>
+    <string name="ui_log_details_destination">Điểm đến</string>
+    <string name="ui_log_details_address">Địa chỉ</string>
+    <string name="ui_log_details_port">Cổng</string>
+    <string name="ui_log_details_protocol">Giao thức</string>
+    <string name="ui_log_details_time">Đã ghi</string>
+    <string name="ui_log_details_app_id">ID ứng dụng</string>
+    <string name="action_close">Đóng</string>
+    <string name="action_copy">Sao chép</string>
+    <string name="action_more_options">Tùy chọn khác</string>
+    <string name="status_copied">Đã sao chép</string>
+    <string name="action_back">Quay lại</string>
+    <string name="setting_reset_to_default">Đặt lại về mặc định</string>
+    <string name="setting_reset_to_value">Đặt lại · %1$s</string>
+    <string name="setting_reset_accessibility">Đặt lại %1$s về mặc định</string>
+    <string name="setting_default_value">Mặc định: %1$s</string>
+    <string name="setting_value_empty">Trống</string>
+    <string name="setting_value_on">Bật</string>
+    <string name="setting_value_off">Tắt</string>
+    <string name="setting_theme_teal">Xanh mòng két</string>
+    <string name="setting_update_result_available">Đã có bản cập nhật: %1$s</string>
+    <string name="setting_update_result_available_unknown">Đã có bản cập nhật</string>
+    <string name="setting_update_result_up_to_date">Bạn đã cập nhật.</string>
+    <string name="setting_update_result_failed">Không thể kiểm tra các bản cập nhật.</string>
+    <string name="setting_update_result_unavailable">Kiểm tra cập nhật không có sẵn cho bản dựng này.</string>
+    <string name="settings_quick_controls">Điều khiển nhanh</string>
+    <string name="settings_more">Cài đặt khác</string>
+    <string name="settings_firewall_summary">Chuyển vùng, mạng đo lượng dữ liệu, hoạt động của màn hình và quyền truy cập cục bộ</string>
+    <string name="settings_advanced_summary">Lọc, khóa, ghi nhật ký, chặn phần mềm độc hại và thống kê</string>
+    <string name="settings_hosts_summary">Chặn các miền có tệp máy chủ cục bộ hoặc đã tải xuống</string>
+    <string name="settings_network_summary">DNS, proxy, địa chỉ VPN và chuyển tiếp cổng</string>
+    <string name="settings_background_summary">Cơ quan giám sát, kiểm tra cập nhật và chụp gói</string>
+    <string name="settings_diagnostics_summary">Tùy chọn chụp gói và khắc phục sự cố</string>
+    <string name="settings_about_summary">Thông tin dự án và mã nguồn</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">Mã nguồn</string>
+    <string name="about_source_summary">Khám phá dự án, báo cáo sự cố hoặc đóng góp trên GitHub</string>
+    <string name="about_social_title">Hãy liên hệ</string>
 </resources>

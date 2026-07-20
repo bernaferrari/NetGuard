@@ -459,4 +459,45 @@ Din internettrafik bliver ikke sendt til en ekstern VPN-server.</string>
 
     <string name="label_dns_summary">%1$d poster • %2$d udløbet</string>
 
+
+    <string name="demo_mode_banner">Webdemo — firewall og VPN simuleres</string>
+    <string name="status_enabled_demo">Firewall aktiveret (demo)</string>
+    <string name="demo_mode_hint">Ingen rigtig VPN kører. Installer Android-appen for faktisk beskyttelse.</string>
+    <string name="ui_load_failed">Kunne ikke indlæse de seneste data</string>
+    <string name="ui_load_failed_body">Dine eksisterende indstillinger er sikre. Prøv at indlæse denne visning igen.</string>
+    <string name="action_retry">Prøv igen</string>
+    <string name="ui_apps_search_empty_title">Ingen matchende apps</string>
+    <string name="ui_apps_filter_empty_title">Intet i denne visning</string>
+    <string name="ui_log_details_destination">Destination</string>
+    <string name="ui_log_details_address">Adresse</string>
+    <string name="ui_log_details_port">Port</string>
+    <string name="ui_log_details_protocol">Protokol</string>
+    <string name="ui_log_details_time">Optaget</string>
+    <string name="ui_log_details_app_id">App-id</string>
+    <string name="action_close">Luk</string>
+    <string name="action_copy">Kopiér</string>
+    <string name="action_more_options">Flere muligheder</string>
+    <string name="status_copied">Kopieret</string>
+    <string name="action_back">Tilbage</string>
+    <string name="setting_reset_to_default">Nulstil til standard</string>
+    <string name="setting_reset_to_value">Nulstil · %1$s</string>
+    <string name="setting_reset_accessibility">Nulstil %1$s til standard</string>
+    <string name="setting_default_value">Standard: %1$s</string>
+    <string name="setting_value_empty">Tom</string>
+    <string name="setting_value_on">Til</string>
+    <string name="setting_value_off">Fra</string>
+    <string name="setting_theme_teal">Blågrøn</string>
+    <string name="settings_quick_controls">Hurtige kontroller</string>
+    <string name="settings_more">Flere indstillinger</string>
+    <string name="settings_firewall_summary">Roaming, målte netværk, skærmadfærd og lokal adgang</string>
+    <string name="settings_advanced_summary">Filtrering, lockdown, logning, malwareblokering og statistik</string>
+    <string name="settings_hosts_summary">Bloker domæner med lokale eller downloadede værtsfiler</string>
+    <string name="settings_network_summary">DNS, proxy, VPN-adresser og portvideresendelse</string>
+    <string name="settings_background_summary">Watchdog, opdateringskontrol og pakkefangst</string>
+    <string name="settings_diagnostics_summary">Indstillinger for pakkeoptagelse og fejlfinding</string>
+    <string name="settings_about_summary">Projektinformation og kildekode</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">Kildekode</string>
+    <string name="about_source_summary">Udforsk projektet, rapporter problemer, eller bidrag på GitHub</string>
+    <string name="about_social_title">Kontakt os</string>
 </resources>

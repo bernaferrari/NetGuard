@@ -453,4 +453,50 @@ Internett-trafikken din sendes ikke til en ekstern VPN-server.</string>
 
     <string name="label_dns_summary">%1$d oppføringer • %2$d utløpt</string>
 
+
+    <string name="demo_mode_banner">Webdemo — brannmur og VPN simuleres</string>
+    <string name="status_enabled_demo">Brannmur aktivert (demo)</string>
+    <string name="demo_mode_hint">Ingen ekte VPN kjører. Installer Android-appen for faktisk beskyttelse.</string>
+    <string name="ui_load_failed">Kunne ikke laste de siste dataene</string>
+    <string name="ui_load_failed_body">Dine eksisterende innstillinger er trygge. Prøv å laste inn denne visningen på nytt.</string>
+    <string name="action_retry">Prøv igjen</string>
+    <string name="ui_apps_search_empty_title">Ingen samsvarende apper</string>
+    <string name="ui_apps_filter_empty_title">Ingenting i denne visningen</string>
+    <string name="ui_log_details_destination">Destinasjon</string>
+    <string name="ui_log_details_address">Adresse</string>
+    <string name="ui_log_details_port">Port</string>
+    <string name="ui_log_details_protocol">Protocol</string>
+    <string name="ui_log_details_time">Registrert</string>
+    <string name="ui_log_details_app_id">App-ID</string>
+    <string name="action_close">Lukk</string>
+    <string name="action_copy">Kopier</string>
+    <string name="action_more_options">Flere alternativer</string>
+    <string name="status_copied">Kopiert</string>
+    <string name="action_back">Tilbake</string>
+    <string name="setting_reset_to_default">Tilbakestill til standard</string>
+    <string name="setting_reset_to_value">Tilbakestill · %1$s</string>
+    <string name="setting_reset_accessibility">Tilbakestill %1$s til standard</string>
+    <string name="setting_default_value">Standard: %1$s</string>
+    <string name="setting_value_empty">Tom</string>
+    <string name="setting_value_on">På</string>
+    <string name="setting_value_off">Av</string>
+    <string name="setting_theme_teal">Blågrønn</string>
+    <string name="setting_update_result_available">Oppdatering tilgjengelig: %1$s</string>
+    <string name="setting_update_result_available_unknown">Oppdatering tilgjengelig</string>
+    <string name="setting_update_result_up_to_date">Du er oppdatert.</string>
+    <string name="setting_update_result_failed">Kunne ikke se etter oppdateringer.</string>
+    <string name="setting_update_result_unavailable">Oppdateringssjekker er ikke tilgjengelige for denne versjonen.</string>
+    <string name="settings_quick_controls">Hurtigkontroller</string>
+    <string name="settings_more">Flere innstillinger</string>
+    <string name="settings_firewall_summary">Roaming, målte nettverk, skjermadferd og lokal tilgang</string>
+    <string name="settings_advanced_summary">Filtrering, låsing, logging, blokkering av skadelig programvare og statistikk</string>
+    <string name="settings_hosts_summary">Blokker domener med lokale eller nedlastede vertsfiler</string>
+    <string name="settings_network_summary">DNS, proxy, VPN-adresser og portviderekobling</string>
+    <string name="settings_background_summary">Watchdog, oppdateringssjekker og pakkefangst</string>
+    <string name="settings_diagnostics_summary">Alternativer for pakkefangst og feilsøking</string>
+    <string name="settings_about_summary">Prosjektinformasjon og kildekode</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">Kildekode</string>
+    <string name="about_source_summary">Utforsk prosjektet, rapporter problemer eller bidra på GitHub</string>
+    <string name="about_social_title">Ta kontakt</string>
 </resources>

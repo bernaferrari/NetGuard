@@ -453,4 +453,50 @@
 
     <string name="label_dns_summary">%1$d καταχωρήσεις • %2$d έληξαν</string>
 
+
+    <string name="demo_mode_banner">Web demo — το τείχος προστασίας και το VPN προσομοιώνονται</string>
+    <string name="status_enabled_demo">Ενεργοποιήθηκε το τείχος προστασίας (demo)</string>
+    <string name="demo_mode_hint">Δεν εκτελείται πραγματικό VPN. Εγκαταστήστε την εφαρμογή Android για πραγματική προστασία.</string>
+    <string name="ui_load_failed">Δεν ήταν δυνατή η φόρτωση των πιο πρόσφατων δεδομένων</string>
+    <string name="ui_load_failed_body">Οι υπάρχουσες ρυθμίσεις σας είναι ασφαλείς. Δοκιμάστε να φορτώσετε ξανά αυτήν την προβολή.</string>
+    <string name="action_retry">Δοκιμάστε ξανά</string>
+    <string name="ui_apps_search_empty_title">Δεν υπάρχουν αντίστοιχες εφαρμογές</string>
+    <string name="ui_apps_filter_empty_title">Δεν υπάρχει τίποτα σε αυτήν την προβολή</string>
+    <string name="ui_log_details_destination">Προορισμός</string>
+    <string name="ui_log_details_address">Διεύθυνση</string>
+    <string name="ui_log_details_port">Θύρα</string>
+    <string name="ui_log_details_protocol">Πρωτόκολλο</string>
+    <string name="ui_log_details_time">Καταγράφηκε</string>
+    <string name="ui_log_details_app_id">Αναγνωριστικό εφαρμογής</string>
+    <string name="action_close">Κλείσιμο</string>
+    <string name="action_copy">Αντιγραφή</string>
+    <string name="action_more_options">Περισσότερες επιλογές</string>
+    <string name="status_copied">Αντιγράφηκε</string>
+    <string name="action_back">Επιστροφή</string>
+    <string name="setting_reset_to_default">Επαναφορά στην προεπιλογή</string>
+    <string name="setting_reset_to_value">Επαναφορά · %1$s</string>
+    <string name="setting_reset_accessibility">Επαναφορά %1$s στην προεπιλογή</string>
+    <string name="setting_default_value">Προεπιλογή: %1$s</string>
+    <string name="setting_value_empty">Κενό</string>
+    <string name="setting_value_on">Ενεργό</string>
+    <string name="setting_value_off">Ανενεργό</string>
+    <string name="setting_theme_teal">Τιρκουάζ</string>
+    <string name="setting_update_result_available">Διαθέσιμη ενημέρωση: %1$s</string>
+    <string name="setting_update_result_available_unknown">Διατίθεται ενημέρωση</string>
+    <string name="setting_update_result_up_to_date">Είστε ενημερωμένοι.</string>
+    <string name="setting_update_result_failed">Δεν ήταν δυνατός ο έλεγχος για ενημερώσεις.</string>
+    <string name="setting_update_result_unavailable">Οι έλεγχοι ενημέρωσης δεν είναι διαθέσιμοι για αυτήν την έκδοση.</string>
+    <string name="settings_quick_controls">Γρήγορα στοιχεία ελέγχου</string>
+    <string name="settings_more">Περισσότερες ρυθμίσεις</string>
+    <string name="settings_firewall_summary">Περιαγωγή, μετρημένα δίκτυα, συμπεριφορά οθόνης και τοπική πρόσβαση</string>
+    <string name="settings_advanced_summary">Φιλτράρισμα, κλείδωμα, καταγραφή, αποκλεισμός κακόβουλου λογισμικού και στατιστικά στοιχεία</string>
+    <string name="settings_hosts_summary">Αποκλεισμός τομέων με τοπικά ή ληφθέντα αρχεία κεντρικών υπολογιστών</string>
+    <string name="settings_network_summary">DNS, διακομιστής μεσολάβησης, διευθύνσεις VPN και προώθηση θύρας</string>
+    <string name="settings_background_summary">Παρατηρητής, έλεγχοι ενημέρωσης και σύλληψη πακέτων</string>
+    <string name="settings_diagnostics_summary">Επιλογές λήψης πακέτων και αντιμετώπισης προβλημάτων</string>
+    <string name="settings_about_summary">Πληροφορίες έργου και πηγαίος κώδικας</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">Πηγαίος κώδικας</string>
+    <string name="about_source_summary">Εξερευνήστε το έργο, αναφέρετε προβλήματα ή συνεισφέρετε στο GitHub</string>
+    <string name="about_social_title">Επικοινωνήστε</string>
 </resources>

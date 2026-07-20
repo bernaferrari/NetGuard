@@ -453,4 +453,50 @@
 
     <string name="label_dns_summary">%1$d ჩანაწერი • %2$d ვადაგასული</string>
 
+
+    <string name="demo_mode_banner">ვებ დემო ვერსია — Firewall და VPN სიმულირებულია</string>
+    <string name="status_enabled_demo">Firewall ჩართულია (დემო)</string>
+    <string name="demo_mode_hint">რეალური VPN არ მუშაობს. დააინსტალირეთ Android აპი რეალური დაცვისთვის.</string>
+    <string name="ui_load_failed">უახლესი მონაცემების ჩატვირთვა ვერ მოხერხდა</string>
+    <string name="ui_load_failed_body">თქვენი არსებული პარამეტრები უსაფრთხოა. სცადეთ ხელახლა ჩატვირთოთ ეს ხედი.</string>
+    <string name="action_retry">სცადეთ ხელახლა</string>
+    <string name="ui_apps_search_empty_title">შესაბამისი აპები არ არის</string>
+    <string name="ui_apps_filter_empty_title">ამ ხედში არაფერია</string>
+    <string name="ui_log_details_destination">დანიშნულება</string>
+    <string name="ui_log_details_address">მისამართი</string>
+    <string name="ui_log_details_port">პორტი</string>
+    <string name="ui_log_details_protocol">პროტოკოლი</string>
+    <string name="ui_log_details_time">ჩაწერილია</string>
+    <string name="ui_log_details_app_id">აპის ID</string>
+    <string name="action_close">დახურვა</string>
+    <string name="action_copy">კოპირება</string>
+    <string name="action_more_options">სხვა ვარიანტები</string>
+    <string name="status_copied">კოპირებულია</string>
+    <string name="action_back">უკან</string>
+    <string name="setting_reset_to_default">გადატვირთეთ ნაგულისხმევად</string>
+    <string name="setting_reset_to_value">reset · %1$s</string>
+    <string name="setting_reset_accessibility">გადატვირთეთ %1$s ნაგულისხმევად</string>
+    <string name="setting_default_value">ნაგულისხმევი: %1$s</string>
+    <string name="setting_value_empty">ცარიელი</string>
+    <string name="setting_value_on">ჩართულია</string>
+    <string name="setting_value_off">გამორთულია</string>
+    <string name="setting_theme_teal">მომწვანო-ლურჯი</string>
+    <string name="setting_update_result_available">განახლება ხელმისაწვდომია: %1$s</string>
+    <string name="setting_update_result_available_unknown">განახლება ხელმისაწვდომია</string>
+    <string name="setting_update_result_up_to_date">თქვენ განახლებული ხართ.</string>
+    <string name="setting_update_result_failed">განახლებების შემოწმება ვერ მოხერხდა.</string>
+    <string name="setting_update_result_unavailable">განახლების შემოწმებები მიუწვდომელია ამ კონსტრუქციისთვის.</string>
+    <string name="settings_quick_controls">სწრაფი კონტროლი</string>
+    <string name="settings_more">სხვა პარამეტრები</string>
+    <string name="settings_firewall_summary">როუმინგი, გაზომილი ქსელები, ეკრანის ქცევა და ადგილობრივი წვდომა</string>
+    <string name="settings_advanced_summary">გაფილტვრა, ჩაკეტვა, ჟურნალი, მავნე პროგრამის დაბლოკვა და სტატისტიკა</string>
+    <string name="settings_hosts_summary">დომენების დაბლოკვა ლოკალური ან გადმოწერილი ჰოსტების ფაილებით</string>
+    <string name="settings_network_summary">DNS, პროქსი, VPN მისამართები და პორტის გადამისამართება</string>
+    <string name="settings_background_summary">მეთვალყურეობა, ჩეკების განახლება და პაკეტის აღება</string>
+    <string name="settings_diagnostics_summary">პაკეტის აღბეჭდვისა და პრობლემების მოგვარების ვარიანტები</string>
+    <string name="settings_about_summary">პროექტის ინფორმაცია და წყაროს კოდი</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">წყაროს კოდი</string>
+    <string name="about_source_summary">გამოიკვლიეთ პროექტი, შეატყობინეთ პრობლემების შესახებ ან წვლილი შეიტანეთ GitHub-ზე</string>
+    <string name="about_social_title">დაგვიკავშირდით</string>
 </resources>

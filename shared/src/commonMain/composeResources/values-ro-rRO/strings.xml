@@ -453,4 +453,50 @@ Traficul dvs. de internet nu este trimis către un server VPN la distanță.</st
 
     <string name="label_dns_summary">%1$d intrări • %2$d expirate</string>
 
+
+    <string name="demo_mode_banner">Demo web — firewall și VPN sunt simulate</string>
+    <string name="status_enabled_demo">Firewall activat (demo)</string>
+    <string name="demo_mode_hint">Nu rulează niciun VPN real. Instalați aplicația Android pentru protecție reală.</string>
+    <string name="ui_load_failed">Nu s-au putut încărca cele mai recente date</string>
+    <string name="ui_load_failed_body">Setările dvs. existente sunt în siguranță. Încercați să încărcați din nou această vizualizare.</string>
+    <string name="action_retry">Încercați din nou</string>
+    <string name="ui_apps_search_empty_title">Nicio aplicație care se potrivește</string>
+    <string name="ui_apps_filter_empty_title">Nimic în această vizualizare</string>
+    <string name="ui_log_details_destination">Destinație</string>
+    <string name="ui_log_details_address">Adresă</string>
+    <string name="ui_log_details_port">Port</string>
+    <string name="ui_log_details_protocol">Protocol</string>
+    <string name="ui_log_details_time">Înregistrat</string>
+    <string name="ui_log_details_app_id">ID aplicație</string>
+    <string name="action_close">Închide</string>
+    <string name="action_copy">Copiați</string>
+    <string name="action_more_options">Mai multe opțiuni</string>
+    <string name="status_copied">Copiat</string>
+    <string name="action_back">Înapoi</string>
+    <string name="setting_reset_to_default">Resetați la valorile implicite</string>
+    <string name="setting_reset_to_value">Resetare · %1$s</string>
+    <string name="setting_reset_accessibility">Resetați %1$s la valoarea prestabilită</string>
+    <string name="setting_default_value">Implicit: %1$s</string>
+    <string name="setting_value_empty">Gol</string>
+    <string name="setting_value_on">Activat</string>
+    <string name="setting_value_off">Dezactivat</string>
+    <string name="setting_theme_teal">Turcoaz</string>
+    <string name="setting_update_result_available">Actualizare disponibilă: %1$s</string>
+    <string name="setting_update_result_available_unknown">Actualizare disponibilă</string>
+    <string name="setting_update_result_up_to_date">Sunteți la curent.</string>
+    <string name="setting_update_result_failed">Nu s-au putut verifica actualizări.</string>
+    <string name="setting_update_result_unavailable">Verificările de actualizare nu sunt disponibile pentru această versiune.</string>
+    <string name="settings_quick_controls">Comenzi rapide</string>
+    <string name="settings_more">Mai multe setări</string>
+    <string name="settings_firewall_summary">Roaming, rețele măsurate, comportamentul ecranului și acces local</string>
+    <string name="settings_advanced_summary">Filtrare, blocare, înregistrare, blocare a programelor malware și statistici</string>
+    <string name="settings_hosts_summary">Blocați domeniile cu fișiere gazde locale sau descărcate</string>
+    <string name="settings_network_summary">DNS, proxy, adrese VPN și redirecționare porturi</string>
+    <string name="settings_background_summary">Watchdog, verificări de actualizare și captura de pachete</string>
+    <string name="settings_diagnostics_summary">Opțiuni de captare și depanare a pachetelor</string>
+    <string name="settings_about_summary">Informații despre proiect și codul sursă</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">Cod sursă</string>
+    <string name="about_source_summary">Explorați proiectul, raportați probleme sau contribuiți pe GitHub</string>
+    <string name="about_social_title">Luați legătura</string>
 </resources>

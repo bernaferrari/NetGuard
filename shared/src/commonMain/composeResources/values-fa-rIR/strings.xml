@@ -453,4 +453,50 @@
 
     <string name="label_dns_summary">%1$d مورد • %2$d منقضی شده</string>
 
+
+    <string name="demo_mode_banner">نسخه ی نمایشی وب - فایروال و VPN شبیه سازی شده اند</string>
+    <string name="status_enabled_demo">فایروال فعال شد (دمو)</string>
+    <string name="demo_mode_hint">هیچ VPN واقعی در حال اجرا نیست. برای محافظت واقعی برنامه اندروید را نصب کنید.</string>
+    <string name="ui_load_failed">آخرین داده ها بارگیری نشد</string>
+    <string name="ui_load_failed_body">تنظیمات موجود شما ایمن هستند. دوباره این نما را بارگیری کنید.</string>
+    <string name="action_retry">دوباره امتحان کنید</string>
+    <string name="ui_apps_search_empty_title">هیچ برنامه منطبقی وجود ندارد</string>
+    <string name="ui_apps_filter_empty_title">در این نما چیزی وجود ندارد</string>
+    <string name="ui_log_details_destination">مقصد</string>
+    <string name="ui_log_details_address">آدرس</string>
+    <string name="ui_log_details_port">پورت</string>
+    <string name="ui_log_details_protocol">پروتکل</string>
+    <string name="ui_log_details_time">ضبط شد</string>
+    <string name="ui_log_details_app_id">شناسه برنامه</string>
+    <string name="action_close">بستن</string>
+    <string name="action_copy">کپی کنید</string>
+    <string name="action_more_options">گزینه های بیشتر</string>
+    <string name="status_copied">کپی شد</string>
+    <string name="action_back">برگشت</string>
+    <string name="setting_reset_to_default">به حالت پیش فرض بازنشانی کنید</string>
+    <string name="setting_reset_to_value">بازنشانی · %1$s</string>
+    <string name="setting_reset_accessibility">%1$s را به حالت پیش فرض بازنشانی کنید</string>
+    <string name="setting_default_value">پیش فرض: %1$s</string>
+    <string name="setting_value_empty">خالی</string>
+    <string name="setting_value_on">روشن</string>
+    <string name="setting_value_off">خاموش</string>
+    <string name="setting_theme_teal">فیروزه‌ای</string>
+    <string name="setting_update_result_available">به روز رسانی موجود است: %1$s</string>
+    <string name="setting_update_result_available_unknown">به روز رسانی موجود است</string>
+    <string name="setting_update_result_up_to_date">شما به روز هستید.</string>
+    <string name="setting_update_result_failed">به‌روزرسانی‌ها بررسی نشد.</string>
+    <string name="setting_update_result_unavailable">بررسی های به روز رسانی برای این ساخت در دسترس نیست.</string>
+    <string name="settings_quick_controls">کنترل های سریع</string>
+    <string name="settings_more">تنظیمات بیشتر</string>
+    <string name="settings_firewall_summary">رومینگ، شبکه های اندازه گیری شده، رفتار صفحه نمایش، و دسترسی محلی</string>
+    <string name="settings_advanced_summary">فیلتر کردن، قفل کردن، ورود به سیستم، مسدود کردن بدافزار، و آمار</string>
+    <string name="settings_hosts_summary">دامنه ها را با فایل های میزبان محلی یا دانلود شده مسدود کنید</string>
+    <string name="settings_network_summary">DNS، پروکسی، آدرس های VPN، و ارسال پورت</string>
+    <string name="settings_background_summary">نگهبان، چک های به روز رسانی و ضبط بسته ها</string>
+    <string name="settings_diagnostics_summary">گزینه های ضبط و عیب یابی بسته</string>
+    <string name="settings_about_summary">اطلاعات پروژه و کد منبع</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">کد منبع</string>
+    <string name="about_source_summary">پروژه را کاوش کنید، مشکلات را گزارش دهید، یا در GitHub مشارکت کنید</string>
+    <string name="about_social_title">تماس بگیرید</string>
 </resources>

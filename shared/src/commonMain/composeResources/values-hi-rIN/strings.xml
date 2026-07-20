@@ -453,4 +453,50 @@
 
     <string name="label_dns_summary">%1$d प्रविष्टियाँ • %2$d समाप्त</string>
 
+
+    <string name="demo_mode_banner">वेब डेमो - फ़ायरवॉल और वीपीएन सिम्युलेटेड हैं</string>
+    <string name="status_enabled_demo">फ़ायरवॉल सक्षम (डेमो)</string>
+    <string name="demo_mode_hint">कोई वास्तविक वीपीएन नहीं चल रहा है। वास्तविक सुरक्षा के लिए एंड्रॉइड ऐप इंस्टॉल करें।</string>
+    <string name="ui_load_failed">नवीनतम डेटा लोड नहीं किया जा सका</string>
+    <string name="ui_load_failed_body">आपकी मौजूदा सेटिंग्स सुरक्षित हैं। इस दृश्य को पुनः लोड करने का प्रयास करें.</string>
+    <string name="action_retry">पुनः प्रयास करें</string>
+    <string name="ui_apps_search_empty_title">कोई मेल खाता ऐप्स नहीं</string>
+    <string name="ui_apps_filter_empty_title">इस दृश्य में कुछ भी नहीं</string>
+    <string name="ui_log_details_destination">गंतव्य</string>
+    <string name="ui_log_details_address">पता</string>
+    <string name="ui_log_details_port">पोर्ट</string>
+    <string name="ui_log_details_protocol">प्रोटोकॉल</string>
+    <string name="ui_log_details_time">रिकॉर्ड किया गया</string>
+    <string name="ui_log_details_app_id">ऐप आईडी</string>
+    <string name="action_close">बंद करें</string>
+    <string name="action_copy">प्रतिलिपि</string>
+    <string name="action_more_options">अधिक विकल्प</string>
+    <string name="status_copied">कॉपी किया गया</string>
+    <string name="action_back">वापस</string>
+    <string name="setting_reset_to_default">डिफ़ॉल्ट पर रीसेट करें</string>
+    <string name="setting_reset_to_value">रीसेट · %1$s</string>
+    <string name="setting_reset_accessibility">%1$s को डिफ़ॉल्ट पर रीसेट करें</string>
+    <string name="setting_default_value">डिफ़ॉल्ट: %1$s</string>
+    <string name="setting_value_empty">खाली</string>
+    <string name="setting_value_on">चालू</string>
+    <string name="setting_value_off">बंद</string>
+    <string name="setting_theme_teal">चैती</string>
+    <string name="setting_update_result_available">अपडेट उपलब्ध: %1$s</string>
+    <string name="setting_update_result_available_unknown">अद्यतन उपलब्ध है</string>
+    <string name="setting_update_result_up_to_date">आप अपडेट हैं।</string>
+    <string name="setting_update_result_failed">अपडेट की जांच नहीं की जा सकी।</string>
+    <string name="setting_update_result_unavailable">इस बिल्ड के लिए अद्यतन जांच उपलब्ध नहीं हैं।</string>
+    <string name="settings_quick_controls">त्वरित नियंत्रण</string>
+    <string name="settings_more">अधिक सेटिंग्स</string>
+    <string name="settings_firewall_summary">रोमिंग, मीटर्ड नेटवर्क, स्क्रीन व्यवहार और स्थानीय पहुंच</string>
+    <string name="settings_advanced_summary">फ़िल्टरिंग, लॉकडाउन, लॉगिंग, मैलवेयर ब्लॉकिंग, और आँकड़े</string>
+    <string name="settings_hosts_summary">स्थानीय या डाउनलोड की गई होस्ट फ़ाइलों के साथ डोमेन को ब्लॉक करें</string>
+    <string name="settings_network_summary">DNS, प्रॉक्सी, वीपीएन पते और पोर्ट फ़ॉरवर्डिंग</string>
+    <string name="settings_background_summary">वॉचडॉग, अद्यतन जांच और पैकेट कैप्चर</string>
+    <string name="settings_diagnostics_summary">पैकेट कैप्चर और समस्या निवारण विकल्प</string>
+    <string name="settings_about_summary">परियोजना की जानकारी और स्रोत कोड</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">स्रोत कोड</string>
+    <string name="about_source_summary">प्रोजेक्ट का अन्वेषण करें, समस्याओं की रिपोर्ट करें, या GitHub पर योगदान करें</string>
+    <string name="about_social_title">संपर्क करें</string>
 </resources>

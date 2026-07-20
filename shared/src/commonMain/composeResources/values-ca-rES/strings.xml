@@ -453,4 +453,52 @@ El teu trànsit d'Internet no s'està enviant a un servidor VPN remot.</string>
 
     <string name="label_dns_summary">%1$d entrades • %2$d caducades</string>
 
+
+    <string name="demo_mode_banner">Demo web: tallafocs i VPN es simulen</string>
+    <string name="status_enabled_demo">Tallafocs habilitat (demo)</string>
+    <string name="demo_mode_hint">No s'està executant cap VPN real. Instal·leu l'aplicació d'Android per obtenir una protecció real.</string>
+    <string name="ui_load_failed">No s'han pogut carregar les dades més recents</string>
+    <string name="ui_load_failed_body">La vostra configuració existent és segura. Prova de carregar aquesta vista de nou.</string>
+    <string name="action_retry">Torna-ho a provar</string>
+    <string name="ui_apps_search_empty_title">No hi ha cap aplicació coincident</string>
+    <string name="ui_apps_filter_empty_title">No hi ha res en aquesta vista</string>
+    <string name="ui_log_details_destination">Destinació</string>
+    <string name="ui_log_details_address">Adreça</string>
+    <string name="ui_log_details_port">Port</string>
+    <string name="ui_log_details_protocol">Protocol</string>
+    <string name="ui_log_details_time">Enregistrat</string>
+    <string name="ui_log_details_app_id">ID de l'aplicació</string>
+    <string name="action_close">Tanca</string>
+    <string name="action_copy">Còpia</string>
+    <string name="action_more_options">Més opcions</string>
+    <string name="status_copied">S'ha copiat</string>
+    <string name="action_back">Tornar</string>
+    <string name="setting_reset_to_default">Restableix els valors predeterminats</string>
+    <string name="setting_reset_to_value">Restableix · %1$s</string>
+    <string name="setting_reset_accessibility">Restableix %1$s al valor predeterminat</string>
+    <string name="setting_default_value">Per defecte: %1$s</string>
+    <string name="setting_value_empty">Buit</string>
+    <string name="setting_value_on">Activat</string>
+    <string name="setting_value_off">Desactivat
+__tema_de_configuració_clau_bleda__ Verd blavós</string>
+    <string name="setting_theme_teal">Verd blavós</string>
+    <string name="setting_update_result_available">Actualització disponible: %1$s</string>
+    <string name="setting_update_result_available_unknown">Actualització disponible</string>
+    <string name="setting_update_result_up_to_date">Esteu actualitzat.</string>
+    <string name="setting_update_result_failed">No s'han pogut comprovar si hi ha actualitzacions.</string>
+    <string name="setting_update_result_unavailable">Les comprovacions d'actualització no estan disponibles per a aquesta compilació.</string>
+    <string name="settings_quick_controls">Controls ràpids</string>
+    <string name="settings_more">Més configuracions</string>
+    <string name="settings_firewall_summary">Itinerància, xarxes mesurades, comportament de la pantalla i accés local</string>
+    <string name="settings_advanced_summary">Filtrat, bloqueig, registre, bloqueig de programari maliciós i estadístiques</string>
+    <string name="settings_hosts_summary">Bloqueja dominis amb fitxers d'amfitrions locals o descarregats</string>
+    <string name="settings_network_summary">DNS, proxy, adreces VPN i reenviament de ports</string>
+    <string name="settings_background_summary">Watchdog, comprovacions d'actualització i captura de paquets</string>
+    <string name="settings_diagnostics_summary">Opcions de captura i resolució de problemes de paquets</string>
+    <string name="settings_about_summary">Informació del projecte i codi font
+__CLAU_sobre_la_versió__ 1</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">Codi font</string>
+    <string name="about_source_summary">Exploreu el projecte, informeu de problemes o contribuïu a GitHub</string>
+    <string name="about_social_title">Poseu-vos en contacte</string>
 </resources>

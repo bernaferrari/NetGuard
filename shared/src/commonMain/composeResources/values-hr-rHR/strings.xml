@@ -453,4 +453,51 @@ Vaš promet se ne šalje na udaljeni VPN poslužitelj.</string>
 
     <string name="label_dns_summary">%1$d unosa • %2$d isteklo</string>
 
+
+    <string name="demo_mode_banner">Web demo — vatrozid i VPN su simulirani</string>
+    <string name="status_enabled_demo">Vatrozid omogućen (demo)</string>
+    <string name="demo_mode_hint">Nije pokrenut pravi VPN. Instalirajte Android aplikaciju za stvarnu zaštitu.</string>
+    <string name="ui_load_failed">Nije moguće učitati najnovije podatke</string>
+    <string name="ui_load_failed_body">Vaše postojeće postavke su sigurne. Pokušajte ponovno učitati ovaj prikaz.</string>
+    <string name="action_retry">Pokušajte ponovno</string>
+    <string name="ui_apps_search_empty_title">Nema odgovarajućih aplikacija</string>
+    <string name="ui_apps_filter_empty_title">Ništa u ovom prikazu</string>
+    <string name="ui_log_details_destination">Odredište</string>
+    <string name="ui_log_details_address">Adresa</string>
+    <string name="ui_log_details_port">Port</string>
+    <string name="ui_log_details_protocol">Protokol</string>
+    <string name="ui_log_details_time">Zabilježeno</string>
+    <string name="ui_log_details_app_id">ID aplikacije</string>
+    <string name="action_close">Zatvori</string>
+    <string name="action_copy">Kopiraj</string>
+    <string name="action_more_options">Više opcija</string>
+    <string name="status_copied">Kopirano</string>
+    <string name="action_back">Natrag</string>
+    <string name="setting_reset_to_default">Vrati na zadano</string>
+    <string name="setting_reset_to_value">Reset · %1$s</string>
+    <string name="setting_reset_accessibility">Vrati %1$s na zadano</string>
+    <string name="setting_default_value">Zadano: %1$s</string>
+    <string name="setting_value_empty">Prazno</string>
+    <string name="setting_value_on">Uključeno</string>
+    <string name="setting_value_off">Isključeno</string>
+    <string name="setting_theme_teal">Tirkizna</string>
+    <string name="setting_update_result_available">Dostupno ažuriranje: %1$s</string>
+    <string name="setting_update_result_available_unknown">Dostupno ažuriranje</string>
+    <string name="setting_update_result_up_to_date">U toku ste.</string>
+    <string name="setting_update_result_failed">Nije moguće provjeriti ima li ažuriranja.</string>
+    <string name="setting_update_result_unavailable">Provjere ažuriranja nisu dostupne za ovu verziju.</string>
+    <string name="settings_quick_controls">Brze kontrole</string>
+    <string name="settings_more">Više postavki</string>
+    <string name="settings_firewall_summary">Roaming, mreže s ograničenim protokom, ponašanje zaslona i lokalni pristup</string>
+    <string name="settings_advanced_summary">Filtriranje, zaključavanje, bilježenje, blokiranje zlonamjernog softvera i statistika</string>
+    <string name="settings_hosts_summary">Blokiraj domene s lokalnim ili preuzetim host datotekama</string>
+    <string name="settings_network_summary">DNS, proxy, VPN adrese i prosljeđivanje priključaka</string>
+    <string name="settings_background_summary">Watchdog, provjere ažuriranja i hvatanje paketa</string>
+    <string name="settings_diagnostics_summary">Snimanje paketa i mogućnosti rješavanja problema</string>
+    <string name="settings_about_summary">Podaci o projektu i izvorni kod
+__KLJUČ_o_verziji__ 1</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">Izvorni kod</string>
+    <string name="about_source_summary">Istražite projekt, prijavite probleme ili doprinesite na GitHubu</string>
+    <string name="about_social_title">Javite se</string>
 </resources>

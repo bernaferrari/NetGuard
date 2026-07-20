@@ -456,4 +456,45 @@
 
     <string name="label_dns_summary">%1$d エントリ • %2$d 期限切れ</string>
 
+
+    <string name="demo_mode_banner">Web デモ — ファイアウォールと VPN がシミュレートされています</string>
+    <string name="status_enabled_demo">ファイアウォールが有効になっています (デモ)</string>
+    <string name="demo_mode_hint">実際の VPN は実行されていません。実際に保護するには Android アプリをインストールしてください。</string>
+    <string name="ui_load_failed">最新のデータをロードできませんでした</string>
+    <string name="ui_load_failed_body">既存の設定は安全です。このビューをもう一度ロードしてみてください。</string>
+    <string name="action_retry">再試行してください</string>
+    <string name="ui_apps_search_empty_title">一致するアプリはありません</string>
+    <string name="ui_apps_filter_empty_title">このビューには何もありません</string>
+    <string name="ui_log_details_destination">宛先</string>
+    <string name="ui_log_details_address">アドレス</string>
+    <string name="ui_log_details_port">ポート</string>
+    <string name="ui_log_details_protocol">プロトコル</string>
+    <string name="ui_log_details_time">が記録されました</string>
+    <string name="ui_log_details_app_id">アプリID</string>
+    <string name="action_close">閉じる</string>
+    <string name="action_copy">コピー</string>
+    <string name="action_more_options">その他のオプション</string>
+    <string name="status_copied">コピーされました</string>
+    <string name="action_back">戻る</string>
+    <string name="setting_reset_to_default">デフォルトにリセットする</string>
+    <string name="setting_reset_to_value">リセット · %1$s</string>
+    <string name="setting_reset_accessibility">%1$s をデフォルトにリセットします</string>
+    <string name="setting_default_value">デフォルト: %1$s</string>
+    <string name="setting_value_empty">空</string>
+    <string name="setting_value_on">オン</string>
+    <string name="setting_value_off">オフ</string>
+    <string name="setting_theme_teal">ティール</string>
+    <string name="settings_quick_controls">クイック コントロール</string>
+    <string name="settings_more">その他の設定</string>
+    <string name="settings_firewall_summary">ローミング、従量制課金ネットワーク、画面の動作、およびローカル アクセス</string>
+    <string name="settings_advanced_summary">フィルタリング、ロックダウン、ロギング、マルウェアのブロック、統計</string>
+    <string name="settings_hosts_summary">ローカルまたはダウンロードされたホスト ファイルでドメインをブロックする</string>
+    <string name="settings_network_summary">DNS、プロキシ、VPN アドレス、およびポート転送</string>
+    <string name="settings_background_summary">ウォッチドッグ、更新チェック、パケット キャプチャ</string>
+    <string name="settings_diagnostics_summary">パケット キャプチャとトラブルシューティングのオプション</string>
+    <string name="settings_about_summary">プロジェクト情報とソースコード</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">ソースコード</string>
+    <string name="about_source_summary">プロジェクトを探索したり、問題を報告したり、GitHub に貢献したりできます</string>
+    <string name="about_social_title">お問い合わせ</string>
 </resources>

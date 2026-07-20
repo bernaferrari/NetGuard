@@ -452,4 +452,52 @@
 
     <string name="label_dns_summary">%1$d এন্ট্রি • %2$d মেয়াদোত্তীর্ণ</string>
 
+
+    <string name="demo_mode_banner">ওয়েব ডেমো — ফায়ারওয়াল এবং VPN সিমুলেটেড</string>
+    <string name="status_enabled_demo">ফায়ারওয়াল সক্ষম (ডেমো)</string>
+    <string name="demo_mode_hint">কোন বাস্তব VPN চলছে না। প্রকৃত সুরক্ষার জন্য Android অ্যাপটি ইনস্টল করুন।</string>
+    <string name="ui_load_failed">সর্বশেষ ডেটা লোড করা যায়নি</string>
+    <string name="ui_load_failed_body">আপনার বিদ্যমান সেটিংস নিরাপদ। এই দৃশ্য আবার লোড করার চেষ্টা করুন.</string>
+    <string name="action_retry">আবার চেষ্টা করুন</string>
+    <string name="ui_apps_search_empty_title">কোনো মিলে যাওয়া অ্যাপ নেই</string>
+    <string name="ui_apps_filter_empty_title">এই দৃশ্যে কিছুই নেই</string>
+    <string name="ui_log_details_destination">গন্তব্য</string>
+    <string name="ui_log_details_address">ঠিকানা</string>
+    <string name="ui_log_details_port">পোর্ট</string>
+    <string name="ui_log_details_protocol">প্রোটোকল</string>
+    <string name="ui_log_details_time">রেকর্ড করা হয়েছে</string>
+    <string name="ui_log_details_app_id">অ্যাপ আইডি</string>
+    <string name="action_close">বন্ধ করুন</string>
+    <string name="action_copy">কপি</string>
+    <string name="action_more_options">আরো বিকল্প</string>
+    <string name="status_copied">কপি করা হয়েছে
+__কী_অ্যাকশন_ব্যাক__ ব্যাক</string>
+    <string name="action_back">পিছনে</string>
+    <string name="setting_reset_to_default">ডিফল্টে রিসেট করুন</string>
+    <string name="setting_reset_to_value">রিসেট করুন · %1$s</string>
+    <string name="setting_reset_accessibility">%1$s ডিফল্টে পুনরায় সেট করুন</string>
+    <string name="setting_default_value">ডিফল্ট: %1$s</string>
+    <string name="setting_value_empty">খালি</string>
+    <string name="setting_value_on">চালু</string>
+    <string name="setting_value_off">বন্ধ</string>
+    <string name="setting_theme_teal">টিল</string>
+    <string name="setting_update_result_available">আপডেট উপলব্ধ: %1$s</string>
+    <string name="setting_update_result_available_unknown">আপডেট উপলব্ধ</string>
+    <string name="setting_update_result_up_to_date">আপনি আপ টু ডেট।</string>
+    <string name="setting_update_result_failed">আপডেটের জন্য চেক করা যায়নি।</string>
+    <string name="setting_update_result_unavailable">এই বিল্ডের জন্য আপডেট চেক উপলব্ধ নেই।</string>
+    <string name="settings_quick_controls">দ্রুত নিয়ন্ত্রণ</string>
+    <string name="settings_more">আরো সেটিংস</string>
+    <string name="settings_firewall_summary">রোমিং, মিটারযুক্ত নেটওয়ার্ক, স্ক্রীন আচরণ, এবং স্থানীয় অ্যাক্সেস</string>
+    <string name="settings_advanced_summary">ফিল্টারিং, লকডাউন, লগিং, ম্যালওয়্যার ব্লকিং, এবং পরিসংখ্যান</string>
+    <string name="settings_hosts_summary">স্থানীয় বা ডাউনলোড করা হোস্ট ফাইল সহ ডোমেইন ব্লক করুন</string>
+    <string name="settings_network_summary">DNS, প্রক্সি, VPN ঠিকানা এবং পোর্ট ফরওয়ার্ডিং</string>
+    <string name="settings_background_summary">Watchdog, আপডেট চেক এবং প্যাকেট ক্যাপচার</string>
+    <string name="settings_diagnostics_summary">প্যাকেট ক্যাপচার এবং সমস্যা সমাধানের বিকল্প</string>
+    <string name="settings_about_summary">প্রকল্পের তথ্য এবং উৎস কোড
+__key_about_version__ 1</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">উৎস কোড</string>
+    <string name="about_source_summary">প্রকল্পটি অন্বেষণ করুন, সমস্যাগুলি রিপোর্ট করুন বা GitHub-এ অবদান রাখুন</string>
+    <string name="about_social_title">যোগাযোগ করুন</string>
 </resources>

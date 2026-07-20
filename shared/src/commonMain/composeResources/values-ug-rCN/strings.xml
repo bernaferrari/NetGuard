@@ -452,4 +452,50 @@
 
     <string name="label_dns_summary">%1$d تۈر • %2$d ۋاقتى ئۆتكەن</string>
 
+
+    <string name="demo_mode_banner">تور كۆرسىتىش - مۇداپىئە تام ۋە VPN تەقلىد قىلىنغان</string>
+    <string name="status_enabled_demo">Firewall قوزغىتىلدى (demo)</string>
+    <string name="demo_mode_hint">ھەقىقىي VPN ئىجرا بولمايدۇ. ئەمەلىي قوغداش ئۈچۈن ئاندىرويىد ئەپلىرىنى قاچىلاڭ.</string>
+    <string name="ui_load_failed">ئەڭ يېڭى سانلىق مەلۇماتلارنى يۈكلىيەلمىدى</string>
+    <string name="ui_load_failed_body">ھازىرقى تەڭشەكلىرىڭىز بىخەتەر. بۇ كۆرۈنۈشنى قايتا يۈكلەڭ.</string>
+    <string name="action_retry">قايتا سىناڭ</string>
+    <string name="ui_apps_search_empty_title">ماس كېلىدىغان ئەپ يوق</string>
+    <string name="ui_apps_filter_empty_title">بۇ كۆرۈنۈشتە ھېچنېمە يوق</string>
+    <string name="ui_log_details_destination">مەنزىل</string>
+    <string name="ui_log_details_address">ئادرېس</string>
+    <string name="ui_log_details_port">ئېغىز</string>
+    <string name="ui_log_details_protocol">كېلىشىم</string>
+    <string name="ui_log_details_time">خاتىرىلەندى</string>
+    <string name="ui_log_details_app_id">ئەپ كىملىكى</string>
+    <string name="action_close">تاقاش</string>
+    <string name="action_copy">كۆپەيتىش</string>
+    <string name="action_more_options">تېخىمۇ كۆپ تاللاشلار</string>
+    <string name="status_copied">كۆچۈرۈلدى</string>
+    <string name="action_back">قايتىش</string>
+    <string name="setting_reset_to_default">سۈكۈتتىكى ھالەتكە قايتىڭ</string>
+    <string name="setting_reset_to_value">ئەسلىگە قايتۇرۇش · %1$s</string>
+    <string name="setting_reset_accessibility">ئەسلىگە قايتۇرۇش %1$s</string>
+    <string name="setting_default_value">كۆڭۈلدىكى قىممىتى: %1$s</string>
+    <string name="setting_value_empty">قۇرۇق</string>
+    <string name="setting_value_on">ئىشلەنگەن</string>
+    <string name="setting_value_off">ئۆچۈرۈلگەن</string>
+    <string name="setting_theme_teal">چاي</string>
+    <string name="setting_update_result_available">يېڭىلاشقا بولىدۇ: %1$s</string>
+    <string name="setting_update_result_available_unknown">يېڭىلاشقا بولىدۇ</string>
+    <string name="setting_update_result_up_to_date">سىز ئەڭ يېڭى.</string>
+    <string name="setting_update_result_failed">يېڭىلانمىلارنى تەكشۈرەلمىدى.</string>
+    <string name="setting_update_result_unavailable">بۇ قۇرۇلۇش ئۈچۈن يېڭىلاش تەكشۈرۈشلىرىنى ئىشلەتكىلى بولمايدۇ.</string>
+    <string name="settings_quick_controls">تېز كونترول</string>
+    <string name="settings_more">تېخىمۇ كۆپ تەڭشەكلەر</string>
+    <string name="settings_firewall_summary">كەزمە ، ئۆلچەملىك تور ، ئېكران ھەرىكىتى ۋە يەرلىك زىيارەت</string>
+    <string name="settings_advanced_summary">سۈزۈش ، قۇلۇپلاش ، كىرىش ، يامان غەرەزلىك يۇمشاق دېتاللارنى توسۇش ۋە ئىستاتىستىكا قىلىش</string>
+    <string name="settings_hosts_summary">يەرلىك ياكى چۈشۈرۈلگەن غول ھۆججەتلەر بىلەن دائىرە توسۇڭ</string>
+    <string name="settings_network_summary">DNS ، ۋاكالەتچى ، VPN ئادرېس ۋە پورت يوللاش</string>
+    <string name="settings_background_summary">كۆزەتكۈچى ، تەكشۈرۈش ۋە يېڭىلانمىلارنى يېڭىلاش</string>
+    <string name="settings_diagnostics_summary">بوغچا تۇتۇش ۋە مەسىلىنى ھەل قىلىش تاللانمىلىرى</string>
+    <string name="settings_about_summary">تۈر ئۇچۇرى ۋە مەنبە كودى</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">مەنبە كودى</string>
+    <string name="about_source_summary">تۈر ئۈستىدە ئىزدىنىڭ ، مەسىلىلەرنى دوكلات قىلىڭ ياكى GitHub غا تۆھپە قوشۇڭ</string>
+    <string name="about_social_title">ئالاقىلىشىڭ</string>
 </resources>

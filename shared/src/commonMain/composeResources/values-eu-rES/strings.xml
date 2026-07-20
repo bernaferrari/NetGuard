@@ -453,4 +453,51 @@ Zure internet trafikoa ez da kanpo VPN zerbitzari batera bidaltzen.</string>
 
     <string name="label_dns_summary">%1$d sarrera • %2$d iraungita</string>
 
+
+    <string name="demo_mode_banner">Web demoa — suebakia eta VPN simulatzen dira</string>
+    <string name="status_enabled_demo">Suebakia gaituta (demoa)</string>
+    <string name="demo_mode_hint">Ez dago benetako VPNrik martxan. Instalatu Android aplikazioa benetako babeserako.</string>
+    <string name="ui_load_failed">Ezin izan dira azken datuak kargatu</string>
+    <string name="ui_load_failed_body">Lehendik dituzun ezarpenak seguru daude. Saiatu berriro ikuspegi hau kargatzen.</string>
+    <string name="action_retry">Saiatu berriro</string>
+    <string name="ui_apps_search_empty_title">Ez dago bat datorren aplikaziorik</string>
+    <string name="ui_apps_filter_empty_title">Ez dago ezer ikuspegi honetan</string>
+    <string name="ui_log_details_destination">Helmuga</string>
+    <string name="ui_log_details_address">Helbidea</string>
+    <string name="ui_log_details_port">Portua</string>
+    <string name="ui_log_details_protocol">Protokoloa</string>
+    <string name="ui_log_details_time">Grabatua</string>
+    <string name="ui_log_details_app_id">Aplikazioaren IDa</string>
+    <string name="action_close">Itxi</string>
+    <string name="action_copy">Kopiatu</string>
+    <string name="action_more_options">Aukera gehiago</string>
+    <string name="status_copied">Kopiatu da</string>
+    <string name="action_back">Itzuli</string>
+    <string name="setting_reset_to_default">Berrezarri lehenespenera</string>
+    <string name="setting_reset_to_value">Berrezarri · %1$s</string>
+    <string name="setting_reset_accessibility">Berrezarri %1$s lehenespenera</string>
+    <string name="setting_default_value">Lehenetsia: %1$s</string>
+    <string name="setting_value_empty">Hutsik</string>
+    <string name="setting_value_on">Aktibatuta</string>
+    <string name="setting_value_off">Desaktibatuta</string>
+    <string name="setting_theme_teal">Urdin-berdea</string>
+    <string name="setting_update_result_available">Eguneraketa eskuragarri: %1$s</string>
+    <string name="setting_update_result_available_unknown">Eguneraketa eskuragarri</string>
+    <string name="setting_update_result_up_to_date">Eguneratuta zaude.</string>
+    <string name="setting_update_result_failed">Ezin izan dira eguneraketak egiaztatu.</string>
+    <string name="setting_update_result_unavailable">Eguneratze-egiaztapenak ez daude erabilgarri eraikuntza honetarako.</string>
+    <string name="settings_quick_controls">Kontrol azkarrak</string>
+    <string name="settings_more">Ezarpen gehiago</string>
+    <string name="settings_firewall_summary">Ibiltaritza, neurtutako sareak, pantailaren portaera eta tokiko sarbidea</string>
+    <string name="settings_advanced_summary">Iragazkia, blokeoa, erregistroa, malware blokeatzea eta estatistikak</string>
+    <string name="settings_hosts_summary">Blokeatu domeinuak tokiko edo deskargatutako ostalari fitxategiekin</string>
+    <string name="settings_network_summary">DNS, proxy, VPN helbideak eta portuak birbidaltzea</string>
+    <string name="settings_background_summary">Watchdog, eguneratze egiaztapenak eta pakete harrapaketa</string>
+    <string name="settings_diagnostics_summary">Paketeen harrapaketa eta arazoak konpontzeko aukerak</string>
+    <string name="settings_about_summary">Proiektuaren informazioa eta iturburu kodea
+__GATZA_bertsioa_buruz__ 1</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">Iturburu kodea</string>
+    <string name="about_source_summary">Arakatu proiektua, jakinarazi arazoen berri edo lagundu GitHub-en</string>
+    <string name="about_social_title">Jarri harremanetan</string>
 </resources>

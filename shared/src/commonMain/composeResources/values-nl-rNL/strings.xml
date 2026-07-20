@@ -459,4 +459,45 @@ Je verkeer wordt niet naar een externe server gestuurd.</string>
 
     <string name="label_dns_summary">%1$d items • %2$d verlopen</string>
 
+
+    <string name="demo_mode_banner">Webdemo — firewall en VPN worden gesimuleerd</string>
+    <string name="status_enabled_demo">Firewall ingeschakeld (demo)</string>
+    <string name="demo_mode_hint">Er is geen echte VPN actief. Installeer de Android-app voor daadwerkelijke bescherming.</string>
+    <string name="ui_load_failed">Kan de nieuwste gegevens niet laden</string>
+    <string name="ui_load_failed_body">Je bestaande instellingen zijn veilig. Probeer deze weergave opnieuw te laden.</string>
+    <string name="action_retry">Probeer het opnieuw</string>
+    <string name="ui_apps_search_empty_title">Geen overeenkomende apps</string>
+    <string name="ui_apps_filter_empty_title">Niets in deze weergave</string>
+    <string name="ui_log_details_destination">Bestemming</string>
+    <string name="ui_log_details_address">Adres</string>
+    <string name="ui_log_details_port">Poort</string>
+    <string name="ui_log_details_protocol">Protocol</string>
+    <string name="ui_log_details_time">Opgenomen</string>
+    <string name="ui_log_details_app_id">App-ID</string>
+    <string name="action_close">Sluiten</string>
+    <string name="action_copy">Kopiëren</string>
+    <string name="action_more_options">Meer opties</string>
+    <string name="status_copied">Gekopieerd</string>
+    <string name="action_back">Terug</string>
+    <string name="setting_reset_to_default">Reset naar standaard</string>
+    <string name="setting_reset_to_value">Opnieuw instellen · %1$s</string>
+    <string name="setting_reset_accessibility">Zet %1$s terug naar de standaardwaarde</string>
+    <string name="setting_default_value">Standaard: %1$s</string>
+    <string name="setting_value_empty">Leeg</string>
+    <string name="setting_value_on">Aan</string>
+    <string name="setting_value_off">Uit</string>
+    <string name="setting_theme_teal">Wintertaling</string>
+    <string name="settings_quick_controls">Snelle bediening</string>
+    <string name="settings_more">Meer instellingen</string>
+    <string name="settings_firewall_summary">Roaming, gemeten netwerken, schermgedrag en lokale toegang</string>
+    <string name="settings_advanced_summary">Filteren, vergrendelen, loggen, malware blokkeren en statistieken</string>
+    <string name="settings_hosts_summary">Blokkeer domeinen met lokale of gedownloade hosts-bestanden</string>
+    <string name="settings_network_summary">DNS, proxy, VPN-adressen en port forwarding</string>
+    <string name="settings_background_summary">Watchdog, updatecontroles en pakketvastlegging</string>
+    <string name="settings_diagnostics_summary">Opties voor het vastleggen van pakketten en het oplossen van problemen</string>
+    <string name="settings_about_summary">Projectinformatie en broncode</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">Broncode</string>
+    <string name="about_source_summary">Verken het project, rapporteer problemen of draag bij op GitHub</string>
+    <string name="about_social_title">Neem contact op</string>
 </resources>

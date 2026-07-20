@@ -453,4 +453,50 @@ Lalu lintas internet Anda tidak dikirim ke server VPN jarak jauh.</string>
 
     <string name="label_dns_summary">%1$d entri • %2$d kedaluwarsa</string>
 
+
+    <string name="demo_mode_banner">Demo web — firewall dan VPN disimulasikan</string>
+    <string name="status_enabled_demo">Firewall diaktifkan (demo)</string>
+    <string name="demo_mode_hint">Tidak ada VPN asli yang berjalan. Instal aplikasi Android untuk perlindungan sebenarnya.</string>
+    <string name="ui_load_failed">Tidak dapat memuat data terbaru</string>
+    <string name="ui_load_failed_body">Pengaturan Anda saat ini aman. Coba muat tampilan ini lagi.</string>
+    <string name="action_retry">Coba lagi</string>
+    <string name="ui_apps_search_empty_title">Tidak ada aplikasi yang cocok</string>
+    <string name="ui_apps_filter_empty_title">Tidak ada apa pun dalam tampilan ini</string>
+    <string name="ui_log_details_destination">Tujuan</string>
+    <string name="ui_log_details_address">Alamat</string>
+    <string name="ui_log_details_port">Pelabuhan</string>
+    <string name="ui_log_details_protocol">Protokol</string>
+    <string name="ui_log_details_time">Direkam</string>
+    <string name="ui_log_details_app_id">ID Aplikasi</string>
+    <string name="action_close">Tutup</string>
+    <string name="action_copy">Salin</string>
+    <string name="action_more_options">Opsi lainnya</string>
+    <string name="status_copied">Disalin</string>
+    <string name="action_back">Kembali</string>
+    <string name="setting_reset_to_default">Reset ke default</string>
+    <string name="setting_reset_to_value">Atur Ulang · %1$s</string>
+    <string name="setting_reset_accessibility">Setel ulang %1$s ke default</string>
+    <string name="setting_default_value">Bawaan: %1$s</string>
+    <string name="setting_value_empty">Kosong</string>
+    <string name="setting_value_on">Aktif</string>
+    <string name="setting_value_off">Mati</string>
+    <string name="setting_theme_teal">Hijau kebiruan</string>
+    <string name="setting_update_result_available">Pembaruan tersedia: %1$s</string>
+    <string name="setting_update_result_available_unknown">Pembaruan tersedia</string>
+    <string name="setting_update_result_up_to_date">Anda sudah mendapatkan informasi terkini.</string>
+    <string name="setting_update_result_failed">Tidak dapat memeriksa pembaruan.</string>
+    <string name="setting_update_result_unavailable">Pemeriksaan pembaruan tidak tersedia untuk versi ini.</string>
+    <string name="settings_quick_controls">Kontrol cepat</string>
+    <string name="settings_more">Pengaturan lainnya</string>
+    <string name="settings_firewall_summary">Roaming, jaringan terukur, perilaku layar, dan akses lokal</string>
+    <string name="settings_advanced_summary">Pemfilteran, penguncian, pencatatan, pemblokiran malware, dan statistik</string>
+    <string name="settings_hosts_summary">Blokir domain dengan file host lokal atau yang diunduh</string>
+    <string name="settings_network_summary">DNS, proksi, alamat VPN, dan penerusan port</string>
+    <string name="settings_background_summary">Pengawas, pemeriksaan pembaruan dan pengambilan paket</string>
+    <string name="settings_diagnostics_summary">Opsi pengambilan dan pemecahan masalah paket</string>
+    <string name="settings_about_summary">Informasi proyek dan kode sumber</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">Kode sumber</string>
+    <string name="about_source_summary">Jelajahi proyek, laporkan masalah, atau berkontribusi di GitHub</string>
+    <string name="about_social_title">Hubungi kami</string>
 </resources>

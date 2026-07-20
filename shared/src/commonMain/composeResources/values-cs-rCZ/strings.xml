@@ -458,4 +458,45 @@ Váš internetový provoz není odesílán na vzdálený server VPN.</string>
 
     <string name="label_dns_summary">%1$d záznamů • %2$d vypršelo</string>
 
+
+    <string name="demo_mode_banner">Web demo — firewall a VPN jsou simulovány</string>
+    <string name="status_enabled_demo">Firewall povolen (ukázka)</string>
+    <string name="demo_mode_hint">Neběží žádná skutečná VPN. Pro skutečnou ochranu si nainstalujte aplikaci pro Android.</string>
+    <string name="ui_load_failed">Nelze načíst nejnovější data</string>
+    <string name="ui_load_failed_body">Vaše stávající nastavení jsou v bezpečí. Zkuste toto zobrazení načíst znovu.</string>
+    <string name="action_retry">Zkuste to znovu</string>
+    <string name="ui_apps_search_empty_title">Žádné odpovídající aplikace</string>
+    <string name="ui_apps_filter_empty_title">V tomto zobrazení není nic</string>
+    <string name="ui_log_details_destination">Cíl</string>
+    <string name="ui_log_details_address">Adresa</string>
+    <string name="ui_log_details_port">Port</string>
+    <string name="ui_log_details_protocol">Protokol</string>
+    <string name="ui_log_details_time">Zaznamenáno</string>
+    <string name="ui_log_details_app_id">ID aplikace</string>
+    <string name="action_close">Zavřít</string>
+    <string name="action_copy">Kopírovat</string>
+    <string name="action_more_options">Další možnosti</string>
+    <string name="status_copied">Zkopírováno</string>
+    <string name="action_back">Zpět</string>
+    <string name="setting_reset_to_default">Obnovit výchozí</string>
+    <string name="setting_reset_to_value">Resetovat · %1$s</string>
+    <string name="setting_reset_accessibility">Resetovat %1$s na výchozí</string>
+    <string name="setting_default_value">Výchozí: %1$s</string>
+    <string name="setting_value_empty">Prázdné</string>
+    <string name="setting_value_on">Zapnuto</string>
+    <string name="setting_value_off">Vypnuto</string>
+    <string name="setting_theme_teal">Modrozelená</string>
+    <string name="settings_quick_controls">Rychlé ovládací prvky</string>
+    <string name="settings_more">Další nastavení</string>
+    <string name="settings_firewall_summary">Roaming, měřené sítě, chování obrazovky a místní přístup</string>
+    <string name="settings_advanced_summary">Filtrování, uzamčení, protokolování, blokování malwaru a statistiky</string>
+    <string name="settings_hosts_summary">Blokování domén pomocí místních nebo stažených souborů hostitelů</string>
+    <string name="settings_network_summary">DNS, proxy, adresy VPN a přesměrování portů</string>
+    <string name="settings_background_summary">Watchdog, kontrola aktualizací a zachycování paketů</string>
+    <string name="settings_diagnostics_summary">Zachycování paketů a možnosti řešení problémů</string>
+    <string name="settings_about_summary">Informace o projektu a zdrojový kód</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">Zdrojový kód</string>
+    <string name="about_source_summary">Prozkoumejte projekt, nahlaste problémy nebo přispějte na GitHubu</string>
+    <string name="about_social_title">Kontaktujte nás</string>
 </resources>

@@ -452,4 +452,50 @@
 
     <string name="label_dns_summary">%1$d إدخالات • %2$d منتهية الصلاحية</string>
 
+
+    <string name="demo_mode_banner">عرض الويب التجريبي - تمت محاكاة جدار الحماية وVPN</string>
+    <string name="status_enabled_demo">تم تمكين جدار الحماية (تجريبي)</string>
+    <string name="demo_mode_hint">لا يوجد VPN حقيقي قيد التشغيل. قم بتثبيت تطبيق Android للحماية الفعلية.</string>
+    <string name="ui_load_failed">تعذر تحميل أحدث البيانات</string>
+    <string name="ui_load_failed_body">إعداداتك الحالية آمنة. حاول تحميل هذا العرض مرة أخرى.</string>
+    <string name="action_retry">حاول مرة أخرى</string>
+    <string name="ui_apps_search_empty_title">لا توجد تطبيقات مطابقة</string>
+    <string name="ui_apps_filter_empty_title">لا يوجد شيء في طريقة العرض هذه</string>
+    <string name="ui_log_details_destination">الوجهة</string>
+    <string name="ui_log_details_address">العنوان</string>
+    <string name="ui_log_details_port">المنفذ</string>
+    <string name="ui_log_details_protocol">البروتوكول</string>
+    <string name="ui_log_details_time">تم التسجيل</string>
+    <string name="ui_log_details_app_id">معرف التطبيق</string>
+    <string name="action_close">إغلاق</string>
+    <string name="action_copy">نسخ</string>
+    <string name="action_more_options">المزيد من الخيارات</string>
+    <string name="status_copied">منسوخ</string>
+    <string name="action_back">العودة</string>
+    <string name="setting_reset_to_default">إعادة التعيين إلى الوضع الافتراضي</string>
+    <string name="setting_reset_to_value">إعادة تعيين · %1$s</string>
+    <string name="setting_reset_accessibility">إعادة تعيين %1$s إلى الوضع الافتراضي</string>
+    <string name="setting_default_value">الافتراضي: %1$s</string>
+    <string name="setting_value_empty">فارغ</string>
+    <string name="setting_value_on">قيد التشغيل</string>
+    <string name="setting_value_off">معطل</string>
+    <string name="setting_theme_teal">أزرق مخضر</string>
+    <string name="setting_update_result_available">التحديث متاح: %1$s</string>
+    <string name="setting_update_result_available_unknown">التحديث متاح</string>
+    <string name="setting_update_result_up_to_date">أنت مطلع على آخر المستجدات.</string>
+    <string name="setting_update_result_failed">تعذر التحقق من وجود تحديثات.</string>
+    <string name="setting_update_result_unavailable">عمليات التحقق من التحديث غير متاحة لهذا الإصدار.</string>
+    <string name="settings_quick_controls">عناصر التحكم السريعة</string>
+    <string name="settings_more">المزيد من الإعدادات</string>
+    <string name="settings_firewall_summary">التجوال والشبكات المقاسة وسلوك الشاشة والوصول المحلي</string>
+    <string name="settings_advanced_summary">التصفية والتأمين والتسجيل وحظر البرامج الضارة والإحصائيات</string>
+    <string name="settings_hosts_summary">حظر النطاقات التي تحتوي على ملفات مضيفة محلية أو تم تنزيلها</string>
+    <string name="settings_network_summary">DNS والوكيل وعناوين VPN وإعادة توجيه المنفذ</string>
+    <string name="settings_background_summary">مراقبة النظام، والتحقق من التحديثات، والتقاط الحزم</string>
+    <string name="settings_diagnostics_summary">خيارات التقاط الحزم واستكشاف الأخطاء وإصلاحها</string>
+    <string name="settings_about_summary">معلومات المشروع وكود المصدر</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">كود المصدر</string>
+    <string name="about_source_summary">استكشف المشروع أو أبلغ عن المشكلات أو ساهم في GitHub</string>
+    <string name="about_social_title">تواصل معنا</string>
 </resources>

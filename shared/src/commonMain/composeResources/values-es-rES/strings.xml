@@ -458,4 +458,45 @@ Tu tráfico de Internet no se está enviando a un servidor VPN remoto.</string>
 
     <string name="label_dns_summary">%1$d entradas • %2$d caducadas</string>
 
+
+    <string name="demo_mode_banner">Demostración web: se simulan firewall y VPN</string>
+    <string name="status_enabled_demo">Firewall habilitado (demostración)</string>
+    <string name="demo_mode_hint">No se está ejecutando ninguna VPN real. Instale la aplicación de Android para obtener protección real.</string>
+    <string name="ui_load_failed">No se pudieron cargar los datos más recientes</string>
+    <string name="ui_load_failed_body">Tus configuraciones existentes están seguras. Intente cargar esta vista nuevamente.</string>
+    <string name="action_retry">Inténtalo de nuevo</string>
+    <string name="ui_apps_search_empty_title">No hay aplicaciones coincidentes</string>
+    <string name="ui_apps_filter_empty_title">Nada en esta vista</string>
+    <string name="ui_log_details_destination">Destino</string>
+    <string name="ui_log_details_address">Dirección</string>
+    <string name="ui_log_details_port">Puerto</string>
+    <string name="ui_log_details_protocol">Protocolo</string>
+    <string name="ui_log_details_time">Grabado</string>
+    <string name="ui_log_details_app_id">ID de aplicación</string>
+    <string name="action_close">Cerrar</string>
+    <string name="action_copy">Copiar</string>
+    <string name="action_more_options">Más opciones</string>
+    <string name="status_copied">Copiado</string>
+    <string name="action_back">Atrás</string>
+    <string name="setting_reset_to_default">Restablecer los valores predeterminados</string>
+    <string name="setting_reset_to_value">Restablecer · %1$s</string>
+    <string name="setting_reset_accessibility">Restablecer %1$s a los valores predeterminados</string>
+    <string name="setting_default_value">Valor predeterminado: %1$s</string>
+    <string name="setting_value_empty">Vacío</string>
+    <string name="setting_value_on">Activado</string>
+    <string name="setting_value_off">Desactivado</string>
+    <string name="setting_theme_teal">Verde azulado</string>
+    <string name="settings_quick_controls">Controles rápidos</string>
+    <string name="settings_more">Más configuraciones</string>
+    <string name="settings_firewall_summary">Roaming, redes medidas, comportamiento de pantalla y acceso local</string>
+    <string name="settings_advanced_summary">Filtrado, bloqueo, registro, bloqueo de malware y estadísticas</string>
+    <string name="settings_hosts_summary">Bloquear dominios con archivos de hosts locales o descargados</string>
+    <string name="settings_network_summary">DNS, proxy, direcciones VPN y reenvío de puertos</string>
+    <string name="settings_background_summary">Vigilancia, comprobaciones de actualizaciones y captura de paquetes</string>
+    <string name="settings_diagnostics_summary">Opciones de captura de paquetes y solución de problemas</string>
+    <string name="settings_about_summary">Información del proyecto y código fuente</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">Código fuente</string>
+    <string name="about_source_summary">Explore el proyecto, informe problemas o contribuya en GitHub</string>
+    <string name="about_social_title">Ponte en contacto</string>
 </resources>

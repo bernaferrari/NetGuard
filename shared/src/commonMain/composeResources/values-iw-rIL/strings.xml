@@ -453,4 +453,50 @@
 
     <string name="label_dns_summary">%1$d רשומות • %2$d פג תוקף</string>
 
+
+    <string name="demo_mode_banner">הדגמת אינטרנט - חומת אש ו-VPN מדומים</string>
+    <string name="status_enabled_demo">חומת אש מופעלת (הדגמה)</string>
+    <string name="demo_mode_hint">שום VPN אמיתי לא פועל. התקן את אפליקציית אנדרואיד להגנה בפועל.</string>
+    <string name="ui_load_failed">לא ניתן היה לטעון את הנתונים העדכניים ביותר</string>
+    <string name="ui_load_failed_body">ההגדרות הקיימות שלך בטוחות. נסה לטעון את התצוגה הזו שוב.</string>
+    <string name="action_retry">נסה שוב</string>
+    <string name="ui_apps_search_empty_title">אין אפליקציות תואמות</string>
+    <string name="ui_apps_filter_empty_title">שום דבר בתצוגה זו</string>
+    <string name="ui_log_details_destination">יעד</string>
+    <string name="ui_log_details_address">כתובת</string>
+    <string name="ui_log_details_port">יציאה</string>
+    <string name="ui_log_details_protocol">פרוטוקול</string>
+    <string name="ui_log_details_time">הוקלט</string>
+    <string name="ui_log_details_app_id">מזהה אפליקציה</string>
+    <string name="action_close">סגור</string>
+    <string name="action_copy">העתק</string>
+    <string name="action_more_options">אפשרויות נוספות</string>
+    <string name="status_copied">הועתק</string>
+    <string name="action_back">חזרה</string>
+    <string name="setting_reset_to_default">אפס לברירת המחדל</string>
+    <string name="setting_reset_to_value">איפוס · %1$s</string>
+    <string name="setting_reset_accessibility">אפס את %1$s לברירת המחדל</string>
+    <string name="setting_default_value">ברירת מחדל: %1$s</string>
+    <string name="setting_value_empty">ריק</string>
+    <string name="setting_value_on">פועל</string>
+    <string name="setting_value_off">כבוי</string>
+    <string name="setting_theme_teal">צהבהב</string>
+    <string name="setting_update_result_available">עדכון זמין: %1$s</string>
+    <string name="setting_update_result_available_unknown">עדכון זמין</string>
+    <string name="setting_update_result_up_to_date">אתה מעודכן.</string>
+    <string name="setting_update_result_failed">לא ניתן היה לחפש עדכונים.</string>
+    <string name="setting_update_result_unavailable">בדיקות עדכונים אינן זמינות עבור build זה.</string>
+    <string name="settings_quick_controls">בקרות מהירות</string>
+    <string name="settings_more">הגדרות נוספות</string>
+    <string name="settings_firewall_summary">נדידה, רשתות מדודות, התנהגות מסך וגישה מקומית</string>
+    <string name="settings_advanced_summary">סינון, נעילה, רישום, חסימת תוכנות זדוניות וסטטיסטיקות</string>
+    <string name="settings_hosts_summary">חסום דומיינים עם קבצי מארחים מקומיים או הורדת</string>
+    <string name="settings_network_summary">DNS, proxy, כתובות VPN והעברת יציאות</string>
+    <string name="settings_background_summary">כלב שמירה, בדיקות עדכונים ולכידת מנות</string>
+    <string name="settings_diagnostics_summary">אפשרויות לכידת מנות ופתרון בעיות</string>
+    <string name="settings_about_summary">מידע על פרויקט וקוד מקור</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">קוד מקור</string>
+    <string name="about_source_summary">חקור את הפרויקט, דווח על בעיות או תרום ב-GitHub</string>
+    <string name="about_social_title">צור קשר</string>
 </resources>

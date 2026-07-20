@@ -451,4 +451,50 @@ Jou internetverkeer word nie na 'n afgeleë VPN-bediener gestuur nie.</string>
 
     <string name="label_dns_summary">%1$d inskrywings • %2$d verstryk</string>
 
+
+    <string name="demo_mode_banner">Webdemo - firewall en VPN word gesimuleer</string>
+    <string name="status_enabled_demo">Firewall geaktiveer (demo)</string>
+    <string name="demo_mode_hint">Geen regte VPN loop nie. Installeer die Android-toepassing vir werklike beskerming.</string>
+    <string name="ui_load_failed">Kon nie die jongste data laai nie</string>
+    <string name="ui_load_failed_body">Jou bestaande instellings is veilig. Probeer weer hierdie aansig laai.</string>
+    <string name="action_retry">Probeer weer</string>
+    <string name="ui_apps_search_empty_title">Geen passende toepassings nie</string>
+    <string name="ui_apps_filter_empty_title">Niks in hierdie aansig nie</string>
+    <string name="ui_log_details_destination">Bestemming</string>
+    <string name="ui_log_details_address">Adres</string>
+    <string name="ui_log_details_port">Poort</string>
+    <string name="ui_log_details_protocol">Protokol</string>
+    <string name="ui_log_details_time">Opgeneem</string>
+    <string name="ui_log_details_app_id">App-ID</string>
+    <string name="action_close">Maak toe</string>
+    <string name="action_copy">Kopieer</string>
+    <string name="action_more_options">Meer opsies</string>
+    <string name="status_copied">Gekopieer</string>
+    <string name="action_back">Terug</string>
+    <string name="setting_reset_to_default">Stel terug na verstek</string>
+    <string name="setting_reset_to_value">Herstel · %1$s</string>
+    <string name="setting_reset_accessibility">Stel %1$s terug na verstek</string>
+    <string name="setting_default_value">Verstek: %1$s</string>
+    <string name="setting_value_empty">Leeg</string>
+    <string name="setting_value_on">Aan</string>
+    <string name="setting_value_off">Af</string>
+    <string name="setting_theme_teal">Blauwgroen</string>
+    <string name="setting_update_result_available">Opdatering beskikbaar: %1$s</string>
+    <string name="setting_update_result_available_unknown">Opdatering beskikbaar</string>
+    <string name="setting_update_result_up_to_date">Jy is op datum.</string>
+    <string name="setting_update_result_failed">Kon nie vir opdaterings kyk nie.</string>
+    <string name="setting_update_result_unavailable">Opdateringskontroles is nie beskikbaar vir hierdie bou nie.</string>
+    <string name="settings_quick_controls">Vinnige kontroles</string>
+    <string name="settings_more">Meer instellings</string>
+    <string name="settings_firewall_summary">Roaming, meternetwerke, skermgedrag en plaaslike toegang</string>
+    <string name="settings_advanced_summary">Filtrering, toesluit, aanteken, blokkering van wanware en statistieke</string>
+    <string name="settings_hosts_summary">Blokkeer domeine met plaaslike of afgelaaide gasheerlêers</string>
+    <string name="settings_network_summary">DNS, instaanbediener, VPN-adresse en poortaanstuur</string>
+    <string name="settings_background_summary">Waghond, opdateringskontroles en pakkievaslegging</string>
+    <string name="settings_diagnostics_summary">Pakkie vaslegging en foutsporing opsies</string>
+    <string name="settings_about_summary">Projekinligting en bronkode</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">Bronkode</string>
+    <string name="about_source_summary">Verken die projek, rapporteer kwessies of dra by op GitHub</string>
+    <string name="about_social_title">Maak kontak</string>
 </resources>

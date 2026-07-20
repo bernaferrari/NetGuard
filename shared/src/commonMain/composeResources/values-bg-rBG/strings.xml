@@ -451,4 +451,50 @@
 
     <string name="label_dns_summary">%1$d записа • %2$d изтекли</string>
 
+
+    <string name="demo_mode_banner">Уеб демонстрация — защитната стена и VPN са симулирани</string>
+    <string name="status_enabled_demo">Активирана защитна стена (демо)</string>
+    <string name="demo_mode_hint">Не работи истински VPN. Инсталирайте приложението за Android за действителна защита.</string>
+    <string name="ui_load_failed">Не можа да зареди най-новите данни</string>
+    <string name="ui_load_failed_body">Вашите съществуващи настройки са безопасни. Опитайте да заредите този изглед отново.</string>
+    <string name="action_retry">Опитайте отново</string>
+    <string name="ui_apps_search_empty_title">Няма съответстващи приложения</string>
+    <string name="ui_apps_filter_empty_title">Нищо в този изглед</string>
+    <string name="ui_log_details_destination">Дестинация</string>
+    <string name="ui_log_details_address">Адрес</string>
+    <string name="ui_log_details_port">Порт</string>
+    <string name="ui_log_details_protocol">Протокол</string>
+    <string name="ui_log_details_time">Записано</string>
+    <string name="ui_log_details_app_id">ИД на приложение</string>
+    <string name="action_close">Затваряне</string>
+    <string name="action_copy">Копиране</string>
+    <string name="action_more_options">Още опции</string>
+    <string name="status_copied">Копиран</string>
+    <string name="action_back">Назад</string>
+    <string name="setting_reset_to_default">Нулиране до подразбиране</string>
+    <string name="setting_reset_to_value">Нулиране · %1$s</string>
+    <string name="setting_reset_accessibility">Нулиране на %1$s по подразбиране</string>
+    <string name="setting_default_value">По подразбиране: %1$s</string>
+    <string name="setting_value_empty">Празно</string>
+    <string name="setting_value_on">Вкл</string>
+    <string name="setting_value_off">Изкл.</string>
+    <string name="setting_theme_teal">Синьозелен</string>
+    <string name="setting_update_result_available">Налична актуализация: %1$s</string>
+    <string name="setting_update_result_available_unknown">Налична актуализация</string>
+    <string name="setting_update_result_up_to_date">Вие сте актуални.</string>
+    <string name="setting_update_result_failed">Не може да се провери за актуализации.</string>
+    <string name="setting_update_result_unavailable">Проверките за актуализация не са налични за тази компилация.</string>
+    <string name="settings_quick_controls">Бързи контроли</string>
+    <string name="settings_more">Още настройки</string>
+    <string name="settings_firewall_summary">Роуминг, мрежи с измерване, поведение на екрана и локален достъп</string>
+    <string name="settings_advanced_summary">Филтриране, заключване, регистриране, блокиране на зловреден софтуер и статистика</string>
+    <string name="settings_hosts_summary">Блокирайте домейни с локални или изтеглени хост файлове</string>
+    <string name="settings_network_summary">DNS, прокси, VPN адреси и пренасочване на портове</string>
+    <string name="settings_background_summary">Watchdog, проверки за актуализиране и улавяне на пакети</string>
+    <string name="settings_diagnostics_summary">Улавяне на пакети и опции за отстраняване на неизправности</string>
+    <string name="settings_about_summary">Информация за проекта и изходен код</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">Изходен код</string>
+    <string name="about_source_summary">Разгледайте проекта, докладвайте за проблеми или допринесете за GitHub</string>
+    <string name="about_social_title">Свържете се</string>
 </resources>

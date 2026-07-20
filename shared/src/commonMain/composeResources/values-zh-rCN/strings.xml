@@ -453,4 +453,50 @@
 
     <string name="label_dns_summary">%1$d 条条目 • %2$d 条已过期</string>
 
+
+    <string name="demo_mode_banner">Web 演示 — 模拟防火墙和 VPN</string>
+    <string name="status_enabled_demo">防火墙已启用（演示）</string>
+    <string name="demo_mode_hint">没有真正的 VPN 正在运行。安装 Android 应用程序以获得实际保护。</string>
+    <string name="ui_load_failed">无法加载最新数据</string>
+    <string name="ui_load_failed_body">您现有的设置是安全的。尝试再次加载此视图。</string>
+    <string name="action_retry">再试一次</string>
+    <string name="ui_apps_search_empty_title">没有匹配的应用程序</string>
+    <string name="ui_apps_filter_empty_title">此视图中没有任何内容</string>
+    <string name="ui_log_details_destination">目的地</string>
+    <string name="ui_log_details_address">地址</string>
+    <string name="ui_log_details_port">端口</string>
+    <string name="ui_log_details_protocol">协议</string>
+    <string name="ui_log_details_time">已记录</string>
+    <string name="ui_log_details_app_id">应用程序 ID</string>
+    <string name="action_close">关闭</string>
+    <string name="action_copy">复制</string>
+    <string name="action_more_options">更多选项</string>
+    <string name="status_copied">已复制</string>
+    <string name="action_back">返回</string>
+    <string name="setting_reset_to_default">重置为默认值</string>
+    <string name="setting_reset_to_value">重置 · %1$s</string>
+    <string name="setting_reset_accessibility">将 %1$s 重置为默认值</string>
+    <string name="setting_default_value">默认值：%1$s</string>
+    <string name="setting_value_empty">空</string>
+    <string name="setting_value_on">开</string>
+    <string name="setting_value_off">关闭</string>
+    <string name="setting_theme_teal">青色</string>
+    <string name="setting_update_result_available">可用更新：%1$s</string>
+    <string name="setting_update_result_available_unknown">可用更新</string>
+    <string name="setting_update_result_up_to_date">您是最新的。</string>
+    <string name="setting_update_result_failed">无法检查更新。</string>
+    <string name="setting_update_result_unavailable">更新检查对此版本不可用。</string>
+    <string name="settings_quick_controls">快速控制</string>
+    <string name="settings_more">更多设置</string>
+    <string name="settings_firewall_summary">漫游、按流量计费的网络、屏幕行为和本地访问</string>
+    <string name="settings_advanced_summary">过滤、锁定、日志记录、恶意软件拦截和统计</string>
+    <string name="settings_hosts_summary">使用本地或下载的主机文件阻止域</string>
+    <string name="settings_network_summary">DNS、代理、VPN 地址和端口转发</string>
+    <string name="settings_background_summary">看门狗、更新检查和数据包捕获</string>
+    <string name="settings_diagnostics_summary">数据包捕获和故障排除选项</string>
+    <string name="settings_about_summary">项目信息和源代码</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">源代码</string>
+    <string name="about_source_summary">探索项目、报告问题或在 GitHub 上做出贡献</string>
+    <string name="about_social_title">联系我们</string>
 </resources>

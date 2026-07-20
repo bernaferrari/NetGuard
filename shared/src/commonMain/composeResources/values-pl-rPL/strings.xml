@@ -459,4 +459,45 @@ Twój ruch internetowy nie będzie wysyłany do żadnego zdalnego serwera VPN.</
 
     <string name="label_dns_summary">%1$d wpisów • %2$d wygasło</string>
 
+
+    <string name="demo_mode_banner">Demo internetowe — symulowana jest zapora ogniowa i VPN</string>
+    <string name="status_enabled_demo">Zapora sieciowa włączona (demo)</string>
+    <string name="demo_mode_hint">Żadna prawdziwa sieć VPN nie jest uruchomiona. Zainstaluj aplikację na Androida, aby zapewnić rzeczywistą ochronę.</string>
+    <string name="ui_load_failed">Nie można załadować najnowszych danych</string>
+    <string name="ui_load_failed_body">Twoje istniejące ustawienia są bezpieczne. Spróbuj ponownie załadować ten widok.</string>
+    <string name="action_retry">Spróbuj ponownie</string>
+    <string name="ui_apps_search_empty_title">Brak pasujących aplikacji</string>
+    <string name="ui_apps_filter_empty_title">Nic w tym widoku</string>
+    <string name="ui_log_details_destination">Miejsce docelowe</string>
+    <string name="ui_log_details_address">Adres</string>
+    <string name="ui_log_details_port">Port</string>
+    <string name="ui_log_details_protocol">Protokół</string>
+    <string name="ui_log_details_time">Zapisano</string>
+    <string name="ui_log_details_app_id">Identyfikator aplikacji</string>
+    <string name="action_close">Zamknij</string>
+    <string name="action_copy">Kopiuj</string>
+    <string name="action_more_options">Więcej opcji</string>
+    <string name="status_copied">Skopiowano</string>
+    <string name="action_back">Wstecz</string>
+    <string name="setting_reset_to_default">Przywróć ustawienia domyślne</string>
+    <string name="setting_reset_to_value">Resetuj · %1$s</string>
+    <string name="setting_reset_accessibility">Zresetuj %1$s do ustawień domyślnych</string>
+    <string name="setting_default_value">Wartość domyślna: %1$s</string>
+    <string name="setting_value_empty">Puste</string>
+    <string name="setting_value_on">Włączone</string>
+    <string name="setting_value_off">Wyłączone</string>
+    <string name="setting_theme_teal">Turkusowy</string>
+    <string name="settings_quick_controls">Szybkie sterowanie</string>
+    <string name="settings_more">Więcej ustawień</string>
+    <string name="settings_firewall_summary">Roaming, sieci taryfowe, zachowanie ekranu i dostęp lokalny</string>
+    <string name="settings_advanced_summary">Filtrowanie, blokowanie, rejestrowanie, blokowanie złośliwego oprogramowania i statystyki</string>
+    <string name="settings_hosts_summary">Blokuj domeny za pomocą lokalnych lub pobranych plików hostów</string>
+    <string name="settings_network_summary">DNS, proxy, adresy VPN i przekierowanie portów</string>
+    <string name="settings_background_summary">Watchdog, sprawdzanie aktualizacji i przechwytywanie pakietów</string>
+    <string name="settings_diagnostics_summary">Opcje przechwytywania pakietów i rozwiązywania problemów</string>
+    <string name="settings_about_summary">Informacje o projekcie i kod źródłowy</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">Kod źródłowy</string>
+    <string name="about_source_summary">Przeglądaj projekt, zgłaszaj problemy lub współpracuj w GitHub</string>
+    <string name="about_social_title">Skontaktuj się z nami</string>
 </resources>

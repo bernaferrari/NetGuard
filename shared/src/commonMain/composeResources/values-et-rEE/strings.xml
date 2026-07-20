@@ -458,4 +458,45 @@ Sinu Interneti-liiklust ei saadeta kaugesse VPN-serverisse.</string>
 
     <string name="label_dns_summary">%1$d kirjet • %2$d aegunud</string>
 
+
+    <string name="demo_mode_banner">Veebi demo – tulemüür ja VPN on simuleeritud</string>
+    <string name="status_enabled_demo">Tulemüür on lubatud (demo)</string>
+    <string name="demo_mode_hint">Päris VPN-i ei tööta. Installige Androidi rakendus tegeliku kaitse tagamiseks.</string>
+    <string name="ui_load_failed">Viimaseid andmeid ei saanud laadida</string>
+    <string name="ui_load_failed_body">Teie olemasolevad seaded on turvalised. Proovige seda vaadet uuesti laadida.</string>
+    <string name="action_retry">Proovige uuesti</string>
+    <string name="ui_apps_search_empty_title">Sobivaid rakendusi pole</string>
+    <string name="ui_apps_filter_empty_title">Selles vaates pole midagi</string>
+    <string name="ui_log_details_destination">Sihtkoht</string>
+    <string name="ui_log_details_address">Aadress</string>
+    <string name="ui_log_details_port">Port</string>
+    <string name="ui_log_details_protocol">Protokoll</string>
+    <string name="ui_log_details_time">Salvestatud</string>
+    <string name="ui_log_details_app_id">Rakenduse ID</string>
+    <string name="action_close">Sule</string>
+    <string name="action_copy">Kopeeri</string>
+    <string name="action_more_options">Rohkem valikuid</string>
+    <string name="status_copied">Kopeeritud</string>
+    <string name="action_back">Tagasi</string>
+    <string name="setting_reset_to_default">Lähtestage vaikeseadetele</string>
+    <string name="setting_reset_to_value">Lähtesta · %1$s</string>
+    <string name="setting_reset_accessibility">Lähtesta %1$s vaikeseadetele</string>
+    <string name="setting_default_value">Vaikimisi: %1$s</string>
+    <string name="setting_value_empty">Tühi</string>
+    <string name="setting_value_on">Sees</string>
+    <string name="setting_value_off">Väljas</string>
+    <string name="setting_theme_teal">Sinine</string>
+    <string name="settings_quick_controls">Kiirkontrollid</string>
+    <string name="settings_more">Rohkem seadeid</string>
+    <string name="settings_firewall_summary">Rändlus, mõõdetud võrgud, ekraani käitumine ja kohalik juurdepääs</string>
+    <string name="settings_advanced_summary">Filtreerimine, lukustamine, logimine, pahavara blokeerimine ja statistika</string>
+    <string name="settings_hosts_summary">Blokeeri domeenid kohalike või allalaaditud hostifailidega</string>
+    <string name="settings_network_summary">DNS, puhverserver, VPN-aadressid ja pordi edastamine</string>
+    <string name="settings_background_summary">Watchdog, värskenduste kontrollid ja pakettide hõivamine</string>
+    <string name="settings_diagnostics_summary">Pakettide püüdmise ja tõrkeotsingu valikud</string>
+    <string name="settings_about_summary">Projektiteave ja lähtekood</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">Lähtekood</string>
+    <string name="about_source_summary">Tutvuge projektiga, teatage probleemidest või panustage GitHubis</string>
+    <string name="about_social_title">Võtke ühendust</string>
 </resources>

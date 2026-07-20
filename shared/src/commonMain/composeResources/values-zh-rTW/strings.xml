@@ -453,4 +453,50 @@
 
     <string name="label_dns_summary">%1$d 條條目 • %2$d 條已過期</string>
 
+
+    <string name="demo_mode_banner">Web 示範 — 模擬防火牆和 VPN</string>
+    <string name="status_enabled_demo">防火牆已啟用（示範）</string>
+    <string name="demo_mode_hint">沒有真正的 VPN 正在運作。安裝 Android 應用程式以獲得實際保護。</string>
+    <string name="ui_load_failed">無法載入最新數據</string>
+    <string name="ui_load_failed_body">您現有的設定是安全的。嘗試再次載入此視圖。</string>
+    <string name="action_retry">再試一次</string>
+    <string name="ui_apps_search_empty_title">沒有符合的應用程式</string>
+    <string name="ui_apps_filter_empty_title">此視圖中沒有任何內容</string>
+    <string name="ui_log_details_destination">目的地</string>
+    <string name="ui_log_details_address">位址</string>
+    <string name="ui_log_details_port">端口</string>
+    <string name="ui_log_details_protocol">協議</string>
+    <string name="ui_log_details_time">已記錄</string>
+    <string name="ui_log_details_app_id">應用程式 ID</string>
+    <string name="action_close">關閉</string>
+    <string name="action_copy">複製</string>
+    <string name="action_more_options">更多選項</string>
+    <string name="status_copied">已複製</string>
+    <string name="action_back">返回</string>
+    <string name="setting_reset_to_default">重設為預設值</string>
+    <string name="setting_reset_to_value">重設 · %1$s</string>
+    <string name="setting_reset_accessibility">將 %1$s 重設為預設值</string>
+    <string name="setting_default_value">預設值：%1$s</string>
+    <string name="setting_value_empty">空</string>
+    <string name="setting_value_on">開</string>
+    <string name="setting_value_off">關閉</string>
+    <string name="setting_theme_teal">青色</string>
+    <string name="setting_update_result_available">可用更新：%1$s</string>
+    <string name="setting_update_result_available_unknown">可用更新</string>
+    <string name="setting_update_result_up_to_date">您是最新的。</string>
+    <string name="setting_update_result_failed">無法檢查更新。</string>
+    <string name="setting_update_result_unavailable">更新檢查對此版本不可用。</string>
+    <string name="settings_quick_controls">快速控制</string>
+    <string name="settings_more">更多設置</string>
+    <string name="settings_firewall_summary">漫遊、按流量計費的網路、螢幕行為和本地訪問</string>
+    <string name="settings_advanced_summary">過濾、鎖定、日誌記錄、惡意軟體攔截和統計</string>
+    <string name="settings_hosts_summary">使用本機或下載的主機檔案阻止網域</string>
+    <string name="settings_network_summary">DNS、代理、VPN 位址和連接埠轉發</string>
+    <string name="settings_background_summary">看門狗、更新檢查和資料包捕獲</string>
+    <string name="settings_diagnostics_summary">封包擷取與故障排除選項</string>
+    <string name="settings_about_summary">專案資訊與原始碼</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">原始碼</string>
+    <string name="about_source_summary">探索專案、報告問題或在 GitHub 上做出貢獻</string>
+    <string name="about_social_title">聯絡我們</string>
 </resources>

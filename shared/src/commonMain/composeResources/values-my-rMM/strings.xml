@@ -452,4 +452,50 @@
 
     <string name="label_dns_summary">%1$d ခု • %2$d သက်တမ်းကုန်</string>
 
+
+    <string name="demo_mode_banner">ဝဘ်သရုပ်ပြ — firewall နှင့် VPN ကို အတုယူသည်</string>
+    <string name="status_enabled_demo">Firewall ဖွင့်ထားသည် (သရုပ်ပြ)</string>
+    <string name="demo_mode_hint">စစ်မှန်သော VPN သည် လုပ်ဆောင်နေခြင်းမရှိပါ။ အမှန်တကယ် ကာကွယ်ရန်အတွက် Android အက်ပ်ကို ထည့်သွင်းပါ။</string>
+    <string name="ui_load_failed">နောက်ဆုံးဒေတာကို ဖွင့်၍မရပါ။</string>
+    <string name="ui_load_failed_body">သင့်လက်ရှိဆက်တင်များသည် ဘေးကင်းပါသည်။ ဤမြင်ကွင်းကို ထပ်တင်ကြည့်ပါ။</string>
+    <string name="action_retry">ထပ်လုပ်ကြည့်ပါ။</string>
+    <string name="ui_apps_search_empty_title">ကိုက်ညီသည့်အက်ပ်များ မရှိပါ။</string>
+    <string name="ui_apps_filter_empty_title">ဤမြင်ကွင်းတွင် ဘာမှမရှိပါ။</string>
+    <string name="ui_log_details_destination">ဦးတည်ရာ</string>
+    <string name="ui_log_details_address">လိပ်စာ</string>
+    <string name="ui_log_details_port">ဆိပ်ကမ်း</string>
+    <string name="ui_log_details_protocol">ပရိုတိုကော</string>
+    <string name="ui_log_details_time">မှတ်တမ်းတင်ထားသည်။</string>
+    <string name="ui_log_details_app_id">အက်ပ် ID</string>
+    <string name="action_close">ပိတ်ပါ။</string>
+    <string name="action_copy">မိတ္တူ</string>
+    <string name="action_more_options">နောက်ထပ် ရွေးချယ်စရာများ</string>
+    <string name="status_copied">ကူးယူထားသည်။</string>
+    <string name="action_back">နောက်သို့</string>
+    <string name="setting_reset_to_default">မူရင်းသို့ ပြန်လည်သတ်မှတ်ပါ။</string>
+    <string name="setting_reset_to_value">ပြန်လည်သတ်မှတ်ခြင်း · %1$s</string>
+    <string name="setting_reset_accessibility">%1$s ကို မူရင်းအဖြစ် ပြန်လည်သတ်မှတ်ပါ</string>
+    <string name="setting_default_value">မူရင်း- %1$s</string>
+    <string name="setting_value_empty">ဗလာ</string>
+    <string name="setting_value_on">ဖွင့်ပါ။</string>
+    <string name="setting_value_off">ပိတ်ပါ။</string>
+    <string name="setting_theme_teal">စိမ်းပြာရောင်</string>
+    <string name="setting_update_result_available">အပ်ဒိတ် ရနိုင်ပါသည်- %1$s</string>
+    <string name="setting_update_result_available_unknown">အပ်ဒိတ် ရနိုင်ပါသည်။</string>
+    <string name="setting_update_result_up_to_date">သင်သည် နောက်ဆုံးရနေပါသည်။</string>
+    <string name="setting_update_result_failed">အပ်ဒိတ်များကို စစ်ဆေး၍မရပါ။</string>
+    <string name="setting_update_result_unavailable">အပ်ဒိတ်စစ်ဆေးမှုများကို ဤတည်ဆောက်မှုအတွက် မရရှိနိုင်ပါ။</string>
+    <string name="settings_quick_controls">အမြန်ထိန်းချုပ်မှုများ</string>
+    <string name="settings_more">နောက်ထပ် ဆက်တင်များ</string>
+    <string name="settings_firewall_summary">Roaming၊ မီတာတပ်ထားသော ကွန်ရက်များ၊ ဖန်သားပြင် အပြုအမူနှင့် စက်တွင်းဝင်ရောက်ခွင့်</string>
+    <string name="settings_advanced_summary">စစ်ထုတ်ခြင်း၊ လော့ခ်ချခြင်း၊ မှတ်တမ်းသွင်းခြင်း၊ မဲလ်ဝဲပိတ်ဆို့ခြင်းနှင့် စာရင်းဇယားများ</string>
+    <string name="settings_hosts_summary">ပြည်တွင်း သို့မဟုတ် ဒေါင်းလုဒ်လုပ်ထားသော host ဖိုင်များဖြင့် ဒိုမိန်းများကို ပိတ်ဆို့ပါ</string>
+    <string name="settings_network_summary">DNS၊ ပရောက်စီ၊ VPN လိပ်စာများနှင့် ဆိပ်ကမ်းကို ထပ်ဆင့်ပို့ခြင်း</string>
+    <string name="settings_background_summary">Watchdog၊ စစ်ဆေးမှုများ မွမ်းမံခြင်းနှင့် ပက်ကတ်ဖမ်းယူခြင်း</string>
+    <string name="settings_diagnostics_summary">Packet ဖမ်းယူခြင်းနှင့် ပြဿနာဖြေရှင်းခြင်း ရွေးစရာများ</string>
+    <string name="settings_about_summary">ပရောဂျက်အချက်အလက်နှင့် အရင်းအမြစ်ကုဒ်</string>
+    <string name="about_version">၁</string>
+    <string name="about_source_title">အရင်းအမြစ်ကုဒ်</string>
+    <string name="about_source_summary">ပရောဂျက်ကို လေ့လာပါ၊ ပြဿနာများကို သတင်းပို့ပါ သို့မဟုတ် GitHub တွင် ပါဝင်ကူညီပါ</string>
+    <string name="about_social_title">ဆက်သွယ်လိုက်ပါ။</string>
 </resources>

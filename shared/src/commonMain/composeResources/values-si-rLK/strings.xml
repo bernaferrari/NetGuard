@@ -452,4 +452,50 @@
 
     <string name="label_dns_summary">%1$d ඇතුළත් කිරීම් • %2$d කාලය ඉකුත් වූ ඒවා</string>
 
+
+    <string name="demo_mode_banner">Web demo — Firewall සහ VPN අනුකරණය කර ඇත</string>
+    <string name="status_enabled_demo">ෆයර්වෝල් සබලයි (demo)</string>
+    <string name="demo_mode_hint">සැබෑ VPN ක්‍රියාත්මක නොවේ. සැබෑ ආරක්ෂාව සඳහා Android යෙදුම ස්ථාපනය කරන්න.</string>
+    <string name="ui_load_failed">නවතම දත්ත පූරණය කළ නොහැකි විය</string>
+    <string name="ui_load_failed_body">ඔබගේ පවතින සැකසීම් ආරක්ෂිතයි. මෙම දසුන නැවත පූරණය කිරීමට උත්සාහ කරන්න.</string>
+    <string name="action_retry">නැවත උත්සාහ කරන්න</string>
+    <string name="ui_apps_search_empty_title">ගැළපෙන යෙදුම් නැත</string>
+    <string name="ui_apps_filter_empty_title">මෙම දසුනෙහි කිසිවක් නැත</string>
+    <string name="ui_log_details_destination">ගමනාන්තය</string>
+    <string name="ui_log_details_address">ලිපිනය</string>
+    <string name="ui_log_details_port">වරාය</string>
+    <string name="ui_log_details_protocol">ප්‍රොටෝකෝලය</string>
+    <string name="ui_log_details_time">පටිගත කරන ලදී</string>
+    <string name="ui_log_details_app_id">යෙදුම් ID</string>
+    <string name="action_close">වසන්න</string>
+    <string name="action_copy">පිටපත</string>
+    <string name="action_more_options">තවත් විකල්ප</string>
+    <string name="status_copied">පිටපත් කරන ලදී</string>
+    <string name="action_back">ආපසු</string>
+    <string name="setting_reset_to_default">පෙරනිමියට යළි පිහිටුවන්න</string>
+    <string name="setting_reset_to_value">නැවත සකසන්න · %1$s</string>
+    <string name="setting_reset_accessibility">පෙරනිමියට %1$s යළි පිහිටුවන්න</string>
+    <string name="setting_default_value">පෙරනිමිය: %1$s</string>
+    <string name="setting_value_empty">හිස්</string>
+    <string name="setting_value_on">on</string>
+    <string name="setting_value_off">අක්‍රිය</string>
+    <string name="setting_theme_teal">ටීල්</string>
+    <string name="setting_update_result_available">යාවත්කාලීනය තිබේ: %1$s</string>
+    <string name="setting_update_result_available_unknown">යාවත්කාලීන තිබේ</string>
+    <string name="setting_update_result_up_to_date">ඔබ යාවත්කාලීනයි.</string>
+    <string name="setting_update_result_failed">යාවත්කාලීන සඳහා පරීක්ෂා කළ නොහැක.</string>
+    <string name="setting_update_result_unavailable">මෙම ගොඩනැගීම සඳහා යාවත්කාලීන චෙක්පත් නොමැත.</string>
+    <string name="settings_quick_controls">ඉක්මන් පාලන</string>
+    <string name="settings_more">තවත් සැකසුම්</string>
+    <string name="settings_firewall_summary">රෝමිං, මනු ජාල, තිර හැසිරීම, සහ දේශීය ප්‍රවේශය</string>
+    <string name="settings_advanced_summary">පෙරීම, අගුලු දැමීම, ලොග් කිරීම, අනිෂ්ට මෘදුකාංග අවහිර කිරීම සහ සංඛ්‍යාලේඛන</string>
+    <string name="settings_hosts_summary">දේශීය හෝ බාගත කළ ධාරක ගොනු සහිත වසම් අවහිර කරන්න</string>
+    <string name="settings_network_summary">DNS, proxy, VPN ලිපින, සහ තොට යොමු කිරීම</string>
+    <string name="settings_background_summary">මුරකරු, යාවත්කාලීන චෙක්පත් සහ පැකට් ග්‍රහණය</string>
+    <string name="settings_diagnostics_summary">පැකට් ග්‍රහණය සහ දෝශ නිරාකරණ විකල්ප</string>
+    <string name="settings_about_summary">ව්‍යාපෘති තොරතුරු සහ මූල කේතය</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">මූලාශ්‍ර කේතය</string>
+    <string name="about_source_summary">ව්‍යාපෘතිය ගවේෂණය කරන්න, ගැටළු වාර්තා කරන්න, හෝ GitHub මත දායක වන්න</string>
+    <string name="about_social_title">සම්බන්ධ වන්න</string>
 </resources>

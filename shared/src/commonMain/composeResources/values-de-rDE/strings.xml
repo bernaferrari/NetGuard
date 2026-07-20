@@ -458,4 +458,45 @@ Ihr Verkehr wird NICHT an einen entfernten VPN-Server gesendet.</string>
 
     <string name="label_dns_summary">%1$d Einträge • %2$d abgelaufen</string>
 
+
+    <string name="demo_mode_banner">Webdemo – Firewall und VPN werden simuliert</string>
+    <string name="status_enabled_demo">Firewall aktiviert (Demo)</string>
+    <string name="demo_mode_hint">Es läuft kein echtes VPN. Für echten Schutz installieren Sie die Android-App.</string>
+    <string name="ui_load_failed">Die neuesten Daten konnten nicht geladen werden</string>
+    <string name="ui_load_failed_body">Ihre vorhandenen Einstellungen sind sicher. Versuchen Sie erneut, diese Ansicht zu laden.</string>
+    <string name="action_retry">Versuchen Sie es erneut</string>
+    <string name="ui_apps_search_empty_title">Keine passenden Apps</string>
+    <string name="ui_apps_filter_empty_title">Nichts in dieser Ansicht</string>
+    <string name="ui_log_details_destination">Ziel</string>
+    <string name="ui_log_details_address">Adresse</string>
+    <string name="ui_log_details_port">Port</string>
+    <string name="ui_log_details_protocol">Protokoll</string>
+    <string name="ui_log_details_time">Aufgezeichnet</string>
+    <string name="ui_log_details_app_id">App-ID</string>
+    <string name="action_close">Schließen</string>
+    <string name="action_copy">Kopieren</string>
+    <string name="action_more_options">Weitere Optionen</string>
+    <string name="status_copied">Kopiert</string>
+    <string name="action_back">Zurück</string>
+    <string name="setting_reset_to_default">Auf Standard zurücksetzen</string>
+    <string name="setting_reset_to_value">Zurücksetzen · %1$s</string>
+    <string name="setting_reset_accessibility">%1$s auf Standard zurücksetzen</string>
+    <string name="setting_default_value">Standard: %1$s</string>
+    <string name="setting_value_empty">Leer</string>
+    <string name="setting_value_on">Ein</string>
+    <string name="setting_value_off">Aus</string>
+    <string name="setting_theme_teal">Blaugrün</string>
+    <string name="settings_quick_controls">Schnellsteuerung</string>
+    <string name="settings_more">Weitere Einstellungen</string>
+    <string name="settings_firewall_summary">Roaming, gemessene Netzwerke, Bildschirmverhalten und lokaler Zugriff</string>
+    <string name="settings_advanced_summary">Filterung, Sperrung, Protokollierung, Malware-Blockierung und Statistiken</string>
+    <string name="settings_hosts_summary">Blockieren Sie Domänen mit lokalen oder heruntergeladenen Hosts-Dateien</string>
+    <string name="settings_network_summary">DNS, Proxy, VPN-Adressen und Portweiterleitung</string>
+    <string name="settings_background_summary">Watchdog, Update-Prüfungen und Paketerfassung</string>
+    <string name="settings_diagnostics_summary">Optionen zur Paketerfassung und Fehlerbehebung</string>
+    <string name="settings_about_summary">Projektinformationen und Quellcode</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">Quellcode</string>
+    <string name="about_source_summary">Erkunden Sie das Projekt, melden Sie Probleme oder leisten Sie einen Beitrag auf GitHub</string>
+    <string name="about_social_title">Nehmen Sie Kontakt auf</string>
 </resources>

@@ -458,4 +458,45 @@ Votre trafic n'est pas envoyé à un serveur VPN distant.</string>
 
     <string name="label_dns_summary">%1$d entrées • %2$d expirées</string>
 
+
+    <string name="demo_mode_banner">Démo Web — le pare-feu et le VPN sont simulés</string>
+    <string name="status_enabled_demo">Pare-feu activé (démo)</string>
+    <string name="demo_mode_hint">Aucun véritable VPN n'est en cours d'exécution. Installez l'application Android pour une protection réelle.</string>
+    <string name="ui_load_failed">Impossible de charger les dernières données</string>
+    <string name="ui_load_failed_body">Vos paramètres existants sont en sécurité. Essayez de charger à nouveau cette vue.</string>
+    <string name="action_retry">Réessayez</string>
+    <string name="ui_apps_search_empty_title">Aucune application correspondante</string>
+    <string name="ui_apps_filter_empty_title">Rien dans cette vue</string>
+    <string name="ui_log_details_destination">Destination</string>
+    <string name="ui_log_details_address">Adresse</string>
+    <string name="ui_log_details_port">Port</string>
+    <string name="ui_log_details_protocol">Protocole</string>
+    <string name="ui_log_details_time">Enregistré</string>
+    <string name="ui_log_details_app_id">ID de l'application</string>
+    <string name="action_close">Fermer</string>
+    <string name="action_copy">Copier</string>
+    <string name="action_more_options">Plus d'options</string>
+    <string name="status_copied">Copié</string>
+    <string name="action_back">Retour</string>
+    <string name="setting_reset_to_default">Réinitialiser aux paramètres par défaut</string>
+    <string name="setting_reset_to_value">Réinitialiser · %1$s</string>
+    <string name="setting_reset_accessibility">Réinitialiser %1$s par défaut</string>
+    <string name="setting_default_value">Par défaut : %1$s</string>
+    <string name="setting_value_empty">Vide</string>
+    <string name="setting_value_on">Activé</string>
+    <string name="setting_value_off">Désactivé</string>
+    <string name="setting_theme_teal">Sarcelle</string>
+    <string name="settings_quick_controls">Contrôles rapides</string>
+    <string name="settings_more">Plus de paramètres</string>
+    <string name="settings_firewall_summary">Itinérance, réseaux limités, comportement de l'écran et accès local</string>
+    <string name="settings_advanced_summary">Filtrage, verrouillage, journalisation, blocage des logiciels malveillants et statistiques</string>
+    <string name="settings_hosts_summary">Bloquer les domaines avec des fichiers hôtes locaux ou téléchargés</string>
+    <string name="settings_network_summary">DNS, proxy, adresses VPN et redirection de port</string>
+    <string name="settings_background_summary">Chien de garde, contrôles de mise à jour et capture de paquets</string>
+    <string name="settings_diagnostics_summary">Options de capture et de dépannage des paquets</string>
+    <string name="settings_about_summary">Informations sur le projet et code source</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">Code source</string>
+    <string name="about_source_summary">Explorez le projet, signalez des problèmes ou contribuez sur GitHub</string>
+    <string name="about_social_title">Contactez-nous</string>
 </resources>

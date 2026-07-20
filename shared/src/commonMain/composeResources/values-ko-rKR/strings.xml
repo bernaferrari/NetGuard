@@ -458,4 +458,45 @@
 
     <string name="label_dns_summary">%1$d개 항목 • %2$d개 만료됨</string>
 
+
+    <string name="demo_mode_banner">웹 데모 - 방화벽 및 VPN이 시뮬레이션됩니다.</string>
+    <string name="status_enabled_demo">방화벽 활성화(데모)</string>
+    <string name="demo_mode_hint">실제 VPN이 실행되고 있지 않습니다. 실제 보호를 위해 Android 앱을 설치하세요.</string>
+    <string name="ui_load_failed">최신 데이터를 로드할 수 없습니다.</string>
+    <string name="ui_load_failed_body">기존 설정은 안전합니다. 이 보기를 다시 로드해 보세요.</string>
+    <string name="action_retry">다시 시도하세요</string>
+    <string name="ui_apps_search_empty_title">일치하는 앱이 없습니다.</string>
+    <string name="ui_apps_filter_empty_title">이 보기에는 아무것도 없습니다.</string>
+    <string name="ui_log_details_destination">목적지</string>
+    <string name="ui_log_details_address">주소</string>
+    <string name="ui_log_details_port">포트</string>
+    <string name="ui_log_details_protocol">프로토콜</string>
+    <string name="ui_log_details_time">기록됨</string>
+    <string name="ui_log_details_app_id">앱 ID</string>
+    <string name="action_close">닫기</string>
+    <string name="action_copy">복사</string>
+    <string name="action_more_options">추가 옵션</string>
+    <string name="status_copied">복사됨</string>
+    <string name="action_back">뒤로</string>
+    <string name="setting_reset_to_default">기본값으로 재설정</string>
+    <string name="setting_reset_to_value">재설정 · %1$s</string>
+    <string name="setting_reset_accessibility">%1$s을(를) 기본값으로 재설정</string>
+    <string name="setting_default_value">기본값: %1$s</string>
+    <string name="setting_value_empty">비어 있음</string>
+    <string name="setting_value_on">켜짐</string>
+    <string name="setting_value_off">끄기</string>
+    <string name="setting_theme_teal">청록색</string>
+    <string name="settings_quick_controls">빠른 제어</string>
+    <string name="settings_more">설정 더보기</string>
+    <string name="settings_firewall_summary">로밍, 데이터 통신 네트워크, 화면 동작 및 로컬 액세스</string>
+    <string name="settings_advanced_summary">필터링, 잠금, 로깅, 맬웨어 차단 및 통계</string>
+    <string name="settings_hosts_summary">로컬 또는 다운로드된 호스트 파일이 있는 도메인 차단</string>
+    <string name="settings_network_summary">DNS, 프록시, VPN 주소 및 포트 전달</string>
+    <string name="settings_background_summary">Watchdog, 업데이트 확인 및 패킷 캡처</string>
+    <string name="settings_diagnostics_summary">패킷 캡처 및 문제 해결 옵션</string>
+    <string name="settings_about_summary">프로젝트 정보 및 소스 코드</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">소스 코드</string>
+    <string name="about_source_summary">프로젝트 탐색, 문제 보고 또는 GitHub에 기여</string>
+    <string name="about_social_title">연락주세요</string>
 </resources>

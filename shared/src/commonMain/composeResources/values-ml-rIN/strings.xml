@@ -452,4 +452,50 @@
 
     <string name="label_dns_summary">%1$d എൻട്രികൾ • %2$d കാലാവധി കഴിഞ്ഞവ</string>
 
+
+    <string name="demo_mode_banner">വെബ് ഡെമോ — ഫയർവാളും VPN ഉം അനുകരിക്കപ്പെടുന്നു</string>
+    <string name="status_enabled_demo">ഫയർവാൾ പ്രവർത്തനക്ഷമമാക്കി (ഡെമോ)</string>
+    <string name="demo_mode_hint">യഥാർത്ഥ VPN പ്രവർത്തിക്കുന്നില്ല. യഥാർത്ഥ പരിരക്ഷയ്ക്കായി Android ആപ്പ് ഇൻസ്റ്റാൾ ചെയ്യുക.</string>
+    <string name="ui_load_failed">ഏറ്റവും പുതിയ ഡാറ്റ ലോഡ് ചെയ്യാനായില്ല</string>
+    <string name="ui_load_failed_body">നിങ്ങളുടെ നിലവിലുള്ള ക്രമീകരണങ്ങൾ സുരക്ഷിതമാണ്. ഈ കാഴ്ച വീണ്ടും ലോഡ് ചെയ്യാൻ ശ്രമിക്കുക.</string>
+    <string name="action_retry">വീണ്ടും ശ്രമിക്കുക</string>
+    <string name="ui_apps_search_empty_title">പൊരുത്തപ്പെടുന്ന ആപ്പുകളൊന്നുമില്ല</string>
+    <string name="ui_apps_filter_empty_title">ഈ കാഴ്ചയിൽ ഒന്നുമില്ല</string>
+    <string name="ui_log_details_destination">ലക്ഷ്യസ്ഥാനം</string>
+    <string name="ui_log_details_address">വിലാസം</string>
+    <string name="ui_log_details_port">പോർട്ട്</string>
+    <string name="ui_log_details_protocol">പ്രോട്ടോക്കോൾ</string>
+    <string name="ui_log_details_time">രേഖപ്പെടുത്തി</string>
+    <string name="ui_log_details_app_id">ആപ്പ് ഐഡി</string>
+    <string name="action_close">അടയ്ക്കുക</string>
+    <string name="action_copy">പകർത്തുക</string>
+    <string name="action_more_options">കൂടുതൽ ഓപ്ഷനുകൾ</string>
+    <string name="status_copied">പകർത്തി</string>
+    <string name="action_back">തിരികെ</string>
+    <string name="setting_reset_to_default">ഡിഫോൾട്ടിലേക്ക് പുനഃസജ്ജമാക്കുക</string>
+    <string name="setting_reset_to_value">പുനഃസജ്ജമാക്കുക · %1$s</string>
+    <string name="setting_reset_accessibility">ഡിഫോൾട്ടായി %1$s പുനഃസജ്ജമാക്കുക</string>
+    <string name="setting_default_value">ഡിഫോൾട്ട്: %1$s</string>
+    <string name="setting_value_empty">ശൂന്യം</string>
+    <string name="setting_value_on">ഓണാണ്</string>
+    <string name="setting_value_off">ഓഫ്</string>
+    <string name="setting_theme_teal">ടീൽ</string>
+    <string name="setting_update_result_available">അപ്‌ഡേറ്റ് ലഭ്യമാണ്: %1$s</string>
+    <string name="setting_update_result_available_unknown">അപ്‌ഡേറ്റ് ലഭ്യമാണ്</string>
+    <string name="setting_update_result_up_to_date">നിങ്ങൾ കാലികമാണ്.</string>
+    <string name="setting_update_result_failed">അപ്‌ഡേറ്റുകൾക്കായി പരിശോധിക്കാൻ കഴിഞ്ഞില്ല.</string>
+    <string name="setting_update_result_unavailable">ഈ ബിൽഡിനായി അപ്‌ഡേറ്റ് പരിശോധനകൾ ലഭ്യമല്ല.</string>
+    <string name="settings_quick_controls">ദ്രുത നിയന്ത്രണങ്ങൾ</string>
+    <string name="settings_more">കൂടുതൽ ക്രമീകരണങ്ങൾ</string>
+    <string name="settings_firewall_summary">റോമിംഗ്, മീറ്റർ നെറ്റ്‌വർക്കുകൾ, സ്‌ക്രീൻ പെരുമാറ്റം, പ്രാദേശിക ആക്‌സസ്</string>
+    <string name="settings_advanced_summary">ഫിൽട്ടറിംഗ്, ലോക്ക്ഡൗൺ, ലോഗിംഗ്, ക്ഷുദ്രവെയർ തടയൽ, സ്ഥിതിവിവരക്കണക്കുകൾ</string>
+    <string name="settings_hosts_summary">ലോക്കൽ അല്ലെങ്കിൽ ഡൗൺലോഡ് ചെയ്ത ഹോസ്റ്റ് ഫയലുകളുള്ള ഡൊമെയ്‌നുകൾ തടയുക</string>
+    <string name="settings_network_summary">DNS, പ്രോക്സി, VPN വിലാസങ്ങൾ, പോർട്ട് ഫോർവേഡിംഗ്</string>
+    <string name="settings_background_summary">വാച്ച്ഡോഗ്, അപ്ഡേറ്റ് ചെക്കുകൾ, പാക്കറ്റ് ക്യാപ്ചർ</string>
+    <string name="settings_diagnostics_summary">പാക്കറ്റ് ക്യാപ്‌ചർ, ട്രബിൾഷൂട്ടിംഗ് ഓപ്ഷനുകൾ</string>
+    <string name="settings_about_summary">പ്രോജക്റ്റ് വിവരങ്ങളും സോഴ്സ് കോഡും</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">ഉറവിട കോഡ്</string>
+    <string name="about_source_summary">പ്രോജക്റ്റ് പര്യവേക്ഷണം ചെയ്യുക, പ്രശ്നങ്ങൾ റിപ്പോർട്ട് ചെയ്യുക അല്ലെങ്കിൽ GitHub-ൽ സംഭാവന ചെയ്യുക</string>
+    <string name="about_social_title">ബന്ധപ്പെടുക</string>
 </resources>

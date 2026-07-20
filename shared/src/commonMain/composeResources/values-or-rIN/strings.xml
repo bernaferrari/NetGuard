@@ -453,4 +453,50 @@
 
     <string name="label_dns_summary">%1$d ଏଣ୍ଟ୍ରି • %2$d ସମାପ୍ତ</string>
 
+
+    <string name="demo_mode_banner">ୱେବ୍ ଡେମୋ - ଫାୟାରୱାଲ୍ ଏବଂ VPN ଅନୁକରଣ କରାଯାଇଛି |</string>
+    <string name="status_enabled_demo">ଫାୟାରୱାଲ ସକ୍ଷମ (ଡେମୋ)</string>
+    <string name="demo_mode_hint">କ real ଣସି ପ୍ରକୃତ VPN ଚାଲୁ ନାହିଁ | ପ୍ରକୃତ ସୁରକ୍ଷା ପାଇଁ ଆଣ୍ଡ୍ରଏଡ୍ ଆପ୍ ସଂସ୍ଥାପନ କରନ୍ତୁ |</string>
+    <string name="ui_load_failed">ସର୍ବଶେଷ ତଥ୍ୟ ଧାରଣ କରିପାରିବ ନାହିଁ |</string>
+    <string name="ui_load_failed_body">ଆପଣଙ୍କର ବିଦ୍ୟମାନ ସେଟିଂସମୂହ ସୁରକ୍ଷିତ ଅଛି | ଏହି ଦୃଶ୍ୟକୁ ପୁନର୍ବାର ଲୋଡ୍ କରିବାକୁ ଚେଷ୍ଟା କରନ୍ତୁ |</string>
+    <string name="action_retry">ପୁନର୍ବାର ଚେଷ୍ଟା କରନ୍ତୁ |</string>
+    <string name="ui_apps_search_empty_title">କ match ଣସି ମେଳକ ଆପ୍ସ ନାହିଁ |</string>
+    <string name="ui_apps_filter_empty_title">ଏହି ଦୃଶ୍ୟରେ କିଛି ନାହିଁ |</string>
+    <string name="ui_log_details_destination">ଗନ୍ତବ୍ୟସ୍ଥଳ |</string>
+    <string name="ui_log_details_address">ଠିକଣା |</string>
+    <string name="ui_log_details_port">ପୋର୍ଟ |</string>
+    <string name="ui_log_details_protocol">ପ୍ରୋଟୋକଲ୍ |</string>
+    <string name="ui_log_details_time">ରେକର୍ଡ ହୋଇଛି |</string>
+    <string name="ui_log_details_app_id">ଆପ୍ ID |</string>
+    <string name="action_close">ବନ୍ଦ କରନ୍ତୁ |</string>
+    <string name="action_copy">କପି କରନ୍ତୁ |</string>
+    <string name="action_more_options">ଅଧିକ ବିକଳ୍ପ |</string>
+    <string name="status_copied">କପି ହୋଇଛି |</string>
+    <string name="action_back">ପଛକୁ |</string>
+    <string name="setting_reset_to_default">ଡିଫଲ୍ଟକୁ ପୁନ et ସେଟ୍ କରନ୍ତୁ |</string>
+    <string name="setting_reset_to_value">ପୁନ et ସେଟ୍ କରନ୍ତୁ · %1$s</string>
+    <string name="setting_reset_accessibility">ପୂର୍ବନିର୍ଦ୍ଧାରିତ %1$s</string>
+    <string name="setting_default_value">ଡିଫଲ୍ଟ: %1$s</string>
+    <string name="setting_value_empty">ଖାଲି |</string>
+    <string name="setting_value_on">ଅନ୍ ଅଛି |</string>
+    <string name="setting_value_off">ବନ୍ଦ |</string>
+    <string name="setting_theme_teal">ଟିଲ୍ |</string>
+    <string name="setting_update_result_available">ଅଦ୍ୟତନ ଉପଲବ୍ଧ: %1$s</string>
+    <string name="setting_update_result_available_unknown">ଅଦ୍ୟତନ ଉପଲବ୍ଧ |</string>
+    <string name="setting_update_result_up_to_date">ଆପଣ ଅଦ୍ୟତନ ଅଟନ୍ତି |</string>
+    <string name="setting_update_result_failed">ଅଦ୍ୟତନଗୁଡିକ ଯାଞ୍ଚ କରିପାରିଲା ନାହିଁ |</string>
+    <string name="setting_update_result_unavailable">ଏହି ନିର୍ମାଣ ପାଇଁ ଅଦ୍ୟତନ ଯାଞ୍ଚ ଉପଲବ୍ଧ ନାହିଁ |</string>
+    <string name="settings_quick_controls">ଦ୍ରୁତ ନିୟନ୍ତ୍ରଣ |</string>
+    <string name="settings_more">ଅଧିକ ସେଟିଙ୍ଗ୍ |</string>
+    <string name="settings_firewall_summary">ରୋମିଂ, ମିଟର ନେଟୱାର୍କ, ସ୍କ୍ରିନ୍ ଆଚରଣ, ଏବଂ ସ୍ଥାନୀୟ ପ୍ରବେଶ</string>
+    <string name="settings_advanced_summary">ଫିଲ୍ଟରିଂ, ଲକଡାଉନ୍, ଲଗିଂ, ମାଲୱେର୍ ବ୍ଲକିଂ, ଏବଂ ପରିସଂଖ୍ୟାନ |</string>
+    <string name="settings_hosts_summary">ସ୍ଥାନୀୟ କିମ୍ବା ଡାଉନଲୋଡ୍ ହୋଇଥିବା ହୋଷ୍ଟ ଫାଇଲଗୁଡ଼ିକ ସହିତ ଡୋମେନ୍ଗୁଡ଼ିକୁ ଅବରୋଧ କରନ୍ତୁ |</string>
+    <string name="settings_network_summary">DNS, ପ୍ରକ୍ସି, VPN ଠିକଣା, ଏବଂ ପୋର୍ଟ ଅଗ୍ରଗାମୀ |</string>
+    <string name="settings_background_summary">ୱାଚଡଗ୍, ଚେକ୍ ଅପଡେଟ୍ ଏବଂ ପ୍ୟାକେଟ୍ କ୍ୟାପଚର |</string>
+    <string name="settings_diagnostics_summary">ପ୍ୟାକେଟ୍ କ୍ୟାପଚର ଏବଂ ତ୍ରୁଟି ନିବାରଣ ବିକଳ୍ପଗୁଡ଼ିକ |</string>
+    <string name="settings_about_summary">ପ୍ରକଳ୍ପ ସୂଚନା ଏବଂ ଉତ୍ସ କୋଡ୍ |</string>
+    <string name="about_version">1 |</string>
+    <string name="about_source_title">ଉତ୍ସ କୋଡ୍ |</string>
+    <string name="about_source_summary">ପ୍ରକଳ୍ପ ଅନୁସନ୍ଧାନ କରନ୍ତୁ, ସମସ୍ୟାଗୁଡିକ ରିପୋର୍ଟ କରନ୍ତୁ, କିମ୍ବା GitHub ରେ ଯୋଗଦାନ କରନ୍ତୁ |</string>
+    <string name="about_social_title">ସମ୍ପର୍କ କରନ୍ତୁ |</string>
 </resources>

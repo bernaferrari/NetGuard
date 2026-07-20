@@ -453,4 +453,51 @@ Internet-liikennettäsi ei lähetetä ulkoiselle VPN-palvelimelle.</string>
 
     <string name="label_dns_summary">%1$d merkintää • %2$d vanhentunut</string>
 
+
+    <string name="demo_mode_banner">Web-demo – palomuuri ja VPN simuloidaan</string>
+    <string name="status_enabled_demo">Palomuuri käytössä (demo)</string>
+    <string name="demo_mode_hint">Varsinaista VPN:ää ei ole käynnissä. Asenna Android-sovellus todellista suojausta varten.</string>
+    <string name="ui_load_failed">Uusimpia tietoja ei voitu ladata</string>
+    <string name="ui_load_failed_body">Nykyiset asetuksesi ovat turvassa. Yritä ladata tämä näkymä uudelleen.</string>
+    <string name="action_retry">Yritä uudelleen</string>
+    <string name="ui_apps_search_empty_title">Ei vastaavia sovelluksia</string>
+    <string name="ui_apps_filter_empty_title">Tässä näkymässä ei ole mitään</string>
+    <string name="ui_log_details_destination">Kohde</string>
+    <string name="ui_log_details_address">Osoite</string>
+    <string name="ui_log_details_port">Portti</string>
+    <string name="ui_log_details_protocol">Protokolla</string>
+    <string name="ui_log_details_time">Tallennettu</string>
+    <string name="ui_log_details_app_id">Sovellustunnus</string>
+    <string name="action_close">Sulje</string>
+    <string name="action_copy">Kopioi</string>
+    <string name="action_more_options">Lisää vaihtoehtoja</string>
+    <string name="status_copied">Kopioitu</string>
+    <string name="action_back">Takaisin</string>
+    <string name="setting_reset_to_default">Palauta oletusasetukset</string>
+    <string name="setting_reset_to_value">Palauta · %1$s</string>
+    <string name="setting_reset_accessibility">Palauta %1$s oletusarvoihin</string>
+    <string name="setting_default_value">Oletus: %1$s</string>
+    <string name="setting_value_empty">Tyhjä</string>
+    <string name="setting_value_on">Päällä</string>
+    <string name="setting_value_off">Pois päältä</string>
+    <string name="setting_theme_teal">Sinivihreä</string>
+    <string name="setting_update_result_available">Päivitys saatavilla: %1$s</string>
+    <string name="setting_update_result_available_unknown">Päivitys saatavilla</string>
+    <string name="setting_update_result_up_to_date">Olet ajan tasalla.</string>
+    <string name="setting_update_result_failed">Päivityksiä ei voitu tarkistaa.</string>
+    <string name="setting_update_result_unavailable">Päivitystarkistuksia ei ole saatavilla tälle koontiversiolle.</string>
+    <string name="settings_quick_controls">Pikaohjaimet</string>
+    <string name="settings_more">Lisää asetuksia</string>
+    <string name="settings_firewall_summary">Roaming, maksulliset verkot, näytön käyttäytyminen ja paikallinen käyttö</string>
+    <string name="settings_advanced_summary">Suodatus, lukitus, kirjaaminen, haittaohjelmien esto ja tilastot</string>
+    <string name="settings_hosts_summary">Estä verkkotunnukset paikallisilla tai ladatuilla isäntätiedostoilla</string>
+    <string name="settings_network_summary">DNS, välityspalvelin, VPN-osoitteet ja portin edelleenohjaus</string>
+    <string name="settings_background_summary">Watchdog, päivitystarkistukset ja pakettien sieppaus</string>
+    <string name="settings_diagnostics_summary">Pakettien sieppaus ja vianetsintävaihtoehdot</string>
+    <string name="settings_about_summary">Projektitiedot ja lähdekoodi
+__Avain_versiosta__ 1</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">Lähdekoodi</string>
+    <string name="about_source_summary">Tutustu projektiin, ilmoita ongelmista tai osallistu GitHubissa</string>
+    <string name="about_social_title">Ota yhteyttä</string>
 </resources>

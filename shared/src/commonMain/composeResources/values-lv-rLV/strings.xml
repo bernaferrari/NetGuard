@@ -453,4 +453,50 @@ Jūsu interneta trafiks netiek sūtīts uz attālo VPN serveri.</string>
 
     <string name="label_dns_summary">%1$d ieraksti • %2$d beidzies termiņš</string>
 
+
+    <string name="demo_mode_banner">Web demonstrācija — tiek simulēts ugunsmūris un VPN</string>
+    <string name="status_enabled_demo">Ugunsmūris ir iespējots (demonstrācija)</string>
+    <string name="demo_mode_hint">Nedarbojas reāls VPN. Instalējiet Android lietotni faktiskai aizsardzībai.</string>
+    <string name="ui_load_failed">Nevarēja ielādēt jaunākos datus</string>
+    <string name="ui_load_failed_body">Jūsu esošie iestatījumi ir droši. Mēģiniet vēlreiz ielādēt šo skatu.</string>
+    <string name="action_retry">Mēģiniet vēlreiz</string>
+    <string name="ui_apps_search_empty_title">Nav atbilstošu lietotņu</string>
+    <string name="ui_apps_filter_empty_title">Šajā skatā nav nekā</string>
+    <string name="ui_log_details_destination">Galamērķis</string>
+    <string name="ui_log_details_address">Adrese</string>
+    <string name="ui_log_details_port">Ports</string>
+    <string name="ui_log_details_protocol">Protokols</string>
+    <string name="ui_log_details_time">Ierakstīts</string>
+    <string name="ui_log_details_app_id">Lietotnes ID</string>
+    <string name="action_close">Aizvērt</string>
+    <string name="action_copy">Kopēt</string>
+    <string name="action_more_options">Citas iespējas</string>
+    <string name="status_copied">Kopēts</string>
+    <string name="action_back">Atpakaļ</string>
+    <string name="setting_reset_to_default">Atiestatīt uz noklusējuma vērtību</string>
+    <string name="setting_reset_to_value">Atiestatīt · %1$s</string>
+    <string name="setting_reset_accessibility">Atiestatīt %1$s uz noklusējuma vērtību</string>
+    <string name="setting_default_value">Noklusējums: %1$s</string>
+    <string name="setting_value_empty">Tukšs</string>
+    <string name="setting_value_on">Ieslēgts</string>
+    <string name="setting_value_off">Izslēgts</string>
+    <string name="setting_theme_teal">Zilganzaļa</string>
+    <string name="setting_update_result_available">Pieejams atjauninājums: %1$s</string>
+    <string name="setting_update_result_available_unknown">Ir pieejams atjauninājums</string>
+    <string name="setting_update_result_up_to_date">Jūs esat informēts.</string>
+    <string name="setting_update_result_failed">Nevarēja pārbaudīt, vai nav atjauninājumu.</string>
+    <string name="setting_update_result_unavailable">Šim būvējumam nav pieejamas atjaunināšanas pārbaudes.</string>
+    <string name="settings_quick_controls">Ātrās vadīklas</string>
+    <string name="settings_more">Citi iestatījumi</string>
+    <string name="settings_firewall_summary">Viesabonēšana, mēra tīkli, ekrāna darbība un vietējā piekļuve</string>
+    <string name="settings_advanced_summary">Filtrēšana, bloķēšana, reģistrēšana, ļaunprātīgas programmatūras bloķēšana un statistika</string>
+    <string name="settings_hosts_summary">Bloķēt domēnus ar vietējiem vai lejupielādētiem saimniekdatoru failiem</string>
+    <string name="settings_network_summary">DNS, starpniekserveris, VPN adreses un portu pāradresācija</string>
+    <string name="settings_background_summary">Watchdog, atjauninājumu pārbaudes un pakešu uztveršana</string>
+    <string name="settings_diagnostics_summary">Pakešu uztveršanas un problēmu novēršanas iespējas</string>
+    <string name="settings_about_summary">Projekta informācija un avota kods</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">Avota kods</string>
+    <string name="about_source_summary">Izpētiet projektu, ziņojiet par problēmām vai sniedziet ieguldījumu vietnē GitHub</string>
+    <string name="about_social_title">Sazinieties</string>
 </resources>

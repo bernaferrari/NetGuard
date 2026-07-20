@@ -458,4 +458,45 @@ Il tuo traffico non viene inviato a un server VPN remoto.</string>
 
     <string name="label_dns_summary">%1$d voci • %2$d scadute</string>
 
+
+    <string name="demo_mode_banner">Demo Web: firewall e VPN sono simulati</string>
+    <string name="status_enabled_demo">Firewall abilitato (demo)</string>
+    <string name="demo_mode_hint">Nessuna vera VPN in esecuzione. Installa l'app Android per una protezione effettiva.</string>
+    <string name="ui_load_failed">Impossibile caricare i dati più recenti</string>
+    <string name="ui_load_failed_body">Le tue impostazioni esistenti sono al sicuro. Prova a caricare di nuovo questa visualizzazione.</string>
+    <string name="action_retry">Riprova</string>
+    <string name="ui_apps_search_empty_title">Nessuna app corrispondente</string>
+    <string name="ui_apps_filter_empty_title">Niente in questa visualizzazione</string>
+    <string name="ui_log_details_destination">Destinazione</string>
+    <string name="ui_log_details_address">Indirizzo</string>
+    <string name="ui_log_details_port">Porta</string>
+    <string name="ui_log_details_protocol">Protocollo</string>
+    <string name="ui_log_details_time">Registrato</string>
+    <string name="ui_log_details_app_id">ID app</string>
+    <string name="action_close">Chiudi</string>
+    <string name="action_copy">Copia</string>
+    <string name="action_more_options">Altre opzioni</string>
+    <string name="status_copied">Copiato</string>
+    <string name="action_back">Indietro</string>
+    <string name="setting_reset_to_default">Ripristina le impostazioni predefinite</string>
+    <string name="setting_reset_to_value">Ripristina · %1$s</string>
+    <string name="setting_reset_accessibility">Ripristina %1$s ai valori predefiniti</string>
+    <string name="setting_default_value">Predefinito: %1$s</string>
+    <string name="setting_value_empty">Vuoto</string>
+    <string name="setting_value_on">Attivo</string>
+    <string name="setting_value_off">Disattivato</string>
+    <string name="setting_theme_teal">Verde acqua</string>
+    <string name="settings_quick_controls">Controlli rapidi</string>
+    <string name="settings_more">Altre impostazioni</string>
+    <string name="settings_firewall_summary">Roaming, reti a consumo, comportamento dello schermo e accesso locale</string>
+    <string name="settings_advanced_summary">Filtri, blocco, registrazione, blocco malware e statistiche</string>
+    <string name="settings_hosts_summary">Blocca domini con file host locali o scaricati</string>
+    <string name="settings_network_summary">DNS, proxy, indirizzi VPN e port forwarding</string>
+    <string name="settings_background_summary">Watchdog, controlli degli aggiornamenti e acquisizione dei pacchetti</string>
+    <string name="settings_diagnostics_summary">Opzioni di acquisizione dei pacchetti e risoluzione dei problemi</string>
+    <string name="settings_about_summary">Informazioni sul progetto e codice sorgente</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">Codice sorgente</string>
+    <string name="about_source_summary">Esplora il progetto, segnala problemi o contribuisci su GitHub</string>
+    <string name="about_social_title">Contattaci</string>
 </resources>

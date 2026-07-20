@@ -184,7 +184,7 @@ fun AppRuleDetailScreen(
                 .padding(padding)
                 .verticalScroll(rememberScrollState())
                 .padding(horizontal = 20.dp)
-                .padding(bottom = 32.dp),
+                .padding(top = MaterialTheme.spacing.small, bottom = 32.dp),
             verticalArrangement = Arrangement.spacedBy(24.dp),
         ) {
             // ── Firewall ────────────────────────────

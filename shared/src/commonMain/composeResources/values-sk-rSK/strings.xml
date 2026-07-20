@@ -449,4 +449,50 @@
 
     <string name="label_dns_summary">%1$d záznamov • %2$d vypršaných</string>
 
+
+    <string name="demo_mode_banner">Web demo – firewall a VPN sú simulované</string>
+    <string name="status_enabled_demo">Firewall povolený (ukážka)</string>
+    <string name="demo_mode_hint">Nie je spustená žiadna skutočná sieť VPN. Nainštalujte si aplikáciu pre Android pre skutočnú ochranu.</string>
+    <string name="ui_load_failed">Nepodarilo sa načítať najnovšie údaje</string>
+    <string name="ui_load_failed_body">Vaše existujúce nastavenia sú bezpečné. Skúste načítať toto zobrazenie znova.</string>
+    <string name="action_retry">Skúste to znova</string>
+    <string name="ui_apps_search_empty_title">Žiadne zodpovedajúce aplikácie</string>
+    <string name="ui_apps_filter_empty_title">V tomto zobrazení nie je nič</string>
+    <string name="ui_log_details_destination">Cieľ</string>
+    <string name="ui_log_details_address">Adresa</string>
+    <string name="ui_log_details_port">Port</string>
+    <string name="ui_log_details_protocol">Protokol</string>
+    <string name="ui_log_details_time">Zaznamenané</string>
+    <string name="ui_log_details_app_id">ID aplikácie</string>
+    <string name="action_close">Zavrieť</string>
+    <string name="action_copy">Kopírovať</string>
+    <string name="action_more_options">Ďalšie možnosti</string>
+    <string name="status_copied">Skopírované</string>
+    <string name="action_back">Späť</string>
+    <string name="setting_reset_to_default">Obnoviť predvolené nastavenie</string>
+    <string name="setting_reset_to_value">Resetovať · %1$s</string>
+    <string name="setting_reset_accessibility">Obnoviť %1$s na predvolené</string>
+    <string name="setting_default_value">Predvolená hodnota: %1$s</string>
+    <string name="setting_value_empty">Prázdne</string>
+    <string name="setting_value_on">Zapnuté</string>
+    <string name="setting_value_off">Vypnuté</string>
+    <string name="setting_theme_teal">Modrozelená</string>
+    <string name="setting_update_result_available">Dostupná aktualizácia: %1$s</string>
+    <string name="setting_update_result_available_unknown">Dostupná aktualizácia</string>
+    <string name="setting_update_result_up_to_date">Ste aktuálny.</string>
+    <string name="setting_update_result_failed">Nepodarilo sa skontrolovať aktualizácie.</string>
+    <string name="setting_update_result_unavailable">Kontroly aktualizácií nie sú pre túto zostavu k dispozícii.</string>
+    <string name="settings_quick_controls">Rýchle ovládacie prvky</string>
+    <string name="settings_more">Ďalšie nastavenia</string>
+    <string name="settings_firewall_summary">Roaming, merané siete, správanie obrazovky a lokálny prístup</string>
+    <string name="settings_advanced_summary">Filtrovanie, uzamknutie, protokolovanie, blokovanie škodlivého softvéru a štatistiky</string>
+    <string name="settings_hosts_summary">Blokovanie domén pomocou lokálnych alebo stiahnutých súborov hostiteľov</string>
+    <string name="settings_network_summary">DNS, proxy, adresy VPN a presmerovanie portov</string>
+    <string name="settings_background_summary">Watchdog, kontroly aktualizácií a zachytávanie paketov</string>
+    <string name="settings_diagnostics_summary">Zachytávanie paketov a možnosti riešenia problémov</string>
+    <string name="settings_about_summary">Informácie o projekte a zdrojový kód</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">Zdrojový kód</string>
+    <string name="about_source_summary">Preskúmajte projekt, nahláste problémy alebo prispievajte na GitHub</string>
+    <string name="about_social_title">Kontaktujte nás</string>
 </resources>

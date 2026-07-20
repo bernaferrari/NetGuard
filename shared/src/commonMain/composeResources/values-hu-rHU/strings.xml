@@ -453,4 +453,50 @@ A forgalom nem kerül továbbításra távoli VPN szerverre.</string>
 
     <string name="label_dns_summary">%1$d bejegyzés • %2$d lejárt</string>
 
+
+    <string name="demo_mode_banner">Webes bemutató – a tűzfal és a VPN szimulálva van</string>
+    <string name="status_enabled_demo">Tűzfal engedélyezve (demo)</string>
+    <string name="demo_mode_hint">Nem fut valódi VPN. Telepítse az Android alkalmazást a tényleges védelem érdekében.</string>
+    <string name="ui_load_failed">Nem sikerült betölteni a legújabb adatokat</string>
+    <string name="ui_load_failed_body">Meglévő beállításai biztonságban vannak. Próbálja újra betölteni ezt a nézetet.</string>
+    <string name="action_retry">Próbálja újra</string>
+    <string name="ui_apps_search_empty_title">Nincs megfelelő alkalmazás</string>
+    <string name="ui_apps_filter_empty_title">Ebben a nézetben nincs semmi</string>
+    <string name="ui_log_details_destination">Cél</string>
+    <string name="ui_log_details_address">Cím</string>
+    <string name="ui_log_details_port">Port</string>
+    <string name="ui_log_details_protocol">Protokoll</string>
+    <string name="ui_log_details_time">Rögzítve</string>
+    <string name="ui_log_details_app_id">Alkalmazásazonosító</string>
+    <string name="action_close">Bezárás</string>
+    <string name="action_copy">Másolás</string>
+    <string name="action_more_options">További lehetőségek</string>
+    <string name="status_copied">Másolva</string>
+    <string name="action_back">Vissza</string>
+    <string name="setting_reset_to_default">Visszaállítás az alapértelmezettre</string>
+    <string name="setting_reset_to_value">Visszaállítás · %1$s</string>
+    <string name="setting_reset_accessibility">%1$s visszaállítása alapértelmezettre</string>
+    <string name="setting_default_value">Alapértelmezés: %1$s</string>
+    <string name="setting_value_empty">Üres</string>
+    <string name="setting_value_on">Be</string>
+    <string name="setting_value_off">Kikapcsolva</string>
+    <string name="setting_theme_teal">Kékeszöld</string>
+    <string name="setting_update_result_available">Frissítés elérhető: %1$s</string>
+    <string name="setting_update_result_available_unknown">Frissítés elérhető</string>
+    <string name="setting_update_result_up_to_date">Ön naprakész.</string>
+    <string name="setting_update_result_failed">Nem sikerült ellenőrizni a frissítéseket.</string>
+    <string name="setting_update_result_unavailable">A frissítési ellenőrzések nem érhetők el ehhez a buildhez.</string>
+    <string name="settings_quick_controls">Gyorsvezérlők</string>
+    <string name="settings_more">További beállítások</string>
+    <string name="settings_firewall_summary">Barangolás, mérős hálózatok, képernyő viselkedése és helyi hozzáférés</string>
+    <string name="settings_advanced_summary">Szűrés, zárolás, naplózás, rosszindulatú programok blokkolása és statisztikák</string>
+    <string name="settings_hosts_summary">Domainek blokkolása helyi vagy letöltött hosts fájlokkal</string>
+    <string name="settings_network_summary">DNS, proxy, VPN-címek és porttovábbítás</string>
+    <string name="settings_background_summary">Watchdog, frissítési ellenőrzések és csomagrögzítés</string>
+    <string name="settings_diagnostics_summary">Csomag rögzítési és hibaelhárítási lehetőségek</string>
+    <string name="settings_about_summary">Projektinformációk és forráskód</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">Forráskód</string>
+    <string name="about_source_summary">Fedezze fel a projektet, jelentse a problémákat, vagy járuljon hozzá a GitHubon</string>
+    <string name="about_social_title">Vegye fel a kapcsolatot</string>
 </resources>

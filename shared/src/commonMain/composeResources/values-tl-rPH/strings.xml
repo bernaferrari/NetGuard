@@ -453,4 +453,50 @@ Ang iyong internet traffic ay hindi pinapadala sa isang liblib na vpn serber.</s
 
     <string name="label_dns_summary">%1$d na mga entry • %2$d na nag-expire</string>
 
+
+    <string name="demo_mode_banner">Web demo — ang firewall at VPN ay ginagaya</string>
+    <string name="status_enabled_demo">Pinagana ang firewall (demo)</string>
+    <string name="demo_mode_hint">Walang totoong VPN ang tumatakbo. I-install ang Android app para sa aktwal na proteksyon.</string>
+    <string name="ui_load_failed">Hindi ma-load ang pinakabagong data</string>
+    <string name="ui_load_failed_body">Ligtas ang iyong mga kasalukuyang setting. Subukang i-load muli ang view na ito.</string>
+    <string name="action_retry">Subukan muli</string>
+    <string name="ui_apps_search_empty_title">Walang katugmang app</string>
+    <string name="ui_apps_filter_empty_title">Wala sa view na ito</string>
+    <string name="ui_log_details_destination">Destination</string>
+    <string name="ui_log_details_address">Address</string>
+    <string name="ui_log_details_port">Port</string>
+    <string name="ui_log_details_protocol">Protocol</string>
+    <string name="ui_log_details_time">Naitala</string>
+    <string name="ui_log_details_app_id">App ID</string>
+    <string name="action_close">Isara</string>
+    <string name="action_copy">Kopya</string>
+    <string name="action_more_options">Higit pang mga opsyon</string>
+    <string name="status_copied">Nakopya</string>
+    <string name="action_back">Bumalik</string>
+    <string name="setting_reset_to_default">I-reset sa default</string>
+    <string name="setting_reset_to_value">Reset · %1$s</string>
+    <string name="setting_reset_accessibility">I-reset ang %1$s sa default</string>
+    <string name="setting_default_value">Default: %1$s</string>
+    <string name="setting_value_empty">Walang laman</string>
+    <string name="setting_value_on">Naka-on</string>
+    <string name="setting_value_off">Naka-off</string>
+    <string name="setting_theme_teal">Bughaw-berde</string>
+    <string name="setting_update_result_available">Available ang update: %1$s</string>
+    <string name="setting_update_result_available_unknown">Available ang update</string>
+    <string name="setting_update_result_up_to_date">Ikaw ay napapanahon.</string>
+    <string name="setting_update_result_failed">Hindi masuri ang mga update.</string>
+    <string name="setting_update_result_unavailable">Hindi available ang mga pagsusuri sa update para sa build na ito.</string>
+    <string name="settings_quick_controls">Mabilis na mga kontrol</string>
+    <string name="settings_more">Higit pang mga setting</string>
+    <string name="settings_firewall_summary">Roaming, mga metered network, gawi ng screen, at lokal na access</string>
+    <string name="settings_advanced_summary">Pag-filter, pag-lock, pag-log, pag-block ng malware, at mga istatistika</string>
+    <string name="settings_hosts_summary">I-block ang mga domain na may lokal o na-download na mga file ng host</string>
+    <string name="settings_network_summary">DNS, proxy, VPN address, at port forwarding</string>
+    <string name="settings_background_summary">Watchdog, mga pagsusuri sa pag-update at pagkuha ng packet</string>
+    <string name="settings_diagnostics_summary">Mga opsyon sa pagkuha ng packet at pag-troubleshoot</string>
+    <string name="settings_about_summary">Impormasyon ng proyekto at source code</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">Source code</string>
+    <string name="about_source_summary">Galugarin ang proyekto, mag-ulat ng mga isyu, o mag-ambag sa GitHub</string>
+    <string name="about_social_title">Makipag-ugnayan</string>
 </resources>

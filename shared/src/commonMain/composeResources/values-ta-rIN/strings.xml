@@ -441,4 +441,50 @@
 
     <string name="label_dns_summary">%1$d பதிவுகள் • %2$d காலாவதியானது</string>
 
+
+    <string name="demo_mode_banner">வலை டெமோ — ஃபயர்வால் மற்றும் VPN உருவகப்படுத்தப்பட்டவை</string>
+    <string name="status_enabled_demo">ஃபயர்வால் இயக்கப்பட்டது (டெமோ)</string>
+    <string name="demo_mode_hint">உண்மையான VPN இயங்கவில்லை. உண்மையான பாதுகாப்பிற்காக Android பயன்பாட்டை நிறுவவும்.</string>
+    <string name="ui_load_failed">சமீபத்திய தரவை ஏற்ற முடியவில்லை</string>
+    <string name="ui_load_failed_body">ஏற்கனவே உள்ள உங்கள் அமைப்புகள் பாதுகாப்பாக உள்ளன. இந்தக் காட்சியை மீண்டும் ஏற்ற முயற்சிக்கவும்.</string>
+    <string name="action_retry">மீண்டும் முயற்சிக்கவும்</string>
+    <string name="ui_apps_search_empty_title">பொருந்தக்கூடிய பயன்பாடுகள் இல்லை</string>
+    <string name="ui_apps_filter_empty_title">இந்தக் காட்சியில் எதுவும் இல்லை</string>
+    <string name="ui_log_details_destination">இலக்கு</string>
+    <string name="ui_log_details_address">முகவரி</string>
+    <string name="ui_log_details_port">போர்ட்</string>
+    <string name="ui_log_details_protocol">நெறிமுறை</string>
+    <string name="ui_log_details_time">பதிவுசெய்யப்பட்டது</string>
+    <string name="ui_log_details_app_id">ஆப்ஸ் ஐடி</string>
+    <string name="action_close">மூடு</string>
+    <string name="action_copy">நகல்</string>
+    <string name="action_more_options">கூடுதல் விருப்பங்கள்</string>
+    <string name="status_copied">நகலெடுக்கப்பட்டது</string>
+    <string name="action_back">பின்</string>
+    <string name="setting_reset_to_default">இயல்புநிலைக்கு மீட்டமை</string>
+    <string name="setting_reset_to_value">மீட்டமை · %1$s</string>
+    <string name="setting_reset_accessibility">%1$s ஐ இயல்புநிலைக்கு மீட்டமை</string>
+    <string name="setting_default_value">இயல்புநிலை: %1$s</string>
+    <string name="setting_value_empty">காலி</string>
+    <string name="setting_value_on">ஆன்</string>
+    <string name="setting_value_off">ஆஃப்</string>
+    <string name="setting_theme_teal">நீலப்பச்சை</string>
+    <string name="setting_update_result_available">புதுப்பிப்பு உள்ளது: %1$s</string>
+    <string name="setting_update_result_available_unknown">புதுப்பிப்பு உள்ளது</string>
+    <string name="setting_update_result_up_to_date">நீங்கள் புதுப்பித்த நிலையில் உள்ளீர்கள்.</string>
+    <string name="setting_update_result_failed">புதுப்பிப்புகளைச் சரிபார்க்க முடியவில்லை.</string>
+    <string name="setting_update_result_unavailable">இந்த உருவாக்கத்திற்கான புதுப்பிப்பு சரிபார்ப்புகள் இல்லை.</string>
+    <string name="settings_quick_controls">விரைவு கட்டுப்பாடுகள்</string>
+    <string name="settings_more">மேலும் அமைப்புகள்</string>
+    <string name="settings_firewall_summary">ரோமிங், மீட்டர் நெட்வொர்க்குகள், திரை நடத்தை மற்றும் உள்ளூர் அணுகல்</string>
+    <string name="settings_advanced_summary">வடிகட்டுதல், பூட்டுதல், பதிவு செய்தல், தீம்பொருள் தடுப்பு மற்றும் புள்ளிவிவரங்கள்</string>
+    <string name="settings_hosts_summary">லோக்கல் அல்லது டவுன்லோட் செய்யப்பட்ட ஹோஸ்ட் கோப்புகளுடன் டொமைன்களைத் தடு</string>
+    <string name="settings_network_summary">DNS, ப்ராக்ஸி, VPN முகவரிகள் மற்றும் போர்ட் பகிர்தல்</string>
+    <string name="settings_background_summary">கண்காணிப்பு, புதுப்பித்தல் காசோலைகள் மற்றும் பாக்கெட் பிடிப்பு</string>
+    <string name="settings_diagnostics_summary">பாக்கெட் பிடிப்பு மற்றும் சரிசெய்தல் விருப்பங்கள்</string>
+    <string name="settings_about_summary">திட்டத் தகவல் மற்றும் மூலக் குறியீடு</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">மூலக் குறியீடு</string>
+    <string name="about_source_summary">திட்டத்தை ஆராயவும், சிக்கல்களைப் புகாரளிக்கவும் அல்லது GitHub இல் பங்களிக்கவும்</string>
+    <string name="about_social_title">தொடர்பில் இருங்கள்</string>
 </resources>

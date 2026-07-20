@@ -453,4 +453,50 @@ Jūsų srautas nėra siunčiamas į nuotolinį VPN serverį.</string>
 
     <string name="label_dns_summary">%1$d įrašų • %2$d pasibaigę</string>
 
+
+    <string name="demo_mode_banner">Demonstracinė žiniatinklio versija – imituojama ugniasienė ir VPN</string>
+    <string name="status_enabled_demo">Ugniasienė įjungta (demonstracinė versija)</string>
+    <string name="demo_mode_hint">Neveikia tikras VPN. Įdiekite „Android“ programą, kad užtikrintumėte tikrąją apsaugą.</string>
+    <string name="ui_load_failed">Nepavyko įkelti naujausių duomenų</string>
+    <string name="ui_load_failed_body">Esami nustatymai yra saugūs. Pabandykite dar kartą įkelti šį rodinį.</string>
+    <string name="action_retry">Bandykite dar kartą</string>
+    <string name="ui_apps_search_empty_title">Nėra atitinkamų programų</string>
+    <string name="ui_apps_filter_empty_title">Šiame rodinyje nieko nėra</string>
+    <string name="ui_log_details_destination">Paskirtis</string>
+    <string name="ui_log_details_address">Adresas</string>
+    <string name="ui_log_details_port">Prievadas</string>
+    <string name="ui_log_details_protocol">Protokolas</string>
+    <string name="ui_log_details_time">Įrašyta</string>
+    <string name="ui_log_details_app_id">Programos ID</string>
+    <string name="action_close">Uždaryti</string>
+    <string name="action_copy">Kopijuoti</string>
+    <string name="action_more_options">Daugiau parinkčių</string>
+    <string name="status_copied">Nukopijuota</string>
+    <string name="action_back">Atgal</string>
+    <string name="setting_reset_to_default">Iš naujo nustatyti numatytuosius nustatymus</string>
+    <string name="setting_reset_to_value">Nustatyti iš naujo · %1$s</string>
+    <string name="setting_reset_accessibility">Atstatyti %1$s į numatytuosius nustatymus</string>
+    <string name="setting_default_value">Numatytasis: %1$s</string>
+    <string name="setting_value_empty">Tuščia</string>
+    <string name="setting_value_on">Įjungta</string>
+    <string name="setting_value_off">Išjungta</string>
+    <string name="setting_theme_teal">Žalsvai mėlyna</string>
+    <string name="setting_update_result_available">Galimas naujinys: %1$s</string>
+    <string name="setting_update_result_available_unknown">Yra naujinimas</string>
+    <string name="setting_update_result_up_to_date">Jūs esate atnaujinę.</string>
+    <string name="setting_update_result_failed">Nepavyko patikrinti, ar nėra naujinimų.</string>
+    <string name="setting_update_result_unavailable">Šios versijos atnaujinimų patikros negalima.</string>
+    <string name="settings_quick_controls">Greiti valdikliai</string>
+    <string name="settings_more">Daugiau nustatymų</string>
+    <string name="settings_firewall_summary">Tarptinklinis ryšys, apskaičiuojami tinklai, ekrano veikimas ir vietinė prieiga</string>
+    <string name="settings_advanced_summary">Filtravimas, užrakinimas, registravimas, kenkėjiškų programų blokavimas ir statistika</string>
+    <string name="settings_hosts_summary">Blokuoti domenus vietiniais arba atsisiųstais prieglobos failais</string>
+    <string name="settings_network_summary">DNS, tarpinis serveris, VPN adresai ir prievado peradresavimas</string>
+    <string name="settings_background_summary">Watchdog, atnaujinimo patikros ir paketų fiksavimas</string>
+    <string name="settings_diagnostics_summary">Paketų fiksavimo ir trikčių šalinimo parinktys</string>
+    <string name="settings_about_summary">Projekto informacija ir šaltinio kodas</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">Šaltinio kodas</string>
+    <string name="about_source_summary">Naršykite projektą, praneškite apie problemas arba prisidėkite prie „GitHub“</string>
+    <string name="about_social_title">Susisiekite</string>
 </resources>

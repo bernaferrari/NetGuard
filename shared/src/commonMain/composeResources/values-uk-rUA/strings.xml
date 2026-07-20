@@ -453,4 +453,50 @@
 
     <string name="label_dns_summary">%1$d записів • %2$d прострочено</string>
 
+
+    <string name="demo_mode_banner">Веб-демонстрація — імітація брандмауера та VPN</string>
+    <string name="status_enabled_demo">Брандмауер увімкнено (демо)</string>
+    <string name="demo_mode_hint">Справжня VPN не працює. Установіть програму Android для реального захисту.</string>
+    <string name="ui_load_failed">Не вдалося завантажити останні дані</string>
+    <string name="ui_load_failed_body">Ваші існуючі налаштування безпечні. Спробуйте завантажити цей перегляд знову.</string>
+    <string name="action_retry">Повторіть спробу</string>
+    <string name="ui_apps_search_empty_title">Немає відповідних програм</string>
+    <string name="ui_apps_filter_empty_title">Нічого в цьому перегляді</string>
+    <string name="ui_log_details_destination">Пункт призначення</string>
+    <string name="ui_log_details_address">Адреса</string>
+    <string name="ui_log_details_port">Порт</string>
+    <string name="ui_log_details_protocol">Протокол</string>
+    <string name="ui_log_details_time">Записано</string>
+    <string name="ui_log_details_app_id">Ідентифікатор програми</string>
+    <string name="action_close">Закрити</string>
+    <string name="action_copy">Копіювати</string>
+    <string name="action_more_options">Більше опцій</string>
+    <string name="status_copied">Скопійовано</string>
+    <string name="action_back">Назад</string>
+    <string name="setting_reset_to_default">Відновити значення за замовчуванням</string>
+    <string name="setting_reset_to_value">Скинути · %1$s</string>
+    <string name="setting_reset_accessibility">Скинути %1$s до стандартних</string>
+    <string name="setting_default_value">Типове значення: %1$s</string>
+    <string name="setting_value_empty">Порожньо</string>
+    <string name="setting_value_on">Увімк</string>
+    <string name="setting_value_off">Вимк</string>
+    <string name="setting_theme_teal">Бірюзовий</string>
+    <string name="setting_update_result_available">Доступне оновлення: %1$s</string>
+    <string name="setting_update_result_available_unknown">Доступне оновлення</string>
+    <string name="setting_update_result_up_to_date">Ви в курсі.</string>
+    <string name="setting_update_result_failed">Не вдалося перевірити наявність оновлень.</string>
+    <string name="setting_update_result_unavailable">Перевірки оновлень недоступні для цієї збірки.</string>
+    <string name="settings_quick_controls">Швидке керування</string>
+    <string name="settings_more">Більше налаштувань</string>
+    <string name="settings_firewall_summary">Роумінг, мережі з обмеженнями, поведінка екрана та локальний доступ</string>
+    <string name="settings_advanced_summary">Фільтрування, блокування, журналювання, блокування шкідливих програм і статистика</string>
+    <string name="settings_hosts_summary">Блокувати домени за допомогою локальних або завантажених файлів хостів</string>
+    <string name="settings_network_summary">Адреси DNS, проксі, VPN і переадресація портів</string>
+    <string name="settings_background_summary">Watchdog, перевірка оновлень і захоплення пакетів</string>
+    <string name="settings_diagnostics_summary">Перехоплення пакетів і параметри усунення несправностей</string>
+    <string name="settings_about_summary">Інформація про проект і вихідний код</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">Вихідний код</string>
+    <string name="about_source_summary">Дослідіть проект, повідомте про проблеми або додайте свій внесок на GitHub</string>
+    <string name="about_social_title">Зв'язатися</string>
 </resources>

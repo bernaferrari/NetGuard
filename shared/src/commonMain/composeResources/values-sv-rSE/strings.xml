@@ -458,4 +458,45 @@ Din internettrafik skickas inte till en avlägsen VPN-server.</string>
 
     <string name="label_dns_summary">%1$d poster • %2$d utgångna</string>
 
+
+    <string name="demo_mode_banner">Webbdemo — brandvägg och VPN simuleras</string>
+    <string name="status_enabled_demo">Brandvägg aktiverad (demo)</string>
+    <string name="demo_mode_hint">Ingen riktig VPN körs. Installera Android-appen för faktiskt skydd.</string>
+    <string name="ui_load_failed">Det gick inte att ladda den senaste datan</string>
+    <string name="ui_load_failed_body">Dina befintliga inställningar är säkra. Försök att ladda den här vyn igen.</string>
+    <string name="action_retry">Försök igen</string>
+    <string name="ui_apps_search_empty_title">Inga matchande appar</string>
+    <string name="ui_apps_filter_empty_title">Inget i den här vyn</string>
+    <string name="ui_log_details_destination">Destination</string>
+    <string name="ui_log_details_address">Adress</string>
+    <string name="ui_log_details_port">Port</string>
+    <string name="ui_log_details_protocol">Protokoll</string>
+    <string name="ui_log_details_time">Inspelad</string>
+    <string name="ui_log_details_app_id">App-ID</string>
+    <string name="action_close">Stäng</string>
+    <string name="action_copy">Kopiera</string>
+    <string name="action_more_options">Fler alternativ</string>
+    <string name="status_copied">Kopierad</string>
+    <string name="action_back">Tillbaka</string>
+    <string name="setting_reset_to_default">Återställ till standard</string>
+    <string name="setting_reset_to_value">Återställ · %1$s</string>
+    <string name="setting_reset_accessibility">Återställ %1$s till standard</string>
+    <string name="setting_default_value">Standard: %1$s</string>
+    <string name="setting_value_empty">Tom</string>
+    <string name="setting_value_on">På</string>
+    <string name="setting_value_off">Av</string>
+    <string name="setting_theme_teal">Blågrönt</string>
+    <string name="settings_quick_controls">Snabbkontroller</string>
+    <string name="settings_more">Fler inställningar</string>
+    <string name="settings_firewall_summary">Roaming, mätade nätverk, skärmbeteende och lokal åtkomst</string>
+    <string name="settings_advanced_summary">Filtrering, låsning, loggning, blockering av skadlig programvara och statistik</string>
+    <string name="settings_hosts_summary">Blockera domäner med lokala eller nedladdade värdfiler</string>
+    <string name="settings_network_summary">DNS, proxy, VPN-adresser och portvidarebefordran</string>
+    <string name="settings_background_summary">Watchdog, uppdateringskontroller och paketfångst</string>
+    <string name="settings_diagnostics_summary">Alternativ för paketinsamling och felsökning</string>
+    <string name="settings_about_summary">Projektinformation och källkod</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">Källkod</string>
+    <string name="about_source_summary">Utforska projektet, rapportera problem eller bidra på GitHub</string>
+    <string name="about_social_title">Kontakta oss</string>
 </resources>

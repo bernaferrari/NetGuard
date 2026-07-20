@@ -454,4 +454,46 @@
 
     <string name="label_dns_summary">%1$d vnosov • %2$d poteklih</string>
 
+
+    <string name="demo_mode_banner">Spletna predstavitev — požarni zid in VPN sta simulirana</string>
+    <string name="status_enabled_demo">Požarni zid omogočen (demo)</string>
+    <string name="demo_mode_hint">Noben pravi VPN se ne izvaja. Namestite aplikacijo Android za dejansko zaščito.</string>
+    <string name="ui_load_failed">Najnovejših podatkov ni bilo mogoče naložiti</string>
+    <string name="ui_load_failed_body">Vaše obstoječe nastavitve so varne. Poskusite znova naložiti ta pogled.</string>
+    <string name="action_retry">Poskusite znova</string>
+    <string name="ui_apps_search_empty_title">Ni ustreznih aplikacij</string>
+    <string name="ui_apps_filter_empty_title">Nič v tem pogledu</string>
+    <string name="ui_log_details_destination">Cilj</string>
+    <string name="ui_log_details_address">Naslov</string>
+    <string name="ui_log_details_port">Vrata</string>
+    <string name="ui_log_details_protocol">Protokol</string>
+    <string name="ui_log_details_time">Zabeleženo</string>
+    <string name="ui_log_details_app_id">ID aplikacije</string>
+    <string name="action_close">Zapri</string>
+    <string name="action_copy">Kopiraj</string>
+    <string name="action_more_options">Več možnosti</string>
+    <string name="status_copied">Kopirano</string>
+    <string name="action_back">Nazaj</string>
+    <string name="setting_reset_to_default">Ponastavi na privzeto</string>
+    <string name="setting_reset_to_value">Ponastavi · %1$s</string>
+    <string name="setting_reset_accessibility">Ponastavi %1$s na privzeto</string>
+    <string name="setting_default_value">Privzeto: %1$s</string>
+    <string name="setting_value_empty">Prazno</string>
+    <string name="setting_value_on">Vklopljeno</string>
+    <string name="setting_value_off">Izklopljeno</string>
+    <string name="setting_theme_teal">Modrozelena</string>
+    <string name="settings_quick_controls">Hitri nadzor</string>
+    <string name="settings_more">Več nastavitev</string>
+    <string name="settings_firewall_summary">Gostovanje, omejena omrežja, obnašanje zaslona in lokalni dostop</string>
+    <string name="settings_advanced_summary">Filtriranje, zaklepanje, beleženje, blokiranje zlonamerne programske opreme in statistika</string>
+    <string name="settings_hosts_summary">Blokiraj domene z lokalnimi ali prenesenimi datotekami gostiteljev</string>
+    <string name="settings_network_summary">DNS, proxy, naslovi VPN in posredovanje vrat</string>
+    <string name="settings_background_summary">Watchdog, preverjanja posodobitev in zajem paketov</string>
+    <string name="settings_diagnostics_summary">Zajem paketov in možnosti odpravljanja težav</string>
+    <string name="settings_about_summary">Informacije o projektu in izvorna koda
+__KLJUČ_o_različici__ 1</string>
+    <string name="about_version">1</string>
+    <string name="about_source_title">Izvorna koda</string>
+    <string name="about_source_summary">Raziščite projekt, prijavite težave ali prispevajte na GitHub</string>
+    <string name="about_social_title">Stopite v stik</string>
 </resources>
