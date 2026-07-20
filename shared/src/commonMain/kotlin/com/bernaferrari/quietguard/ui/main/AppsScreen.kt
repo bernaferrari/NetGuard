@@ -26,6 +26,7 @@ import com.bernaferrari.quietguard.generated.resources.ui_filter_empty
 import com.bernaferrari.quietguard.generated.resources.ui_loading
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateDp
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.infiniteRepeatable
@@ -34,6 +35,7 @@ import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.core.updateTransition
+import androidx.compose.animation.animateColor
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.BorderStroke
@@ -580,6 +582,7 @@ private fun RuleCard(
 ) {
     // Keep the row's press/release interaction stable across selection changes.
     val interactionSource = remember { MutableInteractionSource() }
+    val motion = LocalMotion.current
     val appName = rule.name ?: rule.packageName.orEmpty()
     val wifiDescription = stringResource(Res.string.title_wifi) + " " +
             if (rule.wifi_blocked) stringResource(Res.string.menu_traffic_blocked)
@@ -602,25 +605,73 @@ private fun RuleCard(
         CardPosition.Last -> CornerRadii(4.dp, 4.dp, 16.dp, 16.dp)
         CardPosition.Middle -> CornerRadii(4.dp, 4.dp, 4.dp, 4.dp)
     }
+    val selectionTransition = updateTransition(
+        targetState = isSelected,
+        label = "ruleCardSelection",
+    )
+    val selectionAnimationSpec = tween<Dp>(
+        durationMillis = motion.durationMedium,
+        easing = motion.easingStandard,
+    )
+    val selectionColorAnimationSpec = tween<Color>(
+        durationMillis = motion.durationMedium,
+        easing = motion.easingStandard,
+    )
     val selectedRadius = 20.dp
-    val topStart = if (isSelected) selectedRadius else baseCornerRadii.topStart
-    val topEnd = if (isSelected) selectedRadius else baseCornerRadii.topEnd
-    val bottomEnd = if (isSelected) selectedRadius else baseCornerRadii.bottomEnd
-    val bottomStart = if (isSelected) selectedRadius else baseCornerRadii.bottomStart
+    val topStart by selectionTransition.animateDp(
+        transitionSpec = { selectionAnimationSpec },
+        label = "ruleCardTopStartRadius",
+    ) { selected ->
+        if (selected) selectedRadius else baseCornerRadii.topStart
+    }
+    val topEnd by selectionTransition.animateDp(
+        transitionSpec = { selectionAnimationSpec },
+        label = "ruleCardTopEndRadius",
+    ) { selected ->
+        if (selected) selectedRadius else baseCornerRadii.topEnd
+    }
+    val bottomEnd by selectionTransition.animateDp(
+        transitionSpec = { selectionAnimationSpec },
+        label = "ruleCardBottomEndRadius",
+    ) { selected ->
+        if (selected) selectedRadius else baseCornerRadii.bottomEnd
+    }
+    val bottomStart by selectionTransition.animateDp(
+        transitionSpec = { selectionAnimationSpec },
+        label = "ruleCardBottomStartRadius",
+    ) { selected ->
+        if (selected) selectedRadius else baseCornerRadii.bottomStart
+    }
     val cardShape = RoundedCornerShape(topStart, topEnd, bottomEnd, bottomStart)
-    val cardColor = if (isSelected) {
-        MaterialTheme.colorScheme.secondaryContainer
-    } else {
-        MaterialTheme.colorScheme.surfaceContainerLow
+    val selectedCardColor = MaterialTheme.colorScheme.secondaryContainer
+    val unselectedCardColor = MaterialTheme.colorScheme.surfaceContainerLow
+    val selectedContentColor = MaterialTheme.colorScheme.onSecondaryContainer
+    val unselectedContentColor = MaterialTheme.colorScheme.onSurface
+    val selectedBorderColor = MaterialTheme.colorScheme.primary
+    val cardColor by selectionTransition.animateColor(
+        transitionSpec = { selectionColorAnimationSpec },
+        label = "ruleCardContainerColor",
+    ) { selected ->
+        if (selected) selectedCardColor else unselectedCardColor
     }
-    val contentColor = if (isSelected) {
-        MaterialTheme.colorScheme.onSecondaryContainer
-    } else {
-        MaterialTheme.colorScheme.onSurface
+    val contentColor by selectionTransition.animateColor(
+        transitionSpec = { selectionColorAnimationSpec },
+        label = "ruleCardContentColor",
+    ) { selected ->
+        if (selected) selectedContentColor else unselectedContentColor
     }
-    val selectionBorderColor =
-        if (isSelected) MaterialTheme.colorScheme.primary else Color.Transparent
-    val selectionBorderWidth = if (isSelected) 2.dp else 0.dp
+    val selectionBorderColor by selectionTransition.animateColor(
+        transitionSpec = { selectionColorAnimationSpec },
+        label = "ruleCardBorderColor",
+    ) { selected ->
+        selectedBorderColor.copy(alpha = if (selected) 1f else 0f)
+    }
+    val selectionBorderWidth by selectionTransition.animateDp(
+        transitionSpec = { selectionAnimationSpec },
+        label = "ruleCardBorderWidth",
+    ) { selected ->
+        if (selected) 2.dp else 0.dp
+    }
 
     Surface(
         shape = cardShape,
