@@ -1,4 +1,6 @@
 import java.util.Properties
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.gradle.api.tasks.Sync
 
 plugins {
     alias(libs.plugins.android.application)
@@ -16,6 +18,60 @@ val hasKeystore = keystorePropertiesFile.exists().also { exists ->
     }
 }
 
+val rustDirectory = layout.projectDirectory.dir("src/main/rust")
+val uniffiOutputDirectory = layout.buildDirectory.dir("generated/source/uniffi")
+val hostRustTargetDirectory = layout.buildDirectory.dir("rustHost")
+val uniffiBindgenTargetDirectory = layout.buildDirectory.dir("rustBindgen")
+val hostRustLibrary = hostRustTargetDirectory.map { it.file("release/${System.mapLibraryName("netguard")}") }
+val androidNdkVersion = "25.2.9519653"
+val rustSources = fileTree(rustDirectory) {
+    include("Cargo.toml", "Cargo.lock", "build.rs", "uniffi.toml", "src/**")
+}
+data class AndroidRustTarget(val cargoTarget: String, val clangTarget: String)
+val androidRustTargets = mapOf(
+    "armeabi-v7a" to AndroidRustTarget("armv7-linux-androideabi", "armv7a-linux-androideabi"),
+    "arm64-v8a" to AndroidRustTarget("aarch64-linux-android", "aarch64-linux-android"),
+    "x86" to AndroidRustTarget("i686-linux-android", "i686-linux-android"),
+    "x86_64" to AndroidRustTarget("x86_64-linux-android", "x86_64-linux-android"),
+)
+val rustJniDirectory = layout.buildDirectory.dir("generated/rustJniLibs")
+val buildUniffiLibrary by tasks.registering(Exec::class) {
+    workingDir(rustDirectory)
+    inputs.files(rustSources)
+    outputs.file(hostRustLibrary)
+    environment("CARGO_TARGET_DIR", hostRustTargetDirectory.get().asFile)
+    commandLine("cargo", "build", "--release")
+}
+val generateUniffiKotlin by tasks.registering(Exec::class) {
+    dependsOn(buildUniffiLibrary)
+    workingDir(rustDirectory)
+    inputs.file(hostRustLibrary)
+    inputs.files(fileTree(rustDirectory.dir("bindgen")) { include("Cargo.toml", "Cargo.lock", "src/**") })
+    outputs.dir(uniffiOutputDirectory)
+    doFirst { uniffiOutputDirectory.get().asFile.mkdirs() }
+    environment("CARGO_TARGET_DIR", uniffiBindgenTargetDirectory.get().asFile)
+    commandLine(
+        "cargo",
+        "run",
+        "--quiet",
+        "--manifest-path",
+        rustDirectory.file("bindgen/Cargo.toml").asFile.absolutePath,
+        "--",
+        "generate",
+        hostRustLibrary.get().asFile.absolutePath,
+        "--language",
+        "kotlin",
+        "--out-dir",
+        uniffiOutputDirectory.get().asFile.absolutePath,
+        "--no-format",
+    )
+}
+
+tasks.withType<KotlinCompile>().configureEach {
+    dependsOn(generateUniffiKotlin)
+    source(file("build/generated/source/uniffi"))
+}
+
 android {
     namespace = "com.bernaferrari.quietguard"
     compileSdk = 37
@@ -27,14 +83,7 @@ android {
         targetSdk = 36
         versionCode = 1
 
-        externalNativeBuild {
-            cmake {
-                cppFlags += ""
-                arguments += listOf("-DANDROID_PLATFORM=android-26")
-            }
-        }
-
-        ndkVersion = "25.2.9519653"
+        ndkVersion = androidNdkVersion
         ndk {
             abiFilters += listOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64")
         }
@@ -54,12 +103,6 @@ android {
                 keyAlias = keystoreProperties["keyAlias"] as String
                 keyPassword = keystoreProperties["keyPassword"] as String
             }
-        }
-    }
-
-    externalNativeBuild {
-        cmake {
-            path = file("CMakeLists.txt")
         }
     }
 
@@ -136,6 +179,59 @@ android {
     lint {
         disable.add("MissingTranslation")
     }
+
+    sourceSets.getByName("main").jniLibs.directories.add(
+        rustJniDirectory.get().asFile.absolutePath,
+    )
+}
+
+// Cargo produces the JNI library directly. Resolve the NDK only when an Android
+// native task runs: KMP web tasks must configure on machines without an Android SDK.
+val androidNdkToolchain = providers.provider {
+    val sdkDirectory = System.getenv("ANDROID_HOME")
+        ?: System.getenv("ANDROID_SDK_ROOT")
+        ?: rootProject.file("local.properties").takeIf(File::isFile)?.let { localProperties ->
+            Properties().also { localProperties.inputStream().use(it::load) }.getProperty("sdk.dir")
+        }
+        ?: error("Set ANDROID_HOME or sdk.dir to build Android Rust libraries")
+    file("$sdkDirectory/ndk/$androidNdkVersion")
+        .resolve("toolchains/llvm/prebuilt")
+        .listFiles()
+        ?.singleOrNull { it.resolve("bin").isDirectory }
+        ?: error("Android NDK LLVM toolchain is unavailable")
+}
+
+val buildRustLibraries = androidRustTargets.map { (abi, target) ->
+    tasks.register<Exec>("buildRust${abi.replace("-", "").replaceFirstChar(Char::uppercase)}") {
+        val targetDirectory = layout.buildDirectory.dir("rust/$abi")
+        val library = targetDirectory.map { it.file("${target.cargoTarget}/release/libnetguard.so") }
+        workingDir(rustDirectory)
+        inputs.files(rustSources)
+        outputs.file(library)
+        environment("CARGO_TARGET_DIR", targetDirectory.get().asFile)
+        doFirst {
+            environment(
+                "CARGO_TARGET_${target.cargoTarget.uppercase().replace('-', '_')}_LINKER",
+                androidNdkToolchain.get().resolve("bin/${target.clangTarget}26-clang"),
+            )
+        }
+        commandLine("cargo", "build", "--quiet", "--release", "--target", target.cargoTarget)
+    }
+}
+val packageRustJni by tasks.registering(Sync::class) {
+    dependsOn(buildRustLibraries)
+    into(rustJniDirectory)
+    androidRustTargets.forEach { (abi, target) ->
+        from(layout.buildDirectory.dir("rust/$abi/${target.cargoTarget}/release")) {
+            include("libnetguard.so")
+            into(abi)
+        }
+    }
+}
+tasks.configureEach {
+    if (name.matches(Regex("merge.*(?:JniLibFolders|NativeLibs)"))) {
+        dependsOn(packageRustJni)
+    }
 }
 
 dependencies {
@@ -145,6 +241,7 @@ dependencies {
     implementation(libs.androidx.glance.appwidget)
     implementation(libs.androidx.appfunctions)
     implementation(libs.androidx.appfunctions.service)
+    implementation("net.java.dev.jna:jna:5.18.1@aar")
     ksp(libs.androidx.appfunctions.compiler)
 
     debugImplementation(libs.androidx.compose.ui.tooling)

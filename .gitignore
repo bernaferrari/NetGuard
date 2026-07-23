@@ -19,3 +19,6 @@ kotlin-js-store/
 .vercel/
 .vercel
 .env.local
+app/src/main/rust/target/
+app/src/main/rust/bindgen/target/
+app/build/generated/source/uniffi/

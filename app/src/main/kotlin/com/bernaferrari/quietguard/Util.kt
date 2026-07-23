@@ -26,6 +26,8 @@ import android.provider.Settings
 import android.telephony.TelephonyManager
 import android.text.TextUtils
 import android.util.Log
+import com.bernaferrari.quietguard.netguard.isNumericAddress as nativeIsNumericAddress
+import com.bernaferrari.quietguard.netguard.systemProperty as nativeSystemProperty
 
 import androidx.core.app.ActivityCompat
 import androidx.core.content.pm.PackageInfoCompat
@@ -87,13 +89,15 @@ object Util {
         )
 
     @JvmStatic
-    external fun jni_getprop(name: String): String?
+    fun jni_getprop(name: String): String = nativeSystemProperty(name)
 
     @JvmStatic
-    external fun is_numeric_address(ip: String): Boolean
+    fun is_numeric_address(ip: String): Boolean = nativeIsNumericAddress(ip)
 
     @JvmStatic
-    external fun dump_memory_profile()
+    fun dump_memory_profile() {
+        Log.i(TAG, "Rust owns native allocations; no manual memory profile is required")
+    }
 
     init {
         try {

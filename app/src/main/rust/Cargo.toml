@@ -1,0 +1,41 @@
+[package]
+name = "netguard"
+version = "0.1.0"
+edition = "2024"
+license = "GPL-3.0-or-later"
+description = "Safe Rust packet engine for QuietGuard's Android VPN service"
+
+[lib]
+crate-type = ["cdylib"]
+
+# Android ships this crate as a native shared library. Prioritize installed size
+# while retaining whole-program optimization for the packet-processing hot path.
+[profile.release]
+opt-level = "z"
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = "symbols"
+
+# Keep local test/debug artifacts useful without retaining full source-level
+# debug information in the developer's build cache.
+[profile.dev]
+debug = 1
+
+[profile.test]
+debug = 1
+
+[dependencies]
+libc = "0.2.177"
+socket2 = "0.6.1"
+thiserror = "2.0.17"
+uniffi = "0.32.0"
+
+[lints.clippy]
+all = { level = "warn", priority = -1 }
+pedantic = { level = "warn", priority = -1 }
+unwrap_used = "deny"
+expect_used = "deny"
+
+[dev-dependencies]
+proptest = "1.11.0"

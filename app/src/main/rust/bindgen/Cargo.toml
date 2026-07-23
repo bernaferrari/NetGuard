@@ -1,0 +1,11 @@
+[package]
+name = "netguard-uniffi-bindgen"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+uniffi = { version = "0.32.0", features = ["cli"] }
+
+[profile.dev]
+debug = 1
